@@ -152,3 +152,19 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Word 8-gram contamination checks cost seconds and do not flag genuine original datasets.
 - aip MCP tokens expire ("Re-authentication required"): ask the user to run `/mcp auth aip`; never switch to another
   interface. Running jobs are unaffected.
+- Unlabeled corpora can contain the benchmark itself (sMLM: 30 Winning Arguments conversations are CMV Modes
+  threads). Match by thread ID as well as by n-grams, drop whole conversations, and record how many were dropped.
+- XML benchmark files: escape bare `&` before parsing (BeautifulSoup/lxml drops the text after it) and read them with
+  `encoding="utf-8"`; some files hold raw UTF-8 despite their declaration.
+- CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
+- Old slow tokenizers stripped the spaces around added tokens. With fast tokenizers, use
+  `AddedToken(t, lstrip=True, rstrip=True)`. Use `resize_token_embeddings(..., mean_resizing=False)` to keep the old
+  random init of new rows.
+- When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
+- For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Smoke-test locally before an AIP round trip. Use a temp copy with `.cuda()`/`device="cuda"` replaced, bf16 off, a
+  tiny token budget (CPU RAM), one run per task and a 4-example test set. A CPU pass of all stages takes ~20 min and
+  catches API breaks for free.
+- Expired aip auth blocks a whole AIP phase. Child sessions do not help; while unauthenticated, the aip MCP is not
+  loaded in new sessions either. Configure and launch everything right after authenticating; prepare offline work
+  while waiting.
