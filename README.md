@@ -41,3 +41,4 @@ validates it on AIP.
 | id | paper | evaluation | primary |
 |---|---|---|---|
 | `masive` | [Deas et al., EMNLP 2024](https://aclanthology.org/2024.emnlp-main.1139/) | mT5-large fine-tuned on the submission, then on EmoEvent-En, GoEmotions-7 and GoEmotions-28 | mean macro-F1 |
+| `smlm` | [Dutta et al., ACL 2022](https://aclanthology.org/2022.acl-long.536/) | Longformer-base pre-trained with selective MLM (masked discourse markers) on the submission's threads, then fine-tuned on CMV Modes (argument component identification, relation type prediction) | mean F1 (ACI micro, RTP 80/20 and 50/50 weighted) |
