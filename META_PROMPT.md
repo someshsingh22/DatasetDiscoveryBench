@@ -3,8 +3,10 @@
 Give an agent this file plus `PAPER_URL` and `CODE_URL` (optionally a hand-written `task.md`). It must deliver, with no
 further input, a new `data/papers/<id>/` environment pushed to `main` of
 `git@github.com:someshsingh22/DatasetDiscoveryBench.git` and validated end to end on AIP (Pluto) 8×A100-80GB nodes.
-`data/papers/masive/` is the worked example; read it first and copy its shape. **Maintain this file**: when a run
-teaches you something (a pitfall, a better default, a faster check), add it to *Lessons* before you finish.
+The existing `data/papers/*/` are worked examples; read one first and copy its shape. **Maintain this file**: when a run
+teaches you something general (a pitfall, a better default, a faster check), add it to *Lessons* before you finish;
+keep this file paper-agnostic. Other agents build other papers concurrently: touch only your `data/papers/<id>/`, your
+README row and *Lessons*.
 
 ## 1. What an environment is
 
@@ -38,8 +40,9 @@ data/papers/<id>/
 ```
 
 **Minimalism is a hard requirement**: not one line more than necessary. argv instead of argparse; no config systems,
-classes, logging frameworks, retries, or defensive checks the data does not need. Match `masive/`: `from __future__ import
-annotations`, Google-style docstrings, one-line module docstring with usage, ruff (line-length 120, single-line imports).
+classes, logging frameworks, retries, or defensive checks the data does not need. Match the existing environments:
+`from __future__ import annotations`, Google-style docstrings, one-line module docstring with usage, ruff (line-length
+120, single-line imports).
 
 ## 2. Procedure
 
@@ -61,10 +64,11 @@ report why. Pick a short lowercase `<id>`.
    copying benchmark files, `uv lock`, ruff, `bash -n`. **Never run env code, training or tests locally.**
 
 ### 2.3 Write the environment
-Copy `masive/` file by file and adapt:
-- `train.py`: `TASKS` (benchmark -> files, label names), `load_task`, and the training entry point
-  (`train.py INIT DATA OUT`, DATA = submission path or benchmark name). `MAX_STEPS` env var for smoke tests only.
-  Use `Seq2SeqTrainer`/`Trainer` + `trainer.save_model()` (DDP-safe), `save_strategy="no"`, bf16.
+Start from the closest existing environment and adapt it file by file:
+- `train.py`: every training stage of the paper (e.g. train on the dataset, then fine-tune on each benchmark) behind one
+  entry point (`train.py INIT DATA OUT`, DATA = submission path or benchmark name), plus the benchmark constants.
+  `MAX_STEPS` env var for smoke tests only. Prefer HF `Trainer` + `trainer.save_model()` (DDP-safe),
+  `save_strategy="no"`, bf16, and assert a finite non-zero training loss.
 - `eval.py`: reproduce the paper's metric exactly as the authors compute it (e.g. macro averaging over *all* label
   names with `zero_division=0`). Writes `OUT/scores.json`; `primary` = the mean of the headline metric over benchmarks.
 - `validate.py`: required columns non-empty, format invariants, and contamination: a test text with ≥8 words is
@@ -84,16 +88,17 @@ Copy `masive/` file by file and adapt:
 Dry-apply every validation patch to a temp copy and `ast.parse` the result.
 
 ### 2.5 Push
-Commit with the trailer `Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>` and
-`git push` over SSH. (Repo creation, first time only:
+Work in your own clone (`git clone git@github.com:someshsingh22/DatasetDiscoveryBench.git $TMPDIR/ddb-<id>`), never in
+another agent's checkout. Commit with the trailer `Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>`,
+then `git pull --rebase && git push` over SSH. (Repo creation, first time only:
 `GH_TOKEN=$(env -u GH_TOKEN gh auth token -u someshsingh22) gh repo create someshsingh22/DatasetDiscoveryBench --private`.)
 Jobs `git clone` main at start, so every fix is a push plus a relaunch.
 
 ### 2.6 Validate on AIP (aip MCP)
 Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordinated child session in `~/Github/pluto`
 (where they are) and give it these instructions verbatim. Follow `~/Github/pluto/AGENTS.md`.
-- Job scripts: copy `~/Github/pluto/jobs/ddb-masive/` (`init.sh`, `main.sh`, `README.md`) to `jobs/ddb-<id>/` and
-  adapt. Only INIT and MAIN reach the pod: embed patches as heredocs.
+- Job scripts: copy an existing `~/Github/pluto/jobs/ddb-*/` (`init.sh`, `main.sh`, `README.md`) to `jobs/ddb-<id>/`
+  and adapt; commit it in the pluto repo when done. Only INIT and MAIN reach the pod: embed patches as heredocs.
 - Job spec: project `mdsr-training`, image
   `docker-matrix-experiments-snapshot.ff.adobe.io/training-base-01-31-25:12.8.0-runtime-ubuntu22.04-CUDNN-v9.7.0.66-NCCL-v2.25.1-1`,
   1 pod × 8 `NVIDIA_A100_80GB`, `useSingleNodeGroup`, `disablePodRestart`, `enableLogCollection`, an env var selecting the
@@ -103,8 +108,11 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   concurrent runs, print the commit, driver and `torch.cuda.is_available()`, tee every run's log, and export only
   `scores.json`, logs and trainer metrics to `s3://mdsr-gcp-usw2/somesh/ddb/<id>/<run>-<stamp>/` (never weights).
   Never print credentials; never work around auth errors.
-- Max 3 active jobs. Machines start slowly: launch all three at once, put the longest runs first, and split each node
-  into two 4-GPU experiments (`CUDA_VISIBLE_DEVICES=0,1,2,3` / `4,5,6,7`). Default matrix:
+- Max 3 active jobs across **all** of the user's agents: before each launch count the user's active jobs
+  (`query_entities`, owner = `get_current_user`); if 3 are active, wait and re-check every ~20 min. Never stop, restart
+  or edit a job you did not create. Machines start slowly: launch as many as the cap allows at once, put the longest
+  runs first, and split each node into two 4-GPU experiments (`CUDA_VISIBLE_DEVICES=0,1,2,3` / `4,5,6,7`). Default
+  matrix:
 
   | job | GPUs 0-3 | GPUs 4-7 |
   |---|---|---|
@@ -131,13 +139,16 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 
 ## Lessons
 
-- mT5 overflows in fp16 (`grad_norm: nan`, loss 0.0, every step skipped); train T5-family models in bf16. HF's
-  `logging_nan_inf_filter` hides it (reported loss 0.0), so `train.py` asserts `0 < training_loss < inf`.
-- torch ≥ 2.11 on PyPI ships CUDA 13 wheels; pin `torch<2.11` (2.10.0+cu128 verified on AIP p4de, driver 580).
-- Locks resolve to new majors (pandas 3, datasets 5, accelerate 1.15 with transformers 4.57): fine for `masive/`.
-- Authors' code can contradict the paper. MASIVE: the downstream *training* input contained the gold label
-  (`text I feel <extra_id_0> angry`) while test inputs did not, and candidate scoring counted pad tokens. Such bugs can
-  explain the paper's absolute numbers, hence the author-recipe validation run.
+- T5-family models (T5 v1.1, mT5) overflow in fp16 (`grad_norm: nan`, every step skipped); use bf16. HF's
+  `logging_nan_inf_filter` hides it (reported loss 0.0), and tiny smoke runs pass anyway, hence the loss assertion.
+- Pin torch to a version verified on AIP: 2.10.0+cu128 works on p4de (driver 580); ≥ 2.11 pulls CUDA 13 wheels.
+- Locks resolve to new majors (pandas 3, datasets 5, accelerate 1.15 with transformers 4.57); check APIs you call.
+- Authors' code can contradict the paper, e.g. gold labels inside *training* inputs but not test inputs, or pad tokens
+  counted in scoring. Such bugs can explain the paper's absolute numbers, hence the author-recipe validation run.
 - Saving from every DDP rank races; `trainer.save_model()` saves once and includes the tokenizer.
-- The MASIVE unittests (smoke run with mt5-small) take ~7.5 min on 8×A100; `uv sync` + model download ~1 min.
-- A test-set contamination check by word 8-grams costs seconds and the authors' dataset passes it.
+- Typical costs on 4×A100 bf16: a smoke unittest run ~7.5 min (8 GPUs); `uv sync` + model download ~1 min; a ~1B-param
+  model trains ~2 it/s at per-device batch 2, so a 94k-row, 3-epoch stage takes ~4.6h. Measure it/s in the first
+  minutes and extrapolate; the full-data original run is the critical path, so start it first.
+- Word 8-gram contamination checks cost seconds and do not flag genuine original datasets.
+- aip MCP tokens expire ("Re-authentication required"): ask the user to run `/mcp auth aip`; never switch to another
+  interface. Running jobs are unaffected.
