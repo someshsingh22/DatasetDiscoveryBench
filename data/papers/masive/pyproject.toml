@@ -9,7 +9,7 @@ dependencies = [
     "protobuf>=4",
     "scikit-learn>=1.4",
     "sentencepiece>=0.2",
-    "torch>=2.4,<2.11",  # 2.11+ wheels need CUDA 13 drivers; AIP images are CUDA 12.8,
+    "torch>=2.4,<2.11",  # 2.11+ wheels need CUDA 13 drivers; AIP images are CUDA 12.8
     "transformers>=4.46,<5",
 ]
 
