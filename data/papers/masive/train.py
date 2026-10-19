@@ -3,7 +3,7 @@
 Usage: train.py INIT DATA OUT
   DATA is a submission CSV (clip_input -> t5_trg, effective batch 8) or a benchmark name from TASKS
   (text + " I feel <extra_id_0>" -> "<extra_id_0> label", effective batch 16). Both: 3 epochs, Adafactor,
-  lr 1e-4 linear, weight decay 0.01, fp16. MAX_STEPS shortens training (smoke tests only).
+  lr 1e-4 linear, weight decay 0.01, bf16. MAX_STEPS shortens training (smoke tests only).
 """
 
 from __future__ import annotations
@@ -59,7 +59,7 @@ if __name__ == "__main__":
         learning_rate=1e-4,
         lr_scheduler_type="linear",
         weight_decay=0.01,
-        fp16=True,
+        bf16=True,  # the authors used fp16, which overflows in mT5 (NaN gradients, every step skipped)
         save_strategy="no",
     )
     model = AutoModelForSeq2SeqLM.from_pretrained(init)
