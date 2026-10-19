@@ -1,0 +1,5 @@
+id: masive
+title: "MASIVE: Open-Ended Affective State Identification in English and Spanish"
+paper: https://aclanthology.org/2024.emnlp-main.1139/
+code: https://github.com/NickDeas/MASIVE
+dataset: https://drive.google.com/uc?id=1MxvcL7M3iGa4-j_hznMTBLXe9ULEAHDf  # masive.tar.gz -> masive/en/train.csv
