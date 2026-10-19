@@ -31,6 +31,11 @@ uv run python -m unittest discover -s tests -t .
 bash run.sh submission.csv out/   # out/scores.json
 ```
 
+## Adding a paper
+
+Give an agent [`META_PROMPT.md`](META_PROMPT.md) with the paper and code URLs; it builds the environment, pushes it and
+validates it on AIP.
+
 ## Papers
 
 | id | paper | evaluation | primary |

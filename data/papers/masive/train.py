@@ -66,5 +66,5 @@ if __name__ == "__main__":
     trainer = Seq2SeqTrainer(
         model, args, data_collator=DataCollatorForSeq2Seq(tok, model), train_dataset=ds, processing_class=tok
     )
-    trainer.train()
+    assert 0 < trainer.train().training_loss < float("inf"), "training diverged (NaN/inf loss or no optimizer steps)"
     trainer.save_model()
