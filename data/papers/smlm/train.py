@@ -353,7 +353,7 @@ def evaluate(model, head, trans: torch.Tensor, test: list, aci: bool, tok) -> fl
             preds += logits.argmax(-1).tolist()
             gold += [y for _, y in batch]
     if aci:
-        return f1_score(gold, preds)
+        return float(f1_score(gold, preds))
     return metrics.f1_score(gold, preds, labels=range(5), average="weighted", zero_division=0)
 
 
