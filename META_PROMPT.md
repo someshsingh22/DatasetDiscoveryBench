@@ -151,9 +151,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   model trains ~2 it/s at per-device batch 2, so a 94k-row, 3-epoch stage takes ~4.6h. Measure it/s in the first
   minutes and extrapolate; the full-data original run is the critical path, so start it first.
 - Word 8-gram contamination checks cost seconds and do not flag genuine original datasets.
-- aip MCP tokens expire ("Re-authentication required"), per session, and child sessions do not help: ask the user to run
-  `/mcp auth aip` in your session; never switch to another interface. Running jobs are unaffected, so launch everything
-  right after authenticating.
+- aip MCP tokens expire ("Re-authentication required") and a live session keeps its stale connection even after the
+  user re-authenticates; ask the user to re-auth, then make aip calls from a fresh session in `~/Github/pluto`. Never
+  switch to another interface. Running jobs are unaffected.
 - Unlabeled corpora can contain the benchmark itself (sMLM: 30 Winning Arguments conversations are CMV Modes
   threads). Match by thread ID as well as by n-grams, drop whole conversations, and record how many were dropped.
 - XML benchmark files: escape bare `&` before parsing (BeautifulSoup/lxml drops the text after it) and read them with
