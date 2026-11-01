@@ -145,10 +145,12 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   `logging_nan_inf_filter` hides it (reported loss 0.0), and tiny smoke runs pass anyway, hence the loss assertion.
 - Pin torch to a version verified on AIP: 2.10.0+cu128 works on p4de (driver 580); ≥ 2.11 pulls CUDA 13 wheels.
 - Locks resolve to new majors (pandas 3, datasets 5, accelerate 1.15 with transformers 4.57); check APIs you call.
-- Authors' code can contradict the paper, e.g. gold labels inside *training* inputs but not test inputs, or pad tokens
-  counted in scoring. Such bugs can explain the paper's numbers, hence the author-recipe run. Run the authors' exact
+- Authors' code can contradict the paper, e.g. gold labels inside *training* inputs but not test inputs, pad tokens
+  counted in scoring, or per-segment tokenization that marks gold boundaries (sMLM ACI: a lone-space token before 42%
+  of them, worth +0.3 F1). Such bugs can explain the paper's numbers, hence the author-recipe run. Run the authors' exact
   code once and check training loss (≈0 after a few steps = copying a leaked label) and the top-prediction share
-  (macro recall ≈ 1/K = a constant predictor). If a stage is broken, score without it and say so (MASIVE: zero-shot).
+  (macro recall ≈ 1/K = a constant predictor). If a gap remains, train your trainer on their encoded inputs and diff
+  those token by token against yours. If a stage is broken, score without it and say so (MASIVE: zero-shot).
 - Authors' train/test splits can share posts; drop those test rows so the original passes the contamination check.
 - Saving from every DDP rank races; `trainer.save_model()` saves once and includes the tokenizer.
 - Typical costs on 4×A100 bf16: a smoke unittest run ~7.5 min (8 GPUs); `uv sync` + model download ~1 min; a ~1B-param
