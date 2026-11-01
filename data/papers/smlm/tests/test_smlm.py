@@ -53,4 +53,5 @@ class TestSmlm(unittest.TestCase):
             subprocess.run(["bash", ENV / "run.sh", SAMPLE, out], env={**os.environ, "MAX_STEPS": "2"}, check=True)
             scores = json.loads(Path(out, "scores.json").read_text())
         self.assertEqual(set(scores["metrics"]), set(TASKS))
-        self.assertTrue(0 <= scores["primary"] <= 1)
+        self.assertEqual(set(scores["primary"]), {f"{task}_f1" for task in TASKS})
+        self.assertTrue(all(0 <= v <= 1 for v in scores["primary"].values()))

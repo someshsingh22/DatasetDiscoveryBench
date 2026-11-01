@@ -12,7 +12,7 @@ One directory per paper, as in [PaperBench](https://github.com/openai/frontier-e
 data/papers/<id>/
   config.yaml          paper, code and original-dataset links
   task.md              what the agent sees: research question, rubric, submission format
-  run.sh               run.sh SUBMISSION OUT -> OUT/scores.json {"primary": ..., "metrics": {...}}
+  run.sh               run.sh SUBMISSION OUT -> OUT/scores.json {"primary": {headline metrics}, "metrics": {...}}
   validate.py          submission format + benchmark-contamination check (the original dataset passes)
   train.py, eval.py    the paper's recipe and evaluation
   external_eval_data/  the evaluation benchmarks
@@ -40,5 +40,5 @@ validates it on AIP.
 
 | id | paper | evaluation | primary |
 |---|---|---|---|
-| `masive` | [Deas et al., EMNLP 2024](https://aclanthology.org/2024.emnlp-main.1139/) | mT5-large fine-tuned on the submission, then on EmoEvent-En, GoEmotions-7 and GoEmotions-28 | mean macro-F1 |
-| `smlm` | [Dutta et al., ACL 2022](https://aclanthology.org/2022.acl-long.536/) | Longformer-base pre-trained with selective MLM (masked discourse markers) on the submission's threads, then fine-tuned on CMV Modes (argument component identification, relation type prediction) | mean F1 (ACI micro, RTP 80/20 and 50/50 weighted) |
+| `masive` | [Deas et al., EMNLP 2024](https://aclanthology.org/2024.emnlp-main.1139/) | mT5-large fine-tuned on the submission, scored zero-shot on EmoEvent-En, GoEmotions-7 and GoEmotions-28 (the paper's per-benchmark fine-tune leaks the gold label) and on the MASIVE English test set | zero-shot mean macro-F1; MASIVE test Acc@1 |
+| `smlm` | [Dutta et al., ACL 2022](https://aclanthology.org/2022.acl-long.536/) | Longformer-base pre-trained with selective MLM (masked discourse markers) on the submission's threads, then fine-tuned on CMV Modes (argument component identification, relation type prediction) | F1 of each: ACI micro, RTP 80/20 and 50/50 weighted |

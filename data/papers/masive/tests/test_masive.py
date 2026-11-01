@@ -14,7 +14,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from train import load_task
+from eval import MASIVE_TEST
+from eval import load_benchmark
 from validate import validate
 
 ENV = Path(__file__).resolve().parents[1]
@@ -34,14 +35,16 @@ class TestMasive(unittest.TestCase):
         validate_rows([OK, {"clip_input": "<extra_id_0> and <extra_id_1>", "t5_trg": "<extra_id_0> a <extra_id_1> b"}])
 
     def test_invalid_inputs_fail(self):
-        test = load_task("emoevent_en", "test").text
+        test = load_benchmark("emoevent_en").text
         leaked = test[test.str.split().str.len() >= 8].iloc[0]
+        post = pd.read_csv(MASIVE_TEST, dtype=str).clip_input.iloc[0].replace("<extra_id_0>", "upset")  # unmasked copy
         for rows in (
             [{"clip_input": OK["clip_input"]}],
             [{**OK, "clip_input": "I feel drained."}],
             [{**OK, "t5_trg": "drained"}],
             [{**OK, "t5_trg": ""}],
             [OK, {**OK, "clip_input": f"Saw this today: {leaked} I feel <extra_id_0>"}],
+            [OK, {**OK, "clip_input": f"I feel <extra_id_0>. {post}"}],
         ):
             with self.subTest(rows=rows), self.assertRaises((AssertionError, ValueError)):
                 validate_rows(rows)
@@ -51,5 +54,6 @@ class TestMasive(unittest.TestCase):
             env = {**os.environ, "MODEL": "google/mt5-small", "MAX_STEPS": "2"}
             subprocess.run(["bash", ENV / "run.sh", SAMPLE, out], env=env, check=True)
             scores = json.loads(Path(out, "scores.json").read_text())
-        self.assertEqual(set(scores["metrics"]), {"emoevent_en", "goemo", "goemo_full"})
-        self.assertTrue(0 <= scores["primary"] <= 1)
+        self.assertEqual(set(scores["metrics"]["zero_shot"]), {"emoevent_en", "goemo", "goemo_full"})
+        self.assertEqual(set(scores["primary"]), {"zero_shot_macro_f1", "masive_acc_1"})
+        self.assertTrue(all(0 <= v <= 1 for v in scores["primary"].values()))

@@ -13,7 +13,8 @@ README row and *Lessons*.
 An agent reads only `task.md` and submits one dataset file. The environment scores it with the *external evaluation*
 of the paper that introduced the original dataset, so the score is comparable with the original dataset's.
 
-- `bash run.sh SUBMISSION OUT` writes `OUT/scores.json` = `{"primary": float, "metrics": {...}}`. Higher is better.
+- `bash run.sh SUBMISSION OUT` writes `OUT/scores.json` = `{"primary": {name: float}, "metrics": {...}}`: `primary`
+  holds the paper's headline metrics, each compared separately (never combined), higher is better.
   If the paper's evaluation compares "with vs without the dataset", `run.sh none OUT` is the without-dataset baseline.
 - The environment fixes the **method and hyperparameters** (the paper's); only the data varies, including its size.
 - Not the environment's job: provenance checks, reading the agent's workspace, policing synthetic data or dataset size.
@@ -30,9 +31,9 @@ Layout (as in [PaperBench](https://github.com/openai/frontier-evals/tree/main/pr
 data/papers/<id>/
   config.yaml          id, title, paper, code, original-dataset download
   task.md              agent-facing: research question, rubric, submission format (+ example)
-  run.sh               validate -> train on submission (skipped for `none`) -> downstream training -> eval
+  run.sh               validate -> train on submission (skipped for `none`) -> downstream training, if any -> eval
   validate.py          format asserts + n-gram contamination check against every external test set
-  train.py, eval.py    the paper's recipe and evaluation (shared constants live in train.py)
+  train.py, eval.py    the paper's recipe and evaluation (one defines the shared constants, the other imports them)
   external_eval_data/  the evaluation benchmarks (small CSVs, as distributed by the authors)
   tests/               __init__.py, sample.csv (50 original rows), test_<id>.py
   reference.json       paper numbers + AIP scores (original, baseline, author recipe, seed spread)
@@ -71,7 +72,7 @@ Start from the closest existing environment and adapt it file by file:
   `MAX_STEPS` env var for smoke tests only. Prefer HF `Trainer` + `trainer.save_model()` (DDP-safe),
   `save_strategy="no"`, bf16, and assert a finite non-zero training loss.
 - `eval.py`: reproduce the paper's metric exactly as the authors compute it (e.g. macro averaging over *all* label
-  names with `zero_division=0`). Writes `OUT/scores.json`; `primary` = the mean of the headline metric over benchmarks.
+  names with `zero_division=0`). Writes `OUT/scores.json`; `primary` = each headline metric (e.g. its mean over benchmarks).
 - `validate.py`: required columns non-empty, format invariants, and contamination: a test text with ≥8 words is
   leaked if all its word 8-grams occur in the submission.
 - `run.sh`: `set -euo pipefail`; absolute paths; `uv run torchrun --standalone --nproc-per-node=gpu`.
@@ -145,7 +146,10 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Pin torch to a version verified on AIP: 2.10.0+cu128 works on p4de (driver 580); ≥ 2.11 pulls CUDA 13 wheels.
 - Locks resolve to new majors (pandas 3, datasets 5, accelerate 1.15 with transformers 4.57); check APIs you call.
 - Authors' code can contradict the paper, e.g. gold labels inside *training* inputs but not test inputs, or pad tokens
-  counted in scoring. Such bugs can explain the paper's absolute numbers, hence the author-recipe validation run.
+  counted in scoring. Such bugs can explain the paper's numbers, hence the author-recipe run. Run the authors' exact
+  code once and check training loss (≈0 after a few steps = copying a leaked label) and the top-prediction share
+  (macro recall ≈ 1/K = a constant predictor). If a stage is broken, score without it and say so (MASIVE: zero-shot).
+- Authors' train/test splits can share posts; drop those test rows so the original passes the contamination check.
 - Saving from every DDP rank races; `trainer.save_model()` saves once and includes the tokenizer.
 - Typical costs on 4×A100 bf16: a smoke unittest run ~7.5 min (8 GPUs); `uv sync` + model download ~1 min; a ~1B-param
   model trains ~2 it/s at per-device batch 2, so a 94k-row, 3-epoch stage takes ~4.6h. Measure it/s in the first
