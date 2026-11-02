@@ -23,159 +23,532 @@
     }
   },
   "env": {
-    "original": {
-      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
-      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
-      "data": "SHP train, 348,718 pairs (no HH-RLHF test leaks)",
-      "gpus": "0-3",
-      "wall_seconds": 12355,
-      "stage_seconds": {
-        "model": 6151,
-        "null": 5619,
-        "eval": 584
-      },
-      "primary": {
-        "hh_rlhf_acc": 0.5809,
-        "hh_rlhf_v_info": -0.3839
-      },
-      "metrics": {
-        "hh_rlhf": {
-          "acc": 0.5809,
-          "v_info": -0.3839,
-          "n": 4670,
-          "skipped": 16
+    "baseline": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 143,
+        "stage_seconds": {
+          "eval": 141
         },
-        "heldout": {
-          "acc": 0.7078,
-          "v_info": 0.1015,
-          "n": 15985,
-          "skipped": 2107
-        }
+        "primary": {
+          "hh_rlhf_acc": 0.5593,
+          "hh_rlhf_v_info": 0.6363
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5593,
+            "v_info": 0.6363,
+            "n": 4670,
+            "skipped": 16
+          }
+        },
+        "note": "superseded: the zero-shot model on ' ' served as null model, an artifact (0.64 bits); m2 uses H_V(Y) = 1 bit (commit 5588e05)"
       },
-      "train_pairs": 293688
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "7",
+        "wall_seconds": 154,
+        "stage_seconds": {
+          "eval": 151
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5593,
+          "hh_rlhf_v_info": -0.2645
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5593,
+            "v_info": -0.2645,
+            "n": 4670,
+            "skipped": 16
+          }
+        }
+      }
+    ],
+    "hh_rlhf_train": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 1846,
+        "stage_seconds": {
+          "model": 848,
+          "null": 795,
+          "eval": 201
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.7141,
+          "hh_rlhf_v_info": 0.2119
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.7141,
+            "v_info": 0.2119,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7083,
+            "v_info": 0.1967,
+            "n": 2177,
+            "skipped": 5
+          }
+        },
+        "train_pairs": 41320,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "6",
+        "wall_seconds": 2397,
+        "stage_seconds": {
+          "model": 1448,
+          "null": 754,
+          "eval": 194
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.7135,
+          "hh_rlhf_v_info": 0.2113
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.7135,
+            "v_info": 0.2113,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7184,
+            "v_info": 0.1976,
+            "n": 2177,
+            "skipped": 5
+          }
+        },
+        "train_pairs": 41320
+      }
+    ],
+    "original": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "0,1,2,3",
+        "wall_seconds": 12355,
+        "stage_seconds": {
+          "model": 6151,
+          "null": 5619,
+          "eval": 584
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5809,
+          "hh_rlhf_v_info": -0.3839
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5809,
+            "v_info": -0.3839,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7078,
+            "v_info": 0.1015,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 1,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 12303,
+        "stage_seconds": {
+          "model": 6209,
+          "null": 5491,
+          "eval": 602
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5799,
+          "hh_rlhf_v_info": -0.3663
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5799,
+            "v_info": -0.3663,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7102,
+            "v_info": 0.1047,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "0",
+        "wall_seconds": 15564,
+        "stage_seconds": {
+          "model": 9922,
+          "null": 5064,
+          "eval": 577
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5773,
+          "hh_rlhf_v_info": -0.3446
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5773,
+            "v_info": -0.3446,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7099,
+            "v_info": 0.0981,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 1,
+        "gpus": "1",
+        "wall_seconds": 15744,
+        "stage_seconds": {
+          "model": 9989,
+          "null": 5178,
+          "eval": 575
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5767,
+          "hh_rlhf_v_info": -0.4001
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5767,
+            "v_info": -0.4001,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7084,
+            "v_info": 0.0917,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 2,
+        "gpus": "2",
+        "wall_seconds": 15805,
+        "stage_seconds": {
+          "model": 9907,
+          "null": 5320,
+          "eval": 577
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5739,
+          "hh_rlhf_v_info": -0.3599
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5739,
+            "v_info": -0.3599,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.714,
+            "v_info": 0.1159,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 3,
+        "gpus": "3",
+        "wall_seconds": 15923,
+        "stage_seconds": {
+          "model": 9925,
+          "null": 5423,
+          "eval": 574
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5872,
+          "hh_rlhf_v_info": -0.2987
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5872,
+            "v_info": -0.2987,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7096,
+            "v_info": 0.1068,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      }
+    ],
+    "sub10": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "0,1,2,3",
+        "wall_seconds": 1391,
+        "stage_seconds": {
+          "model": 632,
+          "null": 577,
+          "eval": 180
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5979,
+          "hh_rlhf_v_info": -0.1714
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5979,
+            "v_info": -0.1714,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7192,
+            "v_info": 0.1402,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "4",
+        "wall_seconds": 1903,
+        "stage_seconds": {
+          "model": 1164,
+          "null": 565,
+          "eval": 173
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5897,
+          "hh_rlhf_v_info": -0.2509
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5897,
+            "v_info": -0.2509,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7184,
+            "v_info": 0.1169,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 1,
+        "gpus": "4",
+        "wall_seconds": 1784,
+        "stage_seconds": {
+          "model": 1061,
+          "null": 549,
+          "eval": 173
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5882,
+          "hh_rlhf_v_info": -0.2359
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5882,
+            "v_info": -0.2359,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7169,
+            "v_info": 0.1198,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 2,
+        "gpus": "5",
+        "wall_seconds": 1904,
+        "stage_seconds": {
+          "model": 1140,
+          "null": 589,
+          "eval": 174
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5895,
+          "hh_rlhf_v_info": -0.1858
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5895,
+            "v_info": -0.1858,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7095,
+            "v_info": 0.1378,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 3,
+        "gpus": "5",
+        "wall_seconds": 1788,
+        "stage_seconds": {
+          "model": 1057,
+          "null": 556,
+          "eval": 174
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5942,
+          "hh_rlhf_v_info": -0.1802
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5942,
+            "v_info": -0.1802,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7325,
+            "v_info": 0.1401,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      }
+    ]
+  },
+  "seed_spread": {
+    "hh_rlhf_train": {
+      "n_runs": 2,
+      "hh_rlhf_acc": {
+        "mean": 0.7138,
+        "sd": 0.0004,
+        "min": 0.7135,
+        "max": 0.7141
+      },
+      "hh_rlhf_v_info": {
+        "mean": 0.2116,
+        "sd": 0.0004,
+        "min": 0.2113,
+        "max": 0.2119
+      },
+      "heldout_v_info": {
+        "mean": 0.1971,
+        "sd": 0.0006,
+        "min": 0.1967,
+        "max": 0.1976
+      }
     },
-    "seed1": {
-      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
-      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
-      "data": "SHP train, seed=1",
-      "gpus": "4-7",
-      "wall_seconds": 12303,
-      "stage_seconds": {
-        "model": 6209,
-        "null": 5491,
-        "eval": 602
+    "original": {
+      "n_runs": 6,
+      "hh_rlhf_acc": {
+        "mean": 0.5793,
+        "sd": 0.0046,
+        "min": 0.5739,
+        "max": 0.5872
       },
-      "primary": {
-        "hh_rlhf_acc": 0.5799,
-        "hh_rlhf_v_info": -0.3663
+      "hh_rlhf_v_info": {
+        "mean": -0.3589,
+        "sd": 0.0352,
+        "min": -0.4001,
+        "max": -0.2987
       },
-      "metrics": {
-        "hh_rlhf": {
-          "acc": 0.5799,
-          "v_info": -0.3663,
-          "n": 4670,
-          "skipped": 16
-        },
-        "heldout": {
-          "acc": 0.7102,
-          "v_info": 0.1047,
-          "n": 15985,
-          "skipped": 2107
-        }
+      "heldout_v_info": {
+        "mean": 0.1031,
+        "sd": 0.0082,
+        "min": 0.0917,
+        "max": 0.1159
       }
     },
     "sub10": {
-      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
-      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
-      "data": "10% of SHP train posts: 36,561 pairs, 3,899 posts",
-      "gpus": "0-3",
-      "wall_seconds": 1391,
-      "stage_seconds": {
-        "model": 632,
-        "null": 577,
-        "eval": 180
+      "n_runs": 5,
+      "hh_rlhf_acc": {
+        "mean": 0.5919,
+        "sd": 0.004,
+        "min": 0.5882,
+        "max": 0.5979
       },
-      "primary": {
-        "hh_rlhf_acc": 0.5979,
-        "hh_rlhf_v_info": -0.1714
+      "hh_rlhf_v_info": {
+        "mean": -0.2048,
+        "sd": 0.036,
+        "min": -0.2509,
+        "max": -0.1714
       },
-      "metrics": {
-        "hh_rlhf": {
-          "acc": 0.5979,
-          "v_info": -0.1714,
-          "n": 4670,
-          "skipped": 16
-        },
-        "heldout": {
-          "acc": 0.7192,
-          "v_info": 0.1402,
-          "n": 1346,
-          "skipped": 158
-        }
-      },
-      "train_pairs": 30799
+      "heldout_v_info": {
+        "mean": 0.131,
+        "sd": 0.0116,
+        "min": 0.1169,
+        "max": 0.1402
+      }
     },
-    "baseline": {
-      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
-      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
-      "data": "none",
-      "gpus": "4-7 (eval on 1)",
-      "wall_seconds": 143,
-      "stage_seconds": {
-        "eval": 141
-      },
-      "primary": {
-        "hh_rlhf_acc": 0.5593,
-        "hh_rlhf_v_info": 0.6363
-      },
-      "metrics": {
-        "hh_rlhf": {
-          "acc": 0.5593,
-          "v_info": 0.6363,
-          "n": 4670,
-          "skipped": 16
-        }
-      },
-      "note": "hh_rlhf_v_info here used the zero-shot model on ' ' as the null model (an artifact, 0.64 bits); commit 5588e05 sets H_V(Y) = 1 bit, which needs a re-run"
-    },
-    "hh_rlhf_train": {
-      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
-      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
-      "data": "HH-RLHF helpful-base train as a submission (no validate.py): 43,646 pairs",
-      "gpus": "4-7",
-      "wall_seconds": 1846,
-      "stage_seconds": {
-        "model": 848,
-        "null": 795,
-        "eval": 201
-      },
-      "primary": {
-        "hh_rlhf_acc": 0.7141,
-        "hh_rlhf_v_info": 0.2119
-      },
-      "metrics": {
-        "hh_rlhf": {
-          "acc": 0.7141,
-          "v_info": 0.2119,
-          "n": 4670,
-          "skipped": 16
-        },
-        "heldout": {
-          "acc": 0.7083,
-          "v_info": 0.1967,
-          "n": 2177,
-          "skipped": 5
-        }
-      },
-      "train_pairs": 41320
-    }
-  },
-  "seed_spread": {
-    "original_vs_seed1": {
-      "hh_rlhf_acc": 0.001,
-      "hh_rlhf_v_info": 0.0176,
-      "heldout_v_info": 0.0032
-    }
+    "note": "over every run of the data (seeds 42/1/2/3; m1 ran 4-GPU DDP, m2/m3 1 GPU); sd = sample sd"
   },
   "author_recipe": {
     "steamshp_large_released": {
@@ -339,6 +712,7 @@
     }
   },
   "compute": {
-    "m1": "1 node x 8 A100-80GB, 4.9 h from run start (39 GPU-h allocated); lanes of 4 GPUs; DDP T5-large runs at ~3.3 it/s for both the 512-token model and the 1-token null model (step time is not compute)"
+    "m1": "1 node x 8 A100-80GB, 4.9 h from run start (39 GPU-h allocated); lanes of 4 GPUs; DDP T5-large runs at ~3.3 it/s for both the 512-token model and the 1-token null model (step time is not compute)",
+    "m2": "1 node x 8 A100-80GB, 4.6 h from run start (07:59-12:33Z, 37 GPU-h allocated); eight 1-GPU lanes; 1 GPU runs the model at 1.92 it/s and the null model at 3.5 it/s (~2x DDP's per-GPU throughput); fixed lanes left GPUs 4-7 idle ~3.4 h (~13 GPU-h)"
   }
 }
