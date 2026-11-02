@@ -1,8 +1,9 @@
 """Scores the authors' fine-tuning logs (written by run.sh) and writes OUT/scores.json.
 
-A task's F1 is the mean over its 5 runs (seeded random splits) of the run's mean test F1 over its last 5 epochs, as in
-the paper: seqeval micro-F1 of the component tags (Dr Inventor and CMV Modes ACI, 80/20 split) and class-weighted F1 of
-the relation types (CMV Modes RTP, 80/20 and 50/50 splits). primary = {<task>_f1}; higher is better.
+A task's F1 is the mean over its runs (seeded random splits; the paper: 5) of the run's mean test F1 over its last 5
+epochs, as in the paper: seqeval micro-F1 of the component tags (Dr Inventor and CMV Modes ACI, 80/20 split) and
+class-weighted F1 of the relation types (CMV Modes RTP, 80/20 and 50/50 splits). primary = {<task>_f1}; higher is
+better.
 
 Usage: eval.py OUT   (reads OUT/logs/<task>_<run>.log)
 """
