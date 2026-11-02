@@ -173,5 +173,8 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   deterministic scores that match the paper validate the evaluation before hours of training.
 - With old transformers pins, a tokenizer config that sets `add_prefix_space` rebuilds the fast tokenizer from the slow
   one, which needs `sentencepiece` and `protobuf`; pin them at the authors' versions too.
+- Order runs so the seed spread comes early: original first, then the 10% pair (env + seed 1, 4+4 GPUs), seed-1 original
+  last; skip the seed-1 original when original minus baseline exceeds 3x the 10% seed spread on every metric (jic: a 7B
+  QLoRA on 398k dialogues took 5.8 h on 8 GPUs; skipping saved ~42 of ~105 GPU-h).
 - lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
   `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).

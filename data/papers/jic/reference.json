@@ -132,6 +132,78 @@
         "agreeableness": 0.949,
         "neuroticism": 0.565
       }
+    },
+    {
+      "run": "j3-original-env",
+      "what": "env on the original (released train, JIC-all; 78,605 packed 2048-token sequences, 459 steps, best checkpoint = step 400 by eval loss 1.049, as the authors' load_best_model_at_end). Paper Mistral JIAC-all Ft. .884/.711/.531/.911/.565. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "commit": "1f9ea70",
+      "gpus": "8xA100-80GB",
+      "wall_seconds": 21230,
+      "train_seconds": 20936,
+      "eval_seconds": 292,
+      "primary": {
+        "openness": 0.885,
+        "conscientiousness": 0.715,
+        "extraversion": 0.533,
+        "agreeableness": 0.909,
+        "neuroticism": 0.565
+      }
+    },
+    {
+      "run": "j3-sub10-env",
+      "what": "env on a 10% sample of the original (39,848 dialogues, random_state=0; 7,683 packed sequences, 45 steps). Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "commit": "1f9ea70",
+      "gpus": "4xA100-80GB",
+      "wall_seconds": 4391,
+      "train_seconds": 4096,
+      "eval_seconds": 293,
+      "primary": {
+        "openness": 0.853,
+        "conscientiousness": 0.664,
+        "extraversion": 0.516,
+        "agreeableness": 0.84,
+        "neuroticism": 0.537
+      }
+    },
+    {
+      "run": "j3-sub10-seed1",
+      "what": "env on the same 10% sample with train.py --seed 1 (LoRA init, packing shuffle, data order); seed-spread estimate. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "commit": "1f9ea70",
+      "gpus": "4xA100-80GB",
+      "wall_seconds": 4398,
+      "train_seconds": 4076,
+      "eval_seconds": 320,
+      "primary": {
+        "openness": 0.856,
+        "conscientiousness": 0.66,
+        "extraversion": 0.515,
+        "agreeableness": 0.839,
+        "neuroticism": 0.537
+      }
     }
-  ]
+  ],
+  "seed_spread": {
+    "what": "|sub10 env - sub10 seed1| per trait (seed 42 vs 1 on the 10% sample). The seed-1 original run was skipped: env original minus baseline exceeds 3x this spread on every trait (j3 stopped at 16:05Z, saving ~5.3 h / ~42 GPU-h).",
+    "spread": {
+      "openness": 0.003,
+      "conscientiousness": 0.004,
+      "extraversion": 0.001,
+      "agreeableness": 0.001,
+      "neuroticism": 0.0
+    },
+    "original_minus_baseline": {
+      "openness": 0.053,
+      "conscientiousness": 0.075,
+      "extraversion": 0.019,
+      "agreeableness": 0.092,
+      "neuroticism": 0.03
+    },
+    "original_minus_sub10": {
+      "openness": 0.032,
+      "conscientiousness": 0.051,
+      "extraversion": 0.017,
+      "agreeableness": 0.069,
+      "neuroticism": 0.028
+    }
+  }
 }
