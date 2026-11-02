@@ -14,7 +14,8 @@ data/papers/<id>/
   task.md              what the agent sees: research question, rubric, submission format
   run.sh               run.sh SUBMISSION OUT -> OUT/scores.json {"primary": {headline metrics}, "metrics": {...}}
   validate.py          submission format + benchmark-contamination check (the original dataset passes)
-  train.py, eval.py    the paper's recipe and evaluation
+  src/<repo>/          the authors' training and evaluation code
+  train.py, eval.py    thin wrappers that run it on the submission
   external_eval_data/  the evaluation benchmarks
   tests/               mock inputs, 50 sampled rows of the original, and a smoke run of run.sh
   reference.json       paper numbers and run.sh scores for the original dataset and the no-dataset baseline
