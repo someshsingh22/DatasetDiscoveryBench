@@ -1,7 +1,7 @@
 [project]
 name = "tldr-env"
 version = "0.1.0"
-requires-python = "==3.11.*"
+requires-python = "==3.11.8"  # tyro 0.6.0 breaks on the argparse of Python 3.11.9+
 dependencies = [  # the re-implementation's poetry.lock versions; ftfy is OpenAI's (Pipfile.lock)
     "accelerate==0.25.0",
     "datasets==2.12.0",
