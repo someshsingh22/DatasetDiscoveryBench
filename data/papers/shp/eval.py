@@ -1,17 +1,17 @@
-"""Scores a FLAN-T5 preference model and its null model with the authors' v_info.py and writes OUT/scores.json.
+"""Scores a FLAN-T5 preference model with the authors' v_info.py and writes OUT/scores.json.
 
 Rows are SteamSHP inputs (train.steamshp; pairs that do not fit 500 tokens are skipped, as in SteamSHP's evaluation)
-with gold label "A" or "B". v_info.py gives each row PVI = log2 P_model(gold | x) - log2 P_null(gold | " ") (bits) and
-whether the model's more likely label is gold.
+with gold label "A" or "B"; v_entropy gives each row -log2 P_model(gold | x) (bits) and whether the more likely label is
+gold.
 - hh_rlhf: the HH-RLHF helpful-base test pairs (SteamSHP's "anthropic (helpfulness)" test set), each in both orders
-  (chosen as A, then as B); acc = mean correctness, v_info = mean PVI, i.e. the information about HH-RLHF's labels that
-  the submission makes usable.
-- heldout: the same on the submission's held-out posts (train.heldout), i.e. the submission's own V-usable information
-  as in the paper; not primary, since the submission sets its own labels.
+  (chosen as A, then as B). acc = mean correctness; v_info = H_V(Y) - H_V(Y | X) with H_V(Y) = 1 bit, exact since the
+  two orders balance the labels: the information about HH-RLHF's labels that the submission makes usable.
+- heldout: v_info.py on the submission's held-out posts (train.heldout), H_V(Y) from the null model: the submission's own
+  V-usable information, as in the paper; not primary, since the submission sets its own labels.
 
 primary = {hh_rlhf_acc, hh_rlhf_v_info}; compare each separately, higher is better.
 
-Usage: eval.py MODEL NULL_MODEL SUBMISSION.csv|none OUT
+Usage: eval.py MODEL NULL_MODEL|none SUBMISSION.csv|none OUT
 """
 
 from __future__ import annotations
@@ -25,6 +25,7 @@ from transformers import AutoTokenizer
 
 from train import heldout
 from train import steamshp
+from v_info import v_entropy
 from v_info import v_info
 
 HH = Path(__file__).parent / "external_eval_data" / "hh_rlhf_helpful_base_test.jsonl.gz"
@@ -46,22 +47,28 @@ def load_hh() -> pd.DataFrame:
     )
 
 
-def score(model: str, null: str, df: pd.DataFrame, out: str, name: str) -> dict:
-    """Runs v_info.py on the rows of `df` that fit and returns their accuracy, V-information and counts."""
+def inputs(model: str, df: pd.DataFrame, path: str) -> int:
+    """Writes the SteamSHP inputs of `df` that fit, with labels "A"/"B", to PATH.csv and their null twins (" ") to
+    PATH_null.csv; returns how many fit."""
     tok = AutoTokenizer.from_pretrained(model)
     x = pd.DataFrame({"sentence1": steamshp(tok, df.history, df.human_ref_A, df.human_ref_B)})
     x = x.assign(label=list(df.labels.map({"1": "A", "0": "B"}))).dropna()
-    x.to_csv(f"{out}/{name}.csv", index=False)
-    x.assign(sentence1=" ").to_csv(f"{out}/{name}_null.csv", index=False)
-    pvi = v_info(f"{out}/{name}.csv", model, f"{out}/{name}_null.csv", null, model, out_fn=f"{out}/{name}_pvi.csv")
-    return {"acc": pvi.correct_yx.mean(), "v_info": pvi.PVI.mean(), "n": len(pvi), "skipped": len(df) - len(pvi)}
+    x.to_csv(f"{path}.csv", index=False)
+    x.assign(sentence1=" ").to_csv(f"{path}_null.csv", index=False)
+    return len(x)
 
 
 if __name__ == "__main__":
     model, null, data, out = sys.argv[1:]
-    metrics = {"hh_rlhf": score(model, null, load_hh(), out, "hh_rlhf")}
+    hh = load_hh()
+    n = inputs(model, hh, f"{out}/hh_rlhf")
+    h, correct, _ = v_entropy(f"{out}/hh_rlhf.csv", model, model)
+    metrics = {"hh_rlhf": {"acc": sum(correct) / n, "v_info": 1 - sum(h) / n, "n": n, "skipped": len(hh) - n}}
     if data != "none":
         df = pd.read_csv(data, dtype=str, keep_default_na=False)
-        metrics["heldout"] = score(model, null, df[heldout(df)], out, "heldout")
+        held = df[heldout(df)]
+        n = inputs(model, held, f"{out}/heldout")
+        pvi = v_info(f"{out}/heldout.csv", model, f"{out}/heldout_null.csv", null, model, f"{out}/heldout_pvi.csv")
+        metrics["heldout"] = {"acc": pvi.correct_yx.mean(), "v_info": pvi.PVI.mean(), "n": n, "skipped": len(held) - n}
     primary = {"hh_rlhf_acc": metrics["hh_rlhf"]["acc"], "hh_rlhf_v_info": metrics["hh_rlhf"]["v_info"]}
     Path(out, "scores.json").write_text(json.dumps({"primary": primary, "metrics": metrics}, indent=2))

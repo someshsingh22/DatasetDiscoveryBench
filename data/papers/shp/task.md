@@ -20,7 +20,7 @@ that transfers to judging an AI assistant's responses?
 
 ## Submission
 
-One CSV file, one row per pair; extra columns are ignored. The A/B order must be random (labels ~50/50).
+One CSV file, one row per pair; extra columns are ignored. As in SHP, randomize the A/B order (labels ~50/50).
 
 | column | content |
 |---|---|

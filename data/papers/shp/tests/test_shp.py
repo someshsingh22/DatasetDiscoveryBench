@@ -40,7 +40,6 @@ class TestShp(unittest.TestCase):
             POSTS[:19],
             [{k: v for k, v in row.items() if k != "post_id"} for row in POSTS],
             [{**row, "labels": "A" if row["labels"] == "1" else "B"} for row in POSTS],
-            [{**row, "labels": "1"} for row in POSTS],
             [*POSTS, {**POSTS[0], "human_ref_B": f"Someone wrote: {leaked}"}],
         ):
             with self.subTest(rows=rows[-1]), self.assertRaises((AssertionError, ValueError)):
