@@ -1,0 +1,34 @@
+{
+  "paper": {
+    "metric": "CNN/DM test ROUGE without further training, mean of ROUGE-1/2/L F1, T=0; read off Fig. 14b (no table)",
+    "supervised_transfer": {"125M": 0.186, "760M": 0.223, "1.3B": 0.231, "2.7B": 0.226, "6.7B": 0.220, "13B": 0.217},
+    "pretrained_with_cnndm_examples": {"125M": 0.149, "760M": 0.203, "1.3B": 0.231, "2.7B": 0.230, "6.7B": 0.236, "13B": 0.233},
+    "human_feedback_transfer": {"1.3B": 0.252, "6.7B": 0.258},
+    "supervised_on_cnndm_6.7B": {"rouge1": 0.4249, "rouge2": 0.1984, "rougeL": 0.3953, "source": "Table 15"}
+  },
+  "runs": {
+    "t1-baseline-env": {
+      "data": "none",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {"eval": 1087},
+      "primary": {"rouge1": 0.28192, "rouge2": 0.08886, "rougeL": 0.19975},
+      "rouge_mean": 0.19018,
+      "summary_tokens": 52.71
+    },
+    "t1-released-44413": {
+      "data": "the re-implementation's released SFT checkpoint (seed 44413, 8 H100s), not retrained",
+      "model": "vwxyzjn/EleutherAI_pythia-1b-deduped__sft__tldr@sft__44413__1708611267",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {"eval": 1130},
+      "primary": {"rouge1": 0.31216, "rouge2": 0.11145, "rougeL": 0.21797},
+      "rouge_mean": 0.21386,
+      "summary_tokens": 36.42
+    }
+  },
+  "pending": ["env original", "authors' sft.py original", "env seed 2 original", "env 10%", "released seeds 55513/66613/77713", "paper's pretrained baseline"]
+}

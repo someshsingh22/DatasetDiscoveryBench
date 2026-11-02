@@ -167,3 +167,11 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
 - When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
 - For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Pin the Python patch when the authors' pins predate a stdlib change: tyro 0.6.0 crashes on the argparse of Python
+  3.11.9+ ("too many values to unpack (expected 3)"); `requires-python = "==3.11.8"` makes uv fetch that patch. Old
+  `datasets` (< 2.14) also needs the authors' `fsspec` and `pyarrow` pins, not only the direct dependencies.
+- Gate every training entrypoint (e.g. `train.py --help`) in the job's setup, before any lane holds a GPU: a crash in
+  the first minute of every training lane otherwise leaves the node idle until its slowest eval-only lane ends.
+- If the paper's code is inference-only, train with a published re-implementation and keep the paper's evaluation code.
+  Scoring the re-implementation's released checkpoints with the env's eval costs minutes and separates eval-side from
+  training-side gaps. Concurrent `accelerate launch` runs need their own `--main_process_port` (default 29500).
