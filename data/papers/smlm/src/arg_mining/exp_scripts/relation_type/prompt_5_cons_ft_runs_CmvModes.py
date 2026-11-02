@@ -238,6 +238,8 @@ def compute(batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor],
         summed over all samples of the batch (if preds is False).
     """
     prompt_threads, rel_type_labels, global_attention_mask = batch
+    n = int((prompt_threads!=tokenizer.pad_token_id).sum(-1).max())  # DDB: speed; drop the padding past the longest
+    prompt_threads, global_attention_mask = prompt_threads[..., :n], global_attention_mask[..., :n]  # prompt (masked)
     
     pad_mask = torch.where(prompt_threads!=tokenizer.pad_token_id, 1, 0)
     
