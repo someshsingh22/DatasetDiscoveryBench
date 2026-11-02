@@ -9,13 +9,19 @@ ENV=$(dirname "$(realpath "$0")")
 export OUT=$(mkdir -p "$2/logs" && realpath "$2") TOK=allenai/longformer-base-4096 MODEL=allenai/longformer-base-4096
 export PYTHONPATH=$ENV/src PYTHONHASHSEED=0 TORCH_ALLOW_TF32_CUBLAS_OVERRIDE=1  # same thread order on every rank; TF32
 SRC=$ENV/src/arg_mining/exp_scripts
+cd "$ENV"  # uv finds the project from the working directory
+# Cache the base Longformer and seqeval once; transformers 4.20.1 cannot follow the hub's relative redirects.
+uv run python -c "import requests, datasets, transformers as t; from urllib.parse import urljoin; head = requests.head
+def fixed(url, **kw): r = head(url, **kw); r.headers['Location'] = urljoin(url, r.headers.get('Location', '')); return r
+requests.head = fixed; datasets.load_metric('seqeval'); t.LongformerTokenizer.from_pretrained('$TOK')
+t.LongformerForMaskedLM.from_pretrained('$TOK')"
+export HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1  # every run below reads that cache
 if [[ $1 != none ]]; then
   SUB=$(realpath "$1")
-  cd "$ENV"  # uv finds the project from the working directory
   uv run python validate.py "$SUB"
   uv run python train.py "$SUB" "$OUT"
   cd "$SRC"  # pre_train.py reads ../Discourse_Markers.txt
-  uv run torchrun --standalone --nproc-per-node=3 smlm_pretrain/pre_train.py "$OUT/corpus" "$OUT/smlm" 2>&1 |
+  uv run torchrun --standalone --nproc_per_node=3 smlm_pretrain/pre_train.py "$OUT/corpus" "$OUT/smlm" 2>&1 |
     tee "$OUT/logs/pretrain.log"
   TOK=$OUT/smlm/tokenizer MODEL=$OUT/smlm/model
 fi
