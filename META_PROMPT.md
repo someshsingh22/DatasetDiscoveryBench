@@ -177,3 +177,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - If the paper's code is inference-only, train with a published re-implementation and keep the paper's evaluation code.
   Scoring the re-implementation's released checkpoints with the env's eval costs minutes and separates eval-side from
   training-side gaps. Concurrent `accelerate launch` runs need their own `--main_process_port` (default 29500).
+- Overlap metrics (ROUGE F1) reward length: a 10% run that never learns to stop fills the generation cap and can
+  outscore the full-data run (tldr: 98% of 10% summaries at the 53-token cap vs 14%). Record mean output length and the
+  share at the cap next to the metric, and check whether the paper's code stops earlier (e.g. at a newline).
+- Micro-batch 1 with gradient accumulation keeps the paper's batch but leaves a ~1B model at ~8% HFU; pack more lanes
+  per node rather than raising the micro-batch, which changes per-micro-batch loss averaging.
+- Once jobs have recorded a commit, merge `main` into the env branch instead of rebasing, so those commits stay reachable.
