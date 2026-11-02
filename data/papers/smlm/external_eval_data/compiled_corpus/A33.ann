@@ -1,0 +1,527 @@
+T1	background_claim 2498 2521	yields pleasing results
+T2	background_claim 2453 2466	Previous work
+T3	data 2477 2495	Scholz et al. 2005
+R1	parts_of_same Arg1:T1 Arg2:T2	
+R2	supports Arg1:T3 Arg2:T2	
+T4	background_claim 1726 1817	We capture the motion of cloth using multiple video cameras and specially tailored garments
+T5	background_claim 1927 2024	Over the course of roughly half a dozen papers on cloth capture a prevailing strategy has emerged
+T6	background_claim 2552 2634	Little work has been done to capture garments with folds and scenes with occlusion
+T7	background_claim 2817 2891	Folds and occlusion are common, especially when dealing with real garments
+T8	data 2900 2905	pants
+R3	supports Arg1:T8 Arg2:T7	
+T9	background_claim 2973 3084	Both phenomena are symptoms of the same problem: views of the surface are blocked by other parts of the surface
+T10	background_claim 3095 3183	there is a distinction in scale and different methods are required to solve each problem
+R4	contradicts Arg1:T9 Arg2:T10	
+T11	background_claim 3219 3278	contiguous visible regions are often small and oddly shaped
+T12	data 3190 3217	a surface is heavily folded
+R5	supports Arg1:T12 Arg2:T11	
+T13	background_claim 3280 3352	In these regions correspondence is essential for detailed reconstruction
+T14	background_claim 3357 3387	can be challenging to identify
+R6	contradicts Arg1:T14 Arg2:T13	
+T15	own_claim 3389 3540	We solve the correspondence problem both by improving the pattern printed on the surface of the cloth and by improving the method used to match regions
+T16	own_claim 3542 3705	Our method gets more information per pixel than previous methods by drawing from the full colorspace instead of a small finite set of colors in the printed pattern
+T17	own_claim 3771 3862	we use strain constraints to eliminate candidates in an iterative search for correspondence
+T18	data 3729 3769	cloth cannot stretch much before ripping
+R7	supports Arg1:T18 Arg2:T17	
+T19	own_claim 3880 3991	these two modifications eliminate the need for neighborhood information in the final iteration of our algorithm
+T20	own_claim 4006 4095	we determine correspondence using regions that are 25 times smaller than in previous work
+T21	data 4098 4106	figure 6
+R8	supports Arg1:T21 Arg2:T20	
+T22	background_claim 4110 4180	Many regions on the surface are impossible to observe due to occlusion
+T23	background_claim 4298 4304	MeshIK
+T24	background_claim 4388 4429	is appropriate for filling holes in cloth
+R9	parts_of_same Arg1:T24 Arg2:T23	
+T25	data 4307 4325	Sumner et al. 2005
+R10	supports Arg1:T25 Arg2:T23	
+T26	background_claim 4440 4475	MeshIK is well-suited to cloth data
+T27	own_claim 4550 4611	We suggest two tools to evaluate marker-based capture systems
+T28	own_claim 4694 4717	Efficiency is important
+T29	data 4726 4771	camera resolution and bandwidth are expensive
+R11	supports Arg1:T29 Arg2:T28	
+T30	own_claim 5066 5147	By doing simple bit calculations, we direct our design efforts more appropriately
+T31	background_claim 5635 5757	Previous work in cloth motion capture has focused on placing high density markers in correspondence between multiple views
+T32	background_claim 5759 5867	The primary challenge is to increase marker density while correctly assigning correspondence between markers
+T33	own_claim 5869 5941	We suggest markers per megapixel as an appropriate metric for comparison
+T34	data 5944 5952	figure 3
+T35	own_claim 5963 6010	it measures the method instead of the equipment
+R12	supports Arg1:T34 Arg2:T33	
+R13	supports Arg1:T35 Arg2:T33	
+T36	background_claim 6012 6074	Most high density full frame-rate capture has focused on cloth
+T37	background_claim 6085 6147	there has been some recent work enhancing human motion capture
+T38	data 6150 6171	Park and Hodgins 2006
+R14	supports Arg1:T38 Arg2:T37	
+R15	contradicts Arg1:T37 Arg2:T36	
+T39	background_claim 6174 6210	These methods have far fewer markers
+R16	supports Arg1:T38 Arg2:T39	
+T40	data 6233 6262	they affix individual markers
+R17	supports Arg1:T40 Arg2:T39	
+T41	background_claim 6338 6387	These markers can be broken into three categories
+T42	background_claim 6389 6414	complex surface gradients
+T43	data 6417 6444	Pritchard and Heidrich 2003
+T44	data 6446 6468	Scholz and Magnor 2004
+T45	data 6470 6488	Hasler et al. 2006
+T46	background_claim 6548 6566	intersecting lines
+T47	data 6569 6586	Tanie et al. 2005
+T48	background_claim 6592 6617	regions of constant color
+T49	data 6620 6642	Guskov and Zhukov 2002
+T50	data 6644 6662	Guskov et al. 2003
+T51	data 6664 6682	Scholz et al. 2005
+R18	supports Arg1:T49 Arg2:T48	
+R19	supports Arg1:T50 Arg2:T48	
+R20	supports Arg1:T51 Arg2:T48	
+R21	supports Arg1:T48 Arg2:T41	
+R22	supports Arg1:T43 Arg2:T42	
+R23	supports Arg1:T44 Arg2:T42	
+R24	supports Arg1:T45 Arg2:T42	
+R25	supports Arg1:T42 Arg2:T41	
+R26	supports Arg1:T47 Arg2:T46	
+R27	supports Arg1:T46 Arg2:T41	
+T52	own_claim 6854 6898	The most common errors are marker mismatches
+T53	own_claim 6685 6747	Our work falls in the third category: regions of contant color
+T54	own_claim 6903 6981	are observable in reconstructions by local strain in the reconstructed surface
+T55	own_claim 7008 7047	constant color markers perform the best
+T56	background_claim 7080 7127	used cloth with unique line drawings as markers
+T57	data 7050 7077	Pritchard and Heidrich 2003
+R28	supports Arg1:T57 Arg2:T56	
+T58	background_claim 7129 7210	Their work identifies parameterization as one of the key aspects of cloth capture
+R29	supports Arg1:T57 Arg2:T58	
+T59	background_claim 7344 7371	require significant pruning
+T60	background_claim 7301 7339	These descriptors are often mismatched
+R30	supports Arg1:T57 Arg2:T60	
+R31	supports Arg1:T57 Arg2:T59	
+T61	background_claim 7497 7561	their static reconstructions show numerous correspondence errors
+T62	background_claim 7485 7495	successful
+R32	contradicts Arg1:T61 Arg2:T62	
+R33	supports Arg1:T57 Arg2:T62	
+R34	supports Arg1:T57 Arg2:T61	
+T63	background_claim 7563 7583	The real-time system
+T64	background_claim 7620 7656	introduces markers of constant color
+R35	parts_of_same Arg1:T63 Arg2:T64	
+T65	data 7599 7617	Guskov et al. 2003
+R36	supports Arg1:T65 Arg2:T64	
+T66	background_claim 7658 7712	resulting in significantly fewer correspondence errors
+R37	supports Arg1:T64 Arg2:T66	
+T67	background_claim 7832 7904	the complexity of the color pattern limits the method to simple geometry
+R38	supports Arg1:T65 Arg2:T67	
+T68	data 7907 7925	Scholz et al. 2005
+T69	background_claim 7928 8011	improve upon [Guskov et al. 2003] by creating a non-repeating grid of color markers
+R39	supports Arg1:T68 Arg2:T69	
+T70	background_claim 8092 8142	This allows substantially larger sections of cloth
+R40	supports Arg1:T68 Arg2:T70	
+T71	background_claim 8147 8189	virtually eliminates correspondence errors
+R41	supports Arg1:T68 Arg2:T71	
+T72	background_claim 8290 8339	the range of motion is limited to avoid occlusion
+T73	data 8347 8394	arms are always held at 90 degrees to the torso
+R42	supports Arg1:T73 Arg2:T72	
+R43	supports Arg1:T68 Arg2:T72	
+T74	background_claim 8461 8664	introduce a combined strain reduction/bundle adjustment that improves the quality of the reconstruction by minimizing strain while reconstructing the 3D location of the points on the surface of the cloth
+T75	data 8441 8458	White et al. 2005
+R44	supports Arg1:T75 Arg2:T74	
+T76	background_claim 8687 8780	introduce the use of silhoutte cues to improve reconstruction of difficult to observe regions
+T77	data 8667 8684	White et al. 2006
+R45	supports Arg1:T77 Arg2:T76	
+T78	background_claim 8788 8826	silhouette cues improve reconstruction
+T79	background_claim 8828 8843	hole filling is
+T80	background_claim 9173 9209	more effective in many circumstances
+R46	contradicts Arg1:T79 Arg2:T78	
+R47	parts_of_same Arg1:T80 Arg2:T79	
+T81	background_claim 9218 9276	it enforces an appropriate prior on the shape of the cloth
+R48	supports Arg1:T81 Arg2:T80	
+T82	own_claim 9312 9398	we improve the color pattern and matching procedure to get more information per marker
+T83	own_claim 9400 9458	we introduce strain constraints to simplify correspondence
+T84	own_claim 9463 9562	we create a data driven hole filling technique that splices previously captured cloth into the mesh
+T85	own_claim 9577 9661	our system is capable of capturing a full range of motion with folding and occlusion
+T86	own_claim 10296 10346	we cannot increase camera resolution without bound
+T87	data 10355 10394	camera bandwidth becomes very expensive
+R49	supports Arg1:T87 Arg2:T86	
+T88	own_claim 10021 10121	Our goal is high marker density in the 3D reconstruction – especially in regions with high curvature
+T89	own_claim 10140 10210	we need markers that are both small in scale and highly discriminative
+T90	data 10244 10281	small markers are less discriminative
+R50	supports Arg1:T88 Arg2:T89	
+T91	own_claim 10212 10242	These two goals are in tension
+R51	supports Arg1:T90 Arg2:T91	
+T92	own_claim 10409 10468	we opt for the smallest markers that we can reliably detect
+T93	own_claim 10473 10511	we make small markers more distinctive
+R52	supports Arg1:T86 Arg2:T91	
+R53	supports Arg1:T91 Arg2:T92	
+R54	supports Arg1:T91 Arg2:T93	
+T94	own_claim 10661 10737	Marker color and strain constraints are more useful than neighboring markers
+T95	own_claim 10746 10799	they place fewer requirements on local cloth geometry
+R55	supports Arg1:T95 Arg2:T94	
+T96	own_claim 10815 10886	neighboring markers are observed only when the cloth is relatively flat
+R56	supports Arg1:T96 Arg2:T95	
+T97	own_claim 11030 11162	we adopt the following strategy: maximize information obtained from marker color and eliminate the information needed from neighbors
+T98	own_claim 11378 11481	we can accurately minimize the number of neighbors required for correspondence and observe folds better
+T99	own_claim 11483 11547	We can compare our work to previous methods using this framework
+T100	data 11550 11558	figure 6
+R57	supports Arg1:T100 Arg2:T99	
+T101	own_claim 11716 11822	we can compute the information needed to meet this threshold by adding information from the different cues
+T102	background_claim 11677 11714	independent information adds linearly
+R58	supports Arg1:T102 Arg2:T101	
+T103	own_claim 11862 11962	structural ambiguities in the pattern subtract information lost to determine which neighbor is which
+T104	own_claim 11977 12019;12020 12212	we compute our information budget (I ) as:           N = number of observed neighbors C = color information per marker A = information lost to structural ambiguities S = information gained from strain constraints I = (N + 1) ∗C + S − A
+R59	supports Arg1:T101 Arg2:T104	
+R60	supports Arg1:T103 Arg2:T104	
+T105	own_claim 12398 12450	it takes two bits to specify which neighbor we found
+T106	own_claim 12343 12390	This neighbor is one of four possible neighbors
+R61	supports Arg1:T106 Arg2:T105	
+T107	own_claim 12452 12457	A = 2
+R62	supports Arg1:T105 Arg2:T107	
+T108	own_claim 12474 12514	the equation reduces to I = 2 ∗C − 2 + S
+R63	supports Arg1:T107 Arg2:T108	
+T109	data 12463 12472	this case
+R64	supports Arg1:T109 Arg2:T108	
+T110	own_claim 12553 12618	we can detect regions by increasing N until I &gt; log 2 (M) bits
+T111	data 12516 12551	Given almost any structured pattern
+R65	supports Arg1:T111 Arg2:T110	
+T112	own_claim 12629 12759	larger marker regions have the disadvantage that curvature can cause local occlusions and prevent observation of the entire region
+R66	contradicts Arg1:T110 Arg2:T112	
+T113	own_claim 12761 12794	Our best efforts are to improve C
+T114	own_claim 13211 13258	our pattern is composed of tesselated triangles
+T115	data 13261 13269	figure 5
+R67	supports Arg1:T115 Arg2:T114	
+T116	own_claim 13273 13313	any shape that tiles the plane will work
+R68	contradicts Arg1:T114 Arg2:T116	
+T117	own_claim 13878 13925	loss is largely attributable to camera response
+T118	data 13934 13988	larger markers produced substantially more information
+R69	supports Arg1:T118 Arg2:T117	
+T119	own_claim 13363 13469	To maximize the density of reconstructed points, we print the smallest markers that we can reliably detect
+T120	own_claim 13471 13637	To maximize the information contained in the color of each marker, we print colors that span the gamut of the printer-camera response, then use a gaussian color model
+T121	data 13639 13650	section 4.1
+R70	supports Arg1:T121 Arg2:T120	
+T122	own_claim 13673 13729	the printer-camera response is a sequence of lossy steps
+T123	data 13731 13770	we generate a color image on a computer
+T124	data 13772 13801	send the image to the printer
+T125	data 13803 13817	pose the cloth
+T126	data 13823 13847	capture it with a camera
+R71	supports Arg1:T123 Arg2:T122	
+R72	supports Arg1:T124 Arg2:T122	
+R73	supports Arg1:T125 Arg2:T122	
+R74	supports Arg1:T126 Arg2:T122	
+T127	own_claim 13990 14022	Illumination is also problematic
+T128	own_claim 14027 14042	takes two forms
+T129	data 14044 14087	direct illumination on a lambertian surface
+T130	data 14092 14113	indirect illumination
+R75	supports Arg1:T129 Arg2:T128	
+R76	supports Arg1:T130 Arg2:T128	
+T131	own_claim 14494 14550	These comparisons must be made in the proper color space
+T132	own_claim 14552 14687	we photograph the surface of the printed cloth with our video cameras to minimize the effect of non-linearities in the printing process
+R77	supports Arg1:T131 Arg2:T132	
+T133	own_claim 14438 14492	we detect markers by comparing colors to a known color
+T134	own_claim 14751 14844	The goal of our acquisition pipeline is to compute correspondence using minimal neighborhoods
+T135	own_claim 14846 15002	We accomplish this through an iterative algorithm where we alternate between computing correspondence and pruning bad matches based on those correspondences
+T136	own_claim 15193 15257	This iterative approach allows us to match without neighborhoods
+T137	own_claim 15259 15304	This is better than label propagation methods
+R78	supports Arg1:T136 Arg2:T137	
+T138	data 15143 15191	markers are matched using color and strain alone
+R79	supports Arg1:T138 Arg2:T136	
+T139	own_claim 15966 16065	We are able to obtain significantly more information per unit cloth surface area than previous work
+T140	data 16071 16082	section 3.1
+R80	supports Arg1:T140 Arg2:T139	
+T141	data 16112 16122	appendix B
+R81	supports Arg1:T141 Arg2:T139	
+T142	background_claim 15324 15343	propagation methods
+T143	background_claim 16168 16246	require large sections of unoccluded cloth and must stop at occluding contours
+R82	parts_of_same Arg1:T143 Arg2:T142	
+T144	data 16154 16166	and Liu 2006
+T145	data 15385 15388	Lin
+R83	parts_of_same Arg1:T144 Arg2:T145	
+T146	data 15345 15363	Guskov et al. 2003
+T147	data 15365 15383	Scholz et al. 2005
+R84	supports Arg1:T146 Arg2:T142	
+R85	supports Arg1:T147 Arg2:T142	
+R86	supports Arg1:T145 Arg2:T142	
+T148	own_claim 16271 16329	occluding contours are both common and difficult to detect
+T149	data 16260 16268	figure 5
+R87	supports Arg1:T149 Arg2:T148	
+T150	own_claim 16344 16395	our iterative approach relies on strain constraints
+T151	own_claim 16533 16604	Both of these computations are easier than detecting occluding contours
+R88	contradicts Arg1:T148 Arg2:T150	
+T152	own_claim 17473 17527	we can set N = 3 at the start and continue until N = 0
+T153	data 17441 17461	analysis in figure 6
+R89	supports Arg1:T153 Arg2:T152	
+T154	own_claim 17582 17604	there are few mistakes
+T155	own_claim 17537 17580	the identity of the marker is overspecified
+R90	supports Arg1:T155 Arg2:T154	
+T156	own_claim 17606 17707	This approach works from flat regions in the first iteration to foldy regions in the later iterations
+T157	own_claim 17971 17997	no neighbors are necessary
+T158	data 17951 17969	the last iteration
+R91	supports Arg1:T158 Arg2:T157	
+T159	own_claim 17897 17933	these regions are not going to match
+R92	contradicts Arg1:T159 Arg2:T157	
+T160	own_claim 18063 18103	no longer disrupt the matching procedure
+T161	own_claim 17999 18017	Occluding contours
+R93	parts_of_same Arg1:T161 Arg2:T160	
+R94	supports Arg1:T157 Arg2:T161	
+T162	own_claim 18707 18752	Our strain constraint is based on the work of
+T163	data 18755 18766	Provot 1995
+R95	supports Arg1:T163 Arg2:T162	
+T164	background_claim 18784 18831	strain in cloth does not exceed 20% in practice
+R96	supports Arg1:T163 Arg2:T164	
+T165	own_claim 18935 18988	we can use strain to exclude possible correspondences
+T166	own_claim 18833 18875	Relaxing the constraint to distances in 3D
+R97	parts_of_same Arg1:T166 Arg2:T165	
+R98	supports Arg1:T164 Arg2:T165	
+T167	own_claim 18990 19050	Strain naturally fits in to our information theory framework
+T168	data 19055 19108	strain excludes 87.5% of the possible correspondences
+T169	own_claim 19115 19138	strain has added 3 bits
+T170	data 19148 19170	log 2 (1 − 0.875) = −3
+R99	supports Arg1:T170 Arg2:T169	
+R100	supports Arg1:T168 Arg2:T169	
+R101	supports Arg1:T169 Arg2:T167	
+T171	data 19204 19212	figure 7
+R102	supports Arg1:T171 Arg2:T169	
+T172	own_claim 19720 19783	we match each image marker to a marker in the parametric domain
+T173	own_claim 19873 19919	Each affinity is a product over different cues
+T174	own_claim 20425 20469	we learned this threshold from labelled data
+T175	own_claim 20489 20564	changing it by several orders of magnitude had little effect on our results
+R103	contradicts Arg1:T175 Arg2:T174	
+T176	own_claim 20738 20798	occlusion inevitably creates holes in the reconstructed mesh
+T177	data 20801 20809	figure 8
+R104	supports Arg1:T177 Arg2:T176	
+T178	background_claim 20813 20863	One would like to fill these holes with real cloth
+T179	own_claim 20865 20937	One of our major contributions is a data driven approach to hole filling
+T180	own_claim 20939 20995	we fill holes with previously observed sections of cloth
+R105	supports Arg1:T180 Arg2:T179	
+R106	supports Arg1:T178 Arg2:T179	
+R107	supports Arg1:T176 Arg2:T179	
+T181	own_claim 21051 21128	our hole filling procedure does not assume a skeleton that drives the surface
+T182	own_claim 21133 21189	our procedure estimates a single coefficient per example
+T183	own_claim 20997 21018	Our work differs from
+T184	data 21021 21041	Anguelov et al. 2005
+R108	supports Arg1:T184 Arg2:T183	
+R109	supports Arg1:T181 Arg2:T183	
+R110	supports Arg1:T182 Arg2:T183	
+T185	own_claim 21191 21247	This hole filling procedure has a number of requirements
+T186	own_claim 21249 21325	the missing section needs to be replaced by a section with the same topology
+T187	own_claim 21327 21414	the new section needs to obey a number of point constraints around the edge of the hole
+T188	own_claim 21420 21474	the splicing method should respect properties of cloth
+R111	supports Arg1:T186 Arg2:T185	
+R112	supports Arg1:T187 Arg2:T185	
+R113	supports Arg1:T188 Arg2:T185	
+T189	own_claim 21807 21848	This procedure has a number of advantages
+T190	background_claim 21857 21916	deformation gradients naturally yield cloth like properties
+T191	background_claim 22148 22190	methods based on the Laplacian of the mesh
+T192	background_claim 22217 22308	do little to penalize these strains and can show many artifacts around the edge of the mesh
+R114	parts_of_same Arg1:T192 Arg2:T191	
+T193	data 22194 22213	Sorkine et al. 2004
+R115	supports Arg1:T193 Arg2:T191	
+T194	own_claim 22014 22133	By penalizing elements that deviate in this matrix, we have a fairly direct penalty on large changes in scale or strain
+R116	contradicts Arg1:T191 Arg2:T194	
+T195	own_claim 22318 22463	deformation gradients can be converted into vertex locations by inverting a linear system, allowing us to specify vertex locations as constraints
+R117	supports Arg1:T190 Arg2:T189	
+R118	supports Arg1:T195 Arg2:T189	
+T196	background_claim 22503 22533	don’t allow vertex constraints
+T197	background_claim 22465 22472	Methods
+T198	data 22482 22500	Lipman et al. 2005
+R119	parts_of_same Arg1:T196 Arg2:T197	
+R120	supports Arg1:T198 Arg2:T197	
+R121	contradicts Arg1:T197 Arg2:T195	
+T199	background_claim 23912 24041	MeshIK works by choosing a combination of deformation gradients from the examples and then solving for the missing point location
+T200	data 23863 23881	Sumner et al. 2005
+R122	supports Arg1:T200 Arg2:T199	
+T201	background_claim 24137 24223	The most restrictive aspect of MeshIK is that it requires example meshes without holes
+T202	background_claim 24238 24280	we never observe complete ex- ample meshes
+T203	data 24283 24318	each mesh is missing some triangles
+R123	supports Arg1:T203 Arg2:T202	
+T204	own_claim 24383 24431	we create complete meshes in an iterative method
+T205	own_claim 24620 24632	works poorly
+T206	own_claim 24592 24614	this gets the job done
+R124	contradicts Arg1:T205 Arg2:T206	
+T207	own_claim 25120 25230	The advantage of this apporach is that the example poses are chosen to capture the relevant degrees of freedom
+T208	own_claim 25233 25256	yielding better results
+R125	supports Arg1:T207 Arg2:T208	
+T209	own_claim 25287 25316	we chose the simpler approach
+T210	data 25262 25285	the cloth toss sequence
+R126	supports Arg1:T210 Arg2:T209	
+T211	data 25318 25356	iteratively refine the entire sequence
+R127	supports Arg1:T211 Arg2:T209	
+T212	own_claim 25447 25492	We introduce flexibility preserving smoothing
+T213	own_claim 25495 25536	a method similar to anisotropic diffusion
+T214	data 25539 25560	Perona and Malik 1990
+R128	supports Arg1:T214 Arg2:T213	
+T215	own_claim 25636 25675	Typical temporal smoothing is dangerous
+T216	background_claim 25684 25772	fast non-rigid movements can easily become physically implausible when blurred over time
+R129	supports Arg1:T216 Arg2:T215	
+T217	own_claim 25840 25891	small temporal errors are often difficult to notice
+T218	data 25791 25838	fast non-rigid regions of the cloth are complex
+R130	supports Arg1:T218 Arg2:T217	
+R131	contradicts Arg1:T217 Arg2:T215	
+T219	own_claim 25906 25990	small errors in regions of the cloth that move rigidly are typically easy to observe
+R132	contradicts Arg1:T217 Arg2:T219	
+T220	own_claim 26004 26043	we use flexibility preserving smoothing
+R133	supports Arg1:T219 Arg2:T220	
+T221	own_claim 26418 26516	Large variations in location indicate non-rigid movement and consequently receive little smoothing
+T222	own_claim 26518 26605	Smaller variations indicates rigid movement and benefit from more substantial smoothing
+T223	own_claim 26045 26122	a procedure that smoothes rigid movement more heavily than non-rigid movement
+R134	supports Arg1:T221 Arg2:T223	
+R135	supports Arg1:T222 Arg2:T223	
+T224	own_claim 27037 27079	We use the automated calibration technique
+T225	own_claim 27114 27148	any standard calibration will work
+T226	data 27085 27107	White and Forsyth 2005
+R136	supports Arg1:T226 Arg2:T224	
+R137	contradicts Arg1:T225 Arg2:T224	
+T227	data 27151 27161	Zhang 2002
+T228	data 27168 27180	Bouguet 2005
+T229	background_claim 27183 27199	are good choices
+R138	supports Arg1:T227 Arg2:T225	
+R139	supports Arg1:T228 Arg2:T225	
+R140	supports Arg1:T228 Arg2:T229	
+R141	supports Arg1:T227 Arg2:T229	
+T230	own_claim 27293 27322	Adequate lighting is critical
+T231	own_claim 27344 27376	fewer lights degrade performance
+T232	data 27329 27343	our experience
+T233	data 27384 27397	harsh shadows
+T234	own_claim 27402 27433	dim lighting causes motion blur
+R142	supports Arg1:T233 Arg2:T231	
+R143	supports Arg1:T232 Arg2:T231	
+T235	data 27442 27463	slower shutter speeds
+R144	supports Arg1:T235 Arg2:T234	
+R145	supports Arg1:T234 Arg2:T230	
+R146	supports Arg1:T231 Arg2:T230	
+T236	own_claim 27561 27636	acquisition takes roughly 6 minutes and mesh processing 2 minutes per frame
+T237	data 27539 27559	a P4 2.4 GHz machine
+R147	supports Arg1:T237 Arg2:T236	
+T238	own_claim 27789 27871	Our capture results are best evaluated by looking at our video and figures 1,12,13
+T239	own_claim 27927 28014	it is also necessary to evaluate on several numerical criteria for each capture session
+T240	own_claim 28304 28332	The sleeve example is unique
+R148	supports Arg1:T239 Arg2:T238	
+T241	data 27882 27925	to compare against other capture techniques
+R149	supports Arg1:T241 Arg2:T239	
+T242	data 28341 28382	it was one of the first items we captured
+R150	supports Arg1:T242 Arg2:T240	
+T243	own_claim 28384 28447	Much of the cloth is in contact with the floor and unobservable
+T244	own_claim 28450 28479	yielding fewer bits of strain
+R151	supports Arg1:T243 Arg2:T244	
+T245	own_claim 28553 28586	reducing the number of color bits
+T246	own_claim 28494 28551	the camera images were not output in a linear color space
+T247	own_claim 28601 28652	we terminated the correspondence algorithm at N = 2
+R152	supports Arg1:T246 Arg2:T245	
+R153	supports Arg1:T245 Arg2:T247	
+R154	supports Arg1:T244 Arg2:T247	
+T248	own_claim 28654 28704	Our pants animation is by far the most challenging
+T249	own_claim 29104 29143	markers must be observed multiple times
+T250	own_claim 29204 29251	some markers are observed but not reconstructed
+T251	own_claim 29299 29346	many pixels are not considered part of a marker
+T252	own_claim 29348 29372;29373 29383;29384 29396;29397 29407;29408 29456	they lie in heavy shadow                                              or occupy the edge between two markers
+R155	supports Arg1:T252 Arg2:T251	
+T253	data 29260 29292	errors or missing correspondence
+R156	supports Arg1:T253 Arg2:T250	
+T254	data 29145 29201	approx 44% of 3D markers are observed in 3 or more views
+R157	supports Arg1:T254 Arg2:T249	
+T255	own_claim 29057 29102	There are several reasons for the discrepancy
+R158	supports Arg1:T249 Arg2:T255	
+R159	supports Arg1:T250 Arg2:T255	
+R160	supports Arg1:T251 Arg2:T255	
+T256	own_claim 28806 28845	there were 979 3D markers per megapixel
+T257	own_claim 28895 28991	we get 3500 3D markers per foreground megapixel or 282 foreground pixels per recovered 3D marker
+T258	own_claim 28993 29055	Our marker observations average 56 pixels per marker per image
+T259	data 28850 28893	we factor out the pixels lost to background
+R161	supports Arg1:T259 Arg2:T257	
+T260	own_claim 29681 29736	This approach covers a reasonably large range of motion
+T261	own_claim 29742 29764	ignores cloth dynamics
+R162	contradicts Arg1:T261 Arg2:T260	
+T262	own_claim 29596 29665	in combination with MeshIK to skin skeletal human motion capture data
+T263	own_claim 29518 29555	We use a small set of captured frames
+R163	parts_of_same Arg1:T262 Arg2:T263	
+T264	data 29668 29677	figure 11
+R164	supports Arg1:T264 Arg2:T262	
+T265	own_claim 29766 29858	The largest challenge is that captured cloth meshes contain only points on the cloth surface
+T266	own_claim 29863 29893	we do not know joint locations
+R165	supports Arg1:T265 Arg2:T266	
+T267	own_claim 29904 29978	we insert proxy points for knee and hip joints in each of our basis meshes
+R166	contradicts Arg1:T266 Arg2:T267	
+T268	own_claim 30300 30391	Using our MATLAB implementation of MeshIK, this process takes around 5-10 seconds per frame
+T269	own_claim 30530 30577	each basis pose must be an extreme configuratio
+T270	data 30466 30528	for a small basis to adequately express a full range of motion
+R167	supports Arg1:T270 Arg2:T269	
+T271	own_claim 30619 30631	a small bend
+T272	own_claim 30646 30691	is sufficient to extrapolate to a larger bend
+R168	parts_of_same Arg1:T272 Arg2:T271	
+T273	data 30694 30712	Sumner et al. 2005
+R169	supports Arg1:T273 Arg2:T272	
+T274	data 30584 30617	simple objects such as a cylinder
+R170	supports Arg1:T274 Arg2:T271	
+T275	own_claim 30724 30766	for pants the relationship is more complex
+T276	own_claim 30768 30875	the fact that no folding occurs in a small bend does not imply that folding will be absent in a larger bend
+R171	supports Arg1:T276 Arg2:T275	
+R172	contradicts Arg1:T275 Arg2:T272	
+T277	own_claim 30943 31004	we do not expect extreme folds in a corresponding larger bend
+T278	data 30892 30941	a decent amount of folding occurs in a small bend
+R173	supports Arg1:T278 Arg2:T277	
+T279	own_claim 31019 31108	MeshIK is most useful when a basis is carefully chosen to prevent extrapolation artifacts
+R174	supports Arg1:T277 Arg2:T279	
+R175	supports Arg1:T276 Arg2:T279	
+T280	own_claim 31110 31180	One drawback to our approach is the loss of secondary kinematic motion
+T281	data 31190 31213	the sway of loose cloth
+R176	supports Arg1:T281 Arg2:T280	
+T282	own_claim 31265 31303	the resulting animation appears damped
+T283	data 31223 31263	MeshIK does not use velocity information
+R177	supports Arg1:T283 Arg2:T282	
+R178	supports Arg1:T282 Arg2:T280	
+T284	own_claim 31366 31516	We have brought cloth capture from constrained laboratory examples to real settings by providing robust methods for dealing with occlusion and folding
+T285	own_claim 31545 31594	this tool requires significant engineering effort
+T286	data 31518 31543	Like human motion capture
+R179	supports Arg1:T286 Arg2:T285	
+T287	own_claim 31596 31643	Camera setup and calibration are time consuming
+T288	own_claim 31648 31671	the equipment is costly
+T289	own_claim 31682 31773	once these obstacles have been overcome, capturing large amounts of data is relatively easy
+R180	contradicts Arg1:T288 Arg2:T289	
+R181	contradicts Arg1:T287 Arg2:T289	
+R182	contradicts Arg1:T285 Arg2:T289	
+R183	supports Arg1:T289 Arg2:T284	
+T290	own_claim 31828 31861	we are releasing our capture data
+T291	data 31865 31895	http://www.ryanmwhite.com/data
+R184	supports Arg1:T291 Arg2:T290	
+T292	own_claim 31911 31948	we show some of the uses of this data
+T293	data 31900 31909	our video
+R185	supports Arg1:T293 Arg2:T292	
+T294	data 31960 32000	editing using [Kircher and Garland 2006]
+T295	data 32005 32018;32019 32039	posing using  [Sumner et al. 2005]
+R186	supports Arg1:T294 Arg2:T292	
+R187	supports Arg1:T295 Arg2:T292	
+T296	own_claim 32041 32116	Future work in cloth capture should involve more cameras, higher resolution
+T297	own_claim 32154 32196	different garments and different materials
+R188	parts_of_same Arg1:T297 Arg2:T296	
+T298	own_claim 32198 32262	We plan to pursue more tools to edit and repurpose captured data
+T299	background_claim 32390 32478	Simulation and image based rendering both provide methods to generate animation of cloth
+T300	background_claim 32764 32801	These methods have several advantages
+T301	data 32517 32537	House and Breen 2000
+T302	data 32539 32562	Terzopoulos et al. 1987
+T303	data 32564 32580	Choi and Ko 2002
+T304	data 32582 32601	Bridson et al. 2003
+T305	data 32603 32621	Baraff et al. 2003
+T306	data 32675 32694	Bradley et al. 2005
+T307	data 32696 32718	White and Forsyth 2006
+T308	data 32720 32736	Lin and Liu 2006
+T309	data 32738 32760	Scholz and Magnor 2006
+R189	supports Arg1:T301 Arg2:T299	
+R190	supports Arg1:T302 Arg2:T299	
+R191	supports Arg1:T303 Arg2:T299	
+R192	supports Arg1:T304 Arg2:T299	
+R193	supports Arg1:T305 Arg2:T299	
+R194	supports Arg1:T306 Arg2:T299	
+R195	supports Arg1:T307 Arg2:T299	
+R196	supports Arg1:T308 Arg2:T299	
+R197	supports Arg1:T309 Arg2:T299	
+T310	background_claim 32803 32882	simulation gives significant user control and produces higher resolution meshes
+T311	background_claim 32889 32956	image based rendering techniques produce more accurate illumination
+R198	supports Arg1:T310 Arg2:T300	
+R199	supports Arg1:T311 Arg2:T300	
+T312	own_claim 32967 33050	capturing large amounts of data is far easier than simulating large amounts of data
+T313	own_claim 33055 33103	provides more control than image based rendering
+T314	background_claim 33105 33209	Common simulation complaints include long computation times, significant parameter tweaking and tangling
+R200	contradicts Arg1:T312 Arg2:T300	
+R201	contradicts Arg1:T313 Arg2:T300	
+T315	own_claim 33224 33251	capture is relatively quick
+R202	contradicts Arg1:T315 Arg2:T314	
+T316	data 33253 33294	our code is 8 minutes per frame in MATLAB
+R203	supports Arg1:T316 Arg2:T315	
+T317	own_claim 33403 33464	Cloth capture makes it easy to capture large amounts of cloth
+T318	own_claim 33297 33346	parameters are set by selecting the type of cloth
+T319	own_claim 33370 33401	tangling is relatively uncommon
+R204	contradicts Arg1:T318 Arg2:T314	
+R205	contradicts Arg1:T319 Arg2:T314	
+T320	data 33348 33364	Bhat et al. 2003
+R206	supports Arg1:T320 Arg2:T318	
+T321	own_claim 33535 33675	An added attraction of cloth capture is that complex interaction between the cloth and the body is recorded without complicated human models

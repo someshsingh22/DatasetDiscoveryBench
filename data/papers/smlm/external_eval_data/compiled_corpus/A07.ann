@@ -1,0 +1,451 @@
+T1	background_claim 2968 3082	A realistic and visually accurate character animation necessitates proper skin deformation of the character models
+T2	background_claim 3084 3154	Skin deformation owes a large part to proper rigging of the characters
+T3	background_claim 3156 3253	The virtual skeleton forms the interface by which the animator can pose or animate the characters
+T4	background_claim 3255 3384	The joint-based skeleton has been very popular in the animation industry for many years and has nearly become a de facto standard
+T5	background_claim 3386 3517	Other technologies like inverse kinematics, forward kinematics, motion capture etc. are built on this hierarchical system of joints
+T6	background_claim 3519 3648	It is plain to see why the joint-based skeleton system is thoroughly integrated into the current production pipeline in animation
+T7	background_claim 3741 3854	a combination of techniques including muscle simulation is used to achieve the realistic best in mesh deformation
+T8	data 3656 3699	visual fidelity is of the utmost importance
+T9	data 3717 3739	film quality animation
+R1	supports Arg1:T9 Arg2:T7	
+R2	supports Arg1:T8 Arg2:T7	
+T10	background_claim 3944 4038	this can be understood as a function mapping of the skeleton parameters to a deformation field
+T11	data 4040 4041	1
+R3	supports Arg1:T11 Arg2:T10	
+T12	background_claim 4225 4343	The process followed by this technique is to assign influence joints and blend weights to each vertex of the character
+T13	background_claim 4345 4459	Transforming the vertex by a weighted combination of the joints local coordinate frames completes skin computation
+T14	background_claim 4477 4518	computational performance and ease of use
+T15	background_claim 4520 4584	the joint skeleton skinning is not without its share of problems
+R4	contradicts Arg1:T14 Arg2:T15	
+T16	background_claim 4636 4700	Unusual deformation artifacts appear in the skin while deforming
+R5	supports Arg1:T16 Arg2:T15	
+T17	background_claim 4702 4898	Some of the commonly seen problems in joint-based skinning during deformation are: candy wrapper effect during twist deformation and collapsing joints, which would create a rubber-tube like effect
+T18	background_claim 4900 4956	There are certain solutions to circumvent these problems
+T19	background_claim 5004 5033	they have their own drawbacks
+R6	contradicts Arg1:T19 Arg2:T18	
+T20	background_claim 5049 5082	the joint-based system is popular
+T21	background_claim 5092 5109	its interactivity
+T22	background_claim 5114 5143	use of minimal animation data
+R7	supports Arg1:T21 Arg2:T20	
+R8	supports Arg1:T22 Arg2:T20	
+R9	contradicts Arg1:T20 Arg2:T17	
+T23	background_claim 5163 5300	it is almost an integral part of the current animation workflow and animators are reluctant to abandon their familiar production practice
+T24	background_claim 5302 5377	The relationship between a skeleton and the skin shape is highly non-linear
+T25	background_claim 5379 5479	The problems of joint-based skeleton skinning mentioned above, in essence arises from under-sampling
+T26	background_claim 5481 5554	The transformations of the two related joints are too far from each other
+T27	background_claim 5556 5655	And with that low-rate sampling they fail to give a good approximation of the deformed skin surface
+T28	own_claim 5672 5795	we introduce a novel method called curve skeleton skinning, to overcome the persisting drawbacks of joint skeleton skinning
+T29	own_claim 5797 5935	The basic idea is to represent the relationship between the skeletal movements and the skin deformation in a non-linear continuous fashion
+T30	background_claim 5943 6044	a lot of contemporary animation technology is built upon the hierarchical joint-skeleton based system
+T31	own_claim 6046 6101	it is not wise to entirely replace the current practice
+R10	supports Arg1:T30 Arg2:T31	
+T32	own_claim 6103 6295	What we propose to do is to enhance the current joint skinning system using the curve skeleton skinning and retain the current animation production pattern that the animators are familiar with
+T33	background_claim 6303 6375	the joint skeleton is a discrete centre line representation of an object
+T34	background_claim 6377 6439	the curve skeleton offers a continuous skeletal representation
+R11	contradicts Arg1:T34 Arg2:T33	
+T35	own_claim 6446 6481	a character will have two skeletons
+T36	own_claim 6533 6667	The curve skeleton being continuous gives the maximum sampling rate and provides skin deformation transformation without any artifacts
+T37	own_claim 6483 6510	the ordinary joint skeleton
+T38	own_claim 6515 6531	a curve skeleton
+R12	supports Arg1:T37 Arg2:T35	
+R13	supports Arg1:T38 Arg2:T35	
+R14	supports Arg1:T33 Arg2:T37	
+R15	supports Arg1:T34 Arg2:T38	
+R16	supports Arg1:T36 Arg2:T38	
+T39	own_claim 6682 6822	we will demonstrate how the curve skeleton technique can drive muscle-based systems to achieve realistic muscle deformation during animation
+T40	own_claim 6824 7030	Using our technique, the animator is able to work without digressing from the familiarity of the current joint-based system, but at the same time achieves maximum visual realism in terms of skin deformation
+T41	background_claim 7064 7124	the term curve skeleton has been used for other applications
+T42	background_claim 7231 7304	and it was defined as ‘a 1D subset of the medial surface of a 3D object.’
+T43	data 7134 7152	virtual navigation
+T44	data 7154 7179	reduced-model formulation
+T45	data 7181 7206	visualization improvement
+T46	data 7208 7230	surface reconstruction
+R17	supports Arg1:T43 Arg2:T41	
+R18	supports Arg1:T44 Arg2:T41	
+R19	supports Arg1:T45 Arg2:T41	
+R20	supports Arg1:T46 Arg2:T41	
+R21	parts_of_same Arg1:T42 Arg2:T41	
+T47	data 7305 7306	2
+R22	supports Arg1:T47 Arg2:T42	
+T48	own_claim 7332 7399	it should not be confused with what we are presenting in this paper
+T49	own_claim 7315 7330	some similarity
+R23	contradicts Arg1:T49 Arg2:T48	
+T50	own_claim 7401 7523	One should neither confuse this with the inverse kinematics (IK) spline handle tool provided by the animation package Maya
+T51	own_claim 7559 7604	they are in essence very different techniques
+R24	supports Arg1:T51 Arg2:T50	
+T52	own_claim 7533 7557	their seeming similarity
+R25	contradicts Arg1:T52 Arg2:T51	
+T53	background_claim 8165 8274	Mesh deformations due to skeletal joint influence have undergone significant improvements in the recent years
+T54	background_claim 8276 8317	Some of the normal deformation techniques
+T55	background_claim 8365 8407	can be used in skin deformation techniques
+T56	data 8323 8345	free form deformations
+T57	data 8356 8364	lattices
+R26	supports Arg1:T56 Arg2:T54	
+T58	background_claim 8409 8427	Singh and Kokkevis
+T59	data 8428 8429	3
+R27	supports Arg1:T59 Arg2:T58	
+R28	supports Arg1:T57 Arg2:T54	
+R29	parts_of_same Arg1:T55 Arg2:T54	
+T60	background_claim 8430 8461	demonstrate this in their paper
+R30	parts_of_same Arg1:T60 Arg2:T58	
+R31	supports Arg1:T58 Arg2:T55	
+T61	background_claim 8463 8506	They use surface-oriented FFDs for skinning
+T62	data 8625 8626	4
+T63	background_claim 8508 8608	An interactive deformation technique for complex geometric objects using curves or wires is detailed
+R32	supports Arg1:T62 Arg2:T63	
+T64	background_claim 8630 8699	There are basically two main approaches to modeling skin deformations
+T65	background_claim 8709 8731	anatomy-based approach
+T66	background_claim 8736 8761	skin-shape based approach
+R33	supports Arg1:T65 Arg2:T64	
+R34	supports Arg1:T66 Arg2:T64	
+T67	background_claim 8794 8946	The anatomical approach derives its name from its implementation using anatomical models of muscles and skeletons and other relevant interior structures
+T68	background_claim 8948 9140	These modules undergo deformation when the body moves and a skin simulation and collision detection algorithm is run which would realistically deform the skin where and whenever it is required
+T69	data 9154 9155	5
+T70	background_claim 9159 9264	details a technique of efficient muscle shape deformation using the anatomical skin deformation technique
+R35	supports Arg1:T69 Arg2:T70	
+T71	data 9278 9279	5
+T72	background_claim 9283 9362	resorts to the creation of a muscle model, which is categorized into two layers
+R36	supports Arg1:T71 Arg2:T72	
+T73	background_claim 9364 9378	an action line
+T74	background_claim 9383 9397	a surface mesh
+R37	supports Arg1:T73 Arg2:T72	
+R38	supports Arg1:T74 Arg2:T72	
+T75	background_claim 9411 9471	the action line is the mechanism that drives the deformation
+T76	background_claim 9473 9594	They also implement attractive and repulsive force fields in the form of ellipsoid metaballs to stabilize the action line
+T77	background_claim 9596 9757	Simulation of complex dynamics and performing complex collisions and also providing a visually realistic output form the main strength of the anatomical approach
+T78	background_claim 9759 9846	Incorporating physical properties of anatomy structures can potentially improve realism
+T79	background_claim 9848 9894	Physics can be used either at the muscle level
+T80	data 9895 9896	6
+T81	background_claim 9897 9930	or used to help character rigging
+R39	supports Arg1:T80 Arg2:T79	
+R40	parts_of_same Arg1:T81 Arg2:T79	
+T82	data 9932 9933	7
+R41	supports Arg1:T82 Arg2:T81	
+T83	data 9946 9947	8
+T84	background_claim 9950 10027	presents another approach to deformation using an elastic surface layer model
+R42	supports Arg1:T83 Arg2:T84	
+T85	background_claim 10029 10096	It uses a layered structure of anatomical parts from the inside out
+T86	data 10098 10132	skeleton-&gt;bone-&gt;fat-&gt;skin
+R43	supports Arg1:T86 Arg2:T85	
+T87	background_claim 10245 10298	The drawback comes in the form of computation expense
+T88	background_claim 10134 10243	The surface is discretized and finite differencing techniques are used to evolve the deformation through time
+T89	background_claim 10300 10329	The anatomy-based approach is
+T90	background_claim 10340 10468	used mainly in high-quality film visual effects where anatomical accuracy is a must for believable computer generated characters
+R44	parts_of_same Arg1:T90 Arg2:T89	
+R45	supports Arg1:T87 Arg2:T89	
+R46	supports Arg1:T78 Arg2:T89	
+T91	background_claim 10470 10574	The example-based approach forms a suitable alternative where computational expenses are to be minimized
+T92	background_claim 10576 10634	This method takes an interpolative approach to deformation
+T93	background_claim 10636 10749	An artist models certain key poses of the characters where a correlation is maintained for the degrees of freedom
+T94	background_claim 10819 10866	New poses are interpolated from these key poses
+T95	background_claim 10868 11034	A modified least square fitting technique is used to compute the weights of the deformation and the subsequent generalization of skin movement to other animated poses
+T96	data 11051 11052	9
+T97	background_claim 11055 11103	the algorithm is trained in a statistical manner
+T98	background_claim 11112 11178	deformation computation for an arbitrary animated pose can be done
+R47	supports Arg1:T96 Arg2:T97	
+R48	supports Arg1:T97 Arg2:T98	
+T99	background_claim 11180 11290	They use a technique called multiweight enveloping in place of single-weight enveloping for better deformation
+R49	supports Arg1:T96 Arg2:T99	
+R50	supports Arg1:T83 Arg2:T85	
+R51	supports Arg1:T83 Arg2:T88	
+R52	supports Arg1:T71 Arg2:T76	
+R53	supports Arg1:T59 Arg2:T61	
+T100	data 11304 11306	10
+T101	background_claim 11314 11471	implements an example-based approach to deforming meshes by using radial basis functions to supply the interpolation weights and also for shape interpolation
+R54	supports Arg1:T100 Arg2:T101	
+T102	background_claim 11473 11592	A variation of example-based approach where key example poses are derived from arbitrary unrelated examples is detailed
+T103	background_claim 11614 11640	where a range scan is used
+T104	data 11609 11611	11
+R55	supports Arg1:T104 Arg2:T102	
+R56	parts_of_same Arg1:T103 Arg2:T102	
+T105	background_claim 11647 11749	example-based approaches have the advantage over anatomical approaches by being computationally faster
+T106	background_claim 11780 11876	creating example poses are much easier compared to creating detailed anatomically correct models
+T107	background_claim 11878 12097	Most of the described techniques are built upon the existing hierarchical skeletal joint system and modify 10 or even create 9,12 new weight calculations to rectify any sort of physical artifacts in the skin deformation
+T108	background_claim 12099 12194	The example-based approach relies on key sample poses to derive a generalization of deformation
+T109	background_claim 12200 12233	this becomes a major disadvantage
+T110	background_claim 12238 12295	this in itself is an expensive and time-consuming process
+R57	supports Arg1:T110 Arg2:T109	
+T111	background_claim 12297 12361	It is not desirable to create many examples and train the system
+T112	own_claim 12363 12546	Our approach builds upon the existing system using the curve skeleton for a continuous sampling of the skin surface thereby facilitating skin deformations devoid of geometry artifacts
+T113	own_claim 12554 12603	our technique falls in between the two approaches
+T114	own_claim 12605 12689	seamless integration with the two is also possible and becomes its strong advantages
+R58	supports Arg1:T113 Arg2:T114	
+T115	own_claim 12691 12747	A relevant technique to ours is the sweep-based skinning
+T116	data 12749 12751	13
+R59	supports Arg1:T116 Arg2:T115	
+T117	background_claim 12752 12872	The body of a character is segmented with a large number of sweep planes which will be transformed by the joint skeleton
+T118	background_claim 12874 12960	These planes are used to guide the transformation of every skin point during animation
+R60	supports Arg1:T116 Arg2:T117	
+R61	supports Arg1:T116 Arg2:T118	
+T119	own_claim 12962 13046	With our method, the skin surface does not need to be approximated by sweep surfaces
+T120	own_claim 13048 13139	It will be deformed directly by the underlying curve skeleton, leading to a simpler process
+T121	background_claim 13684 13768	Skeleton and skin relationship in the present production pipeline is strictly linear
+T122	background_claim 13900 13999	linear blending or skeletal space deformation falls short in accurately depicting skin deformations
+T123	background_claim 14011 14034	their non-linear nature
+R62	supports Arg1:T123 Arg2:T122	
+R63	contradicts Arg1:T122 Arg2:T121	
+T124	background_claim 14036 14070	This non-linear nature is explored
+T125	data 14087 14089	12
+T126	background_claim 14098 14130	a spherical blending is proposed
+R64	supports Arg1:T125 Arg2:T124	
+R65	supports Arg1:T125 Arg2:T126	
+T127	background_claim 14132 14245	Only the translation factor is most commonly used for the skin vertices and the rotation factor is not considered
+T128	background_claim 14272 14313	the problem reduces after weight painting
+T129	data 14324 14376	the joint influence fall-off follows a curve pattern
+R66	supports Arg1:T129 Arg2:T128	
+T130	data 14395 14396	9
+T131	background_claim 14378 14394	Wang and Philips
+T132	background_claim 14397 14498	introduce a multiweight technique to eliminate this problem in a normal joint-based skeleton skinning
+R67	parts_of_same Arg1:T132 Arg2:T131	
+R68	supports Arg1:T130 Arg2:T131	
+T133	background_claim 14509 14598	this requires the generation of a large number of pre-modeled examples in the first place
+R69	contradicts Arg1:T133 Arg2:T132	
+R70	supports Arg1:T130 Arg2:T133	
+T134	data 14683 14687	1,14
+T135	background_claim 14600 14645	The solution to the collapsing joints problem
+T136	background_claim 14793 14818	has the added problems of
+T137	background_claim 14824 14861	creating a new joint in the hierarchy
+T138	background_claim 14867 14953	joint connections have to be done again to connect the new joint in the existing chain
+T139	background_claim 14963 15031	painting of weights have to be adjusted to accommodate the new joint
+R71	parts_of_same Arg1:T136 Arg2:T135	
+R72	supports Arg1:T134 Arg2:T135	
+R73	supports Arg1:T137 Arg2:T136	
+R74	supports Arg1:T138 Arg2:T136	
+R75	supports Arg1:T139 Arg2:T136	
+T140	own_claim 15033 15149	With our curve skeleton technique, the curve serves as a duplicated skeleton to the actual underlying joint skeleton
+T141	own_claim 15151 15214	Effectively any point on the curve can be considered as a joint
+T142	own_claim 15232 15333	the skeleton is equipped with an infinite number of joints, which will influence the skin deformation
+T143	own_claim 15335 15434	The curve nature of the skeleton makes it easier to manipulate it with a great order of flexibility
+T144	own_claim 15436 15633	The idea to use a curve skeleton side by side with the traditional joint skeleton is conceptually simple and functionally efficient giving realistic skin deformations even under extreme mesh duress
+T145	own_claim 15635 15738	Our curve skeleton technique takes full advantage of the nonlinearity of the skeleton-skin relationship
+T146	own_claim 15803 15909	The curve skeleton can be generated in two ways depending on what the animator supplied in the first place
+T147	data 15914 15995	the animator supplies a skin model and a skeleton model in the traditional manner
+T148	own_claim 15997 16034	the curve skeleton generation is easy
+R76	supports Arg1:T147 Arg2:T148	
+T149	data 16058 16103	the animator supplies only a 3D surface model
+T150	own_claim 16138 16237	the generation of the skeleton becomes slightly more complex in that an additional step is required
+R77	supports Arg1:T149 Arg2:T150	
+R78	contradicts Arg1:T150 Arg2:T148	
+T151	own_claim 16239 16322	A temporary copy of the surface model can be created (during runtime) and voxelized
+T152	data 16410 16412	15
+T153	own_claim 16324 16408	Once voxelized, a curve skeleton is created using the repulsive force field function
+R79	supports Arg1:T152 Arg2:T153	
+T154	own_claim 16413 16512	Then the temporary mesh can be deleted and the skeleton can be used with the original surface model
+T155	own_claim 17547 17637	The reason for the floating position is to eliminate the selfintersection of the skin mesh
+T156	data 17640 17652	Figure 1 -a1
+R80	supports Arg1:T156 Arg2:T155	
+T157	own_claim 17655 17822	Before we can predict the exact movement of the Bone_CP, first we should estimate the approximate distance d from the skin surface to the relevant link of the skeleton
+T158	own_claim 17824 17942	The condition for non-self-intersection is to check if the local radius of curvature r at the joint is not less than d
+T159	own_claim 17978 18042	we can extract the exact expression from the position of Bone_CP
+T160	data 17947 17976	we analyse the curve function
+R81	supports Arg1:T160 Arg2:T159	
+T161	own_claim 18056 18100	the distance d is only an approximate result
+T162	own_claim 18102 18141	it may not fit exactly in the animation
+R82	supports Arg1:T161 Arg2:T162	
+T163	own_claim 18146 18235	here the floating position of the Bone_CP is left to the animator to define interactively
+R83	supports Arg1:T159 Arg2:T163	
+R84	supports Arg1:T162 Arg2:T163	
+T164	data 18238 18250	Figure 1 -a2
+R85	supports Arg1:T164 Arg2:T163	
+T165	own_claim 18253 18381	By providing the animator with more parameters, which he/she can tweak, we grant flexibility and freedom to adjust the animation
+T166	own_claim 19929 19961	a fork exists in the joint chain
+T167	own_claim 19881 19913	In anatomical areas like the hip
+T168	data 19916 19925	Figure 1b
+R86	supports Arg1:T168 Arg2:T167	
+R87	parts_of_same Arg1:T166 Arg2:T167	
+T169	own_claim 19970 19996	three curves are generated
+R88	supports Arg1:T166 Arg2:T169	
+T170	own_claim 19998 20064	two curves starting from the central link to the two limbs linkage
+T171	own_claim 20086 20117	one curve linking the two links
+R89	supports Arg1:T170 Arg2:T169	
+R90	supports Arg1:T171 Arg2:T169	
+T172	own_claim 20204 20255	In the neck area, a cross exists in the joint chain
+T173	own_claim 20266 20295	it appears to have four links
+T174	own_claim 20297 20355	we only need to generate two curves for the curve skeleton
+R91	contradicts Arg1:T174 Arg2:T173	
+T175	data 20368 20379	Figure 1(c)
+R92	supports Arg1:T175 Arg2:T174	
+T176	own_claim 20451 20503	we will use a maximum of three curves for each joint
+T177	data 20432 20449	a human character
+R93	supports Arg1:T177 Arg2:T176	
+R94	supports Arg1:T174 Arg2:T176	
+R95	supports Arg1:T169 Arg2:T176	
+T178	own_claim 20505 20543	In most cases, one curve is sufficient
+T179	own_claim 20670 20756	In our method, the parameter t on the curve plays an important role in the deformation
+T180	own_claim 22184 22268	An important feature of the local frame is the centre of the local coordinate system
+T181	data 22273 22305	the centre is lying on the curve
+T182	own_claim 22307 22367	the deformed skin will move out from underneath the skeleton
+R96	supports Arg1:T181 Arg2:T182	
+T183	own_claim 22369 22432	The underlying structures like muscles or bones will be exposed
+R97	supports Arg1:T182 Arg2:T183	
+T184	data 22594 22633	the bone twists around its local x-axis
+T185	own_claim 22635 22695	it will not have any effect on the associated curve skeleton
+R98	supports Arg1:T184 Arg2:T185	
+T186	own_claim 22697 22719	This is not acceptable
+T187	own_claim 22958 23067	For each point on the curve, we still need a twist distribution to define how the curve twists along its path
+T188	own_claim 23069 23106	Normally it is not evenly distributed
+T189	data 23127 23149	the twist of a forearm
+R99	supports Arg1:T189 Arg2:T188	
+T190	own_claim 23202 23313	we provide the animator with the freedom to control how the curve twists by manipulating the distribution curve
+T191	own_claim 23315 23337	The distribution curve
+T192	data 23340 23349	Figure 3a
+T193	own_claim 23352 23398	is very much like the animation curves in Maya
+R100	supports Arg1:T192 Arg2:T191	
+R101	parts_of_same Arg1:T193 Arg2:T191	
+T194	own_claim 23400 23507	Here the twist angle is distributed along the distribution curve so that the twisting is smooth and natural
+T195	data 24960 25002	we can settle the associated curve segment
+T196	own_claim 24913 24956	The values ht, u, di can be easily computed
+R102	supports Arg1:T195 Arg2:T196	
+T198	own_claim 25009 25140	the challenging part of the work is to find the associated curve segment, and assign the weighting parameter for each curve segment
+R103	supports Arg1:T196 Arg2:T198	
+T199	data 25178 25180	16
+T197	background_claim 25181 25231	associated with the traditional joint-based method
+T200	background_claim 25155 25177	There is a lot of work
+R104	supports Arg1:T199 Arg2:T200	
+R105	parts_of_same Arg1:T197 Arg2:T200	
+T201	data 25238 25271	the containment-binding algorithm
+R106	supports Arg1:T201 Arg2:T197	
+T202	data 25273 25294	point-to-line mapping
+R107	supports Arg1:T202 Arg2:T197	
+T203	data 25296 25323	Delaunay tetrahedralization
+R108	supports Arg1:T203 Arg2:T197	
+T204	own_claim 25325 25502	The relevant default weight factors w i of a skin point for the ith curve segment is determined by the distance between the skin point concerned with the relevant curve segments
+T205	data 25507 25550	a skin point is related with only one curve
+T206	own_claim 25592 25621	the weight factor is always 1
+R109	supports Arg1:T205 Arg2:T206	
+T207	data 25627 25679	those skin points associated with two curve segments
+T208	own_claim 25681 25765	the default weights are proportional to the distances to the relevant curve segments
+R110	supports Arg1:T207 Arg2:T208	
+T209	own_claim 25776 25858	the further away a skin point is from the curve segment, the smaller the weight is
+R111	supports Arg1:T207 Arg2:T209	
+R112	semantically_same Arg1:T209 Arg2:T208	
+T210	own_claim 25860 25938	This is also the case for any skin points associated with three curve segments
+T211	own_claim 25954 26018	the summation of the weights are constrained to one, P w i 1⁄4 1
+T212	own_claim 26020 26119	The animator will have freedom to edit the weighting factors in the same way as the smooth skinning
+T213	own_claim 26200 26289	weight assignment for a skin point is simpler than the traditional smooth skinning method
+T214	own_claim 26294 26357	the computation for skin deformation is computationally cheaper
+T215	data 26132 26198	we have a maximum of only three curve segments for each skin point
+R113	supports Arg1:T215 Arg2:T213	
+R114	supports Arg1:T215 Arg2:T214	
+T216	background_claim 26359 26425	Smooth skinning usually involves three weights for each skin point
+T217	background_claim 26430 26482	in many cases there could be as many as five weights
+T218	background_claim 26484 26500	This is worsened
+T219	data 26504 26532	additional joints are placed
+R115	supports Arg1:T219 Arg2:T218	
+T220	background_claim 26578 26654	The more the joints, the trickier it is to determine the weight distribution
+T221	own_claim 26656 26726	With our curved skeleton, this problem will almost certainly not arise
+T222	own_claim 26866 26910	deforming the skin is pretty straightforward
+T223	data 26823 26864	the skin is bound with the curve skeleton
+R116	supports Arg1:T223 Arg2:T222	
+T224	own_claim 27546 27619	is slightly faster than that of the traditional smooth skinning technique
+T225	own_claim 27498 27540	our computation speed is at the same order
+R117	contradicts Arg1:T224 Arg2:T225	
+T226	own_claim 27313 27358	we use on average a smaller number of weights
+T227	own_claim 27360 27464	This leads to a smaller number of summation terms needed for the calculation of the deformed skin points
+R118	supports Arg1:T226 Arg2:T227	
+T228	data 27470 27482	Equation (3)
+R119	supports Arg1:T228 Arg2:T227	
+R120	supports Arg1:T227 Arg2:T225	
+R121	supports Arg1:T227 Arg2:T224	
+T229	own_claim 28525 28587	muscles will give an added layer of realism to the deformation
+T230	own_claim 28675 28817	With our curve skeleton technique, muscle deformation can be fully integrated where the muscles are driven and animated by our curve skeletons
+T231	data 28899 28901	17
+T232	background_claim 28819 28898	One of the best third party muscle simulation systems available called muscleTK
+R122	supports Arg1:T231 Arg2:T232	
+T233	background_claim 28902 28953	deforms the muscle using the so-called action lines
+R123	parts_of_same Arg1:T233 Arg2:T232	
+T234	background_claim 29041 29137	the disadvantage is that the action line has to be manually animated each frame during animation
+R124	contradicts Arg1:T234 Arg2:T232	
+T235	own_claim 29139 29228	Using the proposed curve skeleton, we can realistically deform not only the skin directly
+T236	own_claim 29253 29294	but also the muscles, in a unified manner
+R125	parts_of_same Arg1:T236 Arg2:T235	
+T237	own_claim 29309 29405	each action line is deformed by a curve skeleton, and the action line in turn deforms the muscle
+T238	own_claim 29418 29541	we can achieve sophisticated muscle deformations without the tediousness of animating the action lines manually every frame
+R126	supports Arg1:T237 Arg2:T238	
+T239	own_claim 29621 29748	we can first transform the control points (CP) of the action line from world space to the associated curve skeleton local frame
+T240	data 29548 29619	the effect of a muscle bending around the joint or the bone is required
+R127	supports Arg1:T240 Arg2:T239	
+T241	own_claim 29750 29808	These CPs will then be transformed with the curve skeleton
+T242	data 29897 29906	Figure 3b
+T243	own_claim 29810 29894	resulting in the muscle bending around the joint or bone being automatically created
+R128	supports Arg1:T241 Arg2:T243	
+R129	supports Arg1:T242 Arg2:T241	
+T244	background_claim 30770 30835	Maya is the most widely used 3D animation package in the industry
+T245	background_claim 30903 30985	Autodesk has provided Maya APIs for developers to expand the functionality of Maya
+T246	data 30987 30995	Maya 6.5
+T247	data 31000 31013	Visual Studio
+R130	supports Arg1:T246 Arg2:T245	
+R131	supports Arg1:T247 Arg2:T245	
+T248	own_claim 31015 31072	NET were used in the implementation of the curve skeleton
+T249	own_claim 31162 31222	curve tools to generate the curves according to his/her wish
+T250	own_claim 31128 31156	works with normal edit point
+T251	own_claim 31107 31117	the artist
+R132	parts_of_same Arg1:T250 Arg2:T251	
+R133	parts_of_same Arg1:T249 Arg2:T250	
+T252	own_claim 31278 31326	the curves become the skeleton for the skin mesh
+T253	data 31229 31276	the curve is selected and the plug-in activated
+R134	supports Arg1:T253 Arg2:T252	
+T254	own_claim 31397 31458	any movement of the joints affects the curvature of the curve
+T255	own_claim 31328 31388	Internally, the curve cluster is bound to the joint skeleton
+R135	supports Arg1:T255 Arg2:T254	
+T256	own_claim 31460 31587	The local transformations of the curve points are applied to the skin mesh vertices thereby generating deformations on the skin
+T257	background_claim 32116 32199	Skin deformation is closely linked with the movement of the skeleton of a character
+T258	background_claim 32201 32277	It is understandable that the relationship between both is highly non-linear
+T259	background_claim 32285 32302	poses a challenge
+T260	data 32306 32364	the relationship is to be modeled mathematically correctly
+R136	supports Arg1:T258 Arg2:T259	
+R137	supports Arg1:T260 Arg2:T259	
+T261	background_claim 32366 32446	Existing skeletondriven techniques regard it as a much-simplified linear problem
+T262	background_claim 32463 32548	has resulted in unrealistic skin deformation in certain regions of the character body
+T263	own_claim 32564 32593	we have presented a technique
+T264	own_claim 32639 32687	by considering it as a proper non-linear problem
+R138	parts_of_same Arg1:T264 Arg2:T263	
+R139	contradicts Arg1:T263 Arg2:T261	
+T265	own_claim 32689 32873	The main advantage of this technique is its consistency with the current animation production practice and the ability to overcome the undesirable drawbacks of skeleton-driven skinning
+T266	own_claim 32911 32986	the technique reduces a level of complexity in the skinning and deformation
+T267	own_claim 33058 33102	we allow the animator to work conventionally
+T268	own_claim 33132 33160	and yet receive good results
+R140	parts_of_same Arg1:T268 Arg2:T267	
+T269	own_claim 33231 33340	we have successfully created a fusion, which maximizes the efficiency of surface deformation during animation
+T270	own_claim 33342 33424	For an articulated character, we use no more than three weights for any skin point
+T271	own_claim 33435 33513	for the majority of cases, there is only one weight, which is 1, to be is used
+T272	background_claim 33534 33620	the traditional smooth skinning technique that usually requires on average 3–5 weights
+T273	own_claim 33622 33653	our computation speed is faster
+T275	own_claim 33740 33797	spline handle tool provided by the animation package Maya
+T274	own_claim 33655 33734	One should not confuse the curve skeleton technique with the inverse kinematics
+R141	parts_of_same Arg1:T275 Arg2:T274	
+T276	background_claim 33833 33929	the objective of the Maya IK spline handle tool is to control the joint positions using a spline
+T277	background_claim 33931 34007	Skin deformation is achieved using the traditional smooth skinning technique
+T278	own_claim 34125 34219	The Maya plug-in implementation of the curve skeleton technique has given satisfactory results
+T279	own_claim 34221 34389	One of the main advantages of the curve skeleton skin deformation technique is that, the curve skeleton needs not necessarily be placed on the underlying joint skeleton
+T280	own_claim 34391 34620	With a slight modification utilizing a linear mapping of curve points to the joint skeleton, the plug-in can make use of a displaced curve skeleton which would be useful for subtle deformation on anatomical areas like the armpits
+T281	own_claim 34682 34789	Our current implementation allows both skin and muscle deformation to be modeled within a unified framework
+T282	own_claim 34807 34876	we will further improve the skinning realism by adding the fat effect
+T283	background_claim 34878 34931	Fat usually deposits between the skin and the muscles
+T284	background_claim 34933 35000	Effective realism occurs when the skin actually slides over the fat
+T285	data 35104 35105	8
+T286	background_claim 35084 35103	Turner and Thalmann
+T287	background_claim 35106 35293	defines the fat layer as a thickness specified at each point on the skin surface and make use of reaction constraints to push the skin the required distance out from the underlying layers
+R142	supports Arg1:T285 Arg2:T286	
+R143	parts_of_same Arg1:T287 Arg2:T286	
+T288	data 35310 35312	18
+T289	background_claim 35295 35309	Yang and Zhang
+T290	background_claim 35313 35409	devises a fast method for simulating fat in which a fat bulge distribution function is described
+R144	supports Arg1:T288 Arg2:T289	
+R145	parts_of_same Arg1:T290 Arg2:T289	
+T291	background_claim 35411 35497	They have used a geometric method instead of resorting to a physical simulation method
+T292	background_claim 35503 35584	gives convincing results without the computational expense of physical simulation
+R146	supports Arg1:T288 Arg2:T291	
+R147	supports Arg1:T288 Arg2:T292	
+T293	own_claim 35586 35685	With a small modification, the fat bulge effect can be made even in a curve skeleton-based skinning
+T294	data 35790 35813	the skeleton is a curve
+T295	own_claim 35815 35932	distribution and deformation can be linked with the tangent angle at a given number of curve points around the joints
+R148	supports Arg1:T294 Arg2:T295	
+T296	own_claim 35937 35966	fat is largely incompressible
+T297	own_claim 35988 36099	flesh between the adjacent bones will be squeezed, producing bulges immediately near the joint and at the sides
+T298	data 35973 35986	a joint bends
+R149	supports Arg1:T298 Arg2:T297	
+R150	supports Arg1:T296 Arg2:T297	
+T299	own_claim 36101 36187	Using curve tangents will provide for an accurate distribution in any given time frame
+T300	own_claim 36199 36259	the integrated results from the sample multiple curve points
+R151	supports Arg1:T300 Arg2:T299	

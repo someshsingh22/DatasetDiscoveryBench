@@ -1,0 +1,534 @@
+T1	background_claim 2076 2216	The problem of simulating the behavior of clothes is one subject the graphics community has been grappling with since almost two decades ago
+T2	data 2219 2221	19
+T3	data 2224 2226	21
+R1	supports Arg1:T2 Arg2:T1	
+R2	supports Arg1:T3 Arg2:T1	
+T4	background_claim 2229 2355	Relatively little emphasis has been placed on the separate problem of how to achieve real-time performance in simulating cloth
+T5	background_claim 2357 2399	A number of strategies have been suggested
+T6	data 2409 2487	using simplifying assumptions for the physics model and/or collision detection
+R3	supports Arg1:T6 Arg2:T5	
+T7	data 2490 2491	7
+T8	data 2495 2497	12
+R4	supports Arg1:T7 Arg2:T5	
+R5	supports Arg1:T8 Arg2:T5	
+T9	background_claim 2500 2529	A recent work by James et al.
+T10	background_claim 2536 2598	suggests a different approach by adopting a data-driven method
+T11	data 2531 2533	10
+R6	supports Arg1:T11 Arg2:T10	
+R7	parts_of_same Arg1:T10 Arg2:T9	
+T12	background_claim 2600 2631	These techniques do not suffice
+T13	data 2647 2733	simulating fully dressed virtual characters in real-time, leaving the topic unexplored
+R8	contradicts Arg1:T12 Arg2:T10	
+R9	supports Arg1:T13 Arg2:T12	
+T14	own_claim 2735 2824	We present a data-driven method for simulating clothes worn by 3D characters in real-time
+T15	own_claim 2826 2879	To effectively optimize the physics-based deformation
+T16	background_claim 2881 2922	which is the bottleneck of the simulation
+T17	own_claim 2924 3014	we use a coarse representation of the cloth mesh to drive the gross behavior in simulation
+R10	parts_of_same Arg1:T17 Arg2:T15	
+T18	own_claim 3016 3105	We consider that the gross cloth behavior is driven mainly by two separable contributions
+T19	own_claim 3107 3195	the skeleton-driven movement of the character and the mechanical properties of the cloth
+R11	supports Arg1:T19 Arg2:T18	
+T22	data 3307 3308	5
+T20	background_claim 3197 3304	This consideration was partly inspired by the hybrid real-time simulation method proposed in Cordier et al.
+R12	supports Arg1:T22 Arg2:T20	
+T21	background_claim 3312 3414	where a hybrid deformation method is used to combine dynamic surfaces with Skeleton-Driven Deformation
+T23	own_claim 3451 3522	our method exhibits significantly more efficient and realistic behavior
+T24	own_claim 3429 3440	that method
+R13	contradicts Arg1:T23 Arg2:T24	
+T25	own_claim 3524 3671	This effect is achieved by focusing on the analysis of cloth movements in relation to its associated skin surface, and adopting a learning strategy
+T26	own_claim 3673 3877	The idea is to use the analysis of the presimulated sequence to identify the region largely explained by joint movement and to replace the physics based simulation with geometric methods wherever possible
+T27	own_claim 3896 3993	the key ingredients of the new technique are associated with different facets of cloth simulation
+T28	own_claim 4002 4193	our novel collision detection prunes out unnecessary collision tests by tightly localizing potentially colliding regions through the analysis of the cloth movement in relation to the skeleton
+T29	data 3882 3894	our approach
+R14	supports Arg1:T29 Arg2:T27	
+T30	own_claim 4203 4323	we use the pre-simulated sequence to approximate the dynamic behavior of the coarse mesh geometrically wherever possible
+T31	own_claim 4334 4406	fine details such as wrinkles are also simulated in a data-driven manner
+R15	supports Arg1:T28 Arg2:T27	
+R16	supports Arg1:T30 Arg2:T27	
+R17	supports Arg1:T31 Arg2:T27	
+T32	own_claim 4477 4538	real-time animation of fully dressed human could be generated
+T33	own_claim 4540 4580	which would be suitable for applications
+T34	data 4589 4652	games where visual plausibility is more important than accuracy
+R18	supports Arg1:T34 Arg2:T33	
+T35	background_claim 5196 5303	Probably the most common technique for simulating the physical properties of clothes is the particle system
+T36	background_claim 5305 5432	Simulation process is broken down into calculating the internal forces and solving the system of Partial Differential Equations
+T37	background_claim 5440 5523	The latter point has attracted much interest in the field of real-time applications
+T38	data 5531 5565	it requires high computation power
+R19	supports Arg1:T38 Arg2:T37	
+T39	background_claim 5567 5592	The explicit Euler method
+T40	background_claim 5600 5643	has been one of the first numerical solvers
+T41	data 5596 5597	2
+R20	parts_of_same Arg1:T40 Arg2:T39	
+R21	supports Arg1:T41 Arg2:T40	
+T42	background_claim 5660 5704	this method is notorious for its instability
+T43	data 5710 5752	using large time steps and stiff equations
+R22	supports Arg1:T43 Arg2:T42	
+T44	background_claim 5755 5816	Several improvements have been proposed to reduce instability
+T45	data 5826 5848	the Verlet integration
+T46	data 5859 5908	the explicit Euler combined with inverse dynamics
+T47	data 5851 5853	11
+T48	data 5911 5913	17
+T49	data 5916 5918	20
+R23	supports Arg1:T47 Arg2:T44	
+R24	supports Arg1:T45 Arg2:T44	
+R25	contradicts Arg1:T42 Arg2:T40	
+R26	supports Arg1:T48 Arg2:T44	
+R27	supports Arg1:T49 Arg2:T44	
+R28	supports Arg1:T46 Arg2:T44	
+T50	background_claim 5936 6002	the simulation quality is sacrificed in favor of computation speed
+T51	data 6011 6054	the approximations employed in these models
+R29	supports Arg1:T51 Arg2:T50	
+R30	contradicts Arg1:T50 Arg2:T44	
+T52	background_claim 6056 6108	The implicit Euler method presented by Baraff et al.
+T53	background_claim 6116 6188	performs the computation not by using the derivative at the current time
+T54	background_claim 6194 6240	the predicted derivative at the next time step
+R31	contradicts Arg1:T54 Arg2:T53	
+R32	parts_of_same Arg1:T53 Arg2:T52	
+T55	data 6112 6113	2
+R33	supports Arg1:T55 Arg2:T53	
+T56	background_claim 6277 6326	the implicit Euler method offers higher stability
+T57	background_claim 6249 6275	explicit Euler integration
+T58	background_claim 6333 6400	using large time-steps and clothes with stiff mechanical properties
+R34	contradicts Arg1:T56 Arg2:T57	
+R35	contradicts Arg1:T58 Arg2:T56	
+T59	background_claim 6402 6443	A major drawback of this numerical solver
+T60	background_claim 6454 6497	is the computation of a large linear system
+R36	parts_of_same Arg1:T60 Arg2:T59	
+R37	contradicts Arg1:T59 Arg2:T58	
+T61	background_claim 6514 6591	researchers worked on saving the computation time of the linear system solver
+T62	background_claim 6593 6606	Desbrun et al
+T63	background_claim 6615 6683	proposed solving the linear system with a precomputed inverse matrix
+T64	data 6610 6611	7
+R38	parts_of_same Arg1:T63 Arg2:T62	
+R39	supports Arg1:T64 Arg2:T63	
+T65	background_claim 6685 6696	Kang et al.
+T66	background_claim 6703 6816	proposed further optimization with a direct update formula for the positions and velocities of the cloth vertices
+T67	data 6699 6701	12
+R40	parts_of_same Arg1:T66 Arg2:T65	
+R41	supports Arg1:T67 Arg2:T66	
+T68	background_claim 6847 6925	these methods are not intended to provide a physically-correct cloth animation
+T69	data 6834 6845	the authors
+R42	supports Arg1:T69 Arg2:T68	
+T70	own_claim 6927 6991	Our approach to that problem is a data-driven mass-spring system
+T71	own_claim 6993 7083	the simulation is corrected with a set of functions built from the pre-simulated animation
+R43	supports Arg1:T71 Arg2:T70	
+T72	own_claim 7188 7256	Another approach to fast garment deformations is the hybrid approach
+T73	background_claim 7349 7363	Cordier et al.
+T74	background_claim 7372 7456	proposed to segment the cloth into pieces and simulate these by different algorithms
+R44	parts_of_same Arg1:T74 Arg2:T73	
+T75	data 7367 7368	5
+R45	supports Arg1:T75 Arg2:T74	
+T76	background_claim 7574 7616	wrinkle deformation is geometric in nature
+T77	background_claim 7631 7670	can be computed with a geometric method
+T78	data 7551 7557	Others
+R46	supports Arg1:T76 Arg2:T77	
+R47	supports Arg1:T78 Arg2:T76	
+T79	background_claim 7673 7736	Wrinkles can be generated either by tessellating the cloth mesh
+T80	background_claim 7743 7793	or rendering details on texture using bump mapping
+T81	data 7739 7741	12
+R48	supports Arg1:T81 Arg2:T79	
+R49	parts_of_same Arg1:T80 Arg2:T79	
+T82	data 7796 7797	9
+R50	supports Arg1:T82 Arg2:T80	
+T83	background_claim 7800 7847	The main difficulty is defining a fold function
+T84	background_claim 7853 7895	can simulate all kinds of wrinkle patterns
+T85	background_claim 7907 7975	determining the location and shape of wrinkles is left to CG artists
+T86	own_claim 7977 8033	One of our contributions is a geometric wrinkling method
+T87	own_claim 8039 8091	is “trained” by using a pre-simulated cloth sequence
+T88	own_claim 8105 8121	relying on users
+R51	contradicts Arg1:T88 Arg2:T87	
+T89	background_claim 8194 8270	Collision detection is usually one of the bottlenecks in real-time animation
+T90	background_claim 8272 8328	The problem is particularly acute in the case of clothes
+T91	data 8337 8372	these objects are highly deformable
+R52	supports Arg1:T91 Arg2:T90	
+T92	background_claim 8374 8462	Several algorithms have been proposed to process robustly collisions in cloth simulation
+T93	background_claim 8474 8512	without reaching real-time performance
+T94	data 8464 8466	21
+T95	data 8469 8471	22
+R53	supports Arg1:T94 Arg2:T92	
+R54	supports Arg1:T95 Arg2:T92	
+R55	parts_of_same Arg1:T93 Arg2:T92	
+T96	background_claim 8516 8595	Some other methods exploit graphics hardware to compute collisions on bump maps
+T97	background_claim 8603 8663	others use implicit surfaces to check collisions on the body
+T98	background_claim 8674 8727	voxel trees, which partition the space hierarchically
+T99	data 8598 8600	20
+R56	supports Arg1:T99 Arg2:T96	
+T100	data 8666 8668	18
+R57	supports Arg1:T100 Arg2:T97	
+T101	data 8730 8732	14
+R58	supports Arg1:T101 Arg2:T98	
+T102	background_claim 8735 8816	Using frame coherency to reduce computation cost has been explored by Zhang et al
+T103	data 8819 8821	23
+R59	supports Arg1:T103 Arg2:T102	
+T104	own_claim 8838 8889	we propose a data-driven collision detection method
+T105	own_claim 8891 9024	we use the pre-simulated sequence to localize the collision checks to neighboring cloth regions that have high probability to collide
+T106	background_claim 9101 9234	The idea of building an interpolator from examples or pre-simulated data has proven to be a valuable tool in a variety of areas of CG
+T107	data 9245 9284	modeling a variety of human body shapes
+T108	data 9293 9309	motion synthesis
+R60	supports Arg1:T107 Arg2:T106	
+R61	supports Arg1:T108 Arg2:T106	
+T109	background_claim 9311 9442	The basic idea is to build an interpolation space filled with a set of pairs of input parameters and the targeted graphical objects
+T110	data 9444 9498	Cloth animation depends on a high number of parameters
+T111	background_claim 9513 9557	a data-driven approach is difficult to adapt
+R62	supports Arg1:T110 Arg2:T111	
+T112	background_claim 9574 9586	James et al.
+T113	background_claim 9594 9716	resented such an approach, where physics-based deformation and collision detection are both handled in a unified framework
+T114	data 9589 9591	10
+R63	parts_of_same Arg1:T113 Arg2:T112	
+R64	supports Arg1:T114 Arg2:T113	
+T115	background_claim 9793 9834	previous unseen results could be achieved
+T116	data 9844 9898	garments with stiff mechanical properties in real-time
+R65	supports Arg1:T116 Arg2:T115	
+T117	background_claim 9909 9944	they show little degrees of freedom
+T118	background_claim 9951 9982	to the clothes under simulation
+R66	parts_of_same Arg1:T118 Arg2:T117	
+T119	own_claim 10058 10138	we seek a neat combination of a data-driven approach with the mass-spring system
+T120	own_claim 9995 10056	resorting to a data-driven approach for the entire simulation
+R67	contradicts Arg1:T118 Arg2:T115	
+R68	contradicts Arg1:T119 Arg2:T120	
+T121	own_claim 10163 10219	our simulator allows a much higher degree of interaction
+T122	own_claim 10224 10284	it is often needed in animating clothes on moving characters
+T123	background_claim 10308 10371	The history of research on real-time cloth is relatively recent
+T124	background_claim 10373 10453	Researchers have concentrated mainly on two aspects of real-time cloth animation
+T125	background_claim 10455 10524	simulating the physical properties of garments and collision handling
+R69	supports Arg1:T125 Arg2:T124	
+T126	own_claim 10586 10689	The primary focus of this paper is the development of a fast cloth simulator for real-time applications
+T127	own_claim 10691 10738	Dynamic simulation of complex deformable models
+T128	own_claim 10749 10799	can easily involve thousands of degrees of freedom
+R70	parts_of_same Arg1:T128 Arg2:T127	
+R71	contradicts Arg1:T127 Arg2:T126	
+T129	own_claim 11252 11303	Our simulator is based on two levels of deformation
+T130	own_claim 11484 11572	The coarse mesh is generated by simplifying the original cloth mesh through segmentation
+T131	own_claim 11574 11633	The reason for this choice is to lower the computation time
+T132	own_claim 11635 11706	geometric methods are in general much faster than physically-based ones
+T133	data 11708 11709	9
+R72	supports Arg1:T132 Arg2:T131	
+R73	supports Arg1:T133 Arg2:T132	
+T134	own_claim 12386 12423	the clothes are worn on 3D characters
+T135	own_claim 12434 12505	the character movement is the only external force acting upon the cloth
+T136	own_claim 12567 12658	there are considerable correlations between the body motion and the movement of the garment
+T137	data 12512 12565	observing the behavior of garment worn by a character
+T138	own_claim 12660 12747	These correlations are especially clear for some clothes like tight shirts and trousers
+T139	own_claim 14612 14653	Collisions are handled by collision hulls
+T140	own_claim 14654 14698	the position of which is computed by our SDD
+T141	own_claim 14700 14812	The final mesh is then obtained using the winkle shape interpolator and the computed geometry of the coarse mesh
+R74	supports Arg1:T139 Arg2:T141	
+T142	own_claim 15000 15031	The skeleton-driven deformation
+T143	own_claim 15089 15091	is
+T144	own_claim 15100 15156	the most widely used technique in 3D character animation
+R75	parts_of_same Arg1:T144 Arg2:T143	
+R76	parts_of_same Arg1:T143 Arg2:T142	
+T145	background_claim 15039 15088	a classical method for the basic skin deformation
+T146	own_claim 15257 15374	The location of a vertex is then calculated by a weighted combination of the transformation of the influencing joints
+T147	own_claim 15385 15433	developing a new SDD method is not our main goal
+T148	own_claim 15435 15489	the way the skin deforms is important in our framework
+T149	data 15496 15556	natural looking cloth shape also requires natural skin shape
+R77	supports Arg1:T149 Arg2:T148	
+R78	contradicts Arg1:T147 Arg2:T148	
+T150	own_claim 15558 15640	There are two requirements which the method should fulfill for this particular use
+T151	own_claim 15649 15707	it must overcome the undesirable effect of vertex collapse
+T152	data 15720 15731	Figure 3(a)
+R79	supports Arg1:T152 Arg2:T151	
+R80	supports Arg1:T151 Arg2:T150	
+T153	own_claim 15742 15837	the method must provide an easy way to compute the local coordinate system for each skin vertex
+R81	supports Arg1:T153 Arg2:T150	
+T154	own_claim 15839 15856	This is necessary
+T155	data 15860 15947	we want to compute the deformation of the cloth surface in relation to the skin surface
+R82	supports Arg1:T155 Arg2:T154	
+T156	own_claim 15963 16096	the classical SDD can be greatly improved by replacing the linear combination of the matrices by the matrix operator defined by Alexa
+T157	data 16100 16101	1
+R83	supports Arg1:T157 Arg2:T156	
+T158	own_claim 16398 16444	The SDD position of P is simply given by M SDD
+T159	own_claim 16568 16598	the operator is not continuous
+T160	own_claim 16600 16681	It is not defined for a rotation of 2π radians between the matrices to be blended
+T161	own_claim 16696 16713	such case is rare
+T162	own_claim 16727 16776	the largest angle range does not exceed π radians
+T163	data 16683 16694	In practice
+R84	supports Arg1:T163 Arg2:T161	
+R85	supports Arg1:T161 Arg2:T162	
+R86	contradicts Arg1:T161 Arg2:T160	
+T164	own_claim 18011 18065	The cloth surface is partitioned into a set of patches
+T165	data 18078 18089	Figure 4(a)
+T166	data 18094 18097	(b)
+R87	supports Arg1:T165 Arg2:T164	
+R88	supports Arg1:T166 Arg2:T164	
+T167	own_claim 18103 18232	A coarse mesh representation is obtained by combining a set of vertices in a patch into a single mass point located at the center
+T168	own_claim 18601 18718	the regularity of coarse mesh, which is one condition for obtaining efficient deformation with the mass-spring system
+T169	data 18721 18723	21
+R89	supports Arg1:T169 Arg2:T168	
+T170	own_claim 18840 18924	The objective is to obtain "well-shaped patches", patches that have a circular shape
+T171	own_claim 19053 19200	By modifying the significance of this component, we can easily control the number of vertices to be simulated with the physically-based deformation
+T172	data 19206 19214	Figure 4
+R90	supports Arg1:T172 Arg2:T171	
+T173	own_claim 19305 19347	the construction of the patch is completed
+T174	data 19268 19303	the lowest cost exceeds a threshold
+R91	supports Arg1:T174 Arg2:T173	
+T175	own_claim 19413 19473	Deciding a good granularity in the coarse mesh is hand-tuned
+T176	own_claim 19483 19565	a neat compromise between the simulation quality and the computation load is found
+R92	supports Arg1:T175 Arg2:T176	
+T177	own_claim 19586 19615	best simulations are obtained
+T178	data 19621 19664	patch area covers one or two cloth wrinkles
+R93	supports Arg1:T178 Arg2:T177	
+T179	own_claim 19681 19738	each patch is associated with a vertex on the coarse mesh
+T180	own_claim 20553 20676	The basic idea is to use the pre-simulated results as examples and find the error-minimizing skin data through optimization
+T181	own_claim 20678 20702	An optimization approach
+T182	own_claim 20751 20772	could be adopted here
+T183	data 20712 20743	the one presented by Mohr et al
+T184	data 20746 20748	15
+R94	supports Arg1:T183 Arg2:T181	
+R95	supports Arg1:T184 Arg2:T181	
+T185	own_claim 20796 20824	our SDD method is non-linear
+T186	own_claim 20839 20860	the linear regression
+T187	own_claim 20886 20903	is not beneficial
+T188	data 20864 20885	adopted by Mohr et al
+R96	parts_of_same Arg1:T187 Arg2:T186	
+R97	supports Arg1:T188 Arg2:T187	
+T189	data 20774 20785	In our case
+R98	supports Arg1:T189 Arg2:T185	
+R99	supports Arg1:T185 Arg2:T186	
+T190	own_claim 20905 20937	Function minimization techniques
+T191	own_claim 20968 21002	can deal with non-linear functions
+T192	data 20946 20961	Powell’s method
+T193	data 20964 20966	16
+R100	supports Arg1:T193 Arg2:T190	
+R101	supports Arg1:T192 Arg2:T190	
+R102	parts_of_same Arg1:T191 Arg2:T190	
+T194	own_claim 21004 21034	Performance is slightly slower
+T195	own_claim 21040 21111	only pre-processing performance is affected and not runtime performance
+R103	contradicts Arg1:T195 Arg2:T194	
+T196	own_claim 21307 21437	this is contributable to the fact that these regions are large in volume and they rarely collide with limbs during the walk motion
+T197	own_claim 21439 21551	The residual values of the fitting provide useful information on how the garments behave in relation to the body
+T198	own_claim 21566 21583	floating garments
+T199	own_claim 21615 21646	may collide with several joints
+T200	own_claim 21648 21695	collisions need to be computed on these regions
+T201	data 21592 21599	a skirt
+T202	data 21601 21614	cloth patches
+R104	supports Arg1:T201 Arg2:T198	
+R105	supports Arg1:T202 Arg2:T198	
+R106	parts_of_same Arg1:T199 Arg2:T198	
+T203	own_claim 21716 21757	the local movements of some cloth patches
+T204	own_claim 21775 21789	are negligible
+T205	own_claim 21794 21867	these patches can be considered as being attached rigidly to the skeleton
+R107	parts_of_same Arg1:T204 Arg2:T203	
+T206	data 21764 21773	underwear
+R108	contradicts Arg1:T205 Arg2:T200	
+R109	supports Arg1:T206 Arg2:T203	
+R110	contradicts Arg1:T203 Arg2:T200	
+T207	own_claim 21886 21967	three regions are identified from the residual values of the skin fitting process
+T208	data 21970 21981	Figure 5(d)
+R111	supports Arg1:T208 Arg2:T207	
+T209	own_claim 22139 22269	The threshold values are chosen in a way that the coarse mesh deformation remains sufficiently close to the pre-simulated sequence
+T210	data 22284 22415	a false assignment of loose region into tight region would produce elongated deformations instead of slipping garment over the skin
+T211	own_claim 22431 22470	generate an overly deformed coarse mesh
+T212	own_claim 22472 22530	which is beyond the training data of the wrinkle generator
+R112	supports Arg1:T210 Arg2:T211	
+R113	supports Arg1:T210 Arg2:T209	
+R114	supports Arg1:T211 Arg2:T212	
+T213	own_claim 22648 22731	values of 0.5 cm and 4.0 cm are used to identify tight regions and floating regions
+T214	data 22635 22646	In practice
+R115	supports Arg1:T214 Arg2:T213	
+T215	own_claim 22747 22813	The deformation of tight regions is directly computed with the SDD
+T216	data 22831 22839	Figure 6
+R116	supports Arg1:T216 Arg2:T215	
+T217	own_claim 22843 22942	The use of SDD for these regions makes it possible to reduce the number of mass points even further
+T218	own_claim 22944 23039	The pseudo code of the simulation loop is: 1 for each vertex P ∈ Coarse_Mesh do 2 M SDD ← SDD P
+T219	own_claim 23064 23065	3
+T220	data 23069 23085	P ∉ Tight_Region
+T221	own_claim 23086 23123	4 X P ← Mass_Spring_system(time_step)
+T222	own_claim 23124 23185	5 else 6 X P ← M SDD .X D,Dress //Skeleton Driven Deformation
+R117	supports Arg1:T220 Arg2:T219	
+R118	parts_of_same Arg1:T219 Arg2:T218	
+R119	parts_of_same Arg1:T221 Arg2:T219	
+R120	parts_of_same Arg1:T222 Arg2:T221	
+T223	own_claim 23186 23284	High residual values indicate much less dependency on a specific body region of the cloth movement
+T224	own_claim 23297 23408	an additional collision check is required to handle the interaction of the clothes with the whole body skeleton
+R121	supports Arg1:T222 Arg2:T224	
+T225	own_claim 23410 23588	A list of potentially colliding body patches is defined by selecting those that approach within a certain distance of the floating regions during the pre-simulated cloth sequence
+T226	own_claim 24102 24165	which the collision detection is made with collision hulls only
+T227	own_claim 24774 24865	we compute the coarse mesh by a mass-spring system with the implicit Euler numerical solver
+T228	data 24869 24870	2
+R122	supports Arg1:T228 Arg2:T227	
+T229	own_claim 24874 24970	The simulation run on the coarse mesh hardly reproduces the gross movement of the original cloth
+T230	data 24979 25029	the initial mesh has been significantly simplified
+T231	data 25070 25100	the topology has been modified
+R123	supports Arg1:T230 Arg2:T229	
+R124	supports Arg1:T231 Arg2:T229	
+T232	own_claim 25176 25288	the simplified mass-spring model does not accurately simulate the bending and shearing properties of the fabrics
+T233	own_claim 25119 25174	the simulator used for the pre-simulated cloth sequence
+R125	contradicts Arg1:T232 Arg2:T233	
+T234	data 25291 25293	21
+R126	supports Arg1:T234 Arg2:T232	
+T235	own_claim 25296 25408	We approach the problem by modifying the behavior of the mass-spring system through a fix-up process (similar to
+T236	data 25411 25413	14
+R127	supports Arg1:T236 Arg2:T235	
+T237	own_claim 25416 25566	where the position and velocity of the coarse mesh vertices are modified in order to maintain the cloth shape as close as possible to the original one
+T238	data 25569 25577	Figure 7
+R128	supports Arg1:T238 Arg2:T237	
+T239	own_claim 25686 25701	the local shape
+T240	own_claim 25765 25822	should be a blend of those of the pre-simulated animation
+T241	data 25708 25763	position of the vertices in relation to their neighbors
+R129	parts_of_same Arg1:T240 Arg2:T239	
+R130	supports Arg1:T241 Arg2:T239	
+T242	own_claim 25824 25902	This is achieved by constructing a set of functions of local shape deformation
+T243	own_claim 25904 26001	Post-correction is accomplished with a function that evaluates the "ideal" position of the vertex
+T244	data 26008 26060	the position of its neighbors connected by the edges
+R131	supports Arg1:T244 Arg2:T243	
+T245	own_claim 26831 26878	The computation cost of this interpolator grows
+T246	data 26882 26926	the number of pre-simulated frames increases
+R132	supports Arg1:T246 Arg2:T245	
+T247	background_claim 27032 27113	A common solution is to construct a lookup table filled with values pre-simulated
+T248	own_claim 27209 27333	the dimension of XN,Pre-simulated was reduced prior to the construction of the interpolator, by Principal Component Analysis
+T249	data 27335 27337	16
+R133	supports Arg1:T249 Arg2:T248	
+T250	own_claim 27554 27627	Its new value is set to the sum of the original velocity and the velocity
+T251	data 27635 27674	the modification of the vertex position
+T252	data 27687 27695	Figure 9
+R134	supports Arg1:T251 Arg2:T250	
+R135	supports Arg1:T252 Arg2:T250	
+T253	own_claim 29187 29211	The smallest convex hull
+T254	own_claim 29243 29329	is generated for every patch using the “Quickhull” algorithm presented by Barber et al
+R136	parts_of_same Arg1:T254 Arg2:T253	
+T255	data 29332 29333	3
+R137	supports Arg1:T255 Arg2:T254	
+T256	own_claim 29391 29506	we expect these hulls to cover the allowable positions of corresponding cloth patches during the runtime simulation
+T257	data 29343 29389	enough variation and range of character motion
+R138	supports Arg1:T257 Arg2:T256	
+T258	own_claim 29599 29706	the overall computation can be significantly reduced in comparison to classical collision detection methods
+T259	own_claim 29792 29869	the collision hulls are generated for loose and floating garment regions only
+T260	own_claim 29871 29961	The collision hulls of tight regions are small enough to be approximated by a single point
+T261	own_claim 30497 30534	the Gilbert-Johnson-Keerthi algorithm
+T262	data 30537 30538	8
+T263	own_claim 30542 30572	is ideally suited to this task
+R139	parts_of_same Arg1:T263 Arg2:T261	
+R140	supports Arg1:T262 Arg2:T263	
+T264	own_claim 30574 30602	We used constrained dynamics
+T265	own_claim 30609 30641	to handle the collision response
+R141	parts_of_same Arg1:T265 Arg2:T264	
+T266	data 30605 30607	22
+R142	supports Arg1:T266 Arg2:T264	
+T267	own_claim 32419 32484	the main challenge here is obtaining the highest possible realism
+T268	own_claim 32577 32607	As recognized in earlier works
+T269	own_claim 32619 32679	wrinkles can be efficiently animated with a geometric method
+T270	data 32609 32610	9
+T271	data 32613 32615	13
+R143	parts_of_same Arg1:T269 Arg2:T268	
+R144	supports Arg1:T270 Arg2:T268	
+R145	supports Arg1:T271 Arg2:T268	
+T272	background_claim 32683 32711	they are geometric in nature
+R146	supports Arg1:T272 Arg2:T269	
+T273	own_claim 32747 32819	our wrinkling function is not hand-drawn, nor geometrically approximated
+T274	own_claim 32720 32736	previous methods
+R147	contradicts Arg1:T273 Arg2:T274	
+T275	own_claim 32832 32890	trained from on the analysis of the pre-simulated sequence
+R149	contradicts Arg1:T274 Arg2:T269	
+R148	contradicts Arg1:T275 Arg2:T274	
+T276	own_claim 32999 33119	This makes our wrinkle parameterization invariant of all joints of higher hierarchy than the currently influencing joint
+T277	data 32906 32997	we choose to represent the wrinkle displacement in the local coordinate system used for SDD
+R150	supports Arg1:T277 Arg2:T276	
+T278	own_claim 33121 33184	Several techniques exist for shape interpolation using examples
+T279	data 33194 33216	Radial Basis Functions
+T280	data 33220 33244	parametric interpolation
+R151	supports Arg1:T279 Arg2:T278	
+R152	supports Arg1:T280 Arg2:T278	
+T281	own_claim 33289 33371	coefficients are defined by multi-linear regression on the pre-simulated animation
+T282	data 33379 33442	it provides satisfactory results at a very low computation cost
+R153	supports Arg1:T282 Arg2:T281	
+T283	own_claim 33794 33844	Objects cannot be created from editing field codes
+T284	own_claim 33846 33906	The values α, α P and α N are the interpolation coefficients
+T285	own_claim 34075 34150	X P and X N are respectively the position of the vertex x and its neighbors
+T286	own_claim 34234 34272	linear interpolation works fairly well
+T287	own_claim 34218 34232	its simplicity
+T288	data 34282 34357	a sufficient number of pre-simulated frames for the multi-linear regression
+R154	supports Arg1:T288 Arg2:T286	
+R155	contradicts Arg1:T286 Arg2:T287	
+T289	own_claim 34359 34419	A condition of a good working interpolator is that the input
+T290	own_claim 34464 34516	should be within the range of the pre-simulated data
+T291	data 34426 34462	position of the coarse mesh vertices
+R156	parts_of_same Arg1:T290 Arg2:T289	
+R157	supports Arg1:T291 Arg2:T289	
+T292	own_claim 34533 34621	the wrinkle interpolator can only work for the input range for which it has been trained
+R158	semantically_same Arg1:T292 Arg2:T290	
+T293	own_claim 35578 35649	Pre-simulated sequences obtained by the cloth simulator of Volino et al
+T294	own_claim 35656 35686	were used in our preprocessing
+T295	data 35652 35654	21
+R159	parts_of_same Arg1:T294 Arg2:T293	
+R160	supports Arg1:T295 Arg2:T293	
+T296	own_claim 35954 35974	The “cocktail” dress
+T297	own_claim 35989 36018	is a relatively complex model
+T298	data 35977 35986	Figure 18
+R161	parts_of_same Arg1:T297 Arg2:T296	
+R162	supports Arg1:T298 Arg2:T297	
+T299	own_claim 36149 36324	The “Jeans” outfit is a good example of a model where the SDD based geometric approximation can reduce the number of mass points substantially by simulating only a few regions
+T300	own_claim 36330 36378	contribute significantly to the dynamic behavior
+T301	own_claim 36380 36442	Our simulator behaves fairly well on a wide variety of clothes
+T302	data 36454 36499	those with highly stiff mechanical properties
+R163	supports Arg1:T302 Arg2:T301	
+T303	own_claim 36736 36803	the method may introduce flaws in simulation for some tight clothes
+T304	data 36812 36859	the approximate handling of collision detection
+R164	supports Arg1:T304 Arg2:T303	
+T305	own_claim 36886 36943	the skin surface may slightly intersect the cloth surface
+T306	data 36861 36884	For some body movements
+R165	supports Arg1:T306 Arg2:T305	
+T307	own_claim 36956 37013	the same problem may arise for self-collisions on clothes
+R166	supports Arg1:T305 Arg2:T307	
+T308	own_claim 37015 37116	The deletion of the skin triangles covered by the garment surface can partially correct this drawback
+T309	own_claim 37118 37193	Note that the cloth simulation is also restricted to clothes worn on bodies
+T310	own_claim 37234 37288	the cloth simulator cannot handle some cloth movements
+T311	own_claim 37201 37232	offering high computation speed
+R167	contradicts Arg1:T310 Arg2:T311	
+T312	data 37297 37342	those appearing during dressing or undressing
+R168	supports Arg1:T312 Arg2:T310	
+T313	own_claim 37360 37496	the clothes are unable to interact with objects other than those that have been taken into consideration during the pre-processing phase
+T314	own_claim 37498 37687	The list of objects that can potentially interact with clothes and the way these objects interact are defined at the preprocessing stage and cannot be changed during the realtime simulation
+T315	own_claim 38567 38659	the duration of the pre- simulated sequence is not a factor of the runtime computation speed
+T316	own_claim 38674 38715	the performance lowers down at a low rate
+T317	own_claim 38768 38832	which tends to be governed by the number of pre-simulated frames
+T318	data 38719 38766	the complexity of the collision hulls increases
+R169	parts_of_same Arg1:T317 Arg2:T316	
+R170	supports Arg1:T318 Arg2:T316	
+T319	data 38838 38849	Section 5.3
+R171	supports Arg1:T319 Arg2:T317	
+T320	own_claim 38936 39011	the quality of the simulation depends on the number and variety of examples
+T321	data 39041 39052	in our case
+T322	own_claim 39014 39040	the pre-simulated sequence
+R172	semantically_same Arg1:T322 Arg2:T320	
+R173	supports Arg1:T321 Arg2:T322	
+T323	own_claim 39777 39859	the importance of the variability of the body motion in the pre-simulated sequence
+T324	data 39761 39770	Figure 16
+R174	supports Arg1:T324 Arg2:T323	
+T325	own_claim 39861 40027	The best quality is achieved when the range of the body motion in the presimulated sequence is approximately 30 % larger than the one used in the real-time simulation
+T326	own_claim 40029 40071	Our simulator works well for interpolation
+T327	own_claim 40152 40181	often fails for extrapolation
+T328	data 40078 40146	joint angles within the range of those of the pre-simulated sequence
+R175	parts_of_same Arg1:T327 Arg2:T326	
+R176	supports Arg1:T328 Arg2:T326	
+T329	own_claim 40183 40241	The main reason for this limitation is collision detection
+T330	data 40243 40367	which does not allow the clothes to have different locations on the body from those calculated in the pre-simulated sequence
+R177	supports Arg1:T330 Arg2:T329	
+T331	own_claim 40369 40430	this makes the clothes being attached rigidly to the skeleton
+T332	own_claim 40604 40646	the real-time simulation loses its quality
+T333	data 40564 40602	With less than 70 pre-simulated frames
+R178	supports Arg1:T333 Arg2:T332	
+T334	background_claim 41240 41374	The recent advent of cloth simulation techniques has matured enough to produce highly realistic cloth movements on animated characters
+T335	background_claim 41385 41443	real-time simulation has been largely unexplored until now
+T336	own_claim 41445 41496	This paper presents the first report of a practical
+T337	own_claim 41501 41572	efficient method for handling real-time simulation almost automatically
+T338	own_claim 41825 41923	our cloth simulator is able to construct a model for real-time animation without user intervention
+T339	own_claim 41928 42024	can deal with different types of clothes from tight to floating with low computation consumption
+T340	own_claim 42085 42156	the approach could be extended to simulating other physics-based models
+T341	data 42165 42169	hair
+T342	data 42174 42179	fluid
+R179	supports Arg1:T341 Arg2:T340	
+R180	supports Arg1:T342 Arg2:T340	
+T343	own_claim 42181 42242	We also believe that the work on collision hulls is promising
+T344	own_claim 42244 42338	The current mesh model of collision hulls could be replaced by implicit surfaces or voxel maps
+T346	data 42351 42369	for a cloth vertex
+T345	own_claim 42371 42473	it could be possible to compute several collisions hulls in relation to different objects in the scene
+T347	own_claim 42478 42507	to compute their intersection
+T348	data 42508 42541	for real-time collision detection
+R181	supports Arg1:T346 Arg2:T345	
+R182	supports Arg1:T348 Arg2:T347	
+T349	own_claim 42556 42626	it may be possible to process collisions on a higher number of objects
+T350	data 42633 42665	maintaining low computation cost
+R183	supports Arg1:T350 Arg2:T349	
+T351	own_claim 42688 42846	the precision of the collision detection could be improved by replacing the convex shape by a surface to follows more closely the trajectories of the vertices

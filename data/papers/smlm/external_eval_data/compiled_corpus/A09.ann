@@ -1,0 +1,399 @@
+T1	background_claim 3101 3203	Significant work has occurred in graphics for deforming articulated characters using geometric methods
+T2	data 3206 3235	Magnenat-Thalmann et al. 1988
+R1	supports Arg1:T2 Arg2:T1	
+T3	data 3237 3260	Singh and Kokkevis 2000
+R2	supports Arg1:T3 Arg2:T1	
+T4	data 3262 3279	Lewis et al. 2000
+R3	supports Arg1:T4 Arg2:T1	
+T5	background_claim 3281 3308	and physicallybased methods
+R4	parts_of_same Arg1:T5 Arg2:T1	
+T6	data 3311 3339	Wilhelms and van Gelder 1997
+T7	data 3341 3362	Scheepers et al. 1997
+T8	data 3364 3383	Gourret et al. 1989
+R5	supports Arg1:T6 Arg2:T5	
+R6	supports Arg1:T7 Arg2:T5	
+R7	supports Arg1:T8 Arg2:T5	
+T9	background_claim 3400 3452	most character animation in interactive applications
+T10	background_claim 3475 3529	is based on a geometric skeletal deformation technique
+T11	background_claim 3639 3725	in which vertex locations are weighted averages of points in several coordinate frames
+R8	parts_of_same Arg1:T10 Arg2:T9	
+T12	data 3554 3569	linear blending
+T13	data 3574 3597	matrix palette skinning
+R9	supports Arg1:T12 Arg2:T10	
+R10	supports Arg1:T13 Arg2:T10	
+T14	data 3602 3631	Skeletal-Subspace Deformation
+R11	supports Arg1:T14 Arg2:T10	
+R12	parts_of_same Arg1:T11 Arg2:T10	
+T15	data 3733 3762	Magnenat-Thalmann et al. 1988
+T16	data 3764 3799	Magnenat-Thalmann and Thalmann 1991
+R13	supports Arg1:T15 Arg2:T11	
+R14	supports Arg1:T16 Arg2:T11	
+T17	background_claim 3803 3896	One alternative is to store a large database of character poses, and interpolate between them
+T18	data 3899 3911	Maestri 1999
+R15	supports Arg1:T18 Arg2:T17	
+T19	background_claim 3920 3992	these approaches give animators great control over character deformation
+T20	background_claim 3994 4133	they have the disadvantage of requiring a potentially very large number of poses for animation, and also lack an underlying kinematic model
+R16	contradicts Arg1:T20 Arg2:T19	
+T21	background_claim 4149 4175	such approaches are common
+R17	contradicts Arg1:T21 Arg2:T20	
+T22	data 4211 4228	Parke et al. 1996
+R18	supports Arg1:T22 Arg2:T21	
+T23	background_claim 4231 4362	A hybrid approach which effectively combines SSD and morphing, is the work of Lewis et al. who introduced “Pose Space Deformations”
+T24	data 4370 4387	Lewis et al. 2000
+R19	supports Arg1:T24 Arg2:T23	
+T25	background_claim 4390 4483	to overcome the limitations of linear transform blending while retaining a kinematic approach
+R20	parts_of_same Arg1:T25 Arg2:T23	
+T26	background_claim 4830 4923	this is a big improvement over character morphing, and sufficiently interactive for animators
+T27	background_claim 4925 5049	storing surface displacements for each pose in a large pose space is a memory inefficient approach for hardware applications
+R21	contradicts Arg1:T27 Arg2:T26	
+T28	background_claim 4749 4822	providing a kinematic deformation model which also has artist-drawn poses
+T29	background_claim 4618 4739	At run time, the character may be simulated by mapping interpolated displacements onto the underlying SSD character model
+R22	supports Arg1:T29 Arg2:T28	
+R23	supports Arg1:T28 Arg2:T26	
+T30	background_claim 5067 5199	Sloan et al. show a more efficient method of interpolating an articulated figure using example shapes scattered in an abstract space
+T31	data 5201 5218	Sloan et al. 2001
+R24	supports Arg1:T31 Arg2:T30	
+R25	supports Arg1:T24 Arg2:T29	
+T32	background_claim 5448 5507	interpolation occurs in the rest pose before SSD is applied
+T33	background_claim 5518 5601	the interpolation involves blending over all of the example shapes for every vertex
+T34	background_claim 5742 5813	the independence of abstract space dimensions is not taken into account
+T36	background_claim 5603 5735	This becomes inefficient and difficult to map to hardware with the large number of examples required for a highly articulated figure
+R26	supports Arg1:T34 Arg2:T36	
+T35	own_claim 5920 6044	we also wish to efficiently render deformation behaviour computed using physically-based and reality-based deformable models
+R27	supports Arg1:T33 Arg2:T36	
+T37	background_claim 6046 6079	Such models have been widely used
+R28	supports Arg1:T31 Arg2:T32	
+R29	supports Arg1:T31 Arg2:T33	
+T38	data 6082 6112	Terzopoulos and Fleischer 1988
+T39	data 6114 6141	Terzopoulos and Witkin 1988
+R30	supports Arg1:T38 Arg2:T37	
+R31	supports Arg1:T39 Arg2:T37	
+T40	data 6143 6171	Metaxas and Terzopoulos 1992
+R32	supports Arg1:T40 Arg2:T37	
+T41	data 6173 6189	CaniGascuel 1998
+R33	supports Arg1:T41 Arg2:T37	
+T42	data 6191 6215	O’Brien and Hodgins 1999
+R34	supports Arg1:T42 Arg2:T37	
+T43	data 6217 6232	Pai et al. 2001
+R35	supports Arg1:T43 Arg2:T37	
+T44	data 6234 6251	Allen et al. 2002
+R36	supports Arg1:T44 Arg2:T37	
+T45	background_claim 6264 6331	most approaches are not intended for real time (hardware) rendering
+R37	contradicts Arg1:T45 Arg2:T37	
+R38	supports Arg1:T38 Arg2:T45	
+R39	supports Arg1:T39 Arg2:T45	
+R40	supports Arg1:T40 Arg2:T45	
+R41	supports Arg1:T41 Arg2:T45	
+R42	supports Arg1:T42 Arg2:T45	
+R43	supports Arg1:T43 Arg2:T45	
+R44	supports Arg1:T44 Arg2:T45	
+T46	background_claim 6333 6431	Recently, approaches for fast simulation of physical dynamic volumetric deformations have appeared
+T47	data 6433 6454	Zhuang and Canny 1999
+T48	data 6456 6475	Debunne et al. 2001
+T49	data 6477 6498	Picinbono et al. 2001
+R45	supports Arg1:T47 Arg2:T46	
+R46	supports Arg1:T48 Arg2:T46	
+R47	supports Arg1:T49 Arg2:T46	
+T50	background_claim 6500 6528	for interactive applications
+R48	parts_of_same Arg1:T50 Arg2:T46	
+T51	background_claim 6599 6673	quasi-static deformation, for which fast deformation techniques also exist
+T52	data 6675 6692	Cotin et al. 1999
+R49	supports Arg1:T52 Arg2:T51	
+T53	data 6694 6712	James and Pai 1999
+R50	supports Arg1:T53 Arg2:T51	
+T54	background_claim 6719 6769	are unfortunately restricted to small deformations
+R51	contradicts Arg1:T54 Arg2:T51	
+R52	supports Arg1:T52 Arg2:T54	
+R53	supports Arg1:T53 Arg2:T54	
+T55	data 6837 6856	James and Pai 2002b
+R54	contradicts Arg1:T55 Arg2:T54	
+T56	background_claim 6862 6966	More closely related to character animation is anatomically based modeling of physical deformable models
+T57	data 6969 6997	Wilhelms and van Gelder 1997
+R55	supports Arg1:T57 Arg2:T56	
+T58	background_claim 7000 7028	examples include musculature
+R56	supports Arg1:T58 Arg2:T56	
+T59	data 7031 7052	Chen and Zeltzer 1992
+T60	data 7054 7075	Scheepers et al. 1997
+R57	supports Arg1:T59 Arg2:T58	
+R58	supports Arg1:T60 Arg2:T58	
+T61	background_claim 7077 7086	and faces
+R59	parts_of_same Arg1:T61 Arg2:T58	
+T62	data 7089 7104	Lee et al. 1995
+R60	supports Arg1:T62 Arg2:T61	
+T63	background_claim 7346 7451	pose-space parameterization of nonhysteretic cloth on articulated characters has recently been considered
+T64	own_claim 7120 7223	a large class of pose-dependent quasi-static deformations can be described using the EigenSkin approach
+T65	data 7454 7465	Herman 2001
+R61	supports Arg1:T65 Arg2:T63	
+R62	supports Arg1:T63 Arg2:T64	
+T66	background_claim 7469 7552	and could be optimized for hardware rendering using the techniques presented herein
+R63	parts_of_same Arg1:T66 Arg2:T63	
+T67	background_claim 7563 7741	the use of reduced eigenbasis representations for highdimensional models has a long history in science, with foundations on Principal Component Analysis and Karhunen-Loeve theory
+T68	data 7744 7757	Jolliffe 1986
+T69	data 7759 7780	Hyvarinen et al. 2001
+R64	supports Arg1:T68 Arg2:T67	
+R65	supports Arg1:T69 Arg2:T67	
+T70	background_claim 7786 7857	Related deformation topics include a morphable model for face synthesis
+T71	data 7860 7881	Blanz and Vetter 1999
+R66	supports Arg1:T71 Arg2:T70	
+T72	background_claim 7884 7921	modal analysis for dynamic vibrations
+T73	data 7924 7955	Pentland and Williams July 1989
+T74	data 7958 7977	James and Pai 2002a
+R67	supports Arg1:T73 Arg2:T72	
+R68	supports Arg1:T74 Arg2:T72	
+R69	parts_of_same Arg1:T72 Arg2:T70	
+T75	background_claim 7980 8016	decomposition of static deformations
+R70	parts_of_same Arg1:T75 Arg2:T72	
+T76	data 8019 8033	Bookstein 1989
+R71	supports Arg1:T76 Arg2:T75	
+T77	background_claim 8036 8083	and recognition applications in computer vision
+R72	parts_of_same Arg1:T77 Arg2:T75	
+T78	data 8110 8132	Turk and Pentland 1991
+R73	supports Arg1:T78 Arg2:T77	
+T79	own_claim 8203 8370	We introduce a method for extending SSD that enhances its range of modeling capabilities at very little cost, and in a manner optimized for real time graphics hardware
+T80	own_claim 8372 8531	EigenSkin constitutes an error-optimal set of eigenbases for approximating the original deformation model, for a given amount of per-vertex displacement memory
+T81	own_claim 8651 8716	at interactive rates on a PC with negligible cost to the main CPU
+T82	own_claim 8533 8604	We illustrate our method by rendering a very large finite element model
+R74	parts_of_same Arg1:T81 Arg2:T82	
+T83	own_claim 8718 8900	Using commodity graphics hardware, EigenSkin enables the simulation of subtle nonlinear surface deformations of geometrically complex models at little more than the cost of rendering
+T84	background_claim 8924 9054	Rendering of complex physical deformation models for character animation remains a significant hurdle for interactive applications
+T85	background_claim 9060 9117	one that has been largely overcome for off-line animation
+R75	contradicts Arg1:T85 Arg2:T84	
+T86	background_claim 9189 9259	is done using a very common linear transform blending technique called
+T87	background_claim 9281 9310	Skeletal-Subspace Deformation
+T88	background_claim 9119 9164	Currently, most real time character animation
+R76	parts_of_same Arg1:T86 Arg2:T88	
+R77	parts_of_same Arg1:T87 Arg2:T86	
+T89	data 9319 9348	Magnenat-Thalmann et al. 1988
+R78	supports Arg1:T89 Arg2:T87	
+T90	background_claim 9351 9474	It is extremely popular for its simplicity and plausibility, and is also widely supported by graphics hardware accelerators
+T91	background_claim 9490 9549	it is also widely known to suffer from several key problems
+R79	contradicts Arg1:T91 Arg2:T90	
+T92	background_claim 9559 9587	buckling of skin near joints
+T93	background_claim 9603 9619	in extreme poses
+R80	parts_of_same Arg1:T93 Arg2:T92	
+T94	background_claim 9623 9666	poor behaviour near more complicated joints
+T95	background_claim 9700 9810	restrictions on the range of deformations that can be easily modeled and displayed for various character poses
+R81	supports Arg1:T92 Arg2:T91	
+R82	supports Arg1:T94 Arg2:T91	
+R83	supports Arg1:T95 Arg2:T91	
+T96	background_claim 9824 9932	methods have been proposed to address this and have been effectively employed by the motion picture industry
+T97	data 9934 9951	Lewis et al. 2000
+R84	supports Arg1:T97 Arg2:T96	
+T98	background_claim 10002 10079	nearly all video game character animation is still done using traditional SSD
+R85	contradicts Arg1:T98 Arg2:T96	
+T99	data 9961 10001	memory and graphics hardware constraints
+R86	supports Arg1:T99 Arg2:T98	
+T100	own_claim 10096 10270	we present a practical technique which overcomes all aforementioned SSD problems, and can be achieved using a memory-efficient linear correction to the traditional SSD method
+T101	own_claim 10272 10364	The resulting EigenSkin construct allows subtle character deformations for skin and clothing
+T102	data 10374 10428	those derived from highly realistic artist-drawn poses
+T103	data 10430 10462	measurements from the real world
+T104	data 10467 10528	laboriously computed anatomically and physically-based models
+R87	supports Arg1:T102 Arg2:T101	
+R88	supports Arg1:T103 Arg2:T101	
+R89	supports Arg1:T104 Arg2:T101	
+T105	own_claim 10530 10689	The deformations can be compactly represented in an efficient datadependent basis and rendered in real time using vertex shaders in commodity graphics hardware
+T106	data 10703 10723	Lindholm et al. 2001
+R90	supports Arg1:T106 Arg2:T105	
+T107	own_claim 11401 11483	we do not simply use PCA on the displacement field defined over the entire surface
+T108	own_claim 11491 11595	this would lead to a large number of important basis functions and be inefficient for hardware rendering
+R91	supports Arg1:T108 Arg2:T107	
+T109	own_claim 11231 11390	we use Principal Component Analysis (PCA) to construct an error-optimal eigendisplacement basis for representing this potentially large set of pose corrections
+R92	contradicts Arg1:T107 Arg2:T109	
+T110	own_claim 11606 11734	we decompose the model into locally supported domains learned from the influence of individual joints on the displacement fields
+R93	supports Arg1:T107 Arg2:T110	
+T111	data 11759 11770	Section 2.2
+R94	supports Arg1:T111 Arg2:T110	
+T112	own_claim 11773 11956	The resulting memory sensitive set of locally supported eigendisplacement basis functions constitutes the EigenSkin approximation, and is well suited to rendering in graphics hardware
+T113	own_claim 12157 12195	the process is shown for displacements
+T114	own_claim 12197 12266	it applies similarly to the construction of linear normal corrections
+T115	own_claim 12268 12328	allowing EigenSkin to correct SSD for both shape and shading
+R95	contradicts Arg1:T114 Arg2:T113	
+R96	supports Arg1:T114 Arg2:T115	
+T116	own_claim 12585 12629	the position of the i th vertex after SSD is
+T117	own_claim 12667 12696	v  ̃ i = ∑ b∈B i w ib T b v i
+R97	parts_of_same Arg1:T117 Arg2:T116	
+T118	data 12556 12582	bone transforms {T b } b∈B
+T119	own_claim 12515 12549	For a given skeletal configuration
+R98	parts_of_same Arg1:T116 Arg2:T119	
+R99	supports Arg1:T118 Arg2:T116	
+T120	own_claim 12914 12973	Starting with a reasonable set of bone weights is important
+T121	own_claim 12982 13076	the added displacements only correct the SSD predicted mesh shape near observed configurations
+R100	supports Arg1:T121 Arg2:T120	
+T122	own_claim 13170 13241	This yields reasonable bone weights which change smoothly over the mesh
+T123	own_claim 13078 13168	We compute our SSD bone weights as a function of vertex bone distances in the neutral pose
+R101	supports Arg1:T123 Arg2:T122	
+T124	own_claim 13243 13362	Filtering may be required to force each bone’s weights to zero at the edges of its influence to prevent discontinuities
+T125	own_claim 13378 13457	the weights can be computed to optimize the quality of the EigenSkin correction
+T126	own_claim 13787 13918	The differences between the SSD vertex positions and the observed pose positions mapped back into the rest pose yield displacements
+T127	data 13924 13932	Figure 2
+R102	supports Arg1:T127 Arg2:T126	
+T128	own_claim 13936 14068	The observed mesh shapes result when these displacements are added to the rest pose before applying the bone weighted transformation
+T129	data 14073 14119	the deformations vary smoothly over pose space
+T130	own_claim 14121 14236	then interpolated displacements provide a good approximation of deformations at configurations between observations
+R103	supports Arg1:T129 Arg2:T130	
+T131	own_claim 14284 14417	we exploit the observation that localized changes to the configuration of an articulated character often result in local deformations
+T132	own_claim 14419 14521	This independence occurs in most articulated characters, and certainly exists in realistic human hands
+T133	own_claim 14523 14559	Bending a single joint in one finger
+T134	own_claim 14612 14671	does not cause noticeable deformations in the other fingers
+R104	parts_of_same Arg1:T134 Arg2:T133	
+T135	own_claim 14683 14787	bending one finger of our finite element hand model does not cause noticeable deformations in the others
+R105	supports Arg1:T133 Arg2:T132	
+T136	data 14793 14801	Figure 4
+R106	supports Arg1:T136 Arg2:T135	
+T137	own_claim 14814 14904	the finite element model deformations resulting from a change to a single joint are global
+T138	own_claim 14906 14991	the displacement magnitudes are imperceptible at vertices that are far from the joint
+R107	contradicts Arg1:T138 Arg2:T137	
+T139	own_claim 15098 15234	the joint supports depend on the SSD weights and in general they do not correspond to the sets of vertices influenced by bone transforms
+T140	own_claim 15688 15729	memory constraints also play a large part
+T141	own_claim 15822 15865	we consider only single joint perturbations
+T142	own_claim 15873 15936	the high dimensionality of our hand model’s configuration space
+T143	own_claim 15952 16000	we can still approximate linear coupling effects
+T144	own_claim 16007 16040	we let the joint supports overlap
+R108	supports Arg1:T142 Arg2:T141	
+R109	supports Arg1:T144 Arg2:T143	
+R110	contradicts Arg1:T143 Arg2:T141	
+T145	own_claim 17282 17422	the pose displacements computed for independently perturbed joints may be used as a basis for describing displacements of new configurations
+T146	own_claim 17424 17479	significant redundancy exists in the pose displacements
+R111	contradicts Arg1:T146 Arg2:T145	
+T147	data 17487 17521	skin bulging in similar directions
+R112	supports Arg1:T147 Arg2:T146	
+T148	own_claim 17523 17628	Principal Component Analysis (PCA) of joint support displacements yields an orthogonal displacement basis
+T149	own_claim 17686 17823	adding successive corrections with the eigendisplacement basis provides approximations which are better in a formal, least squares, sense
+T150	data 17826 17849	Golub and van Loan 1996
+R113	supports Arg1:T150 Arg2:T149	
+T151	own_claim 17852 17966	Computing principal components with the Euclidean norm is equivalent to computing the singular value decomposition
+T152	own_claim 18009 18042	it is equivalent to eigenanalysis
+T153	data 17983 18008	a square symmetric matrix
+R114	supports Arg1:T153 Arg2:T152	
+T154	own_claim 18684 18816	the matrix V j and the singular values combine to gives the coordinates of our observed displacements in the eigendisplacement basis
+T155	own_claim 19090 19226	At this point we can truncate each eigendisplacement basis expansion knowing that the error will be minimized in the least squares sense
+T156	own_claim 19228 19284	The hardware limits the size of each truncated basis set
+T157	own_claim 19288 19415	there is a limited amount of per vertex data memory in which we can send the eigendisplacements to the EigenSkin vertex program
+R115	supports Arg1:T157 Arg2:T156	
+T158	data 19421 19432	Section 2.5
+R116	supports Arg1:T158 Arg2:T157	
+T159	own_claim 20358 20416	Equation 2 provides a powerful model for shape deformation
+T160	data 20440 20459	James and Pai 2002a
+R117	supports Arg1:T160 Arg2:T159	
+T161	own_claim 20625 20672	its shape should interpolate the observed poses
+T162	data 20561 20623	an articulated character moves between observed configurations
+R118	supports Arg1:T162 Arg2:T161	
+T163	own_claim 20766 20936	For the truncated set of eigendisplacements at each support, we need the coordinates in the truncated basis which give displacements closest to the observed displacements
+T164	own_claim 20947 21018	we want to solve for α p in n j u i p = ∑ ∑ α jk p u ˆ i jk . j∈J i k=1
+R119	supports Arg1:T163 Arg2:T164	
+T165	own_claim 21019 21149	This is an over constrained linear system which we can solve using least squares to get the best fit to our observed displacements
+T166	own_claim 21165 21310	the least squares solution for any number of eigendisplacements, n j , is available from the singular value decomposition computed in Section 2.3
+T167	own_claim 21333 21388	column p of D j V T j contains α jk p for k = 1..|P j |
+T168	data 21316 21331	joint support j
+R120	supports Arg1:T168 Arg2:T167	
+T169	background_claim 21496 21518	Radial basis functions
+T170	background_claim 21539 21627	are a common choice for interpolating scattered data, and have been used by Lewis et al.
+T171	data 21520 21531	Powell 1987
+R121	supports Arg1:T171 Arg2:T169	
+R122	parts_of_same Arg1:T170 Arg2:T169	
+T172	data 21629 21646	Lewis et al. 2000
+R123	supports Arg1:T172 Arg2:T170	
+T173	background_claim 21648 21694	for pose space deformation and by Sloan et al.
+R124	parts_of_same Arg1:T173 Arg2:T170	
+T174	data 21696 21713	Sloan et al. 2001
+R125	supports Arg1:T174 Arg2:T173	
+T175	background_claim 21715 21763	for shape interpolation with articulated figures
+R126	parts_of_same Arg1:T175 Arg2:T173	
+T176	own_claim 21765 21801	Our interpolation is one dimensional
+T177	own_claim 21808 21872	all our observations involved perturbations of individual joints
+R127	supports Arg1:T177 Arg2:T176	
+T178	own_claim 21883 21917	we could use a simpler interpolant
+T179	own_claim 21919 21938	we also choose RBFs
+T180	own_claim 21947 22070	they extend easily to the higher dimensional domains needed to let EigenSkin capture nonlinear multi-joint coupling effects
+R128	supports Arg1:T180 Arg2:T179	
+R129	contradicts Arg1:T179 Arg2:T178	
+T181	own_claim 22197 22275	the α jk only depend on the distance of joint j from its settings in poses P j
+T182	data 22171 22195	our one dimensional case
+R130	supports Arg1:T182 Arg2:T181	
+T183	own_claim 22299 22376	we can easily compute the distance, r, by comparing the joint angles directly
+T184	data 22282 22297	revolute joints
+R131	supports Arg1:T184 Arg2:T183	
+T185	data 22382 22436	joints with more than one rotational degree of freedom
+T186	own_claim 22438 22534	we compute distance as the angle in the axis-angle representation of the joint’s rotation matrix
+R132	supports Arg1:T185 Arg2:T186	
+T187	own_claim 22609 22695	we would interpolate using fewer interpolation basis functions ( φ ) than observations
+T188	data 22550 22608	a large number of observed joint perturbations per support
+R133	supports Arg1:T188 Arg2:T187	
+T189	own_claim 22737 22828	we only have approximately half a dozen pose perturbations for each joint degree of freedom
+T190	data 22712 22726	our hand model
+R134	supports Arg1:T190 Arg2:T189	
+R135	contradicts Arg1:T189 Arg2:T187	
+T191	own_claim 22871 22926	This justifies our use of interpolation basis functions
+R136	supports Arg1:T189 Arg2:T191	
+T192	own_claim 22933 23035	the total cost of constructing and evaluating the RBF interpolant for half a dozen poses is negligible
+R137	supports Arg1:T192 Arg2:T191	
+T193	data 23917 23984	P j does not contain two observations with identical joint settings
+T194	own_claim 23470 23493	The system of equations
+T195	own_claim 23882 23907	is square, and invertible
+R138	parts_of_same Arg1:T195 Arg2:T194	
+R139	supports Arg1:T193 Arg2:T195	
+T196	background_claim 24066 24100	Modern vertex programming hardware
+T197	data 24109 24129	Lindholm et al. 2001
+R140	supports Arg1:T197 Arg2:T196	
+T198	background_claim 24133 24231	is ideally suited to performing the per-vertex weighted linear superposition of eigendisplacements
+T199	background_claim 24280 24330	performed prior to the SSD weighted transformation
+R141	parts_of_same Arg1:T199 Arg2:T198	
+R142	parts_of_same Arg1:T198 Arg2:T196	
+T200	background_claim 24332 24525	Depending on the number of eigendisplacements used, the weighted eigendisplacement vector accumulations are about as costly as the weighted transform matrix-vector multiplyaccumulate operations
+T201	background_claim 24527 24597	Current vertex programs limit per vertex data to 16 4-tuples of floats
+T202	own_claim 24621 24674	we impose a limit of 10 eigendisplacements per vertex
+T203	own_claim 24727 24845	which still leaves room for texture coordinates after specifying the vertex position, normal, colour, and bone weights
+R143	parts_of_same Arg1:T203 Arg2:T202	
+T204	own_claim 24859 24881	this limit is not hard
+T205	own_claim 24888 25016	careful choices and packing of per vertex data permit more than 10 of the 16 available tuples to be allocated for EigenSkin data
+R144	supports Arg1:T205 Arg2:T204	
+T206	data 25021 25049	a vertex is in many supports
+T207	own_claim 25055 25149	the number of eigendisplacements renderable by current hardware may be too severely restricted
+R145	supports Arg1:T206 Arg2:T207	
+T208	own_claim 25164 25231	it is useful to smoothly mask the support groups to smaller regions
+R146	supports Arg1:T206 Arg2:T208	
+T209	own_claim 25233 25280	otherwise fewer eigendisplacements must be used
+R147	supports Arg1:T209 Arg2:T208	
+T210	own_claim 25376 25436	we have constructed a finite element model of the human hand
+T211	data 25442 25450	Figure 6
+R148	supports Arg1:T211 Arg2:T210	
+T212	own_claim 25453 25502	which exhibits subtle nonlinear skin deformations
+R149	parts_of_same Arg1:T212 Arg2:T210	
+T213	own_claim 25504 25578	The surface skin model and matching skeleton are based on Loop subdivision
+T214	data 25580 25589	Loop 1987
+R150	supports Arg1:T214 Arg2:T213	
+T215	own_claim 25591 25638	of a hand mesh exported from Curious Labs Poser
+R151	parts_of_same Arg1:T215 Arg2:T213	
+T216	own_claim 25660 25766	A finite element mesh containing 11,171 high-order 10-node tetrahedral elements was generated using NETGEN
+T217	data 25769 25782	Schoberl 1997
+R152	supports Arg1:T217 Arg2:T216	
+T218	own_claim 25817 26036	The hand was moved into various poses by applying position constraints to vertices adjacent to the rigid bones, and computing the resulting tissue deformation using geometrically nonlinear static finite element analyses
+T219	data 26039 26055	Zienkiewicz 1977
+R153	supports Arg1:T219 Arg2:T218	
+T220	own_claim 26057 26106	with (a modified version of) the CalculiX program
+R154	parts_of_same Arg1:T220 Arg2:T218	
+T223	own_claim 26496 26597	The model was not intended to reproduce detailed skin wrinkling effects, and lacks anatomical details
+T224	data 26606 26613	tendons
+T225	data 26615 26628	blood vessels
+T226	data 26634 26645	skin layers
+R157	supports Arg1:T224 Arg2:T223	
+R158	supports Arg1:T225 Arg2:T223	
+R159	supports Arg1:T226 Arg2:T223	
+T227	own_claim 26674 26773	the model reasonably describes bulk tissue deformations and was sufficient to illustrate our method
+T228	own_claim 26798 26915	the eigendisplacement approximations of the hand model produce a clear improvement over the traditional SSD algorithm
+T229	data 26787 26795	Figure 7
+R160	supports Arg1:T229 Arg2:T228	
+T230	own_claim 26965 27053	the EigenSkin approximation is essentially indistinguishable from the original FEM model
+T221	own_claim 27521 27639	our unoptimized implementation renders the EigenSkinned hand model only slightly slower than the traditional SSD model
+T222	own_claim 28035 28099	the EigenSkin method is an effective tool for character skinning
+T231	data 28105 28230	compressed hardware renderable approximations are required for an articulated character’s nonlinear quasi-static deformations
+R155	supports Arg1:T231 Arg2:T222	
+T232	own_claim 28232 28363	EigenSkin works best when SSD corrections are localized, providing independence between different parts of the mesh, and are stable
+T233	own_claim 28412 28457	allowing accurate and efficient interpolation
+R156	parts_of_same Arg1:T233 Arg2:T232	
+T234	own_claim 29079 29258	very practical results can be obtained in which only one or two eigendisplacements per joint produce a visually dramatic improvement over commonplace Skeletal-Subspace Deformation
+T235	own_claim 29339 29419	there are several limitations to the method which are topics of current research
+T236	own_claim 29538 29666	an alternate approach involves optimizing bone weights to allow better EigenSkin approximations of the displacements and normals
+T237	own_claim 29674 29783	good eigendisplacement bases can often be constructed using displacements resulting from single joint motions
+T238	own_claim 29785 29895	in practice it is desirable to allow general pose sets and to recover nonlinear joint-joint coupling phenomena
+R161	contradicts Arg1:T238 Arg2:T237	

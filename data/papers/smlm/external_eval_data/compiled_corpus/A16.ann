@@ -1,0 +1,453 @@
+T1	background_claim 2150 2260	creating effective tools for synthesis of realistic human motion remains an open problem in computer animation
+T2	background_claim 2262 2336	This is particularly true for synthesis of highly dynamic character motion
+T3	data 2345 2352	running
+T4	data 2354 2361	leaping
+T5	data 2363 2370	jumping
+T6	data 2375 2478	other athletic and acrobatic maneuvers that frequently occur in feature special effects and video games
+R1	supports Arg1:T3 Arg2:T2	
+R2	supports Arg1:T4 Arg2:T2	
+R3	supports Arg1:T5 Arg2:T2	
+R4	supports Arg1:T6 Arg2:T2	
+T7	background_claim 2480 2524	Synthesizing such motions can be challenging
+T8	data 2533 2603	any physical inaccuracies in these motions are particularly noticeable
+R5	supports Arg1:T8 Arg2:T7	
+T9	background_claim 2605 2736	Both spacetime optimization and controller synthesis approaches have been proposed for direct synthesis of dynamic character motion
+T10	background_claim 2747 2785	these methods do satisfy physical laws
+T11	background_claim 2787 2841	they tend to appear overly smooth and at times robotic
+R6	contradicts Arg1:T11 Arg2:T10	
+T12	background_claim 2856 2904	these methods do not provide interactive control
+T13	data 2906 3001	often requiring considerable offline processing time before the animation sequence is generated
+T14	background_claim 3016 3111	it is difficult to achieve a graceful degradation of realism for the purpose of greater control
+T15	background_claim 3113 3287	In contrast to direct synthesis, methods based on adaptation of motion capture data produce highly realistic motion, especially in the neighborhood of captured motion samples
+T16	background_claim 3289 3324	They also run at interactive speeds
+T17	data 3329 3370	they employ data interpolation techniques
+R7	supports Arg1:T17 Arg2:T16	
+T18	background_claim 3387 3441	these methods require a large number of motion samples
+T19	data 3446 3527	the animator wants to interactively control a specific parameter of the animation
+T20	data 3536 3593	the landing foot position in a particular acrobatic stunt
+R8	supports Arg1:T20 Arg2:T19	
+T21	background_claim 3652 3806	the interpolation techniques would require an already existing family of motion sequences where the only difference in motion is the landing foot position
+T22	background_claim 3595 3650	the need for a large dataset is particularly pronounced
+R9	supports Arg1:T19 Arg2:T22	
+R10	supports Arg1:T21 Arg2:T22	
+T23	background_claim 3808 3947	Gathering such a datataset is not only laborious, but it also requires that the captured family of motions is similar in all other respects
+T24	data 3954 3974	other landing points
+T25	data 3976 3999	initial and final state
+T26	data 4001 4014	overall style
+R11	supports Arg1:T24 Arg2:T23	
+R12	supports Arg1:T25 Arg2:T23	
+R13	supports Arg1:T26 Arg2:T23	
+T27	background_claim 4018 4074	an aspect that is quite hard to reproduce by real actors
+R14	supports Arg1:T23 Arg2:T27	
+T28	background_claim 4085 4214	the process of generating such parameterized motions is the most challenging aspect of data acquisition for video game production
+T29	data 4216 4219	Buc
+R15	supports Arg1:T29 Arg2:T28	
+T30	background_claim 4235 4321	the animators often wish to create non-realistic motions that defy the laws of physics
+T31	background_claim 4323 4387	a space where motion capture simply fails to provide any samples
+R16	supports Arg1:T30 Arg2:T31	
+T32	own_claim 4389 4557	We take the approach to acquiring similar motions is to adapt a single motion sequence several times to synthesize a family of motions that preserve physics constraints
+T33	own_claim 4559 4697	Motions created in this manner can satisfy an animator’s exact specifications with a minimum of deviation from the initial motion sequence
+T34	own_claim 4699 4760	Ideally, we would like to use a minimal source of motion data
+T35	own_claim 4798 4842	to create a wide range of additional motions
+R17	parts_of_same Arg1:T34 Arg2:T35	
+T36	data 4762 4796	perhaps a single captured movement
+R18	supports Arg1:T36 Arg2:T34	
+T37	background_claim 4844 4917	Recently a number of dynamic motion adaptation methods have been proposed
+T38	data 4920 4924	PW99
+T39	data 4926 4930	ZH99
+T40	data 4932 4937	TSK02
+T41	data 4939 4943	SP04
+T42	data 4945 4950	SHP04
+R19	supports Arg1:T38 Arg2:T37	
+R20	supports Arg1:T39 Arg2:T37	
+R21	supports Arg1:T40 Arg2:T37	
+R22	supports Arg1:T41 Arg2:T37	
+R23	supports Arg1:T42 Arg2:T37	
+T43	own_claim 4958 5015	the work presented in this paper falls into this category
+T44	own_claim 5089 5207	In contrast to the existing methods, our proposed framework is particularly robust to large-scale motion modifications
+T45	own_claim 5017 5087	In this paper, we describe the momentum-based motion editing technique
+T46	data 5222 5373	we can adapt a forward leaping movement, to a collection of leaping movement in different directions including a backward leap, or a 360 ◦ leaping spin
+R24	supports Arg1:T46 Arg2:T44	
+T47	own_claim 5375 5525	Using our motion editing framework, we show how a family of dynamic movements can be synthesized based on the animator’s needs for interactive control
+T48	own_claim 5680 5784	we can use simple interpolation techniques to allow real-time exploration of this synthetic motion space
+T49	data 5535 5581	our family of motions samples the space widely
+T50	data 5583 5610	satisfies exact constraints
+T51	data 5626 5678	deviates minimally from the original source sequence
+R25	supports Arg1:T49 Arg2:T48	
+R26	supports Arg1:T50 Arg2:T48	
+R27	supports Arg1:T51 Arg2:T48	
+T52	own_claim 5786 5897	We describe a number of real-time animation tools that can be constructed using these synthetic motion families
+T53	own_claim 5907 5946	interactive displacement of constraints
+R28	supports Arg1:T53 Arg2:T52	
+T54	own_claim 5996 6020	inverse control examples
+T55	data 6029 6143	the determination of the natural volleyball spike that would hit the ball arriving at a specific position in space
+T56	data 5953 5982	varying foot landing position
+R29	supports Arg1:T55 Arg2:T54	
+R30	supports Arg1:T56 Arg2:T53	
+R31	supports Arg1:T54 Arg2:T52	
+T57	own_claim 6158 6349	we describe how the same synthetic sampling/interpolation approach can be used to develop realtime controllers for leaping character motion, all synthesized from a single motion-captured leap
+T58	background_claim 6555 6684	Recent research in computer animation focused on techniques for remapping existing data to given specifications of a new scenario
+T59	own_claim 6701 6787	we build on the research in both physicsand interpolation-based motion editing methods
+T60	background_claim 6862 6888	Optimal trajectory methods
+T61	background_claim 6928 7069	provide a powerful framework for enforcing dynamic constraints while searching for the most favorable motion judged by the objective function
+R32	parts_of_same Arg1:T60 Arg2:T61	
+T62	data 6921 6925	WK88
+R33	supports Arg1:T62 Arg2:T60	
+T63	background_claim 7140 7177	has presented a significant challenge
+T64	background_claim 7071 7129	Extending physicsbased optimization to a full human figure
+R34	parts_of_same Arg1:T64 Arg2:T63	
+R35	contradicts Arg1:T64 Arg2:T61	
+T65	data 7192 7235	the nonlinearity of the dynamic constraints
+T66	data 7241 7294	sensitivity to the starting point of the optimization
+R36	supports Arg1:T65 Arg2:T63	
+R37	supports Arg1:T66 Arg2:T63	
+T67	background_claim 7296 7410	The dependency on the initial point has been somewhat alleviated by starting out with the captured motion sequence
+T68	background_claim 7449 7536	a first method that transforms motion capture data while preserving physical properties
+T69	data 7539 7543	PW99
+R38	supports Arg1:T69 Arg2:T68	
+T70	background_claim 7546 7625	They found solutions by performing optimizations on the reduced character model
+R39	supports Arg1:T70 Arg2:T68	
+T71	background_claim 7627 7776	More recently, editing motion capture data based on spacetime optimization has become a popular strategy for producing realistic character animations
+T72	data 7778 7784	RGBC96
+T73	data 7786 7790	SP04
+T74	data 7792 7797	SHP04
+R40	supports Arg1:T72 Arg2:T71	
+R41	supports Arg1:T73 Arg2:T71	
+R42	supports Arg1:T74 Arg2:T71	
+T75	background_claim 7800 7991	These methods provide control for modifying data while retaining physically plausible properties of captured motion by restricting the optimization space with additional kinematic constraints
+T76	background_claim 8009 8062	or by solving within the PCA-reduced space of motions
+R43	parts_of_same Arg1:T75 Arg2:T76	
+T77	data 7999 8005	RGBC96
+T78	data 8065 8070	SHP04
+R44	supports Arg1:T78 Arg2:T76	
+R45	supports Arg1:T77 Arg2:T75	
+T79	background_claim 8105 8171	relying on simplifications of dynamic constraints is not necessary
+T80	data 8175 8268	proper scaling and estimation of joint angles, torques, and Lagrange multipliers are provided
+R46	supports Arg1:T80 Arg2:T79	
+T81	data 8271 8275	SP04
+R47	supports Arg1:T81 Arg2:T79	
+T82	own_claim 8278 8334	Our work uses a similar spacetime optimization framework
+T83	own_claim 8336 8499	In contrast to other approaches, we formulate significantly simpler momentum constraints on a complex character model, without solving for muscle forces explicitly
+T84	data 8514 8518	LP02
+R48	supports Arg1:T84 Arg2:T83	
+T85	own_claim 8574 8652	scaling and convergence issues are less critical in our optimization framework
+T86	data 8527 8572	we do not compute internal torques for joints
+R49	supports Arg1:T86 Arg2:T85	
+T87	own_claim 8654 8732	Our physics-based motion editing approach is based on the momentum constraints
+T88	data 8765 8769	LP02
+R50	supports Arg1:T88 Arg2:T87	
+T89	background_claim 8772 8952	In that work, momentum constraints were used for synthesis of highly dynamic motion from simple animations that did not contain sufficient information to synthesize the full motion
+T90	background_claim 8954 9047	As a result, transition poses had to be introduced to further restrict the optimization space
+R51	supports Arg1:T89 Arg2:T90	
+T91	own_claim 9049 9137	There are two main advantages of momentum constraints over the full dynamics constraints
+T92	own_claim 9218 9320	we are solving for a much smaller set of unknowns, and over a much “better behaved” set of constraints
+T93	data 9146 9216	since dynamic constraints are reduced to only global momentum patterns
+R52	supports Arg1:T93 Arg2:T92	
+T94	own_claim 9322 9362	This allows us to find solutions quickly
+R53	supports Arg1:T92 Arg2:T94	
+R54	supports Arg1:T94 Arg2:T91	
+T95	own_claim 9450 9531	enabling us to find solutions significantly further away from the original motion
+T96	data 9389 9443	these constraints do not suffer from many local minima
+R55	supports Arg1:T96 Arg2:T95	
+T97	background_claim 9586 9658	they encode more about the natural motion than just physical correctness
+R56	supports Arg1:T97 Arg2:T91	
+T98	data 9672 9786	in natural motion, passive elements such as tendons and ligaments store and release energy during ballistic motion
+T99	background_claim 9788 9878	To model this with a full dynamic system, one would have to include a complex muscle model
+R57	supports Arg1:T98 Arg2:T99	
+T100	background_claim 9880 10026	Momentum constraints effectively record the aggregate effect of the natural torque usage and energy storage/release in a specific momentum pattern
+T101	background_claim 10028 10252	This additional information embedded within the momentum constraints ensures that adapted motion is not just physically correct, but that it also constrains the motion within the momentum exchange patterns observed in nature
+R58	supports Arg1:T100 Arg2:T101	
+R59	supports Arg1:T101 Arg2:T97	
+T102	own_claim 10326 10401	our method applies momentum constraints directly on the motion capture data
+T103	own_claim 10403 10523	Our algorithm does not require any additional pose constraints at the transition points between flight and ground phases
+T104	own_claim 10538 10719	we introduce a novel spline-based representation for the momentum patterns that can be used to intrinsically enforce the similarity between the resultant motion and the input motion
+T105	background_claim 10774 10859	dynamic filtering is an efficient alternative for motion editing of smaller amplitude
+T106	background_claim 10925 10979	providing an interactive editing interface to the user
+T107	data 10861 10923	Per-frame based frameworks largely reduce the computation time
+R60	supports Arg1:T107 Arg2:T106	
+T108	data 10982 10987	TSK02
+T109	data 10989 10994	SKG03
+R61	supports Arg1:T108 Arg2:T106	
+R62	supports Arg1:T109 Arg2:T106	
+T110	background_claim 11012 11134	the per-frame approach means that animators can modify the spatial position of constraints, but not their position in time
+T111	background_claim 11147 11251	applied Kalman filter to estimate an optimal pose for the current frame subject to the given constraints
+T112	data 11136 11146	Tak et al.
+R63	supports Arg1:T112 Arg2:T111	
+T113	background_claim 11253 11355	The result of the estimation is then rectified by least-square-fit to ensure a physically sound motion
+T114	data 11358 11363	TSK02
+R64	supports Arg1:T111 Arg2:T113	
+R65	supports Arg1:T114 Arg2:T113	
+T115	background_claim 11378 11552	approximated the adjustment made to the original motion capture data by correcting the momentum of the character during flight and using the balance constraints on the ground
+T116	data 11555 11560	SKG03
+R66	supports Arg1:T116 Arg2:T115	
+T117	background_claim 11575 11660	these methods are geared toward the local modification compared to the overall motion
+T118	data 11670 11691	improving the balance
+T119	own_claim 11701 11760	our approach is able to handle global changes of the motion
+R67	supports Arg1:T118 Arg2:T117	
+T120	data 11769 11826	transforming a forward jump to a 360 ◦ backward spin jump
+R68	supports Arg1:T120 Arg2:T119	
+T121	background_claim 11828 11888	Another branch of dynamic filtering employs dynamic tracking
+T122	data 11891 11895	ZH99
+T123	data 11897 11901	PR01
+R69	supports Arg1:T122 Arg2:T121	
+R70	supports Arg1:T123 Arg2:T121	
+T124	background_claim 11904 12061	These methods combine motion capture data and dynamic simulation to retain human-like details from the data while presenting interaction with the environment
+T125	background_claim 12063 12148	These methods produce motions that do not deviate significantly from the input motion
+T126	background_claim 12150 12240	relying on the existence of captured motion that is similar to what the user intends to do
+R71	supports Arg1:T126 Arg2:T125	
+T127	background_claim 12481 12592	Straightforward interpolation of joint angles usually fails to preserve physical realism from the original data
+T128	background_claim 12603 12723	many methods have shown that small modification of the motion can be easily done by linear interpolation of joint angles
+T129	data 12726 12730	BW95
+T130	data 12732 12736	WP95
+T131	data 12738 12742	WH97
+R72	supports Arg1:T129 Arg2:T128	
+R73	supports Arg1:T130 Arg2:T128	
+R74	supports Arg1:T131 Arg2:T128	
+T132	background_claim 12798 12893	Gleicher adapted original motion to a new character while maintaining environmental constraints
+T133	data 12902 12928	foot contacts on the floor
+T134	data 12745 12796	Combining interpolation with kinematics constraints
+R75	supports Arg1:T134 Arg2:T132	
+R76	supports Arg1:T133 Arg2:T132	
+T135	data 12931 12936	Gle98
+R77	supports Arg1:T135 Arg2:T132	
+T136	background_claim 12940 13080	A more sophisticated interpolation was presented using radial basis functions to blend motion sequences with various inverse-kinematic goals
+T137	background_claim 13090 13108	or different style
+T138	data 13083 13088	RSC01
+T139	data 13111 13116	RCB98
+R78	parts_of_same Arg1:T136 Arg2:T137	
+R79	supports Arg1:T138 Arg2:T136	
+T140	background_claim 13134 13220	data acquisition and post-processing for these methods present a significant challenge
+R80	supports Arg1:T139 Arg2:T137	
+T141	data 13227 13333	motion sequences need to be carefully crafted so that they contain the same content yet different in style
+R81	supports Arg1:T141 Arg2:T140	
+T142	own_claim 13335 13408	Our approach only requires one single motion capture sequence as the seed
+T143	own_claim 13410 13504	This seed is used to generate a family of motion sequences that parameterize the dynamic space
+T144	background_claim 13529 13676	a multi-level B-spline representation by which they transform existing motion to satisfy desired constraints adaptively through direct manipulation
+T145	data 13679 13683	LS99
+R82	supports Arg1:T145 Arg2:T144	
+T146	background_claim 13686 13782	Using B-spline representation, the motion edits can be limited to user-specified frequency bands
+T147	background_claim 13784 13833	providing a more effective optimization framework
+R83	supports Arg1:T146 Arg2:T147	
+T148	own_claim 13835 13940	Our work adapts the idea of using spline-based representation to constrain the search of the optimization
+T150	own_claim 13942 14166	We model the momentum curves by a B-spline representation which are fitted to the original motion so that the search space in the optimization is limited to solutions that have similar dynamic behavior of the original motion
+T151	own_claim 14505 14665	Our system is based on an optimization algorithm that can transform the captured motion to satisfy high-level user constraints while preserving physical realism
+T152	own_claim 14667 14761	As input, the system takes a single motion capture sequence and the userspecified modification
+T153	own_claim 14888 15039	The pre-fitting optimizes a set of coefficients used to model momentum curves so that they are constrained to the similar shapes of the original motion
+T149	own_claim 15041 15200	The system then formulates a spacetime optimization that solves for a new motion, where both high-level physical constraints and the user specification are met
+T154	own_claim 15202 15396	With a family of such optimized motions that parameterize certain dynamic space, we can apply a simple linear interpolation to generate arbitrary new motion within the dynamic space in real-time
+T155	own_claim 15542 15572	for the task of motion editing
+T156	own_claim 15481 15532	Our algorithm adapts the momentum-based constraints
+R84	parts_of_same Arg1:T156 Arg2:T155	
+T157	data 15535 15539	LP02
+R85	supports Arg1:T157 Arg2:T156	
+T158	own_claim 15574 15740	Instead of filling in missing data, motion editing must solve the converse problem of preserving the original data while still satisfying animator-imposed constraints
+T159	own_claim 15742 15785	There is no need for keyframing of any kind
+T160	data 15794 15843	the motion already starts in a good initial state
+R86	supports Arg1:T160 Arg2:T159	
+T161	own_claim 15845 16089	Any underlying physical model employed by the system must be flexible enough to precisely describe the initial state of the motion and, at the same time, rigid enough to maintain a semblance of the original motion throughout the editing process
+T162	own_claim 16314 16400	At the heart of our algorithm is a set of full-body angular and linear momentum curves
+T163	own_claim 16402 16535	These curves constrain the edited motion to the realm of physical realism without the need to simulate expensive dynamical properties
+T164	data 16544 16557	joint torques
+T165	data 16562 16576	contact forces
+R87	supports Arg1:T164 Arg2:T163	
+R88	supports Arg1:T165 Arg2:T163	
+T166	own_claim 16696 16737	The advantage of this approach is twofold
+T168	own_claim 16746 16844	a good initial state of the momentum coefficients results in rapid convergence of the optimization
+T169	own_claim 16854 16951	the coefficients that control the shape of the curves can be fixed throughout the editing process
+R89	supports Arg1:T168 Arg2:T166	
+T170	own_claim 16953 17033	effectively performing a biased search for similar motions in the momentum space
+R90	supports Arg1:T169 Arg2:T170	
+R91	supports Arg1:T170 Arg2:T166	
+T167	own_claim 17041 17143	the motion is captured using an optical system and processed to fit the character’s skeletal structure
+T171	own_claim 17145 17199	we employ the constraint detection technique described
+T172	own_claim 17212 17273	to partition the motion into ground-contact and flight stages
+R92	parts_of_same Arg1:T171 Arg2:T172	
+T173	data 17205 17209	LP02
+R93	supports Arg1:T173 Arg2:T171	
+T174	own_claim 17473 17545	we also need to determine the time interval between two animation frames
+T175	data 17285 17402	the animator may at times wish to produce physically impossible jumps that are not constrained to the earth’s gravity
+T176	data 17416 17471	the sampling rate varies for each input motion sequence
+R94	supports Arg1:T175 Arg2:T174	
+R95	supports Arg1:T176 Arg2:T174	
+T177	own_claim 17547 17589	Gravity and time step are directly related
+T178	data 17598 17724	we can equivalently choose to find the right gravitational constant that makes the motion realistic for a given unit time step
+R96	supports Arg1:T178 Arg2:T177	
+T179	own_claim 17803 17840	the angular momentum remains constant
+T180	own_claim 17726 17798	During free-fall stages, the linear momentum is only affected by gravity
+R97	supports Arg1:T180 Arg2:T179	
+T181	own_claim 18680 18764	A defining characteristic of motion is the shape and magnitude of its momentum curve
+T183	data 18770 18778	Figure 2
+R98	supports Arg1:T183 Arg2:T181	
+T182	own_claim 18943 19058	this formulation can capture a greater variability of momentum patterns than the previously used hardwired patterns
+T184	data 19061 19065	LP02
+R99	supports Arg1:T184 Arg2:T182	
+T185	own_claim 19068 19134	This is especially important when dealing with motion capture data
+T186	data 19142 19202	wide range of different maneuvers possible in the real world
+R100	supports Arg1:T186 Arg2:T185	
+T187	own_claim 20028 20083	There are few exceptions to the problem described above
+T188	own_claim 20567 20641	In this section we discuss the process of editing motions using our system
+T189	own_claim 20657 20738	we model motion as an optimal dynamic process with a set of realistic constraints
+T190	data 20650 20654	LP02
+R101	supports Arg1:T190 Arg2:T189	
+T191	own_claim 20758 20882	our condition for optimality is that the output motion be both as smooth, and as similar, to the original motion as possible
+T192	own_claim 20884 21126	Constraints on the solution ensure that the character’s limb do not bend unnaturally, that the character’s feet do not pass through the ground, and that the character’s full-body momentum curve follows the path of the pre-fit momentum splines
+T193	own_claim 21578 21628	In addition to the constraints and objectives used
+T194	own_claim 21642 21713	we also introduce a similarity objective and a pseudo balance objective
+T195	data 21734 21752	following sections
+T196	data 21634 21638	LP02
+R102	parts_of_same Arg1:T193 Arg2:T194	
+R103	supports Arg1:T196 Arg2:T193	
+R104	supports Arg1:T195 Arg2:T194	
+T197	own_claim 22715 22819	The similarity objective is intended to keep the optimized motion as similar to the original as possible
+T198	own_claim 23295 23418	there are some instances when the resulting motion would leave the character unnaturally leaning without a means of support
+T199	data 23145 23293	we do not model the specific human preference to stay out of extreme leaning movements that in real life can often cause foot slipping on the ground
+R105	supports Arg1:T199 Arg2:T198	
+T200	own_claim 23420 23522	To pull the optimized solution away from these unstable regions, we include a pseudo balance objective
+T201	own_claim 24204 24294	We find that the correct weight of these objectives do not vary much from motion to motion
+T202	own_claim 24353 24390	other parts of the objective function
+R106	parts_of_same Arg1:T201 Arg2:T202	
+T203	own_claim 24392 24420	one value tends to “fit all”
+R107	supports Arg1:T202 Arg2:T203	
+T204	data 24309 24351	as long as the weight is well scaled w.r.t
+R108	supports Arg1:T204 Arg2:T202	
+T205	own_claim 25130 25195	Our system provides several high level motion specification tools
+T206	own_claim 25204 25283	the animator never has to think of editing in terms of constrained optimization
+R109	supports Arg1:T205 Arg2:T206	
+T207	own_claim 24714 24764	The optimization enforces two types of constraints
+T208	own_claim 24766 24794	environment constraints, K e
+T209	own_claim 24839 24864	momentum constraints, K m
+R110	parts_of_same Arg1:T208 Arg2:T207	
+R111	parts_of_same Arg1:T209 Arg2:T207	
+T210	data 24805 24833	feet positions on the ground
+R112	supports Arg1:T210 Arg2:T208	
+T211	own_claim 24867 25003	The following spacetime formulation finds the unknowns Q and G that minimize the objective function while satisfying all the constraints
+T212	data 25005 25068	min Q,G E s (Q) + E b (Q) subject to K K e m (Q) (Q, G) = = 0 0
+R113	supports Arg1:T212 Arg2:T211	
+T213	own_claim 26411 26493	This is particularly useful when creating non-realistic motion that defies gravity
+T214	own_claim 26632 26704	Alternatively, several motions can be generated together in a batch mode
+T216	own_claim 26523 26630	Once the user is satisfied with the edits, the optimization process takes between 1 to 5 minutes per motion
+T217	own_claim 26213 26273	provides a good initial state for the spacetime optimization
+T215	own_claim 26142 26207	The resulting motion is a crude approximation of the final result
+R114	contradicts Arg1:T215 Arg2:T217	
+T218	own_claim 26806 26934	we describe a technique for generating a continuous ranges of physically plausible motions from a single motion capture sequence
+T219	own_claim 26936 27080	The technique constructs an output motion in real-time by performing a simple weighted average over the DOFs values from a set of sample motions
+T220	own_claim 27082 27279	A family of motions can be populated from the input motion by systematically varying the position and orientation of one or more ground stages and then performing a sequence of similar optimization
+T221	own_claim 27942 28020	We provide a user interface for the three most useful types of motion families
+T222	data 28025 28033	Figure 3
+T223	own_claim 28510 28560	Other types of motion families can be easily added
+T224	own_claim 28842 28958	the algorithm is very fast and well suited to any application where the output motion must be generated “on the fly”
+T225	own_claim 29004 29095	they can be as densely populated as necessary to increase the accuracy of the interpolation
+T226	data 28966 29002	motion families are produced offline
+T227	own_claim 29301 29365	they blend very well and need not be sampled very densely at all
+T228	data 29105 29222	since the members of a motion family are produced by the same optimization setup, varying only in specific dimensions
+T229	data 29391 29480	9 samples is the most we ever required to adequately sample the dynamic space of a motion
+R115	supports Arg1:T228 Arg2:T227	
+R116	supports Arg1:T226 Arg2:T225	
+R117	supports Arg1:T229 Arg2:T227	
+R118	supports Arg1:T222 Arg2:T221	
+T230	own_claim 28753 28820	We chose to use a simple linear blending method for several reasons
+R119	supports Arg1:T224 Arg2:T230	
+R120	supports Arg1:T227 Arg2:T230	
+T231	own_claim 28400 28508	The size of the sample space as well as the density at which it is sampled can both be adjusted as necessary
+T232	data 28037 28105	The first type varies the translation of a ground stage along a line
+T233	data 28107 28192	the second type varies the translation of the ground stage along a 2 dimensional grid
+T234	data 28198 28398	the third type varies both the translation and orientation of the ground stage along a semi-circle such that the orientation of the character is consistently aligned along the normal vector of the arc
+R121	supports Arg1:T232 Arg2:T221	
+R122	supports Arg1:T233 Arg2:T221	
+R123	supports Arg1:T234 Arg2:T221	
+T235	background_claim 29548 29634	foot glide is among the most troublesome artifacts for most motion blending techniques
+T236	own_claim 29636 29711	we find that it is imperceptible for both the line and grid motion families
+R124	contradicts Arg1:T236 Arg2:T235	
+T237	own_claim 29861 29918	a very miniscule amount of foot glide becomes perceptible
+T238	data 29727 29859	the global orientation and the translation of the motion are interpolated simultaneously, as is the case in the circle motion family
+R125	supports Arg1:T238 Arg2:T237	
+T239	own_claim 29920 30071	A simple fix is to apply a per-frame inverse kinematic (IK) solver to slightly adjust the lower body to satisfy the positional constraints on each foot
+R126	contradicts Arg1:T237 Arg2:T236	
+T240	own_claim 30073 30216	Solving IK on the lower body not only has the effect of planting the foot firmly on the ground without changing the overall looks of the motion
+T241	own_claim 30222 30308	is also light-weight enough to converge in real-time, as the motion is being displayed
+T242	own_claim 30379 30469	we have shown how to populate the space of dynamic motion by interpolating between samples
+T243	own_claim 30546 30699	In many applications the most important aspect to control is the position and time at which the character makes contact with an object in the environment
+T244	data 30725 30867	a soccer header motion, where it is required that the character’s head always makes contact with the soccer ball at the correct moment in time
+R127	supports Arg1:T244 Arg2:T243	
+T245	own_claim 32241 32374	One advantage of our motion generation algorithm is that it provides for a wide range of physically plausible animations in real-time
+T246	own_claim 32376 32563	To demonstrate the full benefit of this approach, we have created a video game interface where the user controls the trajectory of a jumping character with a multi-directional control pad
+T247	data 32569 32577	Figure 6
+R128	supports Arg1:T247 Arg2:T246	
+T248	own_claim 32666 32780	The interesting aspect of this motion is that the character must exhibit foresight in the motion of the first jump
+T249	own_claim 32790 32919	the correct contact forces can be generate in the intermediate ground stage, to create the necessary momentum for the second jump
+R129	supports Arg1:T248 Arg2:T249	
+T250	own_claim 32921 32946	The spacetime approach is
+T251	own_claim 33667 33698	ideal for editing such a motion
+R130	parts_of_same Arg1:T250 Arg2:T251	
+T252	data 33710 33800	the way it intrinsically models the interdependencies between different stages of a motion
+T253	own_claim 33802 33859	Our approach inherits the same key benefit from spacetime
+T254	own_claim 33865 33902	allow us generate motions in realtime
+R131	contradicts Arg1:T254 Arg2:T253	
+T255	own_claim 37849 37953	Our system provides a set of UI tools to help the user rapidly specify modifications to existing motions
+T256	own_claim 38344 38410	the resultant motion remains stylistically similar to the original
+T257	own_claim 38425 38497	our system is capable of making drastic changes from the original motion
+T258	data 38499 38607	we edited the same hopping motion to exhibit a 360 ◦ spin followed by a 180 ◦ spin in the opposite direction
+R132	supports Arg1:T258 Arg2:T257	
+T259	data 37955 38074	In a hopping example, the animator interactively manipulates the position, height, and orientation of each ground stage
+T261	own_claim 38207 38319	she must lower her center of mass, lean farther to the right, and pivot slightly in preparation for the take-off
+T263	data 38076 38202	The character must cover a longer distance, reach a greater height and assume a new orientation in the modified hopping motion
+R133	supports Arg1:T259 Arg2:T263	
+R134	supports Arg1:T263 Arg2:T261	
+T260	data 38612 38620	Figure 5
+R136	supports Arg1:T260 Arg2:T257	
+R135	contradicts Arg1:T256 Arg2:T261	
+T262	own_claim 38982 39124	we are able to generate a jumping motion with arbitrary takeoff and landing positions within the parameterized space in an interactive fashion
+T264	data 38933 38980	the interpolation can be performed in real-time
+R137	supports Arg1:T264 Arg2:T262	
+T265	own_claim 39485 39632	we are able to generate arbitrary intermediary motions where the character contacts the ball at any location within the sampled space, in real-time
+T266	data 39442 39483	interpolating between the optimal motions
+R138	supports Arg1:T266 Arg2:T265	
+T267	own_claim 39854 39990	A more intuitive way to edit motion capture data with arbitrary positional constraints is to use our real-time inverse control mechanism
+T268	own_claim 40659 40816	Our system can also be used to create a class of nonrealistic motions that allow the character to exhibit superhuman strength and to defy the laws of physics
+T269	own_claim 41174 41263	In our system it is easy to alter the gravitational constant in one or more ground stages
+T270	own_claim 41565 41623	our system can easily handle these imaginary circumstances
+T271	own_claim 41272 41364	the character must gain the momentum required to achieve the specified height on takeoff and
+T272	own_claim 41380 41425	absorb the same amount of momentum on landing
+R139	parts_of_same Arg1:T271 Arg2:T272	
+T273	own_claim 41427 41470	This requires a super-human muscle strength
+R140	supports Arg1:T272 Arg2:T273	
+T274	data 41526 41563	we place no limits on their magnitude
+T275	data 41482 41520	we do not directly model muscle forces
+R141	supports Arg1:T274 Arg2:T270	
+R142	supports Arg1:T275 Arg2:T270	
+R143	contradicts Arg1:T270 Arg2:T273	
+T276	own_claim 42064 42195	the system increases the length of the time-step in each frame of the flight stage and then continues the editing process as normal
+T277	data 42011 42062	the animator chooses to leave the gravity unaltered
+R144	supports Arg1:T277 Arg2:T276	
+T278	own_claim 41657 41725	editing non-realistic motion is the same as editing any other motion
+T279	data 41630 41655	the animators perspective
+R145	supports Arg1:T279 Arg2:T278	
+T280	own_claim 42342 42463	This work builds on the research in both physics-based motion synthesis and interpolation-based motion editing approaches
+T281	own_claim 42479 42642	we suggest that using physics-based adaptation to create motion samples for the purpose of data interpolation is perhaps a "sweetspot" between these two approaches
+T282	own_claim 42644 42754	Once the dataset is created, this paradigm allows animators to interactively edit the realistic dynamic motion
+T283	own_claim 42756 42871	The primary contribution of this work is a new momentum-based method for adaptation of ballistic character movement
+T284	own_claim 42931 43039	our framework can produce an wide range of motions that are significantly different from the original motion
+T285	own_claim 43041 43111	Our method does not require model reduction, or a reduced motion space
+T286	own_claim 43186 43273	our method is also significantly faster than other physics-based transformation methods
+T287	data 43121 43184	we do not solve for the generalized forces for each joint angle
+R146	supports Arg1:T287 Arg2:T286	
+T288	own_claim 43275 43356	This speed allows us to create a large number of motions within a reasonable time
+T289	data 43363 43424	the family of parameterized motion samples has been generated
+T290	own_claim 43426 43524	we describe an interactive framework where the animator can explore the space of realistic motions
+R147	supports Arg1:T289 Arg2:T290	
+T291	own_claim 43607 43736	we show how real-time data-driven controllers for realistic human motion can be constructed from a single motion capture sequence
+T292	own_claim 43749 43810	our framework does not handle all realistic character motions
+T293	own_claim 43526 43596	We also show how the same framework can be adapted for inverse control
+T294	own_claim 43812 43883	It specifically applies to highly-dynamic motions with ballistic stages
+T295	own_claim 43885 43991	We suspect that momentumbased approach would not be well suited for less energetic motions such as walking
+T296	own_claim 44006 44094	the number of samples required is exponentially proportional to the number of dimensions
+T297	own_claim 44101 44180	the current framework is hindered by the offline computation of a large dataset
+R148	supports Arg1:T296 Arg2:T297	
+T298	own_claim 44182 44322	There are several ways to facilitate the computation by taking advantage of the fact that we are solving a sequence of very similar problems
+T299	own_claim 44324 44440	A more intelligent sampling strategy is essential for generalizing our approach to a multi-dimensional dynamic space
+T300	own_claim 44543 44609	there are some extreme cases which do not produce realistic motion
+T301	data 44450 44506	our model does not account for realistic muscle strength
+T302	own_claim 44611 44706	Adding heuristics such as balance during contact can to a large extent eliminate these problems
+T303	data 44512 44542	friction during ground contact
+R149	supports Arg1:T303 Arg2:T300	
+R150	supports Arg1:T301 Arg2:T300	

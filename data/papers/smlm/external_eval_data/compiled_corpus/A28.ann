@@ -1,0 +1,467 @@
+T1	background_claim 1773 1889	Interactive physically based simulation is a rapidly growing research area with an increasing number of applications
+T2	data 1897 1931	in games and computational surgery
+R1	supports Arg1:T2 Arg2:T1	
+T3	background_claim 1967 2008	deformable objects play an important role
+T4	data 1933 1965	In these simulation environments
+R2	supports Arg1:T4 Arg2:T3	
+T5	background_claim 2051 2206	a variety of models have been proposed ranging from efficient mass-spring approaches to methods based on the physically more accurate Finite Element Method
+T6	data 2010 2049	For the simulation of deformable solids
+R3	supports Arg1:T6 Arg2:T5	
+T7	background_claim 2214 2326	Some of these methods allow the simulation of elastically and plastically deformable solids at interactive speed
+T8	background_claim 2343 2440	there has been an increased interest in efficient methods for the realistic simulation of fluids.
+T9	background_claim 2441 2509	These approaches can be employed to represent blood or other liquids
+T10	background_claim 2538 2608	they play an essential role in applications such as surgery simulation
+T11	background_claim 2618 2715	only a few interactive methods for the simulation of fluids with free surfaces have been proposed
+T12	background_claim 2782 2815	a new problem has been introduced
+T13	background_claim 2717 2750	With the ability to simulate both
+R4	parts_of_same Arg1:T12 Arg2:T13	
+T14	data 2752 2769	deformable solids
+T15	data 2774 2780	fluids
+R5	supports Arg1:T15 Arg2:T13	
+R6	supports Arg1:T14 Arg2:T13	
+T16	background_claim 2949 2986	needs to be computationally efficient
+T17	background_claim 2879 2899	An interaction model
+T18	data 2900 2948	suitable for the use in interactive environments
+T19	background_claim 2991 3083	the generated interaction forces must not induce any instabilities to the dynamic simulation
+R7	parts_of_same Arg1:T16 Arg2:T17	
+R8	supports Arg1:T18 Arg2:T16	
+R9	supports Arg1:T18 Arg2:T19	
+T20	own_claim 3471 3618	works with any type of deformation technique as long as the object surface is represented by a polygonal mesh and the fluid by Lagrangian particles
+T21	own_claim 3430 3459	the general interaction model
+R10	parts_of_same Arg1:T20 Arg2:T21	
+T22	background_claim 3672 3789	The majority of publications in the area of physically based animation focuses on physical systems of one single type
+T23	background_claim 3791 3853	Deformable objects are interesting to study in their own right
+T24	background_claim 3876 3947	on the other hand, boundary conditions are often considered a necessary
+T25	background_claim 3952 3965	not a central
+T26	background_claim 3966 3971	issue
+T27	data 3855 3874	In fluid simulation
+R11	supports Arg1:T27 Arg2:T24	
+R12	contradicts Arg1:T25 Arg2:T24	
+R13	parts_of_same Arg1:T26 Arg2:T24	
+T28	background_claim 3973 4032	They are typically derived from simple geometric primitives
+T29	own_claim 4034 4081	Our method connects these two areas of research
+T30	background_claim 4118 4231	a large number of mesh based methods for the physically based simulation of deformable objects have been proposed
+T31	data 4238 4274;4275 4280	the pioneering paper of Terzopoulos  [ 1 ]
+R14	supports Arg1:T31 Arg2:T30	
+T32	background_claim 4282 4339	Early techniques were mostly based on mass-spring systems
+T33	background_claim 4341 4385	which are still popular for cloth simulation
+T34	data 4389 4390	2
+T35	data 4393 4394	3
+R15	supports Arg1:T35 Arg2:T33	
+R16	supports Arg1:T34 Arg2:T33	
+T36	background_claim 4398 4492	More recent methods discretize continuous elasticity equations via the Boundary Element Method
+T37	data 4501 4502	4
+R17	supports Arg1:T37 Arg2:T36	
+T38	background_claim 4508 4533	the Finite Element Method
+T39	data 4542 4543	5
+T40	data 4546 4547	6
+T41	data 4550 4551	7
+R18	supports Arg1:T39 Arg2:T38	
+R19	supports Arg1:T40 Arg2:T38	
+R20	supports Arg1:T41 Arg2:T38	
+T42	background_claim 4555 4570	Since T. Reeves
+T43	background_claim 4579 4665	introduced particle systems as a technique for modeling fuzzy objects twenty years ago
+T44	background_claim 4667 4792	a variety of special purpose, partice based fluid simulation techniques have been developed in the field of computer graphics
+T45	data 4574 4575	8
+R21	supports Arg1:T45 Arg2:T43	
+R22	parts_of_same Arg1:T43 Arg2:T42	
+R23	supports Arg1:T45 Arg2:T44	
+T46	background_claim 4795 4811	Desbrun and Cani
+T47	background_claim 4819 4879	where among the first to use Smoothed Particle Hydrodynamics
+T48	background_claim 4895 4944	to derive interaction forces for particle systems
+T49	data 4815 4816	9
+T50	data 4889 4891	10
+R24	supports Arg1:T49 Arg2:T47	
+R25	supports Arg1:T50 Arg2:T48	
+T51	background_claim 4946 4976	They added space-adaptivity in
+T52	data 4980 4982	11
+R26	supports Arg1:T52 Arg2:T51	
+T53	background_claim 4993 5005	Stora et al.
+T54	background_claim 5015 5072	used a similar particle based model to animate lava flows
+T55	data 5009 5011	12
+R27	supports Arg1:T55 Arg2:T54	
+R28	parts_of_same Arg1:T47 Arg2:T46	
+R29	parts_of_same Arg1:T48 Arg2:T47	
+T56	data 5079 5081	13
+R30	parts_of_same Arg1:T54 Arg2:T53	
+T57	background_claim 5086 5227	Müller et al. derived inter particle forces from SPH and the Navier Stokes equation to simulate water with free surfaces at interactive rates
+R31	supports Arg1:T56 Arg2:T57	
+T58	background_claim 5239 5253	Premoze et al.
+T59	background_claim 5263 5306	introduced the Moving-Particle SemiImplicit
+T60	background_claim 5313 5369	method to computer graphics for the simulation of fluids
+R32	parts_of_same Arg1:T58 Arg2:T59	
+R33	parts_of_same Arg1:T60 Arg2:T59	
+T61	background_claim 5394 5422	it is closely related to SPH
+T62	data 5257 5259	14
+R34	supports Arg1:T62 Arg2:T59	
+T63	background_claim 5456 5505	it allows the simulation of incompressible fluids
+T64	data 5371 5392	As a mesh-free method
+R35	supports Arg1:T64 Arg2:T61	
+R36	contradicts Arg1:T63 Arg2:T61	
+T65	background_claim 5528 5574	boundary conditions are not treated explicitly
+T66	data 5507 5526	In all these papers
+R37	supports Arg1:T66 Arg2:T65	
+T67	background_claim 5576 5636	The fluids typically interact with solid walls or the ground
+T68	background_claim 5638 5652	Genevaux et al
+T69	background_claim 5663 5705	address the interaction problem explicitly
+R38	parts_of_same Arg1:T69 Arg2:T68	
+T70	data 5657 5659	15
+R39	supports Arg1:T70 Arg2:T69	
+T71	background_claim 5707 5807	They propose a method to simulate the interaction between solids represented by mass-spring networks
+T72	background_claim 5812 5948	an Eulerian fluid grid by applying spring forces to the mass-less marker particles in the fluid and the nodes of the mass-spring network
+R40	supports Arg1:T70 Arg2:T71	
+R41	supports Arg1:T70 Arg2:T72	
+T73	background_claim 5959 6008	solids are typically represented by coarse meshes
+T74	data 6021 6047	in interactive simulations
+R42	supports Arg1:T74 Arg2:T73	
+R43	contradicts Arg1:T73 Arg2:T72	
+T75	background_claim 6055 6114	the nodes of a mass-spring network are not very well suited
+R44	supports Arg1:T73 Arg2:T75	
+T76	data 6115 6156	for the application of interaction forces
+T77	background_claim 6221 6300	uses special boundary or ghost particles on fixed borders to model interactions
+T78	background_claim 6169 6177	Monaghan
+R45	parts_of_same Arg1:T77 Arg2:T78	
+T79	background_claim 6179 6219	one of the founders of the SPH formalism
+T80	data 6304 6306	16
+T81	background_claim 6310 6381	The idea of ghost particles was picked up in several following projects
+T82	own_claim 6401 6514	The key contribution of our paper is to place these ghost particles onto boundary triangles of deformable objects
+T83	own_claim 6519 6587	to derive their locations and weights according to Gauss integration
+T84	data 6590 6592	17
+R46	supports Arg1:T84 Arg2:T83	
+T85	own_claim 6597 6671	which allows to model fluid-solid interactions stably at interactive rates
+T86	own_claim 7130 7176	can mathematically be described as a continuum
+T87	own_claim 7071 7080	Materials
+T88	own_claim 7082 7128	which are homogeneous at the macroscopic level
+R47	parts_of_same Arg1:T86 Arg2:T87	
+T89	data 7180 7182	18
+R48	supports Arg1:T89 Arg2:T86	
+T90	own_claim 7195 7205	quantities
+T91	own_claim 7270 7346	are all mathematically expressed by continuous functions over space and time
+R49	parts_of_same Arg1:T91 Arg2:T90	
+T92	data 7214 7227	the density ρ
+T93	data 7229 7240	viscosity μ
+T94	data 7242 7255	deformation u
+T95	data 7259 7269	velocity v
+R50	supports Arg1:T92 Arg2:T90	
+R51	supports Arg1:T93 Arg2:T90	
+R52	supports Arg1:T94 Arg2:T90	
+R53	supports Arg1:T95 Arg2:T90	
+T96	background_claim 2817 2877	namely the mod- eling of the interaction of these structures
+R54	semantically_same Arg1:T96 Arg2:T12	
+T97	own_claim 7348 7438	A physical model relates these quantities to each other via partial differential equations
+T98	own_claim 7447 7533	The mechanical behavior of an elastic solid can be described by the following equation
+T99	own_claim 7565 7595	ρ ∂t ∂ 2 2 u = ∇ · σ s (u) + f
+R55	parts_of_same Arg1:T99 Arg2:T98	
+T100	own_claim 7615 7658	which expresses Newton’s equation of motion
+T101	own_claim 7660 7822	namely that the change of momentum on the left hand side is equal to the internal elastic forces due to the stresses σ s plus the externally applied body forces f
+R56	semantically_same Arg1:T101 Arg2:T100	
+T102	own_claim 7825 7878	The stresses σ s are functions of the displacements u
+T103	own_claim 7880 7914	The equation is in Lagrangian form
+T104	data 7921 7974	the displacement vectors u follow the material points
+R57	supports Arg1:T104 Arg2:T103	
+T105	own_claim 7987 8108	mechanical properties of incompressible Newtonian fluids can be described by the following two equations in Eulerian form
+T106	own_claim 8204 8238	ρ ∂v + v · ∇v = ∇ · σ f (v) + f ∂t
+T107	own_claim 8279 8288	∇ · v = 0
+T108	own_claim 8109 8172	where fluid quantities are observed in a fixed coordinate frame
+R58	supports Arg1:T106 Arg2:T105	
+R59	supports Arg1:T107 Arg2:T105	
+T109	own_claim 8347 8499	Equation (2) again states that the change of momentum equals the internal forces derived from the stresses σ f plus the externally applied body forces f
+T110	own_claim 8502 8597	The stress tensor σ f = 2μ (v) − pI is composed of the viscosity stress and the pressure stress
+T111	own_claim 8599 8678	The viscosity stress is dependent on the viscosity μ and the strain rate tensor
+T112	own_claim 8685 8742	the pressure stress only depends on the scalar pressure p
+T113	own_claim 8773 8810	the velocity field is divergence free
+T114	data 8744 8771	For an incompressible fluid
+T115	data 8812 8819	Eq. (3)
+R60	supports Arg1:T115 Arg2:T113	
+R61	supports Arg1:T114 Arg2:T113	
+T116	own_claim 8913 8991	the Eulerian description makes the additional convection term v · ∇v necessary
+T117	data 8822 8898	Comparison of the right hand side of the two equations of motion (1) and (2)
+T118	own_claim 9224 9288	Materials such as fluids or solids are bounded by spatial limits
+T119	own_claim 9290 9365	The behavior of materials at these limits is defined by boundary conditions
+T120	own_claim 9367 9473	The boundary conditions relate the quantities of the two adjacent materials to each other at the interface
+T121	own_claim 9515 9654	the geometrical domain of the interface Γ is defined as a surface between the volumetric solid continuum and the volumetric fluid continuum
+T122	data 9660 9669	Fig. 2(a)
+T123	data 9475 9513	In the case of fluid-solid interaction
+R62	supports Arg1:T123 Arg2:T121	
+R63	supports Arg1:T122 Arg2:T121	
+T124	data 9805 9846	the solid is considered to be impermeable
+T125	own_claim 9848 9897	no fluid element is allowed to cross the boundary
+T126	data 9982 10022	( ∂ u − v) · n = 0 at the boundary Γ, ∂t
+T127	own_claim 10050 10070	n is the normal on Γ
+T128	data 10076 10085	Fig. 2(b)
+R64	supports Arg1:T124 Arg2:T125	
+R65	supports Arg1:T126 Arg2:T125	
+R66	supports Arg1:T128 Arg2:T127	
+T129	own_claim 10114 10215	the components of the velocities of the fluid and the deformable object perpendicular to Γ are equal.
+R67	supports Arg1:T126 Arg2:T129	
+T130	own_claim 10285 10354	The no-slip condition models friction between the fluid and the solid
+T131	data 10360 10369	Fig. 2(c)
+T132	own_claim 10373 10412	It holds for most fluids-solid surfaces
+T133	own_claim 10417 10504	it states that the velocity components tangential to the fluid surface have to be equal
+T134	own_claim 10548 10584	( ∂ u − v) × n = 0 at the boundary Γ
+R68	supports Arg1:T133 Arg2:T134	
+T135	own_claim 10683 10709	∂t ∂ u = v at the boundary
+T136	data 10613 10666	both independent boundary conditions (4) and (5) hold
+R69	supports Arg1:T136 Arg2:T135	
+T137	data 10716 10769	both materials have the same velocity at the boundary
+R70	supports Arg1:T137 Arg2:T135	
+R71	supports Arg1:T131 Arg2:T130	
+T138	own_claim 10850 10939	Newton’s Third Law demands the continuity of stresses σ s and σ f throughout the boundary
+T139	data 10945 10954	Fig. 2(d)
+R72	supports Arg1:T139 Arg2:T138	
+T140	own_claim 10974 11085	the traction forces of the solid g f must be opposite to the traction forces of the fluid g s on the boundary Γ
+T141	own_claim 11123 11152	g s = σ s n = σ f (−n) = −g f
+R73	parts_of_same Arg1:T141 Arg2:T140	
+R74	semantically_same Arg1:T140 Arg2:T138	
+T142	own_claim 11755 11803	The continuous equations and boundary conditions
+T143	own_claim 11838 11950	need to be discretized in space and time via a numerical method before they can be used in a computer simulation
+T144	own_claim 11989 12047	equation (1) for elastic objects can be solved numerically
+T145	own_claim 12050 12104	For possible solutions using the Finite Element Method
+T146	data 12137 12139	19
+T147	data 12145 12146	6
+T148	data 12155 12156	7
+R75	supports Arg1:T146 Arg2:T145	
+R76	supports Arg1:T147 Arg2:T145	
+R77	supports Arg1:T148 Arg2:T145	
+R78	supports Arg1:T145 Arg2:T144	
+T149	own_claim 12160 12212	All we require for our interaction method to work is
+T150	own_claim 12215 12261	that the solid object is represented by a mesh
+T151	own_claim 12268 12350	that the displacements, velocities and forces are carried by the nodes of the mesh
+R79	parts_of_same Arg1:T150 Arg2:T149	
+R80	parts_of_same Arg1:T151 Arg2:T149	
+T152	own_claim 12352 12480	Most of the methods used in computer graphics to simulate deformable objects meet these constraints including massspring systems
+T153	data 12482 12506	the Finite Volume Method
+T154	data 12517 12544	the Boundary Element Method
+R81	supports Arg1:T153 Arg2:T152	
+R82	supports Arg1:T154 Arg2:T152	
+T155	background_claim 12552 12673	For the simulation of fluids, two main numerical methods have been used in the field of physically based animation so far
+T156	background_claim 12675 12712	namely Eulerian grid-based approaches
+T157	background_claim 12735 12772	Lagrangian methods based on particles
+T158	data 12778 12784	Sec. 2
+T159	data 12716 12718	20
+T160	data 12721 12723	21
+T161	data 12726 12728	22
+R83	supports Arg1:T158 Arg2:T157	
+R84	supports Arg1:T161 Arg2:T156	
+R85	supports Arg1:T160 Arg2:T156	
+R86	supports Arg1:T159 Arg2:T156	
+R87	semantically_same Arg1:T156 Arg2:T155	
+R88	semantically_same Arg1:T157 Arg2:T155	
+T162	background_claim 12819 12837	Lagrangian methods
+T163	background_claim 12851 12906	allow fluids with free surfaces to move freely in space
+R89	parts_of_same Arg1:T163 Arg2:T162	
+T164	background_claim 12934 13005	fluid computations are restricted to a spatially fixed and bounded grid
+T165	data 12913 12933	in the Eulerian case
+R90	supports Arg1:T165 Arg2:T164	
+R91	contradicts Arg1:T164 Arg2:T163	
+T166	own_claim 13058 13104	the fluid is represented by a set of particles
+T167	own_claim 13116 13186	positions, velocities and internal forces are carried by the particles
+T168	own_claim 13188 13208	Interaction modeling
+T169	own_claim 13216 13312	reduces to the problem of simulating the interaction between particles and triangulated surfaces
+R92	parts_of_same Arg1:T169 Arg2:T168	
+R93	supports Arg1:T166 Arg2:T168	
+R94	supports Arg1:T167 Arg2:T168	
+T170	background_claim 13857 13937	interaction potentials of two objects always depend on the distance between them
+T171	background_claim 13939 14006	While the Euclidean distance between two points is uniquely defined
+T172	data 13845 13855	In physics
+R95	supports Arg1:T172 Arg2:T170	
+T173	background_claim 14008 14109	the distance between a point and a triangle or a point and a triangulated surface needs to be defined
+R96	contradicts Arg1:T173 Arg2:T171	
+T174	own_claim 14576 14687	concavities as well as close disconnected meshes generate discontinuous first derivatives of the distance field
+T175	own_claim 14689 14754	Those discontinuities lead to discontinuous derivatives in forces
+T176	data 14761 14800	the forces depend on the distance field
+R97	supports Arg1:T176 Arg2:T175	
+T177	own_claim 14802 14852	A force field with discontinuous first derivatives
+T178	own_claim 14863 14879	yields artifacts
+R98	parts_of_same Arg1:T178 Arg2:T177	
+T179	data 14902 14941	cooking of particles in concave regions
+T180	data 14946 14981	reduced stability of the simulation
+R99	supports Arg1:T179 Arg2:T178	
+R100	supports Arg1:T180 Arg2:T178	
+T181	own_claim 14983 15075	The source of the discontinuity in the first derivatives is the minimum operator in Eqn. (8)
+T182	own_claim 15077 15150	One way to remove the problem is to replace the minimum by a weighted sum
+T183	own_claim 15605 15662	the resulting field is distorted near triangle boundaries
+T184	own_claim 15664 15707	This effect can be removed by normalization
+T185	own_claim 15865 15954	normalization just distributes the distortions to adjacent regions of triangle interfaces
+T186	data 15958 15967	Fig. 3(c)
+R101	supports Arg1:T186 Arg2:T185	
+T187	own_claim 15975 16130	Another difficulty introduced by the weighted field method is the choice of the support radius h with respect to the size of the features of the boundary T
+T188	own_claim 16153 16184	small features are smoothed out
+T189	own_claim 16191 16239	small supports reduce the interaction range of T
+T190	data 16133 16151	For large supports
+R102	contradicts Arg1:T189 Arg2:T188	
+R103	supports Arg1:T190 Arg2:T188	
+T191	background_claim 16314 16437	The problems mentioned in the previous section are well known in the field of implicit surface modeling introduced by Blinn
+T192	data 16441 16443	23
+R104	supports Arg1:T192 Arg2:T191	
+T193	own_claim 16447 16569	An elegant way to generate a bulge-free surface around a skeleton S, is to define a scalar function F S as the convolution
+T194	own_claim 16608 16629	F S (p) = W (p − x)dx
+R105	parts_of_same Arg1:T194 Arg2:T193	
+T195	own_claim 16656 16722	The implicit surface is defined by selecting an iso-surface of F S
+T196	own_claim 16844 16893	The problem with the weighted sum approach arises
+T197	data 16904 16927	multiple triangles meet
+T198	own_claim 16943 17009	all triangles contribute as a whole to the sum and generate bulges
+T199	data 16929 16941	In this case
+R106	supports Arg1:T199 Arg2:T198	
+R107	supports Arg1:T197 Arg2:T196	
+T200	own_claim 17024 17115	the convolution integral sums up infinitesimal parts of the skeleton each properly weighted
+T201	data 17121 17127	Fig. 4
+R108	supports Arg1:T201 Arg2:T200	
+R109	contradicts Arg1:T200 Arg2:T198	
+T202	own_claim 17170 17283	the interaction of p with the surface T is modeled as the interaction of p with all the infinitesimal points in T
+T203	data 17136 17168	the convolution integral is used
+R110	supports Arg1:T203 Arg2:T202	
+T204	own_claim 17327 17380	the integral in Eqn. (11) yields complex computations
+T205	data 17286 17325	For skeletal elements other than points
+R111	supports Arg1:T205 Arg2:T204	
+T206	background_claim 17383 17451	Approaches to approximate this integral were proposed by Bloomenthal
+T207	data 17455 17457	24
+T208	background_claim 17464 17473	Sherstyuk
+T209	data 17477 17479	25
+T210	background_claim 17483 17580	Bloomenthal uses radial Gauss kernels which can be separated with respect to different dimensions
+T211	background_claim 17582 17650	The separation allows post evaluation of the convolution in 3D space
+T212	background_claim 17705 17802	Sherstyuk discovered a special kernel which can be analytically convoluted over a triangle domain
+T213	own_claim 17804 17866	Neither method is suitable for computing physical interactions
+T214	data 17875 17918	we are not free in the choice of the kernel
+R112	supports Arg1:T214 Arg2:T213	
+T215	own_claim 17920 17968	The potential function is given by physical laws
+T216	own_claim 18478 18553	Our idea to solve the convolution integral is to use Gauss quadrature rules
+T217	data 18557 18559	17
+T218	own_claim 19060 19199	These sampling points can be interpreted as boundary particles, which are placed and weighted according to the chosen Gauss quadrature rule
+T219	own_claim 19201 19348	The weighted summation of their potentials approximates the convolution of the potential over the domain of the boundary triangle in an optimal way
+T220	own_claim 19359 19434	the seven point rule yields good approximations of the convolution integral
+T221	own_claim 19436 19565	triangles that are large in comparison to the interaction range of the surface would induce a poor sampling of the boundary field
+R113	contradicts Arg1:T221 Arg2:T220	
+T222	own_claim 19578 19657	we subdivide the boundary triangle until a sufficient sampling rate is provided
+R114	supports Arg1:T221 Arg2:T222	
+T223	own_claim 19745 19868	This threshold is chosen relative to the maximal interaction radius of the fluid particles and can be regulated by the user
+T224	own_claim 19870 20016	The boundary particles are generated by subdividing the triangle domain and by application of the Gauss quadrature rule to the resulting triangles
+T225	data 20022 20031	Fig. 5(b)
+R115	supports Arg1:T225 Arg2:T224	
+T226	own_claim 20035 20073	This has to be done at every time step
+T227	data 20083 20131	triangles on the boundary are moved and deformed
+R116	supports Arg1:T227 Arg2:T226	
+T228	own_claim 20144 20173	an efficient scheme is needed
+R117	supports Arg1:T226 Arg2:T228	
+T229	own_claim 20306 20353	they are the same for all subdivision triangles
+T230	own_claim 20355 20452	These vectors are then added to the blue nodes to generate the complete set of boundary particles
+T231	own_claim 20475 20570	the velocities of boundary particles are interpolated from the velocities of the triangle nodes
+T232	own_claim 21166 21194	The no-penetration condition
+T233	own_claim 21214 21272	prevents fluid particles from penetrating the solid object
+T234	data 21205 21213	Sec. 3.2
+R118	parts_of_same Arg1:T233 Arg2:T232	
+R119	supports Arg1:T234 Arg2:T232	
+T235	own_claim 21274 21282	Monaghan
+T236	own_claim 21292 21399	uses a Lennard-Jones-like force to generate repulsive forces which approximate the no-penetration condition
+T237	data 21286 21288	16
+R120	parts_of_same Arg1:T236 Arg2:T235	
+R121	supports Arg1:T237 Arg2:T236	
+T238	own_claim 21412 21501	a Lennard-Jones-like force that models both repulsion and adhesion to the contact surface
+T239	own_claim 23187 23304	The traction τ ra is dependent on the distance of the surface element from the particle p and has unit force per area
+T240	own_claim 23744 23851	It is designed to be zero for r = r 0 which is the preferred distance of fluid particles from the interface
+T241	own_claim 23877 23914	the traction is finite (τ ra (0) = k)
+T242	own_claim 23930 23966	traction and first derivative vanish
+T243	own_claim 23977 24023	are important for robust real time simulations
+T244	data 23867 23876	for r = 0
+T245	data 23967 23976	for r = h
+R122	parts_of_same Arg1:T243 Arg2:T242	
+R123	supports Arg1:T244 Arg2:T241	
+R124	supports Arg1:T245 Arg2:T242	
+T246	own_claim 24453 24474	The no-slip condition
+T247	own_claim 24485 24591	can be approximated by including the boundary particles into the viscosity evaluation of the SPH particles
+R125	parts_of_same Arg1:T247 Arg2:T246	
+T248	data 24476 24483	Eq. (5)
+R126	supports Arg1:T248 Arg2:T247	
+T249	data 24595 24597	16
+R127	supports Arg1:T249 Arg2:T247	
+T250	own_claim 24601 24648	We use the normalized kernel W visc proposed in
+T251	own_claim 24658 24684	for viscosity computations
+T252	data 24652 24654	13
+R128	parts_of_same Arg1:T251 Arg2:T250	
+R129	supports Arg1:T252 Arg2:T250	
+T253	own_claim 24750 24846	the velocities of the boundary particles have to be interpolated from the velocity of mesh nodes
+T254	data 24852 24860	Sec. 4.3
+T255	own_claim 24863 24998	The traction τ visc depends on the velocity v b of the boundary particle, the v p of the fluid particle and the distance r between them
+R130	supports Arg1:T254 Arg2:T253	
+T256	own_claim 25268 25360	The kernel W visc is designed such that its Laplacian ∇ 2 W visc takes the linear form above
+T257	own_claim 25366 25424	satisfies the normalization criterion on the kernel itself
+R131	contradicts Arg1:T257 Arg2:T256	
+T258	own_claim 25426 25491	The normalization warrants second order interpolation convergence
+T259	own_claim 25493 25620	The numerical approximation of the convolution integral over the triangle surface defines the final form of the viscosity force
+T260	own_claim 25659 25701	f visc (p) = A i w ij τ visc (|p − x ij |)
+R132	parts_of_same Arg1:T260 Arg2:T259	
+T261	own_claim 25883 25956	proper reaction forces need to be applied to the deformable solid as well
+T262	data 25863 25881	Newton’s Third Law
+R133	supports Arg1:T262 Arg2:T261	
+T263	own_claim 25958 26063	The force contributions of boundary particles have to be distributed among the boundary triangle vertices
+T264	own_claim 26067 26130	they can be picked up by the simulator of the deformable object
+R134	supports Arg1:T264 Arg2:T263	
+T265	data 26132 26147;26148 26154	Bridson et al.  [ 26 ]
+T266	data 26148 26152	[ 26
+T267	own_claim 26156 26214	solve a similar problem in the context of cloth simulation
+R135	parts_of_same Arg1:T266 Arg2:T265	
+R136	supports Arg1:T266 Arg2:T267	
+T268	own_claim 26255 26300	an impulse is applied to the colliding vertex
+T269	own_claim 26308 26423	a distribution scheme is used to compute the corresponding reaction impulses for the three vertices of the triangle
+T270	data 27007 27009	26
+T271	own_claim 27013 27084	this distribution scheme provides continuity across triangle boundaries
+T272	own_claim 27089 27147	introduces appropriate torques for off-center interactions
+R137	supports Arg1:T270 Arg2:T271	
+R138	supports Arg1:T270 Arg2:T272	
+T273	own_claim 27158 27197	the scheme is not completely error free
+T274	own_claim 27199 27233	Force magnitudes can get amplified
+R139	contradicts Arg1:T273 Arg2:T272	
+T275	own_claim 27298 27377	this error did not cause any artifacts or stability problems in our simulations
+R140	contradicts Arg1:T275 Arg2:T274	
+T276	own_claim 28109 28208	Processing the five phases one after the other would have a negative impact on storage requirements
+T277	own_claim 28210 28311	Neighbor references and boundary particles for all triangles would have to be stored at the same time
+T278	own_claim 28393 28463	only data relevant for the current triangle has to be stored at a time
+T279	data 28316 28391	the computations of steps three to five are grouped around single triangles
+T280	data 28466 28472	Fig. 6
+R141	supports Arg1:T279 Arg2:T278	
+R142	supports Arg1:T280 Arg2:T278	
+T281	own_claim 28476 28507	The output of step 3 is a list,
+T282	own_claim 28583 28668	To speed up the search for these particles we use a regular grid with spatial hashing
+T283	data 28672 28674	27
+R143	supports Arg1:T283 Arg2:T282	
+T284	own_claim 28678 28784	There is a trade-off between computation time for the neighbor search and the quality of the neighbor list
+R144	supports Arg1:T282 Arg2:T284	
+T285	own_claim 29019 29118	their increased time complexity was not compensated by the reduced cost of interaction computations
+T286	own_claim 29131 29223	boundary particles are only generated for those triangles that have fluid particle neighbors
+T287	own_claim 29225 29322	The boundary particles for a triangle t are kept only temporarily for the interaction computation
+T288	own_claim 29380 29472	positions and velocities are interpolated from the triangle nodes for each boundary particle
+T289	data 29366 29378	In this step
+R145	supports Arg1:T289 Arg2:T288	
+T290	own_claim 31211 31261	Deformable boxes float freely on the water surface
+T291	data 31267 31276	Fig. 7(b)
+R146	supports Arg1:T291 Arg2:T290	
+T292	own_claim 31880 32026	This scene demonstrates the interplay of various physical phenomena provided by the fluid simulator, the solid simulator and the interaction model
+T293	own_claim 32107 32201	An important application of our method is the simulation of bleeding during virtual operations
+T294	own_claim 32203 32271	Our simulation of a blood vessel is a first step into this direction
+T295	own_claim 32684 32707	the vessel is torn open
+T296	data 32713 32788	the elastic stresses caused by blood pressure exceed the material threshold
+T297	own_claim 32790 32876	The free surface of the particle system is rendered using the Marching Cubes algorithm
+R147	supports Arg1:T296 Arg2:T295	
+T298	own_claim 32878 32970	The animation of the mesh and the particles are possible in real time at 60 ms per time step
+T299	own_claim 32978 33035	surface reconstruction took about half a second per frame
+R148	contradicts Arg1:T299 Arg2:T298	
+T300	own_claim 33037 33127	On today’s hardware only a limited number of fluid particles can be simulated in real-time
+T301	own_claim 33128 33174	which yields a relatively coarse fluid surface
+R149	supports Arg1:T300 Arg2:T301	
+T302	own_claim 33263 33329	The image shows subsequent time slices of an interactive animation
+T303	own_claim 33383 33416	Yellow colored particles are fast
+T304	own_claim 33424 33441	red ones are slow
+R150	contradicts Arg1:T304 Arg2:T303	
+T305	own_claim 33443 33511	Pulsation waves and viscosity at the vessel boundary can be observed
+T306	own_claim 33736 33834	We have presented a new method for the simulation of interactions of deformable solids with fluids
+T307	own_claim 33836 33931	Our interaction model simulates repulsion, adhesion and friction near the fluid-solid interface
+T308	own_claim 33933 34016	The smoothness of the force fields is important for the stability of the simulation
+T309	own_claim 34018 34122	The core idea to get smooth interaction fields is to place boundary particles onto the surface triangles
+T310	data 34136 34158	Gauss quadrature rules
+R151	supports Arg1:T310 Arg2:T309	
+T311	own_claim 34160 34218	This idea might be useful in other graphic domains as well
+T312	own_claim 34285 34409	Character skinning is another application where bulges or knees are known problems in regions where several close bones meet
+T313	own_claim 34411 34515	We demonstrated the usability of our method in an interactive simulation environment with several scenes
+T314	own_claim 34517 34659	A difficulty in connection with the interactive simulation of fluids is the extraction and rendering of a plausible fluid surface in real time
+T315	own_claim 34667 34734	ongoing work focusses on fast algorithms for surface reconstruction
+R152	supports Arg1:T314 Arg2:T315	

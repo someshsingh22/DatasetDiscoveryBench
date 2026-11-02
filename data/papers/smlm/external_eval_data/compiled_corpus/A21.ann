@@ -1,0 +1,394 @@
+T1	own_claim 1820 1883	we describe a technique for animating the behavior of materials
+T2	own_claim 1921 1987	that exhibit a combination of both fluid and solid characteristics
+R1	parts_of_same Arg1:T1 Arg2:T2	
+T3	data 1910 1918	Figure 1
+R2	supports Arg1:T3 Arg2:T1	
+T4	background_claim 1989 2099	Often referred to as viscoelastic fluids, these materials initially respond to strain elastically like a solid
+T5	background_claim 2105 2173	when subjected to increasingly large stresses they flow like a fluid
+R3	contradicts Arg1:T5 Arg2:T4	
+T6	background_claim 2175 2238	A tremendous variety of materials exhibit this type of behavior
+T7	data 2275 2280	mucus
+T8	data 2282 2291	egg white
+T9	data 2293 2298	dough
+T10	data 2300 2307	gelatin
+T11	data 2309 2321	unset cement
+T12	data 2323 2337	liquid acrylic
+T13	data 2339 2349	toothpaste
+T14	data 2351 2355	gels
+T15	data 2357 2361	clay
+T16	data 2367 2378	liquid soap
+R4	supports Arg1:T7 Arg2:T6	
+R5	supports Arg1:T8 Arg2:T6	
+R6	supports Arg1:T9 Arg2:T6	
+R7	supports Arg1:T10 Arg2:T6	
+R8	supports Arg1:T11 Arg2:T6	
+R9	supports Arg1:T12 Arg2:T6	
+R10	supports Arg1:T13 Arg2:T6	
+R11	supports Arg1:T13 Arg2:T6	
+R12	supports Arg1:T14 Arg2:T6	
+R13	supports Arg1:T15 Arg2:T6	
+R14	supports Arg1:T16 Arg2:T6	
+T17	background_claim 2380 2431	Like a solid, these materials can bounce and jiggle
+T18	background_claim 2437 2469	they will also flow like a fluid
+R15	contradicts Arg1:T18 Arg2:T17	
+T19	background_claim 2471 2498	For some of these materials
+T20	background_claim 2527 2590	the combination of elastic and fluid behavior is quite apparent
+R16	parts_of_same Arg1:T19 Arg2:T20	
+T21	data 2508 2517	egg white
+R17	supports Arg1:T21 Arg2:T19	
+T22	data 2521 2525	clay
+R18	supports Arg1:T22 Arg2:T19	
+T23	background_claim 2592 2602	For others
+T24	background_claim 2625 2758	the elastic behavior manifests less obviously as predominately fluid behavior that differs subtly from that of a simply viscous fluid
+R19	parts_of_same Arg1:T23 Arg2:T24	
+T25	data 2612 2623	liquid soap
+R20	supports Arg1:T25 Arg2:T23	
+T26	own_claim 2760 2872	The technique we present builds on prior Eulerian methods for animating incompressible fluids with free surfaces
+T27	background_claim 2912 3041	these methods can efficiently produce results that are realistic enough for applications in the demanding visual effects industry
+T28	data 2877 2910	evidenced by their widespread use
+R21	supports Arg1:T28 Arg2:T27	
+T29	own_claim 3043 3187	Our method computes viscoelastic fluid behavior by supplementing the basic Navier-Stokes equations with additional terms for elastic body forces
+T30	own_claim 3189 3207	These terms can be
+T31	own_claim 3896 3973	readily computed on rectilinear grids using a staggered discretization scheme
+T32	own_claim 3979 4054	the use of an Eulerian formulation easily accommodates modeling large flows
+R22	parts_of_same Arg1:T30 Arg2:T31	
+T33	own_claim 4056 4134	These elastic terms require computing the material strain throughout the fluid
+T34	own_claim 4222 4293	strain is computed by integrating strain-rate and advecting the results
+T35	own_claim 4144 4220	the fluid simulations do not make use of an explicit reference configuration
+R23	supports Arg1:T35 Arg2:T34	
+T36	own_claim 4295 4394	The transition from elastic resistance to viscous flow is controlled by von Mises’s yield condition
+T37	own_claim 4400 4471	subsequent behavior is then governed by a quasi-linear plasticity model
+T38	background_claim 4553 4640	the mechanics describing the behaviors exhibited by solids and fluids may seem distinct
+T39	own_claim 4642 4673	they are actually quite similar
+R24	contradicts Arg1:T38 Arg2:T39	
+T40	own_claim 4682 4717	both resist changes to their volume
+T41	background_claim 4719 4779	The physical reasons for why they conserve volume may differ
+T42	own_claim 4785 4862	the mathematical expressions capturing the behaviors are essentially the same
+R25	contradicts Arg1:T41 Arg2:T42	
+R26	supports Arg1:T40 Arg2:T39	
+T43	own_claim 4877 4920	many fluid methods assume incompressibility
+T44	own_claim 4925 4989	most solid methods assume that volume changes will be negligible
+T45	own_claim 4999 5112	the internal damping force for a solid and the viscous force for a fluid are not just similar, they are identical
+R27	supports Arg1:T45 Arg2:T39	
+T46	own_claim 5114 5251	One can easily start with the expression for strain-rate-proportional damping and derive the viscous terms of the Navier-Stokes equations
+T47	own_claim 5253 5419	The key difference between an ideal solid and an ideal fluid is the presence or absence of an elastic term that attempts to restore the material to its original shape
+T48	own_claim 5421 5484	Many materials cannot be classified clearly as a solid or fluid
+T49	own_claim 5486 5585	These materials elastically resist deformation up to a certain point after which they begin to flow
+T50	own_claim 5596 5650	even materials that are clearly solids behave this way
+T51	data 5652 5724	they act elastically over some regime and then begin to flow plastically
+R28	supports Arg1:T51 Arg2:T50	
+T52	own_claim 5759 5842	some materials that are clearly fluids can withstand very small strains elastically
+T53	own_claim 5844 5991	The continuous variable that spans the space between solid and fluid materials is this limit on how much stress can be tolerated before flow occurs
+T54	own_claim 5993 6090	Other properties such as damping/viscosity, density, and elastic stiffness are largely orthogonal
+T55	own_claim 6139 6172	the material behaves like a solid
+T56	data 6097 6137	the elastic limit is set to a high value
+R29	supports Arg1:T56 Arg2:T55	
+T57	data 6179 6189	it is zero
+T58	own_claim 6190 6223	the material behaves like a fluid
+R30	supports Arg1:T57 Arg2:T58	
+T59	own_claim 6229 6317	intermediate values correspond to materials like mucus, liquid soap, toothpaste, or clay
+T60	own_claim 6319 6507	These intermediate materials are often referred to as viscoelastic fluids or as elastoplastic solids, depending on whether their behavior is closer to that of an ideal fluid or ideal solid
+T61	background_claim 6622 6683	In the field of computer graphics, the technique described in
+T62	background_claim 6709 6768	is perhaps closest in intent to the method we describe here
+R31	parts_of_same Arg1:T61 Arg2:T62	
+T63	data 6686 6706	Carlson et al., 2002
+R32	supports Arg1:T63 Arg2:T61	
+T64	background_claim 6779 6929	they were interested in modeling materials with properties intermediate between solids and fluids using an Eulerian grid-based fluid simulation method
+T65	background_claim 6940 7016	they opt to map the continuum between fluids and solids to varying viscosity
+T66	background_claim 7018 7084	In their system a solid is simply a fluid with very high viscosity
+T67	background_claim 7086 7159	This approach ignores the elastic behavior demonstrated by many materials
+T68	background_claim 7175 7230	they do generate nice results for highly viscous fluids
+T69	background_claim 7236 7348	they describe an implicit integration method for coping with stability issues arising from very high viscosities
+R33	contradicts Arg1:T68 Arg2:T67	
+R34	contradicts Arg1:T69 Arg2:T67	
+T70	background_claim 7350 7497	Other graphics researchers have used particle-based methods for modeling highly viscous fluids and for modeling fluids with some form of elasticity
+T71	background_claim 7530 7581	the authors modeled melting thermoelastic materials
+T72	data 7503 7527	Terzopoulos et al., 1989
+R35	supports Arg1:T72 Arg2:T71	
+T73	background_claim 7863 7959	By varying the elastic properties of the materials, this method could model a range of behaviors
+T74	background_claim 7965 8013	without plasticity, it could not model materials
+T75	background_claim 8026 8108	that flow into a new configuration and then resist changes from that configuration
+R36	parts_of_same Arg1:T74 Arg2:T75	
+T76	data 8020 8024	clay
+R37	supports Arg1:T76 Arg2:T74	
+R38	contradicts Arg1:T74 Arg2:T73	
+T77	background_claim 8111 8181	Similar approaches using different particle formulations have appeared
+T78	data 8187 8212	Desbrun and Gascuel, 1995
+R39	supports Arg1:T78 Arg2:T77	
+T79	data 8216 8238	Desbrun and Cani, 1996
+R40	supports Arg1:T79 Arg2:T77	
+T80	data 8242 8264	Cani and Desbrun, 1997
+R41	supports Arg1:T80 Arg2:T77	
+T81	data 8273 8291	Stora et al., 1999
+R42	supports Arg1:T81 Arg2:T77	
+T82	background_claim 8295 8305	The method
+T83	background_claim 8349 8456	used elastic forces with dynamically determined neighbors to allow behavior that is similar to plastic flow
+R43	parts_of_same Arg1:T82 Arg2:T83	
+T84	data 8321 8346	Desbrun and Gascuel, 1995
+R44	supports Arg1:T84 Arg2:T82	
+T85	background_claim 8459 8601	Perhaps the greatest limitation on the level of realism achievable by these particle methods was the relatively small number of particles used
+T86	background_claim 8612 8728	as processor speeds have increased, particle-based methods have been able to achieve increasingly impressive results
+R45	contradicts Arg1:T86 Arg2:T85	
+T87	background_claim 8730 8792	Compelling real-time results for modestly sized systems appear
+T88	data 8798 8817	Müller et al., 2003
+R46	supports Arg1:T88 Arg2:T87	
+T89	background_claim 8850 8938	demonstrates off-line results that are comparable to the current best grid-based methods
+T90	data 8826 8847	Premo ze et al., 2003
+T91	background_claim 8950 9012	both of these recent methods focus on strictly liquid behavior
+T92	own_claim 9014 9080	they could be extended along lines similar to what we propose here
+R47	contradicts Arg1:T92 Arg2:T91	
+T93	background_claim 9082 9162	Some methods for modeling solids have dealt with limited amounts of plastic flow
+T94	background_claim 9244 9316	describe transition to plastic flow based on von Mises’s yield condition
+T95	data 9170 9202	Terzopoulos and Fleischer, 1988a
+R48	supports Arg1:T95 Arg2:T94	
+T96	data 9209 9241	Terzopoulos and Fleischer, 1988b
+R49	supports Arg1:T96 Arg2:T94	
+T97	background_claim 9346 9407	used a similar plasticity model for ductile fracture behavior
+T98	data 9323 9343	O’Brien et al., 2002
+R50	supports Arg1:T98 Arg2:T97	
+T99	own_claim 9410 9454	We use the same yield condition of von Mises
+T100	own_claim 9460 9517	we do not assume that plastic flow occurs instantaneously
+R51	contradicts Arg1:T100 Arg2:T99	
+T101	own_claim 9527 9596	we use a more complex model that accommodates phenomena such as creep
+T102	background_claim 9612 9682	these prior methods used Lagrangian meshes with largely fixed topology
+T103	background_claim 9691 9742	they would have encountered “tangling” difficulties
+R52	supports Arg1:T102 Arg2:T103	
+T104	data 9752 9770	inverting elements
+T105	data 9776 9805	large amounts of plastic flow
+R53	supports Arg1:T105 Arg2:T103	
+R54	supports Arg1:T104 Arg2:T103	
+T106	background_claim 9807 9894	Another, rather interesting, approach to combining solid and fluid behaviors appears in
+T107	data 9897 9917	Nixon and Lobb, 2002
+R55	supports Arg1:T107 Arg2:T106	
+T108	background_claim 9979 10045	The result is an object that behaves somewhat like a water balloon
+T109	own_claim 10047 10152	Our work builds directly on previous grid-based, Eulerian methods for animating fluids with free surfaces
+T110	background_claim 10155 10195	Details on these methods can be found in
+T111	data 10198 10222	Foster and Metaxas, 1996
+T112	data 10226 10236	Stam, 1999
+T113	data 10240 10263	Foster and Fedkiw, 2001
+T114	data 10272 10292	Enright et al., 2002
+R56	supports Arg1:T111 Arg2:T110	
+R57	supports Arg1:T112 Arg2:T110	
+R58	supports Arg1:T113 Arg2:T110	
+R59	supports Arg1:T114 Arg2:T110	
+T115	own_claim 10312 10340	our work essentially extends
+T116	own_claim 10366 10412	to include the behavior of viscoelastic fluids
+R60	parts_of_same Arg1:T115 Arg2:T116	
+T117	data 10343 10363	Enright et al., 2002
+R61	supports Arg1:T117 Arg2:T115	
+T118	background_claim 10415 10495	Outside the graphics field, viscoelastic materials have been studied extensively
+T119	background_claim 10597 10695	for detailed descriptions of several different models for viscoelastic and elastoplastic materials
+T120	data 10576 10593	Bird et al., 1987
+R62	supports Arg1:T120 Arg2:T119	
+T121	data 10547 10566	Han and Reddy, 1999
+R63	supports Arg1:T121 Arg2:T119	
+T122	data 10533 10543	Fung, 1965
+R64	supports Arg1:T122 Arg2:T119	
+T123	own_claim 10697 10853	The general approaches we use for introducing elastic forces into the Navier-Stokes equations, and integrating and advecting strain are not completely novel
+T124	background_claim 10880 10964	fluid simulation outside the graphics literature that involve elastic forces include
+T125	data 10967 10982	Gerritsma, 1996
+R65	supports Arg1:T125 Arg2:T124	
+T126	data 10986 11003	Tomé et al., 2002
+R66	supports Arg1:T126 Arg2:T124	
+T127	data 11013 11032	Bonito et al., 2003
+R67	supports Arg1:T127 Arg2:T124	
+T128	background_claim 11037 11152	A detailed analysis of two-dimensional simulations of viscoelastic fluids on staggered rectilinear grids appears in
+T129	data 11155 11170	Gerritsma, 1996
+R68	supports Arg1:T129 Arg2:T128	
+T130	own_claim 11173 11319	The three-dimensional method we use for storing rank-two tensor quantities on a staggered grid is a generalization of their two-dimensional method
+T131	background_claim 11349 11500	a combination of rectilinear grids and finite elements are used with a volume-of-fluid method to model three-dimensional fluids with elastic properties
+T132	data 11326 11345	Bonito et al., 2003
+R69	supports Arg1:T132 Arg2:T131	
+T133	background_claim 11502 11578	They do not include plasticity and they store all quantities at cell centers
+T134	background_claim 11580 11611	The marker-andcell based method
+T135	background_claim 11637 11695	is another example solving viscoelastic free-surface flows
+R70	parts_of_same Arg1:T134 Arg2:T135	
+T136	data 11617 11634	Tomé et al., 2002
+R71	supports Arg1:T136 Arg2:T134	
+T137	background_claim 11697 11800	They address issues relating to elastic-stress based boundary conditions at rigidbody and free-surfaces
+T138	background_claim 11811 11859	they use a staggered grid for the velocity field
+T139	background_claim 11861 11913	they still store their tensor values at cell centers
+R72	contradicts Arg1:T139 Arg2:T138	
+T140	own_claim 11975 12052	The framework we use for fluid simulation is based on the method described in
+T141	data 12055 12075	Enright et al., 2002
+R73	supports Arg1:T141 Arg2:T140	
+T142	background_claim 12078 12173	This framework consists of two primary components which work together to produce useful results
+T143	background_claim 12175 12259	The first is a rectilinear grid that stores the values that define the fluid’s state
+T146	background_claim 12401 12494	The second component is a function whose levelset at zero locates the boundaries of the fluid
+R74	supports Arg1:T143 Arg2:T142	
+R75	supports Arg1:T146 Arg2:T142	
+T149	own_claim 12757 12825	we focus on the changes we make to accommodate viscoelastic behavior
+T150	background_claim 12828 12926	We suggest the following references for a more complete description of this simulation methodology
+T151	data 12930 12954	Foster and Metaxas, 1996
+T152	data 12958 12968	Stam, 1999
+T153	data 12972 12995	Foster and Fedkiw, 2001
+T154	data 13004 13024	Enright et al., 2002
+R76	supports Arg1:T151 Arg2:T150	
+R77	supports Arg1:T152 Arg2:T150	
+R78	supports Arg1:T153 Arg2:T150	
+R79	supports Arg1:T154 Arg2:T150	
+T155	own_claim 12677 12752	A full description of this type of system is beyond the scope of this paper
+R80	supports Arg1:T155 Arg2:T149	
+T144	own_claim 13663 13814	Behavior of the viscoelastic fluid is governed by a modified version of the Navier-Stokes equations that includes an additional term for elastic stress
+T145	background_claim 14962 14984	We refer the reader to
+T147	background_claim 15030 15090	for a discussion on efficiently modeling the above equations
+R81	parts_of_same Arg1:T145 Arg2:T147	
+T148	data 14987 14997	Stam, 1999
+R82	supports Arg1:T148 Arg2:T145	
+T156	data 15004 15027	Foster and Fedkiw, 2001
+R83	supports Arg1:T156 Arg2:T145	
+T157	own_claim 15178 15253	The fourth term of Equation (1) computes acceleration due to elastic forces
+T158	own_claim 15258 15317	it requires knowing the elastic strain throughout the fluid
+T159	own_claim 15367 15421	we could use its spatial derivatives to compute strain
+T160	data 15322 15361	we had an explicit deformation function
+R84	supports Arg1:T160 Arg2:T159	
+T161	own_claim 15432 15517	with the Eulerian formulation we are using there is no deformation function available
+R85	contradicts Arg1:T161 Arg2:T159	
+T162	own_claim 15532 15629	the large deformation and flow experienced by the material makes tracking deformation impractical
+T163	own_claim 15639 15683	we compute strain by integrating strain-rate
+T164	own_claim 15747 15834	we also require rules concerning how the elastic strain changes due to plastic yielding
+T165	data 15693 15745	we do not wish to model a perfectly elastic material
+R86	supports Arg1:T165 Arg2:T164	
+T166	own_claim 16614 16689	We use von Mises’s criterion for determining when plastic flow should occur
+T167	background_claim 16691 16728	This criterion depends on the elastic
+T168	background_claim 17309 17325	strain deviation
+R87	parts_of_same Arg1:T167 Arg2:T168	
+T169	background_claim 17329 17382	which is the elastic strain with any dilation removed
+R88	parts_of_same Arg1:T169 Arg2:T168	
+T170	own_claim 17564 17586	no plastic flow occurs
+T171	data 17475 17488	the magnitude
+T172	data 17506 17559	of the strain deviation remains below the yield point
+R89	parts_of_same Arg1:T171 Arg2:T172	
+R90	supports Arg1:T172 Arg2:T170	
+T173	own_claim 17616 17695	flow occurs at a rate proportional to the amount the limit has been exceeded by
+T174	data 17593 17614	the limit is exceeded
+R91	supports Arg1:T174 Arg2:T173	
+T175	own_claim 18255 18337	Equation (9) does not take into account the movement of the material through space
+T176	own_claim 18339 18432	Like velocity or any other fluid property, the elastic strain must be advected with the fluid
+T177	background_claim 18662 18723	The well known staggered grid method, originally described by
+T178	background_claim 18752 18777	elegantly avoids problems
+T179	background_claim 19032 19097	plague methods that store collocated pressure and velocity values
+R92	parts_of_same Arg1:T177 Arg2:T178	
+R93	parts_of_same Arg1:T178 Arg2:T179	
+T180	data 18726 18748	Harlow and Welch, 1965
+R94	supports Arg1:T180 Arg2:T177	
+T181	own_claim 19245 19267	on the simulation grid
+T182	own_claim 19184 19224	we also need to store the elastic strain
+T183	own_claim 19146 19166	and rank-one tensors
+T184	own_claim 19107 19129	in addition to scalars
+R95	parts_of_same Arg1:T184 Arg2:T183	
+R96	parts_of_same Arg1:T183 Arg2:T182	
+R97	supports Arg1:T182 Arg2:T181	
+T185	data 19226 19243	a rank-two tensor
+R98	supports Arg1:T185 Arg2:T182	
+T186	data 19173 19181	velocity
+T187	data 19136 19144	pressure
+R99	supports Arg1:T187 Arg2:T184	
+R100	supports Arg1:T186 Arg2:T183	
+R101	contradicts Arg1:T184 Arg2:T179	
+T188	own_claim 19329 19408	the different components of the strain tensor are stored at different locations
+T189	data 19277 19327	velocity components are stored separately on faces
+R102	supports Arg1:T189 Arg2:T188	
+T190	own_claim 19410 19461	The diagonal entries are stored at the cell centers
+T191	own_claim 19463 19563	The off-diagonal entries are stored at the center of edges perpendicular to the component directions
+R103	supports Arg1:T190 Arg2:T188	
+R104	supports Arg1:T191 Arg2:T188	
+T192	data 19578 19642	the xy components are stored on the edges parallel to the z axis
+R105	supports Arg1:T192 Arg2:T191	
+T193	own_claim 19644 19707	This approach is a generalization of the 2D method described in
+T194	data 19710 19725	Gerritsma, 1996
+R106	supports Arg1:T194 Arg2:T193	
+T195	background_claim 19733 19767	they describe its merits in detail
+T196	own_claim 19770 19842	We use a particle-level-set method for tracking the fluid’s free surface
+T197	own_claim 19888 19959	with the substantially faster, though less accurate, method detailed in
+R107	parts_of_same Arg1:T196 Arg2:T197	
+T198	data 19861 19881	Enright et al., 2002
+R108	supports Arg1:T198 Arg2:T196	
+T199	data 19962 19982	Enright et al., 2004
+R109	supports Arg1:T199 Arg2:T197	
+T200	background_claim 19985 20047	The authors note that the method is susceptible to volume loss
+T201	own_claim 20053 20161	we found this behavior to be problematic for some of our examples that involve fixed, small amounts of fluid
+T202	own_claim 20163 20330	We were able to ameliorate this problem somewhat by using a level-set grid with twice the fluid grid’s resolution, and that is staggered with respect to the fluid grid
+T203	own_claim 20332 20450	This scheme places level-set grid centers on the cell centers, face centers, edge centers, and nodes of the fluid grid
+T204	own_claim 20577 20634	the higher resolution also benefits the rendered surfaces
+T205	own_claim 20467 20575	helping to prevent volume loss by locating level-set values where velocity boundary constraints are enforced
+T206	own_claim 21241 21330	The motion of the pure fluid example differs substantially from the viscoelastic examples
+T207	own_claim 21346 21447	the surfaces of the viscoelastic examples retain evidence of the impact even after motion has stopped
+T208	own_claim 21529 21596	the behavior of simple and viscoelastic fluids differ substantially
+T209	data 21464 21520	jets of different fluids sprayed into a closed container
+R110	supports Arg1:T209 Arg2:T208	
+T210	data 21449 21457	Figure 4
+R111	supports Arg1:T210 Arg2:T208	
+T211	data 21133 21239	several splashes that are generated when a fluid sphere is hurled into a tank containing the same material
+R112	supports Arg1:T211 Arg2:T206	
+R113	supports Arg1:T211 Arg2:T207	
+T212	data 21112 21121	Figures 1
+R114	supports Arg1:T212 Arg2:T206	
+R115	supports Arg1:T212 Arg2:T207	
+T213	data 21126 21127	3
+R116	supports Arg1:T213 Arg2:T206	
+R117	supports Arg1:T213 Arg2:T207	
+T214	own_claim 22342 22408	A simply viscous fluid would merely flow out to fill the container
+T215	own_claim 22665 22764	show similar behavior that occurs when cubes of different materials are dropped onto a hard surface
+T216	own_claim 22634 22652	Some of the images
+T217	data 22656 22664	Figure 2
+R118	parts_of_same Arg1:T216 Arg2:T215	
+R119	supports Arg1:T217 Arg2:T216	
+T218	own_claim 22766 22801	The examples with high yield strain
+T219	own_claim 22817 22857	behave like deformable solids and bounce
+R120	parts_of_same Arg1:T218 Arg2:T219	
+T220	data 22808 22815	large γ
+R121	supports Arg1:T220 Arg2:T218	
+T221	own_claim 22882 22963	we can also model highly deformable, sticky objects that interact with each other
+T222	data 22871 22879	Figure 9
+R122	supports Arg1:T222 Arg2:T221	
+T223	own_claim 22991 23041	their level-set surfaces merge so that they adhere
+T224	data 22970 22989	the spheres collide
+R123	supports Arg1:T224 Arg2:T223	
+T225	own_claim 23043 23130	The fluid retains its momentum, generating the resulting spinning and stretching motion
+T226	own_claim 23161 23208	the spheres slightly anticipate their collision
+T227	own_claim 23210 23293	This error occurs because the surfaces begin to interact through shared ghost cells
+T228	background_claim 23653 23687	ray marching produces nice results
+T229	own_claim 23688 23749	we think they might be improved using the method described in
+R124	contradicts Arg1:T228 Arg2:T229	
+T230	data 23752 23766	Heckbert, 1987
+R125	supports Arg1:T230 Arg2:T229	
+T231	own_claim 23769 23824	Some of our examples suffer from noticeable volume loss
+T232	own_claim 23826 24007	This occurs because, while the particle level-set method does a nice job modeling moderately thick volumes of fluids, very thin surfaces, or strands, still have a tendency to vanish
+T233	own_claim 24009 24103	These effects are particularly noticeable visually when the fluid is moving in orderly fashion
+T234	own_claim 24148 24272	It is difficult to say if this behavior is a deficiency in our implementation or a limitation of the surface tracking method
+T235	own_claim 24274 24383	The speed of this simulation method is approximately the same with and without the addition of elastic forces
+T236	data 24398 24550	one of the falling cube examples on a 40 3 grid requires about half an hour of computation per second of animation on a single 3 GHz Pentium 4 processor
+R126	supports Arg1:T236 Arg2:T235	
+T237	own_claim 24632 24745	so very high viscous or elastic coefficients would probably cause stability problems and force smaller time steps
+T238	own_claim 24552 24630	We are using an explicit integration method for the viscous and elastic forces
+R127	supports Arg1:T238 Arg2:T237	
+T239	own_claim 24770 24851	that difficulty could be ameliorated somewhat with an implicit integration scheme
+T240	own_claim 24853 25006	The material can be made to adhere to or slip off of boundary surfaces by adjusting the velocity or pressure constraints enforced along closed boundaries
+T241	own_claim 25017 25082	in our current implementation all fluids will stick to each other
+T242	data 25091 25143	different surface components merge when they collide
+R128	supports Arg1:T242 Arg2:T241	
+T243	own_claim 25185 25221	this behavior is a desirable feature
+T244	data 25149 25183	the fluids we show in our examples
+R129	supports Arg1:T244 Arg2:T243	
+T245	own_claim 25277 25300	it would be undesirable
+T246	data 25236 25275	non-sticky materials, like cold gelatin
+R130	supports Arg1:T246 Arg2:T245	
+T247	own_claim 25302 25427	To a large extent, our method for incorporating elastoplastic terms does not depend on the underlying fluid simulation method
+T248	own_claim 25433 25503	one could easily adapt the method to other fluid simulation techniques
+R131	supports Arg1:T247 Arg2:T248	
+T249	data 25512 25543	smoothed-particle hydrodynamics
+R132	supports Arg1:T249 Arg2:T248	
+T250	own_claim 25620 25666	adding the elastoplastic terms was fairly easy
+T251	data 25577 25618	we already had a working fluid simulation
+R133	supports Arg1:T251 Arg2:T250	
+T252	own_claim 25696 25753	the method we present can model a wide range of phenomena
+T253	own_claim 25755 25827	many real materials can demonstrate behaviors not captured by this model
+R134	contradicts Arg1:T253 Arg2:T252	
+T254	own_claim 25863 25943	can exhibit many interesting effects that arise from their microscopic structure
+T255	own_claim 25829 25846	Biological fluids
+R135	parts_of_same Arg1:T255 Arg2:T254	
+R136	supports Arg1:T255 Arg2:T253	
+T256	data 25856 25861	blood
+R137	supports Arg1:T256 Arg2:T255	
+T257	own_claim 25945 26062	Even relatively simple polymer suspensions can demonstrate behavior that can only be roughly captured with this model

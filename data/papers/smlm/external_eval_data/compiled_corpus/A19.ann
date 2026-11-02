@@ -1,0 +1,756 @@
+T1	background_claim 1730 1935	The development of physics-based locomotion controllers de novo, independent from stock motion data, has been a long-standing objective in computer graphics research and has seen resurgence in recent years
+T2	background_claim 1937 2065	Despite impressive progress, the gaits produced by existing controllers fall short of the natural appearance of human locomotion
+T3	background_claim 2367 2495	Biological control systems output neural excitation signals, which then generate musculotendon forces that lead to joint torques
+T4	background_claim 2497 2552	The mapping from excitation to torque is highly complex
+T5	data 2080 2284	physics-based walking controllers that do not rely on motion capture data commonly produce walking motion with exaggerated hip flexion which appears more crouched and less fluid than typical human walking
+T6	background_claim 2286 2365	One likely cause of these differences is the control force generation mechanism
+R1	supports Arg1:T5 Arg2:T2	
+T7	data 2607 2686	the dependence of musculotendon forces on fiber length and contraction velocity
+T8	data 2582 2601	biarticular muscles
+T9	data 2560 2580	variable moment arms
+R2	supports Arg1:T9 Arg2:T4	
+R3	supports Arg1:T8 Arg2:T4	
+R4	supports Arg1:T7 Arg2:T4	
+T10	data 2689 2699	Zajac 1989
+T11	background_claim 2721 2889	state-of-the-art bipedal locomotion control methods directly output joint torques, which ignore constraints and energetic costs imposed by muscle anatomy and physiology
+T12	background_claim 2905 3025	to accomplish a motion task, controllers often employ torque patterns that are inefficient or even impossible for humans
+R5	supports Arg1:T11 Arg2:T12	
+T13	background_claim 3027 3121	These biologically implausible torque patterns diminish the naturalness of the resulting gaits
+T14	own_claim 3123 3275	The goal of our work is to enhance the realism of locomotion gaits exhibited by physically-simulated humanoids without dependence on motion capture data
+T15	own_claim 3386 3470	These musculotendon units generate torques for the most important degrees-of-freedom
+T16	own_claim 3478 3495	during locomotion
+R6	parts_of_same Arg1:T16 Arg2:T15	
+T17	data 3497 3519	the sagittal plane hip
+T18	data 3521 3525	knee
+T19	data 3531 3541	ankle DOFs
+R7	supports Arg1:T17 Arg2:T16	
+R8	supports Arg1:T18 Arg2:T16	
+R9	supports Arg1:T19 Arg2:T16	
+T20	own_claim 3848 3906	many sets of parameters are capable of achieving this task
+T21	own_claim 3908 3975	the quality of the resulting motion varies significantly among them
+R10	contradicts Arg1:T21 Arg2:T20	
+T22	background_claim 4188 4285	In living humans and animals, metabolic energy expenditure can be estimated by oxygen consumption
+T23	background_claim 4300 4392	it is less clear how metabolic energy expenditure should be modeled for simulated characters
+R11	contradicts Arg1:T22 Arg2:T23	
+T24	background_claim 4113 4169	choosing the most effortless gait that achieves the task
+T25	own_claim 3977 4106	To produce gaits that have a high degree of realism, we employ an objective based on minimization of metabolic energy expenditure
+R12	supports Arg1:T25 Arg2:T24	
+T26	data 4171 4185	Alexander 2003
+R13	supports Arg1:T26 Arg2:T24	
+T27	background_claim 4394 4449	A common substitute is the sum of squared joint torques
+T28	background_claim 4485 4619	does not account for the different effort levels required to generate torques in different joints, directions, and body configurations
+T29	data 4451 4475	Schultz and Mombaur 2010
+R14	supports Arg1:T29 Arg2:T27	
+R15	contradicts Arg1:T28 Arg2:T27	
+T30	background_claim 4621 4685	More nuanced objectives can be learned from inverse optimization
+T31	background_claim 4711 4741	are dependent on training data
+T32	data 4688 4703	Liu et al. 2005
+R16	supports Arg1:T32 Arg2:T30	
+R17	contradicts Arg1:T30 Arg2:T31	
+T33	own_claim 5639 5758	by simply changing the initialization and target velocity, the same optimization procedure leads to running controllers
+T34	background_claim 4743 4877	Our use of biologically-based actuators enables the estimation of metabolic energy expenditure based on the internal state of the MTUs
+T35	data 4880 4893	Anderson 1999
+R18	supports Arg1:T35 Arg2:T34	
+T36	own_claim 5347 5463	Much like human locomotion, our controllers utilize significant ankle torque and generate smooth torque trajectories
+T37	own_claim 5465 5611	The resulting gaits match human ground truth to a greater extent than state-of-the-art walking controllers that do not rely on motion capture data
+T38	own_claim 4896 5080	The result is a locomotion control optimization procedure that minimizes a physiologically-based objective within a parameter space restricted to biologically plausible torque patterns
+T39	background_claim 5812 5930	Animation researchers have been interested in the control of locomotion for 3D humanoid characters for almost 20 years
+T40	data 5933 5952	Hodgins et al. 1995
+T41	data 5954 5972	Laszlo et al. 1996
+T42	data 5974 5995	Faloutsos et al. 2001
+R19	supports Arg1:T40 Arg2:T39	
+R20	supports Arg1:T41 Arg2:T39	
+T43	background_claim 5998 6043	One important recent contribution is SIMBICON
+R21	supports Arg1:T42 Arg2:T39	
+T44	data 6064 6146	a remarkably robust 3D humanoid locomotion controller based on the balance control
+T45	data 6046 6061	Yin et al. 2007
+T46	data 6150 6169	Raibert and Hodgins
+T47	data 6171 6175	1991
+R22	parts_of_same Arg1:T47 Arg2:T46	
+R23	supports Arg1:T46 Arg2:T43	
+R24	supports Arg1:T44 Arg2:T43	
+R25	supports Arg1:T45 Arg2:T43	
+T48	background_claim 6179 6280	A num- ber of projects have since focused on expanding the controller repertoire for simulated bipeds
+T49	background_claim 6341 6382	and on locomotion in complex environments
+R26	parts_of_same Arg1:T48 Arg2:T49	
+T50	data 6283 6299	Jain et al. 2009
+T51	data 6301 6318	Coros et al. 2010
+T52	data 6320 6339	de Lasa et al. 2010
+R27	supports Arg1:T50 Arg2:T48	
+R28	supports Arg1:T51 Arg2:T48	
+R29	supports Arg1:T52 Arg2:T48	
+T53	data 6385 6405	Mordatch et al. 2010
+T54	data 6407 6426	Wu and Popović 2010
+T55	background_claim 6447 6530	efforts have been made to make the synthesized motions more human-like, or “natural
+R30	supports Arg1:T53 Arg2:T49	
+R31	supports Arg1:T54 Arg2:T49	
+T56	data 6549 6560	Wang et al.
+T57	background_claim 6570 6686	the original SIMBICON-style controllers tend to produce gaits lacking hip extension with a constant foot orientation
+T58	data 6562 6566	2009
+R32	parts_of_same Arg1:T56 Arg2:T58	
+T59	data 6688 6759	Knee angles lack flexion during swing, but lack extension at heelstrike
+R33	supports Arg1:T58 Arg2:T57	
+R34	supports Arg1:T59 Arg2:T57	
+T60	background_claim 6761 6866	More recent controllers improve motions by designing better target trajectories in joint or feature space
+T61	data 6869 6886	Coros et al. 2009
+T62	data 6888 6905	Coros et al. 2010
+T63	data 6907 6926	de Lasa et al. 2010
+R35	supports Arg1:T61 Arg2:T60	
+R36	supports Arg1:T62 Arg2:T60	
+R37	supports Arg1:T63 Arg2:T60	
+T64	background_claim 6935 6983	more human-like ankle motions have been produced
+T65	background_claim 6985 7031	differences in the hip and knee angles persist
+T66	data 7034 7043	Figure 6a
+R38	supports Arg1:T66 Arg2:T65	
+R39	contradicts Arg1:T65 Arg2:T64	
+T67	background_claim 7047 7222	Perhaps more importantly, controllers relying on hand-tuned trajectories cannot be easily used to investigate how the control strategies change with respect to new constraints
+T68	data 7237 7311	how would the character’s motion style change given a physical disability?
+T69	data 7312 7380	Can we synthesize appropriate gaits for older or younger characters?
+R40	supports Arg1:T68 Arg2:T67	
+R41	supports Arg1:T69 Arg2:T67	
+T70	background_claim 7381 7476	Impressive results have also been achieved by controllers based on tracking motion capture data
+T71	data 7479 7499	da Silva et al. 2008
+T72	data 7501 7518	Muico et al. 2009
+T73	data 7520 7541	Kwon and Hodgins 2010
+T74	data 7543 7558	Lee et al. 2010
+T75	data 7560 7575	Ye and Liu 2010
+R42	supports Arg1:T71 Arg2:T70	
+R43	supports Arg1:T72 Arg2:T70	
+R44	supports Arg1:T73 Arg2:T70	
+R45	supports Arg1:T74 Arg2:T70	
+R46	supports Arg1:T75 Arg2:T70	
+T76	background_claim 7587 7749	as with methods that tune joint trajectories or controller parameters by hand, motion capture driven controllers have a limited ability to predict changes in gait
+R47	contradicts Arg1:T76 Arg2:T70	
+T77	background_claim 7766 7848	de novo controller optimization has been used to capture features of human walking
+T78	data 7851 7867	Wang et al. 2009
+R48	supports Arg1:T78 Arg2:T77	
+T79	data 7869 7885	Wang et al. 2010
+R49	supports Arg1:T79 Arg2:T77	
+T80	background_claim 7894 7992	these methods were shown to produce gaits for a variety of characters and environmental conditions
+T81	background_claim 7994 8079	they do not employ realistic effort measures or biologicallyplausible control torques
+R50	contradicts Arg1:T80 Arg2:T81	
+T82	background_claim 8081 8131	The resulting torque patterns are highly unnatural
+T83	background_claim 8147 8232	leading to artifacts such as excessive plantarflexion and sharp changes in kinematics
+T84	data 8134 8143	Figure 6b
+T85	data 8235 8244	Figure 6a
+R51	supports Arg1:T85 Arg2:T83	
+R52	supports Arg1:T84 Arg2:T82	
+R53	supports Arg1:T82 Arg2:T83	
+T86	own_claim 8261 8377	our approach is to actuate key DOFs using Hill-type MTUs and to measure effort based on metabolic energy expenditure
+T87	own_claim 8379 8457	We demonstrate significantly more human-like kinematic and torque trajectories
+T88	own_claim 8462 8559	show that the same control parameterization and effort objective produce both walking and running
+T89	background_claim 8567 8642	locomotion controllers discussed above all operate on joint-actuated models
+T90	background_claim 8644 8715	musculoskeletal models have also been investigated in computer graphics
+T91	background_claim 8721 8767	Such models have been used in facial animation
+T92	background_claim 8822 8850	simulation of the human hand
+T93	background_claim 8873 8877	neck
+T94	background_claim 8907 8912	torso
+T95	background_claim 8936 8963	and the complete upper body
+T96	data 8770 8781	Waters 1987
+R54	parts_of_same Arg1:T91 Arg2:T92	
+R55	parts_of_same Arg1:T92 Arg2:T93	
+R56	parts_of_same Arg1:T93 Arg2:T94	
+R57	parts_of_same Arg1:T94 Arg2:T95	
+T97	data 8783 8798	Lee et al. 1995
+T98	data 8800 8819	Sifakis et al. 2005
+R58	supports Arg1:T96 Arg2:T91	
+R59	supports Arg1:T97 Arg2:T91	
+R60	supports Arg1:T98 Arg2:T91	
+T99	data 8853 8870	Sueda et al. 2008
+T100	data 8880 8904	Lee and Terzopoulos 2006
+R61	supports Arg1:T99 Arg2:T92	
+R62	supports Arg1:T100 Arg2:T93	
+T101	data 8915 8933	Zordan et al. 2006
+T102	data 8966 8981	Lee et al. 2009
+R63	supports Arg1:T101 Arg2:T94	
+R64	supports Arg1:T102 Arg2:T95	
+T103	background_claim 9004 9024	optimize a CPG-based
+T104	background_claim 9053 9074	locomotion controller
+T105	background_claim 9087 9154	for 3D musculoskeletal models without tendon or activation dynamics
+R65	parts_of_same Arg1:T103 Arg2:T104	
+T106	background_claim 9160 9236	their results were not compared to human kinematic and dynamic gait patterns
+R66	parts_of_same Arg1:T104 Arg2:T105	
+T107	data 8984 8995	Hase et al.
+T108	data 8997 9001	2003
+T109	data 9076 9085	Taga 1995
+R67	parts_of_same Arg1:T107 Arg2:T108	
+R68	supports Arg1:T108 Arg2:T103	
+R69	supports Arg1:T109 Arg2:T104	
+T110	background_claim 9248 9348	full musculoskeletal models are significantly more difficult to construct than joint-actuated models
+T111	own_claim 9350 9507	Our work demonstrates that measurable increase in locomotion realism can be produced by employing musculotendon actuators for a small subset of the body DOFs
+T112	background_claim 9509 9629	In the biomechanics literature, abstract planar models have been used to study high-level principles of human locomotion
+T113	background_claim 9645 9758	energy minimization has been suggested as the criterion for humans in determining step length given walking speed
+T114	background_claim 9772 9823	as well as in selecting between walking and running
+T115	data 9761 9769	Kuo 2001
+T116	data 9826 9851	Srinivasan and Ruina 2006
+R70	parts_of_same Arg1:T113 Arg2:T114	
+T117	background_claim 9854 9889	The spring-loaded inverted pendulum
+R71	supports Arg1:T115 Arg2:T113	
+R72	supports Arg1:T116 Arg2:T114	
+T118	background_claim 9897 9902	model
+T119	background_claim 9920 9974	has been used as a basis for predicting center-of-mass
+R73	parts_of_same Arg1:T117 Arg2:T118	
+R74	parts_of_same Arg1:T118 Arg2:T119	
+T120	background_claim 9981 10007	movements of human runners
+T121	background_claim 10045 10140	in the absence of knee joints, these models cannot be used to simulate accurate gait pat- terns
+R75	parts_of_same Arg1:T119 Arg2:T120	
+T122	data 9904 9917	Blickhan 1989
+T123	data 10009 10033	Full and Koditschek 1999
+R76	supports Arg1:T122 Arg2:T118	
+R77	supports Arg1:T123 Arg2:T120	
+R78	contradicts Arg1:T121 Arg2:T120	
+T124	background_claim 10142 10197	Using a 2D model with knees and musculotendon actuators
+T125	background_claim 10235 10338	patterns of human walking can be generated by a set of simple control laws motivated by muscle reflexes
+R79	parts_of_same Arg1:T124 Arg2:T125	
+T126	data 10200 10214	Geyer and Herr
+T127	data 10216 10220	2010
+T128	own_claim 10340 10363	which inspired our work
+R80	parts_of_same Arg1:T126 Arg2:T127	
+R81	supports Arg1:T125 Arg2:T128	
+R82	supports Arg1:T126 Arg2:T124	
+T129	own_claim 10377 10457	their basic ideas can be embedded in a 3D humanoid model and extended to running
+T130	background_claim 10460 10512	Similar 2D models have been used for gait prediction
+T131	background_claim 10551 10603	and to generate human-like responses to disturbances
+T132	data 10515 10548	Ackermann and van den Bogert 2010
+T133	data 10606 10627	Murai and Yamane 2011
+R83	parts_of_same Arg1:T130 Arg2:T131	
+R84	supports Arg1:T132 Arg2:T130	
+R85	supports Arg1:T133 Arg2:T131	
+T134	background_claim 10630 10760	Simulation studies on detailed 3D musculoskeletal models have been employed to understand muscle functions during locomotion tasks
+T135	data 10763 10786	Anderson and Pandy 2001
+T136	data 10788 10803	Liu et al. 2008
+T137	data 10805 10823	Hamner et al. 2010
+R86	supports Arg1:T135 Arg2:T134	
+R87	supports Arg1:T136 Arg2:T134	
+R88	supports Arg1:T137 Arg2:T134	
+T138	background_claim 10879 10994	human-like lower body motor patterns can be found by minimizing metabolic energy expenditure per distance travelled
+T139	data 10861 10865	2001
+T140	data 10841 10859	Anderson and Pandy
+R89	parts_of_same Arg1:T140 Arg2:T139	
+R90	supports Arg1:T139 Arg2:T138	
+T141	own_claim 11000 11061	we adopt their proposed model of metabolic energy in our work
+R91	supports Arg1:T138 Arg2:T141	
+T142	background_claim 11072 11149	these biomechanical simulations only recovered muscle activation trajectories
+T143	background_claim 11155 11245	did not produce locomotion controllers that can function beyond the duration of input data
+T144	own_claim 11256 11300	our work is complementary of the recent work
+T145	own_claim 11326 11450	who showed that simulating soft tissue deformation at contact sites could lead to more robust and realistic character motion
+R92	parts_of_same Arg1:T144 Arg2:T145	
+T146	own_claim 11452 11620	We demonstrate how musculotendon actuators, biologicallymotivated control laws, and a more realistic effort term can be used to produce more human-like locomotion gaits
+T147	data 11304 11316	Jain and Liu
+T148	data 11318 11322	2011
+R93	parts_of_same Arg1:T147 Arg2:T148	
+R94	supports Arg1:T147 Arg2:T144	
+T149	background_claim 12790 12816	key DOFs for gait analysis
+T150	own_claim 12845 12896	are exclusively generated by eight MTUs in each leg
+T151	own_claim 12712 12789	control torques for the hip, knee, and ankle joint DOFs in the sagittal plane
+R95	parts_of_same Arg1:T151 Arg2:T150	
+T152	own_claim 12482 12538	allows for some amount of foot rolling after heel-strike
+R96	supports Arg1:T149 Arg2:T151	
+T153	data 12819 12843	Perry and Burnfield 2010
+R97	supports Arg1:T153 Arg2:T149	
+T154	data 12413 12474	We use cylinders to approximate the heel and ball of the foot
+R98	supports Arg1:T154 Arg2:T152	
+T155	own_claim 13663 13722	The choice of muscles is based on the planar model proposed
+T156	data 13727 13741	Geyer and Herr
+T157	data 13743 13747	2010
+R99	parts_of_same Arg1:T156 Arg2:T157	
+R100	supports Arg1:T156 Arg2:T155	
+T158	own_claim 14826 14863	Conceptually, the contractile element
+T159	own_claim 14869 14922	models muscle fibers that can actively generate force
+T160	own_claim 14931 14972	depending on the current activation level
+R101	parts_of_same Arg1:T158 Arg2:T159	
+R102	parts_of_same Arg1:T159 Arg2:T160	
+T161	own_claim 15686 15778	Intuitively, f l models the fact that muscles can generate force more efficiently near l opt
+T162	own_claim 15080 15106	the serial-elastic element
+T163	own_claim 15112 15129	models the tendon
+R103	parts_of_same Arg1:T162 Arg2:T163	
+T164	own_claim 15042 15072	generated by the muscle fibers
+T165	own_claim 15012 15033	models passive forces
+T166	own_claim 15937 16094	the nonlinearity introduced by these relations is crucial for how simple control laws for muscle excitation can lead to complex force and torque trajectories
+T167	own_claim 15785 15886	f v captures how the muscle loses its ability to generate force as the contraction velocity increases
+T168	own_claim 14978 15006	The parallel-elastic element
+R104	parts_of_same Arg1:T168 Arg2:T165	
+R105	parts_of_same Arg1:T165 Arg2:T164	
+T169	data 15924 15935	Section 4.1
+R106	supports Arg1:T169 Arg2:T166	
+T170	own_claim 16194 16242	The controller outputs neural excitation signals
+T171	own_claim 16248 16289	which are converted to muscle activations
+R107	supports Arg1:T170 Arg2:T171	
+T172	own_claim 16295 16340	The conversion does not occur instantaneously
+T173	own_claim 17274 17404	The total lower extremity joint torques in the sagittal plane are obtained by summing over contributions from all relevant muscles
+T174	own_claim 18319 18518	The main part of our control algorithm consists of functions that determine muscle excitation values for each of the lower body MTUs, which actuate the hip, knee, and ankle DOFs in the sagittal plane
+T175	own_claim 18581 18615	we rely on a pose-graph controller
+T176	data 18524 18579	the upper body and the remaining DOFs in the lower body
+R108	supports Arg1:T176 Arg2:T175	
+T177	data 18618 18633	Yin et al. 2007
+R109	supports Arg1:T177 Arg2:T175	
+T178	own_claim 19281 19371	Our control laws for the actuators are based on the muscle-reflex controller introduced by
+T179	data 19373 19387	Geyer and Herr
+T180	data 19389 19393	2010
+R110	parts_of_same Arg1:T179 Arg2:T180	
+R111	supports Arg1:T179 Arg2:T178	
+T181	own_claim 20197 20265	Depending on the input feature, three different mappings are defined
+T182	data 20267 20290	positive force feedback
+T183	own_claim 19474 19588	Two different sets of control laws apply for each muscle, depending on whether the leg is in stance or swing phase
+T184	data 19596 19624	foot is on the ground or not
+R112	supports Arg1:T184 Arg2:T183	
+T185	data 20292 20316	positive length feedback
+T186	data 20322 20359	muscle-driven proportional derivative
+T187	data 20365 20372	control
+R113	supports Arg1:T182 Arg2:T181	
+R114	supports Arg1:T185 Arg2:T181	
+R115	parts_of_same Arg1:T186 Arg2:T187	
+R116	supports Arg1:T186 Arg2:T181	
+T188	own_claim 20374 20434	These mappings serve as building blocks for the control laws
+T189	own_claim 20816 20855	F  ̃ m MTU cannot increase indefinitely
+T190	data 20862 20979	the muscle’s force generation capacity depends nonlinearly on the length and contraction velocity of the muscle fiber
+R117	supports Arg1:T190 Arg2:T189	
+T191	own_claim 21279 21333	u GAS F produces a positive feedback during mid-stance
+T192	data 21427 21460	the foot is planted on the ground
+R118	supports Arg1:T192 Arg2:T196	
+T193	own_claim 21579 21634	reduces force output and the activation through u F GAS
+T194	own_claim 21511 21571	the same muscle activation rapidly shortens the fiber length
+T195	data 21465 21509	the heel loses ground contact in late stance
+R119	supports Arg1:T194 Arg2:T193	
+R120	supports Arg1:T195 Arg2:T194	
+T196	own_claim 21340 21422	the muscle activation does not produce a significant change in muscle fiber length
+R121	supports Arg1:T196 Arg2:T191	
+T197	own_claim 22737 22879	The positive length feedback effectively models a stretch reflex, which activates the muscle when the fiber is stretched beyond a fixed length
+T198	own_claim 22881 22924	u L m is most useful during the swing phase
+T199	data 22929 23002	the TA must be activated to dorsiflex so that toe-stubbing can be avoided
+R122	supports Arg1:T199 Arg2:T198	
+T200	own_claim 23017 23127	the HFL relies on length feedback to generate hip flexion torque during early swing, especially during running
+T202	own_claim 23478 23629	Much like the standard torquebased PD-controller, the muscle-driven PD control aims to adjust θ towards the target angle θ m while damping its velocity
+T205	own_claim 23640 23719	unlike the standard PD-controller, muscles can only activate after a time-delay
+T201	own_claim 23724 23803	each muscle can only generate forces to rotate the angular DOF in one direction
+T203	own_claim 23805 23926	The PD-control laws are employed by the hip muscles during the stance phase to maintain the global upper body orientation
+T204	own_claim 23939 23994	during stance preparation to prepare for ground contact
+T206	own_claim 24130 24206	Each muscle has an initial constant excitation, or pre-stimulation value p m
+T207	own_claim 24209 24275	These values are initialized close to zero, but are then optimized
+T208	own_claim 24277 24329	The SOL and GAS both rely on positive force feedback
+T209	own_claim 24334 24379	are the main sources of torque during walking
+T210	own_claim 24381 24447	The TA ensures foot clearance during swing using a length feedback
+T211	own_claim 24463 24559	the activation is suppressed during stance in proportion to the current force generated from SOL
+T212	own_claim 24910 24979	The suppression prevents hyperextension of the knee during mid-stance
+T213	own_claim 24561 24665	The suppression allows the generated TA activation patterns to better match human data during locomotion
+T214	own_claim 26064 26134	Two main differences between our stance phase control laws compared to
+T215	own_claim 26159 26206	lie in how the swing initiation state functions
+T216	own_claim 26227 26358	we found it necessary to enter into swing initiation using the d  ̃ &gt; d  ̃ SI condition, rather than just wait for double stance
+T217	data 26136 26150	Geyer and Herr
+T218	data 26152 26156	2010
+R123	parts_of_same Arg1:T217 Arg2:T218	
+T219	data 26219 26226	running
+T220	own_claim 26485 26573	the responsibility to maintain upper body orientation is always assigned to the lead leg
+T221	own_claim 26368 26474	we found it unnecessary to modulate the muscle-driven PD-control laws in the hip by ground reaction forces
+R124	supports Arg1:T219 Arg2:T216	
+R125	supports Arg1:T217 Arg2:T214	
+R126	supports Arg1:T216 Arg2:T215	
+R127	parts_of_same Arg1:T214 Arg2:T215	
+R128	supports Arg1:T221 Arg2:T215	
+T222	own_claim 27062 27121	each muscle has an initial constant excitation value (q m )
+T223	background_claim 27123 27201	The leg motion relies significantly on passive dynamics during the swing phase
+T224	data 27229 27272	most muscles are only excited at low levels
+T225	data 27204 27223	Collins et al. 2005
+R129	supports Arg1:T224 Arg2:T223	
+R130	supports Arg1:T225 Arg2:T223	
+T226	own_claim 28508 28607	We found the addition of the stance preparation state to be important for discovering running gaits
+T227	own_claim 27274 27341	The main exceptions are the TA, which maintains the length feedback
+T228	own_claim 27352 27372	to avoid toestubbing
+R131	parts_of_same Arg1:T227 Arg2:T228	
+T229	own_claim 27374 27484	and the HAM, which is activated at late swing phase to prevent the knee from being overextended before landing
+T230	own_claim 27621 27737	The amount of excitation in the HFL also depends on the value of upper body lean at the beginning of the swing phase
+T231	data 27748 27825	the further the upper body leans forward compared to the reference lean angle
+T232	data 27834 27901	the more excitation is supplied from the HFL during the swing phase
+T233	own_claim 27913 27959	Θ d is the same as the target angle in u Θ HFL
+R132	parts_of_same Arg1:T231 Arg2:T232	
+R133	supports Arg1:T232 Arg2:T230	
+T234	background_claim 28609 28704	The balance feedback law allows robust control strategies to be found in difficult environments
+T235	data 28712 28741	being pushed by random forces
+R134	supports Arg1:T235 Arg2:T234	
+T236	own_claim 28971 29079	The rest of the DOFs are controlled using standard joint-space PDcontrollers with state-dependent parameters
+T237	background_claim 29112 29239	the target features for the ankle and hip joints in the coronal plane are the global foot and pelvis orientations, respectively
+T238	data 29091 29102	Wang et al.
+T239	data 29104 29108	2010
+R135	parts_of_same Arg1:T238 Arg2:T239	
+R136	supports Arg1:T239 Arg2:T237	
+T240	own_claim 29241 29312	The coronal swing hip target angles follow the same feedback law as θ h
+T241	own_claim 29509 29528	only two are needed
+T242	data 29530 29565	triggered by left/right foot-strike
+T243	own_claim 29432 29455	Unlike in previous work
+T244	data 29573 29634	DOFs with the most complex activities are actuated by muscles
+T245	own_claim 29636 29679	Our upper body control also largely follows
+T246	data 29681 29691	Wang et al
+T247	data 29694 29698	2010
+T248	data 29463 29507	a gait cycle is broken down into four states
+R137	supports Arg1:T248 Arg2:T243	
+R138	contradicts Arg1:T243 Arg2:T241	
+R139	supports Arg1:T242 Arg2:T241	
+R140	supports Arg1:T244 Arg2:T241	
+R141	parts_of_same Arg1:T246 Arg2:T247	
+T249	own_claim 29726 29888	the target feature of our back joint in the coronal plane is the global orientation of the torso instead of the local joint angle between the torso and the pelvis
+R142	contradicts Arg1:T249 Arg2:T245	
+R143	supports Arg1:T246 Arg2:T245	
+T250	own_claim 29890 29975	This global target allows our model to better keep the head upright during locomotion
+T251	own_claim 30634 30741	This formulation captures the tendency to rotate the shoulder backwards and inwards while bending the elbow
+T252	own_claim 30743 30834	The scale constant and the desired elbow angle are among the parameters set by optimization
+T253	data 30856 30868	next section
+R144	supports Arg1:T253 Arg2:T252	
+T254	own_claim 30933 30954	The control algorithm
+T255	own_claim 30978 31040	has a large number of parameters, which we set by optimization
+R145	parts_of_same Arg1:T254 Arg2:T255	
+T256	data 30968 30977	Section 4
+T257	data 31043 31059	Wang et al. 2010
+R146	supports Arg1:T257 Arg2:T255	
+R147	supports Arg1:T256 Arg2:T254	
+T258	own_claim 31081 31173	each of the u m F , u m L , and u m θ laws have one, two, and three parameters, respectively
+R148	supports Arg1:T258 Arg2:T255	
+T259	own_claim 31175 31207	There are 56 parameters in total
+T260	own_claim 31230 31254	for the MTU control laws
+R149	parts_of_same Arg1:T259 Arg2:T260	
+T261	data 31209 31218	30 stance
+T262	data 31220 31228	26 swing
+R150	supports Arg1:T261 Arg2:T259	
+R151	supports Arg1:T262 Arg2:T259	
+T263	own_claim 31622 31679	124 parameters (w) fully define a simulated motion {s 1 .
+T264	own_claim 31684 31707	s T } over T timesteps.
+R152	parts_of_same Arg1:T263 Arg2:T264	
+T265	data 31541 31620	combined with 33 free parameters describing the initial state of the simulation
+R153	supports Arg1:T265 Arg2:T263	
+T266	own_claim 31872 31969	The optimization aims to maximize the following return function: T R (w) = r(s t ) − w e J effort
+T267	own_claim 32186 32286	The reward is defined as the negative sum of a number of task terms (i.e., r(s t ) = − i K i (s t ))
+T268	data 32315 32391	high-priority goals that the controller must satisfy while minimizing effort
+R154	supports Arg1:T268 Arg2:T267	
+T269	own_claim 32393 32463	In practice, these terms are weighed more heavily than the effort term
+T270	own_claim 32729 32875	unlike in previous work, we did not need to include human-like speed to step-length ratio and minimal angular momentum about the COM as task terms
+T271	own_claim 32465 32623	The tasks include moving the COM forward at a target velocity while not falling down for 10 seconds, and maintaining head stability and upper body orientation
+T272	background_claim 32625 32652	The task terms are based on
+T273	data 32654 32665	Wang et al.
+T274	data 32667 32671	2010
+T275	data 32681 32717	defined in the supplemental material
+R155	parts_of_same Arg1:T273 Arg2:T274	
+T276	own_claim 32931 33028	The main contribution to our effort measurement is the total rate of metabolic energy expenditure
+R156	supports Arg1:T274 Arg2:T272	
+R157	supports Arg1:T275 Arg2:T272	
+T277	own_claim 33037 33050	over all MTUs
+R158	parts_of_same Arg1:T276 Arg2:T277	
+T278	own_claim 33071 33104	we implement a model described by
+T279	own_claim 33123 33149	which is later expanded by
+T280	data 33106 33114	Anderson
+T281	data 33053 33066	To quantify E
+R159	supports Arg1:T281 Arg2:T278	
+R160	parts_of_same Arg1:T278 Arg2:T279	
+T282	data 33116 33120	1999
+R161	parts_of_same Arg1:T282 Arg2:T280	
+R162	supports Arg1:T280 Arg2:T278	
+T283	data 33151 33166	Bhargava et al.
+T284	data 33168 33172	2004
+R163	parts_of_same Arg1:T283 Arg2:T284	
+R164	supports Arg1:T283 Arg2:T279	
+T285	own_claim 33529 33660	The muscle activation heat rate models the rate of energy that is converted to heat by a muscle given a certain level of activation
+T286	own_claim 33666 33736	is a function of both the mass of the muscle and the excitation signal
+T287	own_claim 33738 33852	The maintenance heat rate similarly models the heat rate for the muscle to maintain contraction at a certain level
+T288	own_claim 33858 33906	depends additionally on the current fiber length
+T289	own_claim 33922 33943	A  ̇ = mass · f A (u)
+T290	own_claim 33948 33981	M  ̇ = mass · g(  ̃ l CE )f M (a)
+R165	supports Arg1:T290 Arg2:T288	
+R166	supports Arg1:T289 Arg2:T287	
+T291	data 34017 34062	 ̃ l CE is the normalized muscle fiber length
+R167	supports Arg1:T291 Arg2:T290	
+T292	data 33989 34012	mass is the muscle mass
+R168	supports Arg1:T292 Arg2:T289	
+R169	supports Arg1:T292 Arg2:T290	
+T293	own_claim 34198 34259	larger muscles are generally capable of generating more force
+T294	own_claim 34261 34293	they are also more costly to use
+R170	contradicts Arg1:T294 Arg2:T293	
+T295	own_claim 36230 36315	An optimized controller can be simulated at interactive rates using standard hardware
+T296	own_claim 36781 36986	we are particularly interested in comparing our results to the mean and standard deviation curves for the sagittal hip, knee, and ankle joints for multiple subjects over multiple walking and running speeds
+T297	background_claim 37000 37037	data for walking is readily available
+T298	own_claim 36675 36766	curves during locomotion can be computed from motion capture and ground reaction force data
+T299	own_claim 36647 36665	Human joint moment
+T300	data 37040 37064	Perry and Burnfield 2010
+R171	parts_of_same Arg1:T299 Arg2:T298	
+T301	background_claim 37067 37112	only scattered data are available for running
+T302	own_claim 37183 37269	we acquired our own ground truth data using an instrumented treadmill with 20 subjects
+T303	data 37115 37129	Novacheck 1998
+T304	data 37131 37151	Yokozawa et al. 2007
+T305	data 37153 37171	Hamner et al. 2010
+T306	data 37299 37351	http://graphics.stanford.edu/projects/bio-locomotion
+R172	supports Arg1:T300 Arg2:T297	
+R173	supports Arg1:T303 Arg2:T301	
+R174	supports Arg1:T304 Arg2:T301	
+R175	supports Arg1:T305 Arg2:T301	
+R176	supports Arg1:T306 Arg2:T302	
+T307	own_claim 37666 37752	the range of hip angles in our subjects during walking increased by approx◦ imately 10
+T308	own_claim 37761 37848	the location of maximum ankle plantarflexion shifted slightly earlier in the gait cycle
+T309	data 37581 37650	Comparing the mean curves for walking speeds from 1.0 m/s to 1.75 m/s
+R177	supports Arg1:T309 Arg2:T307	
+R178	supports Arg1:T309 Arg2:T308	
+T310	own_claim 37850 37930	More pronounced differences are present between running data at different speeds
+T311	data 38003 38050	running speed increased from 2.0 m/s to 5.0 m/s
+T312	own_claim 38058 38156	locations of both the maximum hip extension and ankle plantarflexion shifted earlier by 5% and 10%
+T313	own_claim 37932 37999	The hip ◦ angle range and maximum knee flexion both increased by 30
+R179	supports Arg1:T311 Arg2:T313	
+R180	supports Arg1:T311 Arg2:T312	
+T314	own_claim 38172 38230	Both the hip and ankle torque outputs increased with speed
+T315	own_claim 38239 38319	the ankle torque curves did not differ significantly between 4.0 m/s and 5.0 m/s
+R181	contradicts Arg1:T315 Arg2:T314	
+R182	supports Arg1:T313 Arg2:T310	
+R183	supports Arg1:T312 Arg2:T310	
+T316	own_claim 39719 39856	Supplemental figures indicate that our kinematic patterns generally agree with data over a range of speeds and especially at lower speeds
+T317	own_claim 39858 39968	Two main discrepancies are the timing of knee flexion during stance, and ankle dorsiflexion before heel-strike
+T318	own_claim 39989 40044	the maximum knee flexion angle is lower than human data
+T319	own_claim 40050 40127	the location of maximum ankle plantarflexion occurs earlier in the gait cycle
+T320	data 39974 39987	higher speeds
+R184	supports Arg1:T320 Arg2:T318	
+R185	supports Arg1:T320 Arg2:T319	
+T321	own_claim 40208 40301	we found time-delays to be important for generating human-like motion given our control model
+T322	own_claim 40303 40455	Optimizing without activation dynamics and with ∆t m = 0 for all MTUs results in a solution where ankle torques build up too quickly in the stance phase
+T323	own_claim 40457 40511	leading to shorter step-lengths compared to human data
+R186	supports Arg1:T322 Arg2:T323	
+T324	background_claim 40796 40888	A major artifact from all of the previous works is the lack of hip extension during mid-gait
+T325	own_claim 40896 40924	does not occur in our result
+R187	contradicts Arg1:T325 Arg2:T324	
+T326	background_claim 40983 41005	is robust and flexible
+T327	background_claim 40926 40957	The feature-based controller of
+R188	supports Arg1:T327 Arg2:T326	
+T328	data 40976 40980	2010
+T329	data 40959 40974	Mordatch et al.
+R189	parts_of_same Arg1:T329 Arg2:T328	
+R190	supports Arg1:T329 Arg2:T327	
+T330	background_claim 41011 41059	their basic walking gait shows an obvious crouch
+R191	contradicts Arg1:T330 Arg2:T326	
+T331	own_claim 41061 41158	Our result also exhibits a range of knee motion more similar to humans compared to previous works
+T332	own_claim 41169 41236	all four controllers show excessive dorsiflexion before heel-strike
+R192	contradicts Arg1:T332 Arg2:T331	
+T333	own_claim 41238 41361	An important advantage of optimization over hand-tuning is the ability to create controllers based on high-level objectives
+T334	data 41370 41383	walking speed
+R193	supports Arg1:T334 Arg2:T333	
+T335	own_claim 41427 41512	our controllers generate more human-like gaits compared to optimized controllers from
+T336	own_claim 41533 41557	at faster walking speeds
+T337	own_claim 41579 41586	as well
+T338	data 41404 41425	supplemental material
+R194	parts_of_same Arg1:T335 Arg2:T336	
+R195	parts_of_same Arg1:T336 Arg2:T337	
+R196	supports Arg1:T338 Arg2:T335	
+T339	data 41514 41525	Wang et al.
+T340	data 41527 41531	2010
+R197	parts_of_same Arg1:T339 Arg2:T340	
+T341	data 41559 41566	Wang10f
+T342	data 41568 41576	Wang10vf
+R198	supports Arg1:T339 Arg2:T335	
+R199	supports Arg1:T341 Arg2:T336	
+R200	supports Arg1:T342 Arg2:T336	
+T343	background_claim 41588 41631	An obvious artifact of all controllers from
+T344	background_claim 41653 41709	is the excessive plantarflexion in the early swing phase
+R201	parts_of_same Arg1:T343 Arg2:T344	
+T345	own_claim 41717 41745	is not present in our result
+R202	contradicts Arg1:T345 Arg2:T344	
+T346	data 41633 41644	Wang et al.
+T347	data 41646 41650	2010
+R203	parts_of_same Arg1:T346 Arg2:T347	
+R204	supports Arg1:T346 Arg2:T343	
+T348	background_claim 41749 41836	Examining differences in torque generation, we can see that the controller presented by
+T349	background_claim 41858 41925	does not employ a human-like torque distribution between the joints
+R205	parts_of_same Arg1:T348 Arg2:T349	
+T350	data 41837 41849	Coros et al.
+T351	data 41851 41855	2009
+T352	data 41928 41937	Figure 6b
+R206	parts_of_same Arg1:T350 Arg2:T351	
+R207	supports Arg1:T350 Arg2:T348	
+R208	supports Arg1:T352 Arg2:T349	
+T353	background_claim 42005 42035	the gait is largely hip-driven
+T354	data 41975 41983	SIMBICON
+R209	supports Arg1:T354 Arg2:T353	
+T355	data 42040 42123	can be seen by the large hip torques and small ankle torques compared to human data
+T356	data 41986 42001	Yin et al. 2007
+R210	supports Arg1:T356 Arg2:T353	
+R211	supports Arg1:T355 Arg2:T353	
+T357	background_claim 42134 42150	controllers from
+T358	background_claim 42171 42255	generated larger amounts of ankle torque by optimizing for a human-like torque ratio
+T359	background_claim 42261 42323	did not come close to matching the shapes of human torque data
+R212	parts_of_same Arg1:T357 Arg2:T358	
+R213	contradicts Arg1:T359 Arg2:T358	
+T360	data 42151 42162	Wang et al.
+T361	data 42164 42168	2010
+R214	parts_of_same Arg1:T360 Arg2:T361	
+R215	supports Arg1:T361 Arg2:T358	
+T362	own_claim 42335 42384	our work does not exhibit unnatural torque spikes
+T363	data 42392 42446	state switching that are present in the previous works
+R216	supports Arg1:T363 Arg2:T362	
+T364	own_claim 42621 42686	our results show the lowest average standard score for all speeds
+T365	own_claim 43134 43276	The gait resulting from torque minimization exhibits too much knee flexion during the swing phase and too much dorsiflexion before heel-strike
+T371	own_claim 43669 43765	the actual magnitude of the dorsiflexion torque is not large even when the TA is fully activated
+T372	own_claim 43777 43834	it does not incur a large penalty in the torque objective
+R222	supports Arg1:T371 Arg2:T372	
+T373	data 43632 43667	the foot is a relatively light link
+T374	own_claim 43849 44010	the metabolic energy objective captures the fact that activating and maintaining contraction of TA generates significant heat and should therefore be discouraged
+R223	supports Arg1:T373 Arg2:T371	
+T375	own_claim 44051 44121	large ankle plantarflexion torques can be generated with relative ease
+T376	own_claim 44123 44263	Simply increasing the penalty on ankle torques does not account for the effort difference between generating torques in different directions
+T377	own_claim 44265 44431	A simple objective that could approximate effort given a musculoskeletal model is the sum of squared muscle activations, which is commonly used in static optimization
+T378	background_claim 44432 44512	a technique for recovering activations given motion capture and force plate data
+R224	supports Arg1:T378 Arg2:T377	
+T379	data 44514 44527	Anderson 1999
+R225	supports Arg1:T379 Arg2:T378	
+T380	own_claim 44582 44646	this objective also does not lead to faithful walking kinematics
+T381	data 44542 44580	demonstrated in the accompanying video
+R226	supports Arg1:T381 Arg2:T380	
+T382	own_claim 45154 45293	Controllers optimized using the torque and activation objectives both exhibit large errors compared to nwalk, especially at the ankle joint
+T383	own_claim 45301 45388	noticeable kinematic differences are seen in the gaits produced by different objectives
+T384	own_claim 45390 45475	the torque curves are smooth due to the muscle model and the control parameterization
+R227	contradicts Arg1:T384 Arg2:T383	
+T366	own_claim 43504 43517	the TA muscle
+T367	own_claim 43549 43588	is highly activated throughout the gait
+R217	parts_of_same Arg1:T366 Arg2:T367	
+T368	data 43594 43624	only torque is being minimized
+R218	supports Arg1:T368 Arg2:T367	
+T369	data 43519 43547	responsible for dorsiflexion
+R219	supports Arg1:T369 Arg2:T366	
+T370	background_claim 45538 45602	are largely responsible for forward propulsion in normal walking
+T385	background_claim 45505 45523	The plantarflexors
+R220	parts_of_same Arg1:T385 Arg2:T370	
+T386	data 45605 45620	Liu et al. 2008
+R221	supports Arg1:T386 Arg2:T370	
+T387	own_claim 45943 46025	the mild crouch gait may be metabolically efficient compared to other gait choices
+T388	data 45895 45941	under the condition of weakened plantarflexors
+R228	supports Arg1:T388 Arg2:T387	
+T389	own_claim 45637 45748	weakening the GAS and SOL to a quarter of their original strength, while keeping all other objectives identical
+T390	own_claim 45774 45843	results in a mild crouch gait characterized by excessive knee flexion
+R229	parts_of_same Arg1:T389 Arg2:T390	
+T391	data 45849 45867	accompanying video
+T392	data 45750 45771	target speed 1.25 m/s
+R230	supports Arg1:T391 Arg2:T390	
+R231	supports Arg1:T392 Arg2:T389	
+T393	background_claim 46027 46087	The crouch gait is commonly found in cerebral palsy patients
+T394	background_claim 46093 46192	weakness in the plantarflexors is one of many factors thought to contribute to the gait abnormality
+T395	data 46194 46212	Steele et al. 2010
+R232	supports Arg1:T395 Arg2:T394	
+T396	background_claim 46269 46340	causes patients to vault the body forward over the extended stance limb
+T397	background_claim 46215 46234	Knee hyperextension
+R233	parts_of_same Arg1:T397 Arg2:T396	
+T398	background_claim 46346 46418	can result from hamstring lengthening surgery in cerebral palsy patients
+T399	data 46244 46267	common gait abnormality
+R234	supports Arg1:T399 Arg2:T397	
+T400	data 46421 46436	Kay et al. 2002
+R235	supports Arg1:T400 Arg2:T398	
+T401	own_claim 46479 46640	our optimization indeed results in a mild hyperextension gait after weakening HAM to a quarter of its original strength, with a mini◦ mum knee flexion angle of 2
+T402	data 46446 46464	accompanying video
+R236	supports Arg1:T402 Arg2:T401	
+T403	own_claim 46709 46826	Another cause of knee hyperextension is weakened quadriceps, which can be simulated by weakening the VAS in our model
+T404	own_claim 46842 46952	weakening the VAS to one-tenth of its original strength leads to a motion similar to quadriceps avoidance gait
+T405	background_claim 46960 47035	is seen in patients with quadriceps weakness and anterior cruciate ligament
+T406	background_claim 47042 47052	deficiency
+R237	parts_of_same Arg1:T405 Arg2:T406	
+T407	data 47055 47074	Timoney et al. 1993
+R238	supports Arg1:T405 Arg2:T404	
+R239	supports Arg1:T407 Arg2:T406	
+T408	own_claim 50896 50990	Our controller architecture and objective function is not limited or specific to walking alone
+T409	own_claim 50992 51049	By simply changing the target velocity and initialization
+T410	own_claim 51190 51294	the same procedure yields running controllers, without any modifications to the control parameterization
+R240	parts_of_same Arg1:T409 Arg2:T410	
+T411	background_claim 51309 51440	previous optimization-based control synthesis methods required including torque ratios specific to walking as part of the objective
+T412	data 51051 51105	changing the initial velocity from 1.3 m/s to 3.05 m/s
+T413	data 51107 51164	doubling the initial force feedback gains for GAS and SOL
+T414	data 51170 51187	bending the elbow
+R241	supports Arg1:T412 Arg2:T409	
+R242	supports Arg1:T413 Arg2:T409	
+R243	supports Arg1:T414 Arg2:T409	
+T415	data 51442 51458	Wang et al. 2009
+R244	supports Arg1:T415 Arg2:T411	
+T416	background_claim 51460 51497	or adding spring elements for running
+R245	parts_of_same Arg1:T411 Arg2:T416	
+T417	data 51499 51518	Wu and Popović 2010
+R246	supports Arg1:T417 Arg2:T416	
+T418	own_claim 51521 51685	Our unified approach to both walking and running is consistent with the view that humans select between walking and running by minimizing energy at different speeds
+T419	data 51688 51713	Srinivasan and Ruina 2006
+R247	supports Arg1:T419 Arg2:T418	
+T420	own_claim 51820 51892	Our running kinematic results do not match human data as well as walking
+T421	own_claim 51901 51951	the basic features of the curves are still present
+R248	contradicts Arg1:T421 Arg2:T420	
+T422	own_claim 51953 52064	A main discrepancy is that our hip and knee joints both reach maximum extension earlier than human running data
+T423	own_claim 52066 52167	Similar to our walking results, our knee joint flexes less during the stance phase compared to humans
+T424	own_claim 52169 52223	Our maximum knee flexion is also lower than human data
+T425	own_claim 52290 52427	Our knee extension torque reaches maximum earlier than human data, which can cause the knee to extend too quickly during the stance phase
+R249	supports Arg1:T425 Arg2:T424	
+T426	own_claim 52448 52508	our plantarflexion torques have a lower peak than human data
+T427	own_claim 52510 52579	resulting in a strategy that relies on the knees more than the ankles
+R250	supports Arg1:T426 Arg2:T427	
+T428	own_claim 52851 52910	finding a satisfactory local minimum appears more difficult
+T429	data 52820 52849	the target velocity increases
+R251	supports Arg1:T429 Arg2:T428	
+T430	own_claim 53436 53568	our controllers cannot tolerate nearly as much external force as recently developed controllers for purely joint-actuated characters
+T431	data 53368 53434	our modeling of human-like torque generation and activation delays
+R252	supports Arg1:T431 Arg2:T430	
+T432	data 53571 53591	Mordatch et al. 2010
+T433	data 53593 53609	Wang et al. 2010
+R253	supports Arg1:T432 Arg2:T430	
+R254	supports Arg1:T433 Arg2:T430	
+T434	own_claim 53621 53640	we can still follow
+T435	own_claim 53662 53736	and optimize explicitly for controllers that can deal with external forces
+T436	data 53642 53653	Wang et al.
+T437	data 53655 53659	2010
+R255	parts_of_same Arg1:T436 Arg2:T437	
+R256	supports Arg1:T436 Arg2:T434	
+R257	parts_of_same Arg1:T434 Arg2:T435	
+T438	data 53753 53828	we optimized controllers that can tolerate 100 N, 0.4 s pushes to the torso
+R258	supports Arg1:T438 Arg2:T435	
+T439	background_claim 54098 54145	the corresponding 100 N controller presented by
+T440	background_claim 54227 54321	did not employ a gait that is significantly different from the undisturbed baseline controller
+R259	parts_of_same Arg1:T439 Arg2:T440	
+T441	data 54171 54225	did not model biological torque generation constraints
+T442	data 54146 54157	Wang et al.
+T443	data 54159 54163	2010
+R260	parts_of_same Arg1:T442 Arg2:T443	
+R261	supports Arg1:T441 Arg2:T439	
+R262	supports Arg1:T442 Arg2:T439	
+T444	own_claim 54490 54666	We have presented a biologically-motivated control parameterization that can be used to automatically generate 3D human-like walking and running controllers of different speeds
+T445	own_claim 54668 54826	Controllers are optimized to satisfy a set of high-level task terms while minimizing an effort term based on modeling the rate of metabolic energy expenditure
+T446	own_claim 54837 54956	walking and running emerge from the same optimization process simply by changing the target velocity and initialization
+T447	own_claim 55025 55176	we show that our results adopt a human-like torque generation strategy while producing kinematic data significantly closer to humans than previous work
+T448	data 54966 55023	comparisons to kinematic and torque data of human walking
+R263	supports Arg1:T448 Arg2:T447	
+T449	own_claim 55178 55392	Our work demonstrates the importance of modeling constraints on torque generation due to muscle physiology, both in restricting the space of possible torque trajectories and in providing a realistic model of effort
+T450	background_claim 55490 55636	A natural extension is to investigate whether our control parameterization and effort term can be combined with the popular task-space controllers
+T451	background_claim 55700 55725	and higher-level planning
+T452	background_claim 55769 55815	to create humanlike motions on uneven terrains
+T453	background_claim 55839 55858	or obstacle courses
+T454	background_claim 55900 55978	scenarios that have only been addressed using purely joint-actuated characters
+T455	data 55679 55698	Wu and Popović 2010
+R264	parts_of_same Arg1:T450 Arg2:T451	
+R265	parts_of_same Arg1:T451 Arg2:T452	
+R266	parts_of_same Arg1:T452 Arg2:T453	
+R267	parts_of_same Arg1:T453 Arg2:T454	
+T456	data 55658 55677	de Lasa et al. 2010
+T457	data 55639 55656	Coros et al. 2010
+R268	supports Arg1:T457 Arg2:T450	
+R269	supports Arg1:T456 Arg2:T450	
+R270	supports Arg1:T455 Arg2:T450	
+T458	data 55728 55745	Coros et al. 2009
+T459	data 55747 55767	Mordatch et al. 2010
+R271	supports Arg1:T458 Arg2:T451	
+R272	supports Arg1:T459 Arg2:T451	
+T460	data 55818 55837	Wu and Popović 2010
+R273	supports Arg1:T460 Arg2:T452	
+T461	background_claim 55989 56129	an exciting area for future work is to automatically synthesize locomotion controllers for more detailed, fully muscle-actuated human models
+T462	data 56131 56152	Weinstein et al. 2008
+T463	data 55861 55881	Mordatch et al. 2010
+T464	data 55883 55898	Ye and Liu 2010
+R274	supports Arg1:T463 Arg2:T453	
+R275	supports Arg1:T464 Arg2:T453	
+R276	supports Arg1:T462 Arg2:T461	
+T465	data 56154 56169	Lee et al. 2009
+R277	supports Arg1:T465 Arg2:T461	
+T466	own_claim 56210 56345	our approach can be used to develop predictive biomechanical models to investigate the effects of muscle and control properties on gait
+T467	data 56197 56208	Section 6.2
+R278	supports Arg1:T467 Arg2:T466	
+T468	own_claim 56356 56479	more scientific validation of our simulation results is needed before we can conclude that our results apply to real humans
+R279	contradicts Arg1:T468 Arg2:T466	
+T469	background_claim 56481 56570	One clear aspect for improvement is to adopt a more physically-accurate simulation engine
+T470	data 56573 56592	Sherman et al. 2011
+R280	supports Arg1:T470 Arg2:T469	
+T471	data 56598 56657	ODE “emphasizes speed and stability over physical accuracy”
+R281	supports Arg1:T471 Arg2:T469	
+T472	data 56659 56669	Smith 2006
+R282	supports Arg1:T472 Arg2:T469	
+T473	own_claim 56672 56816	More accurate simulations and detailed models present additional computational challenges both in simulation speed and in parameter optimization
+T474	own_claim 56822 56883	are crucial for potential scientific and medical applications
