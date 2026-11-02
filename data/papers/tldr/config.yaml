@@ -1,0 +1,7 @@
+id: tldr
+title: "Learning to summarize from human feedback"
+paper: https://arxiv.org/abs/2009.01325
+# OpenAI's code (openai/summarize-from-feedback@700967448d10004279f138666442bf1497d0e705) is inference-only; the SFT
+# recipe is its re-implementation's (Huang et al., COLM 2024) and the CNN/DM data processing is OpenAI's.
+code: https://github.com/vwxyzjn/summarize_from_feedback_details/tree/ee77a9abc31f5338365ee087945c5bcafac7f1ca
+dataset: https://openaipublic.blob.core.windows.net/summarize-from-feedback/datasets/tldr_3_filtered/train.jsonl
