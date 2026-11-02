@@ -1,9 +1,5 @@
 """
 all data originally from https://cs.nyu.edu/~kcho/DMQA/ and https://github.com/abisee/cnn-dailymail
-
-DDB: openai/summarize-from-feedback@7009674 summarize_from_feedback/datasets/cnndm.py, unchanged except `# DDB:` lines:
-OpenAI's blob copies of the url lists, titles and stories are gone, so the url list is abisee's (external_eval_data/)
-and the raw stories come from the Hugging Face hub.
 """
 import hashlib
 import json
@@ -12,12 +8,10 @@ import re
 
 import ftfy
 
-import tarfile  # DDB: raw stories
-import tempfile  # DDB: raw stories
-from pathlib import Path  # DDB: raw stories
-
-from huggingface_hub import hf_hub_download  # DDB: raw stories
-
+import tarfile  # DDB: OpenAI's blobs are gone: abisee's url lists and the hub's raw stories
+import tempfile  # DDB
+from pathlib import Path  # DDB
+from huggingface_hub import hf_hub_download  # DDB
 STORIES = "11343c3752184397d56efc19a8a7cceb68089318"  # DDB: abisee/cnn_dailymail revision with the raw stories
 
 dm_single_close_quote = "\u2019"  # unicode
@@ -134,27 +128,34 @@ def clean_up_start(text):
 def _cnndm_iter(split, subset="all", refs_with_bullets=False, clean_highlights=True):
     if split == "valid":
         split = "val"
-    # DDB: abisee's url list and the split's raw stories, extracted from the hub's tarballs (no titles.json)
-    with open(Path(__file__).parent / "external_eval_data" / f"{subset}_{split}.txt") as f:
+    with open(Path(__file__).parents[3] / "external_eval_data" / f"{subset}_{split}.txt") as f:  # DDB: abisee's url list
         urls = [line.strip() for line in f]
-    ids = {get_url_info(url)[0] for url in urls}
-    with tempfile.TemporaryDirectory() as urls_dir:
-        for name in ["cnn", "dailymail"]:
-            tgz = hf_hub_download("abisee/cnn_dailymail", f"data/{name}_stories.tgz", repo_type="dataset", revision=STORIES)
-            with tarfile.open(tgz) as tar:
-                tar.extractall(urls_dir, members=(m for m in tar if Path(m.name).stem in ids))
 
-        for url in urls:
-            article_id, site = get_url_info(url)
-            path = os.path.join(urls_dir, site, "stories", f"{article_id}.story")
-            article, ref_sents = get_article_and_highlights(
-                path, refs_with_bullets=refs_with_bullets, clean_highlights=clean_highlights
-            )
-            yield dict(
-                article=article, reference=ref_sents, id=article_id, site=site
-            )
+    ids = {get_url_info(url)[0] for url in urls}  # DDB: the split's raw stories, extracted from the hub's tarballs
+    urls_dir = (tmp := tempfile.TemporaryDirectory()).name  # DDB: (no titles.json); deleted with the generator
+    for name in ["cnn", "dailymail"]:  # DDB
+        tgz = hf_hub_download("abisee/cnn_dailymail", f"data/{name}_stories.tgz", repo_type="dataset", revision=STORIES)  # DDB
+        with tarfile.open(tgz) as tar:  # DDB
+            tar.extractall(urls_dir, members=(m for m in tar if Path(m.name).stem in ids))  # DDB
+
+    for url in urls:
+        article_id, site = get_url_info(url)
+        path = os.path.join(urls_dir, site, "stories", f"{article_id}.story")
+        article, ref_sents = get_article_and_highlights(
+            path, refs_with_bullets=refs_with_bullets, clean_highlights=clean_highlights
+        )
+        yield dict(
+            article=article, reference=ref_sents, id=article_id, site=site  # DDB: no titles.json
+        )
 
 
 def cnndm_generator(split):
     yield from _cnndm_iter(split, subset="all")
 
+
+def cnndm_filtered_generator(split):
+    yield from _cnndm_iter(split, subset="filtered48to64", refs_with_bullets=True)
+
+
+def cnndm_filtered_generator_short(split):
+    yield from _cnndm_iter(split, subset="filtered24to48")

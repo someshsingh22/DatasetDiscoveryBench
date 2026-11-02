@@ -10,7 +10,7 @@ import sys
 
 import pandas as pd
 
-from cnndm import cnndm_generator
+from src.summarize_from_feedback.datasets.cnndm import cnndm_generator
 from train import COLUMNS
 
 

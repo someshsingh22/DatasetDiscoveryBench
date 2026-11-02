@@ -256,6 +256,12 @@
       "sub10_seed2": 0.2099,
       "baseline": 0.1649,
       "paper_pretrained": 0.1938
+    },
+    "applied": "since the refactor round (2026-11-03) eval.py cuts every summary at its first newline; the runs above were scored before it (uncut), and rouge_mean_cut_at_first_newline was recomputed offline from their t1/t2 summaries.json",
+    "expected_run_sh_none_with_cut": {
+      "rouge_mean": 0.1649,
+      "tolerance": 0.002,
+      "note": "to verify on the combined job: the baseline above (0.19018 uncut, 52.71 tokens) with the cut, against the env's references"
     }
   }
 }
