@@ -1,0 +1,392 @@
+T1	background_claim 1489 1631	Our eyes are very sensitive to the behavior of fabrics, to the extent that we can identify the kind of fabric simply from its shape and motion
+T2	data 1634 1658	Griffiths and Kulke 2002
+R1	supports Arg1:T2 Arg2:T1	
+T3	background_claim 1661 1738	One important fact is that most fabrics do not stretch under their own weight
+T4	background_claim 1740 1870	Unfortunately, for many popular cloth solvers, a reduction of permissible stretching is synonymous with degradation in performance
+T5	background_claim 1872 1955	for tractable simulation times one may settle for an unrealistic 10% or more strain
+R2	supports Arg1:T5 Arg2:T4	
+T6	data 1957 1975	compare 1% and 10%
+T7	data 1977 1985	Figure 1
+R3	supports Arg1:T6 Arg2:T5	
+R4	supports Arg1:T7 Arg2:T5	
+T8	own_claim 1989 2111	Our work alleviates this problem by introducing a numerical solver that excels at timestepping quasi-inextensible surfaces
+T9	data 2113 2132	stretching below 1%
+R5	supports Arg1:T9 Arg2:T8	
+T10	background_claim 2135 2203	The solver builds on a framework of Constrained Lagrangian Mechanics
+T11	data 2212 2224	Marsden 1999
+R6	supports Arg1:T11 Arg2:T10	
+T12	background_claim 2227 2398	Warp and weft, the perpendicular sets of strands that make up a textile, are prohibited from stretching by enforcing constraint equations, not by integrating spring forces
+T13	own_claim 2462 2557	a constraint-based method is inherently well-suited to operate in the quasi-inextensible regime
+T14	data 2411 2429	numerical evidence
+R7	supports Arg1:T14 Arg2:T13	
+T15	background_claim 2572 2656	for this regime spring-based methods are known to experience a range of difficulties
+T16	background_claim 2658 2708	leading to the adoption of various strain limiting
+T17	background_claim 2724 2759	and strain rate limiting algorithms
+R8	parts_of_same Arg1:T16 Arg2:T17	
+T18	data 2711 2722	Provot 1995
+R9	supports Arg1:T18 Arg2:T16	
+T19	background_claim 2821 2888	viewed strain limiting as one of multiple velocity filtering passes
+T20	data 2809 2813	2002
+T21	data 2793 2806	Bridson et al
+R10	parts_of_same Arg1:T21 Arg2:T20	
+R11	supports Arg1:T20 Arg2:T19	
+T22	background_claim 2925 3022	The velocity filter paradigm enables the design of modular systems with mix-and-match flexibility
+T23	own_claim 3441 3519	We propose a novel CLM formulation that is implicit on the constraint gradient
+T24	own_claim 3528 3620	We prove that the implicit method’s nonlinear equations correspond to a minimization problem
+T25	own_claim 3629 3705	this result motivates a fast projection method for enforcing inextensibility
+T26	data 3521 3525	§4.1
+T27	data 3622 3626	§4.2
+T28	data 3707 3711	§4.3
+R12	supports Arg1:T26 Arg2:T23	
+R13	supports Arg1:T27 Arg2:T24	
+R14	supports Arg1:T28 Arg2:T25	
+T29	own_claim 3918 4060	the fast projection method easily incorporates with a code’s existing bending, damping, and collision models, to yield accelerated performance
+T30	data 4062 4064	§5
+R15	supports Arg1:T30 Arg2:T29	
+T31	background_claim 4301 4342	for broad surveys on cloth simulation see
+T32	data 4345 4365	House and Breen 2000
+T33	data 4367 4383	Choi and Ko 2005
+R16	supports Arg1:T32 Arg2:T31	
+R17	supports Arg1:T33 Arg2:T31	
+T34	background_claim 4386 4452	The most general approach is to treat cloth as an elastic material
+T35	data 4454 4477	Terzopoulos et al. 1987
+T36	data 4479 4496	Breen et al. 1994
+T37	data 4498 4519	Eberhardt et al. 1996
+T38	data 4521 4543	Baraff and Witkin 1998
+T39	data 4545 4561	Choi and Ko 2002
+R18	supports Arg1:T35 Arg2:T34	
+R19	supports Arg1:T36 Arg2:T34	
+R20	supports Arg1:T37 Arg2:T34	
+R21	supports Arg1:T38 Arg2:T34	
+R22	supports Arg1:T39 Arg2:T34	
+T40	background_claim 4564 4693	To reduce visible stretching, elastic models typically adopt large elastic moduli or stiff springs, degrading numerical stability
+T41	data 4696 4713	Hauth et al. 2003
+R23	supports Arg1:T41 Arg2:T40	
+T42	background_claim 4716 4780	To address the stiffness of the resulting differential equations
+T43	background_claim 4808 4875	proposed implicit integration, allowing for large, stable timesteps
+R24	parts_of_same Arg1:T42 Arg2:T43	
+T44	data 4782 4799	Baraff and Witkin
+T45	data 4801 4805	1998
+R25	parts_of_same Arg1:T44 Arg2:T45	
+R26	supports Arg1:T44 Arg2:T42	
+T46	background_claim 4877 4938	adaptive timestepping was required to prevent over-stretching
+T47	background_claim 4984 5009	adopted implicit-explicit
+T48	background_claim 5017 5077	formulations, which treat only a subset of forces implicitly
+R27	parts_of_same Arg1:T47 Arg2:T48	
+T49	data 4951 4955	2000
+T50	data 4978 4982	2003
+T51	data 4940 4949	Eberhardt
+R28	parts_of_same Arg1:T51 Arg2:T49	
+R29	supports Arg1:T49 Arg2:T47	
+T52	data 4961 4976	Boxerman et al.
+R30	parts_of_same Arg1:T52 Arg2:T50	
+R31	supports Arg1:T50 Arg2:T47	
+T53	own_claim 5079 5129	Our method is closely related to the IMEX approach
+T54	data 5149 5204	stretching forces are singled out for special treatment
+R32	supports Arg1:T54 Arg2:T53	
+T55	background_claim 5206 5317	These works, and many of their sequels, improved performance by allowing some perceptible stretch of the fabric
+T56	background_claim 5320 5351	In the quasiinextensible regime
+T57	background_claim 5362 5410	implicit methods encounter numerical limitations
+R33	parts_of_same Arg1:T56 Arg2:T57	
+T58	background_claim 5483 5622	the condition number of the implicit system grows with the elastic material stiffness, forcing iterative solvers to perform many iterations
+R34	supports Arg1:T58 Arg2:T57	
+T59	background_claim 5638 5661	timestepping algorithms
+R35	supports Arg1:T59 Arg2:T57	
+T60	data 5413 5446	Volino and Magnenat-Thalmann 2001
+T61	data 5448 5461	Boxerman 2003
+T62	data 5463 5480	Hauth et al. 2003
+R36	supports Arg1:T62 Arg2:T58	
+R37	supports Arg1:T61 Arg2:T58	
+R38	supports Arg1:T60 Arg2:T58	
+T63	data 5761 5774	Boxerman 2003
+R39	supports Arg1:T63 Arg2:T59	
+T64	background_claim 5694 5758	introduce undesirable numerical damping when the system is stiff
+R40	parts_of_same Arg1:T59 Arg2:T64	
+T65	data 5670 5684	Backward Euler
+T66	data 5689 5693	BDF2
+R41	supports Arg1:T65 Arg2:T59	
+R42	supports Arg1:T66 Arg2:T59	
+T67	background_claim 5814 5920	an alternative to implicit integration is to reduce the stiff component and reformulate it as a constraint
+T68	data 5783 5812	a stiff differential equation
+R43	supports Arg1:T68 Arg2:T67	
+T69	data 5922 5940	Hairer et al. 2002
+R44	supports Arg1:T69 Arg2:T67	
+T70	background_claim 5943 6079	In the smooth setting, the penalty-force and constraint-based approaches are equivalent in the limit of an infinitely stiff penalty term
+T71	data 6082 6104	Bercovier and Pat 1984
+R45	supports Arg1:T71 Arg2:T70	
+T72	background_claim 6107 6224	In the discrete setting, the constraint-based approach may be implemented with various iterative or global algorithms
+T73	background_claim 6282 6373	corrected edge lengths by iteratively displacing the incident vertices on stretched springs
+T74	data 6276 6280	1995
+T75	data 6268 6274	Provot
+R46	parts_of_same Arg1:T75 Arg2:T74	
+R47	supports Arg1:T74 Arg2:T73	
+T76	background_claim 6381 6400	simple to implement
+T77	background_claim 6402 6445	this approach suffers from poor convergence
+R48	contradicts Arg1:T77 Arg2:T76	
+T78	data 6452 6504	each displacement may stretch other incident springs
+R49	supports Arg1:T78 Arg2:T77	
+T79	background_claim 6517 6589	Provot’s method is used in cases where tight tolerances are not required
+R50	supports Arg1:T77 Arg2:T79	
+T80	data 6599 6618	Desbrun et al. 1999
+T81	data 6620 6637	Meyer et al. 2001
+T82	data 6639 6659	Fuhrmann et al. 2003
+R51	supports Arg1:T80 Arg2:T79	
+R52	supports Arg1:T81 Arg2:T79	
+R53	supports Arg1:T82 Arg2:T79	
+T83	background_claim 6690 6841	used Provot’s approach in conjunction with strain rate limiting, bounding the rate of change of spring length per timestep to 10% of the current length
+T84	data 6662 6676	Bridson et al.
+T85	data 6684 6688	2003
+T86	data 6678 6682	2002
+R54	parts_of_same Arg1:T84 Arg2:T86	
+R55	parts_of_same Arg1:T84 Arg2:T85	
+R56	supports Arg1:T85 Arg2:T83	
+R57	supports Arg1:T86 Arg2:T83	
+T87	background_claim 6864 6960	used a non-linear Gauss-Seidel approach to enforce inextensibility on each constraint separately
+T88	data 6858 6862	2006
+T89	data 6843 6855	Müller et al
+R58	parts_of_same Arg1:T89 Arg2:T88	
+R59	supports Arg1:T88 Arg2:T87	
+T90	background_claim 6991 7080	iterative strain limiting algorithms behave essentially as Jacobi or Gauss-Seidel solvers
+T91	data 6962 6976	Bridson et al.
+R60	supports Arg1:T91 Arg2:T90	
+T92	background_claim 7174 7250	iterative constraint enforcement requires a prohibitive number of iterations
+T93	data 7127 7172	finely-discretized quasi-inextensible fabrics
+R61	supports Arg1:T93 Arg2:T92	
+T94	data 7256 7258	§5
+R62	supports Arg1:T94 Arg2:T92	
+T95	background_claim 7350 7404	used Lagrange multipliers with CLM to treat stretching
+T96	background_claim 7410 7469	presented a hierarchical treatment of the constraint forces
+T97	data 7330 7341	House et al
+T98	data 7344 7348	1996
+R63	parts_of_same Arg1:T97 Arg2:T98	
+R64	supports Arg1:T98 Arg2:T95	
+R65	supports Arg1:T98 Arg2:T96	
+T99	background_claim 7471 7598	The Lagrange multiplier approach alleviates the difficulties associated with poor numerical conditioning and artificial damping
+T100	background_claim 7613 7704	later encountered difficulties in handling collision response within the proposed framework
+T101	data 7600 7612	House et al.
+T102	data 7706 7710	2000
+R66	parts_of_same Arg1:T101 Arg2:T102	
+R67	supports Arg1:T102 Arg2:T100	
+T103	own_claim 7713 7820	By building on the velocity-filter paradigm, our method handles both inextensibility and complex collisions
+T104	background_claim 7886 8005	which is subject to numerical drift that may be exacerbated by the discontinuities introduced during collision response
+T105	background_claim 7835 7863	formulated constraints as in
+R68	parts_of_same Arg1:T105 Arg2:T104	
+T106	data 7865 7883	Witkin et al. 1990
+T107	data 7822 7833	House et al
+R69	supports Arg1:T107 Arg2:T105	
+R70	supports Arg1:T106 Arg2:T105	
+T108	background_claim 8007 8065	Drift may be attenuated using constraint-restoring springs
+T109	background_claim 8071 8139	the authors reported difficulty in adjusting the spring coefficients
+R71	contradicts Arg1:T109 Arg2:T108	
+T110	own_claim 8159 8327	one reason for their difficulties with drift was consequent to the linearization of the constraint equation, which permitted higher order errors to accumulate over time
+T111	own_claim 8329 8383	Our method does not linearize the constraint equations
+T112	own_claim 8399 8425	it is not subject to drift
+R72	supports Arg1:T111 Arg2:T112	
+T113	background_claim 8453 8564	proposed triangle-based strain limiting together with a global stitching step for stable constraint enforcement
+T114	data 8437 8444	Tsiknis
+T115	data 8446 8450	2006
+R73	parts_of_same Arg1:T114 Arg2:T115	
+R74	supports Arg1:T115 Arg2:T113	
+T116	background_claim 8586 8678	used a linearized implicit formulation in order to improve stability of constrained dynamics
+T117	data 8566 8576	Hong et al
+T118	data 8579 8583	2005
+R75	parts_of_same Arg1:T117 Arg2:T118	
+R76	supports Arg1:T118 Arg2:T116	
+T119	background_claim 8680 8795	This allowed for larger timesteps and reduced the need for springs to maintain the cloth on the constraint manifold
+R77	supports Arg1:T116 Arg2:T119	
+T120	background_claim 8797 8875	Both of these approaches enforce inextensibility only for strain exceeding 10%
+T121	data 8894 8936	the tolerance for stretching is very small
+T122	background_claim 8938 9042	modeling stretch response with spring-based or strain-limiting approaches is costly and even intractable
+R78	supports Arg1:T121 Arg2:T122	
+T123	own_claim 9044 9100	constraint-based methods present a promising alternative
+T124	background_claim 9248 9291	Woven fabrics are not a continuous material
+T125	background_claim 9300 9358	they are a complex mechanical network of interleaving yarn
+T126	data 9360 9377	Breen et al. 1994
+R79	supports Arg1:T126 Arg2:T125	
+R80	supports Arg1:T126 Arg2:T124	
+T127	background_claim 9436 9502	the material’s warp and weft directions do not stretch perceptibly
+T128	data 9386 9434	the constituent yarn is often quasi-inextensible
+R81	supports Arg1:T128 Arg2:T127	
+T129	background_claim 9504 9639	In imposing inextensibility on all edges of a triangle mesh, one quickly runs into parasitic stiffness in the bending modes, or locking
+T130	data 9642 9669	Zienkiewicz and Taylor 1989
+R82	supports Arg1:T130 Arg2:T129	
+T131	data 9678 9744	locally-convex regions of a triangle mesh are rigid under isometry
+R83	supports Arg1:T131 Arg2:T129	
+T132	own_claim 9755 9838	we consider warpweft aligned quadrilateral meshes with a sparse number of triangles
+T133	data 9840 9860	quad-dominant meshes
+R84	supports Arg1:T133 Arg2:T132	
+T134	own_claim 9921 10025	constraining all edges of a quad mesh may circumvent the rigidification that occurs with triangle meshes
+T135	own_claim 10462 10588	under general mesh positions, the constraints are linearly independent, with a full-rank Jacobian treatable by a direct solver
+T136	data 10590 10592	§4
+R85	supports Arg1:T136 Arg2:T135	
+T137	own_claim 11032 11068	fabric does indeed shear perceptibly
+T138	data 10932 11030	shearing modes excite only a mechanical interaction of warp and weft, and not a stretching of yarn
+R86	supports Arg1:T138 Arg2:T137	
+T139	own_claim 11168 11306	The complete model of in-plane deformation is compatible with an existing code’s quador triangle-based treatment of bending and collisions
+T140	own_claim 11308 11441	With this simple formulation of inextensibility constraints in place, what is needed is an efficient method for enforcing constraints
+T141	background_claim 11605 11728	the numerical integration algorithm for constrained dynamics can be developed directly from the augmented Lagrange equation
+T142	data 11555 11603	a quadrilateral mesh with n vertices and m edges
+R87	supports Arg1:T142 Arg2:T141	
+T143	data 11731 11743	Marsden 1999
+R88	supports Arg1:T143 Arg2:T141	
+T144	own_claim 12640 12741	we must discretize (3) and (4) in time using one of various schemes, each with benefits and drawbacks
+T145	data 12628 12638	simulation
+R89	supports Arg1:T145 Arg2:T144	
+T146	own_claim 12743 12840	One may choose differing explicit or implicit schemes for the potential and the constraint forces
+T147	data 12911 12929	Ascher et al. 1997
+R90	supports Arg1:T147 Arg2:T146	
+T148	background_claim 13151 13236	One widely-used family of discretizations includes SHAKE and RATTLE, which extend the
+T149	background_claim 13253 13266	Verlet scheme
+T150	background_claim 13289 13387	by considering a constraint force direction, −∇C(x) T , evaluated at the beginning of the timestep
+R91	parts_of_same Arg1:T148 Arg2:T149	
+R92	parts_of_same Arg1:T149 Arg2:T150	
+T151	data 13269 13287	Hairer et al. 2002
+R93	supports Arg1:T151 Arg2:T149	
+T152	background_claim 13404 13501	enforcing length-preserving constraints with SHAKE fails for four common geometric configurations
+T154	data 13548 13556	Figure 2
+R94	supports Arg1:T154 Arg2:T152	
+T153	background_claim 13622 13686	discusses these drawbacks in SHAKE but does not offer a solution
+T155	data 13595 13612	Barth et al. 1994
+R95	supports Arg1:T155 Arg2:T153	
+T156	background_claim 14164 14237	These four cases correspond to rapid change in edge length or orientation
+T157	background_claim 14239 14268	in practice, they occur often
+T158	own_claim 14674 14702	resolves (Q1), (Q2) and (Q4)
+T159	own_claim 14551 14625	evaluating the constraint direction, −∇C(x) T , at the end of the timestep
+R96	parts_of_same Arg1:T159 Arg2:T158	
+T160	data 14652 14662	Appendix A
+R97	supports Arg1:T160 Arg2:T158	
+T161	own_claim 14704 14774	(Q3) remains, but is automatically remedied by decreasing the timestep
+T162	own_claim 15783 15855	the correction of the unconstrained step is due to the constraint forces
+T163	own_claim 16062 16095	Solving for an ICD step is costly
+T164	data 16105 16128	there are many unknowns
+T165	data 16141 16246	each Newton step requires the solution of an indefinite linear system, whose matrix is costly to assemble
+R98	supports Arg1:T164 Arg2:T163	
+R99	supports Arg1:T165 Arg2:T163	
+T166	own_claim 16257 16376	we develop an approximation to ICD that addresses these drawbacks without sacrificing constraint accuracy or robustness
+T167	data 16251 16255	§4.3
+R100	supports Arg1:T167 Arg2:T166	
+T168	background_claim 16844 16905	Methods of this form are known as manifold-projection methods
+T169	data 16908 16926	Hairer et al. 2002
+R101	supports Arg1:T169 Arg2:T168	
+T170	own_claim 19379 19468	Fast projection also uses a sequence of iterations, but it relaxes the requirement of SAP
+T171	own_claim 19846 19919	Projection onto the constraint manifold occurs at a fixed instant in time
+T172	own_claim 21128 21186	the assembly of this system is most efficient for diagonal
+T173	own_claim 21202 21215	mass matrices
+R102	parts_of_same Arg1:T172 Arg2:T173	
+T174	data 21194 21200	lumped
+R103	supports Arg1:T174 Arg2:T172	
+T175	data 21087 21125	the linear system matrix involves M −1
+R104	supports Arg1:T175 Arg2:T172	
+T176	own_claim 21289 21352	As with ICD/SAP, a fast projection step requires a linear solve
+T177	own_claim 21363 21387	fast projection’s system
+T178	own_claim 21394 21404	is smaller
+T179	own_claim 21440 21457	positive definite
+T180	own_claim 21483 21494	and sparser
+R105	parts_of_same Arg1:T177 Arg2:T178	
+R106	parts_of_same Arg1:T178 Arg2:T179	
+R107	parts_of_same Arg1:T179 Arg2:T180	
+T181	data 21390 21391	7
+R108	supports Arg1:T181 Arg2:T177	
+R109	contradicts Arg1:T177 Arg2:T176	
+T182	data 21406 21437	≈ 2n × 2n compared to ≈ 5n × 5n
+R110	supports Arg1:T182 Arg2:T178	
+T183	own_claim 21508 21596	it is considerably cheaper to evaluate, assemble, and solve than its ICD/SAP counterpart
+R111	supports Arg1:T180 Arg2:T183	
+T184	own_claim 21981 22045	fast projection exactly solves C = 0 while it approximates F = 0
+T185	own_claim 22047 22127	One important question is whether the fast projection’s error in F is acceptable
+T186	background_claim 22472 22525	F ∈ O(h 2 ) is considered acceptable in many contexts
+T187	background_claim 22576 22624	halt the Newton process after a single iteration
+R112	supports Arg1:T187 Arg2:T186	
+T188	data 22534 22556	Baraff and Witkin 1998
+T189	data 22558 22574	Choi and Ko 2002
+R113	supports Arg1:T189 Arg2:T187	
+R114	supports Arg1:T188 Arg2:T187	
+T190	own_claim 22727 22805	the first iteration of the fast projection method eliminates first-order error
+T191	data 22716 22724	Figure 3
+R115	supports Arg1:T191 Arg2:T190	
+T192	own_claim 22807 22862	The remaining iterations perturb F only to higher-order
+T193	own_claim 23896 24014	We implement fast projection as a velocity filter, enabling easy integration into our existing cloth simulation system
+T194	data 24025 24036	Algorithm 1
+R116	supports Arg1:T194 Arg2:T193	
+T195	own_claim 25581 25636	The simple 1D chain resists stretching, but not bending
+T196	own_claim 25714 25795	Our method shows asymptotically better performance as permissible strain vanishes
+T197	data 25801 25810	Figure 4a
+R117	supports Arg1:T197 Arg2:T196	
+T198	own_claim 25824 25897	our algorithm exhibits favorable performance as mesh resolution increases
+T199	data 25903 25912	Figure 4b
+R118	supports Arg1:T199 Arg2:T198	
+T200	own_claim 26010 26118	there exists considerable difficulty in setting spring coefficients a priori to satisfy a given strain limit
+T201	own_claim 26211 26224	we are unable
+T202	own_claim 26255 26320	to set spring coefficients that achieve a prescribed small strain
+R119	parts_of_same Arg1:T201 Arg2:T202	
+T203	data 26124 26167	settings more pragmatic than a simple chain
+T204	data 26177 26209	the following draping experiment
+R120	supports Arg1:T204 Arg2:T203	
+R121	supports Arg1:T203 Arg2:T201	
+T205	own_claim 26322 26404	This explains why spring methods are often treated with strain-limiting procedures
+R122	supports Arg1:T202 Arg2:T205	
+T206	own_claim 27132 27192	the algorithm requires extremely small timesteps to converge
+T207	own_claim 27198 27237	each timestep is relatively inexpensive
+T208	data 27242 27291	matrix re-assembly and re-factoring is infrequent
+R123	supports Arg1:T208 Arg2:T207	
+R124	contradicts Arg1:T207 Arg2:T206	
+T209	own_claim 27293 27358	ICD is able to use larger timesteps than SHAKE and still converge
+T210	own_claim 27440 27466	the overall time is higher
+R125	supports Arg1:T210 Arg2:T209	
+T211	data 27375 27438	each timestep is substantially more expensive than a SHAKE step
+R126	supports Arg1:T211 Arg2:T210	
+T212	own_claim 27638 27773	All CLM methods scale equally well, asymptotically better than the strain limiting approach, with the fast projection being the fastest
+T213	own_claim 27842 27898	the fast projection method outperforms the other methods
+T214	data 27808 27826	allow strain of 1%
+T215	data 27778 27802	we refine the resolution
+R127	supports Arg1:T214 Arg2:T213	
+R128	supports Arg1:T215 Arg2:T213	
+T216	data 27829 27838	Figure 5b
+R129	supports Arg1:T216 Arg2:T214	
+T217	own_claim 28112 28191	fast projection is capable of producing complex, realistic simulations of cloth
+T218	data 28043 28044	8
+T219	data 28029 28038	Figures 7
+R130	supports Arg1:T218 Arg2:T217	
+R131	supports Arg1:T219 Arg2:T217	
+T220	own_claim 28717 28857	In addition to the direct benefit of fast projection on computation times, further benefits can be reaped from the resulting inextensibility
+T221	background_claim 28872 28883	the work of
+T222	background_claim 28906 28972	assumes inextensibility in order to accelerate bending computation
+R132	parts_of_same Arg1:T221 Arg2:T222	
+T223	data 28885 28898	Bergou et al.
+T224	data 28900 28904	2006
+R133	parts_of_same Arg1:T223 Arg2:T224	
+R134	supports Arg1:T224 Arg2:T222	
+T225	own_claim 28974 29125	In adopting the velocity-filtering viewpoint, we gain speed, simplicity, and software modularity—all key to a practical and maintainable implementation
+T226	own_claim 29136 29168	this comes at a theoretical cost
+T227	own_claim 29170 29282	there is no longer an efficient way to perfectly enforce both ideal inextensibility and ideal collision handling
+R135	supports Arg1:T227 Arg2:T226	
+T228	data 29290 29330	one filter must execute before the other
+T229	data 29336 29379	both ideals correspond to sharp constraints
+R136	supports Arg1:T228 Arg2:T227	
+R137	supports Arg1:T229 Arg2:T227	
+T230	own_claim 29381 29452	To enforce both perfectly would require combining them in a single pass
+T231	own_claim 29454 29516	an elegant and exciting prospect from the standpoint of theory
+T232	own_claim 29522 29605	one which is likely to introduce considerable complexity and convergence challenges
+R138	contradicts Arg1:T232 Arg2:T231	
+T233	own_claim 29607 29713	Practically, we observe that this drawback does not cause artifacts in our simulation, for several reasons
+T234	own_claim 29800 29856	we assert that empirically our strain remains negligible
+T235	own_claim 29951 30113	the inextensibility filter does not assume that the constraint is maintained at the beginning of the timestep and errors are not accumulated during the simulation
+R139	supports Arg1:T235 Arg2:T233	
+R140	supports Arg1:T234 Arg2:T233	
+T236	own_claim 29722 29794	we execute collision-handling last, to avoid glaring collision artifacts
+R141	contradicts Arg1:T236 Arg2:T234	
+T237	background_claim 29879 29919	unlike constraint-enforcement approaches
+R142	contradicts Arg1:T237 Arg2:T235	
+T238	data 29930 29948	Witkin et al. 1990
+R143	supports Arg1:T238 Arg2:T237	
+T239	own_claim 30126 30309	Despite the fact that the most common fabrics do not visibly stretch when draped over the body, the trend in our community is to favor stretching formulations based on penalty-springs
+T240	own_claim 30311 30387	The consequent numerical difficulties are then addressed by a combination of
+T241	own_claim 30392 30431	relaxing realism by allowing 10% strain
+R144	parts_of_same Arg1:T240 Arg2:T241	
+T242	own_claim 30441 30536	adopting simple iterative strain and strain-rate algorithms that have poor convergence behavior
+T243	own_claim 30433 30436	and
+R145	parts_of_same Arg1:T241 Arg2:T243	
+R146	parts_of_same Arg1:T243 Arg2:T242	
+T244	own_claim 30719 30816	We provide one immediate and pragmatic approach to fast and realistic fabric simulation using CLM
+T245	own_claim 30822 30894	we hope that it will spur a renaissance of activity along this direction
+T246	own_claim 30538 30717	With Constrained Lagrangian Mechanics as our alternative point of departure, we demonstrate a straightforward filter, with good convergence behavior, for enforcing inextensibility

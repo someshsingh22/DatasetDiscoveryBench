@@ -1,0 +1,558 @@
+T1	background_claim 2326 2555	One appealing vision in animation is that the animator should be able to create and edit motion by defining and adjusting a small number of keyframes and constraints—and that the resulting motion should remain optimal in some way
+T2	background_claim 2557 2776	An optimization approach to animation has proven useful for editing human motion capture data, refining a “sketched” version of an animation, and for creating entirely new motions for simple characters or short segments
+T3	background_claim 2778 2803	Several challenges remain
+T4	background_claim 2814 2885	to achieving fast, flexible, and realistic optimization of human motion
+R1	parts_of_same Arg1:T4 Arg2:T3	
+R2	contradicts Arg1:T3 Arg2:T2	
+T5	background_claim 2887 2962	One challenge is incorporating physics into an interactive animation system
+R3	supports Arg1:T5 Arg2:T4	
+T6	background_claim 3381 3459	constraints and objective functions that require computing physical quantities
+T7	background_claim 3496 3562	are typically viewed as slow, cumbersome, and difficult to control
+R4	parts_of_same Arg1:T7 Arg2:T6	
+T8	background_claim 2972 3034	impressive results obtained from physically based optimization
+R5	contradicts Arg1:T8 Arg2:T6	
+T9	data 3468 3476	momentum
+R6	supports Arg1:T9 Arg2:T6	
+T10	data 3478 3483	force
+R7	supports Arg1:T10 Arg2:T6	
+T11	data 3489 3495	torque
+R8	supports Arg1:T11 Arg2:T6	
+T12	background_claim 3622 3675	physical validity is often sacrificed for performance
+R9	supports Arg1:T7 Arg2:T12	
+T13	background_claim 3677 3707	Physical validity is important
+T14	data 3755 3763	Figure 1
+R10	supports Arg1:T14 Arg2:T13	
+R11	contradicts Arg1:T13 Arg2:T12	
+T15	background_claim 3766 3903	Kinematic optimization alone is unlikely to capture the coordination of different parts of the body that is required to perform this task
+T16	data 3913 3939	the preparatory back swing
+T17	data 3941 3949	the tuck
+T18	data 3954 4006	the motion of the legs to drive the character upward
+R12	supports Arg1:T14 Arg2:T15	
+R13	supports Arg1:T16 Arg2:T15	
+R14	supports Arg1:T17 Arg2:T15	
+R15	supports Arg1:T18 Arg2:T15	
+T19	own_claim 4054 4189	This paper presents an approach to physically based optimization that is efficient and appears to scale well to more complex characters
+T20	own_claim 4191 4228	We use a standard problem formulation
+T21	own_claim 4229 4328	iteratively adjust character motion to meet animator constraints and minimize an objective function
+R16	supports Arg1:T21 Arg2:T20	
+T22	own_claim 4330 4534	Our approach is based on restricting the definition of this optimization problem to constraints and objective functions that can be differentiated in time linear in the degrees of freedom of the character
+T23	background_claim 4577 4644	solution techniques for nonlinear constrained optimization problems
+T24	background_claim 4656 4716	typically require either analytical or numerical derivatives
+R17	parts_of_same Arg1:T24 Arg2:T23	
+R18	supports Arg1:T23 Arg2:T22	
+T25	background_claim 4718 4775	Obtaining these derivatives is a computational bottleneck
+T26	background_claim 4781 4873	complex derivatives can lead to poor optimization performance and problems with local minima
+T27	background_claim 4875 4897	Kinematic optimization
+T28	data 4899 4912	Gleicher 1997
+R19	supports Arg1:T28 Arg2:T27	
+T29	background_claim 4916 5083	which has been shown to be successful for complex characters, depends on constraints and objective functions for which first derivatives can be computed in linear time
+R20	parts_of_same Arg1:T29 Arg2:T27	
+T30	own_claim 5104 5249	constraints on physics that can be derived from the aggregate force and torque applied to the character can also be differentiated in linear time
+T31	own_claim 5251 5334	This set includes most common constraints required for physically correct animation
+T32	own_claim 5344 5396	conserving linear and angular momentum during flight
+R21	supports Arg1:T32 Arg2:T31	
+T33	own_claim 5398 5468	ensuring that ground contact forces can be explained by foot placement
+R22	supports Arg1:T33 Arg2:T31	
+T34	own_claim 5470 5511	constraining torque applied about an axis
+T35	data 5518 5542	the high bar in Figure 1
+R23	supports Arg1:T35 Arg2:T34	
+R24	supports Arg1:T34 Arg2:T31	
+T36	own_claim 5550 5622	limiting the coefficient of friction at any contact with the environment
+R25	supports Arg1:T36 Arg2:T31	
+T37	own_claim 5624 5797	Linear time derivatives for physics constraints do not result from direct differentiation of the equations of motion in either the Newton-Euler or the Lagrangian formulation
+T38	own_claim 5799 5882	in either case, symbolic differentiation would result in a quadratic time algorithm
+T39	own_claim 5899 6057	we describe how the Newton-Euler equations of motion can be rewritten to allow first derivatives of aggregate forces and torques to be computed in linear time
+T40	own_claim 6072 6172	it is not possible to compute derivatives for torques at all of the characters joints in linear time
+T41	own_claim 6187 6213	quadratic time is required
+T42	own_claim 6222 6270	motion at any joint affects torque at all joints
+R26	contradicts Arg1:T40 Arg2:T39	
+R27	supports Arg1:T42 Arg2:T41	
+T43	own_claim 6285 6312	typical objective functions
+T44	own_claim 6365 6411	are excluded from our restricted problem setup
+T45	data 6321 6364	minimizing the sum of squared joint torques
+R28	supports Arg1:T45 Arg2:T43	
+R29	parts_of_same Arg1:T44 Arg2:T43	
+R30	supports Arg1:T41 Arg2:T43	
+T46	own_claim 6413 6432	Our results suggest
+T47	own_claim 6443 6508	that physics constraints and a kinematic measure of smooth motion
+T48	own_claim 6567 6608	are sufficient to capture dynamic effects
+R31	parts_of_same Arg1:T47 Arg2:T46	
+R32	parts_of_same Arg1:T48 Arg2:T47	
+T49	data 6517 6566	minimizing the sum of squared joint accelerations
+R33	supports Arg1:T49 Arg2:T47	
+T50	data 6617 6634	squashand-stretch
+T51	data 6639 6666	tucking for faster rotation
+T52	data 6680 6688	Figure 1
+R34	supports Arg1:T50 Arg2:T48	
+R35	supports Arg1:T51 Arg2:T48	
+R36	supports Arg1:T52 Arg2:T48	
+T53	own_claim 6697 6717	animator constraints
+T54	own_claim 6793 6835	can easily be incorporated into the system
+R37	parts_of_same Arg1:T54 Arg2:T53	
+T55	data 6726 6735	key poses
+T56	data 6739 6792	an objective based on proximity to a reference motion
+R38	supports Arg1:T55 Arg2:T53	
+R39	supports Arg1:T56 Arg2:T53	
+T57	own_claim 6837 6883	no motion capture data is used in our examples
+T58	own_claim 6889 6926	user-supplied constraints are minimal
+T59	data 6938 6946	Figure 7
+R40	supports Arg1:T59 Arg2:T58	
+T60	own_claim 6950 7139	The characteristics of the final motions fall out of the requirements of physical validity, a simple kinematic optimization function, and timing values selected for each phase of the motion
+T61	background_claim 7258 7335	Constrained optimization techniques were introduced to the graphics community
+T62	data 7340 7362	Witkin and Kass [1988]
+R41	supports Arg1:T62 Arg2:T61	
+T63	background_claim 7365 7529	who created a variety of animations involving a jumping Luxo lamp from simple descriptions including start pose, end pose, and a physically based objective function
+R42	parts_of_same Arg1:T63 Arg2:T61	
+T64	background_claim 7531 7662	Optimization approaches with physically based objective functions have proven difficult to extend to complex articulated characters
+T65	background_claim 7677 7723	much research has been focused on this problem
+T66	background_claim 7725 7749	Cohen and his colleagues
+R43	contradicts Arg1:T64 Arg2:T63	
+T67	background_claim 7782 7833	introduced techniques to give the user more control
+T68	data 7751 7761	Cohen 1992
+R44	supports Arg1:T68 Arg2:T66	
+T69	data 7764 7779	Liu et al. 1994
+R45	supports Arg1:T69 Arg2:T66	
+R46	parts_of_same Arg1:T67 Arg2:T66	
+T70	background_claim 7885 8007	and employed a hierarchical wavelet description to allow incremental changes to affect the motion at different time scales
+R47	parts_of_same Arg1:T70 Arg2:T67	
+T71	data 8031 8041	Liu [1996]
+T72	background_claim 8013 8029	his dissertation
+R48	supports Arg1:T71 Arg2:T72	
+T73	background_claim 8043 8135	also describes how symbolic differentiation of the equations of motion can be made efficient
+R49	parts_of_same Arg1:T73 Arg2:T72	
+T74	background_claim 8168 8197	by cleverly aggregating terms
+R50	parts_of_same Arg1:T74 Arg2:T73	
+T75	data 8199 8241	Grzeszczuk, Terzopoulos, and Hinton [1998]
+T76	background_claim 8243 8408	developed a neural network approximation of dynamics so that gradient search could be performed on this neural network, resulting in faster convergence to a solution
+R51	supports Arg1:T75 Arg2:T76	
+T77	data 8463 8485	Witkin and Kass [1988]
+T78	background_claim 8411 8450	The mix of animator control and physics
+T79	background_claim 8486 8592	has been expanded upon in interactive techniques developed to control physical simulations of rigid bodies
+R52	supports Arg1:T77 Arg2:T78	
+R53	parts_of_same Arg1:T79 Arg2:T78	
+T80	data 8595 8614	Popović et al. 2000
+T81	background_claim 8621 8747	a number of researchers have shown that the freefall portion of a dive can be efficiently optimized for a simplified character
+R54	supports Arg1:T80 Arg2:T81	
+T82	background_claim 8804 8853	as can motions such as weight lifting and pushups
+T83	data 8749 8767	Liu and Cohen 1994
+R55	supports Arg1:T83 Arg2:T81	
+T84	data 8769 8782	Crawford 1998
+R56	supports Arg1:T84 Arg2:T81	
+T85	data 8784 8801	Albro et al. 2000
+R57	supports Arg1:T85 Arg2:T81	
+R58	parts_of_same Arg1:T82 Arg2:T81	
+T86	data 8855 8874	Lo and Metaxas 1999
+R59	supports Arg1:T86 Arg2:T82	
+T87	data 8947 8975	Brotman and Netravali [1988]
+T88	data 9009 9034	Pandy and Anderson [2000]
+T89	background_claim 8878 8904	Optimal control techniques
+T90	background_claim 8977 9004	have been used with success
+T91	background_claim 9036 9075	for simulating human lower body motions
+T92	data 9084 9106	optimal height jumping
+T93	data 9111 9118	walking
+R60	supports Arg1:T92 Arg2:T91	
+R61	supports Arg1:T93 Arg2:T91	
+R62	supports Arg1:T87 Arg2:T89	
+R63	parts_of_same Arg1:T90 Arg2:T89	
+R64	supports Arg1:T88 Arg2:T90	
+R65	parts_of_same Arg1:T91 Arg2:T90	
+T94	background_claim 9120 9159	Running times were far from interactive
+T95	background_claim 9165 9265	show that optimization techniques can produce realistic motion for systems of human-level complexity
+R66	contradicts Arg1:T95 Arg2:T94	
+T96	background_claim 9267 9328	Preexisting motion data can simplify the optimization process
+T97	background_claim 9331 9371	Full scale human motion can be optimized
+T98	data 9418 9436	Liu and Cohen 1995
+R67	supports Arg1:T98 Arg2:T97	
+T100	data 9511 9527	Rose et al. 1996
+T101	background_claim 9573 9684	significant changes to motion capture data can be made by optimizing with a physically based objective function
+T102	data 9690 9768	the character is reduced to the degrees of freedom most important for the task
+T99	data 9377 9415	closely spaced keyframes are available
+R68	supports Arg1:T99 Arg2:T97	
+T103	data 9446 9508	only transitions between existing motion segments are required
+R69	supports Arg1:T103 Arg2:T97	
+R70	supports Arg1:T100 Arg2:T97	
+T104	data 9530 9555	Popović and Witkin [1999]
+R71	supports Arg1:T102 Arg2:T101	
+R72	supports Arg1:T104 Arg2:T101	
+T105	data 9775 9811	physics does not dominate the motion
+T106	background_claim 9813 9894	kinematic techniques can give the animator interactive control for motion editing
+R73	supports Arg1:T105 Arg2:T106	
+T107	data 9904 9917	Gleicher 1997
+T108	data 9920 9937	Lee and Shin 1999
+T109	data 9940 9963	Arikan and Forsyth 2002
+R74	supports Arg1:T107 Arg2:T106	
+R75	supports Arg1:T108 Arg2:T106	
+R76	supports Arg1:T109 Arg2:T106	
+T110	background_claim 9967 10045	The idea of physically valid motion has appeared in both graphics and robotics
+T111	background_claim 10047 10142	Dynamic filters have been developed for processing motion capture data for physical correctness
+T112	data 10145 10169	Yamane and Nakamura 2000
+R77	supports Arg1:T112 Arg2:T111	
+T113	data 10172 10198	Dasgupta and Nakamura 1999
+R78	supports Arg1:T113 Arg2:T111	
+T114	data 10201 10225	Pollard and Reitsma 2001
+R79	supports Arg1:T114 Arg2:T111	
+T115	background_claim 10229 10396	Physics constraints have been used to plan biped walking motions, exploiting the idea that dynamic equilibrium can be maintained by ensuring that the zero moment point
+T116	background_claim 10491 10534	lies within the support polygon of the feet
+R80	parts_of_same Arg1:T116 Arg2:T115	
+T117	data 10537 10554	Vukobratović 1970
+R81	supports Arg1:T117 Arg2:T116	
+T118	data 10557 10578	Takanishi et al. 1985
+R82	supports Arg1:T118 Arg2:T116	
+T119	data 10581 10601	Nagasaka et al. 1999
+R83	supports Arg1:T119 Arg2:T116	
+T120	background_claim 10604 10654	Similar ideas have also been developed in graphics
+T121	data 10660 10678	Ko and Badler 1996
+R84	supports Arg1:T121 Arg2:T120	
+T122	background_claim 10682 10757	who bend the torso of a character to reduce torques at the desired ZMP, and
+R85	parts_of_same Arg1:T122 Arg2:T120	
+T123	data 10759 10776	van de Panne 1997
+T124	background_claim 10778 10896	who ensure that reasonable forces are available to accelerate the center of mass without creating angular acceleration
+R86	parts_of_same Arg1:T124 Arg2:T122	
+R87	supports Arg1:T123 Arg2:T124	
+T125	data 10898 10920	Liu and Popović [2002]
+T126	background_claim 10932 11080	some dynamic effects can be preserved by enforcing patterns of linear and angular momentum, which does not require computation of dynamic parameters
+R88	supports Arg1:T125 Arg2:T126	
+T127	own_claim 11168 11419	it is possible to incorporate constraints on physics as efficiently as constraints on kinematic parameters and an O(D) algorithm for computing first derivatives of a broad range of physics constraints for improved performance in a optimization context
+T128	background_claim 11950 12103	Constrained optimization has been shown to be a very powerful approach for obtaining appealing dynamic motions from a minimal amount of input information
+T129	background_claim 12105 12199	The user adjusts the problem description in the form of keyframes, constraints, and objectives
+T130	background_claim 12201 12274	an optimizer computes an optimal animation given this problem description
+T131	background_claim 12280 12340	the process repeats until the user obtains a final animation
+T132	data 12343 12351	Figure 2
+R89	supports Arg1:T132 Arg2:T131	
+R90	supports Arg1:T132 Arg2:T129	
+R91	supports Arg1:T132 Arg2:T130	
+T133	background_claim 12811 12965	Enforcing physics constraints or minimizing a dynamic property such as sum squared joint torques requires an inverse dynamics computation at each time t i
+T134	background_claim 12977 13033	the inverse dynamics computation is relatively expensive
+T135	background_claim 13035 13066	many efficient algorithms exist
+T136	background_claim 13072 13173	the process is well known to require time linear in the number of degrees of freedom of the character
+R92	contradicts Arg1:T135 Arg2:T134	
+T137	background_claim 13184 13306	typical choices for the numerical optimizer in Figure 2 also require derivatives of the constraints and objective function
+T138	background_claim 13321 13367	the sequential quadratic programming algorithm
+T139	data 13378 13398	Witkin and Kass 1988
+T140	background_claim 13401 13450	makes use of first derivatives of the constraints
+R93	parts_of_same Arg1:T140 Arg2:T138	
+T141	background_claim 13477 13540	and both first and second derivatives of the objective function
+R94	parts_of_same Arg1:T141 Arg2:T140	
+T142	own_claim 13598 13826	a broad range of physics constraints can be expressed based on aggregate forces and torques applied to the character, and how expressing physics constraints in this way allows us to compute the constraint Jacobian in linear time
+T143	data 13828 13837	Section 4
+R95	supports Arg1:T143 Arg2:T142	
+T144	own_claim 14025 14253	With this objective function and our linear time algorithm for computing the constraint Jacobian, we are able to show that physically based optimization can be performed for a 22 degree of freedom character at interactive speeds
+T145	background_claim 14402 14526	Constraints that enforce physical validity can be formulated as linear equality or inequality constraints on aggregate force
+T146	own_claim 14850 14998	One way of enforcing correct physics during flight is to ensure that the aggregate momentum of the body remains constant throughout the flight phase
+T147	own_claim 15015 15102	the constraint Jacobian that results from constraining momenta is denser than necessary
+T148	own_claim 15106 15207	the control points that determine take-off affect all constraint equations governing the flight phase
+R96	supports Arg1:T148 Arg2:T147	
+T149	own_claim 15209 15276	A more elegant solution is to restrict illegal forces during flight
+T150	own_claim 15278 15370	During flight, no forces, with the exception of gravity, may be derived from the environment
+T151	data 15875 15929	the character is swinging on a high bar or monkey bars
+T152	own_claim 15931 16005	the amount of torque that can be applied about the bar axis is constrained
+R97	supports Arg1:T151 Arg2:T152	
+T153	own_claim 16729 16798	During ground contact, the feet can only push, not pull on the ground
+T154	own_claim 16800 16868	contact forces should not require an unreasonable amount of friction
+T155	own_claim 16874 16945	the center of pressure must fall within the support polygon of the feet
+T156	own_claim 16947 17046	These effects can be modeled with equations that constrain the linear and angular forces separately
+T157	background_claim 17109 17264	Coulomb’s model dictates that the linear reaction force must fall within a friction cone oriented along the contact normal with angular half-width tan −1 μ
+T158	own_claim 17307 17366	The inequality constraint for the linear aggregate force is
+T159	own_claim 17408 17440	cos −1 N · a f 0 a &lt; tan −1 μ
+T160	own_claim 17481 17487	|f 0 |
+R98	parts_of_same Arg1:T159 Arg2:T158	
+R99	parts_of_same Arg1:T160 Arg2:T159	
+R100	supports Arg1:T157 Arg2:T158	
+T161	own_claim 16187 16251	Aggregate force is translated to a constraint point c as follows
+T162	own_claim 16284 16329	f c = f f b c c a = f b 0 − c f a 0 0 × f a 0
+R101	parts_of_same Arg1:T162 Arg2:T161	
+T163	own_claim 16425 16455	The bar contact constraint can
+T164	own_claim 16461 16476	be expressed as
+R102	parts_of_same Arg1:T164 Arg2:T163	
+T165	own_claim 16508 16545	− τ max &lt; s bar · f b c &lt; τ max
+R103	parts_of_same Arg1:T165 Arg2:T164	
+R104	supports Arg1:T162 Arg2:T163	
+T166	own_claim 17555 17616	the constraint without the inverse trigonometric functions is
+T167	own_claim 17649 17685	N |f · a 0 f | a 0 &gt; ( μ 1 2 + 1)
+R105	parts_of_same Arg1:T167 Arg2:T166	
+T168	own_claim 17703 17766	The magnitude of the normal force can be constrained as follows
+T169	own_claim 17799 17821	0 ≤ f a 0 · N ≤ K orce
+T170	own_claim 17862 17863	f
+R106	parts_of_same Arg1:T170 Arg2:T169	
+R107	parts_of_same Arg1:T169 Arg2:T168	
+T171	own_claim 17881 17982	Contact torques are constrained by geometrically confining the center of pressure to the support area
+T172	own_claim 18927 19079	computing derivatives on the physics constraints becomes a problem of differentiating aggregate force with respect to the free parameters of the problem
+T173	data 18848 18925	all physics constraints have been expressed as constraints on aggregate force
+R108	supports Arg1:T173 Arg2:T172	
+T174	own_claim 19081 19164	At any time t, character position q, velocity q,  ̇ and acceleration q  ̈ are known
+T175	own_claim 19635 19680	is the most difficult term in this expression
+T176	own_claim 19567 19587	The term ∂ f 0 / ∂ q
+R109	parts_of_same Arg1:T175 Arg2:T176	
+T177	own_claim 19799 19941	straightforward analytical computation of the force Jacobian would require time quadratic in the number of degrees of freedom of the character
+T178	data 19955 19985	joint torques are not required
+T179	own_claim 19992 20091	this value and first derivatives for constraints based on this value can be computed in linear time
+R110	supports Arg1:T178 Arg2:T179	
+R111	contradicts Arg1:T179 Arg2:T177	
+T180	own_claim 20111 20239	our paper is the first to present a linear time algorithm for computing the force Jacobian for an articulated character or robot
+T181	own_claim 20796 20825	We use spatial notation as in
+T182	own_claim 20848 20863	for conciseness
+T183	data 20827 20846	Featherstone [1987]
+R112	supports Arg1:T183 Arg2:T181	
+R113	parts_of_same Arg1:T182 Arg2:T181	
+T184	own_claim 21069 21088	into single vectors
+T185	own_claim 20971 21012	It combines linear and angular quantities
+R114	parts_of_same Arg1:T184 Arg2:T185	
+T186	data 21102 21123	Equations 1 through 3
+R115	supports Arg1:T186 Arg2:T184	
+T187	own_claim 21978 22098	Efficiently computing ∂ f 0 / ∂ q, the force Jacobian, requires efficiently computing ∂ p 0 / ∂ q, the momentum Jacobian
+T188	own_claim 22108 22176	aggregate force f 0 is the time derivative of aggregate momentum p 0
+R116	supports Arg1:T188 Arg2:T187	
+T189	own_claim 22261 22313	the momentum Jacobian can be computed in linear time
+T190	background_claim 22981 23064	The usual way to compute aggregate momentum is to formulate the following recursion
+T191	background_claim 23098 23130	v i = X i i−1 v i−1 + s i q  ̇ i
+T192	background_claim 23172 23201	p i = X i+1 i p i+1 + I i v i
+R117	parts_of_same Arg1:T191 Arg2:T190	
+R118	parts_of_same Arg1:T192 Arg2:T191	
+T193	own_claim 23380 23450	Parameter q i appears in the coordinate transforms X i i+1 and X i+1 i
+T194	own_claim 23460 23538	every v j for j &gt; i depends on q i , and every p j for j ≥ 0 depends on q i
+R119	supports Arg1:T193 Arg2:T194	
+T195	own_claim 23541 23618	Unrolling the recursion to collect terms for ∂ p 0 / ∂ q i requires O(D) time
+T196	own_claim 23725 23796	There is no clever way to simplify the calculation by aggregating terms
+T197	data 23802 23830	it is presented in this form
+R120	supports Arg1:T197 Arg2:T196	
+T198	own_claim 23648 23723	this approach will lead to an O(D 2 ) computation for the momentum Jacobian
+T199	own_claim 23848 23891	rewriting the recursion solves this dilemma
+T200	own_claim 23925 23962	I ∗ i = X i+1 i I ∗ i+1 X i+1 i + I i
+T201	own_claim 24004 24039	p i ∗ = X i i+1 p ∗ i+1 + I i ∗ v i
+T202	own_claim 24081 24092	p 0 = p ∗ 0
+R121	parts_of_same Arg1:T200 Arg2:T199	
+R122	parts_of_same Arg1:T201 Arg2:T200	
+R123	parts_of_same Arg1:T202 Arg2:T201	
+T203	own_claim 24239 24285	only propagation from leaf to base is required
+T204	own_claim 24291 24368	each parameter q j does not affect terms computed for joints j + 1 and beyond
+T205	own_claim 24147 24224	p ∗ i is expressed as a function of v i , which is a local variable at link i
+R124	supports Arg1:T205 Arg2:T203	
+R125	supports Arg1:T205 Arg2:T204	
+T206	data 24371 24379	Figure 4
+R126	supports Arg1:T206 Arg2:T204	
+T207	own_claim 24398 24443	p ∗ i is in general not equal to p i if i = 0
+T208	own_claim 24445 24532	A term superscripted with an asterix should be treated only as an intermediary quantity
+T209	data 24541 24562	its subscript is zero
+T210	own_claim 24577 24611	it is the desired aggregate result
+R127	supports Arg1:T209 Arg2:T210	
+R128	contradicts Arg1:T210 Arg2:T208	
+T211	own_claim 24613 24742	A linear time expression for the momentum Jacobian can be derived in a straightforward manner based on this form of the recursion
+T212	own_claim 24815 24942	we are not simplifying or changing the outcome of the dynamics computation, only changing the order in which terms are computed
+T213	own_claim 24944 25034	Aggregate momentum p 0 and the momentum Jacobian are exactly the same in both formulations
+T214	background_claim 25067 25199	In a traditional inverse dynamics formulation, accelerations and forces are expressed as the time derivatives of Equations 11 and 12
+T215	background_claim 25233 25320	a i = X i−1 i a i−1 + s i q  ̈ i + v i ×s ˆ i q  ̇ i f = X i+1 i f i+1 + I a + v ×I ˆ v
+R129	parts_of_same Arg1:T215 Arg2:T214	
+T217	own_claim 26045 26135	For fast computation, we instead take the time derivative of Equation 14, which results in
+T216	own_claim 26168 26219	f ∗ = X i i+1 f i+1 ∗ + v ×p ˆ ∗ + I ∗ a +  ̇ I ∗ v
+R130	parts_of_same Arg1:T216 Arg2:T217	
+T218	own_claim 26292 26343	This equation has the properties we are looking for
+T219	own_claim 26487 26557	f ∗ i is in general different from the actual joint force f i if i = 0
+T220	own_claim 26404 26447	terms are propagated from leaf to base only
+T221	own_claim 26559 26674	Differentiating Equation 18 and accumulating the coefficients of derivative elements results in the simplified form
+T222	data 26687 26697	Appendix B
+R131	supports Arg1:T222 Arg2:T221	
+T223	own_claim 26699 26841	Each partial derivative of the aggregate force with respect to joint positions, velocities, and accelerations may be obtained in constant time
+T224	own_claim 26853 26901	the full Jacobian may be obtained in linear time
+R132	supports Arg1:T223 Arg2:T224	
+T225	own_claim 27110 27159	Numerically the partial derivatives are identical
+T226	own_claim 27161 27227	The articulated model is a serial chain ranging from 3 to 50 links
+T227	own_claim 27242 27297	the proposed method is linear in the degrees of freedom
+T228	own_claim 27305 27350	direct differentiation shows quadratic growth
+R133	contradicts Arg1:T228 Arg2:T227	
+T229	own_claim 27438 27528	the linear time method shows a computational advantage with as few as 5 degrees of freedom
+T230	own_claim 27385 27436	overheads in computing aggregate intermediate terms
+R134	contradicts Arg1:T230 Arg2:T229	
+T231	own_claim 27738 27846	there is a cost to this approach that may be higher for robotics applications than for graphics applications
+T232	own_claim 28054 28100	In robotics, this information must be computed
+T233	own_claim 28109 28166	it corresponds to signals sent to the motors of the robot
+R135	supports Arg1:T233 Arg2:T232	
+T234	background_claim 27848 27907	In a standard Newton-Euler formulation, force parameter f i
+T235	background_claim 27922 27977	contains all of the joint force information for joint i
+T236	data 27909 27920	Equation 17
+R136	supports Arg1:T236 Arg2:T234	
+R137	parts_of_same Arg1:T235 Arg2:T234	
+T237	own_claim 28168 28224	It must in general also be part of optimization routines
+T238	own_claim 28234 28327	en- ergy consumption and joint torque limits are of particular concern when operating a robot
+T239	own_claim 28333 28366	none of the joints can be ignored
+R138	supports Arg1:T238 Arg2:T237	
+R139	supports Arg1:T239 Arg2:T237	
+T240	own_claim 28426 28526	many of the effects we expect to see in physically based optimization do not depend on joint torques
+T241	data 28399 28424	animation of human motion
+R140	supports Arg1:T241 Arg2:T240	
+T242	own_claim 28544 28685	physical correctness and optimization functions enforcing smooth motion are sufficient to obtain many natural characteristics of human motion
+R141	supports Arg1:T242 Arg2:T240	
+T243	data 28690 28702	some torques
+T244	data 28736 28761	are found to be important
+R142	parts_of_same Arg1:T244 Arg2:T243	
+T245	own_claim 28791 28802	many others
+T246	own_claim 28833 28864	can be ignored for many motions
+R143	parts_of_same Arg1:T246 Arg2:T245	
+R144	supports Arg1:T244 Arg2:T245	
+T247	data 28869 28903	a subset of K torques are required
+T248	own_claim 28905 28998	it is straightforward to extend our approach to measure torques at these joints in O(KD) time
+R145	supports Arg1:T247 Arg2:T248	
+T249	background_claim 29129 29280	One traditional approach is to use the integral of the sum of squared joint torques to produce a motion that approximately minimizes energy expenditure
+T250	background_claim 29314 29353	h(x) = t f ∑ D τ i 2 (x,t) dt t=t s i=1
+R146	parts_of_same Arg1:T250 Arg2:T249	
+T251	background_claim 29371 29397	This function is expensive
+T252	background_claim 29406 29450	computing its gradient requires O(D 2 ) work
+R147	supports Arg1:T252 Arg2:T251	
+T253	own_claim 29452 29544	Adopting this function would negate our effort in constructing efficient physics constraints
+T254	own_claim 29546 29679	An objective function that we have found to work well is to minimize the integral of the sum of squared, weighted joint accelerations
+T255	own_claim 29713 29745	h(x) = t f ∑ D w q  ̈ (x,t) 2 dt
+T256	own_claim 29787 29800	i i t=t s i=1
+R148	parts_of_same Arg1:T255 Arg2:T254	
+R149	parts_of_same Arg1:T256 Arg2:T255	
+T257	own_claim 30130 30241	the analytical Hessian for this objective function is constant, symmetric, positive definite, and band-diagonal
+T258	own_claim 30290 30392	a simple objective function with low cost is to simply minimize the distance from the reference motion
+T259	data 30249 30288	a reference motion q R (t) is available
+R150	supports Arg1:T259 Arg2:T258	
+T260	own_claim 30426 30466	h(x) = t=t t f s (q(x,t) − q R (t)) 2 dt
+R151	parts_of_same Arg1:T260 Arg2:T258	
+T261	own_claim 30484 30537	This objective function is similar to the one used in
+T262	data 30539 30554	Gleicher [1997]
+R152	supports Arg1:T262 Arg2:T261	
+T263	own_claim 30556 30645	Other objective functions we have attempted include an integral of squared contact forces
+T264	own_claim 30679 30708	h(x) = t f f c 2 (t) dt t=t s
+R153	parts_of_same Arg1:T264 Arg2:T263	
+T265	own_claim 30726 30784	The Jacobian of this function is computable in linear time
+T266	own_claim 30829 30905	Gaits generated using this function have a certain ‘tip-toe’ quality to them
+T267	own_claim 30910 30987	the function minimizes the amount of reaction force derived from the contacts
+R154	supports Arg1:T267 Arg2:T266	
+T268	own_claim 30989 31012	Minimizing contact jerk
+T269	own_claim 31044 31085	can be achieved using forward differences
+R155	parts_of_same Arg1:T269 Arg2:T268	
+T270	own_claim 31119 31166	m−1 h(x) = ∑ ( f c (t i ) − f c (t i+1 )) 2 i=1
+R156	parts_of_same Arg1:T270 Arg2:T269	
+T271	own_claim 32349 32381	appears very unstable at landing
+T272	own_claim 32295 32313	The initial motion
+T273	data 32328 32347	top row of Figure 6
+R157	supports Arg1:T273 Arg2:T272	
+R158	parts_of_same Arg1:T271 Arg2:T272	
+T274	own_claim 32383 32412	The character would fall over
+R159	supports Arg1:T271 Arg2:T274	
+T275	own_claim 32414 32514	This effect is eliminated in the optimization by enforcing the physics constraints of ground contact
+T276	data 32557 32565	Figure 7
+R160	supports Arg1:T276 Arg2:T275	
+T277	own_claim 33180 33253	All of these effects are obtained as a result of the optimization process
+T278	own_claim 33506 33529	a number of time slices
+T279	own_claim 33558 33678	equal to the number of control points produced good results and did not need to adjust this value for individual motions
+R161	parts_of_same Arg1:T279 Arg2:T278	
+T280	own_claim 33680 33731	Finer time slices would overly constrain the system
+T281	own_claim 33737 33791	sparser time slices allowed too much freedom for error
+T282	own_claim 35395 35496	Two implementation issues were especially important for achieving the results described in this paper
+T283	data 35521 35561	the basis functions have local influence
+T284	own_claim 35563 35640	the vector and matrix quantities computed during optimization are very sparse
+R162	supports Arg1:T283 Arg2:T284	
+T285	own_claim 35642 35701	We use the publicly-available Lancelot optimization package
+T286	own_claim 35723 35775	where sparsity is accounted for by groupseparability
+T287	data 35704 35720	Conn et al. 1992
+R163	supports Arg1:T287 Arg2:T285	
+R164	parts_of_same Arg1:T286 Arg2:T285	
+R165	supports Arg1:T284 Arg2:T282	
+T288	own_claim 35820 35899	Implementing any inverse dynamics algorithm requires selecting a character root
+T289	own_claim 35901 35993	An ability to move the effective root to different parts of the character is very convenient
+T290	data 36013 36092	there is a single point of constraint between the character and the environment
+T291	data 36098 36141	that point has a known and fixed trajectory
+T292	own_claim 36143 36172	it is convenient to place the
+T293	own_claim 37284 37312	character root at that point
+R166	parts_of_same Arg1:T293 Arg2:T292	
+R167	supports Arg1:T291 Arg2:T292	
+R168	supports Arg1:T290 Arg2:T292	
+R169	supports Arg1:T288 Arg2:T282	
+T294	own_claim 37349 37481	it may be convenient to root the character at the hands for the swing, at the center of mass for flight, and at the feet for landing
+T295	data 37321 37346	swing example of Figure 1
+R170	supports Arg1:T295 Arg2:T294	
+T296	background_claim 37483 37726	In a Newton-Euler inverse dynamics formulation, rerooting is typically done by changing parent / child relationships, which requires inverting joint angles and transforms at each joint and altering the flow of dynamic terms from leaves to root
+T297	background_claim 37728 37811	Both of these changes complicate the problem description presented to the optimizer
+T298	own_claim 37813 37860	The effective root can be relocated more easily
+T299	own_claim 37871 38034	by leaving the actual root and the flow of the dynamics computation fixed and computing velocities and accelerations at the root to maintain the desired constraint
+R171	parts_of_same Arg1:T299 Arg2:T298	
+R172	contradicts Arg1:T298 Arg2:T296	
+T300	data 38057 38067	Appendix C
+R173	supports Arg1:T300 Arg2:T299	
+T301	own_claim 38121 38377	This paper contributes to physically based optimization by defining and exploring a restricted class of optimization problems where physics constraints are included and first derivatives of constraints and objective functions can be computed in linear time
+T302	own_claim 38379 38612	The fact that first derivatives can be computed in linear time instead of quadratic time suggests that our problem is simpler than previous physically based approaches and similar in complexity to very successful kinematic approaches
+T303	own_claim 38680 38828	our solution landscape will be smoother than previous physically based optimization approaches, making it feasible to handle more complex characters
+T304	data 38835 38869	the optimization does not converge
+T305	own_claim 38871 38920	we can usually trace it back to the problem setup
+R174	supports Arg1:T304 Arg2:T305	
+T306	own_claim 38922 38970	Sometimes it is due to overconstrained equations
+T307	own_claim 38990 39038	often it is due to overly restrictive parameters
+R175	contradicts Arg1:T307 Arg2:T306	
+T308	data 39048 39069	friction coefficients
+R176	supports Arg1:T308 Arg2:T307	
+T309	data 39071 39083	joint limits
+T310	data 39085 39110	poor selection of timings
+R177	supports Arg1:T309 Arg2:T307	
+R178	supports Arg1:T310 Arg2:T307	
+T311	own_claim 39117 39195	At present, timings are set by the user and their values need to be reasonable
+T312	own_claim 39259 39362	Any optimization technique that makes use of local derivatives has potential problems with local minima
+T313	data 39409 39494	an expected motion sequence could be thought of as motion about some neutral position
+T314	data 39506 39556	the character was started in that neutral position
+T315	own_claim 39557 39616	there was no problem descending toward the expected minimum
+R179	supports Arg1:T314 Arg2:T315	
+R180	supports Arg1:T313 Arg2:T315	
+T316	own_claim 39618 39706	We were able to create a jumping Luxo and highly dynamic human motions with good success
+T317	data 39712 39735	less dynamic activities
+T318	own_claim 39737 39778	our system would require additional input
+R181	supports Arg1:T317 Arg2:T318	
+T319	own_claim 39780 39867	physics constraints plus smooth motion would not in general produce the desired results
+R182	supports Arg1:T318 Arg2:T319	
+T320	data 39892 39911	stand for 5 seconds
+T321	own_claim 39945 40069	our system would identify a static pose near the initial guess where the projection of the center of mass is in support area
+R183	supports Arg1:T320 Arg2:T321	
+T322	own_claim 40071 40157	Additional information would be required to fill in the details of the standing motion
+R184	supports Arg1:T321 Arg2:T322	
+T323	data 40163 40213	activities where joint torque limits are important
+T324	own_claim 40215 40289	this torque information must be taken into account to produce good results
+R185	supports Arg1:T323 Arg2:T324	
+T325	own_claim 40371 40544	Minimizing accelerations while maintaining physics constraints would produce a result that was valid for the body as a whole but would require non-zero torques at the joints
+T326	own_claim 40545 40577	no whipping motion would be seen
+R186	supports Arg1:T325 Arg2:T326	
+T327	own_claim 40579 40643	Minimizing sum squared torques would produce the desired results
+T328	own_claim 40745 40816	More commonly, a limited set of torques or energy terms may be importan
+T329	own_claim 40832 40876	the peg running motion appears very athletic
+T330	own_claim 40885 40941	it would require high torques at the knee and hip joints
+R187	supports Arg1:T330 Arg2:T329	
+R188	supports Arg1:T329 Arg2:T328	
+T331	data 40948 41013	physical parameters at certain joints are identified as important
+T332	own_claim 41015 41208	our method can be extended to provide and differentiate these parameters for any K joints with running times of O(KD), reaching the expected bound of O(D 2 ) when all joint torques are required
+R189	supports Arg1:T331 Arg2:T332	
+T333	own_claim 41210 41322	An interesting research problem is to determine automatically when torques at a given joint should be considered
+T334	own_claim 41324 41382	Running on flat ground shows a combination of difficulties
+T335	own_claim 41384 41622	To make this motion appear more natural, we would need to consider proper timing for the running stride, a more accurate foot model, torques at some of the joints, and perhaps also aspects of style that are not driven by physics or energy
+R190	supports Arg1:T335 Arg2:T334	
+T336	own_claim 41624 41744	Complexity in the number of degrees of freedom of the character is not the only concern in physically based optimization
+T337	own_claim 41746 41866	The number of free parameters of the optimization problem also grows linearly with total time allotted for the animation
+T338	background_claim 41938 41961	Liu, Gortler, and Cohen
+T339	data 41963 41978	Liu et al. 1994
+R191	supports Arg1:T339 Arg2:T338	
+T340	background_claim 41980 42065	have shown that time complexity can be effectively managed in an optimization context
+R192	parts_of_same Arg1:T340 Arg2:T338	
+T341	background_claim 42083 42138	the influence of any one parameter is localized in time
+R193	parts_of_same Arg1:T341 Arg2:T340	
+T342	own_claim 42140 42189	It is interesting to compare our approach to that
+T343	data 42194 42216	Liu and Popović [2002]
+R194	supports Arg1:T343 Arg2:T342	
+T344	background_claim 42218 42261	Their paper describes the power of patterns
+T345	background_claim 42288 42327	in creating desirable animation effects
+R195	parts_of_same Arg1:T345 Arg2:T344	
+R196	supports Arg1:T343 Arg2:T344	
+T346	own_claim 42333 42441	their approach could be adapted easily to obtain linear time performance by rewriting the momentum equations
+T347	own_claim 42485 42532	The idea of dynamic patterns is an exciting one
+T348	own_claim 42543 42715	relying on momentum patterns without computing interaction forces between the character and the environment may result in problems with certain types of physics constraints
+T349	data 42767 42802	the initial motion is not favorable
+R197	supports Arg1:T349 Arg2:T348	
+R198	contradicts Arg1:T348 Arg2:T347	
+T350	own_claim 42839 42920	it is possible to optimize motion with physics constraints in an efficient manner
+T351	own_claim 42930 42960	reasonable friction conditions
+T352	own_claim 42975 42997	can be easily enforced
+R199	parts_of_same Arg1:T352 Arg2:T351	
+R200	supports Arg1:T350 Arg2:T351	
+T353	own_claim 43010 43218	the combination of correct physics and knowledge of natural dynamic patterns of human motion such as momentum or movement of the center of pressure in the roll of the foot on the ground could be very powerful
+T354	own_claim 43261 43346	the main advantage of our approach may be as part of a more complete animation system
+T355	own_claim 43367 43479	the ability to enforce physics constraints efficiently should be just one of the tools available to the animator
+T356	own_claim 43481 43652	Details of the desired motion could be fleshed out using motion capture data, procedural techniques, keyframes, and/or objective functions appropriate to the specific task
+T357	own_claim 43673 43731	physics constraints can be enforced in an efficient manner
+T358	own_claim 43733 43848	Incorporating physics constraints into traditionally kinematic animation approaches is one direction of future work

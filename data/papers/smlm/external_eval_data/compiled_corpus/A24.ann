@@ -1,0 +1,343 @@
+T1	background_claim 1618 1687	Simulation of incompressible fluid involves several computation steps
+T2	background_claim 1698 1707	diffusion
+T3	background_claim 1709 1718	advection
+T4	background_claim 1723 1742	pressure projection
+R1	supports Arg1:T2 Arg2:T1	
+R2	supports Arg1:T3 Arg2:T1	
+R3	supports Arg1:T4 Arg2:T1	
+T5	background_claim 1873 1928	four forms of advection encountered in fluid simulation
+T6	background_claim 1930 1938	velocity
+T7	background_claim 1940 1953	smoke density
+T8	background_claim 1955 1960	image
+T9	background_claim 1965 1985	level set advections
+R4	supports Arg1:T6 Arg2:T5	
+R5	supports Arg1:T7 Arg2:T5	
+R6	supports Arg1:T8 Arg2:T5	
+R7	supports Arg1:T9 Arg2:T5	
+T10	background_claim 2063 2150	This step is always needed in nonsteady flow simulation based on Navier-Stokes equation
+T11	background_claim 2230 2309	we may want to advect a colored image, which may be considered as colored smoke
+T12	background_claim 2479 2512	the level set must be transported
+T13	data 2354 2381	one uses a level set method
+T14	data 2391 2437	to simulate a free surface or a two-phase flow
+T15	data 2451 2477	a water surface simulation
+R8	parts_of_same Arg1:T14 Arg2:T13	
+R9	supports Arg1:T14 Arg2:T12	
+R10	supports Arg1:T15 Arg2:T12	
+T16	background_claim 2554 2632	Those advection steps can be computed by an upwind or a semi-Lagrangian method
+T17	background_claim 2634 2663	The latter is often preferred
+T18	data 2671 2704	its stability for large time step
+R11	supports Arg1:T18 Arg2:T17	
+T19	background_claim 2706 2777	The first order semi-Lagrangian method is popular in computer animation
+T20	data 2789 2803	its simplicity
+R12	supports Arg1:T20 Arg2:T19	
+T21	background_claim 2814 2913	the first order semiLagrangian contains a significant amount of numerical diffusion and dissipation
+R13	supports Arg1:T21 Arg2:T19	
+T22	background_claim 2938 2967	it yields damped fluid motion
+T23	data 2915 2936	In velocity advection
+R14	supports Arg1:T23 Arg2:T22	
+T24	background_claim 2997 3038	it leads to a premature dilution of smoke
+T25	background_claim 3044 3084	is not able to simulate pure advec- tion
+T26	data 2969 2995	In smoke density advection
+R15	supports Arg1:T26 Arg2:T24	
+R16	supports Arg1:T26 Arg2:T25	
+T27	background_claim 3097 3117	higher order schemes
+T28	background_claim 3153 3164	are desired
+T29	data 3127 3131	WENO
+T30	data 3135 3138	CIP
+R17	supports Arg1:T29 Arg2:T27	
+R18	supports Arg1:T30 Arg2:T27	
+R19	parts_of_same Arg1:T28 Arg2:T27	
+T31	own_claim 3179 3378	the implementation complexity of these schemes may be easily avoided by adding a very simple Back and Forth Error Compensation and Correction (BFECC) to an existing first order semiLagrangian schemes
+T32	own_claim 3385 3438	improving its space and time accuracy to second order
+R20	supports Arg1:T31 Arg2:T32	
+T33	own_claim 3453 3518	this approach reduces velocity damping and smoke density dilution
+T34	own_claim 3523 3600	demonstrate its benefits on the four forms of advections discussed previously
+T35	background_claim 3602 3632	BFECC was recently proposed in
+T36	data 3635 3639	DL03
+T37	data 3641 3645	DL04
+T38	background_claim 3723 3774	high order methods may not prevent volume loss much
+T39	data 3714 3719	ELF05
+R21	supports Arg1:T39 Arg2:T38	
+T40	data 3801 3805	DL03
+T41	background_claim 3785 3796	the authors
+T42	background_claim 3808 3950	combined BFECC with their simple redistancing technique and applied it to the Zalesak’s problem, showing significantly reduced the volume loss
+R22	parts_of_same Arg1:T42 Arg2:T41	
+R23	supports Arg1:T40 Arg2:T41	
+R24	supports Arg1:T36 Arg2:T35	
+R25	supports Arg1:T37 Arg2:T35	
+T43	background_claim 3980 4053	the one with smallest volume error would be the particle level set method
+T44	data 3955 3978	the level set framework
+T45	data 4056 4061	EMF02
+T46	data 4063 4068	ELF05
+R26	supports Arg1:T46 Arg2:T43	
+R27	supports Arg1:T45 Arg2:T43	
+R28	supports Arg1:T44 Arg2:T43	
+T47	own_claim 4301 4355	sufficiently realistic fluid animation can be obtained
+T48	own_claim 4358 4459	t would be interesting to apply this to the level set advection part of the particle level set method
+T49	own_claim 4470 4499	for more demanding simulation
+T50	data 4462 4467	ELF05
+R29	supports Arg1:T50 Arg2:T48	
+R30	parts_of_same Arg1:T49 Arg2:T48	
+T51	background_claim 4502 4545	The stability problems in the earlier works
+T52	background_claim 4564 4593	were successfully remedied in
+T53	data 4597 4602	Sta99
+T54	data 4557 4561	FM96
+R31	supports Arg1:T53 Arg2:T52	
+R32	supports Arg1:T54 Arg2:T51	
+T55	background_claim 4781 4849	This solution is popular for the simulation of incompressible Fluids
+T56	data 4859 4864	smoke
+T57	background_claim 4885 4924	for more challenging free surface flows
+T58	data 4868 4873	FSJ01
+T59	data 4928 4932	FF01
+T60	data 4935 4940	EMF02
+R33	supports Arg1:T59 Arg2:T57	
+R34	supports Arg1:T60 Arg2:T57	
+T61	background_claim 4993 5024	comes with built-in dissipation
+T62	background_claim 4944 4982	The semi-Lagrangian velocity advection
+R35	parts_of_same Arg1:T61 Arg2:T62	
+T63	data 4985 4990	Sta99
+R36	supports Arg1:T63 Arg2:T62	
+T64	background_claim 5032 5066	the velocity is dissipated quickly
+R37	supports Arg1:T64 Arg2:T61	
+T65	data 5073 5152	the linear interpolation in the first order semiLagrangian produces large error
+R38	supports Arg1:T65 Arg2:T64	
+T66	background_claim 5160 5208	higher order interpolation can solve the problem
+T67	background_claim 5210 5285	it involves more neighboring grid point values and increases the complexity
+T68	data 5305 5341	non-uniform mesh structures are used
+R39	supports Arg1:T68 Arg2:T67	
+R40	contradicts Arg1:T67 Arg2:T66	
+R41	contradicts Arg1:T67 Arg2:T64	
+T69	data 5347 5352	FSJ01
+T70	background_claim 5356 5419	vorticity is added to generate small scale fluid rolling motion
+T71	data 5434 5439	SSK05
+T72	background_claim 5443 5508	addressed this built-in dissipation by enhancing advection itself
+R42	supports Arg1:T71 Arg2:T72	
+R43	supports Arg1:T69 Arg2:T70	
+T73	background_claim 5510 5530	They adopted the CIP
+T74	background_claim 5544 5596	method that increases the order of accuracy in space
+R44	parts_of_same Arg1:T74 Arg2:T73	
+T75	background_claim 5678 5731	A nice feature of this CIP method is that it is local
+T76	background_claim 5750 5830	only the grid point values of one cell are used in order to update a point value
+R45	supports Arg1:T76 Arg2:T75	
+T77	background_claim 5861 5936	all components of velocity and their partial derivatives should be advected
+T78	data 5841 5859	in this CIP method
+R46	supports Arg1:T78 Arg2:T77	
+T79	background_claim 6048 6091	CIP has higher order accuracy in space only
+T80	background_claim 6019 6042	It is also worth noting
+R47	supports Arg1:T79 Arg2:T80	
+T81	background_claim 6103 6162	high order integration of characteristics is also necessary
+R48	supports Arg1:T79 Arg2:T81	
+T82	background_claim 6177 6205	BFECC is easier to implement
+T83	background_claim 6210 6263	exhibits second order accuracy both in space and time
+T84	background_claim 6268 6313	is local during each of its operational steps
+R49	contradicts Arg1:T83 Arg2:T79
+T86	background_claim 6338 6409	focused on applying CIP to generate more dynamic water surface behavior
+T87	data 6329 6334	SSK05
+R50	supports Arg1:T87 Arg2:T86
+T88	own_claim 6436 6542	having less dissipative and diffusive advection provides significant benefits in smoke simulations as well
+T89	data 6593 6599	Fig. 4
+R52	supports Arg1:T89 Arg2:T88	
+T90	background_claim 6796 6858	The introduction of the level set method to fluid animation in
+T91	data 6862 6866	FF01
+T92	background_claim 6870 6935	allowed realistic simulation of fluids with complex free surfaces
+R53	parts_of_same Arg1:T92 Arg2:T90	
+R54	supports Arg1:T91 Arg2:T90	
+T93	background_claim 6701 6758	the smoke keeps full brightness throughout the simulation
+T94	data 6686 6699	BFECC is used
+T95	data 6774 6794	the last five images
+R55	supports Arg1:T95 Arg2:T93	
+R56	supports Arg1:T94 Arg2:T93	
+T96	background_claim 7061 7085	proposed subsequently in
+T97	background_claim 6937 6958	The problem left here
+T98	data 7089 7094	EMF02
+T99	background_claim 7099 7154	turned out to be very successful in volume preservation
+R57	parts_of_same Arg1:T99 Arg2:T97	
+R58	supports Arg1:T98 Arg2:T96	
+T100	background_claim 7156 7182	The two phase fluid solver
+T101	background_claim 7217 7276	has been broadly studied in mathematics and fluid mechanics
+R59	parts_of_same Arg1:T101 Arg2:T100	
+T102	data 7279 7284	SSO94
+T103	data 7287 7293	OKBG00
+T104	data 7296 7302	HKLS04
+R60	supports Arg1:T102 Arg2:T101	
+R61	supports Arg1:T103 Arg2:T101	
+R62	supports Arg1:T104 Arg2:T101	
+T85	background_claim 7306 7350	It has been used in graphics applications by
+T105	data 7354 7358	HK03
+T106	data 7440 7445	SSK05
+T107	data 7430 7438	TFK ∗ 03
+R51	supports Arg1:T107 Arg2:T85	
+R63	supports Arg1:T106 Arg2:T85	
+R64	supports Arg1:T105 Arg2:T85	
+T108	data 3141 3149	TFK ∗ 03
+R65	supports Arg1:T108 Arg2:T27	
+T109	data 5533 5541	TFK ∗ 03
+R66	supports Arg1:T109 Arg2:T73	
+T110	own_claim 7881 7921	the operator splitting steps proposed in
+T111	data 7924 7929	Sta99
+R67	supports Arg1:T111 Arg2:T110	
+T112	own_claim 8075 8102	the standard staggered grid
+T113	data 8105 8110	FSJ01
+R68	supports Arg1:T113 Arg2:T112	
+T114	own_claim 8701 8739	The extension to 3D is straightforward
+T115	own_claim 8750 8757	omitted
+R69	supports Arg1:T114 Arg2:T115	
+T116	own_claim 8759 8805	This first order approximation is identical to
+T117	data 8809 8814	SSK05
+T118	own_claim 8821 8862	higher order formulations can be found in
+T119	data 8865 8870	ABS96
+T120	data 8873 8881	SAB ∗ 99
+R70	supports Arg1:T119 Arg2:T118	
+R71	supports Arg1:T120 Arg2:T118	
+R72	supports Arg1:T117 Arg2:T116	
+T121	own_claim 8922 8978	the pressure projection ∆t ρ ∇ 2 P = ∇ · u introduced in
+T122	data 8981 8986	Sta99
+T123	data 8899 8912	ρ is constant
+R73	supports Arg1:T123 Arg2:T121	
+T124	own_claim 9006 9059	a simple implementation of surface tension similar to
+T125	data 9062 9070	SAB ∗ 99
+R74	supports Arg1:T125 Arg2:T124	
+T126	own_claim 9227 9266	φ to denote a quantity that is advected
+T127	own_claim 9359 9466	This φ can be the velocity components u, v, w, smoke density, RGB color of an image or level set function φ
+T128	own_claim 9875 9941	φ n+1 = L u, φ n + 1 φ n − φ  ̄ 2 where φ  ̄ = L (−u, L (u, φ n ))
+T129	own_claim 9778 9843	the BFECC can be written as the following three L-calling process
+R75	parts_of_same Arg1:T128 Arg2:T129	
+T130	data 10019 10054	the advection step L(·, ·) is exact
+T131	own_claim 10056 10157	the first two forward and backward steps should return the value exactly the same as the original one
+T132	data 10165 10175	φ n = φ  ̄
+R76	supports Arg1:T132 Arg2:T131	
+R77	supports Arg1:T130 Arg2:T131	
+T133	own_claim 10187 10205	this does not hold
+R78	contradicts Arg1:T133 Arg2:T131	
+T134	data 10213 10251	the error in the advection operation L
+R79	supports Arg1:T134 Arg2:T133	
+T135	own_claim 10387 10440	the error can be computed as e = − 1 2 ( φ n − φ  ̄ )
+T136	data 10289 10374	the first two forward and backward steps will produce error 2e, i.e., φ  ̄ = φ n + 2e
+R80	supports Arg1:T136 Arg2:T135	
+T137	own_claim 10650 10722	This method is proven to be second order accurate both in space and time
+T138	data 10725 10729	DL03
+T139	data 10731 10735	DL04
+R81	supports Arg1:T138 Arg2:T137	
+R82	supports Arg1:T139 Arg2:T137	
+T140	own_claim 12326 12427	BFECC can improve the damping in the first order semi-Lagrangian implementation of velocity advection
+T141	own_claim 12429 12462	which is a well known drawback of
+T142	data 12465 12470	Sta99
+R83	supports Arg1:T142 Arg2:T141	
+R84	supports Arg1:T142 Arg2:T140	
+T143	own_claim 11512 11646	the scalar field φ , which can be the velocity components u,v,w, the smoke density, RGB colors of an image or the level set function φ
+T144	own_claim 12494 12546	this BFECC needs to be turned off near the interface
+T145	data 12477 12492	multiphase flow
+R85	supports Arg1:T145 Arg2:T144	
+T146	own_claim 12826 12932	reducing velocity dissipation is equally important in the entire fluid domain, not only near the interface
+T147	own_claim 12950 13004	turning BFECC off near the interface has little effect
+R86	semantically_same Arg1:T147 Arg2:T146	
+T148	data 13011 13060	it is still turned on in most of the fluid domain
+R87	supports Arg1:T148 Arg2:T147	
+T149	own_claim 13086 13129	applying BFECC adds details in smoke motion
+T150	data 13077 13083	Fig. 2
+R88	supports Arg1:T150 Arg2:T149	
+T151	own_claim 13143 13213	these details cannot be obtained from the vorticity confinement method
+T152	data 13216 13221	FSJ01
+R89	supports Arg1:T152 Arg2:T151	
+T153	own_claim 13225 13268	which only adds small scale rolling motions
+R90	parts_of_same Arg1:T153 Arg2:T151	
+T154	own_claim 13540 13605	BFECC creates a physically correct fluctuations in a coarser grid
+T155	own_claim 13607 13647	Velocity advection can also be important
+T156	data 13653 13678	rigid bodies are involved
+R91	supports Arg1:T156 Arg2:T155	
+T157	data 13683 13689	Fig. 7
+R92	supports Arg1:T157 Arg2:T155	
+T158	own_claim 15335 15391	BFECC can reduce dissipation and diffusion significantly
+T159	data 15308 15314	Fig. 3
+T160	data 15319 15320	4
+R93	supports Arg1:T160 Arg2:T158	
+R94	supports Arg1:T159 Arg2:T158	
+T161	data 15410 15414	DL03
+T162	own_claim 15418 15455	BFECC is linearly stable in l 2 sense
+T163	data 15463 15498	||a|| l 2 = ∑ |a i j | 2 is bounded
+T164	data 15505 15535	the velocity field is constant
+R95	supports Arg1:T164 Arg2:T162	
+R96	supports Arg1:T163 Arg2:T162	
+R97	supports Arg1:T161 Arg2:T162	
+T165	own_claim 15576 15636	density values a i j can become negative or greater than 1.0
+T166	own_claim 15678 15709	this problem was not significan
+T167	data 15662 15676	our simulation
+R98	supports Arg1:T167 Arg2:T166	
+T168	own_claim 16030 16094	the dissipation of the color is significantly reduced with BFECC
+T169	data 16025 16028	(d)
+R99	supports Arg1:T169 Arg2:T168	
+T170	background_claim 16719 16771	Advection is often used for scientific visualization
+T171	data 16784 16823	for various forms of flow visualization
+R100	supports Arg1:T171 Arg2:T170	
+T172	data 16840 16845	JEH02
+T173	background_claim 16848 16915	uses semi-Lagrangian advection of dye to visualize the vector field
+T174	data 16918 16923	Wei04
+T175	background_claim 16926 16982	applied level set method to advect dye without diffusion
+R101	supports Arg1:T172 Arg2:T173	
+R102	supports Arg1:T173 Arg2:T170	
+R103	supports Arg1:T174 Arg2:T175	
+R104	supports Arg1:T175 Arg2:T170	
+T176	own_claim 17058 17092	level set implementation is needed
+T177	own_claim 16984 17013	Only one dye color is allowed
+T178	own_claim 17018 17051	the dye cannot be diffused at all
+T179	own_claim 17107 17205	BFECC is trivial to implement and provides advection of fully colored pattern of dye, if necessary
+R105	contradicts Arg1:T179 Arg2:T176	
+T180	own_claim 17231 17270	the dissipation/diffusion is very small
+T181	data 17222 17228	Fig. 3
+R106	supports Arg1:T181 Arg2:T180	
+T182	own_claim 17294 17338	it can be used in flow visualization as well
+T183	own_claim 18686 18760	it is still interesting to show how BFECC performs in the fluid simulation
+T184	data 18767 18802	it is trivial to implement and fast
+R107	supports Arg1:T184 Arg2:T183	
+T185	own_claim 18583 18635	BFECC still has some volume loss in fluid simulation
+R108	contradicts Arg1:T183 Arg2:T185	
+T186	own_claim 18865 18948	redistancing is needed to keep the level set function as a signed distance function
+T187	data 18809 18849	we use the BFECC for level set advection
+R109	supports Arg1:T187 Arg2:T186	
+T188	own_claim 19033 19059	∇φ φ τ + w · ∇φ = sgn( φ )
+T189	data 18995 19000	SSO94
+R110	supports Arg1:T189 Arg2:T188	
+T190	own_claim 19244 19299	An alternative is the semi-Lagrangian style integration
+T191	data 19307 19346	φ n+1 = φ n (x − w∆ τ ) + sgn( φ n )∆ τ
+R111	supports Arg1:T191 Arg2:T190	
+T192	own_claim 19400 19451	φ n (x − w∆ τ ) is the φ value of previous location
+R112	supports Arg1:T190 Arg2:T192	
+T193	own_claim 19148 19241	This equation can be solved by applying first order upwinding in discretizing the term w · ∇φ
+T194	own_claim 19518 19609	the redistancing tends to spoil good φ values computed from the second order accurate BFECC
+T195	data 19458 19516	these integration formulae for (6) are combined with BFECC
+R113	supports Arg1:T195 Arg2:T194	
+T196	own_claim 19710 19764	The conditions to turn off redistancing is provided in
+T197	data 19766 19770	DL03
+R114	supports Arg1:T197 Arg2:T196	
+T198	own_claim 19846 19902	This simple redistancing is crucial in preserving volume
+T199	data 19904 19908	DL03
+R115	supports Arg1:T199 Arg2:T198	
+T200	own_claim 19911 19939	It is also easy to implement
+T201	data 19946 20061	it simply requires to perform redistancing at the points where at least one of the following two conditions are met
+R116	supports Arg1:T201 Arg2:T200	
+T202	own_claim 21085 21180	reducing velocity dissipation could be important in simulating fluid and rigid body interaction
+T203	data 21062 21069	example
+R117	supports Arg1:T203 Arg2:T202	
+T204	own_claim 21182 21217	We implement the rigid fluid method
+T205	data 21220 21225	CMT04
+R118	supports Arg1:T205 Arg2:T204	
+T206	own_claim 21338 21370	the seeping problem mentioned in
+T207	data 21372 21377	CMT04
+R119	supports Arg1:T207 Arg2:T206	
+T208	own_claim 21380 21461	The computation time varies in situations such as the complexity of fluid motions
+T209	own_claim 21598 21631	has multiple pressure projections
+T210	own_claim 21572 21587	The cup example
+T211	data 21591 21597	Fig. 7
+R120	supports Arg1:T211 Arg2:T210	
+R121	parts_of_same Arg1:T209 Arg2:T210	
+T212	own_claim 22648 22712	the BFECC scheme can be used to improve the simulation of fluids
+T213	own_claim 22853 22901	BFECC can be added with a trivial amount of code
+T214	data 22719 22851	the simple first order upwinding or semi-Lagrangian steps for velocity, smoke density, image or level set advections are implemented
+R122	supports Arg1:T214 Arg2:T213	
+T215	own_claim 22916 22991	this simple extension yields significant enhancements in reducing diffusion
+T216	own_claim 22996 23043	dissipation in velocity, smoke, image advection
+T217	own_claim 23048 23093	in preserving volume under various situations
+T218	data 23104 23119	two-phase flows
+T219	data 23124 23136	rigid bodies
+R123	supports Arg1:T218 Arg2:T217	
+R124	supports Arg1:T219 Arg2:T217	

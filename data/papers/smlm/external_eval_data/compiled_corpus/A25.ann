@@ -1,0 +1,422 @@
+T1	background_claim 1775 1858	systems for physically based fluid animation have developed rapidly in recent years
+T2	background_claim 1863 1915	can now reliably generate production-quality results
+R1	supports Arg1:T1 Arg2:T2	
+T3	background_claim 1917 1949	they still have some limitations
+R2	contradicts Arg1:T3 Arg2:T1	
+T4	background_claim 1951 2012	Simulation domains can change substantially from step to step
+T5	data 2024 2044	deforming boundaries
+R3	supports Arg1:T5 Arg2:T4	
+T6	data 2046 2062	moving obstacles
+T7	data 2068 2089	evolving fluid motion
+R4	supports Arg1:T6 Arg2:T4	
+R5	supports Arg1:T7 Arg2:T4	
+T8	background_claim 2095 2181	current systems based on fixed grids are not ideally suited to handle these situations
+R6	contradicts Arg1:T8 Arg2:T4	
+R7	supports Arg1:T8 Arg2:T3	
+T9	own_claim 2777 2905	a method to simulate fluids with such rapidly changing domains by generating a new tetrahedral simulation mesh at each time step
+T10	data 2912 2931	generating the mesh
+T11	data 2933 3169	we use the position and shape of boundaries as well as criteria based on the visually important parts of the fluid and velocity field to construct a sizing field that dictates the desired edge length for tetrahedra throughout the domain
+R8	supports Arg1:T11 Arg2:T9	
+R9	supports Arg1:T10 Arg2:T9	
+T12	own_claim 3183 3239	an efficient and reliable meshing algorithm adapted from
+T13	data 3242 3261	Alliez et al., 2005
+R10	supports Arg1:T13 Arg2:T12	
+T14	own_claim 3265 3322	to produce a mesh that is refined according to this field
+R11	parts_of_same Arg1:T14 Arg2:T12	
+T15	own_claim 3324 3362	We use unstructured tetrahedral meshes
+T16	background_claim 3371 3487	they conform to curved and irregular boundaries better than axis-aligned grids with the same number of grid elements
+T17	background_claim 3492 3553	allow for precise control of refinement throughout the domain
+R12	supports Arg1:T16 Arg2:T15	
+R13	supports Arg1:T17 Arg2:T15	
+T18	background_claim 3649 3757	a generalization of the semi-Lagrangian velocity advection technique that introduces no additional smoothing
+T19	own_claim 3775 3910	a mass conservation step that has been extended to allow a new, single-step solution of two-way coupling between fluid and rigid bodies
+T20	own_claim 3921 3985	this approach provides a flexible framework for fluid simulation
+T21	own_claim 3991 4022	opens the door to many features
+T22	own_claim 4150 4325	the combination of unstructured tetrahedral domains and dynamic remeshing creates a versatile environment for the creation of complex and visually interesting fluid animations
+T23	background_claim 4377 4488	The animation of fluids through physical simulation has become an important tool in the visual effects industry
+T24	background_claim 4490 4502	One approach
+T25	background_claim 4541 4620	makes use of a spatial discretization based on regular, fixed, hexahedral grids
+T26	background_claim 4508 4540	has been popular in recent years
+R14	parts_of_same Arg1:T25 Arg2:T24	
+R15	supports Arg1:T26 Arg2:T23	
+T27	background_claim 4623 4669	Some examples of this approach can be found in
+T28	data 4672 4696	Foster and Metaxas, 1996
+T29	data 4700 4724	Foster and Metaxas, 1997
+T30	data 4728 4738	Stam, 1999
+T31	data 4742 4760	Yngve et al., 2000
+T32	data 4764 4783	Fedkiw et al., 2001
+T33	data 4787 4810	Foster and Fedkiw, 2001
+T34	data 4814 4834	Enright et al., 2002
+T35	data 4838 4858	Carlson et al., 2002
+T36	data 4862 4882	Feldman et al., 2003
+T37	data 4891 4912	Goktekin et al., 2004
+R16	supports Arg1:T28 Arg2:T27	
+R17	supports Arg1:T29 Arg2:T27	
+R18	supports Arg1:T30 Arg2:T27	
+R19	supports Arg1:T31 Arg2:T27	
+R20	supports Arg1:T32 Arg2:T27	
+R21	supports Arg1:T33 Arg2:T27	
+R22	supports Arg1:T34 Arg2:T27	
+R23	supports Arg1:T35 Arg2:T27	
+R24	supports Arg1:T36 Arg2:T27	
+T38	background_claim 4915 5004	The most commonly used storage scheme for these approaches is the “staggered grid” scheme
+R25	supports Arg1:T37 Arg2:T27	
+T39	background_claim 5006 5069	This method offsets storage of different quantities on the grid
+T40	background_claim 5075 5097	was first described by
+T41	data 5100 5122	Harlow and Welch, 1965
+R26	supports Arg1:T41 Arg2:T40	
+T42	background_claim 5125 5228	Efforts have been made to enhance these methods to allow for better conformance to irregular boundaries
+T43	data 5237 5264	the free surface of liquids
+T44	data 5266 5283	complex obstacles
+T45	data 5288 5314	irregularly shaped domains
+R27	supports Arg1:T43 Arg2:T42	
+R28	supports Arg1:T44 Arg2:T42	
+R29	supports Arg1:T45 Arg2:T42	
+T46	data 5317 5337	Losasso et al., 2004
+T47	background_claim 5340 5425	described an octree-based method that retains many of the advantages of regular grids
+T48	background_claim 5522 5573	this enables detailed tracking of moving boundaries
+T49	data 5582 5597	liquid surfaces
+R30	supports Arg1:T49 Arg2:T48	
+T50	data 5605 5625	Carlson et al., 2004
+T51	data 5632 5655	Guendelman et al., 2005
+T52	background_claim 5599 5603	Both
+T53	background_claim 5658 5726	have demonstrated methods for two-way coupling of obstacles to fluid
+R31	parts_of_same Arg1:T53 Arg2:T52	
+R32	supports Arg1:T50 Arg2:T52	
+R33	supports Arg1:T51 Arg2:T52	
+T54	background_claim 5728 5822	Unstructured tetrahedra have also been used for fluid simulation within the graphics community
+T56	data 5851 5872	Feldman et al., 2005a
+T57	data 5879 5898	Elcott et al., 2005
+R34	supports Arg1:T56 Arg2:T54	
+R35	supports Arg1:T57 Arg2:T54	
+T55	background_claim 6002 6046	It is a blend of ideas from these two papers
+T58	data 6160 6181	Feldman et al., 2005b
+R36	supports Arg1:T58 Arg2:T55	
+T59	background_claim 6220 6323	The idea of moving meshes independent of a fixed or particle-centric coordinate system is not a new one
+T60	data 6325 6403	arbitrary Lagrangian-Eulerian (ALE) methods were designed for just this purpos
+R37	supports Arg1:T60 Arg2:T59	
+T61	background_claim 6406 6486	They have proven useful in the simulation of highly deformable elastic materials
+T62	background_claim 6488 6514	ALE was first described in
+T63	data 6517 6534	Hirt et al., 1974
+R38	supports Arg1:T63 Arg2:T62	
+T64	data 6619 6637	Donea et al., 1977
+T65	background_claim 6640 6688	went on to apply ALE in a finite element setting
+R39	supports Arg1:T64 Arg2:T65	
+T66	background_claim 6690 6754	An excellent survey of the development of ALE methods appears in
+T67	data 6757 6775	Donea et al., 2004
+R40	supports Arg1:T67 Arg2:T66	
+T68	background_claim 6778 6870	Examples within the graphics literature that feature moving meshes without remeshing include
+T69	data 6873 6890	Shah et al., 2004
+T70	data 6897 6919	Rasmussen et al., 2004
+R41	supports Arg1:T70 Arg2:T68	
+R42	supports Arg1:T69 Arg2:T68	
+R43	supports Arg1:T68 Arg2:T66	
+T71	background_claim 7011 7096	Another approach to handling changing domains is to dispense with the mesh altogether
+T72	data 7198 7222	Terzopoulos et al., 1989
+T73	data 7226 7248	Desbrun and Cani, 1996
+T74	data 7252 7274	Cani and Desbrun, 1997
+T75	data 7278 7296	Stora et al., 1999
+T76	data 7300 7319	Müller et al., 2003
+T77	data 7323 7344	Premo ze et al., 2003
+T78	data 7353 7372	Müller et al., 2004
+R44	supports Arg1:T72 Arg2:T71	
+R45	supports Arg1:T73 Arg2:T71	
+R46	supports Arg1:T74 Arg2:T71	
+R47	supports Arg1:T75 Arg2:T71	
+R48	supports Arg1:T76 Arg2:T71	
+R49	supports Arg1:T77 Arg2:T71	
+R50	supports Arg1:T78 Arg2:T71	
+T79	background_claim 7375 7446	These meshless methods are particularly well suited to changing domains
+T80	data 7455 7513	points can move freely without concerns about mesh quality
+R51	supports Arg1:T80 Arg2:T79	
+T81	own_claim 7578 7672	the viability of our method hinges on fast, high-quality, reliable tetrahedral mesh generation
+T82	data 7523 7576	we regenerate a new simulation mesh at each time step
+R52	supports Arg1:T82 Arg2:T81	
+T83	own_claim 7680 7756	a history of unstructured mesh generation is outside the scope of this paper
+T84	background_claim 7799 7832	provide good surveys of the field
+T85	data 7760 7770	Owen, 1998
+T86	data 7777 7796	Teng and Wong, 2000
+R53	supports Arg1:T86 Arg2:T84	
+R54	supports Arg1:T85 Arg2:T84	
+R55	contradicts Arg1:T84 Arg2:T83	
+T87	own_claim 7869 7894	the approach described in
+T88	data 7898 7917	Alliez et al., 2005
+R56	supports Arg1:T88 Arg2:T87	
+T89	background_claim 7921 8027	This innovative method produces meshes which conform to domains of arbitrary topology quickly and reliably
+T90	background_claim 8035 8133	it allows for the local edge length of the tetrahedra to be specified arbitrarily throughout space
+T91	background_claim 8141 8211	allows us to easily perform adaptive mesh refinement from step to step
+R57	supports Arg1:T90 Arg2:T91	
+R58	supports Arg1:T47 Arg2:T48	
+R60	supports Arg1:T62 Arg2:T59	
+R59	supports Arg1:T65 Arg2:T59	
+R61	supports Arg1:T66 Arg2:T59	
+T92	own_claim 8559 8673	The key contribution of our method is to demonstrate the freedom granted by remeshing at each simulation time step
+T93	own_claim 8710 8822	the simple, efficient methods for discretizing the inviscid Euler equations on tetrahe- dral meshes described in
+T94	data 8825 8844	Elcott et al., 2005
+T95	data 8851 8872	Feldman et al., 2005a
+R62	supports Arg1:T95 Arg2:T93	
+R63	supports Arg1:T94 Arg2:T93	
+T96	data 9093 9114	Feldman et al., 2005b
+T97	background_claim 9117 9201	details a generalization of the standard semiLagrangian velocity advection technique
+T98	own_claim 9335 9449	their approach can easily be applied to transfer information between two arbitrary, topologically unrelated meshes
+T99	background_claim 9457 9545	is required to achieve more general evolution of the simulation domain from step to step
+T101	data 9693 9718	conformance to boundaries
+T102	data 9723 9732	obstacles
+T103	data 9744 9766	any desired refinement
+T100	own_claim 9644 9683	suits the current simulation conditions
+T104	own_claim 9556 9638	we need to quickly and reliably generate a new tetrahedral mesh for each time step
+R64	supports Arg1:T101 Arg2:T100	
+R65	supports Arg1:T102 Arg2:T100	
+R66	supports Arg1:T103 Arg2:T100	
+T105	background_claim 9777 9828	methods have long existed to mesh arbitrary domains
+T106	background_claim 9830 9896	most are relatively slow in comparison to simulation running times
+T107	background_claim 9900 9951	don’t reliably terminate under realistic conditions
+R67	contradicts Arg1:T106 Arg2:T105	
+R68	contradicts Arg1:T107 Arg2:T105	
+T108	background_claim 9953 10012	The availability of efficient, versatile meshing algorithms
+T109	background_claim 10047 10112	has made the generation of a new mesh at each time step practical
+T110	data 10024 10043	Alliez et al., 2005
+R69	parts_of_same Arg1:T109 Arg2:T108	
+R70	supports Arg1:T110 Arg2:T108	
+T111	own_claim 10232 10319	a new, single-step method to achieve two-way coupling between obstacle and fluid motion
+T112	background_claim 10595 10628	Similar schemes have been used in
+T113	data 10630 10652	Botta and Hempel, 1996
+T114	data 10655 10675	[Elcott et al., 2005
+T115	data 10682 10703	Feldman et al., 2005a
+T116	background_claim 10706 10792	These methods are a generalization of the staggered grid scheme originally proposed by
+T117	data 10795 10817	Harlow and Welch, 1965
+R71	supports Arg1:T117 Arg2:T116	
+T118	background_claim 10820 10892	This staggered method is used to discretize the inviscid Euler equations
+T119	data 10931 10961	∂u p f = − (u · ) u − + ∂t ρ ρ
+T120	background_claim 10983 11042	subject to the mass conservation constraint for incompress-
+T121	background_claim 11080 11091	ible fluids
+R72	parts_of_same Arg1:T121 Arg2:T120	
+T122	data 11095 11099	u =0
+R73	supports Arg1:T119 Arg2:T118	
+R74	supports Arg1:T122 Arg2:T121	
+T123	own_claim 11504 11586	Divergence and gradient operators are needed as part of the mass conservation step
+T124	own_claim 11646 11674	the formulation presented in
+T125	data 11676 11696	Losasso et al., 2004
+T126	data 11703 11722	Elcott et al., 2005
+R75	supports Arg1:T125 Arg2:T124	
+R76	supports Arg1:T126 Arg2:T124	
+T127	own_claim 12244 12322	This property of Delaunay meshes motivates our storage scheme at circumcenters
+T128	own_claim 12331 12455	the gradient estimate is equivalent to the gradient of a piecewise linear function that interpolates the circumcenter values
+R77	supports Arg1:T128 Arg2:T127	
+T129	background_claim 12648 12735	The staggered scheme stores only the component of velocity in the face normal direction
+T130	background_claim 12816 12887	a full velocity vector must be found at arbitrary positions in the mesh
+T131	data 12746 12814	the semi-Lagrangian step and to advect smoke particles for rendering
+R78	supports Arg1:T131 Arg2:T130	
+T132	own_claim 12955 12987	the two-step method developed in
+T133	data 12990 13009	Elcott et al., 2005
+R79	supports Arg1:T133 Arg2:T132	
+T134	own_claim 13170 13258	Velocity u t for tetrahedron t is found by solving the small linear system N t u t = z t
+T135	own_claim 13424 13465	this solution has the remarkable property
+T136	data 13399 13422	a divergence-free field
+R80	supports Arg1:T136 Arg2:T135	
+T137	own_claim 13575 13669	interpolating the u t velocities also exactly interpolates the face-normal velocity components
+R81	supports Arg1:T135 Arg2:T137	
+T138	own_claim 13902 13946	This interpolation is based on the method of
+T139	data 13949 13968	Warren et al., 2004
+R82	supports Arg1:T139 Arg2:T138	
+T140	own_claim 13978 14040	presents a way to interpolate within a general convex polytope
+T142	own_claim 14981 15060	Equation (3) applied to node weights within a Voronoi cell can be simplified to
+T143	own_claim 15104 15152	6Vol(t) w t (x) = 3 i=1 (p i − p v ) · (c t − x)
+R83	supports Arg1:T143 Arg2:T142	
+T141	own_claim 14957 14979	is omitted for brevity
+T144	data 14926 14949	After some manipulation
+R84	supports Arg1:T144 Arg2:T142	
+T145	own_claim 15472 15504	A similar observation appears in
+T146	data 15506 15521	Ju et al., 2005
+R85	supports Arg1:T146 Arg2:T145	
+R86	supports Arg1:T145 Arg2:T143	
+T147	own_claim 15550 15595	the velocity interpolation is quite efficient
+T148	data 15542 15549	with it
+R87	supports Arg1:T148 Arg2:T147	
+T149	own_claim 15794 15868	velocities at nodes of tetrahedra can be first be found using Equation (4)
+T150	data 15756 15792	advecting large numbers of particles
+T151	own_claim 15878 15961	quickly interpolated in a linear fasion over the tetrahedra to advect the particles
+R88	supports Arg1:T150 Arg2:T149	
+R89	supports Arg1:T150 Arg2:T151	
+T152	background_claim 16058 16194	The simple and stable semi-Lagrangian method has become the standard tool for advection of the velocity field for graphical applications
+T153	data 16197 16207	Stam, 1999
+R90	supports Arg1:T153 Arg2:T152	
+T154	background_claim 16210 16238	The basic idea of the method
+T155	background_claim 16520 16651	is that we can find a velocity that will advect to a point by tracing back from that point and interpolating the old velocity field
+R91	parts_of_same Arg1:T155 Arg2:T154	
+T156	background_claim 16653 16729	This method does not rely on velocities being stored at any particular place
+T157	background_claim 16742 16791	the velocity can be interpolated throughout space
+R92	supports Arg1:T157 Arg2:T156	
+T158	own_claim 16835 16890	meshes which change arbitrarily at each time step as in
+T159	data 16893 16914	Feldman et al., 2005b
+R93	supports Arg1:T159 Arg2:T158	
+T160	background_claim 16917 16971	This extension does not incur any additional smoothing
+T161	background_claim 16984 17034	using semi-Lagrangian advection with static meshes
+R94	contradicts Arg1:T161 Arg2:T160	
+T162	own_claim 17555 17617	we have to trace back and interpolate using this previous mesh
+T163	data 17623 17631	Figure 2
+T164	data 17485 17553	the velocities from the previous step are stored on a different mesh
+R95	supports Arg1:T164 Arg2:T162	
+R96	supports Arg1:T163 Arg2:T162	
+T165	background_claim 17782 17889	The domain boundaries, obstacles, and smoke are free to move and change from step to step of the simulation
+T166	own_claim 17953 17991	our domain conforms well to boundaries
+T167	own_claim 17996 18034	is refined in visually important areas
+T168	data 17894 17928	regenerating the mesh at each time
+R97	supports Arg1:T168 Arg2:T166	
+R98	supports Arg1:T168 Arg2:T167	
+T169	own_claim 18064 18122	the variational tetrahedral meshing algorithm presented in
+T170	data 18126 18145	Alliez et al., 2005
+R99	supports Arg1:T170 Arg2:T169	
+T171	own_claim 18149 18204	This method allows for generation of tetrahedral meshes
+T172	own_claim 18210 18257	conform well to an arbitrary input surface mesh
+T173	own_claim 18259 18291	have no restrictions on topology
+T174	data 18299 18317	allow nested voids
+R100	supports Arg1:T174 Arg2:T173	
+T175	own_claim 18324 18404	allow for sizing of tetrahedra throughout the domain based on arbitrary criteria
+T176	own_claim 18406 18483	Our implementation differs from the original algorithm in a couple of details
+T177	data 18581 18621	for any point x in the simulation domain
+T178	own_claim 18512 18574	refinement of the mesh is controlled by a sizing function μ(x)
+T179	data 18488 18510	in the original method
+T180	own_claim 18623 18678	returns the desired local edge length of the tetrahedra
+R101	supports Arg1:T177 Arg2:T180	
+R102	supports Arg1:T179 Arg2:T178	
+T181	own_claim 19374 19448	k 0 is an offset value that controls the minimum value of the sizing field
+T182	own_claim 19460 19503	the minimum local edge length of tetrahedra
+R103	supports Arg1:T181 Arg2:T182	
+T183	own_claim 19505 19586	d(x) is the distance to the closest obstacle or boundary which demands refinement
+T184	own_claim 19821 19892	These three factors are the same as those used for octree refinement in
+T185	data 19895 19915	Losasso et al., 2004
+R104	supports Arg1:T185 Arg2:T184	
+T186	own_claim 19918 20037	The overall goal of the sizing field is to focus computational effort in the most visually important parts of the scene
+T187	data 20048 20070	near closed boundaries
+T188	own_claim 20078 20108	the velocity field varies most
+T189	own_claim 20120 20136	smoke is visible
+R105	supports Arg1:T187 Arg2:T186	
+T190	data 20138 20146	Figure 3
+R106	supports Arg1:T190 Arg2:T186	
+T191	data 20206 20214	Figure 4
+R107	supports Arg1:T191 Arg2:T186	
+T192	data 20303 20335	This meshing method is iterative
+T193	own_claim 20340 20419	the mesh from the previous simulation time step can be used as an initial guess
+R108	supports Arg1:T192 Arg2:T193	
+T194	own_claim 20578 20619	the sizing field does not change too much
+T195	background_claim 20497 20505	there is
+T196	background_claim 20519 20576	strong temporal coherence between steps of the simulation
+R109	parts_of_same Arg1:T196 Arg2:T195	
+R110	supports Arg1:T196 Arg2:T194	
+T197	own_claim 20627 20691	the nodes from the previous step are often a good initialization
+R111	supports Arg1:T194 Arg2:T197	
+T198	own_claim 20724 20809	the initial node placement is corrected to match the sizing field of the current step
+T199	data 20693 20722	Before the algorithm proceeds
+R112	supports Arg1:T199 Arg2:T198	
+T200	own_claim 21037 21114	this tends to slightly decrease the average quality of tetrahedra in the mesh
+T201	own_claim 21116 21207	it often leads to substantial improvements in the quality of the worst elements of the mesh
+T202	own_claim 21215 21259	are of more concern for numerical simulation
+R113	contradicts Arg1:T201 Arg2:T200	
+T203	own_claim 21272 21292	remeshing takes time
+T204	own_claim 21297 21376	it is important to consider the impact it has on overall simulation performance
+R114	supports Arg1:T203 Arg2:T204	
+T205	own_claim 21378 21442	The time spent generating meshes for each simulation step varies
+R115	contradicts Arg1:T205 Arg2:T203	
+T206	own_claim 21448 21521	generally accounts for less than a quarter of the overall simulation time
+R116	contradicts Arg1:T206 Arg2:T205	
+T207	background_claim 21744 21781	can be complex and visually appealing
+T208	background_claim 21675 21711	The motion of fluid and rigid bodies
+R117	parts_of_same Arg1:T207 Arg2:T208	
+T209	background_claim 21783 21840	The interaction occurs as a consequence of the conditions
+T210	background_claim 21860 21968	The velocities in the normal direction are the same at the interface of the fluid and the rigid body surface
+T211	background_claim 21983 22020	The fluid velocity is divergence free
+T212	background_claim 22025 22057	the rigid body velocity is rigid
+T213	background_claim 22062 22129	The linear and angular momentum of the combined system is conserved
+R118	supports Arg1:T210 Arg2:T209	
+R119	supports Arg1:T211 Arg2:T209	
+R120	supports Arg1:T212 Arg2:T209	
+R121	supports Arg1:T213 Arg2:T209	
+T214	data 22145 22165	Carlson et al., 2004
+T215	background_claim 22168 22210	these conditions are enforced sequentially
+R122	supports Arg1:T214 Arg2:T215	
+T216	background_claim 22233 22274	this produces results that look very good
+T217	data 22218 22232	for many cases
+T218	background_claim 22298 22322	artifacts can be created
+R123	supports Arg1:T217 Arg2:T216	
+T219	data 22276 22297	under some situations
+R124	supports Arg1:T219 Arg2:T218	
+T220	data 22331 22409	enforcing one of the conditions in general will break a previously enforced on
+R125	supports Arg1:T220 Arg2:T218	
+R126	contradicts Arg1:T218 Arg2:T216	
+T221	background_claim 22412 22532	Examples of such artifacts might be fluid leaking through solid boundaries or poor performance in piston-like situations
+T222	own_claim 22534 22565	Our implementation differs from
+T223	data 22568 22588	Carlson et al., 2004
+R127	supports Arg1:T223 Arg2:T222	
+T224	own_claim 22591 22610	in a couple of ways
+R128	parts_of_same Arg1:T224 Arg2:T222	
+T225	background_claim 22725 22829	the mass conservation step solves for pressures that accelerate the velocity field to be divergence free
+T226	background_claim 22889 22989	the mass conservation step treats faces to behave as fluid or explicitly prescribes their velocities
+T227	data 23243 23262	Fedkiw et al., 2001
+T228	own_claim 23159 23240	For a more complete discussion of fluid/prescribed-velocity mass conservation see
+R129	supports Arg1:T228 Arg2:T227	
+T229	own_claim 23549 23616	The rigid body accelerations can be computed by creating a matrix R
+T230	own_claim 23693 23746	R can be formed by a series of matrix multiplications
+T231	own_claim 23785 23798	 b 1  R = 
+T232	own_claim 23805 23848	 M 0 −1 I −1 0 A 1 b T 1 ··· A k b T k b k
+R130	semantically_same Arg1:T231 Arg2:T230	
+R131	semantically_same Arg1:T232 Arg2:T230	
+T233	own_claim 25106 25159	accelerations generated by this matrix behave rigidly
+T234	data 25092 25104	construction
+R132	supports Arg1:T234 Arg2:T233	
+T235	own_claim 25161 25264	Computing pressure accelerations of both the fluid and fluid-rigid faces can be expressed as a matrix A
+T236	own_claim 25310 25320	A row of A
+T237	own_claim 25373 25449	contains the same entries as the standard gradient matrix multiplied by −1/ρ
+R133	parts_of_same Arg1:T237 Arg2:T236	
+T238	own_claim 25697 25796	mass conservation including two way coupling proceeds much in the same way as in the all-fluid case
+T239	data 25683 25695	With A built
+R134	supports Arg1:T239 Arg2:T238	
+T240	data 25798 25855	with A replacing the role of the discrete gradient matrix
+R135	supports Arg1:T240 Arg2:T238	
+T241	own_claim 25893 25996	the intermediate velocity field, z ∗ , is accelerated to the end-of-step velocity, z, by z = z ∗ + ∆tAp
+T242	data 25869 25891	vector of pressures, p
+R136	supports Arg1:T242 Arg2:T241	
+T243	own_claim 26019 26094	z ∗ is found by applying all terms of Equation (1) except the pressure term
+T244	data 26002 26017	the fluid faces
+R137	supports Arg1:T244 Arg2:T243	
+T245	data 26100 26121	the fluid-rigid faces
+T246	own_claim 26123 26196	z ∗ is found using a rigid body simulator without pressure forces applied
+T247	own_claim 27022 27076	This linear system can be solved efficiently using PCG
+T248	own_claim 27083 27100	the the matrix DA
+T249	own_claim 27165 27209	is also a positive-definite symmetric matrix
+R138	parts_of_same Arg1:T249 Arg2:T248	
+R139	supports Arg1:T248 Arg2:T247	
+T250	own_claim 27237 27287	we can also interact with constrained rigid bodies
+T251	own_claim 27289 27329	This simply requires finding an R matrix
+T252	own_claim 27330 27372	that correctly computes face accelerations
+T253	data 27373 27388	due to pressure
+R140	supports Arg1:T253 Arg2:T252	
+T254	own_claim 27403 27605	one could easily alter R such that the body was constrained to just rotate about the origin by replacing b i in Equation (6) with b i = (r i × n i ) T and using only the I −1 block for the center matrix
+R141	supports Arg1:T254 Arg2:T251	
+T255	own_claim 27607 27677	This idea could be extended further to include even articulated bodies
+T256	own_claim 28217 28314	Refinement of the simulation mesh near the paddle ensures good conformance to its curved surfaces
+T257	own_claim 28566 28625	The blue valves on either side of the bulb prevent backflow
+T258	data 28439 28447	Figure 5
+R142	supports Arg1:T258 Arg2:T257	
+T259	own_claim 28627 28669	The motion of these valves is not scripted
+T260	data 28753 28813	their motion is caused by two-way interaction with the fluid
+T261	data 28680 28748	they are modeled as rigid bodies constrained to rotate about an axis
+R143	supports Arg1:T260 Arg2:T259	
+R144	supports Arg1:T261 Arg2:T259	
+T262	own_claim 29211 29283	quality of the mesh elements does not suffer at this level of refinement
+T263	own_claim 29285 29340	the proportion of time spent meshing increases to 39.3%
+R145	contradicts Arg1:T263 Arg2:T262	
+T264	own_claim 29342 29405	The motion of the smoke at the higher resolution is more lively
+T265	own_claim 29410 29441	exhibits more fine-scale detail
+T266	own_claim 29443 29473	A vorticity enhancement method
+T267	data 29493 29539	[Fedkiw et al., 2001] and [Selle et al., 2005]
+T268	data 29483 29491	those in
+T269	own_claim 29541 29590	could be used to further enhance the fluid motion
+R146	supports Arg1:T268 Arg2:T266	
+R147	supports Arg1:T267 Arg2:T266	
+T270	data 29595 29636	we do not find such enhancement necessary
+R148	contradicts Arg1:T270 Arg2:T269	
+T271	own_claim 29687 29811	a system for performing fluid animation using unstructured tetrahedral domains that can change arbitrarily at each time step
+T272	own_claim 29822 29887	our current implementation models completely fluid-filled domains
+T273	own_claim 29900 29986	it would be well-suited for use with surface tracking techniques for liquid simulation
+R149	contradicts Arg1:T273 Arg2:T272	

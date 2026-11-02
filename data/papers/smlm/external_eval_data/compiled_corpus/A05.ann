@@ -1,0 +1,651 @@
+T1	background_claim 2142 2276	It is possible to accomplish this by having an artist sculpt an entire character mesh by hand for every frame of an animation sequence
+T2	background_claim 2282 2301	this is impractical
+R1	contradicts Arg1:T2 Arg2:T1	
+T3	background_claim 2312 2380	animators typi- cally manipulate an underlying hierarchical skeleton
+T4	background_claim 2382 2458	The character mesh geometry must then be attached to the underlying skeleton
+T5	background_claim 2703 2753	There are two fundamental aspects of skin creation
+T6	background_claim 2754 2763	authoring
+T7	background_claim 2768 2779	computation
+R2	supports Arg1:T6 Arg2:T5	
+R3	supports Arg1:T7 Arg2:T5	
+T8	background_claim 3055 3096	the authoring methods drive skin creation
+T9	data 3032 3053	high-end applications
+T10	data 3107 3126	interactive systems
+T11	background_claim 3128 3156	computation methods dominate
+R4	supports Arg1:T9 Arg2:T8	
+R5	supports Arg1:T10 Arg2:T11	
+R6	contradicts Arg1:T11 Arg2:T8	
+T12	data 3162 3196	high-end applications such as film
+T13	background_claim 3198 3244	the visual fidelity of characters is paramount
+T14	background_claim 3249 3306	artists require flexibility and control in skin authoring
+R7	supports Arg1:T12 Arg2:T13	
+R8	supports Arg1:T13 Arg2:T14	
+T15	background_claim 3315 3388	there are many different ways to create characters using commercial tools
+R9	supports Arg1:T8 Arg2:T6	
+R10	supports Arg1:T11 Arg2:T7	
+R11	supports Arg1:T14 Arg2:T15	
+T16	background_claim 3390 3439	One technique involves modeling skin substructure
+T17	data 3448 3455	muscles
+T18	data 3460 3467	tendons
+T19	background_claim 3468 3494	to drive the skin geometry
+R12	supports Arg1:T17 Arg2:T16	
+R13	supports Arg1:T18 Arg2:T16	
+R14	parts_of_same Arg1:T19 Arg2:T16	
+T20	data 3497 3521	Wilhelms and Gelder 1997
+T21	data 3523 3544	Scheepers et al. 1997
+R15	supports Arg1:T20 Arg2:T19	
+R16	supports Arg1:T21 Arg2:T19	
+T22	background_claim 3547 3692	Many deformers which drive skins by linking their control points to the skeletal parameters with custom expressions or scripts are also available
+T23	background_claim 3695 3729	Some examples include FFD lattices
+T24	data 3732 3756	Sederberg and Parry 1986
+R17	supports Arg1:T24 Arg2:T23	
+T25	background_claim 3761 3766	Wires
+T26	data 3769 3789	Singh and Fiume 1998
+R18	supports Arg1:T26 Arg2:T25	
+T27	background_claim 3792 3855	High-end characters often use a combination of these techniques
+T28	background_claim 3856 3924	different tools are appropriate for different parts of the character
+R19	supports Arg1:T28 Arg2:T27	
+T29	background_claim 4101 4238	high-end tools allow authors to continually develop new skin computation models through custom scripts, expressions and complex deformers
+T30	background_claim 4253 4334	interactive systems require fast computation and small memory size for characters
+T31	background_claim 3926 4033	This generality and control means that the computation aspect of high-end characters is highly customizable
+T32	background_claim 4035 4063	tightly coupled to authoring
+T33	background_claim 4069 4090	potentially unbounded
+T34	background_claim 4342 4382	the character computation model is fixed
+T35	background_claim 4387 4468	artists must restrict their tool set to author characters in direct support of it
+R20	supports Arg1:T30 Arg2:T34	
+R21	supports Arg1:T30 Arg2:T35	
+T36	background_claim 4470 4560	The most common skin computation model in games and interactive systems goes by many names
+T37	data 4571 4574	SSD
+T38	data 4576 4586	enveloping
+T39	data 4588 4603	smooth skinning
+T40	data 4609 4630	linear blend skinning
+R22	supports Arg1:T37 Arg2:T36	
+R23	supports Arg1:T38 Arg2:T36	
+R24	supports Arg1:T39 Arg2:T36	
+R25	supports Arg1:T40 Arg2:T36	
+T41	background_claim 4632 4735	This technique assigns a set of influencing joints and blending weights to each vertex in the character
+T42	background_claim 4737 4850	The skin is computed by transforming each vertex by a weighted combination of the joints’ local coordinate frames
+T43	background_claim 4955 5017	this method is notorious not only for its authoring difficulty
+T44	background_claim 4915 4953	fast to evaluate and compact in memory
+T45	background_claim 5023 5069	also for its undesirable deformation artifacts
+R26	contradicts Arg1:T44 Arg2:T43	
+R27	contradicts Arg1:T44 Arg2:T45	
+T46	background_claim 5080 5106	this method is widely used
+T47	background_claim 5113 5182	these characters can be used with arbitrary amounts of animation data
+T48	background_claim 5187 5210	can be posed at runtime
+R28	supports Arg1:T47 Arg2:T48	
+R29	supports Arg1:T48 Arg2:T46	
+R30	contradicts Arg1:T46 Arg2:T43	
+R31	contradicts Arg1:T46 Arg2:T45	
+T49	background_claim 5321 5403	Mesh animation works by storing a large number of deformed models as static meshes
+T50	background_claim 5212 5319	A different character computation mechanism previously used in interactive systems is called mesh animation
+T51	background_claim 5437 5531	These static models are then either displayed directly or are linearly interpolated at runtime
+T52	background_claim 5533 5562	Mesh animation is interesting
+T53	background_claim 5569 5626	it decouples skin authoring from runtime skin computation
+T54	background_claim 5628 5692	allowing artists to use any tools they want to author characters
+R32	supports Arg1:T53 Arg2:T54	
+R33	supports Arg1:T54 Arg2:T52	
+T55	data 5748 5790	the required animation sequences are short
+T56	data 5795 5813	are known a priori
+T57	background_claim 5708 5742	mesh animation is only appropriate
+R34	supports Arg1:T55 Arg2:T57	
+R35	supports Arg1:T56 Arg2:T57	
+T58	background_claim 5818 5884	games and interactive applications use larger amounts of animation
+T59	background_claim 5886 5925	storing every frame becomes prohibitive
+R36	supports Arg1:T58 Arg2:T59	
+T60	background_claim 5927 5994	This technique is also incapable of generating new poses at runtime
+T61	data 6009 6061	to place the character’s hand exactly on a door knob
+T62	data 6065 6107	to make footfalls land precisely on stairs
+R37	supports Arg1:T61 Arg2:T60	
+R38	supports Arg1:T62 Arg2:T60	
+T63	background_claim 6135 6170	mesh animation is losing popularity
+R39	supports Arg1:T59 Arg2:T63	
+R40	supports Arg1:T60 Arg2:T63	
+T64	own_claim 6187 6316	we present an automated method to build character skins that are fast to compute and compactly represented from a set of examples
+T65	own_claim 6318 6515	This technique allows artists to use any skin authoring tools they like while producing characters that meet the performance demands and work with the computation models used in interactive systems
+T66	own_claim 6517 6634	We present a framework for extending linear blend skinning that allows us to capture these detailed skin deformations
+T67	own_claim 7918 7963	This step does not require a trained animator
+T68	own_claim 7970 8097	these poses are only intended to exercise the degrees of freedom of the character and need not correspond to a realistic motion
+R41	supports Arg1:T68 Arg2:T67	
+T69	own_claim 8162 8232	This sampling can be very simple to obtain from the user’s perspective
+T70	own_claim 8246 8307	users must simply invoke a script we have implemented in Maya
+T71	data 8233 8244	in our case
+R42	supports Arg1:T71 Arg2:T70	
+R43	supports Arg1:T70 Arg2:T69	
+T72	own_claim 8911 9031	These new joints are designed in such a way to capture richer deformations than the standard linear blend skinning model
+T73	own_claim 9033 9111	Our system is configured to add these extra joints automatically to characters
+T74	own_claim 9117 9177	we allow users to fine tune the specific set of extra joints
+R44	contradicts Arg1:T74 Arg2:T73	
+T75	background_claim 9246 9368	Character skin deformations are fundamental to character animation and have been addressed for some time in the literature
+T76	data 9370 9384	Catmull [1972]
+T77	background_claim 9386 9440	introduced one of the first skeleton-driven techniques
+R45	supports Arg1:T76 Arg2:T77	
+T78	background_claim 9507 9562	A 2D skeletal bilinear deformation method was presented
+T79	data 9567 9590	Burtnyk and Wein [1976]
+R46	supports Arg1:T79 Arg2:T78	
+T80	background_claim 9592 9675	An early 3D skeleton-driven technique that went beyond rigid skinning was presented
+T81	data 9679 9710	MagnenatThalmann, et al. [1988]
+R47	supports Arg1:T81 Arg2:T80	
+T82	background_claim 9712 9829	Their technique used custom programmed algorithms to deform character meshes based on the nature of particular joints
+T83	background_claim 9846 10004	novel skinning methods that start with a simple skin and use sparse data interpolation to correct errors between it and a set of examples have been introduced
+T84	background_claim 10135 10202	use radial basis interpolation of corrections to linear blend skins
+T86	data 10080 10097	Lewis et al. 2000
+T87	data 10099 10116	Sloan et al. 2001
+T88	data 10118 10133	Kry et al. 2002
+T85	background_claim 10022 10077	Pose Space Deformation, Shape by Example, and EigenSkin
+R48	supports Arg1:T88 Arg2:T85	
+R49	supports Arg1:T87 Arg2:T85	
+R50	supports Arg1:T86 Arg2:T85	
+R51	parts_of_same Arg1:T85 Arg2:T84	
+R52	supports Arg1:T84 Arg2:T83	
+T89	background_claim 10204 10267	Another recent work applies these techniques to range scan data
+T90	data 10270 10287	Allen et al. 2002
+R53	supports Arg1:T90 Arg2:T89	
+T91	own_claim 10290 10326	These techniques are similar to ours
+T92	background_claim 10335 10362	they take examples as input
+R54	supports Arg1:T92 Arg2:T91	
+T93	background_claim 10364 10410	The results of these approaches are quite good
+T94	background_claim 10438 10547	they can handle skin deformations that depend on abstract parameters rather than only skeleton configurations
+T95	background_claim 10558 10618	these methods are not appropriate for interactive characters
+T96	background_claim 10625 10713	they require storing potentially large amounts of example data for runtime interpolation
+R55	supports Arg1:T96 Arg2:T95	
+R56	contradicts Arg1:T95 Arg2:T93	
+R57	contradicts Arg1:T95 Arg2:T94	
+T97	own_claim 10728 10790	our method discards all example data after the fitting process
+T98	own_claim 10794 10869	the size of our runtime structures does not scale with the number of inputs
+R58	supports Arg1:T97 Arg2:T98	
+T99	background_claim 10871 10943	Other authors have used physical simulation for interactive deformations
+T100	data 10978 10996	James and Pai 2002
+T101	data 10998 11016	Capell et al. 2002
+R59	supports Arg1:T101 Arg2:T99	
+R60	supports Arg1:T100 Arg2:T99	
+T102	own_claim 11019 11082	Our method cannot capture these secondary deformations directly
+T103	own_claim 11093 11117	a technique such as DyRT
+T104	data 11119 11137	James and Pai 2002
+T105	own_claim 11140 11211	can be applied to the characters we generate to add secondary animation
+R61	supports Arg1:T104 Arg2:T103	
+R62	parts_of_same Arg1:T105 Arg2:T103	
+R63	contradicts Arg1:T103 Arg2:T102	
+T106	background_claim 11213 11271	There has been some recent work on fitting skinning models
+T107	background_claim 11273 11345	One method solves for joint centers and vertex weights for a scanned arm
+R64	supports Arg1:T107 Arg2:T106	
+R65	supports Arg1:T77 Arg2:T75	
+R66	supports Arg1:T78 Arg2:T75	
+R67	supports Arg1:T80 Arg2:T75	
+R68	supports Arg1:T83 Arg2:T75	
+T108	data 11348 11373	Nebel and Sibiryakov 2002
+R69	supports Arg1:T108 Arg2:T107	
+T109	own_claim 11380 11417	the Multi-Weight Enveloping technique
+T110	own_claim 11453 11484	is most similar to our approach
+T111	data 11419 11441	Wang and Phillips 2002
+R70	supports Arg1:T111 Arg2:T109	
+R71	parts_of_same Arg1:T110 Arg2:T109	
+T112	background_claim 11487 11667	MWE extends linear blend skinning by giving each vertex one weight to each coefficient of each influencing joint’s transformation matrix instead of one weight per influencing joint
+T113	background_claim 11669 11771	They then find these weights by solving a linear leastsquares problem using a set of examples as input
+T114	own_claim 11779 11853	on the surface Multi-Weight Enveloping and our technique seem very similar
+T115	own_claim 11855 11863	they are
+T116	own_claim 11872 11902	different in a fundamental way
+R72	parts_of_same Arg1:T116 Arg2:T115	
+R73	contradicts Arg1:T115 Arg2:T114	
+T117	own_claim 11904 12007	Both MWE and our technique use an extension of linear blend skinning as an underlying deformation model
+R74	supports Arg1:T117 Arg2:T114	
+T118	background_claim 12018 12094	MWE extends linear blend skinning by adding more vertex weights to the model
+T119	own_claim 12114 12141	our method adds more joints
+R75	supports Arg1:T118 Arg2:T116	
+R76	supports Arg1:T119 Arg2:T116	
+T120	background_claim 12143 12188	MWE uses a large number of weights per vertex
+T121	data 12190 12214	12 per influencing joint
+R77	supports Arg1:T121 Arg2:T120	
+T122	background_claim 12217 12306	This introduces the possibility of rank deficient matrices in the least-squares solutions
+T123	data 12309 12331	Wang and Phillips 2002
+R78	supports Arg1:T123 Arg2:T122	
+T124	background_claim 12351 12404	the matrix coefficients are usually highly correlated
+R79	supports Arg1:T124 Arg2:T122	
+T125	background_claim 12406 12434	This can lead to overfitting
+T126	background_claim 12442 12473	MWE must take measures to avoid
+R80	supports Arg1:T122 Arg2:T125	
+R81	supports Arg1:T125 Arg2:T126	
+T127	own_claim 12494 12571	the number of weights per vertex in one of our skins remains relatively small
+T128	data 12573 12596	1 per influencing joint
+R82	supports Arg1:T128 Arg2:T127	
+T129	own_claim 12602 12684	our extra joints are explicitly designed to be very different from existing joints
+T130	own_claim 12686 12751	our technique requires no special provisions to avoid overfitting
+R83	supports Arg1:T127 Arg2:T130	
+R84	supports Arg1:T129 Arg2:T130	
+T131	own_claim 12762 12823	our method can detect and handle small amounts of overfitting
+T132	data 12853 12864	Section 5.2
+R85	supports Arg1:T132 Arg2:T131	
+T133	own_claim 12962 13056	MWE skins are not as easily accelerated by graphics hardware as skins created using our method
+T134	data 12889 12953	having one weight per entry in the joint transformation matrices
+R86	supports Arg1:T134 Arg2:T133	
+T135	own_claim 13073 13136	our skins are computed in the same manner as linear blend skins
+T136	own_claim 13138 13217	existing software infrastructure can make use of them with little or no changes
+R87	supports Arg1:T135 Arg2:T136	
+T137	background_claim 13519 13577	This technique is widely used for interactive applications
+T138	background_claim 13579 13627	An excellent description of this method is found
+T139	data 13632 13651	Lewis et al. [2000]
+R88	supports Arg1:T139 Arg2:T138	
+T140	background_claim 14740 14864	a deformed vertex position in the dress pose configuration c = d is the same as the provided dress pose vertex ( v d = v d )
+T141	data 14868 14890	the weights are affine
+R89	supports Arg1:T141 Arg2:T140	
+T142	background_claim 14892 14945	This skinning algorithm is notorious for its failings
+T143	background_claim 14947 14987	It cannot represent complex deformations
+T144	background_claim 14992 15029	suffers from characteristic artifacts
+T145	data 15038 15083	the “candy-wrapper” collapse effect on wrists
+T146	data 15088 15120	collapsing around bending joints
+T147	data 15133 15141	Figure 2
+R90	supports Arg1:T145 Arg2:T144	
+R91	supports Arg1:T146 Arg2:T144	
+R92	supports Arg1:T147 Arg2:T144	
+T148	background_claim 15144 15163	The artifacts occur
+T149	background_claim 15172 15230	vertices are transformed by linearly interpolated matrices
+R93	supports Arg1:T149 Arg2:T148	
+T150	data 15235 15314	the interpolated matrices are dissimilar as in a rotation of nearly 180 degrees
+T151	background_claim 15316 15361	the interpolated transformation is degenerate
+R94	supports Arg1:T150 Arg2:T151	
+T152	background_claim 15366 15392	the geometry must collapse
+R95	supports Arg1:T151 Arg2:T152	
+T153	background_claim 15437 15484	linear blend skins are very difficult to author
+T154	data 15486 15505	[Lewis et al. 2000]
+R96	supports Arg1:T154 Arg2:T153	
+T155	background_claim 15529 15565	this skinning algorithm is very fast
+T156	background_claim 15570 15613	widely supported by commercial applications
+T157	background_claim 15617 15680	it remains popular especially in games and virtual environments
+R97	supports Arg1:T156 Arg2:T157	
+R98	supports Arg1:T155 Arg2:T157	
+R99	contradicts Arg1:T153 Arg2:T157	
+R100	contradicts Arg1:T144 Arg2:T157	
+R101	contradicts Arg1:T143 Arg2:T157	
+T158	background_claim 15755 15833	The linear blend skinning model is not sufficient to capture deformations well
+T159	data 15846 15854	Figure 3
+R102	supports Arg1:T159 Arg2:T158	
+T160	background_claim 15938 16016	the linearly blended matrix becomes degenerate and collapses the skin geometry
+T161	data 15904 15936	the twist approaches 180 degrees
+R103	supports Arg1:T161 Arg2:T160	
+T162	background_claim 15857 15868	The problem
+T163	background_claim 15893 15900	is that
+R104	parts_of_same Arg1:T162 Arg2:T163	
+R105	parts_of_same Arg1:T163 Arg2:T160	
+T164	background_claim 16018 16095	Linearly blended transformations tend to collapse the more different they are
+T165	background_claim 16097 16166	The resulting loss of volume can also be observed around hinge joints
+T166	data 16175 16183	the knee
+T167	data 16188 16193	elbow
+T168	data 16206 16214	Figure 2
+R106	supports Arg1:T166 Arg2:T165	
+R107	supports Arg1:T167 Arg2:T165	
+R108	supports Arg1:T168 Arg2:T165	
+T169	own_claim 16233 16331	we can help avoid the collapse problem by avoiding blending transformations that are so dissimilar
+T170	own_claim 16333 16433	We can accomplish this by adding extra transformations that properly interpolates without collapsing
+T171	own_claim 16471 16565	we can add an extra joint that interpolates the rotation angle correctly and does not collapse
+T172	data 16450 16469	the twisting wrists
+R109	supports Arg1:T172 Arg2:T171	
+T173	background_claim 16576 16639	artists sometimes do this by hand to help avoid wrist collapses
+T174	own_claim 16673 16791	any deformation effect could be obtained by adding joints that deform appropriately to capture that deformation effect
+T175	own_claim 16832 16932	we can add joints that scale up when the muscle should bulge, and scale down when the muscle relaxes
+R110	supports Arg1:T175 Arg2:T174	
+T176	own_claim 16948 17030	we could add several joints that move and scale in concert to capture the wrinkles
+R111	supports Arg1:T176 Arg2:T174	
+T177	own_claim 17687 17772	we could add as many transformations as vertices and capture all deformations exactly
+T178	own_claim 17789 17831	adding so many extra joints is impractical
+R112	contradicts Arg1:T178 Arg2:T177	
+T179	own_claim 17840 17937	adding such a large number of joints would severely impact the performance of our resulting skins
+R113	supports Arg1:T179 Arg2:T178	
+T180	data 17954 18012	we could find these transformations for the input examples
+T181	own_claim 18014 18135	it is unclear how to determine the general relationships of these transformations to the skeletal parameters in all poses
+R114	supports Arg1:T180 Arg2:T181	
+R115	supports Arg1:T181 Arg2:T178	
+T182	own_claim 18177 18273	our scheme would only be able to reproduce the input frames and would not work well in new poses
+T183	data 18137 18175	Without knowledge of this relationship
+R116	supports Arg1:T183 Arg2:T182	
+T184	own_claim 18284 18462	we extend the traditional linear blend skinning model by adding a relatively small number of joints that are simply related to the original skeletal parameters and fit using them
+T185	own_claim 18464 18641	We choose these extra joints by both examining the places where the standard linear blend model fails and by examining extra character deformations that we would like to capture
+T186	own_claim 18643 18711	We then add joints that we believe will help resolve these artifacts
+T187	own_claim 18833 18881	vertices choose weighted sums of transformations
+T188	data 18886 18936	any linear scaling of an added joint is beneficial
+T189	own_claim 18937 18951	it may be used
+R117	supports Arg1:T188 Arg2:T189	
+R118	supports Arg1:T187 Arg2:T189	
+T190	own_claim 18953 18997	Thus the additional joints need not be exact
+T191	own_claim 18722 18794	we fit the parameters of our skinning model using this extended skeleton
+R119	supports Arg1:T189 Arg2:T190	
+T192	own_claim 19017 19070	this is a framework for obtaining better deformations
+T193	own_claim 19075 19146	the joints we choose to add are based on our observations of characters
+T194	own_claim 19148 19245	Different characters with different deformations may require a different set of additional joints
+T195	own_claim 19301 19366	the skin may be solved using our fitting algorithm without change
+T196	data 19261 19299	some set of these joints is determined
+R120	supports Arg1:T196 Arg2:T195	
+R121	contradicts Arg1:T195 Arg2:T194	
+T197	own_claim 20062 20156	our system can automatically add joints that properly interpolate rotations without collapsing
+T198	own_claim 20382 20499	More joints with evenly distributed interpolation parameters could be added to sample this rotation space even better
+T199	own_claim 20528 20577	just a single interpolated rotation is sufficient
+R122	contradicts Arg1:T199 Arg2:T198	
+T200	own_claim 20158 20308	This is done by examining the rotation of a joint relative to the dress pose and computing the new joint as the halfway spherical linear interpolation
+T201	own_claim 20325 20380	of this rotation, located at the same position in space
+T202	data 20310 20323	Shoemake 1985
+R123	supports Arg1:T202 Arg2:T200	
+R124	parts_of_same Arg1:T201 Arg2:T200	
+T203	own_claim 20605 20699	improvements gained by simply adding a single interpolated rotation joint in the twisting case
+T204	data 20579 20587	Figure 4
+R125	supports Arg1:T204 Arg2:T203	
+T205	own_claim 20720 20756	improvements for the bent elbow case
+T206	data 20701 20709	Figure 5
+R126	supports Arg1:T206 Arg2:T205	
+T207	background_claim 20758 20915	Another type of effect not easily captured by the simple linear blend model is bulging and denting of skins caused by muscles, tendons, or other substructure
+T208	background_claim 20917 20960	These particular effects cannot be captured
+T209	background_claim 20967 21097	the joints employed in animating a character do not typically scale up and down as would be necessary to approximate these effects
+R127	supports Arg1:T209 Arg2:T208	
+T210	own_claim 21142 21257	the substructure deformation effects from muscles and tendons are often simply related to the angles between joints
+T211	data 21125 21140	many characters
+R128	supports Arg1:T211 Arg2:T210	
+T212	data 21300 21332	the elbow is near full extension
+T213	own_claim 21272 21294	a bicep bulge is small
+T214	own_claim 21339 21357	the bugle is large
+T215	data 21363 21393	the elbow is near full flexion
+R129	supports Arg1:T212 Arg2:T213	
+R130	supports Arg1:T215 Arg2:T214	
+R131	contradicts Arg1:T214 Arg2:T213	
+R132	supports Arg1:T213 Arg2:T210	
+R133	supports Arg1:T214 Arg2:T210	
+T216	own_claim 21395 21446	The effect is similar for other muscles in the body
+T217	own_claim 21474 21575	our system can add several joints that scale up and down based on the angle between particular joints
+T218	own_claim 22014 22099	All upstream joints are oriented in the same way, with one axis aligned with the bone
+T219	data 22112 22120	Figure 6
+R134	supports Arg1:T219 Arg2:T218	
+T220	data 22454 22486	the driver has multiple children
+T221	own_claim 22488 22592	a vector that is the sum of the bones connecting the driver to its children is used to measure the angle
+R135	supports Arg1:T220 Arg2:T221	
+T222	own_claim 22594 22623	Downstream joints are similar
+T223	own_claim 22625 22747	We use four downstream joints on each bone connecting the driver to its children that scale just as the upstream joints do
+R136	supports Arg1:T223 Arg2:T222	
+T224	own_claim 22821 22964	the scale parameter s is s = 1 + k b 1 · b 2 + 1 2 b 1 b 2 where b 1 and b 2 are the bone vectors used to measure the angle at the driver joint
+T225	own_claim 22969 22998	k is the maximum scale factor
+T226	data 23004 23041	the angle between b 1 and b 2 is zero
+R137	supports Arg1:T226 Arg2:T225	
+T227	data 22799 22819	joints that scale up
+R138	supports Arg1:T227 Arg2:T224	
+R139	supports Arg1:T227 Arg2:T225	
+T228	data 23047 23069	joints that scale down
+T229	own_claim 23071 23105	the scale parameter is simply s −1
+R140	supports Arg1:T228 Arg2:T229	
+R141	contradicts Arg1:T229 Arg2:T224	
+T230	own_claim 23108 23149	The value for k may be chosen by the user
+T231	own_claim 23192 23221	8 works well for our examples
+R142	contradicts Arg1:T231 Arg2:T230	
+T232	own_claim 23236 23285	vertices may take any scaling of these new joints
+T233	own_claim 23287 23321	a conservative large value is fine
+T234	data 23339 23347	a vertex
+T235	data 23356 23400	needed a joint that scaled by 2 instead of 8
+R143	parts_of_same Arg1:T234 Arg2:T235	
+T236	own_claim 23402 23438	it could be assigned a weight of 4 1
+R144	supports Arg1:T235 Arg2:T236	
+R145	supports Arg1:T232 Arg2:T233	
+R146	supports Arg1:T236 Arg2:T233	
+T237	own_claim 24176 24288	we use a fitting procedure to set the parameters of the underlying skinning model to match the example data well
+T238	data 24131 24174	our system has augmented the input skeleton
+R147	supports Arg1:T238 Arg2:T237	
+T239	own_claim 24312 24365	the input to the fitting process is a set of examples
+T240	own_claim 24436 24504	This static mesh is deformed according to the skeleton configuration
+T241	own_claim 24510 24555	it is not attached to the skeleton in any way
+R148	contradicts Arg1:T241 Arg2:T240	
+T242	own_claim 24574 24639	our examples were generated by exporting rigged objects from Maya
+T243	own_claim 24645 24711	they could have been sculpted by hand or come from another program
+R149	contradicts Arg1:T243 Arg2:T242	
+T244	own_claim 24951 25087	for each vertex, we are able to choose the set of influencing joints, influence weights (w i ) and the dress pose vertex position (v d )
+T245	own_claim 24827 24857	only the M i are predetermined
+R150	supports Arg1:T245 Arg2:T244	
+T246	own_claim 25089 25240	We would like to choose the influence sets, weights and dress pose vertex positions that best approximate the examples and generalize well to new poses
+T247	own_claim 26023 26056	We determine influence sets first
+T248	own_claim 26078 26164	Ideally, the influence sets would fall out naturally from the weight solving procedure
+T249	own_claim 26217 26249	this does not happen in practice
+T250	own_claim 26258 26302	our samplings are necessarily not exhaustive
+R151	supports Arg1:T250 Arg2:T249	
+R152	contradicts Arg1:T249 Arg2:T248	
+T251	own_claim 26310 26389	the more joints that a vertex depends on, the slower the skin can be to compute
+T252	own_claim 26394 26466	current hardware only supports a limited number of influences per vertex
+T253	own_claim 26474 26528	we would like to select a small set of good influences
+R153	supports Arg1:T251 Arg2:T253	
+R154	supports Arg1:T252 Arg2:T253	
+T254	own_claim 26536 26655	choosing the influence sets appropriately lets us bound the size of the problems we must solve to determine the weights
+T255	data 26672 26683	Section 5.2
+R155	supports Arg1:T255 Arg2:T254	
+T256	own_claim 26685 26722	This makes the solving process faster
+R156	supports Arg1:T254 Arg2:T256	
+T257	background_claim 26724 26799	In most recent research, influence set determination has been left to users
+T258	data 26802 26819	Lewis et al. 2000
+T259	data 26821 26843	Wang and Phillips 2002
+T260	data 26845 26862	Sloan et al. 2001
+R157	supports Arg1:T258 Arg2:T257	
+R158	supports Arg1:T259 Arg2:T257	
+R159	supports Arg1:T260 Arg2:T257	
+T261	background_claim 26865 26967	The task is typically accomplished by “painting” the regions of influence for each joint over the mesh
+T262	background_claim 26975 27026	less difficult than painting the weights themselves
+T263	background_claim 27048 27071	it is a tedious process
+T264	data 27028 27045	Lewis et al. 2000
+R160	supports Arg1:T264 Arg2:T262	
+R161	contradicts Arg1:T263 Arg2:T262	
+T265	own_claim 27086 27184	our system automatically determines the influence sets for each vertex using a heuristic algorithm
+T266	own_claim 27202 27292	vertices in a character skin typically transform nearly rigidly with respect to some joint
+T267	own_claim 27308 27358	vertices on the forearm roughly follow the forearm
+R162	supports Arg1:T267 Arg2:T266	
+T268	own_claim 27397 27473	their skin is most heavily influenced by those joints that they are bound to
+T269	data 27380 27395	most characters
+R163	supports Arg1:T269 Arg2:T268	
+T270	own_claim 27487 27542	a point on the bicep is not truly rigid as an arm moves
+T271	data 27551 27563	muscle bulge
+R164	supports Arg1:T271 Arg2:T270	
+T272	own_claim 27582 27642	these points remain mostly rigidly attached to the upper arm
+R165	contradicts Arg1:T270 Arg2:T272	
+T273	own_claim 27658 27684	should be influenced by it
+R166	supports Arg1:T272 Arg2:T273	
+T274	own_claim 27710 27854	we measure how rigidly a vertex transforms with every joint over all examples and use the most rigidly transforming joints for the influence set
+T275	own_claim 28181 28269	The collection of these local coordinate positions over all examples forms a point cloud
+T276	data 28282 28290	Figure 7
+R167	supports Arg1:T276 Arg2:T275	
+T277	own_claim 28293 28389	The more compact this point cloud, the more rigid we believe the vertex-joint relationship to be
+T278	own_claim 28540 28643	the simple O(n 2 ) algorithm that compares each point to every other to be fast enough for our purposes
+T279	own_claim 28648 28690	this diameter may be computed more quickly
+R168	contradicts Arg1:T279 Arg2:T278	
+T280	own_claim 28692 28732	An O(n log n) time algorithm is possible
+T281	background_claim 28775 28789	faster methods
+T282	data 28739 28768	Malandain and Boissonnat 2002
+R169	supports Arg1:T282 Arg2:T281	
+T283	own_claim 28927 28996	It may be tempting to use a threshold scheme to choose influence sets
+T284	own_claim 29001 29031	we have found this problematic
+R170	contradicts Arg1:T284 Arg2:T283	
+T285	own_claim 29033 29075	It is unclear how to pick a good threshold
+T286	data 29087 29117	the rigidity scores get larger
+T287	own_claim 29119 29146	they become less meaningful
+R171	supports Arg1:T286 Arg2:T287	
+R172	supports Arg1:T287 Arg2:T285	
+T288	own_claim 29162 29330	it may happen as an artifact of the particular input examples that points on the left shoulder move much more rigidly relative to the right leg rather than the left leg
+T289	own_claim 29335 29376	both choices make no sense for influences
+R173	contradicts Arg1:T289 Arg2:T288	
+T290	own_claim 29384 29438	larger rigidity scores are not particularly meaningful
+T291	own_claim 29440 29500	it is nearly impossible to pick a meaningful threshold value
+R175	supports Arg1:T290 Arg2:T291	
+R174	supports Arg1:T289 Arg2:T290	
+R176	supports Arg1:T291 Arg2:T285	
+T292	own_claim 29502 29598	As in other linear blend skinning systems, influence sets need only be determined conservatively
+T293	data 29600 29622	Wang and Phillips 2002
+R177	supports Arg1:T293 Arg2:T292	
+T294	own_claim 29627 29664	we allow users to choose k if desired
+R178	supports Arg1:T292 Arg2:T294	
+T295	own_claim 29704 29749	between three and eight influences works well
+T296	own_claim 29991 30162	We would like to find the best vertices and weights that minimize the least-squares difference between the skin and the examples at all the example skeleton configurations
+T297	own_claim 30164 30171;30172 30207	That is         n 2 min ∑ v e i − v e i i=1
+T298	data 30239 30294	v e i is the input vertex position from the ith example
+T299	data 30299 30391	v e i is the deformed vertex computed by the skinning model at the ith example configuration
+R179	supports Arg1:T298 Arg2:T297	
+R180	supports Arg1:T299 Arg2:T297	
+T300	own_claim 30430 30482	This problem is bilinear in the weights and vertices
+T301	own_claim 30484 30541	We use an alternation technique to solve the optimization
+T302	own_claim 30543 30730	This works by first fixing the first variable and solving a linear least-squares problem to find the second, then fixing the second and solving a linear leastsquares problem for the first
+T303	own_claim 30782 30830	This technique is commonly used and is described
+T304	own_claim 30732 30780	This process is then repeated until it converges
+T305	data 30836 30862	Freeman and Tenenbaum 1997
+R181	supports Arg1:T305 Arg2:T303	
+T306	own_claim 30865 30896	We start by solving for weights
+T307	own_claim 30903 30933	we have no good guess for them
+T308	own_claim 30938 30992	we know that the initial dress pose vertices are ideal
+R182	contradicts Arg1:T308 Arg2:T307	
+R183	supports Arg1:T307 Arg2:T306	
+R184	supports Arg1:T308 Arg2:T306	
+T309	own_claim 31057 31117	This process typically converges after one or two iterations
+T310	own_claim 31171 31248	we are solving for a small numbers of weights using large numbers of examples
+T311	own_claim 31250 31323	our systems are often well conditioned and do not suffer from overfitting
+T312	data 31327 31357	the input data is well sampled
+T313	data 31135 31144	Section 2
+R185	supports Arg1:T312 Arg2:T311	
+R186	supports Arg1:T310 Arg2:T311	
+R187	supports Arg1:T313 Arg2:T311	
+T314	own_claim 31364 31427	we do not have to take special precautions to avoid overfitting
+R188	supports Arg1:T311 Arg2:T314	
+T315	own_claim 31470 31501	we include tests for robustness
+R189	contradicts Arg1:T315 Arg2:T314	
+T316	data 32628 32691	there are any singular values below some fraction of this ratio
+T317	own_claim 32518 32601	We detect this by comparing the ratio of the largest singular value to the smallest
+T318	own_claim 32607 32624	issuing a warning
+R190	supports Arg1:T316 Arg2:T318	
+T319	own_claim 32436 32516	This lets us detect when our matrices are rank deficient, leading to overfitting
+T320	data 32777 32801	overfitting is a problem
+T321	own_claim 32803 32833	provisions such as those taken
+T322	own_claim 32862 32880	could also be used
+T323	data 32838 32860	Wang and Phillips 2002
+R191	supports Arg1:T320 Arg2:T321	
+R192	supports Arg1:T323 Arg2:T321	
+R193	parts_of_same Arg1:T322 Arg2:T321	
+T324	own_claim 32891 32956	in all the examples in this paper, no singular values were zeroed
+R194	contradicts Arg1:T324 Arg2:T322	
+T325	own_claim 33018 33098	It is not only important for the geometry in a skin approximation to be accurate
+T326	own_claim 33109 33154	important for normals to be well approximated
+T327	data 33159 33171	they are not
+T328	own_claim 33173 33224	lighting calculations will not produce good results
+R195	supports Arg1:T327 Arg2:T328	
+T329	own_claim 33275 33423	It may seem that just transforming a dress pose normal by the inverse transpose of the corresponding vertex’s transformation matrix would be correct
+T330	own_claim 33525 33593	this is technically valid for local neighborhoods of smooth surfaces
+T331	data 33596 33610	Turkowski 1990
+R196	supports Arg1:T331 Arg2:T330	
+T332	own_claim 33613 33644	we do not have a smooth surface
+R197	contradicts Arg1:T332 Arg2:T330	
+T333	own_claim 33709 33774	Computing the normals in this manner can give undesirable results
+T334	own_claim 33646 33707	Instead we have single points that are computed independently
+R198	supports Arg1:T334 Arg2:T332	
+T335	data 33780 33830	the blended transformations are not pure rotations
+R199	supports Arg1:T335 Arg2:T333	
+T336	background_claim 33832 33896	Interactive systems typically approximate normal calculations as
+T337	background_claim 33928 33990	n  ̄ c = ∑ w i M i,c −T M i,d T n d ∑ w i M i,c −T M i,d T n d
+R200	parts_of_same Arg1:T337 Arg2:T336	
+T338	background_claim 34014 34112	it is often faster to calculate the joint matrices and their inverses incrementally by composition
+T339	background_claim 34121 34182	at each step, rotations and scales have special inverse forms
+R201	supports Arg1:T339 Arg2:T338	
+R202	supports Arg1:T338 Arg2:T337	
+T340	background_claim 34184 34242	This alleviates the need for a general inversion operation
+T341	background_claim 34244 34256	In EigenSkin
+T342	data 34258 34273	Kry et al. 2002
+T343	background_claim 34277 34354	normals are treated as second skinning problem and are computed independently
+R203	supports Arg1:T342 Arg2:T341	
+R204	parts_of_same Arg1:T343 Arg2:T341	
+T344	own_claim 34371 34478	we take the model used in existing systems as in Equation 2 and include normals in our optimization process
+T345	own_claim 34492 34592	we simply add more terms to the objective function to include the differences between normal vectors
+T346	own_claim 34594 34625	We allow users to scale normals
+T347	data 34629 34703	they wish to change their relative influence on the least-squares solution
+R205	supports Arg1:T347 Arg2:T346	
+T348	background_claim 34754 34881	The simple linear blend skinning model commonly used in video games and other interactive applications is very fast and compact
+T349	background_claim 34886 34962	cannot capture the high quality deformations that make convincing characters
+R206	contradicts Arg1:T349 Arg2:T348	
+T350	own_claim 34964 35101	Our framework for extending the linear blend model allows us to capture much more interesting deformations while retaining its efficiency
+T351	own_claim 35103 35194	The most egregious deformation problems of linear blend skinning are solved by our approach
+T352	own_claim 35221 35293	our system can fix collapsing twists by adding just a single extra joint
+T353	data 35196 35211	Figures 3 and 4
+R207	supports Arg1:T353 Arg2:T352	
+T354	own_claim 35295 35379	Collapsing and interpenetrations around hinge joints are also fixed using our method
+T355	data 35392 35400	Figure 5
+R208	supports Arg1:T355 Arg2:T354	
+T356	own_claim 35469 35583	our extension framework can capture other more subtle and detailed deformations required for convincing characters
+T357	own_claim 35611 35691	our method can capture the bulges in the biceps and triceps of a character’s arm
+T358	data 35585 35593	Figure 8
+R209	supports Arg1:T358 Arg2:T357	
+R210	supports Arg1:T357 Arg2:T356	
+T359	own_claim 35699 35837	the particular extra joints we have chosen to add to our characters may not be capable of capturing the full deformation for any character
+T360	own_claim 35839 35946	different extra joints that do capture the desired deformations may be added and solved using our technique
+R211	contradicts Arg1:T360 Arg2:T359	
+T361	own_claim 35968 36032	our technique can be used on more than just simple arms and legs
+T362	data 36034 36042	Figure 9
+R212	supports Arg1:T362 Arg2:T361	
+T363	own_claim 36204 36252	our resulting skins generalize well to new poses
+R213	supports Arg1:T362 Arg2:T363	
+T364	own_claim 36254 36299	Our solution procedure is generally very fast
+T365	own_claim 36301 36399	None of the examples shown here took more than five minutes to solve on a modern personal computer
+R214	supports Arg1:T365 Arg2:T364	
+T366	own_claim 36515 36614	The computation time for each vertex depends on the number of influences and the number of examples
+T367	own_claim 36628 36663	each vertex is solved independently
+T368	own_claim 36665 36704	our algorithm is trivial to parallelize
+R215	supports Arg1:T367 Arg2:T368	
+T369	background_claim 36957 37092	The ability to generate compactly represented, fast to evaluate, high quality skin approximations from a set of examples is very useful
+T370	background_claim 37094 37211	Applications range from building characters for video games and virtual environments to high-end animation previewing
+T371	background_claim 37213 37245	Many current interactive systems
+T372	background_claim 37266 37310	only support linear blend skinned characters
+T373	data 37254 37265	video games
+R216	supports Arg1:T373 Arg2:T371	
+R217	parts_of_same Arg1:T372 Arg2:T371	
+T374	background_claim 37382 37428	authoring these skins is notoriously difficult
+T375	background_claim 37327 37380	deformation problems associated with using this model
+T376	background_claim 37430 37524	Determining the blending weights and influence sets is left to the skin author to set directly
+T377	background_claim 37526 37624	None of the more intuitive or useful deformer primitives provided by animation systems may be used
+T378	own_claim 37626 37710	Using our method, character authors may use any tools they like to author characters
+T379	own_claim 37712 37847	All our system requires is a set of examples which is used to compute the appropriate influence sets and blending weights automatically
+T380	own_claim 37849 37897	This frees the author from setting them manually
+R218	supports Arg1:T379 Arg2:T380	
+T381	own_claim 37934 38005	our characters are a straightforward extension to linear blend skinning
+T382	own_claim 38007 38099	many existing interactive systems already have the software infrastructure to sup- port them
+R219	supports Arg1:T381 Arg2:T382	
+T383	own_claim 38120 38192	our skins are computed in the same manner as existing linear blend skins
+T384	own_claim 38194 38251	they are already accelerated by current graphics hardware
+R220	supports Arg1:T383 Arg2:T384	
+T385	own_claim 38253 38381	Another application of our system is to map a character originally attached to one skeleton onto a different underlying skeleton
+T386	own_claim 38422 38448	Skin retargeting is useful
+T387	data 38452 38531	a particular interactive system requires characters to have a specific skeleton
+R221	supports Arg1:T387 Arg2:T386	
+T388	background_claim 38547 38639	a video game may have an optimized engine for characters with a particular skeleton topology
+R222	supports Arg1:T388 Arg2:T386	
+T389	data 38656 38704	a character was created for a different skeleton
+T390	background_claim 38706 38792	the character would have to be re-rigged manually to work on the new skeleton topology
+R223	supports Arg1:T389 Arg2:T390	
+T391	own_claim 38803 38860	this can be accomplished much more easily with our system
+R224	contradicts Arg1:T391 Arg2:T390	
+T392	own_claim 38994 39101	Our system sees this as any other set of data and solves for the proper influence sets and blending weights
+T393	own_claim 39103 39173	Another application of our technique is targeted at high-end animation
+T394	background_claim 39175 39274	High-end characters often have such complex deformations that they cannot be computed interactively
+T395	background_claim 39282 39393	animators typically work with low fidelity versions that only roughly suggest the actual shape of the character
+R225	supports Arg1:T394 Arg2:T395	
+T396	own_claim 39395 39542	Using our method, interactive characters could be built that allow animators to interact with much better approximations of the deformed characters
+T397	own_claim 39873 40015	we have presented a method for building fast to evaluate, compact representations that produce accurate approximations of deforming characters
+T398	own_claim 40017 40070	The characters may be rigged using any available tool
+T399	own_claim 40077 40169	our system only requires static deformed meshes paired with skeletal configurations as input
+R226	supports Arg1:T399 Arg2:T398	
+T400	own_claim 40177 40239	our technique works well for a wide variety of character skins
+T401	own_claim 40241 40259	it has limitations
+R227	contradicts Arg1:T401 Arg2:T400	
+T402	own_claim 40275 40361	character deformations in our model are only driven by the skeleton’s joint parameters
+T403	own_claim 40363 40440	Our method cannot capture deformations that are driven by abstract parameters
+T404	data 40449 40460	“happiness”
+R228	supports Arg1:T404 Arg2:T403	
+R229	supports Arg1:T402 Arg2:T403	
+R230	supports Arg1:T403 Arg2:T401	
+T405	data 40469 40486	Lewis et al. 2000
+T406	data 40488 40505	Sloan et al. 2001
+R231	supports Arg1:T406 Arg2:T403	
+R232	supports Arg1:T405 Arg2:T403	
+T407	own_claim 40508 40664	Our system also cannot accurately reproduce deformations that are not representable as linear combinations of the transformations expressed in our skeletons
+R233	supports Arg1:T407 Arg2:T401	
+T408	own_claim 40680 40868	the scaling joints presented in this paper can only fully capture deformations that are well approximated by a scaling that is linearly related to the cosine of the angle between two bones
+R234	supports Arg1:T408 Arg2:T407	
+T409	own_claim 40870 40968	This assumption may be violated by a character whose muscle bulges only when its arm is fully bent
+T410	own_claim 40970 41048	The scaling joints also assume that only the angle between joints is important
+T411	own_claim 41053 41118	bending the shoulder forward is treated the same as bending it up
+R235	supports Arg1:T410 Arg2:T411	
+T412	own_claim 41132 41206	not all deformations can be captured using the extra joints presented here
+T413	own_claim 41208 41268	new joints may be added to capture any important deformation
+R236	contradicts Arg1:T412 Arg2:T413	
+T414	own_claim 41274 41357	our influence set and vertex weight solving framework may be applied without change
+T415	own_claim 41386 41540	our method produces high-quality yet fast and compact skinned characters that work with existing game engines, graphics hardware and other runtime systems

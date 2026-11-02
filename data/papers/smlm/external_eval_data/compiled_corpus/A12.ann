@@ -1,0 +1,503 @@
+T1	background_claim 6553 6652	Extending this approach to generate natural motion for a full human character has proved to be hard
+T2	background_claim 6661 6691	the system is high dimensional
+R1	supports Arg1:T2 Arg2:T1	
+T3	background_claim 6693 6741	the physics constraints make it highly nonlinear
+R2	supports Arg1:T3 Arg2:T1	
+T4	background_claim 6747 6845	defining an objective function that reliably measures the naturalness of human motion is difficult
+R3	supports Arg1:T4 Arg2:T1	
+T5	background_claim 6847 6940	Much of the difficulty in solving this problem appears to result from the physics constraints
+T6	background_claim 6949 7002	optimization without physics is effective for editing
+R4	supports Arg1:T6 Arg2:T5	
+T7	data 7005 7018	Gleicher 1998
+R5	supports Arg1:T7 Arg2:T6	
+T8	background_claim 7032 7112	one way to make the problem tractable is to simplify the governing physical laws
+R6	supports Arg1:T5 Arg2:T8	
+T9	data 7119 7141	Liu and Popović [2002]
+T10	data 7146 7175	Abe and his colleagues [2004]
+T11	background_claim 7188 7296	many dynamic effects can be preserved by enforcing patterns of linear and angular momentum during the motion
+R7	supports Arg1:T10 Arg2:T11	
+R8	supports Arg1:T9 Arg2:T11	
+T12	background_claim 7298 7416	Reformulating the dynamics to avoid directly computing the torques also provides a significant performance improvement
+T13	data 7419 7440	Fang and Pollard 2003
+R9	supports Arg1:T13 Arg2:T12	
+T14	background_claim 7443 7535	Reducing the number of degrees of freedom to be optimized can also create tractable problems
+T15	data 7550 7575	Popović and Witkin [1999]
+T16	background_claim 7589 7724	significant changes to motion capture data can be made by manually reducing the degrees of freedom to those most important for the task
+R10	supports Arg1:T15 Arg2:T16	
+R11	supports Arg1:T16 Arg2:T14	
+T17	data 7726 7760	Safonova and her colleagues [2004]
+T18	background_claim 7780 7900	an efficient optimization can be achieved in a behavior-specific, low-dimensional space without simplifying the dynamics
+R12	supports Arg1:T17 Arg2:T18	
+T19	data 7917 7946	Liu and her colleagues [2005]
+T20	background_claim 7948 7989	introduced a novel optimization framework
+T21	background_claim 8022 8191	for optimizing appropriate parameters of the objective function from a small set of motion examples and then used the estimated parameters to synthesize a new locomotion
+R13	supports Arg1:T19 Arg2:T20	
+R14	parts_of_same Arg1:T21 Arg2:T20	
+T22	own_claim 8442 8581	Our approach is also part of an alternative set of techniques that relies on motion data to constrain the search to natural looking motions
+T23	background_claim 8596 8664	motion graphs can be used to resequence whole-body or facial motions
+T24	data 8686 8709	Arikan and Forsyth 2002
+R15	supports Arg1:T24 Arg2:T23	
+T25	data 8711 8728	Kovar et al. 2002
+R16	supports Arg1:T25 Arg2:T23	
+T26	data 8730 8745	Lee et al. 2002
+R17	supports Arg1:T26 Arg2:T23	
+T27	data 8747 8764	Zhang et al. 2004
+R18	supports Arg1:T27 Arg2:T23	
+T28	background_claim 8767 8953	These systems cannot match poses or satisfy such kinematic constraints as end effector constraints unless the motion database happens to contain a motion that satisfies those constraints
+T29	background_claim 8955 8975	Motion interpolation
+T30	background_claim 8996 9043	does allow isolated constraints to be satisfied
+R19	parts_of_same Arg1:T30 Arg2:T29	
+T31	data 9060 9076	Rose et al. 1998
+R20	supports Arg1:T31 Arg2:T30	
+T32	data 9078 9101	Kovar and Gleicher 2004
+T33	data 9103 9126	Mukai and Kuriyama 2005
+R21	supports Arg1:T32 Arg2:T30	
+R22	supports Arg1:T33 Arg2:T30	
+T34	background_claim 9139 9322	interpolation across a complete behavior does not have enough degrees of freedom to allow the specification of full pose constraints or end effector constraints across multiple frames
+R23	contradicts Arg1:T34 Arg2:T30	
+T35	background_claim 9324 9434	Recently, interpolation and motion graphs have been combined to obtain some of the advantages of each approach
+T36	data 9436 9461	Safonova and Hodgins 2007
+R24	supports Arg1:T36 Arg2:T35	
+T37	background_claim 9464 9539	Statistical models of human motion have also been used for motion synthesis
+T38	background_claim 9543 9609	A number of researchers have used variants of Hidden Markov Models
+T39	background_claim 9617 9656	to statistically represent human motion
+R25	parts_of_same Arg1:T39 Arg2:T38	
+R26	supports Arg1:T38 Arg2:T37	
+T40	data 9687 9715	Molina Tanco and Hilton 2000
+R27	supports Arg1:T40 Arg2:T39	
+T41	data 9717 9741	Brand and Hertzmann 2000
+R28	supports Arg1:T41 Arg2:T39	
+T42	data 9743 9761	Galata et al. 2001
+R29	supports Arg1:T42 Arg2:T39	
+T43	data 9800 9819	Bregler et al. 1997
+R30	supports Arg1:T43 Arg2:T39	
+T44	data 9821 9831	Brand 1999
+R31	supports Arg1:T44 Arg2:T39	
+T45	background_claim 9837 9913	HMMs learned from human motion data have been used to interpolate key frames
+T46	data 9916 9944	Molina Tanco and Hilton 2000
+T47	data 9946 9964	Galata et al. 2001
+R32	supports Arg1:T46 Arg2:T45	
+R33	supports Arg1:T47 Arg2:T45	
+T48	background_claim 9967 9999	synthesize a new style of motion
+R34	parts_of_same Arg1:T48 Arg2:T45	
+T49	data 10002 10026	Brand and Hertzmann 2000
+R35	supports Arg1:T49 Arg2:T48	
+T50	background_claim 10029 10080	and generate facial expressions from speech signals
+R36	parts_of_same Arg1:T50 Arg2:T48	
+T51	data 10083 10102	Bregler et al. 1997
+R37	supports Arg1:T51 Arg2:T50	
+T52	data 10104 10114	Brand 1999
+R38	supports Arg1:T52 Arg2:T50	
+T53	data 10117 10152	Grzeszczuk and his colleagues[1998]
+T54	background_claim 10154 10298	developed a neural network approximation of dynamics based on simulated data and use it to animate dynamic models such as fish and lunar landers
+R39	supports Arg1:T53 Arg2:T54	
+T55	data 10300 10332	Urtasun and her colleagues[2006]
+T56	background_claim 10334 10424	learned linear motion models from pre-aligned motion data via Principal Component Analysis
+R40	supports Arg1:T55 Arg2:T56	
+T57	background_claim 10431 10562	and used them to track 3D human body movements from video by performing nonlinear optimization over a small sliding temporal window
+R41	parts_of_same Arg1:T57 Arg2:T56	
+T58	background_claim 10564 10595	Switching linear dynamic system
+T59	background_claim 10603 10644	have also been used to model human motion
+R42	parts_of_same Arg1:T59 Arg2:T58	
+T60	data 10646 10680	Pavlović and his colleagues [2000]
+T61	background_claim 10682 10787	present results for human motion synthesis, classification, and visual tracking using learned SLDS models
+R43	supports Arg1:T60 Arg2:T61	
+R44	supports Arg1:T61 Arg2:T59	
+T62	data 10789 10817	Li and his colleagues [2002]
+T63	background_claim 10819 10872	used SLDS to synthesize and edit disco dancing motion
+R45	supports Arg1:T62 Arg2:T63	
+R46	supports Arg1:T63 Arg2:T59	
+T64	own_claim 10874 10962	Our approach is also to learn a statistical dynamic model from human motion capture data
+T65	own_claim 10973 11106	the dynamic behavior of our model is controlled by a continuous control state rather than a discrete hidden state as in HMMs and SLDS
+R47	contradicts Arg1:T65 Arg2:T64	
+T66	own_claim 11108 11207	This property led us to formulate the motion synthesis problem as a trajectory optimization problem
+R48	supports Arg1:T65 Arg2:T66	
+T67	own_claim 11227 11429	our system allows the user to specify a variety of spatial-temporal constraints such as end effector constraints throughout the motion, a capability that has not been demonstrated by previous approaches
+T68	background_claim 11431 11558	A number of researchers have developed statistical models for human poses and used them to solve the inverse kinematics problem
+T69	data 11560 11589	Grochow and colleagues [2004]
+T70	background_claim 11591 11825	applied a global nonlinear dimensionality reduction technique, Gaussian Process Latent Variable Model, to human motion data and then used the learned statistical pose model to compute poses from a small set of user-defined constraints
+R49	supports Arg1:T69 Arg2:T70	
+R50	supports Arg1:T70 Arg2:T68	
+T71	background_claim 11827 11950	Another solution for data-driven inverse kinematics is to interpolate a small set of preexisting examples using constraints
+T72	background_claim 11952 12003	This idea has been used to compute human body poses
+T73	data 12005 12021	Rose et al. 2001
+R51	supports Arg1:T73 Arg2:T72	
+R52	supports Arg1:T72 Arg2:T71	
+T74	background_claim 12023 12045	and facial expressions
+R53	parts_of_same Arg1:T74 Arg2:T72	
+T75	data 12048 12065	Zhang et al. 2004
+R54	supports Arg1:T75 Arg2:T74	
+T76	background_claim 12068 12112	from kinematic constraints at a single frame
+R55	parts_of_same Arg1:T76 Arg2:T74	
+T77	background_claim 12114 12152	These models lack temporal information
+T78	background_claim 12167 12249	cannot be used to generate an animation from sparse constraints such as key frames
+R56	supports Arg1:T77 Arg2:T78	
+T79	background_claim 12251 12290	Local statistical models are sufficient
+T80	data 12294 12338	the user provides continuous control signals
+R57	supports Arg1:T80 Arg2:T79	
+T81	data 12376 12402	Chai and colleagues [2003]
+T82	background_claim 12404 12610	presented a real-time vision-based performance animation system that transforms a small set of automatically tracked facial features into facial animation by interpolating examples in a database at run time
+R58	supports Arg1:T81 Arg2:T82	
+T83	background_claim 12612 12801	They also used a series of local statistical pose models constructed at run time to reconstruct full-body motion from continuous, low-dimensional control signals obtained from video cameras
+T84	data 12804 12825	Chai and Hodgins 2005
+R59	supports Arg1:T84 Arg2:T83	
+T85	own_claim 12828 12935	The statistical dynamic model used in this paper was motivated by the dynamic model used for video textures
+T86	data 12940 12972	Soatto and his colleagues [2001]
+R60	supports Arg1:T86 Arg2:T85	
+T87	background_claim 12991 13123	a sequence of images of such moving scenes as sea-waves, smoke, and whirlwinds can be modeled by second-order linear dynamic systems
+R61	supports Arg1:T86 Arg2:T87	
+T88	background_claim 13125 13270	They applied the learned dynamic systems to synthesize an “infinite length” texture sequence by sampling noise from a known Gaussian distribution
+R62	supports Arg1:T86 Arg2:T88	
+T89	own_claim 13272 13445	We extend the model to learn an efficient and low-dimensional representation of human motion and use it to generate an animation that achieves the goal specified by the user
+T90	own_claim 13547 13687	motion priors learned from prerecorded motion data can be used to create natural human motion that matches constraints specified by the user
+T91	own_claim 13689 13827	The combination of the motion prior and the user’s constraints provides sufficient information to produce motion with a natural appearance
+T92	own_claim 14888 14966	We preprocess the motion capture data by applying Principal Component Analysis
+T93	own_claim 14989 15068	to the motion capture data and obtain a reduced subspace representation for y n
+T94	data 14975 14986	Bishop 1996
+T95	own_claim 15102 15119	y n = C · x n + D
+R63	supports Arg1:T94 Arg2:T92	
+R64	parts_of_same Arg1:T93 Arg2:T92	
+R65	parts_of_same Arg1:T95 Arg2:T93	
+T96	own_claim 15438 15588	The dimensionality of the system state, d x , can be automatically determined by choosing the d x for which the singular values drop below a threshold
+T97	own_claim 15671 15786	The goal of our constraint-based motion synthesis problem is to create an animation, H, based on the constraints, E
+T98	background_claim 15927 15979;15980 16048	From Bayes’ theorem, the goal of MAP is to infer the         most likely motion, H, given the user-defined constraints, E
+T99	background_claim 16081 16152	p (E|H) p (H) arg max H p(H|E) = arg max H p (E) ∝ arg max H p(E|H)p(H)
+R66	parts_of_same Arg1:T99 Arg2:T98	
+T100	own_claim 16329 16443	In our implementation, we minimize the negative log of p(H|E), yielding the following optimization for motion H: ˆ
+T101	own_claim 16475 16512	H ˆ = arg min H − ln p(E|H) − ln p(H)
+R67	parts_of_same Arg1:T101 Arg2:T100	
+T102	own_claim 16749 16791	The system contains three major components
+T103	own_claim 17127 17177	The constraints could be any kinematic constraints
+T104	data 17186 17194	position
+T105	data 17196 17207	orientation
+T106	data 17212 17260	the distance between two points on the character
+R68	supports Arg1:T104 Arg2:T103	
+R69	supports Arg1:T105 Arg2:T103	
+R70	supports Arg1:T106 Arg2:T103	
+T107	own_claim 17262 17311	They could be specified either at isolated points
+T108	own_claim 17325 17351	or across the whole motion
+R71	parts_of_same Arg1:T108 Arg2:T107	
+T109	data 16793 16805	Motion prior
+R72	supports Arg1:T109 Arg2:T102	
+T110	data 16963 16987	User-defined Constraints
+R73	supports Arg1:T110 Arg2:T102	
+T111	data 17372 17391	Motion optimization
+R74	supports Arg1:T111 Arg2:T102	
+T112	own_claim 17804 17937	We use an m-order linear time-invariant system to describe the dynamical behavior of the captured motion in the low-dimensional space
+T113	own_claim 17953 17954	m
+T114	own_claim 17986 18012	x n = A i x n−i + Bu n i=1
+R75	parts_of_same Arg1:T113 Arg2:T112	
+R76	parts_of_same Arg1:T114 Arg2:T113	
+T115	data 17940 17950	Ljung 1999
+R77	supports Arg1:T115 Arg2:T112	
+T116	own_claim 18205 18318	This formulation is similar to the linear time-invariant control system commonly adopted in the control community
+T117	data 18321 18330	Palm 1999
+R78	supports Arg1:T117 Arg2:T116	
+T118	own_claim 18342 18368	the matrix B is not unique
+T119	own_claim 18377 18409	the control input u t is unknown
+R79	supports Arg1:T119 Arg2:T118	
+T120	own_claim 18422 18491	any non-singular transformation of the matrix B represents the motion
+T121	own_claim 18500 18558	BT and T −1 u n are also consistent with the dynamic model
+R80	supports Arg1:T121 Arg2:T120	
+R81	supports Arg1:T118 Arg2:T120	
+T122	own_claim 18560 18637	To remove this ambiguity, we assume that the matrix B is an orthogonal matrix
+T123	own_claim 18744 18902	we want to identify the statespace model, including system matrices {A i |i = 1, ..., m}, B, and the corresponding control input u m+1:N = [u m+1 , ..., u N ]
+T124	own_claim 18645 18742	the low-dimensional representation of the original motion capture data, x 1:N = [x 1 , ..., x N ]
+R82	supports Arg1:T124 Arg2:T123	
+T125	own_claim 18904 18978	The matrices {A i |i = 1, ..., m} are dependent on the distribution of u n
+T126	own_claim 18981 19040	To eliminate the ambiguity of the matrices A i , we seek to
+T127	own_claim 19615 19699	find the {A i |i = 1, ..., m} that minimize the sum of the squared control input u n
+R83	parts_of_same Arg1:T127 Arg2:T126	
+T128	own_claim 19733 19782	A ˆ 1 , ..., A ˆ m = arg min A 1 ,...,A m n u n 2
+R84	parts_of_same Arg1:T128 Arg2:T127	
+T129	own_claim 19800 19820	The matrices A i can
+T130	own_claim 19826 19881	be uniquely found by computing the leastsquare solution
+R85	parts_of_same Arg1:T130 Arg2:T129	
+R86	supports Arg1:T128 Arg2:T129	
+T131	own_claim 19891 19963	A ˆ 1 , ..., A ˆ m = arg min A 1 ,...,Am n=m+1 N x n − i=1 m A i x n−i 2
+R87	parts_of_same Arg1:T131 Arg2:T130	
+T132	own_claim 19968 20052	We use the estimated matrices {A i |i = 1, ..., m} to compute the control input term
+T133	own_claim 20085 20134	z n = x n − i=1 m A ˆ i x n−i , n = m + 1, ..., N
+R88	parts_of_same Arg1:T133 Arg2:T132	
+T134	own_claim 20303 20349	without noise, the rank of the matrix Z is d u
+T135	own_claim 20152 20270	We form a d x × (N − m) matrix by stacking the estimated control inputs z n : z m+1 ... z N = B· u m+1 ... u N (8) Z U
+T136	data 20279 20291	Equation (8)
+R89	supports Arg1:T136 Arg2:T134	
+T137	own_claim 20363 20471	we can automatically determine the dimensionality of the control input u n by computing the rank of matrix Z
+R90	supports Arg1:T134 Arg2:T137	
+T138	data 20478 20516	noise corrupts the motion capture data
+T139	own_claim 20518 20567	the data matrix Z will not be exactly of rank d u
+R91	supports Arg1:T138 Arg2:T139	
+T140	own_claim 20579 20801	we can perform singular value decomposition (SVD) on the data matrix Z such that Z = W SV T , and then get the best possible rank d u approximation of the data matrix, factoring it into two matrices: B ˆ = W and U ˆ = SV T
+R92	contradicts Arg1:T140 Arg2:T139	
+T141	own_claim 20871 21022	The dimensionality of the control input (d u ) can be automatically determined by choosing the d u for which the singular values drop below a threshold
+T142	own_claim 21024 21104	Functionally, a statistical dynamic model is similar to a physical dynamic model
+T143	own_claim 21220 21256	the linear dynamic model in Equation
+T144	own_claim 21179 21180	4
+R93	parts_of_same Arg1:T144 Arg2:T143	
+T145	own_claim 21274 21442	can be used to generate an animation (x m+1:T = [x m+1 , ..., x T ]) by sequentially choosing an appropriate value for the control input (u m+1:T = [u m+1 , ..., u T ])
+R94	parts_of_same Arg1:T145 Arg2:T143	
+T146	data 21191 21218	(x 1:m = [x 1 , ..., x m ])
+T147	data 21125 21159	initial values of the system state
+R95	parts_of_same Arg1:T147 Arg2:T146	
+R96	supports Arg1:T146 Arg2:T143	
+R97	supports Arg1:T143 Arg2:T142	
+T148	own_claim 21522 21540	The main advantage
+T149	own_claim 21561 21742	of using a statistical dynamic model for animation is that the dimensionality of the control input in a statistical dynamic model is usually much lower than a physical dynamic model
+R98	parts_of_same Arg1:T149 Arg2:T148	
+T150	own_claim 21755 21853	the statistical dynamic model might achieve faster convergence and be less subject to local minima
+R99	supports Arg1:T149 Arg2:T150	
+T151	own_claim 21855 21957	The number of dimensions of the control input, d u , characterizes the complexity of our dynamic model
+T152	own_claim 22362 22558	The average reconstruction error is the L 2 distance between the original test motion and the motion reconstructed from the linear time-invariant system and computed by cross-validation techniques
+T153	own_claim 22576 22731	the reconstruction error of the statistical model decreases as both the order of dynamic system and the number of dimensions of the control input increases
+T154	data 22736 22759	we choose d u as “zero”
+T155	own_claim 22800 22850	our model becomes the linear dynamic model used by
+T156	data 22852 22880	Soatto and colleagues [2001]
+R100	supports Arg1:T154 Arg2:T155	
+R101	supports Arg1:T156 Arg2:T155	
+T157	own_claim 22881 22921	and has the largest reconstruction error
+R102	parts_of_same Arg1:T157 Arg2:T155	
+R103	supports Arg1:T155 Arg2:T153	
+T158	data 22926 22990	d u is equal to the number of dimensions of the system state d x
+T159	own_claim 22993 23072	the model can be used to represent an arbitrary motion sequence with zero error
+R104	supports Arg1:T158 Arg2:T159	
+T160	background_claim 23074 23121	In practice, human motion is highly coordinated
+T161	own_claim 23127 23277	the dimensionality of the control input for accurate motion representation, d u , is often much lower than the dimensionality of the system state, d x
+T162	own_claim 23719 23819	Constraint-based motion synthesis provides the user with intuitive control over the resulting motion
+T163	own_claim 23821 23890	the user specifies a desired motion with various forms of constraints
+T164	own_claim 23966 23987	the system then auto-
+T165	own_claim 24618 24772	matically finds the animation that best satisfies the user-specified constraints while matching the spatial-temporal properties of the motion capture data
+R105	parts_of_same Arg1:T165 Arg2:T164	
+T166	data 23900 23910	key frames
+T167	data 23912 23941	end effector target positions
+T168	data 23946 23964	joint angle values
+R106	supports Arg1:T163 Arg2:T162	
+R107	supports Arg1:T166 Arg2:T163	
+R108	supports Arg1:T167 Arg2:T163	
+R109	supports Arg1:T168 Arg2:T163	
+R110	supports Arg1:T164 Arg2:T162	
+T169	own_claim 25137 25211	we represent the system state x t and the control signal u t independently
+T170	own_claim 25077 25111	Like physically based optimization
+T171	data 25114 25134	Witkin and Kass 1988
+R111	supports Arg1:T171 Arg2:T170	
+R112	parts_of_same Arg1:T169 Arg2:T170	
+T172	own_claim 25213 25244	The motion to be synthesized is
+T173	own_claim 25255 25362	represented as a sequence of system states and control inputs H = (x 1 , ..., x T , ..., u m+1 , ..., u T )
+R113	parts_of_same Arg1:T173 Arg2:T172	
+R114	supports Arg1:T169 Arg2:T172	
+T174	own_claim 25364 25523	The system allows the user to specify various forms of kinematic constraints E = {e j |j = 1, ..., J} throughout the motion or at isolated points in the motion
+T175	own_claim 25525 25663	For facial animation, the user can specify the positions or orientations of any points on the face, or the distance between any two points
+T176	own_claim 25665 25805	For whole-body animation, the user can specify the positions or orientations of any points on the body, or joint angle values for any joints
+T177	own_claim 25866 25970	it is often more intuitive to specify where the projection of a point on the character should be located
+T178	own_claim 25983 26091	the system also allows the user to specify the 2D projections of any 3D point on a user-defined screen space
+R115	supports Arg1:T177 Arg2:T178	
+T179	own_claim 26093 26190	This approach could be used for rotoscoping a video, or for a single camera performance animation
+T180	own_claim 26192 26271	The system allows the user to sketch out the motion in greater or lesser detail
+T181	own_claim 26286 26418	a novice user might want to control the paths of specific joints or paths over a period of time using a performance animation system
+T182	own_claim 26425 26485	a more skilled user might prefer using key frame constraints
+R116	supports Arg1:T181 Arg2:T180	
+R117	supports Arg1:T182 Arg2:T180	
+T183	own_claim 26487 26637	Spatially, the constraints could provide either an exact configuration such as a full-body pose or a small subset of the joint angles or end-positions
+T184	own_claim 26639 26801	Temporally, the constraints could be instantaneous constraints for a particular frame, multiple-frame constraints, or continuous constraints over a period of time
+T185	own_claim 26803 26854	User-defined constraints can be linear or nonlinear
+T186	own_claim 26856 26978	Linear constraints can be used to define joint angle constraints in human body animation and positions in facial animation
+R118	supports Arg1:T186 Arg2:T185	
+T187	own_claim 26980 27075	The most common nonlinear constraints in human body animation might be end effector constraints
+R119	supports Arg1:T187 Arg2:T185	
+T188	data 27090 27114	foot contact constraints
+R120	supports Arg1:T188 Arg2:T187	
+T189	own_claim 27116 27263	In facial animation, nonlinear constraints can be used to specify the distance between two points on the face or 2D projections of 3D facial points
+T190	own_claim 27439 27504	Mathematically, we can model the likelihood term, − ln p(E|H), as
+T191	own_claim 27537 27544	follows
+T192	own_claim 27554 27669	E constraints = − ln p(E|H) ∼ j=1 J β e j − f j (y 1 , ..., y T ) 2 ∼ j=1 J β e j − f j (Cx 1 + D, ..., Cx T + D) 2
+R121	parts_of_same Arg1:T191 Arg2:T190	
+R122	parts_of_same Arg1:T192 Arg2:T191	
+T193	own_claim 27927 28024	A good match between the motion and the user-defined constraints results in a low energy solution
+T194	own_claim 28082 28137	Many motions might satisfy the user-defined constraints
+T195	data 28157 28221	the user specifies a small set of key frames or key trajectories
+T196	own_claim 28223 28323	the number of constraints is not sufficient to completely determine the whole motion sequence, x 1:T
+R123	supports Arg1:T195 Arg2:T196	
+R124	supports Arg1:T196 Arg2:T194	
+T197	own_claim 28326 28485	To remove ambiguities, we would like to constrain the generated motion to lie in the space of natural human motions by imposing a prior on the generated motion
+T198	own_claim 28525 28544	E prior = − ln p(H)
+T199	own_claim 28594 28620	= − ln p(x 1:T , u m+1:T )
+R125	parts_of_same Arg1:T198 Arg2:T197	
+R126	parts_of_same Arg1:T199 Arg2:T198	
+T200	own_claim 28698 28813	the current system state x t only depends on the previous system states x t−m:t−1 and the current control input u t
+T201	own_claim 28642 28683	Based on the statistical dynamic equation
+T202	data 28685 28695	Equation 4
+R127	supports Arg1:T202 Arg2:T201	
+R128	parts_of_same Arg1:T200 Arg2:T201	
+T203	own_claim 28816 28907	We have p(H) = p(x 1:T , u m+1:T ) T = t=m+1 p(x t |x t−1:t−m , u t ) · p(x 1:m , u m+1:T )
+T204	data 28928 29058	the likelihood of the first term on the right side of Equation 11 is measured by the deviation of the statistical dynamic equation
+T205	own_claim 29073 29210	We have the corresponding energy term E prior dynamic = − ln T t=m+1 p(x t |x t−1:t−m , u t ) ∼ −α T t=m+1 x t − i=1 m A i x t−i − Bu t 2
+R129	supports Arg1:T204 Arg2:T205	
+T206	own_claim 29247 29363	Conceptually, the dynamic prior can be thought as dimensionality reduction of the motion in a spatialtemporal domain
+T207	own_claim 29365 29516	It significantly reduces the dimensionality of the motion from the space of x 1:T to the space of the initial state x 1:m and the control input u m+1:T
+T208	own_claim 29768 29865	The energy term for the second term on the right side of Equation 11 can be simplified as follows
+T209	own_claim 30265 30349	E prior control = − ln p(x 1:m , u m+1:T ) m T = − t=1 ln p(x t ) − t=m+1 ln p(u t )
+R130	parts_of_same Arg1:T209 Arg2:T208	
+T210	own_claim 30371 30453	We model the control input (u t ) as a mixture with K component Gaussian densities
+T211	own_claim 30508 30549	K p(u t ) = Σ k=1 π k N(u t ; φ k , Λ k )
+T212	data 30456 30467	Bishop 1996
+R131	supports Arg1:T212 Arg2:T210	
+R132	parts_of_same Arg1:T211 Arg2:T210	
+T213	own_claim 30738 30858	he function N(u t ; φ j , Λ j ) denotes the multivariate normal density function with mean φ j and covariance matrix Λ j
+T214	own_claim 30861 30906	The parameters of the Gaussian mixture models
+T215	own_claim 30926 30987	are automatically estimated using an Expectation-Maximization
+T216	own_claim 30993 31002	algorithm
+R133	parts_of_same Arg1:T216 Arg2:T215	
+R134	parts_of_same Arg1:T215 Arg2:T214	
+T217	data 31005 31016	Bishop 1996
+R135	supports Arg1:T217 Arg2:T216	
+T218	own_claim 31166 31379	The density function of the initial states, p(x t ), t = 1, ..., m, is also modeled as a mixture of multivariate Gaussian distributions whose parameters are learned from motion data, x 1:N , using the EM algorithm
+T219	own_claim 31019 31148	The training data are the values of control inputs { u n } computed from the original motion capture data ({y n |n = 1, ..., N })
+T220	data 31154 31163	section 4
+R136	supports Arg1:T220 Arg2:T219	
+T221	own_claim 31391 31412	we choose weak priors
+T222	own_claim 31429 31560	to model the priors for both initial states and control inputs so as not to restrict the type of motions the algorithm can generate
+R137	parts_of_same Arg1:T222 Arg2:T221	
+T223	own_claim 31633 31809	After combining the user-defined constraints and the motion prior, the constraint-based motion synthesis problem becomes the following unconstrained motion optimization problem
+T224	own_claim 31849 31911	arg min x , u E constraint + E prior dynamic + E prior control
+R138	parts_of_same Arg1:T224 Arg2:T223	
+T225	own_claim 32067 32146	We follow a standard approach of representing x t and u t using cubic B-splines
+T226	own_claim 32148 32220	We solve the optimization problem using sequential quadratic programming
+T227	data 32229 32248	Bazaraa et al. 1993
+R139	supports Arg1:T227 Arg2:T226	
+T228	own_claim 32252 32314	where each iteration solves a quadratic programming subproblem
+R140	parts_of_same Arg1:T228 Arg2:T226	
+T229	own_claim 32613 32664	the optimization procedure always converges quickly
+T230	own_claim 32666 32723	usually less than 100 iterations and less than 30 seconds
+R141	supports Arg1:T230 Arg2:T229	
+T231	own_claim 32726 32861	Typically, the objective function values decrease rapidly in the early iterations and then level off as they approach the optimal value
+T232	data 32863 32871	Figure 4
+R142	supports Arg1:T232 Arg2:T231	
+T233	own_claim 32945 33132	Our optimization framework can also be applied to the problem of generating human body motions for a character whose skeletal model is markedly different from the subjects in the database
+T234	own_claim 33134 33261	User-defined constraints for motion retargeting can either be directly computed from the source motion or specified by the user
+T235	own_claim 33405 33528	We also add one term in the objective function that measures the difference between the source motion and retargeted motion
+T236	own_claim 33568 33607	E dif f = t=1 T y t source − Cx t − D 2
+R143	parts_of_same Arg1:T236 Arg2:T235	
+T237	own_claim 34111 34192	Two kinds of constraints were used to generate most of the examples in this paper
+T238	own_claim 34194 34215	key-frame constraints
+T239	own_claim 34220 34246	key-trajectory constraints
+R144	supports Arg1:T238 Arg2:T237	
+R145	supports Arg1:T239 Arg2:T237	
+T240	own_claim 34248 34289	We can also combine these two constraints
+T241	own_claim 34304 34424	a jumping motion can be created by specifying a start pose and the positions of both feet and root throughout the motion
+R146	supports Arg1:T241 Arg2:T240	
+T242	own_claim 34584 34681	Our behavior-specific statistical motion model is capable of generating a rich variety of actions
+T243	own_claim 34696 34852	we can use a small set of key frames and foot contacts to generate normal walking, climbing over an obstacle, a baby walking, and mickey-mouse style walking
+R147	supports Arg1:T243 Arg2:T242	
+T244	data 34854 34862	Figure 5
+R148	supports Arg1:T244 Arg2:T243	
+T245	own_claim 34899 35042	Our system can also synthesize motion that transitions from one behavior to another by using the statistical model learned from transition data
+T246	own_claim 35091 35221	the user can generate a transition from walking to jumping, from walking to sitting down, and from walking to picking up an object
+T247	data 35223 35231	figure 6
+R149	supports Arg1:T247 Arg2:T246	
+T248	data 35064 35069	video
+R150	supports Arg1:T248 Arg2:T246	
+T249	own_claim 35273 35381	the system can generate motions for characters with skeletal dimensions different from those in the database
+R151	supports Arg1:T248 Arg2:T249	
+T250	data 35383 35391	Figure 7
+R152	supports Arg1:T250 Arg2:T249	
+T251	own_claim 35446 35527	we can use motion priors learned from a small sequence of a normal walking motion
+T252	own_claim 35547 35604	to create walking on a slope and walking with small steps
+R153	parts_of_same Arg1:T252 Arg2:T251	
+T253	own_claim 35606 35682	The user can refine the animation by incrementally modifying the constraints
+T254	own_claim 35697 35816	the user can create a slightly different jumping motion by adjusting the positions of both hands at the top of the jump
+R154	supports Arg1:T254 Arg2:T253	
+T255	data 35818 35826	Figure 8
+R155	supports Arg1:T255 Arg2:T254	
+T256	own_claim 36902 37083	The system learns a single statistical model from the whole facial motion capture database and then uses it to create facial animation with a variety of spatial-temporal constraints
+T257	own_claim 37203 37292	The user can generate realistic facial animation by combining sparse keyframe constraints
+T258	own_claim 37312 37345	and sparse trajectory constraints
+R156	parts_of_same Arg1:T258 Arg2:T257	
+T259	own_claim 37391 37505	The user selects six points on the face and specifies the 2D projections on the screen space at three key instants
+T260	own_claim 37507 37564	This type of constraint could be extracted by rotoscoping
+T261	own_claim 37590 37714	The user can achieve detailed control over facial movement by specifying the trajectories of a small set of 3D facial points
+T262	own_claim 37716 37795	The user can also use trajectories of a small set of high-level facial features
+T263	own_claim 37854 37882	to generate facial animation
+R157	parts_of_same Arg1:T263 Arg2:T262	
+T264	data 37144 37149	video
+R158	supports Arg1:T264 Arg2:T257	
+R159	supports Arg1:T264 Arg2:T259	
+R160	supports Arg1:T264 Arg2:T261	
+R161	supports Arg1:T264 Arg2:T262	
+T265	own_claim 37946 38042	The quality of the final animation depends on the motion priors and the user-defined constraints
+T266	own_claim 38180 38309	We evaluate the importance of motion priors by comparing our method against alternative constraint-based motion synthesis methods
+T267	own_claim 38311 38374	The first method is a simple linear interpolation of key frames
+T268	own_claim 38376 38544	The second method is trajectory-based inverse kinematics that minimizes the velocity changes of the motion in the original configuration space, y t , without any priors
+T269	own_claim 38546 38693	The third method is a simple data-driven inverse kinematics algorithm that minimizes the velocity changes of the motion in a reduced PCA space, x t
+R162	supports Arg1:T267 Arg2:T266	
+R163	supports Arg1:T268 Arg2:T266	
+R164	supports Arg1:T269 Arg2:T266	
+T270	own_claim 38915 39094	Without the use of the statistical dynamic model, the system can not generate natural motions unless the user specifies a very detailed set of constraints across the entire motion
+T271	own_claim 39136 39241	We evaluate how the database influences the final motion by keeping the user-defined constraints constant
+T272	own_claim 39633 39694	we can generate a good walking motion with a walking database
+T273	data 39616 39621	video
+R165	supports Arg1:T273 Arg2:T272	
+T274	own_claim 39316 39497	For key-frame constraints, the user defined a sparse set of walking constraints and used them to generate walking motion from the priors learned from a number of different databases
+T275	own_claim 39696 39810	The quality of the animation becomes worse when we use a large and general locomotion database to generate walking
+T276	own_claim 39834 39884	the system fails to generate a good walking motion
+T277	data 39888 39954	the motion prior is learned from running, hopping, or jumping data
+R166	supports Arg1:T277 Arg2:T276	
+T278	own_claim 40139 40212	the prior from a walking database fails to generate a good jumping motion
+T279	own_claim 40224 40287	the mismatch between the prior and the user-defined constraints
+R167	supports Arg1:T279 Arg2:T278	
+T280	own_claim 40744 40823	results become worse when we decrease the number of the userdefined constraints
+T281	data 40727 40732	video
+R168	supports Arg1:T281 Arg2:T280	
+T282	own_claim 40838 40876	the numerical error increases steadily
+T283	own_claim 40924 40967	when the number of constraints is decreased
+T284	data 40878 40922	0.94, 1.06, 1.81 degrees per joint per frame
+R169	supports Arg1:T284 Arg2:T282	
+R170	parts_of_same Arg1:T283 Arg2:T282	
+T285	own_claim 40990 41047	We observe a noticeable foot sliding artifact on one foot
+T286	data 41053 41073	two key trajectories
+T287	data 41094 41129	are used to create a walking motion
+R171	parts_of_same Arg1:T287 Arg2:T286	
+R172	supports Arg1:T286 Arg2:T285	
+T288	own_claim 41192 41391	We have presented an approach for generating both full-body movement and facial expression from spatial-temporal constraints while matching the statistical properties of a database of captured motion
+T289	own_claim 41393 41561	The system automatically learns a low-dimensional linear dynamic model from motion capture data and then enforces this as spatial-temporal priors to generate the motion
+T290	own_claim 41563 41728	The statistical dynamic equations, together with an automatically derived objective function and user-defined constraints, comprise a trajectory optimization problem
+T291	own_claim 41730 41868	Solving this optimization problem in the lowdimensional space yields optimal, natural motion that achieves the goals specified by the user
+T292	own_claim 41870 41943	The system achieves a degree of generality beyond the motion capture data
+T293	own_claim 41958 42136	we have generated a motion using constraints that cannot be satisfied directly by any motion in the database and found that the quality of the reconstructed motion was acceptable
+R173	supports Arg1:T293 Arg2:T292	
+T294	own_claim 42171 42286	the system can generate motion for characters whose skeletal models differ significantly from those in the database
+R174	supports Arg1:T294 Arg2:T292	
+T295	data 42142 42147	video
+R175	supports Arg1:T295 Arg2:T294	
+T296	own_claim 42297 42486	we have not yet attempted to assess how far the user’s constraints can stray from the motions in the database before the quality of the resulting animation declines to an unacceptable level
+R176	contradicts Arg1:T296 Arg2:T293	
+T297	own_claim 42488 42625	This statistically based optimization approach complements a physically based optimization approach and offers a few potential advantages
+T298	own_claim 42634 42785	using a low-dimensional statistical dynamic model for the constrained optimization might achieve faster convergence and be less subject to local minima
+R177	supports Arg1:T298 Arg2:T297	
+T299	own_claim 42795 42925	our approach can generate slow and even stylized motions that have proven particularly difficult for physically based optimization
+R178	supports Arg1:T299 Arg2:T297	
+T300	own_claim 42934 42983	the optimization does not require physical models
+R179	supports Arg1:T300 Arg2:T297	
+T301	own_claim 42985 43093	Building anatomically accurate physical models for facial animation or whole-body motion remains challenging
+T302	own_claim 43095 43136	There are two limitations of our approach
+T303	own_claim 43138 43179	an appropriate database must be available
+T304	own_claim 43184 43276	the user cannot specify such dynamic constraints as ground reaction forces or character mass
+R180	supports Arg1:T303 Arg2:T302	
+R181	supports Arg1:T304 Arg2:T302	
+T305	own_claim 43278 43455	The main focus of this paper has been an exploration of the use of prior knowledge in motion capture data to generate natural motion that best satisfies user-defined constraints
+T306	own_claim 43457 43592	Another important issue for building any interactive animation system is to design an intuitive interface to specify the desired motion
+T307	own_claim 43594 43691	In our experiments, most of keyframe constraints were modified from example poses in the database
+T308	own_claim 43693 43753	Foot contact constraints were specified by the user directly
+T309	own_claim 43755 43849	Key trajectory constraints were extracted from a performance interface using two video cameras
+T310	data 43852 43873	Chai and Hodgins 2005
+R182	supports Arg1:T310 Arg2:T309	
+T311	own_claim 43891 43979	the user could rely on commercial animation software such as Maya to specify constraints
+R183	contradicts Arg1:T311 Arg2:T309	
+R184	contradicts Arg1:T311 Arg2:T308	
+R185	contradicts Arg1:T311 Arg2:T307	
+T312	own_claim 43981 44041	This process is timeconsuming even for a professional artist
+T313	own_claim 44043 44108	it is more difficult for a naive user to specify such constraints
+T314	own_claim 44110 44156	One of immediate directions for future work is
+T315	own_claim 44169 44278	to design intuitive interfaces that allow the user to specify spatial-temporal constraints quickly and easily
+R186	parts_of_same Arg1:T315 Arg2:T314	
+R187	supports Arg1:T312 Arg2:T314	
+R188	supports Arg1:T313 Arg2:T314	

@@ -1,0 +1,337 @@
+T1	background_claim 1824 1864	Wrinkles add life to garments in fashion
+T2	background_claim 2109 2179	the number of triangles required can be easily upto a hundred thousand
+T3	data 2009 2107	In order to capture realistic wrinkles on a real-life garment, from a mere geometric point of view
+R1	supports Arg1:T3 Arg2:T2	
+T4	background_claim 2181 2314	Such a large number of triangles put cloth simulation off from interactive speeds, even with adaptive time steps, introduced recently
+T5	data 2318 2319	1
+R2	supports Arg1:T5 Arg2:T4	
+T6	background_claim 2351 2431	the large triangle count increases the rendering time and the cost significantly
+T7	background_claim 2458 2554	one can increase fineness of triangles only in the potential regions where wrinkling might occur
+T8	background_claim 2556 2582	This is very well possible
+T9	data 2590 2653	advances in the triangulation and interactive systems developed
+T10	data 2657 2658	2
+T11	data 2661 2662	7
+T12	data 2665 2666	8
+T13	data 2669 2671	13
+R3	supports Arg1:T13 Arg2:T8	
+R4	supports Arg1:T12 Arg2:T8	
+R5	supports Arg1:T11 Arg2:T8	
+R6	supports Arg1:T10 Arg2:T8	
+R7	supports Arg1:T9 Arg2:T8	
+T14	background_claim 2686 2715	a significant problem remains
+R8	contradicts Arg1:T14 Arg2:T8	
+T15	background_claim 2779 2874	Cloth has very large in-plane deformation stiffnesses compared to its ability to bend and shear
+T16	background_claim 2876 2925	This gives rise to very stiff equations of motion
+T17	background_claim 2927 3067	The problem of solving stiff equations is successfully dealt with by the use of an implicit method for numerical integration by Baraff et al
+T18	data 3070 3071	1
+R9	supports Arg1:T18 Arg2:T17	
+T19	background_claim 3137 3246	it has been the strong motivation for the authors behind developing the methodology specifically for wrinkles
+T20	background_claim 3382 3441	it is not guaranteed that the wrinkles will be satisfactory
+T21	background_claim 3445 3490	Accurate and fast collision detection methods
+T22	background_claim 3499 3517	constraint methods
+T23	background_claim 3532 3554	good deformable models
+T24	background_claim 3570 3613	have proved to give quality cloth animation
+T25	data 3493 3495	12
+T26	data 3520 3521	5
+T27	data 3524 3525	6
+T28	data 3557 3558	6
+T29	data 3561 3562	9
+T30	data 3565 3567	10
+R10	supports Arg1:T25 Arg2:T21	
+R11	supports Arg1:T26 Arg2:T22	
+R12	supports Arg1:T27 Arg2:T22	
+R13	supports Arg1:T28 Arg2:T23	
+R14	supports Arg1:T29 Arg2:T23	
+R15	supports Arg1:T30 Arg2:T23	
+R16	parts_of_same Arg1:T24 Arg2:T23	
+R17	parts_of_same Arg1:T23 Arg2:T22	
+R18	parts_of_same Arg1:T22 Arg2:T21	
+T31	background_claim 3624 3667	real-life wrinkling is a complex phenomenon
+R19	contradicts Arg1:T31 Arg2:T24	
+T32	background_claim 3669 3709	It is characterized by frictional forces
+T33	background_claim 3746 3774	which are difficult to model
+T34	data 3722 3744	between body and cloth
+R20	supports Arg1:T34 Arg2:T32	
+T35	background_claim 3776 3822	Collision response methods and friction models
+T36	background_claim 3840 3914	have been rather simple for such a complex problem and robust numerics too
+R21	parts_of_same Arg1:T36 Arg2:T35	
+T37	background_claim 3980 4037	it is difficult to physically simulate real life wrinkles
+T38	background_claim 4184 4227	The key theme is conservation of cloth area
+T39	background_claim 4229 4269	The work is continuation of earlier work
+T40	data 4273 4275	11
+R22	supports Arg1:T40 Arg2:T39	
+T41	background_claim 4280 4342	Other attempts to model wrinkles include those by Gotoda et al
+T42	background_claim 4354 4366	and Wu et al
+T43	data 4346 4347	3
+T44	data 4350 4351	4
+T45	data 4370 4372	14
+R23	supports Arg1:T43 Arg2:T41	
+R24	supports Arg1:T44 Arg2:T41	
+R25	supports Arg1:T45 Arg2:T42	
+T46	own_claim 5184 5261	the geometry of coarse mesh would be unable to capture fine wrinkles on cloth
+T47	data 5163 5171	Figure 2
+R26	supports Arg1:T47 Arg2:T46	
+T48	own_claim 5263 5310	Real cloth has very little in-plane deformation
+T49	own_claim 5314 5357	most of the deformations come from buckling
+R27	supports Arg1:T49 Arg2:T48	
+T50	own_claim 5380 5399	setting high metric
+T51	own_claim 5423 5457	stiffnesses will not work properly
+R28	parts_of_same Arg1:T51 Arg2:T50	
+T52	data 5359 5378	For the coarse mesh
+R29	supports Arg1:T52 Arg2:T50	
+T53	own_claim 5561 5605	Real cloth would wrinkle to this deformation
+T54	data 5631 5640	Figure 3A
+R30	supports Arg1:T54 Arg2:T53	
+T55	own_claim 5712 5755	the compression forces will buckle the edge
+R31	supports Arg1:T54 Arg2:T55	
+T56	own_claim 5829 5881	the buckled edge exerts small forces on the vertices
+T57	own_claim 5784 5827	the bending stiffness of the cloth is small
+R32	supports Arg1:T57 Arg2:T56	
+T58	own_claim 5922 5994	the buckled edge is approximated by a straight line between the vertices
+T59	own_claim 6010 6077	the real life buckling is attributed to the compression of the edge
+T60	data 5892 5920	in the coarse mesh situation
+R33	supports Arg1:T60 Arg2:T58	
+R34	supports Arg1:T58 Arg2:T59	
+T61	own_claim 6148 6201	the corresponding forces on the vertices will be high
+T62	data 6092 6146	a high metric stiffness associated to this compression
+R35	supports Arg1:T62 Arg2:T61	
+T63	own_claim 6203 6248	This is in contrast with real cloth situation
+R36	contradicts Arg1:T63 Arg2:T61	
+T64	own_claim 6256 6350	to animate the cloth realistically with a coarse mesh, we need to set small metric stiffnesses
+R37	supports Arg1:T63 Arg2:T64	
+T65	own_claim 6352 6401	This allows otherwise possible wrinkling/buckling
+T66	own_claim 6402 6450	which is embedded in the deformation of triangle
+T67	own_claim 6452 6541	Very little in-plane deformations can be looked at as area conservation property of cloth
+T68	own_claim 6833 6873	the wrinkle pattern is given by the user
+T69	own_claim 6954 6997	there is a change in the area of a triangle
+T70	own_claim 7027 7088	it is invariant after applying the modulated displacement map
+T71	background_claim 7262 7318	The method is inspired by the area conservation property
+T72	own_claim 7360 7427	the empiricism introduced later does not actually conserve the area
+T73	data 7332 7343	Section 3.3
+R38	supports Arg1:T73 Arg2:T72	
+R39	contradicts Arg1:T72 Arg2:T71	
+T74	own_claim 8359 8420	This mesh may represent a garment or another deformable model
+T75	own_claim 8422 8506	The wrinkle pattern is bump or displacement mapped onto the initial mesh by the user
+T76	own_claim 9053 9104	would be the physical model with a numerical solver
+T77	own_claim 8952 9017	The initial mesh serves as an input to a simulation engine, which
+T78	data 9018 9052	in the context of cloth simulation
+R40	parts_of_same Arg1:T76 Arg2:T77	
+R41	supports Arg1:T78 Arg2:T76	
+T79	own_claim 9936 10011	the wrinkling coefficients need not to be recalculated during the animation
+T80	own_claim 10070 10163	They depend only on the initial wrinkle pattern, the initial mesh and the mapping coordinates
+T81	own_claim 10461 10563	The deformation of the triangle can be described by a general 4D homogeneous coordinate transformation
+T82	own_claim 10574 10684	the rotational and translational parts of the transformation are irrelevant to the derivation of the algorithm
+R42	contradicts Arg1:T82 Arg2:T81	
+T83	own_claim 10767 10834	which is defined by choosing any edge of the triangle as the x axis
+T84	own_claim 10686 10765	We introduce a local rectangular right handed two dimensional coordinate system
+T85	data 10846 10854	Figure 5
+R43	supports Arg1:T85 Arg2:T84	
+T86	own_claim 10965 11015	They are related by the deformation transformation
+T87	own_claim 11026 11153	y x user defined wrinkle pattern initial mesh 1 wrinkling coefficient for each triangle C 1 , C 2 , C 3 , C 4 deformable models
+R44	parts_of_same Arg1:T87 Arg2:T86	
+T88	data 11162 11199	cloth simulation y' 2 ' x' modulation
+T89	data 11200 11315	factor for each triangle (h) deformed mesh modulated wrinkle pattern bump mapping final mesh with animated wrinkles
+R45	parts_of_same Arg1:T89 Arg2:T88	
+R46	supports Arg1:T88 Arg2:T87	
+T90	own_claim 12176 12249	The wrinkle function f (x , y ) on the triangle is related to f (x, y) by
+T91	own_claim 12260 12321	2 f (x , y ) : ∈ R → R = f T 1 −1 (x , y ), T 2 −1 (x , y ) ¡
+R47	parts_of_same Arg1:T91 Arg2:T90	
+T92	own_claim 12834 12872	this is a purely geometric requirement
+T93	own_claim 13183 13226	this parameterized surface area is given by
+T94	own_claim 13357 13391	A( , f (x, y)) = A ( , f (x , y ))
+R48	parts_of_same Arg1:T94 Arg2:T93	
+T95	own_claim 14186 14247	The algorithm is computationally inexpensive during animation
+T96	data 14252 14440	the only quantities that have to be determined for each triangle are the elements a , b , d of the inverse deformation matrix and the resulting modulation factor by using the formula given
+R49	supports Arg1:T96 Arg2:T95	
+T97	own_claim 14456 14531	The wrinkling coefficients on the other hand, are computationally expensive
+R50	contradicts Arg1:T97 Arg2:T95	
+T98	own_claim 14589 14671	they depend only on quantities that are known prior to entering the animation loop
+T99	own_claim 14676 14725	can therefore be calculated once at the beginning
+R51	supports Arg1:T98 Arg2:T99	
+T100	own_claim 14970 15062	it is clear that we have presented a solution within the approximation of small deformations
+T101	data 14935 14968	From a mathematical point of view
+R52	supports Arg1:T101 Arg2:T100	
+T102	own_claim 15064 15125	There are several possibilities to deal with this restriction
+T103	own_claim 15362 15393	we propose a pragmatic approach
+T104	own_claim 15127 15351	One could decide to restrict the simulations to small deformations where the approximation is valid and/or take into account the higher order terms in the series expansion to extend the range of validity of the approximation
+T105	own_claim 15411 15467	equation 5 describes the overall wrinkling behavior only
+T106	own_claim 15469 15541	This frees us conceptually from the “burden of mathematical correctness”
+T107	own_claim 15673 15737	the deformations during cloth simulation are moderate in general
+T108	own_claim 15746 15804	higher order terms in the expansion may become significant
+T109	own_claim 15809 15824	not predominant
+R53	contradicts Arg1:T109 Arg2:T108	
+T110	own_claim 15826 15894	The modulation factor h is a function of the deformation of triangle
+T111	own_claim 15899 15919	has value around one
+T112	own_claim 15956 15982	h will be greater than one
+T113	data 15924 15954	the triangle is net compressed
+R54	supports Arg1:T113 Arg2:T112	
+T114	own_claim 16004 16028	it will be less than one
+T115	data 15984 16002	For the elongation
+R55	supports Arg1:T115 Arg2:T114	
+T116	own_claim 16030 16122	One can scale, translate and clip it to introduce a finer control required for the animation
+T117	own_claim 16134 16229	this transformation of the modulation factor no longer satisfies the area conservation property
+T118	own_claim 16258 16316	a modulation map, which further violates area conservation
+T119	data 16237 16246	Section 4
+R56	supports Arg1:T119 Arg2:T118	
+T120	own_claim 16320 16388	Another very important property of our algorithm is that it is local
+T121	own_claim 16413 16488	wrinkling effects caused by deformations are confined to the deformed areas
+R57	semantically_same Arg1:T121 Arg2:T120	
+T122	own_claim 16490 16535	This is crucial to obtain realistic wrinkling
+T123	data 16550 16683	a garment wrinkles around the shoulder of an animated character as she lifts her arm, while it is stretched on the corresponding side
+R58	supports Arg1:T123 Arg2:T122	
+T124	own_claim 16853 16951	Wrinkling coefficients are sensitive to the wrinkle function and therefore to the wrinkle patterns
+T125	own_claim 16953 17045	Wrinkling coefficients for two different patterns on the same triangle will generally differ
+T126	own_claim 17058 17144	the same deformation applied to a triangle will yield two different modulation factors
+R59	supports Arg1:T125 Arg2:T126	
+T127	own_claim 17253 17304	the wrinkling patterns are orthogonal to each other
+T128	own_claim 17312 17468	a deformation in the orthogonal direction of one pattern will result in a smaller modulation factor as compared to a modulation factor for the other pattern
+R60	supports Arg1:T127 Arg2:T128	
+T129	own_claim 17486 17554	the direction of the deformation “favors one pattern over the other”
+R61	semantically_same Arg1:T129 Arg2:T128	
+T130	own_claim 17556 17628	This property can be used for developing multi-fold wrinkling techniques
+T131	own_claim 17778 17833	The numerical computation of the formulation is trivial
+T132	own_claim 18144 18173	they differ in implementation
+T133	own_claim 18112 18142	referred to as the same entity
+R62	contradicts Arg1:T132 Arg2:T133	
+T134	own_claim 18175 18244	The wrinkle pattern is gray scale texture image defining the bump map
+T135	own_claim 18355 18392	The normalization factor is important
+T136	data 18396 18451	the formulation assumes real distances for the bump map
+R63	supports Arg1:T136 Arg2:T135	
+T137	own_claim 18494 18590	The factor should be some fraction of the overall dimensions of the average triangle of the mesh
+T138	own_claim 18592 18649	The wrinkle function is a continuous real valued function
+T139	own_claim 18651 18708	which is a spline approximation of the normalized texture
+T140	data 18725 18734	next item
+R64	supports Arg1:T140 Arg2:T139	
+T141	own_claim 18912 18952	the wrinkling pattern needs to be smooth
+T142	data 18859 18910	For the reasonable numerical accuracy and stability
+R65	supports Arg1:T142 Arg2:T141	
+T143	own_claim 19150 19179	solution to equation 4 exists
+T144	data 19183 19216	the input pattern is not constant
+T145	data 19137 19147	Appendix A
+R66	supports Arg1:T145 Arg2:T143	
+R67	supports Arg1:T144 Arg2:T143	
+T146	own_claim 19250 19303	one needs to watch for the invalidity of the solution
+T147	data 19221 19248	the pattern is user defined
+T148	own_claim 19367 19380	eliminates it
+R68	supports Arg1:T147 Arg2:T146	
+R69	supports Arg1:T146 Arg2:T148	
+T149	own_claim 19442 19501	The modulation factor varies significantly across triangles
+T150	own_claim 19665 19760	the modulation factors are linearly interpolated across triangles to give smooth Modulation Map
+T151	data 19763 19771	Figure 6
+R70	supports Arg1:T151 Arg2:T150	
+T152	own_claim 20010 20104	The final bump/displacement map is the product of the modulation map and the wrinkling pattern
+T153	own_claim 20264 20318	Animating a single wrinkle pattern is not satisfactory
+T154	data 20333 20342	for cloth
+T155	data 20345 20357	In real-life
+T156	own_claim 20359 20423	the wrinkles are not mere modulations of a fixed wrinkle pattern
+R71	supports Arg1:T155 Arg2:T156	
+R72	supports Arg1:T154 Arg2:T153	
+R73	supports Arg1:T153 Arg2:T156	
+T157	own_claim 20433 20481	the pattern changes according to the deformation
+R74	contradicts Arg1:T157 Arg2:T156	
+T158	own_claim 20586 20685	two different wrinkle patterns give different wrinkling coefficients for the same triangle geometry
+T159	data 20573 20584	Section 3.3
+R75	supports Arg1:T159 Arg2:T158	
+T160	own_claim 20767 20807	the modulation factors will be different
+T161	data 20694 20734	for the same deformation of the triangle
+R76	supports Arg1:T161 Arg2:T160	
+T162	own_claim 20809 20904	It all depends on how the wrinkle pattern is oriented with respect to the deformation direction
+T163	own_claim 20990 21035	corresponding modulation factor will be small
+T164	own_claim 20909 20961	a pattern is orthogonal to the deformation direction
+R77	supports Arg1:T164 Arg2:T163	
+T165	own_claim 21053 21119	the direction of the deformation favors one pattern over the other
+R78	semantically_same Arg1:T165 Arg2:T163	
+T166	own_claim 21553 21603	the methodology is developed for multiple patterns
+T167	own_claim 21605 21661	The wrinkle patterns chosen are orthogonal to each other
+T168	data 21674 21682	Figure 8
+R79	supports Arg1:T168 Arg2:T167	
+T169	own_claim 21767 21857	it may compute different values for the modulation factor for each of the wrinkle patterns
+T170	data 21860 21868	Figure 8
+R80	supports Arg1:T170 Arg2:T169	
+T171	data 21688 21742	the marked triangle undergoes a series of deformations
+R81	supports Arg1:T171 Arg2:T169	
+T172	data 21744 21752	Figure 7
+R82	supports Arg1:T172 Arg2:T169	
+T173	own_claim 21972 22005	both the modulation factors are 1
+T174	data 21951 21968	For Stages 1 &amp
+T175	own_claim 22009 22028	cloth is undeformed
+R83	supports Arg1:T175 Arg2:T173	
+R84	supports Arg1:T174 Arg2:T173	
+T176	own_claim 22060 22152	the modulation factors differ significantly, depending upon the direction of the deformation
+T177	data 22039 22056	for Stages 2 &amp
+R85	supports Arg1:T177 Arg2:T176	
+T178	own_claim 22243 22334	the corresponding wrinkle pattern is well oriented towards the direction of the deformation
+T179	data 22154 22192	The relatively small modulation factor
+R86	supports Arg1:T179 Arg2:T178	
+T180	own_claim 22472 22518	will give a change of one pattern to the other
+T181	own_claim 22394 22443	This selective application of the wrinkle pattern
+T182	data 22522 22555	the deformation direction changes
+T183	own_claim 22566 22640	in the animation a sudden switch of the pattern is not temporally coherent
+R87	parts_of_same Arg1:T180 Arg2:T181	
+R88	supports Arg1:T182 Arg2:T180	
+T184	own_claim 22645 22673	is visually quite disturbing
+R89	contradicts Arg1:T183 Arg2:T180	
+R90	contradicts Arg1:T184 Arg2:T180	
+T185	own_claim 22965 23004	there is a sudden switch in the pattern
+T186	data 22919 22963	the modulation factors cross the dotted line
+R91	supports Arg1:T186 Arg2:T185	
+T187	own_claim 23059 23169	a user definable variance around the mean value of the wrinkling coefficients, which defines a transition zone
+T188	own_claim 23238 23311	There will be a smooth transition between wrinkling patterns in this zone
+T189	own_claim 23415 23495	This is in fact a simple power function with an appropriate scaling and clipping
+T191	own_claim 23557 23616	M F 1 will be smaller than (1 − variance)(M F 1 + M F 2 )/2
+T190	own_claim 23621 23679	M F 2 will be bigger than (1 + variance)(M F 1 + M F 2 )/2
+T192	own_claim 23500 23532	M F 1 is much smaller than M F 2
+T193	data 23545 23553	Figure 7
+R92	supports Arg1:T193 Arg2:T192	
+R93	supports Arg1:T192 Arg2:T191	
+R94	supports Arg1:T192 Arg2:T190	
+T194	own_claim 23681 23737	This gives maximum weight (W 1 = 1,W 2 = 0) to pattern 1
+T195	data 23768 23798	M F 1 and M F 2 are comparable
+T196	own_claim 23800 23841	the two patterns will be blended smoothly
+T197	data 23739 23761	In the transition zone
+R95	supports Arg1:T195 Arg2:T196	
+R96	supports Arg1:T197 Arg2:T196	
+T198	own_claim 23843 23921	The user definable power n is representative of the tightness of the transitio
+T199	own_claim 23927 23962	n = ∞ is a sudden switch of pattern
+T200	data 23964 23972	Figure 7
+R97	supports Arg1:T200 Arg2:T198	
+R98	supports Arg1:T200 Arg2:T199	
+T201	own_claim 25318 25407	the Geometric Wrinkle formulation is developed keeping in mind a general deformable model
+T202	own_claim 25750 25810	it is worthwhile to study the strain patterns in the garment
+T203	own_claim 25694 25748	the user can design the wrinkles according to her wish
+R99	contradicts Arg1:T202 Arg2:T203	
+T204	own_claim 25829 25874	inappropriately placed wrinkles in the region
+T205	own_claim 25905 25936	will not animate satisfactorily
+R100	parts_of_same Arg1:T205 Arg2:T204	
+T206	data 25875 25904	where there is no deformation
+R101	supports Arg1:T206 Arg2:T205	
+T207	own_claim 25951 26014	the pattern should be orthogonal to the deformations in general
+T208	data 26032 26043	section 4.1
+R102	supports Arg1:T208 Arg2:T207	
+T209	own_claim 26045 26095	Figure 13 is a strain pattern for the second frame
+T210	data 26103 26112	Figure 12
+R103	supports Arg1:T210 Arg2:T209	
+T211	own_claim 26115 26183	Dark triangles are triangles with compression and depict the regions
+T212	own_claim 26184 26211	where wrinkles might appear
+T213	own_claim 26500 26559	Each pattern represents a distinct direction of deformation
+T214	own_claim 26571 26603	they are considerably orthogonal
+T215	own_claim 26901 26983	The frames on the left side correspond to the animation without Geometric Wrinkles
+T216	own_claim 26996 27044	there are very few wrinkles in the second figure
+T217	own_claim 27048 27092	there is very little deformation of the mesh
+R104	supports Arg1:T217 Arg2:T216	
+T218	data 27175 27254	the calculations of the wrinkling coefficients are done on a per triangle basis
+T219	own_claim 27256 27324	the computational time is linear with respect to number of triangles
+R105	supports Arg1:T219 Arg2:T218	
+T220	background_claim 27337 27413	it takes 5 minutes per thousand triangles on a MIPS R10000 200 MHz processor
+T221	own_claim 27461 27546	the time spent on modulating wrinkle pattern is negligible compared to rendering time
+T222	data 27420 27459	the wrinkling coefficients are computed
+R106	supports Arg1:T222 Arg2:T221	
+T223	own_claim 27557 27573	for small meshes
+T224	own_claim 27600 27650	the modulation of wrinkle pattern can be real time
+R107	parts_of_same Arg1:T224 Arg2:T223	
+T225	own_claim 27814 27892	We have developed a fast and versatile method for animating realistic wrinkles
+T226	own_claim 27894 27922	which is geometric in nature
+T227	own_claim 27931 27977	it can be applied to general deformable models
+T228	data 27986 27991	cloth
+R108	supports Arg1:T228 Arg2:T227	
+T229	own_claim 28045 28136	creating wrinkle patterns from the strain pattern, which is currently a time consuming task

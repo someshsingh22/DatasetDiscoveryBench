@@ -1,0 +1,577 @@
+T1	background_claim 2166 2242	Free form deformation has been approached from several distinct perspectives
+T2	data 2372 2374	32
+T3	data 2377 2379	12
+T4	data 2382 2384	17
+T5	background_claim 2280 2368	good methods have been obtained both using the well known technique that bears this name
+T6	background_claim 2388 2520	and other kinematic surface deformation techniques, and with physical models that simulate the time evolution of a membrane or solid
+R1	supports Arg1:T2 Arg2:T5	
+R2	supports Arg1:T3 Arg2:T5	
+R3	supports Arg1:T4 Arg2:T5	
+R4	parts_of_same Arg1:T6 Arg2:T5	
+T7	background_claim 2522 2674	The animation of human and creature skin deformation is arguably the most common and important application of free form deformation in computer graphics
+T8	background_claim 2682 2771	such creature animation can be considered a special case of general free form deformation
+T9	background_claim 2773 2874	its importance and difficulty have lead researchers to propose a number of domain-specific algorithms
+T10	data 2900 2909	Section 2
+R5	supports Arg1:T10 Arg2:T9	
+R6	contradicts Arg1:T9 Arg2:T8	
+T11	background_claim 2911 3034	The problem of realistic facial animation is being actively and successfully addressed by image-based and hybrid techniques
+T12	background_claim 3036 3094	These techniques are not yet suitable for all applications
+T13	background_claim 3111 3174	a purely image-based approach can achieve very realistic images
+T14	background_claim 3176 3202	this advantage may be lost
+T15	data 3206 3261	one needs to introduce geometry and surface reflectance
+R7	supports Arg1:T15 Arg2:T14	
+R8	contradicts Arg1:T14 Arg2:T13	
+T16	background_claim 3353 3469	Film and entertainment applications require fanciful creatures that fall outside the scope of image-based approaches
+T17	background_claim 3554 3631	human and creature animation have been obtained in the entertainment industry
+T18	background_claim 3471 3525	Some of the most impressive examples of geometry-based
+R9	parts_of_same Arg1:T17 Arg2:T18	
+T19	background_claim 3633 3798	These efforts traditionally use shape interpolation for facial animation and a standard but variously-named algorithm that we will term skeleton subspace deformation
+T20	background_claim 3805 3831	for basic body deformation
+R10	parts_of_same Arg1:T20 Arg2:T19	
+T21	data 3835 3837	25
+T22	data 3840 3841	9
+R11	supports Arg1:T21 Arg2:T20	
+R12	supports Arg1:T22 Arg2:T20	
+T23	background_claim 3851 3908	shape interpolation is well-liked by production animators
+T24	background_claim 3910 3960	it is not suitable for skeleton-driven deformation
+R13	contradicts Arg1:T24 Arg2:T23	
+T25	background_claim 3980 4055	SSD produces characteristic defects and is notoriously difficult to control
+T26	own_claim 4299 4440	The algorithm should handle the general problem of skeletoninfluenced deformation rather than treating each area of anatomy as a special case
+T27	own_claim 4442 4538	New creature topologies should be accommodated without programming or considerable setup efforts
+T28	own_claim 4542 4715	It should be possible to specify arbitrary desired deformations at arbitrary points in the parameter space, with smooth interpolation of the deformation between these points
+T29	own_claim 4719 4790	The system should allow direct manipulation of the desired deformations
+T30	data 4794 4796	33
+R14	supports Arg1:T30 Arg2:T29	
+T31	own_claim 4802 4910	The locality of deformation should be controllable, both spatially and in the skeleton’s configuration space
+T32	own_claim 5061 5194	we require that animators be able to visualize the interaction of a reasonably high-resolution model with an environment in real time
+T33	own_claim 4940 5051	we target a conventional animator-controlled work process rather than an approach based on automatic simulation
+R15	supports Arg1:T33 Arg2:T32	
+T34	background_claim 5265 5353	Real time synthesis is also required for applications such as avatars and computer games
+T35	own_claim 5361 5373	Our solution
+T36	own_claim 5406 5512	provides a uniform and expressive approach to both facial skin deformation and skeleton-driven deformation
+R16	parts_of_same Arg1:T36 Arg2:T35	
+T37	own_claim 5514 5672	It addresses the previously mentioned drawbacks of shape interpolation and SSD while retaining the simplicity and performance associated with these techniques
+T38	own_claim 5823 5951	The pose space deformation algorithm requires well behaved and efficient scattered data interpolation in high dimensional spaces
+T39	data 5953 5962	Section 3
+R17	supports Arg1:T39 Arg2:T38	
+T40	background_claim 6158 6249	Recent research has delivered significant improvements in many areas of character animation
+T41	data 6261 6283	surface representation
+R18	supports Arg1:T41 Arg2:T40	
+T42	data 6285 6298	model capture
+R19	supports Arg1:T42 Arg2:T40	
+T43	data 6300 6319	performance capture
+R20	supports Arg1:T43 Arg2:T40	
+T44	data 6325 6331	hybrid
+T45	data 6356 6376	rendering approaches
+R21	parts_of_same Arg1:T45 Arg2:T44	
+R22	supports Arg1:T44 Arg2:T40	
+T46	background_claim 6596 6702	Continuous deformation of a character skin was first addressed in Parke’s pioneering facial animation work
+T47	data 6706 6708	26
+R23	supports Arg1:T47 Arg2:T46	
+T48	background_claim 6726 6837	control vertices were deformed by custom algorithmic implementation of carefully selected high-level parameters
+R24	supports Arg1:T47 Arg2:T48	
+T49	data 6875 6877	13
+T50	data 6913 6915	23
+T51	background_claim 6865 6872	Komatsu
+T52	background_claim 6881 6910	and Magnenat-Thalmann et. al.
+R25	supports Arg1:T49 Arg2:T51	
+R26	supports Arg1:T50 Arg2:T52	
+R27	parts_of_same Arg1:T52 Arg2:T51	
+T53	background_claim 6919 6987	demonstrated human body deformation driven by an underlying skeleton
+R28	parts_of_same Arg1:T53 Arg2:T52	
+T54	background_claim 6990 7080	The region and shape of deformation is algorithmically defined in each of these approaches
+R29	supports Arg1:T50 Arg2:T54	
+R30	supports Arg1:T49 Arg2:T54	
+R31	supports Arg1:T47 Arg2:T54	
+T55	background_claim 7082 7171	Magnenat-Thalmann et. al. developed algorithms for each of the various joints in the hand
+R32	supports Arg1:T50 Arg2:T55	
+T56	background_claim 7173 7354	The discussion in Komatsu focuses on the elbow and shows how the skin crease on the acute side can be obtained by a suitable algorithmic manipulation of the surface control vertices
+R33	supports Arg1:T49 Arg2:T56	
+T57	background_claim 7356 7462	The algorithms in this early work do not suffer the ‘collapsing elbow’ characteristic of the SSD algorithm
+R34	supports Arg1:T49 Arg2:T57	
+T58	background_claim 7491 7644	the algorithms are specific to particular types of joints and are perhaps too simple to portray the complexity and individual variability of real anatomy
+T59	background_claim 7646 7676	The short film Tony de Peltrie
+T60	data 7680 7681	3
+T61	background_claim 7685 7748	popularized the use of shape interpolation for facial animation
+R35	supports Arg1:T60 Arg2:T59	
+R36	parts_of_same Arg1:T61 Arg2:T59	
+T62	background_claim 7750 7756	Forsey
+T63	data 7759 7761	11
+R37	supports Arg1:T63 Arg2:T62	
+T64	background_claim 7765 7956	describes a characteroriented deformation scheme in which the bending of a smooth surface can be controlled by anchoring levels of a multi-resolution spline surface to the underlying skeleton
+R38	parts_of_same Arg1:T64 Arg2:T62	
+T65	background_claim 7958 8109	These efforts are distinguished from the previous purely algorithmic approaches in giving the modeler control of and responsibility for the deformation
+T66	background_claim 8111 8205	The specification and animation of surface deformation remains an active area of investigation
+T67	data 8209 8211	17
+T68	data 8214 8216	10
+R39	supports Arg1:T67 Arg2:T66	
+R40	supports Arg1:T68 Arg2:T66	
+T69	data 8242 8244	22
+T70	background_claim 8220 8239	The Wires technique
+T71	background_claim 8248 8285	s one interesting recent contribution
+T72	background_claim 8287 8400	this approach is notable in providing a direct manipulation interface in a form immediately familiar to sculptors
+R41	supports Arg1:T69 Arg2:T70	
+R42	parts_of_same Arg1:T71 Arg2:T70	
+R43	supports Arg1:T69 Arg2:T72	
+T73	data 8534 8535	7
+T74	background_claim 8502 8531	Chadwick, Haumann, and Parent
+T75	background_claim 8539 8618	introduced a multi-layered and physically inspired approach to skin deformation
+R44	supports Arg1:T73 Arg2:T74	
+R45	parts_of_same Arg1:T75 Arg2:T74	
+T76	background_claim 8620 8731	In their model a free-form deformation abstractly represents underlying body tissues and mediates skin movement
+R46	supports Arg1:T73 Arg2:T76	
+T77	background_claim 8733 8810	Chadwick et. al. demonstrated expressive three-dimensional cartoon characters
+T78	background_claim 8815 8865	deformation of a realistic character was not shown
+R47	contradicts Arg1:T78 Arg2:T77	
+R48	supports Arg1:T73 Arg2:T77	
+R49	supports Arg1:T73 Arg2:T78	
+T79	background_claim 8867 8956	Other researchers have investigated modeling the underlying body tissues in greater depth
+T80	data 8960 8962	27
+R50	supports Arg1:T80 Arg2:T79	
+T81	data 8965 8967	24
+R51	supports Arg1:T81 Arg2:T79	
+T82	data 8970 8971	8
+R52	supports Arg1:T82 Arg2:T79	
+T83	data 8974 8976	35
+R53	supports Arg1:T83 Arg2:T79	
+T84	background_claim 8980 9152	Most recently, several groups have undertaken ambitious efforts to produce anatomically inspired multi-layered models of animals and humans with considerable verisimilitude
+T85	data 9175 9177	19
+T86	background_claim 9154 9172	Nedel and Thalmann
+T87	background_claim 9181 9251	simulate the surface deformation of muscles using spring mesh dynamics
+R54	supports Arg1:T85 Arg2:T86	
+R55	parts_of_same Arg1:T87 Arg2:T86	
+T88	background_claim 9253 9381	a modeled skin cross section is reshaped by a ray-casting procedure that finds the maximum displacement of the underlying tissue
+R56	supports Arg1:T85 Arg2:T88	
+T89	background_claim 9383 9486	Several papers by Wilhelms and coworkers have shown anatomically representative human and animal models
+T90	data 9517 9519	36
+T91	background_claim 9488 9514	In Wilhelms and Van Gelder
+R57	supports Arg1:T90 Arg2:T91	
+R58	supports Arg1:T90 Arg2:T89	
+T92	background_claim 9523 9615	several classes of muscles are algorithmically modeled with attention to volume conservation
+R59	parts_of_same Arg1:T92 Arg2:T91	
+T93	background_claim 9617 9697	skin is a spring mesh anchored to underlying tissue or bone in appropriate areas
+R60	supports Arg1:T90 Arg2:T93	
+T94	background_claim 9699 9716	Scheepers et. al.
+T95	data 9719 9721	31
+R61	supports Arg1:T95 Arg2:T94	
+T96	background_claim 9725 9825	produced convincing representations of muscles as well as preliminary but promising skin deformation
+R62	parts_of_same Arg1:T96 Arg2:T94	
+T97	background_claim 9886 10044	In recent years character animation has moved beyond being a research topic and sophisticated deforming characters routinely appear in films and on television
+T98	background_claim 10046 10077	Various techniques are employed
+T99	data 10444 10466	manually animated FFDs
+T100	data 10471 10499	custom procedural approaches
+R63	supports Arg1:T99 Arg2:T98	
+R64	supports Arg1:T100 Arg2:T98	
+T101	data 10520 10522	26
+T102	data 10525 10527	23
+T103	data 10530 10532	13
+R65	supports Arg1:T101 Arg2:T98	
+R66	supports Arg1:T102 Arg2:T98	
+R67	supports Arg1:T103 Arg2:T98	
+T104	background_claim 10536 10592	Arguably the most common practice in character animation
+T105	background_claim 10686 10750	is founded on the twin techniques of shape interpolation and SSD
+R68	parts_of_same Arg1:T105 Arg2:T104	
+T106	data 10754 10756	18
+T107	data 10759 10760	9
+R69	supports Arg1:T106 Arg2:T105	
+R70	supports Arg1:T107 Arg2:T105	
+T108	background_claim 10828 10847	Shape interpolation
+T109	background_claim 10903 10985	is probably the most widely used approach to skin deformation for facial animation
+R71	parts_of_same Arg1:T109 Arg2:T108	
+T110	data 10989 10990	3
+R72	supports Arg1:T110 Arg2:T109	
+T111	data 10993 10995	18
+R73	supports Arg1:T111 Arg2:T109	
+T112	data 10998 10999	9
+R74	supports Arg1:T112 Arg2:T109	
+T113	background_claim 11003 11069	Surface control vertices are simply an animated linear combination
+T114	background_claim 11163 11236	of the corresponding vertices on a number of key shapes S k : k=0 w k S k
+R75	parts_of_same Arg1:T114 Arg2:T113	
+T115	background_claim 11239 11354	A variation of this technique uses a single base shape S 0 and a number of delta shapes, S 0 + k=1 w k (S k − S 0 )
+T116	background_claim 11356 11498	By writing the delta shape form as (1 − 1 w k )S 0 + 1 w k S k it is clear that the space of achievable shapes is identical in both variations
+T117	data 11500 11501	1
+R76	supports Arg1:T117 Arg2:T116	
+T118	background_claim 11502 11617	An attractive feature of shape interpolation is that the desired expressions can be directly specified by sculpting
+T119	background_claim 11723 11800	it would be desirable to employ it on regions of the body other than the face
+T120	data 11665 11721	the popularity and effectiveness of this simple approach
+R77	supports Arg1:T120 Arg2:T119	
+T121	background_claim 11802 11931	The blending of rigid shapes is inconsistent with regions of the body that are bending under the action of an underlying skeleton
+R78	contradicts Arg1:T121 Arg2:T119	
+T122	background_claim 11952 12044	the key shapes could be deformed to the moving articulated figure using some other algorithm
+T123	background_claim 12050 12161	this defeats the purpose of proposing shape interpolation as the means of obtaining the deformation in question
+R79	contradicts Arg1:T123 Arg2:T122	
+T124	background_claim 12163 12248	Shape interpolation also has some drawbacks for its intended role of facial animation
+T125	background_claim 12259 12297	the interpolation is not always smooth
+R80	supports Arg1:T125 Arg2:T124	
+T126	data 12299 12334	Consider interpolating from a smile
+T127	data 12345 12362	to a neutral pose
+T128	data 12367 12386	and then to a frown
+R81	parts_of_same Arg1:T128 Arg2:T127	
+R82	parts_of_same Arg1:T127 Arg2:T126	
+R83	supports Arg1:T126 Arg2:T125	
+T129	background_claim 12804 12874	In practice animators object to the linear nature of the interpolation
+T130	data 12878 12880	34
+R84	supports Arg1:T130 Arg2:T129	
+T131	background_claim 12883 12980	and have sometimes compensated by sculpting new key shapes as often as every three to five frames
+R85	parts_of_same Arg1:T131 Arg2:T129	
+T132	data 12984 12986	38
+R86	supports Arg1:T132 Arg2:T131	
+T133	background_claim 13553 13689	This simple algorithm has been repeatedly conceived and appears in commercial software packages under several rather uninformative names
+T134	data 13698 13706	skinning
+T135	data 13708 13718	enveloping
+R87	supports Arg1:T134 Arg2:T133	
+R88	supports Arg1:T135 Arg2:T133	
+T136	background_claim 13725 13753	The algorithm is unpublished
+T137	background_claim 13758 13803	is subsumed by more general published schemes
+R89	contradicts Arg1:T137 Arg2:T136	
+T138	data 13815 13817	23
+R90	supports Arg1:T138 Arg2:T137	
+T139	background_claim 13821 14031	The position of a control vertex p on the deforming surface of an articulated object lies in the subspace defined by the rigid transformations of that point by some number of relevant skeletal coordinate frames
+T140	data 14034 14042	Figure 1
+R91	supports Arg1:T140 Arg2:T139	
+T141	background_claim 14046 14065;14066 14093	This may be notated           p = w k L k (p) p
+T142	background_claim 14544 14567	SSD is fairly versatile
+T143	background_claim 14582 14609	secondary animation effects
+T144	background_claim 14659 14778	can be achieved by variably weighting the surface to an abstract “bone” whose translation or scale is manually animated
+T145	data 14618 14632	muscle bulging
+T146	data 14637 14658	swelling of the chest
+R92	supports Arg1:T145 Arg2:T143	
+R93	supports Arg1:T146 Arg2:T143	
+R94	parts_of_same Arg1:T144 Arg2:T143	
+T147	background_claim 14804 14930	The first major shortcoming of SSD results directly from the fact that the deformation is restricted to the indicated subspace
+T148	background_claim 14932 15035	In common situations such as shoulders and elbows the desired deformation does not lie in this subspace
+T149	background_claim 15043 15113	no amount of adjusting the algorithm weights will produce good results
+R95	supports Arg1:T148 Arg2:T149	
+R96	supports Arg1:T149 Arg2:T147	
+T150	background_claim 15115 15184	This fact leads to considerable frustration by users of the algorithm
+T151	background_claim 15187 15360	the character of the deformation changes as the weights are changed, sometimes sustaining the incorrect assumption that some combination of weights will produce good results
+R97	supports Arg1:T151 Arg2:T150	
+T152	background_claim 15371 15475	the SSD algorithm can be easily identified in animations by its characteristic ‘collapsing joint’ defect
+T153	data 15477 15489	Figures 1, 2
+R98	supports Arg1:T153 Arg2:T152	
+T154	background_claim 15492 15570	This problem is extreme in the case of simulating the twist of a human forearm
+T155	data 15613 15621	Figure 3
+R99	supports Arg1:T155 Arg2:T154	
+T156	background_claim 15965 16001	A second difficulty with SSD is that
+T157	background_claim 16031 16069	it does not permit direct manipulation
+R100	parts_of_same Arg1:T157 Arg2:T156	
+T158	background_claim 16071 16140	artists instead directly or indirectly edit the meshes of weights w k
+R101	supports Arg1:T157 Arg2:T158	
+T159	background_claim 16244 16334	SSD algorithms consequently have the reputation for being tedious and difficult to control
+T160	background_claim 16336 16641	Artists with a poor understanding of the underlying algorithm have difficulty distinguishing between results that can be further improved by adjusting weights and results that cannot be improved since the desired result lies outside the achievable subspace, resulting in the impression of unpredictability
+T161	background_claim 16707 16794	In some cases the SSD defects can be manually corrected using FFDs and other techniques
+T162	background_claim 16800 16900	one could consider a scheme whereby these fixes are procedurally invoked as the skeleton articulates
+T163	background_claim 16915 16929	FFDs work well
+T164	background_claim 16982 17059	the layered FFDs do not reduce the difficulty in adjusting the underlying SSD
+R102	contradicts Arg1:T164 Arg2:T163	
+T165	own_claim 17061 17225	The algorithm introduced in the subsequent sections removes the need for such layered fix-it approaches and permits direct specification of the desired deformations
+T166	background_claim 17484 17644	Several published algorithms and commercial packages combine aspects of skeleton-driven deformation and shape interpolation in ways that anticipate our approach
+T167	background_claim 17646 17819	In the pioneering work of Burtnyk and Wein, two dimensional characters were animated using a polygonal rubber sheet that afforded both skeletal and local deformation control
+T168	data 17823 17824	6
+R103	supports Arg1:T168 Arg2:T167	
+T169	background_claim 17828 18021	Van Overveld described a two-dimensional animation system in which animation is controlled by a skeleton and character deformation is driven from this skeleton through a scattered interpolation
+T170	data 18025 18027	20
+R104	supports Arg1:T170 Arg2:T169	
+T171	own_claim 18031 18069	This work is similar in spirit to ours
+T172	own_claim 18074 18183	differs in that it used the image plane as a global interpolation domain rather than introducing a pose space
+R105	contradicts Arg1:T172 Arg2:T171	
+T173	background_claim 18185 18218	Litwinowicz and Williams’s system
+T174	data 18221 18223	16
+T175	background_claim 18227 18299	is also a precedent and introduced sophisticated scattered interpolation
+R106	supports Arg1:T174 Arg2:T173	
+R107	parts_of_same Arg1:T175 Arg2:T173	
+T176	background_claim 18329 18362	Several papers consider animation
+T177	background_claim 18403 18475	as a special case of neural net learning and interpolation/extrapolation
+R108	parts_of_same Arg1:T177 Arg2:T176	
+T178	data 18479 18481	14
+T179	data 18484 18486	15
+T180	data 18489 18491	21
+R109	supports Arg1:T178 Arg2:T177	
+R110	supports Arg1:T179 Arg2:T177	
+R111	supports Arg1:T180 Arg2:T177	
+T181	background_claim 18501 18524	this viewpoint is valid
+T182	background_claim 18526 18571	in practice it is perhaps excessively general
+R112	contradicts Arg1:T182 Arg2:T181	
+T183	background_claim 18586 18663	a skeleton is merely learned rather than being an intrinsic part of the model
+R113	supports Arg1:T183 Arg2:T182	
+T184	background_claim 18665 18829	While employed at Industrial Light and Magic the first author of the present paper developed a system that attempted to blend shape interpolation and SSD algorithms
+T185	background_claim 18831 18915	a small portion of it remains in use in their well known Caricature animation system
+T186	background_claim 18917 19052	Drawbacks of this work included both a complicated dependence on the details of SSD and its overall conception as a “correction” to SSD
+T187	background_claim 19054 19168	Some commercial packages allow blending between two sculpted deformations as a function of a single-joint rotation
+T188	background_claim 19178 19271	combining shape interpolation and skeleton-driven deformation in a limited but useful setting
+R114	supports Arg1:T187 Arg2:T188	
+T189	background_claim 19569 19634	The depth of simulation is a prevalent issue in computer graphics
+T190	background_claim 19643 19688	one that is not always consciously considered
+R115	contradicts Arg1:T190 Arg2:T189	
+T191	background_claim 19690 19741	Early approaches to animation were purely kinematic
+T192	background_claim 19743 19816	an emphasis on physically based modeling appeared in the literature later
+T193	background_claim 19818 19931	Recent sophisticated approaches allow a hybrid of animator-controlled and physically governed animation as needed
+T194	background_claim 19933 19979	In rendering we perhaps see the opposite trend
+T195	background_claim 19982 20063	much of the literature a decade ago focused on ever deeper simulations of reality
+T196	background_claim 20073 20142	‘shallower’ imagebased approaches are attracting attention at present
+R117	supports Arg1:T195 Arg2:T194	
+R116	supports Arg1:T196 Arg2:T194	
+T197	background_claim 20155 20229	in character deformation both deep and shallow approaches have their place
+T198	background_claim 20231 20282	Deep models promise universally accurate simulation
+T199	background_claim 20288 20353	the importance of representing humans justifies the needed effort
+T200	background_claim 20355 20462	The authors of these approaches acknowledge that producing anatomically plausible models is a daunting task
+R118	contradicts Arg1:T200 Arg2:T199	
+T201	background_claim 20473 20550	Pose space deformation is a shallow, purely kinematic approach to deformation
+T202	background_claim 20612 20647	and it has consequent disadvantages
+R119	parts_of_same Arg1:T202 Arg2:T201	
+T203	background_claim 20664 20754	accuracy is reliant on the modeler/animator rather than being guaranteed by the simulation
+R120	supports Arg1:T203 Arg2:T202	
+T204	own_claim 20775 20940	our algorithm has clear advantages with respect to simplicity and generality, direct manipulation, real-time synthesis, and other criteria listed in the introduction
+T205	own_claim 21515 21564	A scattered data interpolation method is required
+T206	own_claim 21573 21615	deformations will be sculpted at arbitrary
+T207	own_claim 21647 21652	poses
+R121	parts_of_same Arg1:T207 Arg2:T206	
+R122	supports Arg1:T206 Arg2:T205	
+T208	own_claim 21660 21708	this interpolation is central to our application
+T209	own_claim 21710 21796	the results of the interpolation will be directly visible in the animating deformation
+R123	supports Arg1:T209 Arg2:T208	
+T210	own_claim 21799 21895	we will consider the available scattered interpolation approaches before settling on a candidate
+R124	supports Arg1:T208 Arg2:T210	
+T211	data 21976 21977	1
+T212	data 21980 21981	2
+T213	background_claim 21957 21973	Shepard’s method
+T214	background_claim 21985 22066	is a frequently employed scattered data interpolation scheme in computer graphics
+R125	supports Arg1:T211 Arg2:T213	
+R126	supports Arg1:T212 Arg2:T213	
+R127	parts_of_same Arg1:T214 Arg2:T213	
+T215	background_claim 22710 22772	this simple scheme has some potentially undesirable properties
+T216	background_claim 22946 23051	A serious drawback for some applications is that the derivative of the surface is zero at the data points
+T217	data 23054 23062	Figure 4
+T218	background_claim 22774 22868	Far from the data the weights will be approximately the same, d(∞) ˆ = w ∞ d k /w ∞ 1 = d k /N
+T219	background_claim 22876 22944	the interpolated surface converges to the average of the data values
+R128	semantically_same Arg1:T219 Arg2:T218	
+R129	supports Arg1:T218 Arg2:T215	
+R130	supports Arg1:T219 Arg2:T215	
+R131	supports Arg1:T217 Arg2:T216	
+T220	background_claim 23132 23154	Radial basis functions
+T221	data 23158 23160	28
+T222	data 23163 23165	29
+T223	background_claim 23169 23225	have become a popular choice for scattered interpolation
+R132	supports Arg1:T221 Arg2:T220	
+R133	supports Arg1:T222 Arg2:T220	
+R134	parts_of_same Arg1:T223 Arg2:T220	
+T224	data 23405 23432	N values of d are available
+T225	background_claim 23438 23489	the weights can be easily solved by a linear system
+R135	supports Arg1:T224 Arg2:T225	
+T226	background_claim 23491 23564	this can be derived either by least squares fit or by subspace projection
+T227	background_claim 24125 24179	A least squares approach leads to the identical result
+T228	background_claim 24181 24233	Any nonlinear function φ() will interpolate the data
+T229	background_claim 24396 24444	a smooth φ() will result in a smooth interpolant
+T230	background_claim 24509 24595	radial basis functions have a universal convergence property similar to Fourier series
+T231	background_claim 24604 24643	the convergence definition is different
+R136	contradicts Arg1:T231 Arg2:T230	
+T232	background_claim 24050 24116	Φ T Φw = Φ T d can be solved for the familiar w = (Φ T Φ) −1 Φ T d
+T233	background_claim 23743 23808	The best approximation to d in the space spanned by φ k () occurs
+T234	background_claim 23861 23908	when the weights are such that the error d − Φw
+T235	background_claim 23951 24004	is orthogonal to each of the φ k (): Φ T (Φw − d) = 0
+R137	parts_of_same Arg1:T235 Arg2:T234	
+R138	parts_of_same Arg1:T234 Arg2:T233	
+R139	supports Arg1:T235 Arg2:T232	
+T236	data 24344 24376	the columns of Φ are independent
+R140	supports Arg1:T236 Arg2:T228	
+T237	background_claim 24803 24815	Surfaces can
+T238	background_claim 24826 24928	be interpolated by allowing different combinations of the same basis functions in different dimensions
+R141	parts_of_same Arg1:T238 Arg2:T237	
+T239	background_claim 24956 25011	The distance can be generalized to Mahalanobis distance
+T240	data 25072 25073	4
+R142	supports Arg1:T240 Arg2:T239	
+T241	background_claim 25162 25247	Various visual reconstruction schemes can be adapted for scattered data interpolation
+T242	background_claim 25569 25644	With small λ many of these schemes can serve as scattered data interpolants
+T243	data 25658 25659	5
+T244	background_claim 25663 25705	is a good introduction to these approaches
+R143	supports Arg1:T243 Arg2:T244	
+T245	background_claim 25707 25858	In some of the most powerful formulations of scattered interpolation the regularizer is considered to hold everywhere except at an unknown set of edges
+T246	background_claim 25861 25929	this is the piecewise-smooth prior desirable in image reconstruction
+T247	background_claim 25937 25964	the unknown edges may exist
+T248	background_claim 25980 26009	at any location in the domain
+R144	parts_of_same Arg1:T248 Arg2:T247	
+T249	background_claim 26011 26073	all combinations of possible edge locations must be considered
+T250	background_claim 26078 26153	the interpolation cost is prima facie exponential in the surface resolution
+R145	supports Arg1:T248 Arg2:T249	
+R146	supports Arg1:T248 Arg2:T250	
+T251	own_claim 26261 26357	The crux of our approach is the identification of an appropriate space for defining deformations
+T252	own_claim 26379 26524	the interpolation domain is (a subset of) the pose space of an articulated character, or equivalently the space defined by some set of parameters
+T253	own_claim 26550 26669	In concept the range of the interpolation function could simply be the desired movement of the surface control vertices
+T254	own_claim 26985 27026	the deforming surface is defined by p + δ
+T255	own_claim 26716 26780	we instead interpolate the desired deviation of a surface vertex
+T256	own_claim 26812 26848	from its initially computed position
+R147	parts_of_same Arg1:T256 Arg2:T255	
+R148	supports Arg1:T256 Arg2:T254	
+T257	own_claim 27200 27268	Our scheme can be bootstrapped on top of an existing software system
+T258	own_claim 27270 27348	the model is posed as desired and the desired surface at that pose is sculpted
+R149	supports Arg1:T258 Arg2:T257	
+T259	own_claim 27771 27893	it would be desirable to allow deformations to change both continuously and discontinuously with respect to the pose space
+T260	own_claim 27895 27974	creature deformations that are discontinuous with respect to pose seem unlikely
+R150	contradicts Arg1:T260 Arg2:T259	
+T261	own_claim 27984 28056	the expensive energy functional and non-convex schemes are not necessary
+R151	supports Arg1:T260 Arg2:T261	
+T262	own_claim 28169 28274	Together these comments support φ k (x) = exp( −( x−x 2σ 2 k ) 2 ) as one possible choice of radial basis
+T264	own_claim 28121 28167	the width of this falloff should be selectable
+T265	data 28277 28285	Figure 5
+R152	supports Arg1:T265 Arg2:T262	
+T263	background_claim 28289 28351	Gaussian radial basis functions are reputed to be well behaved
+T266	background_claim 28396 28502	Gaussian radial basis functions with adjustable placement and σ are discussed in the neural net literature
+T267	background_claim 28507 28551	optimizing over these parameters is possible
+T268	own_claim 28553 28597	This issue does not arise in our application
+T269	own_claim 28614 28680	the animator decides where in the parameter space to sculpt a pose
+R153	supports Arg1:T269 Arg2:T268	
+R154	contradicts Arg1:T268 Arg2:T267	
+T271	own_claim 29664 29696	a 3(n − 1) pose space is defined
+T270	data 29590 29620	n = 2 pose controls are active
+T272	data 29625 29658	each has three degrees of freedom
+R155	supports Arg1:T272 Arg2:T271	
+R156	supports Arg1:T270 Arg2:T271	
+T273	own_claim 29702 29771	the particular position of the controls defines a point in that space
+R157	supports Arg1:T272 Arg2:T273	
+R158	supports Arg1:T270 Arg2:T273	
+T274	own_claim 30051 30122	Any control vertices that have moved from their rest position are found
+T275	own_claim 30746 30796	it is necessary to solve the interpolation problem
+T276	data 30657 30698	several such deformations have been saved
+R159	supports Arg1:T276 Arg2:T275	
+T277	own_claim 30798 30916	For each control vertex that was moved during sculpting there are now one or more δ values at points in the pose space
+T278	own_claim 30928 30984	the dimension of the pose space can vary across vertices
+T279	data 30999 31142	a particular vertex might be modified in three sculpted deformations but a neighboring vertex might have been modified in only two deformations
+R160	supports Arg1:T279 Arg2:T278	
+T280	own_claim 31144 31207	The interpolation is done independently for each control vertex
+T281	own_claim 31283 31312	this has not been problematic
+T282	data 31262 31282	using patch surfaces
+R161	supports Arg1:T282 Arg2:T281	
+R162	supports Arg1:T281 Arg2:T280	
+T283	own_claim 31361 31519	in practice this has turned out to be the result of saving new deformations without moving any pose controls rather than a result of actual numerical problems
+T284	own_claim 31314 31359	Singular Φ T Φ is interpreted as a user error
+R163	supports Arg1:T283 Arg2:T284	
+T285	own_claim 31737 31846	For each deforming control vertex a δ is interpolated from the delta values at the stored poses using Eq. (1)
+T286	own_claim 31869 31951	At this point the model interpolates through the previously defined deformation(s)
+T287	own_claim 31953 32043	The most recently defined deformation may extend too far (or not far enough) in pose space
+R164	contradicts Arg1:T287 Arg2:T286	
+T288	background_claim 32054 32142	There is a rich literature of schemes for optimizing radial basis parameters including σ
+T289	data 32146 32147	4
+R165	supports Arg1:T289 Arg2:T288	
+T290	background_claim 32170 32317	animators consider detailed control of the animation to be part of their craft and are quite happy to have interpolation parameters exposed to them
+T291	own_claim 32338 32391	this potentially abstract parameter is comprehensible
+T292	data 32403 32459	it is possible to explore the effect of different values
+R166	supports Arg1:T292 Arg2:T291	
+T293	own_claim 32461 32529	At a minimum axis-aligned scaling of the falloff should be available
+T294	own_claim 32596 32708	Based on the evaluation the artist may decide to sculpt additional poses as needed to achieve the desired motion
+T295	own_claim 32802 32841	the associated pose space is determined
+T296	data 32775 32801	a deformed vertex is found
+R167	supports Arg1:T296 Arg2:T295	
+T297	data 32865 32934	there are previous deformations of this vertex in the same pose space
+T298	own_claim 32940 32998	the new deformation is simply another point to interpolate
+R168	supports Arg1:T297 Arg2:T298	
+T299	own_claim 33000 33036	The new deformation’s pose space may
+T300	own_claim 33047 33111	be different from the previous spaces associated with the vertex
+R169	parts_of_same Arg1:T300 Arg2:T299	
+T301	own_claim 33128 33155	a new pose space is started
+R170	supports Arg1:T300 Arg2:T301	
+T302	own_claim 33161 33261	the δ is computed as a delta from the previous layered PSD synthesis rather than from the base model
+R171	supports Arg1:T300 Arg2:T302	
+T303	own_claim 33263 33444	This ensures that the previous deformations are interpolated while allowing the artist complete freedom in determining the extent of the deformation and the associated pose controls
+T304	own_claim 33452 33486	there is an issue of commutativity
+T305	own_claim 33506 33580	artists consider this iterative layered refinement to be a natural process
+R172	contradicts Arg1:T305 Arg2:T304	
+T306	background_claim 33692 33718	This is a well known issue
+T307	own_claim 33720 33851	well behaved transformations are fundamental and are hopefully addressed early in the development of any character animation system
+T308	own_claim 33901 33987	With n poses three matrices of size n must be inverted for each surface control vertex
+T309	own_claim 33989 34025	Typically n will be between 1 and 10
+T310	own_claim 34035 34053	this cost is small
+R173	supports Arg1:T309 Arg2:T310	
+T311	own_claim 34060 34095	it is incurred at a convenient time
+T312	data 34098 34110	during setup
+R174	supports Arg1:T312 Arg2:T311	
+T313	own_claim 34337 34430	The cost of Eq. (1) is then not much greater than the cost of traditional shape interpolation
+T314	own_claim 34162 34248	For synthesis, the basis function φ(x) can be implemented by interpolated table lookup
+T315	own_claim 34253 34335	the sqrt required in the Euclidean distance can be composed with φ(x) in the table
+T316	own_claim 34438 34513	real time synthesis is possible with significant models on current machines
+R175	supports Arg1:T313 Arg2:T316	
+T317	own_claim 34624 34763	An articulated model such as a human will typically have a number of different deformation subspaces, each with one or several deformations
+T318	own_claim 34765 34826	the deformations in different subspaces may overlap spatially
+T322	own_claim 35104 35175	The neck/chest/leg blend area of many quadrupeds is a more complex case
+T323	own_claim 35178 35353	the motion of the skin surface in these regions may depend on the relative configuration of several leg bones as well as the rib cage and possibly the neck region of the spine
+R176	supports Arg1:T323 Arg2:T322	
+T319	own_claim 35355 35403	PSD handles all these cases simply and uniformly
+T320	own_claim 35586 35685	The application of PSD to facial animation is best described by comparison with shape interpolation
+T321	own_claim 35694 35763	In both approaches a set of key shapes (or delta shapes) are sculpted
+T324	own_claim 35765 35818	The same set of shapes can be used in both approaches
+T325	background_claim 35830 35852	shape interpolation is
+T326	background_claim 35872 35906	a superposition of a set of shapes
+R177	parts_of_same Arg1:T326 Arg2:T325	
+T327	own_claim 35908 35943	PSD interpolates among these shapes
+R178	contradicts Arg1:T327 Arg2:T326	
+T328	own_claim 35947 36009	The animator’s task in PSD is to choose the interpolation path
+T329	background_claim 36076 36241	With SI the animator’s task is to choose the interpolation path but also solve the problem of representing this path by using a set of (non-orthogonal!) basis shapes
+R179	contradicts Arg1:T329 Arg2:T328	
+T330	background_claim 36243 36315	In practice this has been considered the major difficulty in applying SI
+T331	data 36321 36381	high quality animation demands large numbers of basis shapes
+R180	supports Arg1:T331 Arg2:T330	
+T332	data 36385 36387	38
+R181	supports Arg1:T332 Arg2:T330	
+T333	background_claim 36393 36485	In shape interpolation the key shapes and the animation parameter space are one and the same
+T334	background_claim 36488 36545	the keys define the axes of the animation parameter space
+R182	supports Arg1:T334 Arg2:T333	
+T335	own_claim 36547 36631	In PSD the key shapes are positioned as desired in a space of desired dimensionality
+T336	own_claim 36633 36709	One can assign each shape in PSD to a separate dimension, exactly as with SI
+T337	own_claim 36730 36779	PSD allows one to sculpt intermediate expressions
+T338	own_claim 36793 36837	and situate them half-way along the relevant
+T339	own_claim 36851 36855	axis
+R183	parts_of_same Arg1:T339 Arg2:T338	
+R184	parts_of_same Arg1:T338 Arg2:T337	
+T340	own_claim 36867 36948	a sculpted pose that represents the simultaneous activation of several parameters
+T341	own_claim 37000 37065	can simply be saved at the appropriate location in the pose space
+T342	data 36955 36974	happy but surprised
+T343	data 36979 36998	smiling with a wink
+R185	supports Arg1:T342 Arg2:T340	
+R186	supports Arg1:T343 Arg2:T340	
+R187	parts_of_same Arg1:T341 Arg2:T340	
+T344	background_claim 37067 37175	Psychological research has shown that human facial expressions are largely described by two “emotional” axes
+T345	data 37179 37181	30
+T346	data 37186 37194	Figure 6
+R188	supports Arg1:T345 Arg2:T344	
+R189	supports Arg1:T346 Arg2:T344	
+T347	own_claim 37198 37301	this two-dimensional space would be a convenient high-level pose space for controlling facial animation
+T348	own_claim 37305 37336	The PSD interpolation is smooth
+T349	data 37340 37350	so desired
+R190	supports Arg1:T349 Arg2:T348	
+T350	own_claim 37872 37936	a PSD path from neutral to half-smile to full-smile is monotonic
+T351	data 37390 37398	Figure 7
+R191	supports Arg1:T351 Arg2:T350	
+T352	own_claim 37960 38028	the motion of a surface point over this interpolation is also smooth
+T353	background_claim 38030 38106	To interpolate these emotions using SI requires a zig-zag pattern of weights
+T354	background_claim 38108 38221	the half-smile weight goes from zero to one, and then back to zero as the full-smile weight goes from zero to one
+R192	supports Arg1:T354 Arg2:T353	
+T355	background_claim 38222 38308	The motion of a surface point would also be piecewise linear using SI in this scenario
+T356	own_claim 38401 38559	Additional “dimensions” of deformation can be added at any time by adding a new parameter and associating additional poses with the movement of this parameter
+T357	own_claim 38574 38701	a limb can be modeled in a particular pose both in an unloaded state and with muscles sculpted to express carrying a heavy load
+R193	supports Arg1:T357 Arg2:T356	
+T358	own_claim 38991 39069	this would of course require a significant set of additional deformation poses
+T359	own_claim 38921 38989	one can imagine setting up a dial that causes the character to morph
+R194	supports Arg1:T359 Arg2:T358	
+T360	own_claim 38703 38782	The ‘heavy’ pose can be associated with the ‘on’ state of an abstract parameter
+T361	own_claim 38841 38909	light and heavy loads can then be controlled by flipping this switch
+R195	supports Arg1:T360 Arg2:T361	
+T362	own_claim 39124 39214	Pose space deformation is not the last word in surface deformation for character animation
+T363	own_claim 39216 39279	high quality anatomically based models are certainly preferable
+R196	supports Arg1:T363 Arg2:T362	
+T364	background_claim 39294 39362	both anatomically based and purely kinematic models have their place
+R197	contradicts Arg1:T364 Arg2:T363	
+T365	background_claim 39364 39563	In the current computer animation culture animators generally practice their craft by direct and exhaustive specification of the desired motion combined with quick evaluation using real-time playback
+T366	background_claim 39565 39638	Deeper simulation approaches intrinsically take away some of this control
+T367	background_claim 39644 39665	animators often argue
+T368	background_claim 39683 39753	that automated processes are inferior or will not produce a human feel
+R198	parts_of_same Arg1:T368 Arg2:T367	
+T369	background_claim 39755 39868	The performance of current anatomically based models prohibits animation preview and other real-time applications
+T370	background_claim 39982 40087	the effort needed to produce an anatomically accurate model is not always justified, nor even appropriate
+T371	data 40091 40219	the model is of a fanciful creature whose surface appearance may be inconsistent with any plausible internal anatomy in any case
+R199	supports Arg1:T371 Arg2:T370	
+T372	own_claim 40221 40328	PSD unifies and improves upon two techniques that have been common graphics practice for more than a decade
+T373	own_claim 40330 40416	This relatively simple algorithm uniformly handles a variety of deformation situations
+T374	own_claim 40469 40517	The setup cost of the algorithm is insignificant
+T375	own_claim 40523 40596	the synthesis cost is only slightly more than that of shape interpolation
+T376	own_claim 40601 40677	real-time synthesis is possible at effective resolutions on current hardware
+R200	supports Arg1:T375 Arg2:T376	
+T377	own_claim 40694 40758	this algorithm will be a useful complement to current techniques

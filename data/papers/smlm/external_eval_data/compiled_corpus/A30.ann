@@ -1,0 +1,719 @@
+T1	background_claim 1965 2098	One of the most visually compelling aspects of liquids is the variety of complex thin sheets and droplets that arise during splashing
+T2	background_claim 2109 2217	these remain among the most difficult features to simulate plausibly and accurately with existing techniques
+R1	contradicts Arg1:T2 Arg2:T1	
+R2	contradicts Arg1:T2 Arg2:T1	
+T3	background_claim 2219 2292	Such detailed behaviour is extremely computationally expensive to resolve
+T4	data 2304 2404	the tremendous grid resolution required for both the fluid solver and the surface tracking mechanism
+R3	supports Arg1:T4 Arg2:T3	
+T5	background_claim 2406 2471	Recent advances in explicit surface tracking with triangle meshes
+T6	background_claim 2533 2681	have made feasible the geometric representation and manipulation of small features, without the loss of detail exhibited by implicit surface methods
+T7	data 2474 2492	Wojtan et al. 2009
+T8	data 2494 2517	Brochu and Bridson 2009
+T9	data 2519 2530	Müller 2009
+R4	supports Arg1:T7 Arg2:T6	
+R5	supports Arg1:T8 Arg2:T6	
+R6	supports Arg1:T9 Arg2:T6	
+T10	data 2697 2752	the surface is coupled to a standard Eulerian simulator
+T11	background_claim 2754 2885	the liquid volume must first be resampled onto the simulation mesh or grid to provide geometric information for boundary conditions
+R7	supports Arg1:T10 Arg2:T11	
+T12	data 2890 2946	this resampling process typically destroys small details
+T13	background_claim 2948 3023	they are invisible to the fluid solver and cannot be advanced appropriately
+R8	supports Arg1:T12 Arg2:T13	
+T14	background_claim 3025 3072	This can lead to a variety of visible artifacts
+T15	data 3083 3106	lingering surface noise
+T16	data 3108 3123	liquid behaving
+R9	supports Arg1:T15 Arg2:T14	
+R10	supports Arg1:T16 Arg2:T14	
+T17	background_claim 3185 3224	thin features simply halting in mid-air
+T18	data 3233 3264	the simulator fails to see them
+R11	supports Arg1:T18 Arg2:T17	
+T19	background_claim 3130 3162	it were connected when it is not
+R12	supports Arg1:T19 Arg2:T14	
+T20	data 3267 3287	Bargteil et al. 2006
+T21	data 3289 3304	Kim et al. 2009
+R13	supports Arg1:T20 Arg2:T14	
+R14	supports Arg1:T21 Arg2:T14	
+T22	data 3312 3348	combined with surface tension forces
+T23	background_claim 3350 3407	noisy sub-mesh details can also severely hamper stability
+T24	data 3411 3449	they are not artificially smoothed out
+R15	supports Arg1:T24 Arg2:T23	
+R16	supports Arg1:T22 Arg2:T23	
+T25	own_claim 3498 3565	a simulator that “sees” every detail in the explicit liquid surface
+T26	own_claim 3895 3969	a new approach to surface tension, arriving at a complete liquid simulator
+T27	own_claim 3983 4084	our key contribution is coupling an explicit surface tracker to a Voronoi-based liquid simulator with
+T28	own_claim 4088 4175	a pressure sample placement strategy that captures the complete liquid surface geometry
+T29	own_claim 4179 4289	an accurate surface tension model combining mesh-based curvature estimates and ghost fluid boundary conditions
+T30	own_claim 4293 4444	embedded free surface and solid boundary conditions adapted to Voronoi cells, avoiding the need for more onerous conforming tetrahedral mesh generation
+T31	own_claim 4452 4503	a new velocity interpolant over unstructured meshes
+R17	parts_of_same Arg1:T28 Arg2:T27	
+R18	parts_of_same Arg1:T29 Arg2:T27	
+R19	parts_of_same Arg1:T30 Arg2:T27	
+R20	parts_of_same Arg1:T31 Arg2:T27	
+T32	own_claim 4505 4552	The practical benefits of such a system include
+T33	own_claim 4556 4653	improved animation of detailed liquid features, including very thin sheets, tendrils and droplets
+T34	own_claim 4657 4736	elimination of noise in explicit surface tracking without nonphysical smoothing
+T35	own_claim 4740 4793	more detailed and less damped surface tension effects
+T36	own_claim 4801 4886	faster semi-Lagrangian advection on unstructured meshes without increased dissipation
+R21	parts_of_same Arg1:T33 Arg2:T32	
+R22	parts_of_same Arg1:T34 Arg2:T32	
+R23	parts_of_same Arg1:T35 Arg2:T32	
+R24	parts_of_same Arg1:T36 Arg2:T32	
+T37	background_claim 4994 5085	Unstructured and semi-structured meshes have a long history in computational fluid dynamics
+T38	background_claim 5091 5141	have gained traction in computer animation as well
+T39	background_claim 5143 5276	An important reason for their popularity is that careful control of mesh geometry can simplify the discretization or improve accuracy
+T40	background_claim 5291 5381	conforming the simulation mesh to solid walls makes the no-flow boundary condition trivial
+T41	background_claim 5387 5458	adaptivity can be easily introduced by grading mesh elements as desired
+R25	supports Arg1:T40 Arg2:T39	
+R26	supports Arg1:T41 Arg2:T39	
+T42	background_claim 5460 5551	Past work in graphics has extensively explored finite volume methods for tetrahedral meshes
+T43	data 5554 5574	Feldman et al. 2005a
+T44	data 5576 5596	Feldman et al. 2005b
+T45	data 5598 5618	Klingner et al. 2006
+T46	data 5620 5641	Chentanez et al. 2006
+T47	data 5643 5661	Elcott et al. 2007
+T48	data 5663 5680	Wendt et al. 2007
+T49	data 5682 5703	Chentanez et al. 2007
+T50	background_claim 5714 5793	many of the features of standard grid-based solvers are supported on tetrahedra
+T51	data 5805 5818	free surfaces
+T52	data 5823 5858	implicit coupling to dynamic solids
+R27	supports Arg1:T51 Arg2:T50	
+R28	supports Arg1:T52 Arg2:T50	
+R29	supports Arg1:T43 Arg2:T42	
+R30	supports Arg1:T44 Arg2:T42	
+R31	supports Arg1:T45 Arg2:T42	
+R32	supports Arg1:T46 Arg2:T42	
+R33	supports Arg1:T47 Arg2:T42	
+R34	supports Arg1:T48 Arg2:T42	
+R35	supports Arg1:T49 Arg2:T42	
+T53	data 5861 5880	Batty et al. [2010]
+T54	background_claim 5881 5929	augmented this approach with embedded boundaries
+T55	background_claim 5974 6039	improving free surface accuracy and reducing remeshing complexity
+T56	data 5932 5951	Enright et al. 2003
+T57	data 5953 5970	Batty et al. 2007
+R36	supports Arg1:T53 Arg2:T54	
+R37	parts_of_same Arg1:T55 Arg2:T54	
+R38	supports Arg1:T56 Arg2:T54	
+R39	supports Arg1:T57 Arg2:T54	
+T58	own_claim 6041 6094	Our method extends these advantages to Voronoi meshes
+T59	data 6120 6137	Sin et al. [2009]
+T60	background_claim 6139 6262	developed a particle method which solves a finite volume pressure projection on the Voronoi diagram of the liquid particles
+R40	supports Arg1:T59 Arg2:T60	
+T61	background_claim 6264 6378	An advantage of this approach is that the pressure degrees of freedom are directly tied to the number of particles
+T62	background_claim 6383 6462	there can never be a resolution mismatch between surface geometry and simulator
+R41	supports Arg1:T61 Arg2:T62	
+T63	data 6509 6519	Lee [2010]
+T64	background_claim 6521 6596	subdivide polyhedra into tetrahedra for interpolation similar to our method
+T65	own_claim 6602 6623	our method is simpler
+R42	supports Arg1:T63 Arg2:T64	
+T66	data 6631 6657	use of the Voronoi diagram
+R43	parts_of_same Arg1:T66 Arg2:T65	
+R44	contradicts Arg1:T65 Arg2:T64	
+T67	background_claim 6729 6806	Implicit surfaces have long been used to capture liquid geometry in animation
+T68	background_claim 6808 6849	this family of schemes includes level set
+T69	background_claim 6855 6862	methods
+T70	background_claim 6888 6903	volume-of-fluid
+T71	background_claim 6954 6984	and semi-Lagrangian contouring
+R45	parts_of_same Arg1:T69 Arg2:T68	
+R46	parts_of_same Arg1:T70 Arg2:T69	
+R47	parts_of_same Arg1:T71 Arg2:T70	
+T72	data 6865 6885	Enright et al. 2002a
+T73	data 6912 6931	Mihalef et al. 2006
+T74	data 6933 6951	Mullen et al. 2007
+T75	data 6993 7013	Bargteil et al. 2006
+R48	supports Arg1:T72 Arg2:T69	
+R49	supports Arg1:T73 Arg2:T70	
+R50	supports Arg1:T74 Arg2:T70	
+R51	supports Arg1:T75 Arg2:T71	
+T76	background_claim 7016 7108	Implicit approaches naturally yield smooth surfaces and seamlessly handle topological change
+T77	background_claim 7119 7217	the resolution of the underlying grid imposes a severe limit on the smallest representable feature
+T78	background_claim 7219 7256	beyond which geometry either vanishes
+T79	background_claim 7267 7329	or artificially coalesces into grid-scale “flotsam and jetsam”
+R52	parts_of_same Arg1:T79 Arg2:T78	
+T80	background_claim 7337 7394	Ensuring temporal coherence and avoiding visual artifacts
+T81	background_claim 7427 7450	can also be problematic
+T82	data 7402 7426	the use of regular grids
+R53	parts_of_same Arg1:T81 Arg2:T80	
+R54	supports Arg1:T82 Arg2:T81	
+T83	background_claim 7452 7530	The shortcomings of implicit schemes have spurred interest in explicit methods
+T84	data 7537 7553	“front tracking”
+T85	data 7556 7573	Glimm et al. 1998
+R55	supports Arg1:T85 Arg2:T83	
+R56	supports Arg1:T84 Arg2:T83	
+T86	background_claim 7581 7637	the surface is represented explicitly as a triangle mesh
+T87	background_claim 7639 7693	whose vertices are moved with the fluid velocity field
+T88	data 7576 7580	Here
+R57	supports Arg1:T88 Arg2:T86	
+T89	background_claim 7695 7748	The greatest challenge is handling topological change
+T90	data 7757 7770	mesh tangling
+T91	background_claim 7771 7814	that may occur during merging and splitting
+R59	supports Arg1:T90 Arg2:T89	
+T93	data 7975 7989	Du et al. 2006
+T94	data 7991 8009	Wojtan et al. 2009
+T92	background_claim 7816 7972	One solution is to determine problematic regions, switch to an implicit surface to repair the tangles there, then stitch back in a new consistent mesh patch
+R58	supports Arg1:T93 Arg2:T92	
+R60	supports Arg1:T94 Arg2:T92	
+T95	data 8012 8025	Müller [2009]
+T96	background_claim 8027 8140	takes a similar grid-based approach to untangling, rebuilding a consistent mesh using marching-cubeslike stencils
+R61	supports Arg1:T95 Arg2:T96	
+T97	background_claim 8156 8187	these methods still are subject
+T98	background_claim 8209 8250	to a resolution limited by the voxel grid
+T99	data 8189 8207	in complex regions
+R62	parts_of_same Arg1:T98 Arg2:T97	
+R63	supports Arg1:T99 Arg2:T97	
+T100	background_claim 8252 8350	Another approach is to work strictly on the triangle mesh itself, using “mesh surgery” for repairs
+T101	background_claim 8358 8375	this is difficult
+T102	data 8388 8415	Brochu &amp; Bridson [2009]
+T103	background_claim 8417 8500	recently showed that the problem can be simplified using ideas from cloth animation
+T104	data 8502 8525	enforcing the invariant
+T105	background_claim 8531 8567	the surface remain intersection-free
+R64	supports Arg1:T104 Arg2:T105	
+R65	supports Arg1:T102 Arg2:T103	
+R66	contradicts Arg1:T103 Arg2:T101	
+T106	background_claim 8569 8618	Topological operations are only allowed when safe
+T107	background_claim 8626 8695	robust collision processing is used as a last resort to avoid tangles
+T108	data 8702 8754	the surface is minimally perturbed to avoid problems
+R67	supports Arg1:T108 Arg2:T107	
+R68	contradicts Arg1:T107 Arg2:T106	
+T109	background_claim 8819 8876	other front tracking methods could easily be used instead
+T110	data 8906 8933	Campen &amp; Kobbelt [2010]
+R69	supports Arg1:T110 Arg2:T109	
+T111	background_claim 8949 9030	the need for collision processing could be obviated with exact Boolean operations
+R70	supports Arg1:T110 Arg2:T111	
+T112	own_claim 9302 9396	A prime focus of our work is matching the surface mesh resolution to that of the liquid solver
+T113	background_claim 9398 9526	Most level set-based solvers use one level set sample per pressure grid cell, conservatively avoiding resolution inconsistencies
+T114	data 9535 9557	Foster and Fedkiw 2001
+T115	data 9559 9579	Enright et al. 2002b
+T116	data 9583 9605	Goktekin et al. [2004]
+T117	background_claim 9607 9709	experimented with a doubleresolution level set, trading better volume conservation for other artifacts
+R71	supports Arg1:T114 Arg2:T113	
+R72	supports Arg1:T115 Arg2:T113	
+R73	supports Arg1:T116 Arg2:T117	
+T118	data 9711 9733	Bargteil et al. [2006]
+T119	background_claim 9735 9856	similarly coupled an octree contouring method to a uniform grid fluid solver and explicitly discussed potential artifacts
+R74	supports Arg1:T118 Arg2:T119	
+T120	data 9864 9883	resolution mismatch
+T121	data 9893 9997	erroneously preserving surface noise and the solver interpreting disconnected fluid regions as connected
+R75	supports Arg1:T120 Arg2:T119	
+R76	supports Arg1:T121 Arg2:T119	
+T122	data 9999 10016	Kim et al. [2009]
+T123	background_claim 10018 10114	coupled a high resolution particle level set to a low resolution ghost fluid-based liquid solver
+T124	background_claim 10120 10249	ensured that pressure projection captured all liquid geometry by resampling an inflated level set at the pressure grid resolution
+T125	background_claim 10259 10294	this can exacerbate other artifacts
+R78	contradicts Arg1:T124 Arg2:T123	
+R79	contradicts Arg1:T125 Arg2:T124	
+T126	data 10302 10374	liquid components behave as if half a cell-width larger than they appear
+R77	supports Arg1:T126 Arg2:T125	
+T127	data 10376 10386	Kim et al.
+T128	background_claim 10387 10468	also introduced extra surface smoothing to prevent retention of small-scale noise
+R80	supports Arg1:T127 Arg2:T128	
+T129	background_claim 10470 10537	Mismatched resolutions have been found useful for deformable solids
+T130	background_claim 10555 10604	surface details are expected to generally persist
+T131	background_claim 10613 10623	in liquids
+R81	contradicts Arg1:T131 Arg2:T130	
+R82	supports Arg1:T130 Arg2:T129	
+T132	data 10638 10662	Wojtan &amp; Turk [2008]
+T133	background_claim 10664 10735	used a surface mesh coupled to a lower resolution finite element solver
+T134	background_claim 10737 10790	forcing the simulation mesh to have the same topology
+T135	background_claim 10814 10859	the embedded surface mesh may improve realism
+R83	supports Arg1:T135 Arg2:T134	
+R84	supports Arg1:T132 Arg2:T133	
+T136	data 10861 10878	Teran et al. 2005
+T137	data 10880 10897	Nesme et al. 2009
+R85	supports Arg1:T136 Arg2:T135	
+R86	supports Arg1:T137 Arg2:T135	
+R87	supports Arg1:T132 Arg2:T134	
+T138	background_claim 10974 11038	Approaches to surface tension generally fall into two categories
+T139	background_claim 11040 11150	those which apply surface tension as a body force in a region around the interface via smeared delta functions
+T140	background_claim 11239 11372	those which apply surface tension discontinuously at the interface, typically as a boundary condition in the pressure projection step
+R88	supports Arg1:T139 Arg2:T138	
+R89	parts_of_same Arg1:T140 Arg2:T138	
+T141	data 11153 11174	Brackbill et al. 1992
+T142	data 11176 11193	Hong and Kim 2003
+T143	data 11195 11212	Zheng et al. 2006
+T144	data 11214 11232	Wojtan et al. 2009
+R90	supports Arg1:T144 Arg2:T139	
+R91	supports Arg1:T143 Arg2:T139	
+R92	supports Arg1:T142 Arg2:T139	
+R93	supports Arg1:T141 Arg2:T139	
+T145	background_claim 11374 11448	The latter is exemplified by the ghost fluid method and related approaches
+T146	data 11451 11470	Enright et al. 2003
+T147	data 11472 11489	Hong and Kim 2005
+T148	data 11491 11507	Hong et al. 2007
+R94	supports Arg1:T146 Arg2:T145	
+R95	supports Arg1:T147 Arg2:T145	
+R96	supports Arg1:T148 Arg2:T145	
+T149	background_claim 11515 11563	has been shown to provide more realistic results
+R97	parts_of_same Arg1:T149 Arg2:T145	
+T150	background_claim 11565 11657	Surface tension models can also be compared in terms of how the force itself is approximated
+T151	background_claim 11681 11741	finite differences are often used to estimate mean curvature
+T152	background_claim 11750 11807	this can be quite inaccurate without careful modification
+T153	data 11816 11825	Shin 2007
+T154	background_claim 11832 11860	cannot capture small details
+R98	contradicts Arg1:T154 Arg2:T151	
+R99	contradicts Arg1:T152 Arg2:T151	
+T155	data 11659 11679	In level set schemes
+R100	supports Arg1:T155 Arg2:T151	
+R101	supports Arg1:T153 Arg2:T152	
+T156	background_claim 11895 11967	a more accurate approach is either to use mesh-based curvature operators
+T157	data 11863 11893	If a surface mesh is available
+T158	data 11976 11994	Meyer et al. 2002b
+T159	background_claim 12023 12088	to model a physical tension directly in the surface mesh geometry
+T160	data 12091 12115	Perot and Nallapati 2003
+T161	data 12117 12128	Brochu 2006
+T162	data 12130 12150	Wojtan and Turk 2008
+R102	supports Arg1:T160 Arg2:T159	
+R103	supports Arg1:T161 Arg2:T159	
+R104	supports Arg1:T162 Arg2:T159	
+R105	supports Arg1:T158 Arg2:T156	
+R106	supports Arg1:T157 Arg2:T156	
+T164	background_claim 12521 12569	this noise tends to worsen and destroy stability
+T165	data 12479 12520	without correct feedback from the physics
+R107	supports Arg1:T165 Arg2:T164	
+T166	data 12571 12595	Wojtan &amp; Turk [2008]
+T163	background_claim 12368 12431	that surface details below the simulation resolution add energy
+T167	background_claim 12436 12477	cannot be correctly evolved by the solver
+R109	contradicts Arg1:T167 Arg2:T163	
+T168	background_claim 12597 12661	handle this with Laplacian smoothing to eliminate small features
+T169	background_claim 12678 12745	this non-physical operation is dissipative rather than conservative
+R108	supports Arg1:T166 Arg2:T168	
+R110	contradicts Arg1:T169 Arg2:T168	
+T170	own_claim 12836 12878	all relevant details are properly resolved
+T171	data 12747 12824	By instead combining our surface tension model with a geometry-aware sampling
+R111	supports Arg1:T171 Arg2:T170	
+T172	background_claim 12880 12978	This yields accurate and comparatively stable surface tension effects without artificial smoothing
+R112	supports Arg1:T170 Arg2:T172	
+T173	own_claim 13168 13213	We generally follow the tetrahedral scheme of
+T174	own_claim 13235 13302	with modifications to use specially designed Voronoi meshes instead
+T175	data 13215 13234	Batty et al. [2010]
+R113	supports Arg1:T175 Arg2:T173	
+R114	parts_of_same Arg1:T174 Arg2:T173	
+T176	data 13304 13326	Like Sin et al. [2009]
+T177	own_claim 13328 13456	we place pressure samples on the vertices of a Delaunay tetrahedral mesh, corresponding to the sites of the dual Voronoi diagram
+T178	data 13458 13470	figures 3(a)
+T179	data 13475 13479	3(b)
+R115	supports Arg1:T178 Arg2:T177	
+R116	supports Arg1:T179 Arg2:T177	
+R117	supports Arg1:T176 Arg2:T177	
+T180	background_claim 13482 13549	Normal components of velocity lie on the faces of the Voronoi cells
+T181	background_claim 13559 13663	the velocity sample is parallel to the line segment connecting the pressure samples in the Delaunay mesh
+R118	supports Arg1:T180 Arg2:T181	
+T182	background_claim 13665 13737	This configuration requires a slightly different velocity reconstruction
+T183	background_claim 13750 13766	previous methods
+T184	background_claim 13772 13800	semi-Lagrangian advection is
+T185	background_claim 13811 13826	straightforward
+R119	parts_of_same Arg1:T185 Arg2:T184	
+R120	contradicts Arg1:T182 Arg2:T183	
+R121	contradicts Arg1:T184 Arg2:T182	
+T187	own_claim 13880 13892	El Topo code
+T186	own_claim 13848 13855	we used
+T188	data 13828 13846	For front tracking
+T189	data 13856 13878	Brochu &amp; Bridson’s
+T190	data 13894 13898	2009
+R122	parts_of_same Arg1:T190 Arg2:T189	
+R123	supports Arg1:T189 Arg2:T186	
+R124	supports Arg1:T188 Arg2:T186	
+T191	background_claim 14027 14178	Purely explicit front tracking algorithms generally use mesh refinement and coarsening to maintain a high quality discretization as the surface deforms
+T192	background_claim 14180 14303	El Topo uses a sequence of edge subdivision, collapse and flipping operations, combined with null-space Laplacian smoothing
+T193	background_claim 14354 14397	they are designed to be geometry-preserving
+T194	background_claim 14311 14352	these operations change mesh connectivity
+R125	contradicts Arg1:T193 Arg2:T194	
+T195	background_claim 14413 14499	the smoothing moves vertices only in the null space of the local quadric metric tensor
+T196	data 14502 14527	Garland and Heckbert 1997
+T197	data 14547 14558	Jiao [2007]
+R126	supports Arg1:T195 Arg2:T193	
+R127	supports Arg1:T196 Arg2:T195	
+R128	supports Arg1:T197 Arg2:T195	
+T198	own_claim 14605 14652	it is moved in the plane tangent to the surface
+T199	data 14563 14604	the vertex lies on a locally smooth patch
+T200	data 14661 14681	on a ridge or corner
+T201	own_claim 14682 14714	it is moved only along this line
+R129	supports Arg1:T199 Arg2:T198	
+R130	supports Arg1:T200 Arg2:T201	
+T202	own_claim 14727 14821	sharp features are preserved, allowing the present paper’s algorithm to handle them physically
+R131	supports Arg1:T201 Arg2:T202	
+R132	contradicts Arg1:T201 Arg2:T198	
+T203	own_claim 14862 14921	The solver runs through the following stages each time step
+T204	own_claim 16082 16166	We use finite volumes on a Voronoi mesh for the pressure projection step, similar to
+T205	data 16168 16178	Sin et al.
+T206	data 16179 16185	[2009]
+R133	parts_of_same Arg1:T206 Arg2:T205	
+R134	supports Arg1:T205 Arg2:T204	
+T207	own_claim 16255 16296	we adapt the embedded boundary methods of
+T208	own_claim 16208 16253	applying boundary conditions as they describe
+R135	supports Arg1:T205 Arg2:T208	
+R136	contradicts Arg1:T207 Arg2:T208	
+T209	data 16298 16310	Batty et al.
+T210	data 16311 16317	[2010]
+R137	parts_of_same Arg1:T210 Arg2:T209	
+T211	own_claim 16318 16335	to Voronoi meshes
+R138	parts_of_same Arg1:T211 Arg2:T207	
+R139	supports Arg1:T209 Arg2:T207	
+T212	own_claim 16351 16477	the duality/orthogonality relationship between Voronoi and Delaunay meshes lets the accuracy benefits of the method carry over
+T213	own_claim 16716 16833	To enforce embedded solid boundary conditions, we need to estimate the partial unobstructed area of each element face
+T214	data 16836 16847	figure 3(d)
+R140	supports Arg1:T214 Arg2:T213	
+T215	data 16851 16863	Batty et al.
+T216	data 16864 16870	[2010]
+T217	background_claim 16872 16985	used marching triangles cases for computing tetrahedra face fractions from signed distance values on the vertices
+R141	parts_of_same Arg1:T216 Arg2:T215	
+R142	supports Arg1:T216 Arg2:T217	
+T218	own_claim 17020 17088	the faces are arbitrary convex planar polygons rather than triangles
+T219	data 16996 17018	in the Voronoi setting
+R143	supports Arg1:T219 Arg2:T218	
+T220	own_claim 17501 17539	these are now located at Voronoi sites
+T221	own_claim 17552 17576	tetrahedra circumcenters
+T222	own_claim 17582 17595	the method is
+T223	own_claim 17606 17615	unchanged
+T224	data 17618 17629	figure 3(c)
+R144	parts_of_same Arg1:T223 Arg2:T222	
+R145	contradicts Arg1:T220 Arg2:T221	
+R146	contradicts Arg1:T222 Arg2:T220	
+R147	supports Arg1:T224 Arg2:T223	
+T225	own_claim 17633 17757	A slight improvement can be achieved by casting rays to find the exact position of the surface mesh between pressure samples
+T226	own_claim 17773 17799	this is much more accurate
+T227	own_claim 17805 17847	the estimate derived from signed distances
+T228	data 17759 17772	In some cases
+T229	own_claim 17865 17907	we found it made minimal visual difference
+T230	data 17853 17864	in practice
+R148	contradicts Arg1:T226 Arg2:T227	
+R149	supports Arg1:T228 Arg2:T226	
+R150	supports Arg1:T230 Arg2:T229	
+R151	contradicts Arg1:T229 Arg2:T227	
+T231	own_claim 18178 18229	This family of redistancing schemes is described by
+T232	own_claim 18251 18282	is easily adapted to tetrahedra
+T233	data 18231 18245	Bridson [2008]
+R152	supports Arg1:T233 Arg2:T231	
+R153	supports Arg1:T233 Arg2:T232	
+T234	own_claim 18698 18739	To incorporate surface tension, we follow
+T235	own_claim 18762 18819	in setting the free surface pressure p fs = p air + γκ fs
+T236	data 18740 18754	Enright et al.
+T237	data 18755 18761	[2003]
+R154	parts_of_same Arg1:T237 Arg2:T236	
+R155	parts_of_same Arg1:T235 Arg2:T234	
+R156	supports Arg1:T236 Arg2:T235	
+T238	own_claim 19095 19119	We chose the operator of
+T239	own_claim 19151 19246	it provides high quality estimates using just the one-ring of triangles surrounding each vertex
+T240	data 19121 19133	Meyer et al.
+T241	data 19134 19141	[2002b]
+R157	parts_of_same Arg1:T241 Arg2:T240	
+T242	own_claim 19252 19273	others could work too
+R158	contradicts Arg1:T242 Arg2:T239	
+R159	supports Arg1:T239 Arg2:T238	
+R160	supports Arg1:T240 Arg2:T239	
+R161	supports Arg1:T240 Arg2:T238	
+T243	own_claim 19275 19429	Curvature is evaluated at the intersection point between the the triangle mesh surface and the line joining an interior pressure sample to an exterior one
+T244	own_claim 19431 19538	Often this intersection point will coincide with a surface mesh vertex due to our choice of sampling scheme
+T245	own_claim 19645 19712	This method appears highly accurate, and leads to much less damping
+T246	own_claim 19718 19725	that of
+T247	data 19727 19740	Wojtan et al.
+T248	data 19741 19747	[2009]
+R162	parts_of_same Arg1:T248 Arg2:T247	
+R163	supports Arg1:T247 Arg2:T246	
+T249	own_claim 19815 19923	An advantage of a Voronoi-based discretization is the freedom to explicitly choose pressure sample locations
+T250	own_claim 19925 19991	which is critical for accurate ghost fluid free surface conditions
+T251	data 19995 20078	the signed distance at these samples communicate the surface geometry to the solver
+R164	supports Arg1:T249 Arg2:T250	
+R165	supports Arg1:T251 Arg2:T250	
+T252	own_claim 20080 20150	We can visualize the solver’s “knowledge” by contouring this level set
+T253	own_claim 20183 20208	uniform sampling may fail
+T254	data 20152 20161	figures 5
+T255	data 20166 20167	6
+R166	supports Arg1:T255 Arg2:T253	
+R167	supports Arg1:T254 Arg2:T253	
+T256	own_claim 20210 20301	Careful pressure sample placement with respect to the surface helps in three important ways
+T257	own_claim 20310 20414	we can inform the solver of all local geometric extrema, allowing the physics to act upon them correctly
+T258	own_claim 20416 20516	This eliminates the accumulation of erroneous surface noise without requiring non-physical smoothing
+T259	own_claim 20518 20562	this is especially vital for surface tension
+T260	data 20569 20713	spurious noise affects the curvature estimates and induces disastrously large yet futile compensating velocities that destabilize the simulation
+R168	supports Arg1:T260 Arg2:T259	
+T261	own_claim 20723 20786	we can ensure that the solver sees the correct surface topology
+T262	own_claim 20795 20890	the physics responds to merging or splitting only when the surface mesh itself merges or splits
+T263	own_claim 20900 20973	grid-scale features often disappear and reappear in regular grid sampling
+T264	data 21014 21053	the surface translates through the grid
+R169	supports Arg1:T264 Arg2:T263	
+T265	own_claim 21114 21145	we ensure they cannot be missed
+T266	data 21055 21112	By specifically placing points inside such small features
+R170	supports Arg1:T266 Arg2:T265	
+T267	own_claim 21180 21321	The brute-force approach to these issues is to locally refine using octree grids or graded BCC lattice tetrahedra to capture smaller features
+T268	own_claim 21332 21350	this scales poorly
+T269	own_claim 21357 21403	many of the extra samples yield little benefit
+T270	own_claim 21411 21454	incurring memory and computational overhead
+R171	supports Arg1:T269 Arg2:T268	
+R172	contradicts Arg1:T270 Arg2:T269	
+T271	own_claim 21469 21560	there remains no guarantee that features below the smallest grid cell size will be captured
+T273	own_claim 21895 21968	also builds a volumetric mesh that attempts to respect the liquid surface
+T272	own_claim 21844 21869	the tetrahedral method of
+R173	parts_of_same Arg1:T273 Arg2:T272	
+T274	data 21871 21887	Chentanez et al.
+T275	data 21888 21894	[2007]
+R174	parts_of_same Arg1:T275 Arg2:T274	
+R175	supports Arg1:T274 Arg2:T272	
+T278	own_claim 22038 22121	This is considerably more difficult than non-conforming Delaunay tetrahedralization
+T279	own_claim 22137 22232	requires more Steiner points, worse-shaped tetrahedra, and/or the loss of the Delaunay property
+T280	own_claim 22336 22377	this advantage is shared by the method of
+T281	data 22378 22397	Batty et al. [2010]
+R177	supports Arg1:T281 Arg2:T280	
+T282	own_claim 22410 22532	the position of pressure samples plays a more important role in free surface conditions than the position of element faces
+T276	own_claim 21970 22036	it matches boundary faces rather than positioning pressure samples
+T277	own_claim 22286 22323	we do not require conforming elements
+T283	data 22240 22284	our method uses embedded boundary conditions
+R176	supports Arg1:T283 Arg2:T277	
+T284	own_claim 22534 22612	As accuracy requires that tetrahedral schemes store pressures at circumcenters
+T285	own_claim 22728 22845	even filling a thin feature with conforming tetrahedra provides no guarantee that its interior will be sampled at all
+T286	own_claim 22667 22726	circumcenters often lie outside their associated tetrahedra
+T287	data 22615 22635	Klingner et al. 2006
+T288	data 22637 22654	Batty et al. 2010
+R178	supports Arg1:T288 Arg2:T284	
+R179	supports Arg1:T287 Arg2:T284	
+T289	own_claim 23486 23578	we need to place pressure samples so that they capture the surface’s local geometric extrema
+T290	data 23585 23613	around surface mesh vertices
+R180	supports Arg1:T290 Arg2:T289	
+T291	own_claim 24175 24281	this lends additional accuracy to the vertex’s normal motion, and to the incorporation of the normal force
+T292	data 24289 24329	surface tension calculated at the vertex
+R181	supports Arg1:T292 Arg2:T291	
+T293	own_claim 24331 24396	This placement may miss very thin sheets or other fine structures
+T294	own_claim 24611 24702	we store the distance d to the closest intersection, and use d in place of ∆x in the offset
+T295	data 24736 24744	figure 7
+R182	supports Arg1:T295 Arg2:T294	
+T296	data 24904 24996	the distance between the surface vertex and the first intersection 1 is below some threshold
+T297	data 25082 25118	the proposed sample is an air sample
+R183	parts_of_same Arg1:T297 Arg2:T296	
+T298	own_claim 25120 25138	we also discard it
+R184	supports Arg1:T297 Arg2:T298	
+T299	own_claim 25140 25157	This is necessary
+T300	data 25166 25220	the divergence constraint is not enforced on air cells
+T301	own_claim 25225 25253	they can act as liquid sinks
+R185	supports Arg1:T300 Arg2:T299	
+T302	own_claim 25277 25336	and destroy liquid volume until the geometry finally merges
+T303	data 25256 25275	Losasso et al. 2006
+R186	parts_of_same Arg1:T301 Arg2:T302	
+R187	supports Arg1:T303 Arg2:T301	
+T304	own_claim 25353 25422	merging in this scenario can often take several time steps to resolve
+T305	data 25431 25494	the interpolated velocity in the air gap still averages to zero
+T306	own_claim 25504 25583	preventing surface geometry from actually intersecting and flagging a collision
+R188	contradicts Arg1:T304 Arg2:T302	
+R189	supports Arg1:T305 Arg2:T304	
+R190	supports Arg1:T305 Arg2:T306	
+T307	own_claim 25641 25718	our simulator treats the two liquid bodies as merged and prevents volume loss
+T308	own_claim 25720 25788	the geometric merge is usually then processed within a few timesteps
+T309	data 25585 25639	By not placing a sample point in these very small gaps
+R191	supports Arg1:T309 Arg2:T307	
+T310	own_claim 25905 25941	the physics can respond as if merged
+T311	data 25947 25989	the surfaces are still as much as ∆x apart
+T312	data 25997 26005	figure 9
+R192	supports Arg1:T312 Arg2:T310	
+R193	supports Arg1:T311 Arg2:T310	
+T313	own_claim 26362 26437	a graded octree or any other strategy could also be used to fill the domain
+T314	own_claim 26439 26512	All samples are then run through a Delaunay mesh generator such as TetGen
+T315	data 26515 26522	Si 2006
+R194	supports Arg1:T315 Arg2:T314	
+T316	background_claim 28497 28582	Velocity interpolation methods for unstructured meshes typically proceed in two steps
+T317	data 28585 28605	Klingner et al. 2006
+T318	data 28607 28625	Elcott et al. 2007
+T319	data 28627 28644	Batty et al. 2010
+R195	supports Arg1:T317 Arg2:T316	
+R196	supports Arg1:T318 Arg2:T316	
+R197	supports Arg1:T319 Arg2:T316	
+T320	own_claim 28935 28990	advection of velocities and geometry is straightforward
+T321	data 28908 28933	Given such an interpolant
+R198	supports Arg1:T321 Arg2:T320	
+T322	own_claim 29068 29157	face normal components on tetrahedra were used to reconstruct velocities at circumcenters
+T323	data 29050 29066	In previous work
+R199	supports Arg1:T323 Arg2:T322	
+T324	own_claim 29334 29418	We could then apply the usual generalized barycentric interpolant over Voronoi cells
+T325	own_claim 29424 29441	this is expensive
+T326	own_claim 29467 29523	and requires special case handling to avoid degeneracies
+T327	data 29444 29465	Chentanez et al. 2007
+T328	data 29526 29544	Meyer et al. 2002a
+R200	supports Arg1:T328 Arg2:T326	
+R201	supports Arg1:T327 Arg2:T325	
+R202	contradicts Arg1:T325 Arg2:T324	
+R203	contradicts Arg1:T326 Arg2:T324	
+T329	own_claim 29547 29589	A simple and fast alternative discussed by
+T330	own_claim 29627 29678	is to first interpolate velocities to Voronoi sites
+T331	own_claim 29701 29719	and apply standard
+T332	own_claim 29731 29778	barycentric interpolation over each tetrahedron
+T333	data 29590 29626	Klingner et al. and Chentanez et al.
+R204	supports Arg1:T333 Arg2:T329	
+R205	parts_of_same Arg1:T332 Arg2:T331	
+T334	own_claim 29789 29882	the interpolation onto tetrahedra vertices discards any local extrema at the Voronoi vertices
+T335	own_claim 29892 29985	severely over-smoothing the velocity field in practice, damping out interesting flow behavior
+R206	parts_of_same Arg1:T331 Arg2:T330	
+R207	contradicts Arg1:T334 Arg2:T332	
+R208	supports Arg1:T334 Arg2:T335	
+T336	own_claim 30252 30311	Velocities for each of these new points need to be computed
+T337	own_claim 30319 30400	previous work used the generalized barycentric interpolant for this transfer step
+T338	own_claim 30402 30532	we found that simply averaging the velocities of the surrounding ring or cell of Voronoi vertices is quicker and equally effective
+R209	contradicts Arg1:T338 Arg2:T337	
+T339	own_claim 30705 30808	Simple and efficient barycentric interpolations can then be applied on the resulting smaller tetrahedra
+T340	data 30578 30703	we also replace the normal component of the averaged full velocity with the exact normal component already stored at the face
+R210	supports Arg1:T340 Arg2:T339	
+T341	own_claim 30831 30934	more accurate velocities at the Voronoi vertices are retained and merely augmented with additional data
+T342	data 30818 30829	the sharper
+R211	supports Arg1:T342 Arg2:T341	
+T343	own_claim 30936 31039	this is far less dissipative, yielding results that closely match generalized barycentric interpolation
+R212	supports Arg1:T341 Arg2:T343	
+T344	data 31045 31054	figure 11
+R213	supports Arg1:T344 Arg2:T343	
+T345	own_claim 31076 31181	reconstructions should only use face velocities which were assigned valid data by the pressure projection
+T346	own_claim 31192 31254	we can only reconstruct reasonable velocities inside the fluid
+R214	supports Arg1:T345 Arg2:T346	
+T347	own_claim 31357 31453	each unknown point in a layer is set by averaging all adjacent known points from previous layers
+T348	own_claim 31544 31562	This simple method
+T349	own_claim 31564 31615	suggested in the context of cloth-fluid coupling by
+T350	own_claim 31643 31674	sufficed for all our animations
+T351	data 31618 31640	Guendelman et al. 2005
+R215	parts_of_same Arg1:T350 Arg2:T348	
+R216	supports Arg1:T351 Arg2:T349	
+T352	own_claim 33344 33363	One potential issue
+T353	own_claim 33391 33398	is that
+T354	own_claim 33473 33572	our unstructured sampling can cause sliver tetrahedra in the unmodified Delaunay tetrahedralization
+T355	own_claim 33399 33471	despite enforcing a lower bound on the distance between pressure samples
+T356	own_claim 33365 33389	not unique to our method
+R217	parts_of_same Arg1:T354 Arg2:T353	
+R218	parts_of_same Arg1:T353 Arg2:T352	
+R219	contradicts Arg1:T355 Arg2:T354	
+T357	own_claim 33644 33721	it can cause the least squares velocity reconstructions to be ill-conditioned
+T358	own_claim 33580 33642	we found this posed little problem for the pressure projection
+T359	data 33729 33758	nearly co-planar face normals
+R220	supports Arg1:T359 Arg2:T357	
+R221	contradicts Arg1:T357 Arg2:T358	
+T360	own_claim 33760 33882	This can be readily resolved by requesting that the mesh generator add Steiner points to enforce fairly lax quality bounds
+T361	data 33892 33980	our embedded pressure projection does not require the mesh generator to match boundaries
+T362	own_claim 33982 34026	this is relatively inexpensive and effective
+R222	supports Arg1:T361 Arg2:T360	
+T363	own_claim 34031 34075	mesh quality cannot be improved sufficiently
+T364	own_claim 34077 34192	using additional nearby velocity samples in the reconstruction can ameliorate this at the cost of a smoother result
+R223	supports Arg1:T363 Arg2:T364	
+T365	background_claim 34646 34816	The issues that arise from regular, non-geometry-aware pressure sampling are common and consistent across Cartesian grids, octrees, Voronoi meshes, and tetrahedral meshes
+T366	own_claim 34980 35071	regularly-spaced pressure samples can miss fine surface details, resulting in surface noise
+T367	background_claim 35072 35110	which is never physically smoothed out
+T368	data 34963 34978	discussed above
+R224	supports Arg1:T368 Arg2:T366	
+T369	own_claim 35139 35222	our sampling approach successfully resolves and corrects such small surface details
+T370	data 35112 35121	Figure 12
+R225	supports Arg1:T370 Arg2:T369	
+T371	own_claim 35237 35306	regular samples cannot fully capture the initial surface perturbation
+T372	own_claim 35311 35333	it cannot be rectified
+R226	contradicts Arg1:T371 Arg2:T369	
+R227	supports Arg1:T371 Arg2:T372	
+T373	own_claim 35432 35469	this actually exacerbates the problem
+T374	data 35342 35430	the ghost fluid method on regular samples does detect some differences in surface height
+T375	data 35478 35638	noisy sub-mesh details will appear to the simulator as rapid discontinuous changes in surface position over time, inducing noisy responses in the fluid velocity
+R228	supports Arg1:T375 Arg2:T373	
+T376	own_claim 35659 35769	Another visible artifact of using mismatched surface and simulation resolutions is topological inconsistencies
+T377	own_claim 35784 35903	a surface with two disjoint volumes of liquid may appear to the solver as one volume, resulting in a premature response
+R230	supports Arg1:T377 Arg2:T376	
+T378	own_claim 36156 36196	they easily correct this spurious motion
+T379	data 36083 36154	our adaptively-placed samples match the topology of the surface tracker
+R231	supports Arg1:T379 Arg2:T378	
+T380	data 36198 36206	Figure 1
+R232	supports Arg1:T380 Arg2:T378	
+T381	own_claim 36591 36681	sheets of this kind often end up between samples, effectively disappearing from the solver
+T382	data 36560 36589	With regular pressure samples
+R233	supports Arg1:T382 Arg2:T381	
+T383	own_claim 36683 36778	Our sampling ensures that almost arbitrarily thin sheets of liquid remain visible to the solver
+T384	own_claim 36793 36847	interesting rippling and splashing motion still occurs
+R234	parts_of_same Arg1:T384 Arg2:T383	
+T385	own_claim 36849 36939	Our method also resolves thin sheets and small surface details generated by large splashes
+T386	data 36953 36961	figure 1
+R235	supports Arg1:T386 Arg2:T385	
+T387	own_claim 36964 37052	To counteract gradual volume drift, we do add a corrective motion-in-the-normaldirection
+T388	data 37055 37066	Brochu 2006
+T389	data 37068 37079	Müller 2009
+R236	supports Arg1:T388 Arg2:T387	
+R237	supports Arg1:T389 Arg2:T387	
+T390	own_claim 37288 37342	the liquid motion remains lively and active throughout
+T391	data 37231 37286	we are using only first-order semi-Lagrangian advection
+R229	contradicts Arg1:T374 Arg2:T373	
+R238	contradicts Arg1:T391 Arg2:T390	
+T392	own_claim 37455 37539	their extra kinetic and gravitational potential energy is retained in the simulation
+T393	data 37541 37580	accounting for this reduced dissipation
+T394	data 37368 37453	our method retains sharp wave peaks and splashes rather than continually eroding them
+R239	supports Arg1:T394 Arg2:T392	
+R240	supports Arg1:T393 Arg2:T392	
+T395	own_claim 37693 37749	These simulations used no more than 320K tetrahedra each
+T396	own_claim 37759 37875	recent tetrahedra-based free surface methods used up to 4 times more tetrahedra to achieve a similar level of detail
+R241	contradicts Arg1:T396 Arg2:T395	
+T397	own_claim 38694 38797	this mesh cannot respond and correct high frequency sub-mesh details present in the curvature estimates
+T398	own_claim 38799 38849	the simulation becomes unstable almost immediately
+R242	supports Arg1:T397 Arg2:T398	
+T399	own_claim 38851 38939	Applying an excessively strict timestep restriction only brings the simulation to a halt
+T400	data 38943 38999	the surface noise introduces increasingly sharp features
+R243	supports Arg1:T400 Arg2:T399	
+T401	own_claim 39068 39129	we run another zero gravity simulation on a rectangular block
+T402	own_claim 39001 39040	Inspired by an example from the work of
+T403	data 39042 39066	Wojtan &amp; Turk [2008]
+T404	data 39135 39144	figure 11
+R244	supports Arg1:T403 Arg2:T402	
+R245	supports Arg1:T404 Arg2:T401	
+T405	data 39156 39306	our simulation does not use diffusive Laplacian mesh smoothing and applies accurate mesh-based surface tension forces discontinuously at the interface
+T406	own_claim 39308 39385	we retain substantially greater detail in the resulting capillary wave motion
+R246	supports Arg1:T405 Arg2:T406	
+T407	own_claim 39564 39665	our barycentric method is substantially less damped than the naıve barycentric interpolation approach
+T408	own_claim 39671 39731	matches the more complex generalized barycentric interpolant
+T409	data 39552 39561	figure 11
+R247	supports Arg1:T409 Arg2:T407	
+R248	supports Arg1:T409 Arg2:T408	
+T410	own_claim 41822 41865	Our implementation is not heavily optimized
+T411	own_claim 42166 42232	our Voronoi simulator is in many ways dual to a tetrahedral scheme
+T412	data 42238 42254	for a given mesh
+T413	own_claim 42255 42298	the number of velocity samples is identical
+R249	supports Arg1:T412 Arg2:T413	
+T414	own_claim 42316 42350	approximately comparable costs are
+T415	own_claim 42361 42381	reasonable to expect
+R250	parts_of_same Arg1:T415 Arg2:T414	
+T416	own_claim 42383 42551	The main contribution of this paper is the coupling of simulation elements to an existing explicit surface tracking method, and not the explicit surface tracking itself
+T417	own_claim 42564 42581	not all artifacts
+T418	data 42589 42605	surface tracking
+T419	own_claim 42606 42619	are addressed
+R251	parts_of_same Arg1:T419 Arg2:T417	
+R252	supports Arg1:T418 Arg2:T417	
+T420	own_claim 42634 42765	El Topo delays handling some very difficult collisions for a few timesteps until the topological operations can be safely processed
+T421	own_claim 42767 42824	which occasionally yields visible lingering surface noise
+R253	supports Arg1:T420 Arg2:T419	
+R254	supports Arg1:T420 Arg2:T421	
+T422	own_claim 42827 42907	Reducing the time step size can help by introducing fewer and simpler collisions
+T423	own_claim 42913 43001	more aggressive simplification can also be enabled by tuning the volume change tolerance
+T424	own_claim 43091 43136	the use of featurepreserving mesh improvement
+T425	own_claim 43188 43223	are still visible in our animations
+T426	own_claim 43138 43160	some popping artifacts
+R255	parts_of_same Arg1:T425 Arg2:T426	
+T427	data 43168 43187	onthe-fly remeshing
+R256	supports Arg1:T427 Arg2:T425	
+R257	supports Arg1:T424 Arg2:T423	
+T428	own_claim 43250 43301	its resolution is not constrained to a regular grid
+T429	own_claim 43306 43311	it is
+T430	own_claim 43322 43357	able to showcase very thin features
+R258	parts_of_same Arg1:T430 Arg2:T429	
+R259	supports Arg1:T428 Arg2:T429	
+T431	own_claim 43372 43431	our method could adapt to any of the front tracking methods
+T432	data 43445 43456	section 2.2
+R260	supports Arg1:T432 Arg2:T431	
+R261	contradicts Arg1:T431 Arg2:T430	
+T433	own_claim 43529 43617	Our goal in many of the other examples was to highlight the ability to track thin sheets
+T434	own_claim 43627 43681	surface tension would break these sheets into droplets
+R262	contradicts Arg1:T434 Arg2:T433	
+T435	own_claim 43693 43725	explicit surface tension schemes
+T436	data 43735 43782	the ghost-fluid-based method used in this paper
+T437	own_claim 43786 43854	suffer from a stringent O(∆x 2 ) time step restriction for stability
+R263	parts_of_same Arg1:T437 Arg2:T435	
+T438	own_claim 43856 43884	which is particularly costly
+T439	own_claim 43890 43948	small scale capillary waves are not erroneously damped out
+R264	supports Arg1:T436 Arg2:T435	
+R265	supports Arg1:T437 Arg2:T438	
+R266	supports Arg1:T439 Arg2:T437	
+T440	own_claim 43950 44045	Pursuing a more efficient, fully implicit surface tension model is a promising future direction
+T441	data 44135 44177	with careful placement of pressure samples
+T442	own_claim 44179 44333	our Voronoi mesh-based fluid solver makes it possible for explicit surface tracking to achieve its full potential in capturing small scale liquid features
+R267	supports Arg1:T441 Arg2:T442	
+T443	own_claim 44725 44790	it may be possible to enhance our sampling scheme in various ways
+T444	data 44800 44834	by exploiting curvature adaptivity
+T445	data 44836 44859	topological information
+T446	data 44864 44885	measures of vorticity
+T447	data 44890 44908	velocity variation
+R268	supports Arg1:T444 Arg2:T443	
+R269	supports Arg1:T445 Arg2:T443	
+R270	supports Arg1:T446 Arg2:T443	
+R271	supports Arg1:T447 Arg2:T443	
+T448	own_claim 45052 45132	many common extensions to basic inviscid liquid simulation rely on regular grids

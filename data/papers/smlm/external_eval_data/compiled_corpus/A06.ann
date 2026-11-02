@@ -1,0 +1,662 @@
+T1	background_claim 4129 4316	Animation of skin and muscular deformations of human characters and other living creatures has long been one of the most important applications of deformable modeling in computer graphics
+T2	background_claim 4457 4602	Realistic deformation is a complex and subtle phenomenon due to the tightly coupled interplay of bones and musculature governing the deformations
+T3	background_claim 4624 4690	there are three common approaches for modeling surface deformation
+T4	background_claim 4692 4708	purely kinematic
+T5	background_claim 4710 4723	example-based
+T6	background_claim 4728 4744	physically based
+R1	supports Arg1:T4 Arg2:T3	
+R2	supports Arg1:T5 Arg2:T3	
+R3	supports Arg1:T6 Arg2:T3	
+T7	background_claim 4746 4795	Purely algorithmic approaches for skeleton-driven
+T8	background_claim 4820 4843	and facial deformations
+T9	background_claim 4869 4882	are very fast
+T10	data 4798 4817	Kavan and Zara 2005
+T11	data 4845 4866	Pighin and Lewis 2006
+R4	supports Arg1:T10 Arg2:T7	
+R5	supports Arg1:T11 Arg2:T8	
+R6	parts_of_same Arg1:T8 Arg2:T7	
+R7	parts_of_same Arg1:T9 Arg2:T8	
+T12	background_claim 4888 4977	have difficulty in capturing realistic skin deformation in areas with multiple influences
+R8	contradicts Arg1:T12 Arg2:T9	
+T13	background_claim 4980 5095	Example-based approaches capture more realism by pose-space interpolation of desired skin shapes at different poses
+T14	data 5098 5127	Magnenat-Thalmann et al. 1988
+T15	data 5129 5151	Mohr and Gleicher 2003
+T16	data 5153 5168	Kry et al. 2002
+T17	data 5170 5187	Lewis et al. 2000
+R9	supports Arg1:T14 Arg2:T13	
+R10	supports Arg1:T15 Arg2:T13	
+R11	supports Arg1:T16 Arg2:T13	
+R12	supports Arg1:T17 Arg2:T13	
+T18	background_claim 5190 5229	Physically based deformation algorithms
+T19	background_claim 5295 5406	provide automatic means to achieve dynamic deformations under influence of external forces and inertial effects
+R13	parts_of_same Arg1:T19 Arg2:T18	
+T20	background_claim 5412 5446	are computationally more expensive
+R14	supports Arg1:T11 Arg2:T12	
+R15	supports Arg1:T10 Arg2:T12	
+R16	contradicts Arg1:T20 Arg2:T19	
+T21	data 5449 5469	Chadwick et al. 1989
+T22	data 5471 5490	Gourret et al. 1989
+T23	data 5492 5513	Chen and Zeltzer 1992
+T24	data 5515 5536	Scheepers et al. 1997
+T25	data 5538 5562	Wilhelms and Gelder 1997
+T26	data 5564 5583	Sifakis et al. 2005
+R17	supports Arg1:T21 Arg2:T20	
+R18	supports Arg1:T21 Arg2:T19	
+R19	supports Arg1:T22 Arg2:T20	
+R20	supports Arg1:T22 Arg2:T19	
+R21	supports Arg1:T23 Arg2:T20	
+R22	supports Arg1:T23 Arg2:T19	
+R23	supports Arg1:T24 Arg2:T20	
+R24	supports Arg1:T24 Arg2:T19	
+R25	supports Arg1:T25 Arg2:T20	
+R26	supports Arg1:T25 Arg2:T19	
+R27	supports Arg1:T26 Arg2:T20	
+T27	own_claim 5586 5693	Our approach seeks to bridge the gap between geometric examplebased methods and physically based approaches
+T28	own_claim 5695 5729	We introduce dynamic morph targets
+T29	own_claim 5851 5904	Dynamic morph targets rely on three key contributions
+T30	own_claim 5908 6054	A pose-space method for interpolation of simple elastic deformation models that allows the artist to author complex nonlinear deformation behavior
+T31	own_claim 6058 6166	A compact way of interpolating skin geometry, elastic forces, and their derivatives, all in a unified manner
+R28	supports Arg1:T30 Arg2:T29	
+R29	supports Arg1:T31 Arg2:T29	
+T32	own_claim 6239 6337	very efficient implementation that is linear in the number of coefficients of the force polynomial
+T33	own_claim 6170 6224	The extension of the method to support modal reduction
+R30	supports Arg1:T33 Arg2:T32	
+R31	supports Arg1:T32 Arg2:T29	
+T34	own_claim 6339 6412	The main advantages of our method over previous approaches are three-fold
+T35	own_claim 6414 6437	quality of deformations
+T36	own_claim 6439 6455	dynamic behavior
+T37	own_claim 6460 6484	computational efficiency
+R32	supports Arg1:T35 Arg2:T34	
+R33	supports Arg1:T36 Arg2:T34	
+R34	supports Arg1:T37 Arg2:T34	
+T38	own_claim 6495 6525	our method is physically based
+T39	own_claim 6527 6590	we avoid expensive modeling of musculature or tendon influences
+R35	contradicts Arg1:T39 Arg2:T38	
+T40	own_claim 6604 6786	rely on physical constitutive models of deformable material to minimize skin pinching artifacts and bypass complex rigging requirements that are common to purely geometric approaches
+R36	supports Arg1:T39 Arg2:T40	
+T41	own_claim 6788 6917	The use of such constitutive material models also enables response to external forces and inertial effects in dynamic simulations
+T42	background_claim 6952 7082	one is commonly restricted to linear or quasi-linear models that cannot model pose-dependent effects such as bulging and wrinkling
+T43	data 6926 6950	performance requirements
+R37	supports Arg1:T43 Arg2:T42	
+T44	own_claim 7093 7146	we guide dynamic simulations by dynamic morph targets
+R38	contradicts Arg1:T44 Arg2:T42	
+T45	background_claim 7434 7539	there has been an extensive collection of work in the area of surface deformation in the last few decades
+T46	background_claim 7387 7432	its immense importance in character animation
+R39	supports Arg1:T46 Arg2:T45	
+T47	background_claim 7547 7668	we will primarily focus on significant work related to control of surface deformation of kinematic and dynamic characters
+T48	background_claim 7694 7736	extensive surveys for other important work
+T49	data 7739 7762	Gibson and Mirtich 1997
+T50	data 7764 7782	Nealen et al. 2006
+R40	supports Arg1:T50 Arg2:T48	
+R41	supports Arg1:T49 Arg2:T48	
+T51	background_claim 7785 7857	Purely data-driven methods are an attractive choice for control purposes
+T52	background_claim 7862 7925	the input shapes provide guide examples of desired deformations
+R42	supports Arg1:T52 Arg2:T51	
+T53	background_claim 7955 8022	one simply interpolates between character poses in a large database
+T54	data 8025 8037	Maestri 2006
+R43	supports Arg1:T54 Arg2:T53	
+T55	background_claim 8040 8096	providing ample control of skin deformation to animators
+R44	supports Arg1:T53 Arg2:T55	
+T56	background_claim 8107 8170	many poses are required in the database to achieve good results
+R45	contradicts Arg1:T56 Arg2:T55	
+T57	background_claim 8172 8221	Purely data-driven methods lack a kinematic model
+T58	background_claim 8223 8286	making them of limited use for animation and dynamic simulation
+R46	supports Arg1:T57 Arg2:T58	
+T59	background_claim 8288 8315	Purely kinematic approaches
+T60	background_claim 8394 8491	model the deformation of the skin surface by linear blending of the animated bone transformations
+T61	data 8324 8353	skeletal-subspace deformation
+T62	data 8362 8391	Magnenat-Thalmann et al. 1988
+R47	supports Arg1:T61 Arg2:T59	
+R48	supports Arg1:T62 Arg2:T59	
+R49	parts_of_same Arg1:T60 Arg2:T59	
+T63	background_claim 8493 8507	This technique
+T64	background_claim 8546 8581	cannot capture complex deformations
+T65	background_claim 8586 8662	typically has problems deforming skin near joints due to collapsing geometry
+R50	parts_of_same Arg1:T63 Arg2:T64	
+T66	background_claim 8688 8776	the deformation is restricted to the subspace of the affine transformation of the joints
+R51	supports Arg1:T66 Arg2:T65	
+T67	background_claim 8779 8915	Different methods have been proposed to address the problems of linear blend skinning by inserting additional joints tuned from examples
+T68	data 8918 8940	Mohr and Gleicher 2003
+R52	supports Arg1:T68 Arg2:T67	
+T69	background_claim 8946 9002	employing blending of transformations instead of weights
+T70	data 9005 9024	Kavan and Zara 2005
+R53	supports Arg1:T70 Arg2:T69	
+T71	background_claim 9043 9104	Recent techniques have extended skinning to mesh deformations
+T72	data 9107 9127	James and Twigg 2005
+R54	supports Arg1:T72 Arg2:T71	
+T73	background_claim 9130 9179	motion capture data without a predefined skeleton
+T74	data 9182 9203	Park and Hodgins 2006
+R55	supports Arg1:T74 Arg2:T73	
+T75	background_claim 9209 9227	interactive models
+T76	data 9230 9245	Der et al. 2006
+R56	supports Arg1:T76 Arg2:T75	
+T77	background_claim 9306 9353	SSD does not permit direct sculpting or control
+T78	background_claim 9364 9400	artists have to tweak vertex weights
+T79	background_claim 9402 9466	giving SSD algorithms the reputation of being tedious to control
+R57	supports Arg1:T78 Arg2:T79	
+R58	supports Arg1:T77 Arg2:T78	
+T80	background_claim 9468 9556	The first work to add control in a kinematic approach is that of pose-space deformations
+T81	data 9559 9576	Lewis et al. 2000
+R59	supports Arg1:T81 Arg2:T80	
+T82	background_claim 9579 9726	PSD is a hybrid method that combines SSD with morphing and employs scattered data interpolation to compute non-linear skin corrections in posespace
+T83	background_claim 9728 9794	resulting in a kinematic model that also has artist-sculpted poses
+R60	supports Arg1:T82 Arg2:T83	
+T84	background_claim 9862 9892	PSD becomes memory inefficient
+T85	data 9801 9860	dealing with large pose-spaces that have many example poses
+R61	supports Arg1:T85 Arg2:T84	
+T86	background_claim 9900 9943	the large database of surface displacements
+R62	supports Arg1:T86 Arg2:T84	
+T87	background_claim 9945 10009	PSD can be extended to support per-vertex pose-space deformation
+T88	data 10019 10043	Kurihara and Miyata 2004
+T89	data 10045 10061	Rhee et al. 2006
+R63	supports Arg1:T89 Arg2:T87	
+R64	supports Arg1:T88 Arg2:T87	
+T90	background_claim 10065 10118	largely reducing the number of required example poses
+R65	supports Arg1:T87 Arg2:T90	
+T91	background_claim 10120 10140	The EigenSkin method
+T92	data 10143 10158	Kry et al. 2002
+R66	supports Arg1:T92 Arg2:T91	
+T93	background_claim 10161 10328	also provides a way to reduce per-vertex displacement memory footprint by computing an error-optimal set of eigenbases for approximating the original deformation model
+R67	parts_of_same Arg1:T93 Arg2:T91	
+T94	background_claim 10330 10350	Other recent methods
+T95	background_claim 10391 10502	learn example-based corrections on sparse points and assume that these corrections can be smoothly interpolated
+T96	data 10353 10370	Weber et al. 2007
+T97	data 10372 10388	Wang et al. 2007
+R68	supports Arg1:T96 Arg2:T94	
+R69	supports Arg1:T97 Arg2:T94	
+R70	parts_of_same Arg1:T95 Arg2:T94	
+T98	background_claim 10504 10614	Pose space deformation and related example-based methods allow for direct sculpting of geometric morph targets
+T99	background_claim 10620 10729	are purely kinematic approaches to (quasi-)static deformation, without reference to underlying forces or mass
+R71	contradicts Arg1:T99 Arg2:T98	
+T100	own_claim 10731 10951	Our method builds on the concept of pose-space deformation and applies it to pose-space interpolation of dynamic morph targets to achieve not only (quasi-)static deformations, but a fully dynamic model in time-pose-space
+T101	background_claim 10962 11063	physically based methods in graphics are based on biomechanical models of skin tissue and musculature
+T102	background_claim 11065 11149	In terms of efficiency versus accuracy, these methods fall into two broad categories
+T103	background_claim 11151 11200	The first category of algorithms aim for accuracy
+T104	background_claim 11354 11436	by simulating the actions of the individual muscles, bones and tendons in the skin
+T105	data 11203 11224	Chen and Zeltzer 1992
+T106	data 11226 11247	Scheepers et al. 1997
+T107	data 11249 11273	Wilhelms and Gelder 1997
+R72	supports Arg1:T105 Arg2:T103	
+R73	supports Arg1:T106 Arg2:T103	
+R74	supports Arg1:T107 Arg2:T103	
+T108	data 11275 11291	Koch et al. 1996
+T109	data 11293 11311	Zordan et al. 2004
+R75	supports Arg1:T108 Arg2:T103	
+R76	supports Arg1:T109 Arg2:T103	
+T110	data 11313 11332	Sifakis et al. 2005
+T111	data 11334 11351	Sueda et al. 2008
+R77	supports Arg1:T110 Arg2:T103	
+R78	supports Arg1:T111 Arg2:T103	
+R79	parts_of_same Arg1:T104 Arg2:T103	
+R80	supports Arg1:T103 Arg2:T102	
+T112	background_claim 11438 11508	Interactive physically based approaches trade accuracy for performance
+R81	supports Arg1:T112 Arg2:T102	
+T113	data 11511 11534	Terzopoulos et al. 1987
+R82	supports Arg1:T113 Arg2:T112	
+T114	data 11536 11563	Terzopoulos and Witkin 1988
+R83	supports Arg1:T114 Arg2:T112	
+T115	data 11565 11593	Metaxas and Terzopoulos 1992
+R84	supports Arg1:T115 Arg2:T112	
+T116	data 11595 11616	Picinbono et al. 2001
+R85	supports Arg1:T116 Arg2:T112	
+T117	data 11618 11636	Capell et al. 2002
+R86	supports Arg1:T117 Arg2:T112	
+T118	data 11638 11659	Müller and Gross 2004
+R87	supports Arg1:T118 Arg2:T112	
+T119	data 11661 11680	Galoppo et al. 2007
+R88	supports Arg1:T119 Arg2:T112	
+T120	background_claim 11683 11812	These methods use simplified (quasi-)linear elastic models that cannot capture complex non-linear behavior such as muscle bulging
+T121	background_claim 11814 11895	Physically based methods can only provide control through the influence of forces
+T122	background_claim 11903 11977	methods that control global deformation modes have been around for a while
+T123	data 11980 12001	Witkin and Welch 1990
+R89	supports Arg1:T123 Arg2:T122	
+T124	background_claim 12004 12138	providing control of sculpted deformations for simulation of deformable models has only recently caught attention in graphics research
+T125	background_claim 12140 12190	A method for physically based rigging was proposed
+T126	data 12196 12214	Capell et al. 2005
+R90	supports Arg1:T126 Arg2:T125	
+T127	background_claim 12217 12280	using pose-dependent forces to guide the shape of the character
+R91	parts_of_same Arg1:T127 Arg2:T125	
+T128	background_claim 12309 12374	their approach does not support pose-dependent elastic properties
+T129	background_claim 12379 12461	its performance is highly dependent on the resolution of the sculpted deformations
+T130	background_claim 12490 12554	shape keyframes can be used to retarget the elastic deformations
+T131	data 12464 12488	Given an input animation
+R92	supports Arg1:T131 Arg2:T130	
+T132	data 12557 12574	Kondo et al. 2005
+R93	supports Arg1:T132 Arg2:T130	
+T133	background_claim 12576 12674	or to enhance the surface deformations with physically simulated detail using subspace constraints
+R94	parts_of_same Arg1:T133 Arg2:T130	
+T134	data 12677 12695	Bergou et al. 2007
+R95	supports Arg1:T134 Arg2:T133	
+T135	background_claim 12698 12740	The former provides good control of shapes
+T136	background_claim 12745 12785	is restricted to a given input animation
+R96	contradicts Arg1:T136 Arg2:T135	
+T137	background_claim 12793 12842	the latter achieves rich secondary surface detail
+T138	background_claim 12847 12898	does not provide direct manipulation of the surface
+R97	contradicts Arg1:T138 Arg2:T137	
+T139	own_claim 12900 13049	Our method provides the ability to sculpt the dynamic morph targets directly and produces a dynamic model that is not restricted to a given animation
+T140	own_claim 13051 13140	our model can be plugged into any simulated environment and be subject to external forces
+T141	background_claim 13143 13233	Modal reduction has proven useful to increase performance in posespace deformation methods
+T142	data 13236 13251	Kry et al. 2002
+R98	supports Arg1:T142 Arg2:T141	
+T143	background_claim 13253 13291	as well as in physically based methods
+T144	data 13294 13312	Hauser et al. 2003
+T145	data 13314 13330	Choi and Ko 2005
+R99	supports Arg1:T144 Arg2:T143	
+R100	supports Arg1:T145 Arg2:T143	
+T146	own_claim 13333 13364	Our work exploits the technique
+T147	own_claim 13393 13465	that enables fast modal integration of St.Venant-Kirchoff elastic forces
+T148	data 13370 13391	Barbic and James 2005
+R101	supports Arg1:T148 Arg2:T146	
+T149	background_claim 13473 13577	the performance depends mainly on the number of simulated eigenmodes, not on the resolution of the model
+R102	parts_of_same Arg1:T146 Arg2:T147	
+T150	own_claim 13579 13648	This technique makes our approach suitable for real-time applications
+T151	own_claim 13680 13775	our method is the first to provide shape and surface behavior control of dynamic reduced models
+R103	supports Arg1:T148 Arg2:T149	
+T152	own_claim 13836 14028	The goal of our method is to simulate controllable non-linear deformations by interpolation of dynamic morph targets at runtime, kindred to geometric morph targets in static character modeling
+T153	own_claim 14118 14224	they can be used to simulate a pose-dependent elastic model that is fast enough for real-time applications
+T154	own_claim 14290 14351	Dynamic morph targets define pose-specific soft skin behavior
+T155	own_claim 14368 14418	they are pairs of elastic models E i and poses s i
+T156	own_claim 14514 14596	dynamic morph targets associate surface and volume deformation with character pose
+T157	own_claim 14638 14739	dynamic morph targets also define pose-specific elastic properties including stiffness and plasticity
+T158	own_claim 14741 14832	The combination of surface deformation and elastic properties defines the elastic model E i
+T159	own_claim 14952 15020	the concept of pose can easily be extended beyond the skeletal sense
+T160	own_claim 14909 14946	our implementation uses skeletal pose
+R104	contradicts Arg1:T159 Arg2:T160	
+T161	own_claim 15030 15076	any notion of state of a character can be used
+T162	data 15086 15101	emotional state
+T163	data 15103 15117	velocity state
+T164	data 15119 15132	contact state
+T165	data 15137 15154	muscle activation
+R105	supports Arg1:T159 Arg2:T161	
+R106	supports Arg1:T162 Arg2:T161	
+R107	supports Arg1:T163 Arg2:T161	
+R108	supports Arg1:T164 Arg2:T161	
+R109	supports Arg1:T165 Arg2:T161	
+T166	own_claim 15156 15229	Dynamic morph targets can easily be created in existing modeling packages
+T167	own_claim 15343 15450	of the character and sculpts desired deformations that cannot be captured with traditional skinning methods
+T168	own_claim 15281 15315	A modeler defines a set of m poses
+T169	data 15453 15472	Kavan and Zara 2005
+T170	data 15474 15502	MagnenatThalmann et al. 1988
+R110	parts_of_same Arg1:T167 Arg2:T168	
+R111	supports Arg1:T170 Arg2:T167	
+R112	supports Arg1:T169 Arg2:T167	
+T171	own_claim 15505 15553	Elastic properties can be assigned for each pose
+T172	own_claim 15565 15648	the same skin section can be defined stiff for one pose and flabby for another pose
+R113	supports Arg1:T171 Arg2:T172	
+T173	own_claim 15735 15884	Dynamic characters enhanced with dynamic morph targets can react to external forces just as with other common physically based deformation algorithms
+T174	own_claim 15890 15991	they also expose non-linear deformations and elastic behavior as imposed by the dynamic morph targets
+R114	contradicts Arg1:T174 Arg2:T173	
+T175	own_claim 16073 16151	Dynamic morph targets are used to build a pose-dependent elastic model E(x, s)
+T176	own_claim 16182 16335	an elastic model can be defined as a material function E(u(x)) defining the internal elastic energy at material points x in function of the deformation u
+T177	data 16157 16180	hyper-elastic materials
+R115	supports Arg1:T177 Arg2:T176	
+T178	own_claim 16434 16533	we choose to express elastic deformation in the skeletal bind pose as has been proposed in the past
+T179	data 16536 16553	Lewis et al. 2000
+T180	data 16555 16570	Kry et al. 2002
+T181	data 16572 16591	Galoppo et al. 2007
+R116	supports Arg1:T179 Arg2:T178	
+R117	supports Arg1:T180 Arg2:T178	
+R118	supports Arg1:T181 Arg2:T178	
+T182	own_claim 16613 16741	it is certainly possible to use other formulations of elastic strain to define a pose-dependent model with dynamic morph targets
+R119	contradicts Arg1:T182 Arg2:T178	
+T183	background_claim 16743 16874	Traditionally, the elastic energy is a pose-independent material potential that causes internal elastic forces R(u) in the material
+T184	own_claim 16876 16996	We create a pose-dependent elastic model by taking into account the dynamic morph targets {E i , s i } as example inputs
+R120	contradicts Arg1:T184 Arg2:T183	
+T185	own_claim 17258 17464	Without loss of generality, we can use the finite element method to discretize the partial differential equations of solid continuum mechanics in space, leading to the common Euler-Lagrange motion equations
+T186	own_claim 17758 17873	The computation of pose-dependent elastic forces R(u, s) requires the interpolation of pose-specific forces R i (u)
+T187	own_claim 17890 17944	forces are a function of the timevarying deformation u
+T188	own_claim 17946 18015	they cannot simply be evaluated once and then interpolated at runtime
+R121	supports Arg1:T187 Arg2:T188	
+R122	contradicts Arg1:T188 Arg2:T186	
+T189	own_claim 18032 18167	we have opted for elastic models for which R i (u) can be expressed as a (multivariate) polynomial function of the degrees of freedom u
+T190	background_claim 18269 18367	Common examples of such elastic models are the so-called ‘completely linear’ FEM deformation model
+T191	own_claim 18169 18266	Then, the interpolation of elastic models reduces to the interpolation of polynomial coefficients
+T192	data 18405 18426	Müller and Gross 2004
+R123	supports Arg1:T192 Arg2:T190	
+T193	background_claim 18433 18478	the ’seminon-linear’ St.Venant-Kirchoff model
+T194	data 18488 18509	Barbic and James 2005
+T195	data 18511 18529	Capell et al. 2005
+R124	supports Arg1:T194 Arg2:T193	
+R125	supports Arg1:T195 Arg2:T193	
+T196	own_claim 18532 18614	We have simulated our examples with both linear and semi-non-linear elastic models
+T197	own_claim 18633 18681	we express deformation in the skeletal bind pose
+T198	own_claim 18683 18778	we did not see any noticeable quality difference between both elastic models in our experiments
+R126	supports Arg1:T197 Arg2:T198	
+R127	contradicts Arg1:T198 Arg2:T196	
+T199	own_claim 18791 18909	we have opted for the more efficient linear elasticity to produce most of the images and videos unless otherwise noted
+R128	supports Arg1:T198 Arg2:T199	
+T200	data 18915 18924	Section 5
+R129	supports Arg1:T200 Arg2:T199	
+T201	own_claim 18955 19013	both models are amenable to modal reduction for efficiency
+T202	data 18930 18941	Section 3.4
+R130	supports Arg1:T202 Arg2:T201	
+T203	own_claim 19463 19593	The interpolation of polynomial coefficients yields the interpolation of force values R(u, s) at all possible deformation values u
+T204	own_claim 19604 19657	it also yields the interpolation of force derivatives
+T205	data 19667 19695	the ∂R(u,s) stiffness matrix
+R131	supports Arg1:T205 Arg2:T204	
+R132	contradicts Arg1:T204 Arg2:T203	
+T206	own_claim 19698 19782	One subtle detail remains for defining a ∂u complete interpolation of elastic models
+T207	own_claim 19784 19842	The rest configuration at each input pose may be different
+T208	own_claim 19854 19906	the deformation u may not be consistent across poses
+R133	supports Arg1:T207 Arg2:T208	
+R134	supports Arg1:T208 Arg2:T206	
+T209	own_claim 20054 20176	The addition of this term simply modifies the coefficients of the force polynomials, which can then be safely interpolated
+T210	own_claim 20181 20245	all deformations are expressed w.r.t. a consistent configuration
+R135	supports Arg1:T210 Arg2:T209	
+T211	own_claim 20413 20449	a pose can be described in many ways
+T212	data 20462 20524	it provides a description of the state of a model or character
+T213	data 20530 20573	a metric to measure distances between poses
+R136	supports Arg1:T212 Arg2:T211	
+R137	supports Arg1:T213 Arg2:T211	
+T214	own_claim 22381 22455	its elastic model should approximate the elastic models of the input poses
+T215	data 22317 22379	an articulated character moves between observed configurations
+R138	supports Arg1:T215 Arg2:T214	
+T216	own_claim 22486 22553	we are looking for a way to interpolate internal elastic forces R i
+T217	data 22473 22484	Section 3.2
+R139	supports Arg1:T217 Arg2:T216	
+T218	data 22570 22616	the character moves from one pose to the other
+T219	own_claim 22618 22681	the internal forces change continuously but highly non-linearly
+R140	supports Arg1:T218 Arg2:T219	
+T220	own_claim 22699 22758	elastic forces form a non-linear smooth field in pose-space
+T221	background_claim 22760 22781	Radial base functions
+T222	background_claim 22802 22903	are a common choice for interpolating scattered data of an underlying smooth field that is non-linear
+T223	data 22783 22794	Powell 1987
+R141	supports Arg1:T223 Arg2:T221	
+R142	parts_of_same Arg1:T222 Arg2:T221	
+T224	own_claim 22975 22990	RBFs are suited
+T225	background_claim 22999 23041	they work well with sparse input data sets
+R143	supports Arg1:T225 Arg2:T224	
+T226	data 22918 22973	our goal is to have as few input models E i as possible
+R144	supports Arg1:T226 Arg2:T224	
+T227	background_claim 23043 23143	RBFs extend easily to high dimensional domains, enabling the capture of multi-joint coupling effects
+T228	own_claim 23174 23284	we can determine the pose-dependent elastic forces R(u, s) by computing the polynomial coefficient vector a(s)
+T229	data 23161 23172	Section 3.2
+R145	supports Arg1:T229 Arg2:T228	
+T230	own_claim 23286 23359	Using RBFs, the interpolated coefficient vector is computed at runtime as
+T231	own_claim 23393 23429	a(s) = X w j φ( s − s j ) + Q(s) j=1
+R146	parts_of_same Arg1:T231 Arg2:T230	
+T232	own_claim 23515 23583	it was sufficient to use a constant vector Q for the polynomial Q(s)
+T233	own_claim 23585 23655	We also employed the globally supported biharmonic RBF kernel φ(r) = r
+T234	background_claim 23663 23794	its optimal fairness allows for smoother interpolation of sparsely scattered example poses as compared to locally supported kernels
+R147	supports Arg1:T234 Arg2:T233	
+T235	data 23797 23813	Carr et al. 2001
+R148	supports Arg1:T235 Arg2:T234	
+T236	own_claim 23835 23860	locally supported kernels
+T237	own_claim 23893 24003	are harder to tune and are unable to extrapolate across dynamic morph targets that are far apart in pose-space
+R149	parts_of_same Arg1:T237 Arg2:T236	
+T238	data 23869 23892	the Gaussian RBF kernel
+R150	supports Arg1:T238 Arg2:T236	
+T239	own_claim 24005 24035	We also use the smoothing term
+T240	own_claim 24062 24128	to achieve smoother behavior across large gaps between input poses
+T241	data 24043 24059	Carr et al. 2001
+R151	supports Arg1:T241 Arg2:T239	
+R152	parts_of_same Arg1:T240 Arg2:T239	
+T242	own_claim 24130 24202	The RBF weight vectors w j are given by the solution of m linear systems
+T243	own_claim 24265 24316	a(s i ) = a i = X w j φ( s i − s j ) + Q(s i ). j=1
+R153	parts_of_same Arg1:T243 Arg2:T242	
+T244	own_claim 24334 24433	The combination of these m linear systems provides m vectorial equations with m vector unknowns w j
+T245	own_claim 24436 24481	plus the additional constant unknown vector Q
+T246	data 24494 24521	choosing a constant polyno-
+T247	data 24600 24604	mial
+R154	parts_of_same Arg1:T247 Arg2:T246	
+R155	supports Arg1:T246 Arg2:T245	
+T248	own_claim 24607 24645	The combined system is underdetermined
+T249	own_claim 24701 24773	it can be solved by imposing orthogonality conditions on the weights w i
+T250	data 24647 24694	m + 1 vector unknowns for m vectorial equations
+R156	supports Arg1:T250 Arg2:T248	
+R157	contradicts Arg1:T249 Arg2:T248	
+T251	data 24776 24792	Carr et al. 2001
+R158	supports Arg1:T251 Arg2:T249	
+T252	own_claim 24795 24943	In order to avoid redundancy in the pose descriptors s i , and to guarantee that Eqn. (3) is not singular, we perform a principal component analysis
+T253	own_claim 24967 25003	on the set of input pose descriptors
+T254	data 24946 24965	Golub and Loan 1996
+R159	supports Arg1:T254 Arg2:T252	
+R160	parts_of_same Arg1:T253 Arg2:T252	
+T255	own_claim 25005 25157	By selecting modes with non-zero or large eigenvalues only, we reduce the dimension of s and define a mapping to the reduced pose descriptor s = U T s s
+T256	own_claim 25256 25328	Modal reduction of the pose descriptors is very effective for robustness
+T257	own_claim 25334 25348	is also useful
+T258	data 25354 25397	our method is used for facilitating rigging
+R161	supports Arg1:T258 Arg2:T257	
+T259	own_claim 25470 25616	the skin is under influence of many bones for which the skinbone relationships cannot easily be determined by a human rigger or technical director
+T260	own_claim 25399 25442	In highly complex areas of skin deformation
+T261	data 25451 25468	the shoulder area
+R162	supports Arg1:T261 Arg2:T260	
+R163	parts_of_same Arg1:T260 Arg2:T259	
+T262	own_claim 25618 25721	Our system can automatically deduce these relationships and reduce them to only a few significant modes
+T263	own_claim 25761 25869	we can compute the elastic ∂R(u,s) forces R(u, s) and their Jacobian for implicit integration ∂u of Eqn. (1)
+T264	own_claim 25723 25733	At runtime
+T265	data 25741 25759	a(s) from Eqn. (2)
+R164	supports Arg1:T265 Arg2:T263	
+R165	parts_of_same Arg1:T264 Arg2:T263	
+T266	data 25893 25954	the large number of coefficients that need to be interpolated
+T267	own_claim 25956 25999	the evaluation of Eqn. (2) is rather costly
+R166	supports Arg1:T266 Arg2:T267	
+T268	own_claim 26001 26154	The number of coefficients is proportional to the number of nodes n in the finite element mesh for linear elastic models, and O(S 3 n) for StVK materials
+T269	own_claim 26224 26456	we propose a way to increase performance and to reduce the dependency on the resolution of the input geometry by reducing the number of degrees of freedom, while still maintaining the non-linear behavior defined by the morph targets
+T270	own_claim 26458 26578	We use a reduced model u = Uq to enable dynamic simulation that is independent from the input resolution of the geometry
+T271	own_claim 26620 26660	the ODE in Eqn. (1), is transformed into
+T272	own_claim 26732 26772	q + D(q,  ̃ q,  ̇ s) + R(q,  ̃ s) =  ̃ f
+R167	parts_of_same Arg1:T271 Arg2:T272	
+T273	data 26586 26618	mass-orthogonal basis U T MU = I
+R168	supports Arg1:T273 Arg2:T271	
+T274	own_claim 26976 27031	one can form the dense reduced tangent stiffness matrix
+T275	own_claim 27064 27110	∂ R(q,  ̃ s) = U T ∂R(Uq, s) U ∈ R (r,r) ∂q ∂q
+R169	parts_of_same Arg1:T275 Arg2:T274	
+T276	own_claim 27203 27293	it can be shown that the reduced forces are still (multivariate) polynomial elastic forces
+T277	data 27133 27201	applying model reduction to (multivariate) polynomial elastic forces
+R170	supports Arg1:T277 Arg2:T276	
+T278	own_claim 27310 27413	reduced ‘completely-linear’ elastic forces are linear polynomials in terms of the reduced coordinates q
+T279	data 27420 27441	Barbic and James 2005
+T280	background_claim 27458 27582	StVK internal forces and tangent stiffness matrices are multivariate cubic polynomials that can be evaluated in Θ(r 4 ) time
+T281	background_claim 27638 27762	by simply evaluating polynomials in terms of the reduced coordinates q: R(q)  ̃ = P i q i + Q ij q i q j + S ijk q i q j q k
+T282	background_claim 27768 27844	∂ R(q)  ̃ l li il lij ilj ijl = P + (Q + Q )q i + (S + S + S )q i q j , ∂q l
+R171	parts_of_same Arg1:T281 Arg2:T280	
+R172	parts_of_same Arg1:T282 Arg2:T281	
+R173	supports Arg1:T279 Arg2:T280	
+T283	own_claim 27988 28034	The polynomial coefficients can be precomputed
+T284	data 28042 28059	the rest pose p i
+R174	supports Arg1:T284 Arg2:T283	
+T285	own_claim 28084 28121	the Q ij and S ijk terms are all zero
+T286	data 28066 28082	linear materials
+R175	supports Arg1:T286 Arg2:T285	
+T287	own_claim 28123 28176	We can now combine scattered polynomial interpolation
+T288	own_claim 28194 28301	with the reduced motion equations by concatenating the reduced coefficients into a = [ P i ; Q ij ; S ijk ]
+R176	parts_of_same Arg1:T288 Arg2:T287	
+T289	own_claim 28327 28475	each dynamic morph target defines a set of coefficients a i which can then be used to set up an interpolator for the posedependent coefficients a(s)
+T290	own_claim 28477 28557	This then yields all the necessary information to compute R(q,  ̃ s) in Eqn. (5)
+R177	supports Arg1:T289 Arg2:T290	
+T291	own_claim 28578 28693	the number of reduced modes r is typically many orders of magnitude smaller than the number of vertices of the mesh
+T292	own_claim 28695 28780	the cost of evaluating Eqn. (2) is significantly smaller than in the non-reduced case
+R178	supports Arg1:T291 Arg2:T292	
+T293	own_claim 28856 29055	The reduced equations of motion Eqn. (4) can be solved using a reduced implicit Newmark Solver, employing the aforementioned internal forces and tangent stiffness matrices evaluated at each time step
+T294	own_claim 29086 29235	an artist begins by modeling the base model surface and a skeleton with associated SSD skinning weights, and defines a set of geometric morph targets
+T295	data 29073 29084	Section 3.1
+R179	supports Arg1:T295 Arg2:T294	
+T296	own_claim 29237 29370	Using vertex painting, he can then assign stiffness parameters such as Young’s modulus and Poisson ratio to certain parts of the skin
+T297	data 30084 30130	the new internal node positions are determined
+T298	own_claim 30132 30272	the morph target’s position offsets ∆u from the base mesh are computed and the force polynomials a i associated with R i (u) are precomputed
+T299	data 30278 30286	Eqn. (3)
+R180	supports Arg1:T297 Arg2:T298	
+R181	supports Arg1:T299 Arg2:T298	
+T300	data 30288 30308	Sections 3.2 and 3.4
+R182	supports Arg1:T300 Arg2:T298	
+T301	own_claim 30339 30375	a modal subspace is also constructed
+T302	data 30315 30337	reduced elastic models
+R183	supports Arg1:T302 Arg2:T301	
+T303	data 30377 30386	Section 4
+R184	supports Arg1:T303 Arg2:T301	
+T304	own_claim 30418 30588	At runtime, the final positions of the material points are computed as the combination of linear blend skinning and elastic deformation computed in the skeletal bind pose
+T305	own_claim 30590 30681	We also account for the inertial forces caused by the moving coordinate frames of the bones
+T306	data 30684 30703	Galoppo et al. 2007
+R185	supports Arg1:T306 Arg2:T305	
+T307	own_claim 30720 30801	we conceptually constrain the material points that are attached to internal bones
+T308	own_claim 30803 30925	This can be achieved by removing the elastic degrees of freedom that are associated with corresponding internal mesh nodes
+R186	supports Arg1:T308 Arg2:T307	
+T309	own_claim 30934 31042	the positions of these points are then completely governed by the linear blend skinning transformations only
+R187	supports Arg1:T308 Arg2:T309	
+T310	own_claim 31044 31184	We remove these degrees of freedom in our preprocessing step by identifying tetrahedral mesh elements that are intersected by skeletal bones
+T311	own_claim 31186 31256	Degrees of freedom that are associated with these elements are removed
+T312	own_claim 31300 31347	unless they lie on the model’s boundary surface
+R188	parts_of_same Arg1:T312 Arg2:T311	
+T313	own_claim 31977 32074	which provides the best deformation basis for small deformations away from the rest configuration
+T314	own_claim 31899 31969	For each of the dynamic morph targets, we employ linear modal analysis
+R189	parts_of_same Arg1:T313 Arg2:T314	
+T315	own_claim 32653 32706	at this point, one could easily add modal derivatives
+T316	data 32715 32736	Barbic and James 2005
+R190	supports Arg1:T316 Arg2:T315	
+T317	own_claim 32829 32898	We have taken into account three requirements when choosing the basis
+T318	data 32911 33004	Avoid redundancy in the basis set, i.e. find an orthogonal set that is as compact as possible
+T319	data 33009 33093	The characteristic deformations of all the morph targets have to be well represented
+R191	supports Arg1:T318 Arg2:T317	
+R192	supports Arg1:T319 Arg2:T317	
+T320	data 33098 33206	The input deformations of each of the dynamic morph targets have to be well represented in the reduced space
+R193	supports Arg1:T320 Arg2:T317	
+T321	own_claim 33336 33465	The most straight forward approach is to combine all eigenvectors together as U = ˆ U 1 U 2 . . . U m  ̃ , and orthogonalize them
+T322	own_claim 33467 33509	each set of eigenvectors U p is orthogonal
+T323	own_claim 33515 33558	eigenvectors between different sets are not
+R194	contradicts Arg1:T323 Arg2:T322	
+T324	own_claim 33561 33611	This approach takes care of the second requirement
+T325	own_claim 33617 33709	results in a large set of eigenmodes with relatively small contributions for many eigenmodes
+T326	own_claim 33719 33757	all the common first deformation modes
+T327	data 33776 33781	shear
+T328	data 33767 33774	stretch
+T329	own_claim 33791 33825	are represented in each of the U i
+R195	contradicts Arg1:T325 Arg2:T324	
+R196	supports Arg1:T326 Arg2:T325	
+R197	supports Arg1:T328 Arg2:T326	
+R198	supports Arg1:T327 Arg2:T326	
+R199	parts_of_same Arg1:T329 Arg2:T326	
+T330	own_claim 33873 33944	we can construct a low-dimensional motion subspace by applying mass-PCA
+T331	data 33849 33870	Barbic and James 2005
+R200	supports Arg1:T331 Arg2:T330	
+T332	own_claim 33946 34033	We scale the derivatives according to the eigenvalues of the corresponding linear modes
+T333	own_claim 34043 34133	we obtain the low-dimensional deformation basis by applying mass-PCA on the set of vectors
+T334	own_claim 34176 34236	{ λ λ i 1 j i U j i | i = 1, . . . , m; j = 1, . . . , k i }
+R201	parts_of_same Arg1:T334 Arg2:T333	
+T335	own_claim 34318 34458	Scaling is necessary to put greater weight on the more important low-frequency modes, which would otherwise be masked by highfrequency modes
+T336	own_claim 34523 34679	we can adapt the normalization factor such that the eigenvectors are normalized across morph targets, by replacing the scaling factor by λ λ i 1 i λ i . k j
+T337	data 34468 34521	the eigenmodes in different poses show large variance
+R202	supports Arg1:T337 Arg2:T336	
+T338	own_claim 34689 34913	to make the basis aware of the morph targets, we add m − 1 rest pose deformations {x 0 p |i = 2, . . . , m} to the set U and remass-orthogonalize the set {U i } ∪ {x 0 p } into the final basis U ∈ R 3n×r with r = (r + m − 1)
+T339	data 34915 34923	Figure 3
+R203	supports Arg1:T339 Arg2:T338	
+T340	own_claim 35457 35709	By using pose-space efficient polynomial interpolation to achieve pose-dependent behavior, we are able to demonstrate rich nonlinear deformation effects at relatively small extra cost compared to simple simulation of linear or semi-non-linear materials
+T341	own_claim 35711 35774	We have performed experiments with three different input models
+T342	data 35776 35814	a simple bulging cylinder with 4 bones
+T343	data 35820 35826	Fig. 2
+R204	supports Arg1:T342 Arg2:T341	
+R205	supports Arg1:T343 Arg2:T341	
+T344	data 35830 35859	a shoulder model with 4 bones
+R206	supports Arg1:T344 Arg2:T341	
+T345	data 35865 35906	Herbert, our swimsuit model with 46 bones
+R207	supports Arg1:T345 Arg2:T341	
+T346	own_claim 36578 36651	model, we qualitatively compare simulations with different elastic models
+T347	own_claim 35908 35916	For each
+R208	parts_of_same Arg1:T346 Arg2:T347	
+T348	own_claim 36842 36899	For the Herbert simulations, we used only 3 morph targets
+T349	data 36916 36922	Fig. 1
+R209	supports Arg1:T349 Arg2:T348	
+T350	own_claim 37265 37325	the single elastic model shows little or no dynamic behavior
+T351	own_claim 37327 37446	our pose-dependent elastic model adds a dramatic amount of realism due to the bulging behavior and inertial skin motion
+R210	contradicts Arg1:T351 Arg2:T350	
+T352	own_claim 37643 37719	we show the advantage of our pose-dependent model from an artistic viewpoint
+T353	data 37575 37641	Herbert jumps off a diving board and flips through different poses
+R211	supports Arg1:T353 Arg2:T352	
+T354	own_claim 37454 37538	we drive the skinned Herbert model with a skeletal animation and add inertial forces
+T355	data 37546 37570	the bone’s moving frames
+R212	supports Arg1:T355 Arg2:T354	
+T356	own_claim 37721 37812	With single elastic models, the belly is flabby and skinny throughout the entire simulation
+T357	own_claim 37814 37981	Using the aforementioned morph targets for Herbert, an animator can impose a stiff, bulged belly in balled-up poses, and softer, skinny belly behavior in upright poses
+T358	own_claim 38145 38288	the use of reduced models in our method achieves the same quality of desired deformations as the computationally more expensive unreduced model
+T359	data 38128 38134	Fig. 4
+R213	supports Arg1:T359 Arg2:T358	
+T360	own_claim 38305 38406	Our method also provides a physically-based approach to resolving regions affected by multiple joints
+T361	data 38416 38430	a shoulder rig
+R214	supports Arg1:T361 Arg2:T360	
+T362	own_claim 38432 38472	Our approach facilitates complex rigging
+T363	own_claim 38474 38482	a set of
+T364	own_claim 39445 39547	skinning weights and a set of morph targets are sufficient to simulate complex co-articulation effects
+R215	parts_of_same Arg1:T364 Arg2:T363	
+R216	supports Arg1:T363 Arg2:T362	
+T365	own_claim 39549 39678	There is no need for manual tweaking of the complex mapping of joint configuration to blending weights of geometric morph targets
+T366	own_claim 39680 39728	In our shoulder example, we have 6 morph targets
+T367	data 39739 39748	Fig. 5(a)
+R217	supports Arg1:T367 Arg2:T366	
+T368	own_claim 39751 39887	The shoulder example also demonstrates our method’s ability to simulate dynamic behavior at poses away from the morph target input poses
+T369	data 39890 39896	Fig. 5
+R218	supports Arg1:T369 Arg2:T368	
+T370	own_claim 39900 39970	The input morph target set contains only one example of a folded elbow
+T371	own_claim 39975 40035	we show two distinct folding scenarios in the full animation
+R219	contradicts Arg1:T371 Arg2:T370	
+T372	own_claim 40037 40126	Both folding scenarios show severe self-intersection in the single pose-independent model
+T373	data 40134 40169	the effect of linear blend skinning
+R220	supports Arg1:T373 Arg2:T372	
+T374	own_claim 40171 40223	Our pose-dependent model resolves both automatically
+T375	own_claim 40225 40232	Another
+T376	own_claim 40312 40414	interesting co-articulation effect is the motion of the chest muscle as the arm makes a folding motion
+R221	parts_of_same Arg1:T376 Arg2:T375	
+T377	data 40420 40425	video
+R222	supports Arg1:T377 Arg2:T376	
+T378	own_claim 40436 40489	the chest seems to collapse for single elastic models
+T379	own_claim 40491 40535	it bulges more realistically with our method
+R223	contradicts Arg1:T379 Arg2:T378	
+T380	own_claim 40585 40691	After modal reduction, we were able to accelerate the simulation significantly by using only 19 eigenmodes
+T381	data 40694 40701	Table 1
+T382	own_claim 40704 40759	with almost no visible effect on the simulation quality
+R224	supports Arg1:T381 Arg2:T380	
+R225	parts_of_same Arg1:T382 Arg2:T380	
+T383	data 40762 40768	Fig. 5
+R226	supports Arg1:T383 Arg2:T382	
+T384	own_claim 41163 41208	All our methods achieve real-time performance
+T385	own_claim 41216 41357	efficient pose-space interpolation of low-complexity linear elastic forces and modal reduction of either linear or semi-nonlinear StVK forces
+R227	supports Arg1:T385 Arg2:T384	
+T386	own_claim 41476 41517	our method has only a marginal extra cost
+T387	data 41463 41470	Table 1
+T388	data 41359 41444	Comparing our method with the performance of single (pose-independent) elastic models
+R228	supports Arg1:T387 Arg2:T386	
+R229	supports Arg1:T388 Arg2:T386	
+T389	own_claim 41526 41595	efficient polynomial interpolation of the dynamic morph target models
+R230	supports Arg1:T389 Arg2:T386	
+T390	own_claim 41606 41734	precomputation of the force polynomial coefficients in Eqn. (7) can be significant in case of StVK models, but never prohibitive
+T391	own_claim 41829 41926	The quality of the output animation depends on the quality and number of the artist’s input poses
+T392	own_claim 41928 42014	Too few input poses can cause slight popping of the animation towards the input shapes
+T393	own_claim 42019 42097	the simulation of the pose-dependent elastic model will be stable nevertheless
+R231	contradicts Arg1:T393 Arg2:T392	
+R232	supports Arg1:T392 Arg2:T391	
+T394	own_claim 42110 42175	stable results can be achieved with little effort from the artist
+T395	own_claim 42180 42282	poses can then be added incrementally to areas of the posespace where the behavior is not satisfactory
+R233	supports Arg1:T393 Arg2:T394	
+T396	own_claim 42284 42376	The effect of the number of poses on the run-time performance of the algorithm is very small
+T397	own_claim 42380 42448	it doesn’t affect the number of degrees of freedom in the simulation
+R234	supports Arg1:T397 Arg2:T396	
+T398	data 42454 42497	comparison 6 vs. 9 shoulder DMTs in Table 1
+R235	supports Arg1:T398 Arg2:T397	
+T399	own_claim 42501 42596	Only the cost of the RBF interpolation in Eq. (2) is affected linearly in the number of poses m
+T400	own_claim 42634 42699	geometric morph targets enable control of non-linear deformations
+T401	own_claim 42701 42798	these deformations are purely static and cannot react to external forces in a physical simulation
+R236	contradicts Arg1:T401 Arg2:T400	
+T402	own_claim 42800 42927	Our dynamic morph targets add dynamic behavior to non-linear deformations such that external and inertial forces can be applied
+T403	data 42941 42947	Fig. 2
+R237	supports Arg1:T403 Arg2:T402	
+T404	background_claim 42950 42960	The method
+T405	data 42964 42984	Capell et al. [2005]
+T406	background_claim 42985 43045	also enables deformations under influence of external forces
+T407	background_claim 43096 43164	does not influence the underlying properties of the elastic material
+R238	supports Arg1:T405 Arg2:T404	
+R239	parts_of_same Arg1:T406 Arg2:T404	
+R240	contradicts Arg1:T407 Arg2:T406	
+T408	own_claim 43189 43350	our method can correct such undesirable behavior by setting elastic properties for each of the individual morph targets, effectively mimicking muscle contraction
+T409	data 43178 43186	Fig 2(c)
+R241	supports Arg1:T409 Arg2:T408	
+T410	own_claim 46910 47085	we have presented dynamic morph targets, posedependent elastic models that allow an artist to easily author and control the geometry and elastic behavior of dynamic characters
+T411	own_claim 47087 47244	Dynamic morph targets avoid complex rigging requirements of purely geometric methods, and complex musculoskeletal modeling of purely physically-based methods
+T412	own_claim 47246 47347	By extending our basic framework to support modal reduction, we also achieve high runtime performance
+T413	own_claim 47349 47461	The current dynamic morph target framework can be enhanced with additional features to be included in the future
+T414	own_claim 47471 47504	support for (contact) constraints
+T415	own_claim 47510 47558	an extension to weighted pose-space deformations
+T416	own_claim 47586 47631	to allow for improved localized interpolation
+T417	data 47560 47584	Kurihara and Miyata 2004
+R242	supports Arg1:T414 Arg2:T413	
+R243	supports Arg1:T415 Arg2:T413	
+R244	supports Arg1:T417 Arg2:T415	
+R245	parts_of_same Arg1:T416 Arg2:T415	

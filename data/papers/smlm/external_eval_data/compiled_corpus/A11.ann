@@ -1,0 +1,739 @@
+T1	background_claim 2860 2958	physics-based animated characters with a large repertoire of motor skills have so far been elusive
+T2	background_claim 2784 2848	the considerable history of progress in animating virtual humans
+T3	data 2851 2852	3
+T4	data 2855 2856	7
+R1	supports Arg1:T3 Arg2:T2	
+R2	supports Arg1:T4 Arg2:T2	
+R3	contradicts Arg1:T1 Arg2:T2	
+T5	background_claim 2960 3176	This may seem surprising in view of the recent successes in implementing a slew of specialist controllers capable of realistically synthesizing the complex dynamics of running, diving, and various gymnastic maneuvers
+T6	data 3180 3182	16
+R4	supports Arg1:T6 Arg2:T5	
+T7	background_claim 3192 3340	a divide-and-conquer strategy is clearly prudent in coping with the enormous variety of controlled motions that humans and other animals may perform
+T8	background_claim 3342 3504	little effort has been directed at how the resulting control solutions may be integrated to yield composite controllers with significantly broader functionalities
+R5	contradicts Arg1:T8 Arg2:T7	
+T9	data 3522 3666	researcher A creates a walking controller for a dynamic character while researcher B creates a running controller for the same articulated model
+T10	background_claim 3668 3728	it would be beneficial if they could share their controllers
+T11	background_claim 3766 3850	and easily create a composite controller enabling the character to both walk and run
+R6	parts_of_same Arg1:T11 Arg2:T10	
+R7	supports Arg1:T9 Arg2:T10	
+T12	background_claim 3852 3879	This is a difficult problem
+T13	background_claim 3885 4058	its resolution would help pave the way towards controller libraries for dynamic animation which communities of practitioners could utilize and to which they could contribute
+T14	own_claim 4075 4224	we propose a simple yet effective framework for composing specialist controllers into more general and capable control systems for dynamic characters
+T15	own_claim 4226 4467	In our framework, individual controllers are black boxes encapsulating control knowledge that is possibly gleaned from the biomechanics literature, derived from the robotics control literature, or developed specifically for animation control
+T16	own_claim 4469 4528	Individual controllers must be able to determine two things
+T17	own_claim 4534 4673	a controller should be able to determine whether or not it can take the dynamic character from its current state to some desired goal state
+R8	supports Arg1:T17 Arg2:T16	
+T18	own_claim 4683 4817	an active controller should be able to determine whether it is operating nominally, whether it has succeeded, or whether it has failed
+R9	supports Arg1:T18 Arg2:T16	
+T19	own_claim 4819 4988	Any controller that can answer these queries may be added to a pool of controllers managed by a supervisor controller whose goal is to resolve more complex control tasks
+T20	own_claim 4990 5108	An important technical contribution within our controller composition framework is an explicit model of pre-conditions
+T21	own_claim 5110 5270	Preconditions characterize those regions of the dynamic figure’s state space within which an individual controller is able to successfully carry out its mission
+T22	own_claim 5283 5383	we demonstrate the successful composition of controllers based on manually determined pre-conditions
+T23	own_claim 5488 5555	We devise a promising solution which employs Support Vector Machine
+T24	own_claim 5562 5577	learning theory
+R10	parts_of_same Arg1:T24 Arg2:T23	
+T25	own_claim 5579 5729	Our novel application of this technique learns appropriate pre-conditions through the repeated sampling of individual controller behavior in operation
+T26	own_claim 5731 5867	As a testbed of our techniques, we are developing a physicallysimulated animated character capable of a large repertoire of motor skills
+T27	own_claim 5869 5952	An obvious application of such a character is the creation of a virtual stuntperson
+T28	own_claim 5954 6022	the dynamic nature of typical stunts makes them dangerous to perform
+T29	own_claim 6028 6106	also makes them an attractive candidate for the use of physics-based animation
+R11	contradicts Arg1:T29 Arg2:T28	
+R12	supports Arg1:T29 Arg2:T27	
+T30	own_claim 6108 6253	The open challenge here lies in developing appropriate control strategies for specific actions and ways of integrating them into a coherent whole
+T31	own_claim 6270 6442	we demonstrate families of composable controllers for articulated skeletons whose physical parameters reflect anthropometric data consistent with a fully-fleshed adult male
+T32	own_claim 6642 6707	the 3D skeleton illustrates the ultimate promise of the technique
+T33	own_claim 6709 6872	the easier control associated with the 2D skeleton allows for more rapid prototyping of larger families of controllers and more careful analysis of their operation
+R13	contradicts Arg1:T33 Arg2:T32	
+T34	background_claim 6925 7041	the control of broad skilled repertoires of motion remains very much an open problem even for 2D articulated figures
+T35	own_claim 7582 7675	A subsequent disturbance will elicit similar though by no means identical autonomous behavior
+T36	own_claim 7685 7764	the initial conditions and external forces will usually not be exactly the same
+R14	supports Arg1:T36 Arg2:T35	
+T37	own_claim 7766 7899	Control sequences of such intricacy for fully dynamic articulated figures are unprecedented in the physics-based animation literature
+T38	background_claim 8499 8589	The simulation and animation of human characters is a challenging problem in many respects
+T39	background_claim 8591 8713	Comprehensive solutions must aspire to distill and integrate knowledge from biomechanics, robotics, control, and animation
+T40	background_claim 8715 8782	Models for human motion must also meet a particularly high standard
+T41	data 8790 8844	our familiarity with what the results should look like
+R15	supports Arg1:T41 Arg2:T40	
+T42	background_claim 8864 9051	a divide-and-conquer strategy is evident in most approaches, focusing efforts on reproducing particular motions in order to yield a tractable problem and to allow for comparative analysis
+T43	background_claim 9053 9141	The biomechanics literature is a useful source of predictive models for specific motions
+T44	background_claim 9143 9212	typically based on experimental data supplemented by careful analysis
+R16	supports Arg1:T44 Arg2:T43	
+T45	background_claim 9214 9407	These models target applications such as medical diagnosis, the understanding and treatment of motor control problems, the analysis of accidents and disabilities, and high-performance athletics
+T46	background_claim 9409 9483	Computer simulation is becoming an increasingly useful tool in this domain
+T47	background_claim 9487 9552	the motion models evolve to become more complex and comprehensive
+R17	supports Arg1:T47 Arg2:T46	
+T48	data 9556 9558	26
+R18	supports Arg1:T48 Arg2:T47	
+T49	data 9561 9563	27
+R19	supports Arg1:T49 Arg2:T47	
+T50	data 9566 9568	29
+R20	supports Arg1:T50 Arg2:T47	
+T51	background_claim 9657 9746	there have been fewer efforts towards integrated solutions applicable to multiple motions
+T52	data 9578 9655	the challenge of achieving high-fidelity motion models for individual motions
+R21	supports Arg1:T52 Arg2:T51	
+T53	data 9760 9762	26
+R22	contradicts Arg1:T53 Arg2:T51	
+T54	background_claim 9788 9889	Robotics research has made remarkable progress in the successful design of a variety of legged robots
+T55	data 9893 9895	28
+R23	supports Arg1:T55 Arg2:T54	
+T56	background_claim 9898 9965	and, more recently, bipedal robots with anthropomorphic aspirations
+T57	data 9969 9971	23
+R24	supports Arg1:T57 Arg2:T56	
+R25	parts_of_same Arg1:T56 Arg2:T54	
+T58	background_claim 10049 10100	these robotic systems are truly engineering marvels
+T59	background_claim 9983 10047	their limited motion repertoires and rather deliberate movements
+R26	contradicts Arg1:T59 Arg2:T58	
+T60	background_claim 10102 10110	The work
+T61	background_claim 10120 10207	provides a good summary of behavioral architectures explored in the context of robotics
+T62	data 10116 10117	1
+R27	supports Arg1:T62 Arg2:T60	
+R28	parts_of_same Arg1:T61 Arg2:T60	
+T63	background_claim 10209 10249	A 3 DOF ball-juggling robot is described
+T64	data 10256 10257	6
+R29	supports Arg1:T64 Arg2:T63	
+T65	background_claim 10261 10304	which uses a theory of behavior composition
+R30	parts_of_same Arg1:T65 Arg2:T63	
+T66	background_claim 10315 10410	the practicality of extending the method to high-DOF dynamic models of human motions is unclear
+R31	contradicts Arg1:T66 Arg2:T65	
+T67	background_claim 10412 10576	Computer animation is to a large extent unencumbered by the exacting fidelity requirements of biomechanical models and the mechanical limitations of robotic systems
+T68	background_claim 10578 10663	This has spawned a great variety of kinematic and dynamic models for character motion
+T69	data 10667 10668	3
+R32	supports Arg1:T69 Arg2:T68	
+T70	data 10671 10672	4
+R33	supports Arg1:T70 Arg2:T68	
+T71	data 10675 10676	7
+R34	supports Arg1:T71 Arg2:T68	
+T72	background_claim 10686 10814	motion capture solutions based on blending and warping techniques may give satisfactory results for such tasks in the short term
+T73	background_claim 10816 10912	controller based approaches reveal more about the physics, planning, and control of such motions
+T74	background_claim 10917 10921	they
+T75	background_claim 10932 10975	serve as a basis for more general solutions
+R35	parts_of_same Arg1:T75 Arg2:T74	
+R36	contradicts Arg1:T73 Arg2:T72	
+R37	supports Arg1:T73 Arg2:T74	
+T76	background_claim 10977 11047	Dynamically simulated characters were first proposed over 15 years ago
+T77	data 11051 11052	2
+R38	supports Arg1:T77 Arg2:T76	
+T78	data 11055 11057	34
+R39	supports Arg1:T78 Arg2:T76	
+T79	background_claim 11061 11136	and since then have progressed in sophistication in a variety of directions
+R40	parts_of_same Arg1:T79 Arg2:T76	
+T80	background_claim 11138 11208	Controllers have been successfully designed for specific human motions
+T81	data 11217 11224	walking
+R41	supports Arg1:T81 Arg2:T80	
+T82	data 11226 11233	running
+R42	supports Arg1:T82 Arg2:T80	
+T83	data 11235 11243	vaulting
+R43	supports Arg1:T83 Arg2:T80	
+T84	data 11245 11252	cycling
+R44	supports Arg1:T84 Arg2:T80	
+T85	data 11262 11264	16
+R45	supports Arg1:T85 Arg2:T80	
+T86	data 11267 11269	22
+R46	supports Arg1:T86 Arg2:T80	
+T87	data 11272 11274	35
+R47	supports Arg1:T87 Arg2:T80	
+T88	background_claim 11278 11427	Dynamically simulated articulated characters equipped with an integrated, wide-ranging repertoire of motor skills currently remain an unachieved goal
+T89	background_claim 11429 11478	Some positive steps in this direction are evident
+R48	contradicts Arg1:T89 Arg2:T88	
+T90	background_claim 11492 11588	Examples include an integrated repertoire of motor controllers for biomechanically animated fish
+T91	background_claim 11598 11678	a methodology for controller design and integration applicable to simple figures
+T92	background_claim 11688 11771	a demonstration of successful integration for selected diving and gymnastic motions
+T93	background_claim 11781 11862	and adapting a controller designed for one character to work on another character
+T94	data 11592 11594	30
+R49	supports Arg1:T94 Arg2:T90	
+T95	data 11682 11684	32
+R50	supports Arg1:T95 Arg2:T91	
+T96	data 11775 11777	35
+R51	supports Arg1:T96 Arg2:T92	
+T97	data 11866 11868	17
+R52	supports Arg1:T97 Arg2:T93	
+R53	parts_of_same Arg1:T91 Arg2:T90	
+R54	parts_of_same Arg1:T92 Arg2:T91	
+R55	parts_of_same Arg1:T93 Arg2:T92	
+R56	supports Arg1:T90 Arg2:T89	
+T98	background_claim 11872 11890	The work of Wooten
+T99	background_claim 11899 12019	is the most relevant as an example of a sequence of successive transitions between several controllers for human motions
+T100	data 12028 12035	leaping
+T101	data 12037 12045	tumbling
+T102	data 12047 12054	landing
+T103	data 12060 12069	balancing
+T104	data 11894 11896	35
+R57	supports Arg1:T104 Arg2:T98	
+R58	parts_of_same Arg1:T99 Arg2:T98	
+R59	supports Arg1:T100 Arg2:T99	
+R60	supports Arg1:T101 Arg2:T99	
+R61	supports Arg1:T102 Arg2:T99	
+R62	supports Arg1:T103 Arg2:T99	
+T105	background_claim 12071 12186	Transitions are realized by including the end state of some controllers in the starting states of other controllers
+R63	supports Arg1:T104 Arg2:T105	
+T106	background_claim 12188 12258	A digital biomechanics laboratory is proposed by Boston Dynamics, Inc.
+T107	data 12261 12263	20
+R64	supports Arg1:T107 Arg2:T106	
+T108	background_claim 12267 12320	as a tool for simulating a wide range of human motion
+R65	parts_of_same Arg1:T108 Arg2:T106	
+T109	background_claim 12322 12371	This currently remains ambitious work in progress
+T110	own_claim 12373 12470	Our work is aimed at creating dynamic human characters with broadly integrated action repertoires
+T111	own_claim 12534 12595	our methodology is to begin with a core set of simple actions
+T112	data 12607 12616	balancing
+T113	data 12618 12629	small steps
+R66	supports Arg1:T112 Arg2:T111	
+R67	supports Arg1:T113 Arg2:T111	
+T114	data 12631 12648	falling reactions
+R68	supports Arg1:T114 Arg2:T111	
+T115	data 12650 12669	recovery from falls
+R69	supports Arg1:T115 Arg2:T111	
+T116	data 12671 12695	standing up from a chair
+R70	supports Arg1:T116 Arg2:T111	
+T118	own_claim 12850 12923	our contribution here is a framework for composing individual controllers
+T117	own_claim 12933 13011	they may be designed, into more capable control systems for dynamic characters
+T119	own_claim 13013 13032	An interesting tech
+T120	own_claim 13153 13314	nical contribution within our controller composition framework is the introduction of a learning approach for automatically determining controller pre-conditions
+R71	parts_of_same Arg1:T120 Arg2:T119	
+T121	own_claim 13316 13489	Our pre-condition learning algorithm adds to the growing body of learning algorithms that have been successfully applied in the context of computer animation in recent years
+T122	data 13492 13494	14
+R72	supports Arg1:T122 Arg2:T121	
+T123	data 13497 13499	15
+R73	supports Arg1:T123 Arg2:T121	
+T124	own_claim 13751 13921	the supervisor polls the pool of controllers, querying each whether it can handle the transition of the dynamic character from its current state to the desired goal state
+T125	data 13726 13749	no controller is active
+R74	supports Arg1:T125 Arg2:T124	
+T126	own_claim 13923 14055	Individual controllers return an integer confidence/suitability score when queried in order to bid on becoming the active controller
+T127	own_claim 14080 14209	controllers that can perform a sensible action given the current state of the character return an integer in the range 1⁄2 1⁄21⁄4
+T128	own_claim 14218 14358	those that can handle the current state as well as guarantee a transition to the desired state, return an integer in the range 1⁄21⁄4 3⁄41⁄4
+T129	own_claim 14369 14441	a value of 1⁄4 means that a controller is unsuited for the current state
+T130	own_claim 14511 14671	this scoring scheme potentially allows for a nuanced evaluation of the controller suitability in terms of criteria such as probability of success or energy used
+T131	own_claim 14443 14503	The controller that returns the highest score becomes active
+T132	own_claim 14673 14723	our current controllers resort to a simpler scheme
+R75	contradicts Arg1:T132 Arg2:T130	
+T133	own_claim 14725 14894	This consists of a binary success/failure evaluation multiplied by a weighting factor assigned to each controller that serves to establish a relative preference ordering
+R76	supports Arg1:T133 Arg2:T132	
+T134	own_claim 14896 14956	The power of this scheme stems from the following attributes
+T135	own_claim 14978 15041	The composition method is straightforward and easy to implement
+R77	supports Arg1:T135 Arg2:T134	
+T136	own_claim 15043 15100	It does not appreciably burden the controller design task
+R78	supports Arg1:T136 Arg2:T134	
+T137	own_claim 15114 15191	The composition method does not restrict the design of individual controllers
+R79	supports Arg1:T137 Arg2:T134	
+T138	own_claim 15193 15271	Each controller can be as primitive or as sophisticated as its designer wishes
+R80	supports Arg1:T138 Arg2:T134	
+T139	own_claim 15338 15511	A controller within the pool of available controllers can be as simple as a constant force, or as complex as a structured hierarchy of multiple levels of control abstraction
+T140	data 15529 15569	more controllers are added to the system
+T141	own_claim 15571 15706	we may wish to group all the walking and running controllers together into a cluster that can be treated as one encapsulated controller
+R81	supports Arg1:T140 Arg2:T141	
+R82	supports Arg1:T141 Arg2:T139	
+T142	own_claim 15741 15851	our composition method requires controllers to define pre-conditions, post-conditions and expected performance
+T143	data 15948 15972	these conditions are met
+T144	own_claim 15978 16069	the controller can operate and possibly enable the character to satisfy the post-conditions
+R83	supports Arg1:T143 Arg2:T144	
+T145	own_claim 16414 16501	this mapping may not always succeed, which motivates the notion of expected performance
+T146	data 16375 16412	unexpected changes in the environment
+R84	supports Arg1:T146 Arg2:T145	
+T147	own_claim 16503 16621	The controller should be able to evaluate its performance in order to detect failure at any point during its operation
+R85	supports Arg1:T145 Arg2:T147	
+T148	own_claim 16623 16752	To do this, the controller must at all times have knowledge of the current and expected state of the character or the environment
+R86	supports Arg1:T147 Arg2:T148	
+T149	own_claim 16754 16904	Defining the pre-conditions, post-conditions, and expected performance for complex characters, motions, and environments is not a straightforward task
+T150	own_claim 16931 17061	the effort required to generate these specifications is a fair and necessary price to pay to achieve the benefits of composability
+R87	contradicts Arg1:T150 Arg2:T149	
+T151	own_claim 17063 17189	Controllers that adhere to these specifications can form a pool of available controllers managed by the supervising controller
+T152	own_claim 18641 18742	Most of our controllers can operate within a small region of the state space which we denote Ê  ́ Õ μ
+T153	data 19205 19288	the projection of along the gravity vector does not intersect the base of support Ë
+T154	own_claim 19291 19332	the figure is considered to be unbalanced
+R88	supports Arg1:T153 Arg2:T154	
+T155	own_claim 19617 19707	The determination of pre-conditions is crucial to the success of our composition framework
+T156	own_claim 20150 20280	the pre-conditions may reference a subset of the postconditions that is sufficient to characterize what the controller can achieve
+T157	own_claim 20303 20360	the post-conditions are different from the pre-conditions
+R89	contradicts Arg1:T157 Arg2:T156	
+T158	own_claim 20381 20464	a pre-condition for a falling controller requires that the center of mass be moving
+T159	own_claim 20466 20527	the postconditions require that the center of mass be at rest
+R90	supports Arg1:T158 Arg2:T157	
+R91	supports Arg1:T159 Arg2:T157	
+T160	own_claim 20601 20740	Our framework permits the automatic selection of the appropriate controller based on the information provided by the controllers themselves
+T161	own_claim 20742 20851	Only the individual controllers can detect whether they are operating normally or whether failure is imminent
+T162	own_claim 20935 20958	The controller may fail
+T163	data 20970 21004	a sudden change in the environment
+T164	data 21019 21048	badly designed pre-conditions
+R92	supports Arg1:T163 Arg2:T162	
+R93	supports Arg1:T164 Arg2:T162	
+T165	own_claim 21050 21153	The sooner a controller can detect failure the sooner another more appropriate controller can take over
+T166	own_claim 21155 21212	This is important for making a character behave naturally
+T167	own_claim 21227 21286	the character should not attempt to continue a walking gait
+T168	data 21290 21331	it has lost its balance and it is falling
+R94	supports Arg1:T168 Arg2:T167	
+R95	supports Arg1:T167 Arg2:T166	
+R96	supports Arg1:T165 Arg2:T166	
+T169	own_claim 21356 21445	the expected performance consists of expressions similar to those of the pre-conditions È
+T170	data 21465 21546	the controller successfully completes its task in the time interval Ø 1⁄2 , Ø 3⁄4
+T171	own_claim 21554 21589	 ́ Ø 1⁄2 μ 3⁄4È and  ́ Ø 3⁄4 μ 3⁄4Ç
+R97	supports Arg1:T170 Arg2:T171	
+R98	supports Arg1:T171 Arg2:T169	
+T172	own_claim 21655 21713	Transitions between controllers are not explicitly modeled
+T173	own_claim 21717 21756	they would be in a finite state machine
+R99	supports Arg1:T173 Arg2:T172	
+T174	own_claim 21758 21918	They occur implicitly in response to the evolution of the motion over time, as the system state traverses the “regions-of-competency” of the various controllers
+T175	own_claim 22000 22047	typical patterns of controller activation occur
+T176	own_claim 21945 21998	most controllers are designed for specific situations
+R100	supports Arg1:T176 Arg2:T175	
+R101	contradicts Arg1:T175 Arg2:T174	
+T177	own_claim 22539 22586	the prone-to-standing fall transition can occur
+T178	data 22590 22649	the figure is given a sufficiently strong push while rising
+R102	supports Arg1:T178 Arg2:T177	
+T179	own_claim 22459 22524	not all possible transitions are shown in either of Figs. 3 and 4
+R103	supports Arg1:T177 Arg2:T179	
+T180	own_claim 22651 22780	Most of the transitions which are not shown but are still practically feasible are of this nature, dealing with falling behaviors
+T181	own_claim 22792 22873	the fall controller always responds to the specific direction of the current fall
+T182	own_claim 22875 22959	Any transition involves one controller being deactivated and another being activated
+T183	own_claim 22961 22996	A controller can become deactivated
+T184	own_claim 23031 23055	for one of three reasons
+R104	parts_of_same Arg1:T184 Arg2:T183	
+T185	own_claim 23064 23142	it may relinquish control by declaring success upon reaching its postcondition
+R105	supports Arg1:T185 Arg2:T184	
+T186	own_claim 23262 23303	user intervention may elicit a transition
+R106	supports Arg1:T186 Arg2:T184	
+T187	own_claim 23305 23411	The controllers designed for sitting or balanced standing will retain control until intervention by a user
+T188	own_claim 23443 23470	forces a desired transition
+R107	parts_of_same Arg1:T188 Arg2:T187	
+T189	own_claim 23512 23578	a user-driven process must choose among the next plausible actions
+T190	data 23483 23511	the 2D character is balanced
+R108	supports Arg1:T190 Arg2:T189	
+T191	data 23618 23624	Fig. 4
+R109	supports Arg1:T191 Arg2:T189	
+R110	supports Arg1:T188 Arg2:T189	
+T192	own_claim 23635 23666	a controller may detect failure
+R111	supports Arg1:T192 Arg2:T184	
+T193	own_claim 23948 24005	our framework is designed to work in interactive settings
+T194	own_claim 24016 24113	controllers typically start with slightly different initial conditions each time they are invoked
+T195	own_claim 24115 24167	the user can interact with the character at any time
+T196	own_claim 24183 24278	there are no guarantees that the controller will reach the same end state each time it operates
+T197	own_claim 24293 24337	the transition graph is dynamic in structure
+R112	supports Arg1:T193 Arg2:T194	
+R113	supports Arg1:T193 Arg2:T195	
+R114	supports Arg1:T193 Arg2:T196	
+R115	supports Arg1:T196 Arg2:T197	
+R116	supports Arg1:T195 Arg2:T197	
+R117	supports Arg1:T194 Arg2:T197	
+T198	own_claim 24664 24825	determining the exact region of the state space and the general conditions that determine success or failure of the controller is in general a non-trivial matter
+T199	data 24608 24662	controllers associated with complex dynamic characters
+R118	supports Arg1:T199 Arg2:T198	
+T200	own_claim 24844 24903	we address this problem via manual and automatic approaches
+T201	own_claim 24905 24991	The manual approach allows designers to incorporate their knowledge within controllers
+T202	own_claim 25001 25063	the automatic approach is based on machine learning techniques
+T203	background_claim 25123 25234	For certain cases, suitable pre-conditions for specific controllers may be found in the biomechanics literature
+T204	data 25238 25239	8
+T205	data 25242 25244	25
+R119	supports Arg1:T204 Arg2:T203	
+R120	supports Arg1:T205 Arg2:T203	
+T206	background_claim 25260 25274	Pai and Patton
+T207	data 25277 25279	25
+R121	supports Arg1:T207 Arg2:T206	
+T208	background_claim 25283 25472	present a comprehensive study of balance in the sagittal plane and identify the conditions under which a human can compensate for postural disturbances and maintain balance without stepping
+R122	parts_of_same Arg1:T208 Arg2:T206	
+T209	background_claim 25474 25568	For certain other cases, the pre-conditions are trivially defined by the desired motion itself
+T210	background_claim 25570 25647	Certain controllers function as intermediate stages between other controllers
+T211	data 25652 25705	controller B is the intermediate step between A and C
+T212	background_claim 25711 25836	the postconditions of A dictate the pre-conditions of B and similarly the pre-conditions of C define the post-conditions of B
+R123	supports Arg1:T211 Arg2:T212	
+T213	background_claim 25847 25918	in some cases the pre-conditions are computed by manual experimentation
+R124	supports Arg1:T206 Arg2:T203	
+R125	supports Arg1:T212 Arg2:T210	
+T214	background_claim 25932 25995	a simple balance controller based on an inverted pendulum model
+R126	supports Arg1:T214 Arg2:T213	
+T215	data 25999 26001	12
+R127	supports Arg1:T215 Arg2:T214	
+T216	background_claim 26005 26065	has intrinsic stability that can tolerate small disturbances
+R128	parts_of_same Arg1:T216 Arg2:T214	
+T217	background_claim 26067 26239	After the controller has been designed, repeated testing under disturbances of increasing magnitude can yield an approximation of the pre-conditions and the post-conditions
+T218	background_claim 26254 26337	the designer of a controller presumably understands the way the controller operates
+T219	background_claim 26348 26414	is able to provide high level conditions on its success or failure
+R129	supports Arg1:T218 Arg2:T219	
+T220	background_claim 26429 26558	the designer of a walking controller knows if the controller can operate when the walking surface has minimal friction properties
+R130	supports Arg1:T220 Arg2:T218	
+T221	background_claim 26566 26615	human motion is shaped by notions such as comfort
+T222	background_claim 26621 26665	only the designer can take this into account
+T223	data 26683 26716	a person is pushed while standing
+T224	background_claim 26717 26752	he/she might take a protective step
+T225	background_claim 26761 26859	it may be more comfortable to do so instead of maintaining an inverted pendulum balancing strategy
+R131	supports Arg1:T223 Arg2:T224	
+R132	supports Arg1:T225 Arg2:T224	
+R133	supports Arg1:T224 Arg2:T221	
+T226	background_claim 26872 26985	the way people react to slipping and imbalance and the protective behaviors they employ are largely age dependent
+T227	own_claim 27084 27240	we introduce an automatic, machine learning approach to determining pre-conditions, which is based on systematically sampling the performance of controllers
+T228	own_claim 27242 27307	Our method uses a machine learning algorithm attributed to Vapnik
+T229	data 27311 27313	33
+R134	supports Arg1:T229 Arg2:T228	
+T230	own_claim 27316 27348	known as Support Vector Machines
+T231	own_claim 27357 27400	which has recently attracted much attention
+R135	parts_of_same Arg1:T231 Arg2:T230	
+R136	parts_of_same Arg1:T230 Arg2:T228	
+T232	background_claim 27408 27490	in most cases the performance of SVMs matches or exceeds that of competing methods
+R137	supports Arg1:T232 Arg2:T231	
+T233	background_claim 27573 27645	SVMs are a method for fitting functions to sets of labeled training data
+T234	background_claim 27647 27736	The functions can be general regression functions or they can be classification functions
+T235	own_claim 27758 27868	we use simple classification functions with binary outputs which encode the success or failure of a controller
+T236	background_claim 27870 27876	Burges
+T237	data 27880 27881	5
+R138	supports Arg1:T237 Arg2:T236	
+T238	background_claim 27885 27923	provides an excellent tutorial on SVMs
+R139	parts_of_same Arg1:T238 Arg2:T236	
+T239	background_claim 28386 28465	The SVM is a machine whose task is to learn the mapping Ü Ý from a training set
+T240	background_claim 28558 28608	A particular choice of « generates a “trained” SVM
+T241	own_claim 28744 28886	a properly trained SVM predicts if a controller will succeed (  ́ Ü μ 1⁄4 ) or fail (  ́ Ü μ 1⁄4 ) on a given state Ü of the dynamic character
+T242	data 28939 28980	a linear SVM with separable training data
+T243	background_claim 28982 29110	there exists a decision boundary separating positive from negative examples which takes the form of a “separating hyperplane” in
+R140	supports Arg1:T242 Arg2:T243	
+T244	background_claim 29321 29477	SVM training requires the solution of a quadratic programming optimization problem involving a Lagrange multiplier « for every datapoint in the training set
+T245	background_claim 29565 29626	The support vectors are critical elements of the training set
+T246	data 29678 29726	other observations in the training set are moved
+T247	data 29761 29800	or removed and SVM training is repeated
+R141	parts_of_same Arg1:T247 Arg2:T246	
+T248	background_claim 29802 29844	the same separating hyperplane will result
+R142	supports Arg1:T247 Arg2:T248	
+T249	background_claim 30014 30080	The linear SVM is easily generalized to nonseparable training data
+T250	background_claim 30095 30229	it is straightforward to generalize the theory to encompass nonlinear SVMs for which the decision boundaries are no longer hyperplanes
+T251	background_claim 30304 30313	The trick
+T252	background_claim 30329 30442	is to map the data to some higher (possibly infinite) dimensional space in which the linear theory can be applied
+R143	parts_of_same Arg1:T252 Arg2:T251	
+T253	background_claim 30444 30506	This is easily done by introducing kernel functions Ã  ́ Ü Ü μ
+T254	data 30517 30596	the polynomial kernel Ã (RBF)  ́ Ü Ý kernel μ  ́ Ü Ã ¡  ́ Ü Ý · Ý μ 1⁄2μ Ô , ÜÔ
+R144	supports Arg1:T254 Arg2:T253	
+T255	data 30602 30646	the   Ü Gaussian   Ý 3⁄4 3⁄4 or 3⁄4 μ radial
+R145	supports Arg1:T255 Arg2:T253	
+T256	background_claim 30680 30716	ical details, we refer the reader to
+T257	data 30720 30721	5
+R146	supports Arg1:T257 Arg2:T256	
+T258	background_claim 30649 30671	For the basis mathemat
+R147	parts_of_same Arg1:T256 Arg2:T258	
+T259	own_claim 31009 31138	the trained SVM demarcates the boundary of regions in the figure’s state space wherein the controller can successfully do its job
+T260	own_claim 30800 31001	To apply the SVM technique to the problem of determining controller pre-conditions, we train a nonlinear SVM classifier to predict the success or failure of a controller for an arbitrary starting state
+R148	supports Arg1:T260 Arg2:T259	
+T261	own_claim 31452 31537	The distribution of the stochastically-generated initial states is of some importance
+T262	own_claim 31539 31672	The sample points should ideally be located close to the boundaries which demarcate the acceptable precondition region of state-space
+T263	own_claim 31683 31703	these boundaries are
+T264	own_claim 31712 31745	the unknowns we wish to determine
+R149	parts_of_same Arg1:T264 Arg2:T263	
+T265	own_claim 31755 31805	we must resort to a more uniform sampling strategy
+R150	supports Arg1:T264 Arg2:T265	
+R151	contradicts Arg1:T265 Arg2:T262	
+T266	own_claim 31822 31891	the high dimensionality of the state-space precludes regular sampling
+T267	own_claim 31893 31895	We
+T268	own_claim 31901 31993	adopt the following stochastic process to generate a suitable distribution of initial states
+R152	parts_of_same Arg1:T268 Arg2:T267	
+R153	supports Arg1:T266 Arg2:T267	
+T269	own_claim 31995 32090	First, a nominal initial state is chosen, based upon the designer’s knowledge of the controller
+R154	supports Arg1:T269 Arg2:T268	
+T270	own_claim 32092 32118	A shortduration simulation
+T271	data 32120 32134	typically 0.3s
+R155	supports Arg1:T271 Arg2:T270	
+T272	own_claim 32136 32231	is then carried out from this initial state while a randomized perturbation process is executed
+R156	parts_of_same Arg1:T272 Arg2:T270	
+R157	supports Arg1:T270 Arg2:T268	
+T273	own_claim 32379 32614	Simultaneously, the character’s joints are perturbed in a stochastic fashion by setting randomized offset target angles for the joints and using the character’s PD joint controllers to drive the joints towards these perturbed positions
+R158	supports Arg1:T273 Arg2:T268	
+T274	own_claim 32622 32668	the perturbation strategy is admittedly ad-hoc
+T275	own_claim 32670 32738	we have found it to be effective in sampling the pre-condition space
+R159	contradicts Arg1:T275 Arg2:T274	
+T276	data 32759 32809	the online use of the learned pre-condition models
+R160	supports Arg1:T276 Arg2:T275	
+T277	own_claim 32811 32880	We employ T. Joachims’ SVM Ð Ø software which is available on the WWW
+T278	data 32884 32886	21
+R161	supports Arg1:T278 Arg2:T277	
+T279	background_claim 32890 32983	The software can accommodate large training sets comprising tens of thousands of observations
+R162	supports Arg1:T278 Arg2:T279	
+T280	background_claim 32988 33044	it efficiently handles many thousands of support vectors
+R163	supports Arg1:T278 Arg2:T280	
+T281	background_claim 33046 33122	It includes standard kernel functions and permits the definition of new ones
+R164	supports Arg1:T278 Arg2:T281	
+T282	background_claim 33124 33284	It incorporates a fast training algorithm which proceeds by solving a sequence of optimization problems lower-bounding the solution using a form of local search
+R165	supports Arg1:T278 Arg2:T282	
+T283	background_claim 33286 33366	It includes two efficient estimation methods for error rate and precision/recall
+R166	supports Arg1:T278 Arg2:T283	
+T284	own_claim 33368 33424	The SVM training phase can take hours in our application
+T285	own_claim 33430 33451	this is done off-line
+R167	contradicts Arg1:T285 Arg2:T284	
+T287	own_claim 33726 33868	the training time is 8,676 seconds using the polynomial kernel, 3,593 seconds using the linear kernel, and 486 seconds using the radial kernel
+T288	data 33687 33724	a training set of 11,020 observations
+T286	data 33516 33556	for a training set of 8,013 observations
+T289	own_claim 33466 33515	on a 733 MHz PIII computer, the SVM training time
+T290	own_claim 33557 33681	is 2,789 seconds using the polynomial kernel, 2,109 seconds using the linear kernel, and 211 seconds using the radial kernel
+R168	supports Arg1:T286 Arg2:T289	
+R169	parts_of_same Arg1:T290 Arg2:T289	
+R170	supports Arg1:T288 Arg2:T287	
+T291	own_claim 33870 33946	Once trained, the SVM classifier can provide answers on-line in milliseconds
+T292	own_claim 34685 34763	We compared the performance of the SVM algorithm to that of a nearest neighbor
+T293	data 34783 34784	9
+R171	supports Arg1:T293 Arg2:T292	
+T294	background_claim 34788 34977	Given a training set, the nearest neighbor classifier returns for an arbitrary state Ü the same succeed/fail label as the label for that observation in the training set that is closest to Ü
+T295	background_claim 34980 35027	NN classifiers should perform particularly well
+T296	own_claim 34769 34779	classifier
+R172	parts_of_same Arg1:T296 Arg2:T292	
+T297	data 35043 35114	the feasible area in the state space is highly fragmented and localized
+R173	supports Arg1:T297 Arg2:T295	
+T298	background_claim 35126 35167	the NN method requires zero training time
+T299	background_claim 35178 35216	it provides an answer in Ç  ́ Ò μ time
+R174	contradicts Arg1:T299 Arg2:T298	
+T300	own_claim 35824 35906	The results show that the SVM algorithm consistently outperforms the NN classifier
+T301	own_claim 36000 36071	We ran a similar set of experiments using Gaussian RBF kernel functions
+T302	own_claim 36077 36168	the accuracies were consistently lower than those obtained with polynomial kernel functions
+R175	contradicts Arg1:T302 Arg2:T301	
+T303	own_claim 35944 35998	the SVM algorithm employed polynomial kernel functions
+T304	own_claim 36246 36378	Our control composition framework is implemented within DANCE , a portable, extensible object-oriented modeling and animation system
+T305	data 36382 36384	24
+R176	supports Arg1:T305 Arg2:T304	
+T306	background_claim 36390 36534	DANCE provides a platform that researchers can use to implement animation and control techniques with minimal design and implementation overhead
+T307	background_claim 36536 36585	The core of the system supports four base classes
+T308	data 36587 36594	Systems
+T309	data 36596 36606	Simulators
+T310	data 36608 36617	Actuators
+T311	data 36622 36632	Geometries
+R177	supports Arg1:T308 Arg2:T307	
+R178	supports Arg1:T309 Arg2:T307	
+R179	supports Arg1:T310 Arg2:T307	
+R180	supports Arg1:T311 Arg2:T307	
+T312	background_claim 36633 36694	which are loadable as plug-ins in accordance with simple APIs
+R181	parts_of_same Arg1:T312 Arg2:T307	
+T313	background_claim 36696 36771	Articulated objects are a System subclass that support skeleton hierarchies
+T314	background_claim 36773 36859	They have kinematic properties and, usually, fully dynamic physical properties as well
+T315	own_claim 36861 36879	Our virtual actors
+T316	own_claim 36914 36981	are dynamic articulated objects implemented as Systems within DANCE
+R182	parts_of_same Arg1:T316 Arg2:T315	
+T317	background_claim 37273 37338	DANCE places no restrictions on the complexity of the controllers
+T318	background_claim 36984 37064	An actuator is a generic concept that includes anything that can exert forces or
+R183	supports Arg1:T305 Arg2:T306	
+R184	supports Arg1:T305 Arg2:T307	
+R185	supports Arg1:T305 Arg2:T313	
+R186	supports Arg1:T305 Arg2:T314	
+T319	background_claim 37078 37129	interact in any way with systems or other actuators
+R187	parts_of_same Arg1:T319 Arg2:T318	
+R188	supports Arg1:T305 Arg2:T318	
+T320	background_claim 37144 37271	gravity, the ground, the collision mechanism, the supervisor controller and individual controllers are implemented as actuators
+R189	supports Arg1:T320 Arg2:T319	
+R190	supports Arg1:T305 Arg2:T317	
+T321	background_claim 37340 37439	Simulators compute the equations of motion of all the dynamic characters and other systems in DANCE
+R191	supports Arg1:T305 Arg2:T321	
+T322	background_claim 37442 37545	DANCE offers built in support for SD/FAST, a commercial system which produces optimized simulation code
+T323	data 37549 37551	18
+R192	supports Arg1:T323 Arg2:T322	
+T324	background_claim 37564 37599	any simulator that follows a simple
+T325	background_claim 38008 38053	API can be dynamically loaded into the system
+R193	parts_of_same Arg1:T325 Arg2:T324	
+R194	contradicts Arg1:T324 Arg2:T322	
+T326	own_claim 38055 38130	Our simulators are automatically produced by SD/FAST from description files
+T327	own_claim 38132 38284	They use Kane’s method for computing articulated dynamics and a fourth order explicit Runge-Kutta time integrator for numerically simulating the motions
+T328	own_claim 38346 38424	This allows the user to dynamically load controllers and simulators at runtime
+T329	own_claim 38286 38344	Actuators and simulators are implemented as DANCE plug-ins
+T330	own_claim 38439 38541	researchers can exchange, simulators, and controllers in the form of dynamically linked pieces of code
+T331	own_claim 38543 38560	Object collisions
+T332	own_claim 38589 38626	are handled by the Collision actuator
+R195	parts_of_same Arg1:T332 Arg2:T331	
+T333	own_claim 38628 38667	This actuator works on pairs of objects
+T334	own_claim 38669 38744	The DANCE API allows it to work with objects that have different simulators
+T335	background_claim 38746 38821	Collision detection is based on a library that uses oriented bounding boxes
+T336	data 38825 38827	13
+R196	supports Arg1:T336 Arg2:T335	
+T337	background_claim 38975 39003	it can make the system stiff
+T338	background_claim 38831 38944	Collision resolution uses a penalty method that corrects geometry interpenetration using spring-and-damper forces
+T339	own_claim 39009 39057	it has performed well in our experiments to date
+R197	supports Arg1:T338 Arg2:T337	
+R198	contradicts Arg1:T339 Arg2:T337	
+T340	own_claim 39555 39592	The dynamic properties of both models
+T341	own_claim 39631 39717	are taken from the biomechanics literature and correspond to a fullyfleshed adult male
+T342	data 39602 39606	mass
+R199	supports Arg1:T342 Arg2:T340	
+T343	data 39611 39629	moments of inertia
+R200	supports Arg1:T343 Arg2:T340	
+R201	parts_of_same Arg1:T341 Arg2:T340	
+T344	own_claim 39719 39829	The models are equipped with natural limits both on the motion of the joints and the strength of their muscles
+T345	background_claim 39840 39920	DANCE has no built in muscle model and does not enforce the limits automatically
+R202	contradicts Arg1:T345 Arg2:T344	
+T346	background_claim 39922 40015	Users can implement the model they prefer and include code to enforce the limits of the model
+R203	supports Arg1:T345 Arg2:T346	
+T347	own_claim 40017 40159	Our plug-in control scheme uses rotational spring-and-damper forces for control and enforces the limits on the joints with exponential springs
+T348	own_claim 40251 40384	Most of the controllers for our virtual stuntperson are based on pose control, which has often been used both for articulated objects
+T349	data 40388 40390	31
+T350	own_claim 40393 40409	and soft objects
+R204	supports Arg1:T349 Arg2:T348	
+R205	parts_of_same Arg1:T350 Arg2:T348	
+T351	data 40413 40415	11
+R206	supports Arg1:T351 Arg2:T350	
+T352	background_claim 40419 40524	Pose control is based on cyclic or acyclic finite state machines with time transitions between the states
+T353	background_claim 40526 40601	Each state of the controller can be static or depend on feedback parameters
+T355	own_claim 40603 40657	For some of our controllers, we use continuous control
+T354	own_claim 40804 40910	We designed several controllers based in part on experimental studies of how humans detect loss of balance
+T356	data 40914 40916	25
+R207	supports Arg1:T356 Arg2:T354	
+T357	own_claim 40919 40967	and analysis of protective and falling behaviors
+R208	parts_of_same Arg1:T357 Arg2:T354	
+T358	data 40971 40972	8
+R209	supports Arg1:T358 Arg2:T357	
+T359	own_claim 40976 41184	The resulting parameterized controllers have been enhanced with appropriate pre-conditions, post-conditions, and expected performance and have been integrated using an arbitration-based supervising controller
+T360	own_claim 41255 41411	Each controller has full access to the internal data structures of DANCE including all the information associated with any character or object in the system
+T361	own_claim 41413 41509	This allows the controllers to define arbitrary sensors that keep track of necessary information
+T362	data 41518 41553	state parameters for feedback loops
+T363	data 41558 41586	the state of the environment
+R210	supports Arg1:T362 Arg2:T361	
+R211	supports Arg1:T363 Arg2:T361	
+T364	own_claim 41588 41715	For efficiency, the supervisor controller calculates a number of common sensor values that are available to all the controllers
+T365	own_claim 41796 41868	Many controller transitions in the control framework happen autonomously
+T366	data 41878 41932	taking a protective step in response to losing balance
+R212	supports Arg1:T366 Arg2:T365	
+T367	own_claim 41943 41993	other actions are initiated in a voluntary fashion
+R213	contradicts Arg1:T367 Arg2:T365	
+T368	own_claim 42008 42129	a standing character can do any of (1) remain standing using the balance controller, (2) sit-down, (3) walk, and (4) dive
+R214	supports Arg1:T368 Arg2:T367	
+T369	own_claim 42131 42422	Currently, the user directs these voluntary motions by interactively entering command strings to the supervisor controller which, in turn, directly increases the suitability score of the designated controller and forces the arbitration process to be invoked to select a new active controller
+T370	background_claim 42424 42512	The control of voluntary motions could equivalently be delegated to a high-level planner
+T371	background_claim 42523 42587	this kind of planning is beyond the scope of our work at present
+R215	contradicts Arg1:T371 Arg2:T370	
+T372	own_claim 42658 42781	At the heart of our prototype system is a composite controller that is capable of handling a large number of everyday tasks
+T373	data 42791 42798	walking
+T374	data 42800 42809	balancing
+T375	data 42811 42818	bending
+T376	data 42820 42827	falling
+T377	data 42833 42840	sitting
+R216	supports Arg1:T373 Arg2:T372	
+R217	supports Arg1:T374 Arg2:T372	
+R218	supports Arg1:T375 Arg2:T372	
+R219	supports Arg1:T376 Arg2:T372	
+R220	supports Arg1:T377 Arg2:T372	
+T378	own_claim 42955 43013	the given controller descriptions are for the 3D character
+T379	own_claim 43015 43061	the equivalent 2D controllers are very similar
+T380	own_claim 43404 43484	An autonomous human agent should be able to balance, standing naturally in place
+T381	own_claim 43516 43677	the character ought to react naturally either with a restoring motion or with a protective falling behavior depending on which action is appropriate in each case
+T382	data 43493 43508	loss of balance
+R221	supports Arg1:T382 Arg2:T381	
+T383	own_claim 43679 43840	Affording a dynamic articulated figure with natural reactions to loss of balance or impending falls is an essential step towards believable autonomous characters
+T384	own_claim 43982 44036	This controller is based on an inverted pendulum model
+T385	data 44040 44042	12
+R222	supports Arg1:T385 Arg2:T384	
+T386	own_claim 44047 44088	using the ankles to control the body sway
+R223	parts_of_same Arg1:T386 Arg2:T384	
+T387	own_claim 44200 44240	the approximation works well in practice
+T388	own_claim 44112 44198	the body of the character is not as rigid as the inverted pendulum hypothesis suggests
+R224	contradicts Arg1:T387 Arg2:T388	
+T389	own_claim 44426 44581	An animated character should attempt to maintain balance in response to external disturbances by shifting its weight, taking a step or bending at the waist
+T390	own_claim 44625 44632	it must
+T391	data 44586 44623	the character cannot maintain balance
+T392	own_claim 44638 44666	resort to a falling behavior
+R225	parts_of_same Arg1:T392 Arg2:T390	
+R226	supports Arg1:T391 Arg2:T390	
+T393	background_claim 44737 44799	The manner in which people fall depends on a number of factors
+T394	data 44808 44822	their physique
+T395	data 44824 44833	their age
+T396	data 44838 44852	their training
+R227	supports Arg1:T394 Arg2:T393	
+R228	supports Arg1:T395 Arg2:T393	
+R229	supports Arg1:T396 Arg2:T393	
+T397	data 44881 44883	19
+T398	background_claim 44867 44875	the work
+T399	background_claim 44887 45031	shows that, during a fall, the elderly are more likely to impact their hip first as compared to younger adults falling under the same conditions
+R230	supports Arg1:T397 Arg2:T398	
+R231	parts_of_same Arg1:T399 Arg2:T398	
+T400	own_claim 45033 45095	Our fall controller is designed with the average adult in mind
+T401	own_claim 45097 45115	Its main action is
+T402	own_claim 45121 45177	to absorb the shock of the impact using mostly the hands
+R232	parts_of_same Arg1:T402 Arg2:T401	
+R233	supports Arg1:T400 Arg2:T401	
+T403	own_claim 45179 45283	The pre-conditions of the fall controller are defined in accordance with those of the balance controller
+T404	own_claim 45285 45383	Situations that are beyond the capabilities of the latter should be handled by the fall controller
+T405	own_claim 45385 45523	Our implementation of the fall controller can handle falls in any direction, responding in different ways to falls in different directions
+T406	data 45525 45531	Fig. 6
+R234	supports Arg1:T406 Arg2:T405	
+T407	background_claim 45770 45843	Sitting down in a chair and rising from a chair are common everyday tasks
+T408	own_claim 45845 45940	We have implemented a controller that can do both depending on the instructions of the animator
+T409	own_claim 45942 46080	Apart from the command string supplied by the user, the pre-conditions are either a balanced upright posture or a balanced sitting posture
+T410	own_claim 46082 46122	The postconditions are similarly defined
+T411	own_claim 46263 46335	Getting up off the ground is a surprisingly difficult motion to simulate
+T412	own_claim 46337 46432	It involves rapid changes of the contact points and significant shifting of the figure’s weight
+T413	own_claim 46447 46517	the frictional properties of the ground model can influence the motion
+T414	own_claim 46519 46577	The pre-conditions for this controller are straightforward
+T415	own_claim 46579 46662	The character must be lying with its back flat on the ground, within some tolerance
+T416	own_claim 46664 46779	The post-conditions are that the character should be on its feet with its center of mass within the support polygon
+R235	supports Arg1:T415 Arg2:T414	
+T417	own_claim 46781 46903	Then it would be up to another controller to take over and bring the character from a crouching position to a standing one
+T418	background_claim 47156 47238	some people may choose to roll-over to a prone position before attempting to stand
+T419	data 47135 47154	lying on their back
+R236	supports Arg1:T419 Arg2:T418	
+T420	own_claim 47240 47311	We have implemented a roll-over controller that can emulate this action
+T421	own_claim 47393 47503	The pre-conditions of the roll-over controller require a supine posture, and no movement of the center of mass
+T422	own_claim 47505 47564	The postconditions of the roll controller are fairly simple
+T423	own_claim 47569 47656	they include any prone position for which the character is extended and fairly straight
+R237	supports Arg1:T423 Arg2:T422	
+T424	own_claim 47835 47916	a controller that enables the virtual stuntperson to rise from the prone position
+T425	data 47788 47808	Frames 5–9 in Fig. 1
+R238	supports Arg1:T425 Arg2:T424	
+T426	data 47317 47339	fourth frame in Fig. 1
+R239	supports Arg1:T426 Arg2:T420	
+T427	data 46163 46169	Fig. 7
+R240	supports Arg1:T427 Arg2:T408	
+T428	own_claim 47940 47980	the pre-conditions can be fairly relaxed
+T429	data 47923 47938	lying face-down
+R241	supports Arg1:T429 Arg2:T428	
+T430	own_claim 47982 48101	Our controller assumes that is has the time to change the state of the character to one from which it knows how to rise
+T431	own_claim 48184 48209	it will attempt to get up
+T432	data 48114 48149	the figure is not lying on its arms
+T433	data 48154 48183	the ground is relatively flat
+R242	supports Arg1:T433 Arg2:T431	
+R243	supports Arg1:T432 Arg2:T431	
+T434	own_claim 48211 48309	The post-conditions are chosen such that they satisfy the pre-conditions of the balance controller
+T435	own_claim 48409 48517	we want our dynamic character to be able to do a variety of other voluntary actions dictated by the animator
+T436	own_claim 48519 48600	Such actions can potentially include vigorous and/or physically dangerous actions
+T437	data 48625 48677	a large number of researchers contribute controllers
+T438	own_claim 48678 48739	the character can eventually be used as a virtual stuntperson
+T439	own_claim 48602 48621	It is our hope that
+R244	supports Arg1:T437 Arg2:T438	
+R245	parts_of_same Arg1:T438 Arg2:T439	
+T440	background_claim 48800 48862	The kip is an athletic motion often seen in martial arts films
+T441	data 48882 48888	Fig. 9
+R246	supports Arg1:T441 Arg2:T440	
+T442	own_claim 48891 48996	The controller is based on a pose controller whose pre-conditions include a variation of supine positions
+T443	own_claim 49009 49122	the first part of the controller makes sure that the character assumes a position suitable for performing the kip
+T444	own_claim 49124 49235	The larger part of the motion is ballistic, which focuses the control mainly at the kick off and landing phases
+T445	own_claim 49237 49386	The last part of the controller applies continuous control to bring the stuntman to an erect position from which the balance controller can take over
+T446	own_claim 49533 49634	The character can be instructed to lunge forward and upward at a takeoff angle controlled by the user
+T447	own_claim 49636 49695	When the hands contact the ground a front-roll is attempted
+T448	own_claim 49697 49811	The pre-conditions of this controller are defined be an upright position and little movement of the center of mass
+T449	own_claim 49813 49910	We have also experimented with a multiple character scenario, with one character tackling another
+T450	data 49912 49919	Fig. 11
+R247	supports Arg1:T450 Arg2:T449	
+T451	own_claim 49928 49964	the timing of the tackle is scripted
+T452	own_claim 49966 50106	it illustrates the capability of the system to cope with a pair of interacting characters, each equipped with its own supervisory controller
+R248	contradicts Arg1:T452 Arg2:T451	
+T453	own_claim 50292 50400	We have produced two relatively long animation sequences that demonstrate the potential of the our framework
+T454	own_claim 50402 50439	The sequence for the 3D skeleton mode
+T455	own_claim 50461 50544	involves controllers whose pre-conditions are provided analytically by the designer
+T456	data 50454 50460	Fig. 1
+R249	supports Arg1:T456 Arg2:T454	
+R250	parts_of_same Arg1:T455 Arg2:T454	
+T457	own_claim 50546 50643	Such conditions tend to define square regions within the space defined by the parameters involved
+T458	own_claim 50672 50715	such pre-conditions can generally work well
+T459	own_claim 50738 50777	the intricacy of the animation produced
+R251	supports Arg1:T459 Arg2:T458	
+T460	own_claim 50653 50670	their simple form
+T461	background_claim 50779 50879	We expect to investigate the application of SVM-learned pre-conditions to the 3D model in the future
+T462	own_claim 50881 50937	A second animation sequence with the 2D terminator model
+T463	own_claim 50953 51038	makes use of a set of controllers having a mix of analytic and learned pre-conditions
+T464	data 50943 50950	Fig. 12
+R252	supports Arg1:T464 Arg2:T462	
+R253	parts_of_same Arg1:T463 Arg2:T462	
+T465	own_claim 51289 51458	The analytical pre-conditions prune large parts of the state space and the svm-classifier provides a more accurate success/failure prediction within the remaining region
+T466	own_claim 51460 51566	During the animation sequence, the svm-classifier correctly refined the analytical answer in several cases
+T467	own_claim 51638 51746	Most of the computational burden in our approach lies in the numerical simulation of the equations of motion
+T468	own_claim 51748 51855	The computations associated with the controllers and our composition framework are negligible in comparison
+T469	own_claim 51869 51904	the 2D model simulates in real time
+T470	own_claim 51912 52005	the 3D model runs between 5 and 9 times slower than real time on a 733 MHz Pentium III system
+T471	background_claim 52514 52736	The challenges of physics-based controller design plus the technical obstacles that researchers face when attempting to share their algorithms has hindered progress in the important area of physicsbased character animation
+T472	own_claim 52738 52884	This paper has presented a methodology for ameliorating the problem with a framework which facilitates the exchange and composition of controllers
+T473	own_claim 52886 53003	Our framework has been implemented within a freely available system for modeling and animating articulated characters
+T474	own_claim 53023 53271	our system is the first to demonstrate a dynamic anthoropomorphic character with controlled reactions to disturbances or falls in any direction, as well as the ability to pick itself up off the ground in several ways, among other controlled motions
+T475	own_claim 53273 53487	We hope that our system will foster collective efforts among numerous practitioners that will eventually result in complex composite controllers capable of synthesizing a full spectrum of human-like motor behaviors
+T476	own_claim 53601 53682	it is inevitable that the work presented in this paper is incomplete in many ways
+T477	background_claim 53495 53599	the enormous challenge of building controllers capable of large repertoires of dynamic human-like motion
+R254	supports Arg1:T477 Arg2:T476	
+T478	own_claim 53684 53809	Published control methods for 3D walking, running, and stair climbing make obvious candidates for integration into our system
+T479	own_claim 53811 53942	Coping with variable terrain and dynamic environments are dimensions of added complexity that should provide work for years to come
+T480	own_claim 53944 54110	Automatic parameterization of controllers to variations in character dimensions and mass is a necessary step for having solutions adaptable to a variety of characters
+T481	own_claim 54112 54195	Deriving controllers from motion-capture data is an exciting but difficult prospect
+T482	background_claim 54206 54254	some progress is already being made in this area
+R255	contradicts Arg1:T482 Arg2:T481	
+T483	own_claim 54256 54340	Other methods of “teaching” skills to a dynamic character also warrant investigation
+T484	own_claim 54351 54504	intelligently integrating controllers which affect only subsets of DOFs needs to be addressed in order to allow for the parallel execution of controllers

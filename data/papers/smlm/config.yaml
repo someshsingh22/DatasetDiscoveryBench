@@ -1,7 +1,7 @@
 id: smlm
 title: "Can Unsupervised Knowledge Transfer from Social Discussions Help Argument Mining?"
 paper: https://aclanthology.org/2022.acl-long.536/
-code: https://github.com/Jeevesh8/arg_mining
+code: https://github.com/Jeevesh8/arg_mining/tree/70bed6772fb348a74a9b8b08afc67d3e03fc6379  # src/arg_mining
 # winning-args-corpus.zip -> utterances.jsonl -> one CSV row per utterance (id, reply-to -> reply_to, user, the
 # conversation's title on its root, text), minus the 30 conversations rooted at a CMV Modes thread (the benchmark)
 dataset: https://zissou.infosci.cornell.edu/convokit/datasets/winning-args-corpus/winning-args-corpus.zip

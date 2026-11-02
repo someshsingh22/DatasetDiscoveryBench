@@ -25,6 +25,8 @@ of the paper that introduced the original dataset, so the score is comparable wi
 - Hardware: one node, 8×A100-80GB, CUDA 12.8 image. `run.sh` uses every visible GPU (1, 2, 4 or 8) and keeps the paper's
   effective batch size: per-device batch = paper batch // `WORLD_SIZE`.
 - Tooling: `uv` (`pyproject.toml` + `uv.lock`); no Docker for now.
+- Speed: one seeded run per evaluation by default (e.g. `RUNS=1`, the paper's count opt-in); add seeds only when a
+  result is in big doubt.
 
 Layout (as in [PaperBench](https://github.com/openai/frontier-evals/tree/main/project/paperbench), one dir per paper):
 
@@ -38,7 +40,7 @@ data/papers/<id>/
   train.py, eval.py    thin wrappers: read the submission / write scores.json, call the authors' functions in src/
   external_eval_data/  the evaluation benchmarks (small CSVs, as distributed by the authors)
   tests/               __init__.py, sample.csv (50 original rows), test_<id>.py
-  reference.json       paper numbers + AIP scores (original, baseline, 10%, seed spread)
+  reference.json       paper numbers + AIP scores (original, baseline, 10%)
   pyproject.toml, uv.lock
 ```
 
@@ -121,9 +123,8 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 
   | job | GPUs 0-3 | GPUs 4-7 |
   |---|---|---|
-  | M1 | unittests (fail fast, all 8 GPUs), then env on the original dataset | env on the original, `seed=1` |
-  | M2 | env baseline (`none`) | env baseline, `seed=1` |
-  | M3 | env on a 10% sample of the original (`random_state=0`) | authors' unmodified code, only after a §2.2(c) fix |
+  | M1 | unittests (fail fast, all 8 GPUs), then env on the original dataset | env baseline (`none`) |
+  | M2 | env on a 10% sample of the original (`random_state=0`) | authors' unmodified code, only after a §2.2(c) fix |
 
   Relaunch freed machines with whatever is still missing. If a precision/stability question is open, split a node
   between the variants instead.
@@ -138,11 +139,12 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 2. The env on the original dataset and the baseline reproduce the paper's table (same ordering; within ~5 points or
    the paper's own spread). A gap is ours until shown otherwise; after a §2.2(c) fix, the authors' unmodified code
    must reproduce it instead.
-3. Env original vs env baseline difference exceeds the seed spread; if not, say the environment does not
-   discriminate datasets and propose the smallest change that would (do not silently change the method).
-4. `reference.json` records the paper numbers, every valid AIP run (scores, commit, GPUs, wall time per stage) and the
-   seed spread; the README row and this file's *Lessons* are updated; everything is pushed.
-5. Final report: a table of paper vs env (original, baseline, 10%, seed 1), every `# DDB:` change and why, paper vs
+3. Env original vs env baseline difference exceeds the paper's run-to-run spread (rerun with more seeds only if in
+   doubt); if not, say the environment does not discriminate datasets and propose the smallest change that would (do
+   not silently change the method).
+4. `reference.json` records the paper numbers and every valid AIP run (scores, commit, GPUs, wall time per stage); the
+   README row and this file's *Lessons* are updated; everything is pushed.
+5. Final report: a table of paper vs env (original, baseline, 10%), every `# DDB:` change and why, paper vs
    code discrepancies, runtimes, and open questions.
 
 ## Lessons
@@ -169,6 +171,13 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
 - When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
 - For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Authors' loaders that iterate `os.listdir`, `glob` or a set give a different split per machine: sort the listing
+  (`# DDB`), seed each run, and export `PYTHONHASHSEED=0`.
+- Old pins: torch < 1.12 ran A100 matmuls in TF32 by default; with a newer torch, `TORCH_ALLOW_TF32_CUBLAS_OVERRIDE=1`
+  restores it. ConvoKit 2.5 imports `pkg_resources`, so pin `setuptools<82`. `datasets.load_metric` fetches its script on
+  every call: prefetch once, then export `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1`.
+- When the authors' scripts hardcode the model and epochs, a smoke hook would mean editing them; test the wrappers on
+  mock data instead and let the first AIP minutes be the smoke test.
 - Pin the Python patch when the authors' pins predate a stdlib change: tyro 0.6.0 crashes on the argparse of Python
   3.11.9+ ("too many values to unpack (expected 3)"); `requires-python = "==3.11.8"` makes uv fetch that patch. Old
   `datasets` (< 2.14) also needs the authors' `fsspec` and `pyarrow` pins, not only the direct dependencies.
