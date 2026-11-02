@@ -1,6 +1,6 @@
 {
   "paper": {
-    "source": "Pal et al., COLING 2025, Table 4 (lm-eval-harness persona_* accuracy; Ft. = the released fine-tuning recipe, RAFt. = retrieval-augmented fine-tuning, code not released)",
+    "source": "Pal et al., COLING 2025 (arXiv 2412.11250v1), Table 14: lm-evaluation-harness persona_* accuracy for every configuration (Table 4 repeats a subset; the PersonaChat row is Table 15). Ft. = the released fine-tuning recipe, RAFt. = retrieval-augmented fine-tuning, code not released. The env original's reproduction target is Mistral Ft. JIAC-all.",
     "Mistral-7B-Instruct-v0.3": {
       "baseline (zero-shot)": {
         "openness": 0.836,
@@ -9,7 +9,7 @@
         "agreeableness": 0.816,
         "neuroticism": 0.535
       },
-      "JIC-all Ft. (~400k, the released train split = the env's original)": {
+      "JIAC-all Ft. (~400k, the released train split = the env's original; the reproduction target)": {
         "openness": 0.884,
         "conscientiousness": 0.711,
         "extraversion": 0.531,
@@ -37,7 +37,7 @@
         "agreeableness": 0.953,
         "neuroticism": 0.57
       },
-      "PersonaChat Ft. (full)": {
+      "PersonaChat Ft. (full; Table 15)": {
         "openness": 0.838,
         "conscientiousness": 0.638,
         "extraversion": 0.514,
@@ -53,7 +53,7 @@
         "agreeableness": 0.95,
         "neuroticism": 0.522
       },
-      "JIC-all Ft. (~400k)": {
+      "JIAC-all Ft. (~400k)": {
         "openness": 0.834,
         "conscientiousness": 0.699,
         "extraversion": 0.6,
@@ -79,7 +79,7 @@
   "runs": [
     {
       "run": "j1-eval-Meta-Llama-3-8B-Instruct",
-      "what": "eval.py on the untuned Llama-3-8B-Instruct (cross-check of the evaluation vs the paper's Llama baseline .876/.762/.717/.950/.522)",
+      "what": "eval-pipeline check (no training): eval.py on the untuned Llama-3-8B-Instruct (cross-check of the evaluation vs the paper's Llama baseline .876/.762/.717/.950/.522)",
       "commit": "ff8b11c",
       "gpus": "1xA100-80GB",
       "wall_seconds": 219,
@@ -93,7 +93,7 @@
     },
     {
       "run": "j1-eval-LLaMAdelic",
-      "what": "eval.py on the authors' public choco58/LLaMAdelic (merged fp16; paper .915/.784/.668/.944/.704)",
+      "what": "eval-pipeline check (no training): eval.py on the authors' public choco58/LLaMAdelic (merged fp16; paper .915/.784/.668/.944/.704)",
       "commit": "ff8b11c",
       "gpus": "1xA100-80GB",
       "wall_seconds": 221,
@@ -107,7 +107,7 @@
     },
     {
       "run": "j2-baseline-env",
-      "what": "run.sh none: the untuned Mistral-7B-Instruct-v0.3 (paper .836/.639/.514/.816/.535)",
+      "what": "env baseline, run.sh none (no training): the untuned Mistral-7B-Instruct-v0.3 (paper .836/.639/.514/.816/.535)",
       "commit": "6b32994",
       "gpus": "1xA100-80GB",
       "wall_seconds": 262,
@@ -121,7 +121,7 @@
     },
     {
       "run": "j2-eval-MistraMystic",
-      "what": "eval.py on the authors' public choco58/MistraMystic (JIC-a1b0 RAFt.; paper .934/.826/.625/.953/.570)",
+      "what": "eval-pipeline check (no training): eval.py on the authors' public choco58/MistraMystic (JIC-a1b0 RAFt.; paper .934/.826/.625/.953/.570)",
       "commit": "6b32994",
       "gpus": "1xA100-80GB",
       "wall_seconds": 212,
