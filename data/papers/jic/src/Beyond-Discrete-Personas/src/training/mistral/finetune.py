@@ -1,12 +1,3 @@
-"""QLoRA fine-tuning on JIC-format dialogues: the authors' src/training/mistral/finetune.py (Pal et al., COLING 2025;
-Sayantan-world/Beyond-Discrete-Personas @ e099650), changed only where marked `# DDB:`.
-
-Usage: torchrun train.py --model_name M --input_file SUBMISSION.json --cache_dir DIR --hf_token TOKEN --output_dir OUT
-  LoRA r 64 / alpha 16 on q,k,v,o of the 4-bit model; packed 2048-token sequences, effective batch 4 x 128, lr 2e-5
-  cosine, 3 epochs, eval on 1,000 held-out dialogues every 100 steps (best checkpoint kept). Saves the adapter to OUT.
-  MAX_STEPS shortens training (smoke tests only). Removed: `import wandb`, the unused prompt_id (it needed author and
-  journal ids) and a tokenizer save from every DDP rank (save_model saves it once).
-"""
 import os
 import json
 import torch
@@ -21,6 +12,7 @@ from peft import LoraConfig
 from transformers import TrainingArguments, EarlyStoppingCallback
 import argparse
 from pathlib import Path
+# import wandb  # DDB: no wandb
 from datasets import load_dataset
 import random
 
@@ -76,11 +68,12 @@ class MistralFineTuner:
 
         records = []
         for entry in data:
+            # prompt_id = f"{entry['author_fullname1']}_{entry['author_fullname2']}_{entry['id1']}_{entry['id2']}"  # DDB: unused; needs author and journal ids
             messages = []
             for i, utterance in enumerate(entry['dialogue']):
                 role = 'user' if i % 2 == 0 else 'assistant'
                 messages.append({"content": utterance, "role": role})
-            records.append({"messages": messages})  # DDB: only `dialogue` is read (prompt_id was dropped unused)
+            records.append({"messages": messages})  # DDB: only `dialogue` is read
 
         train_data, test_data = train_test_split(records, test_size=1000, random_state=42)
         train_dataset = Dataset.from_pandas(pd.DataFrame(train_data))
@@ -250,7 +243,8 @@ class MistralFineTuner:
             logging_steps=1,
             logging_strategy="steps",
             lr_scheduler_type="cosine",
-            max_steps=int(os.environ.get("MAX_STEPS", -1)),  # DDB: smoke tests
+            max_steps=int(os.environ.get("MAX_STEPS", -1)),  # DDB: run.sh --steps
+            num_train_epochs=float(os.environ.get("EPOCHS", 3)),  # DDB: run.sh --epochs (3 = the default the authors used)
             output_dir=self.output_dir,
             overwrite_output_dir=True,
             per_device_eval_batch_size=4,
@@ -280,6 +274,7 @@ class MistralFineTuner:
         train_result = trainer.train()
         assert 0 < train_result.training_loss < float("inf"), "training diverged (NaN/inf loss or no steps)"  # DDB
         trainer.save_model(self.output_dir)
+        # self.tokenizer.save_pretrained(self.output_dir)  # DDB: raced on every DDP rank; save_model saves it once
 
         # Save training arguments to JSON file
         with open(os.path.join(self.output_dir, 'sft_config.json'), 'w') as f:

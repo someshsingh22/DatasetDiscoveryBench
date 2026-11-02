@@ -50,8 +50,9 @@ class TestJic(unittest.TestCase):
     def test_run_sh(self):
         with tempfile.TemporaryDirectory() as tmp:
             Path(tmp, "sub.json").write_text(json.dumps(SAMPLE))
-            env = {**os.environ, "MODEL": "hf-internal-testing/tiny-random-MistralForCausalLM", "MAX_STEPS": "2"}
-            subprocess.run(["bash", ENV / "run.sh", Path(tmp, "sub.json"), Path(tmp, "out")], env=env, check=True)
+            env = {**os.environ, "MODEL": "hf-internal-testing/tiny-random-MistralForCausalLM"}
+            cmd = ["bash", ENV / "run.sh", Path(tmp, "sub.json"), Path(tmp, "out"), "--steps", "2"]
+            subprocess.run(cmd, env=env, check=True)
             scores = json.loads(Path(tmp, "out", "scores.json").read_text())
         self.assertEqual(set(scores["primary"]), set(TRAITS))
         self.assertTrue(all(0 <= v <= 1 for v in scores["primary"].values()))
