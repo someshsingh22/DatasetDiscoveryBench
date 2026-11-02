@@ -1,0 +1,344 @@
+{
+  "paper": {
+    "v_usable_information_bits": {
+      "source": "arXiv 2110.08420v3, App. I (V = GPT-3)",
+      "shp": 0.5,
+      "hh_rlhf": 0.5,
+      "raw_reddit_pairs": 0.0,
+      "note": "approximate ('~0.50 bits' for both); the SHP card's planned FLAN-T5 table (SHP > HH-RLHF) was never filled in"
+    },
+    "steamshp_cards": {
+      "large": {
+        "all": 0.7203,
+        "anthropic": 0.731
+      },
+      "xl": {
+        "all": 0.7278,
+        "anthropic": 0.731
+      },
+      "note": "'ALL (unweighted)' matches the pooled accuracy over SHP test + HH-RLHF helpful-base test pairs that fit 500 tokens (18,621 of 20,753), not the mean of the per-domain table"
+    },
+    "shp_card": {
+      "flan_t5_xl_all_shp_train_test_acc": "0.72-0.73"
+    }
+  },
+  "env": {
+    "original": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "data": "SHP train, 348,718 pairs (no HH-RLHF test leaks)",
+      "gpus": "0-3",
+      "wall_seconds": 12355,
+      "stage_seconds": {
+        "model": 6151,
+        "null": 5619,
+        "eval": 584
+      },
+      "primary": {
+        "hh_rlhf_acc": 0.5809,
+        "hh_rlhf_v_info": -0.3839
+      },
+      "metrics": {
+        "hh_rlhf": {
+          "acc": 0.5809,
+          "v_info": -0.3839,
+          "n": 4670,
+          "skipped": 16
+        },
+        "heldout": {
+          "acc": 0.7078,
+          "v_info": 0.1015,
+          "n": 15985,
+          "skipped": 2107
+        }
+      },
+      "train_pairs": 293688
+    },
+    "seed1": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "data": "SHP train, seed=1",
+      "gpus": "4-7",
+      "wall_seconds": 12303,
+      "stage_seconds": {
+        "model": 6209,
+        "null": 5491,
+        "eval": 602
+      },
+      "primary": {
+        "hh_rlhf_acc": 0.5799,
+        "hh_rlhf_v_info": -0.3663
+      },
+      "metrics": {
+        "hh_rlhf": {
+          "acc": 0.5799,
+          "v_info": -0.3663,
+          "n": 4670,
+          "skipped": 16
+        },
+        "heldout": {
+          "acc": 0.7102,
+          "v_info": 0.1047,
+          "n": 15985,
+          "skipped": 2107
+        }
+      }
+    },
+    "sub10": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "data": "10% of SHP train posts: 36,561 pairs, 3,899 posts",
+      "gpus": "0-3",
+      "wall_seconds": 1391,
+      "stage_seconds": {
+        "model": 632,
+        "null": 577,
+        "eval": 180
+      },
+      "primary": {
+        "hh_rlhf_acc": 0.5979,
+        "hh_rlhf_v_info": -0.1714
+      },
+      "metrics": {
+        "hh_rlhf": {
+          "acc": 0.5979,
+          "v_info": -0.1714,
+          "n": 4670,
+          "skipped": 16
+        },
+        "heldout": {
+          "acc": 0.7192,
+          "v_info": 0.1402,
+          "n": 1346,
+          "skipped": 158
+        }
+      },
+      "train_pairs": 30799
+    },
+    "baseline": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "data": "none",
+      "gpus": "4-7 (eval on 1)",
+      "wall_seconds": 143,
+      "stage_seconds": {
+        "eval": 141
+      },
+      "primary": {
+        "hh_rlhf_acc": 0.5593,
+        "hh_rlhf_v_info": 0.6363
+      },
+      "metrics": {
+        "hh_rlhf": {
+          "acc": 0.5593,
+          "v_info": 0.6363,
+          "n": 4670,
+          "skipped": 16
+        }
+      },
+      "note": "hh_rlhf_v_info here used the zero-shot model on ' ' as the null model (an artifact, 0.64 bits); commit 5588e05 sets H_V(Y) = 1 bit, which needs a re-run"
+    },
+    "hh_rlhf_train": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "data": "HH-RLHF helpful-base train as a submission (no validate.py): 43,646 pairs",
+      "gpus": "4-7",
+      "wall_seconds": 1846,
+      "stage_seconds": {
+        "model": 848,
+        "null": 795,
+        "eval": 201
+      },
+      "primary": {
+        "hh_rlhf_acc": 0.7141,
+        "hh_rlhf_v_info": 0.2119
+      },
+      "metrics": {
+        "hh_rlhf": {
+          "acc": 0.7141,
+          "v_info": 0.2119,
+          "n": 4670,
+          "skipped": 16
+        },
+        "heldout": {
+          "acc": 0.7083,
+          "v_info": 0.1967,
+          "n": 2177,
+          "skipped": 5
+        }
+      },
+      "train_pairs": 41320
+    }
+  },
+  "seed_spread": {
+    "original_vs_seed1": {
+      "hh_rlhf_acc": 0.001,
+      "hh_rlhf_v_info": 0.0176,
+      "heldout_v_info": 0.0032
+    }
+  },
+  "author_recipe": {
+    "steamshp_large_released": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "stanfordnlp/SteamSHP-flan-t5-large, scored with the env's format and v_entropy",
+      "gpus": "1 of 4-7",
+      "wall_seconds": 589,
+      "pooled_acc": 0.7207,
+      "unweighted_acc": 0.7365,
+      "shp_test_acc": 0.7225,
+      "hh_rlhf_acc": 0.7084,
+      "by_set": {
+        "anthropic": 0.7084,
+        "askacademia": 0.7431,
+        "askanthropology": 0.7972,
+        "askbaking": 0.6662,
+        "askcarguys": 0.7297,
+        "askculinary": 0.7195,
+        "askdocs": 0.7031,
+        "askengineers": 0.7135,
+        "askhistorians": 0.7476,
+        "askhr": 0.7507,
+        "askphilosophy": 0.6854,
+        "askphysics": 0.7907,
+        "askscience": 0.6961,
+        "asksciencefiction": 0.7261,
+        "asksocialscience": 0.8231,
+        "askvet": 0.7696,
+        "changemyview": 0.6946,
+        "explainlikeimfive": 0.7312,
+        "legaladvice": 0.798
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    },
+    "steamshp_xl_released": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "stanfordnlp/SteamSHP-flan-t5-xl, scored with the env's format and v_entropy",
+      "gpus": "1 of 4-7",
+      "wall_seconds": 1861,
+      "pooled_acc": 0.7259,
+      "unweighted_acc": 0.7372,
+      "shp_test_acc": 0.7264,
+      "hh_rlhf_acc": 0.7225,
+      "by_set": {
+        "anthropic": 0.7225,
+        "askacademia": 0.7431,
+        "askanthropology": 0.7594,
+        "askbaking": 0.6754,
+        "askcarguys": 0.7568,
+        "askculinary": 0.7191,
+        "askdocs": 0.7188,
+        "askengineers": 0.7176,
+        "askhistorians": 0.7476,
+        "askhr": 0.769,
+        "askphilosophy": 0.6907,
+        "askphysics": 0.8,
+        "askscience": 0.7114,
+        "asksciencefiction": 0.7277,
+        "asksocialscience": 0.7308,
+        "askvet": 0.7742,
+        "changemyview": 0.6976,
+        "explainlikeimfive": 0.738,
+        "legaladvice": 0.8079
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    },
+    "steamshp_large_retrained": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "FLAN-T5-large on SHP train (score_ratio >= 2, <= 5 per post) + HH-RLHF helpful-base train (128,132 pairs fit), env train.py without the hold-out",
+      "gpus": "0-3",
+      "wall_seconds": 3280,
+      "pooled_acc": 0.7186,
+      "unweighted_acc": 0.7268,
+      "shp_test_acc": 0.7184,
+      "hh_rlhf_acc": 0.7201,
+      "by_set": {
+        "anthropic": 0.7201,
+        "askacademia": 0.7508,
+        "askanthropology": 0.7783,
+        "askbaking": 0.6747,
+        "askcarguys": 0.7297,
+        "askculinary": 0.7045,
+        "askdocs": 0.6808,
+        "askengineers": 0.704,
+        "askhistorians": 0.699,
+        "askhr": 0.7585,
+        "askphilosophy": 0.6766,
+        "askphysics": 0.7832,
+        "askscience": 0.6879,
+        "asksciencefiction": 0.7321,
+        "asksocialscience": 0.7462,
+        "askvet": 0.7558,
+        "changemyview": 0.6946,
+        "explainlikeimfive": 0.7301,
+        "legaladvice": 0.8013
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    }
+  },
+  "compute": {
+    "m1": "1 node x 8 A100-80GB, 4.9 h from run start (39 GPU-h allocated); lanes of 4 GPUs; DDP T5-large runs at ~3.3 it/s for both the 512-token model and the 1-token null model (step time is not compute)"
+  }
+}
