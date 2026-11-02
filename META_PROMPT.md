@@ -177,5 +177,6 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   ~3.3 it/s for 512-token and 1-token inputs alike, and 1.9 it/s on 1 GPU with the full batch, so 1-GPU runs did ~2x
   the work per GPU. Compare 1 GPU with the full batch against 4 before packing a node.
 - Pack a node as a longest-first work queue (each run takes the next free GPU or GPU group), not fixed lanes, and pick
-  the runs so that all GPUs end within ~15 min of each other: fixed lanes left half of a node idle for 3 h.
+  the runs so that all GPUs end within ~15 min of each other: fixed lanes left half of a node idle for 3 h; a queue of
+  14 one-GPU runs ended within 11 min, with GPUs busy 91 % of the allocated time.
 - Export each run to S3 when it ends, not at job end: if aip auth drops mid-job, the local AWS CLI still gets results.
