@@ -25,9 +25,7 @@ def validate(path: str) -> None:
     assert all(
         isinstance(d, list) and len(d) >= 2 and all(isinstance(u, str) and u.strip() for u in d) for d in dialogues
     ), "every dialogue must be a list of at least 2 non-empty utterances"
-    # A statement leaks if all its word 8-grams occur in the submission; statements under 8 words are too generic. A few
-    # longer ones occur in natural chat (the original holds 2, e.g. "Sometimes it feels like the whole world is against
-    # me"), so up to 10 are tolerated (1% of a trait's 1,000 statements).
+    # A statement leaks if all its word 8-grams occur in the submission; statements under 8 words are too generic.
     tests = {
         s: g
         for f in sorted(DATA.glob("*.jsonl"))
@@ -37,7 +35,7 @@ def validate(path: str) -> None:
     pool = set().union(*tests.values())
     seen = {g for d in dialogues for g in ngrams(" ".join(d)) if g in pool}
     leaked = [s for s, g in tests.items() if g <= seen]
-    assert len(leaked) <= 10, f"{len(leaked)} persona benchmark statements appear in the submission, e.g. {leaked[0]!r}"
+    assert not leaked, f"{len(leaked)} persona benchmark statements appear in the submission, e.g. {leaked[0]!r}"
 
 
 if __name__ == "__main__":

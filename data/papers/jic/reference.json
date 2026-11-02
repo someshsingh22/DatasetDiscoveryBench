@@ -104,6 +104,34 @@
         "agreeableness": 0.946,
         "neuroticism": 0.683
       }
+    },
+    {
+      "run": "j2-baseline-env",
+      "what": "run.sh none: the untuned Mistral-7B-Instruct-v0.3 (paper .836/.639/.514/.816/.535)",
+      "commit": "6b32994",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 262,
+      "primary": {
+        "openness": 0.832,
+        "conscientiousness": 0.64,
+        "extraversion": 0.514,
+        "agreeableness": 0.817,
+        "neuroticism": 0.535
+      }
+    },
+    {
+      "run": "j2-eval-MistraMystic",
+      "what": "eval.py on the authors' public choco58/MistraMystic (JIC-a1b0 RAFt.; paper .934/.826/.625/.953/.570)",
+      "commit": "6b32994",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 212,
+      "primary": {
+        "openness": 0.932,
+        "conscientiousness": 0.82,
+        "extraversion": 0.619,
+        "agreeableness": 0.949,
+        "neuroticism": 0.565
+      }
     }
   ]
 }

@@ -2,6 +2,7 @@ id: jic
 title: "Beyond Discrete Personas: Personality Modeling Through Journal Intensive Conversations"
 paper: https://aclanthology.org/2025.coling-main.470/
 code: https://github.com/Sayantan-world/Beyond-Discrete-Personas/tree/e099650f397bd2726d875ebd1e92eb67e8ce77be
-# train.json.zip -> train.json: the released training split (398,476 dialogues, the paper's JIC-all). The paper's
-# alpha/beta-filtered subsets (JIC-best etc.) were not released.
+# train.json.zip -> train.json: the released training split (398,476 dialogues, the paper's JIC-all), minus every
+# dialogue holding a word 8-gram of a persona statement it leaks (validate.py), e.g. "Sometimes it feels like the
+# whole world is against me". The paper's alpha/beta-filtered subsets (JIC-best etc.) were not released.
 dataset: https://huggingface.co/datasets/chocokiddo/jic/resolve/af75a2f95cda84ed08a0e353fe164e587a5c3224/train.json.zip
