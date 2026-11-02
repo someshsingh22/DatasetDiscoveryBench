@@ -135,7 +135,7 @@
     },
     {
       "run": "j3-original-env",
-      "what": "env on the original (released train, JIC-all; 78,605 packed 2048-token sequences, 459 steps, best checkpoint = step 400 by eval loss 1.049, as the authors' load_best_model_at_end). Paper Mistral JIAC-all Ft. .884/.711/.531/.911/.565. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "what": "env on the original (released train, JIC-all; 78,605 packed 2048-token sequences, 459 steps, best checkpoint = step 400 by eval loss 1.049, as the authors' load_best_model_at_end). Paper Mistral JIAC-all Ft. .884/.711/.531/.911/.565. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
       "commit": "1f9ea70",
       "gpus": "8xA100-80GB",
       "wall_seconds": 21230,
@@ -151,7 +151,7 @@
     },
     {
       "run": "j3-sub10-env",
-      "what": "env on a 10% sample of the original (39,848 dialogues, random_state=0; 7,683 packed sequences, 45 steps). Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "what": "env on a 10% sample of the original (39,848 dialogues, random_state=0; 7,683 packed sequences, 45 steps). Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
       "commit": "1f9ea70",
       "gpus": "4xA100-80GB",
       "wall_seconds": 4391,
@@ -167,7 +167,7 @@
     },
     {
       "run": "j3-sub10-seed1",
-      "what": "env on the same 10% sample with train.py --seed 1 (LoRA init, packing shuffle, data order); seed-spread estimate. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the dialogues j4 counts as dropped.",
+      "what": "env on the same 10% sample with train.py --seed 1 (LoRA init, packing shuffle, data order); seed-spread estimate. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
       "commit": "1f9ea70",
       "gpus": "4xA100-80GB",
       "wall_seconds": 4398,
@@ -179,6 +179,28 @@
         "extraversion": 0.515,
         "agreeableness": 0.839,
         "neuroticism": 0.537
+      }
+    },
+    {
+      "run": "j4-tests",
+      "what": "unittests at the strict-leak commit; the original and 10% are decontaminated and pass validate.py: released train 398,476 dialogues, 2 persona statements leak verbatim ('Sometimes it feels like the whole world is against me', 'I’m willing to try new things and take risks'), 67 dialogues dropped, original 398,409, 10% 39,845",
+      "commit": "12dabd4",
+      "gpus": "8xA100-80GB",
+      "wall_seconds": 105,
+      "passed": true
+    },
+    {
+      "run": "j4-baseline-env",
+      "what": "env baseline, run.sh none, at the strict-leak commit (identical to j2)",
+      "commit": "12dabd4",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 209,
+      "primary": {
+        "openness": 0.832,
+        "conscientiousness": 0.64,
+        "extraversion": 0.514,
+        "agreeableness": 0.817,
+        "neuroticism": 0.535
       }
     }
   ],
@@ -205,5 +227,6 @@
       "agreeableness": 0.069,
       "neuroticism": 0.028
     }
-  }
+  },
+  "commits_note": "Run commits are those the AIP jobs cloned from env/jic before it was rebased on main; tag jic-aip-runs keeps them reachable."
 }
