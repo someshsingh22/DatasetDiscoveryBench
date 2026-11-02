@@ -174,5 +174,8 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - V-information needs a trained null model or the exact label entropy for H_V(Y). A zero-shot model on an empty input
   is no null, since nothing minimized its entropy: it gave the no-data baseline 0.64 bits of "usable information".
 - DDP of a ~1B model at a small per-device batch can be bound by step overhead, not compute: T5-large on 4 GPUs ran
-  ~3.3 it/s for 512-token and 1-token inputs alike. Compare 1 GPU with the full batch against 4 before packing a node.
+  ~3.3 it/s for 512-token and 1-token inputs alike, and 1.9 it/s on 1 GPU with the full batch, so 1-GPU runs did ~2x
+  the work per GPU. Compare 1 GPU with the full batch against 4 before packing a node.
+- Pack a node as a longest-first work queue (each run takes the next free GPU or GPU group), not fixed lanes, and pick
+  the runs so that all GPUs end within ~15 min of each other: fixed lanes left half of a node idle for 3 h.
 - Export each run to S3 when it ends, not at job end: if aip auth drops mid-job, the local AWS CLI still gets results.
