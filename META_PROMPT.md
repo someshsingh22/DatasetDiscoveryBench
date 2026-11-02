@@ -178,3 +178,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   every call: prefetch once, then export `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1`.
 - When the authors' scripts hardcode the model and epochs, a smoke hook would mean editing them; test the wrappers on
   mock data instead and let the first AIP minutes be the smoke test.
+- Evaluate the untuned model and the authors' public checkpoints first (minutes on one GPU, alongside the unittests):
+  deterministic scores that match the paper validate the evaluation before hours of training.
+- With old transformers pins, a tokenizer config that sets `add_prefix_space` rebuilds the fast tokenizer from the slow
+  one, which needs `sentencepiece` and `protobuf`; pin them at the authors' versions too.
+- lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
+  `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).
