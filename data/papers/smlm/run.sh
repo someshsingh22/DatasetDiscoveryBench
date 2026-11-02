@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Scores a discussion-thread dataset: run.sh SUBMISSION.csv OUT_DIR -> OUT_DIR/scores.json
 # Runs the authors' code (src/arg_mining): selective-MLM pre-training of Longformer on the submission's threads (3 GPUs),
-# then 5 seeded fine-tuning runs per task, one per GPU at a time: argument component identification on Dr Inventor and
-# CMV Modes, relation types on CMV Modes. SUBMISSION=none fine-tunes the base Longformer (the paper's baseline).
+# then RUNS (default 1; the paper: 5) seeded fine-tuning runs per task, one per GPU at a time: argument component
+# identification on Dr Inventor and CMV Modes, relation types on CMV Modes. SUBMISSION=none fine-tunes the base
+# Longformer (the paper's baseline).
 # Uses the GPUs in CUDA_VISIBLE_DEVICES, default all (pre-training needs 3).
 set -euo pipefail
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-$(nvidia-smi --query-gpu=index --format=csv,noheader | paste -sd, -)}
@@ -29,7 +30,7 @@ fi
 cd "$ENV/external_eval_data"  # the scripts read ./Discourse_Markers.txt and the benchmarks from here
 for task in "rtp_80 relation_type/prompt_5_cons_ft_runs_CmvModes.py 80" "rtp_50 relation_type/prompt_5_cons_ft_runs_CmvModes.py 50" \
   "drinv_aci_80 segmentation/5_cons_ft_runs_DrInventor.py 80" "cmv_aci_80 segmentation/5_cons_ft_runs_CmvModes.py 80"; do
-  for run in 0 1 2 3 4; do echo "$task $run"; done
+  for run in $(seq 0 $((${RUNS:-1} - 1))); do echo "$task $run"; done
 done | xargs -L1 -P "$(awk -F, '{print NF}' <<< "$CUDA_VISIBLE_DEVICES")" --process-slot-var=SLOT bash -c \
   'CUDA_VISIBLE_DEVICES=$(cut -d, -f$((SLOT + 1)) <<< "$CUDA_VISIBLE_DEVICES") uv run python "$0/$2" "$TOK" "$MODEL" "$3" "$4" \
   > "$OUT/logs/$1_$4.log" 2>&1' "$SRC"
