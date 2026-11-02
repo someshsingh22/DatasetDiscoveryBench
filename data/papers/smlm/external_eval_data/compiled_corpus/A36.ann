@@ -1,0 +1,507 @@
+T1	background_claim 2177 2309	 Today’s cloth simulators for animation, visual effects, games, and apparel design can mimic real cloth to a high degree of fidelity
+T2	background_claim 2315 2427	to fully exploit their capabilities, the constitutive models for cloth deformation must be tuned with great care
+T3	background_claim 2429 2560	During this tuning process it is difficult to tell which models and which parameters are giving results more like the real material
+T4	own_claim 2562 2757	This paper aims to solve this problem by introducing new techniques to measure complete cloth behavior under controlled conditions and to estimate cloth deformation models from these measurements
+T5	background_claim 2759 2901	Most methods for testing cloth move the sample into a state of near-uniform strain, exercising one or at most two components of strain at once
+T6	data 2903 2918	pure stretching
+T7	data 2920 2933	pure shearing
+T8	data 2938 2950	pure bending
+R1	supports Arg1:T6 Arg2:T5	
+R2	supports Arg1:T7 Arg2:T5	
+R3	supports Arg1:T8 Arg2:T5	
+T9	background_claim 3038 3135	the resulting forcedisplacement curves are valuable in studying the differences between materials
+T10	background_claim 3146 3183	this approach has certain limitations
+T11	background_claim 3185 3322	The inevitable deviations from uniform strain create modeling error that cannot be quantified without knowing the actual strain variation
+R4	supports Arg1:T11 Arg2:T10	
+T12	background_claim 3328 3454	force-displacement curves can be used directly to tune a cloth model, but do not provide any way to validate the resulting fit
+R5	supports Arg1:T12 Arg2:T10	
+T13	own_claim 3456 3640	The contributions of this paper are, first, a new, general system for observing cloth properties that measures more complete data than previous work in cloth capture or textile testing
+T14	own_claim 3646 3717	second, a new method for fitting parametric models to this type of data
+T15	own_claim 4081 4168	Having deformation and force information makes our data well suited to model validation
+T16	own_claim 4169 4258	the experiment measures the complete answer that should be predicted by a cloth simulator
+T17	own_claim 4422 4581	Our approach to model estimation is to numerically optimize nonlinear stress-strain curves to minimize errors in force and position compared to the measurement
+T18	own_claim 4266 4295	we do not need uniform strain
+T19	own_claim 4583 4741	We have designed a general fitting method, suited for the vast majority of existing cloth models, that leverages equilibrium conditions to guide the iteration
+T20	own_claim 4743 4912	By estimating model parameters under a sequence of deformations of increasing complexity, we alleviate problems with convergence in the presence of abundant local minima
+T21	background_claim 5525 5595	Cloth simulation has a comparatively long history in computer graphics
+T22	background_claim 5599 5640	Since the first physics-based approach by
+T23	background_claim 5671 5721	a multitude of different cloth models have emerged
+R6	parts_of_same Arg1:T22 Arg2:T23	
+T24	data 5662 5668	TPBF87
+R7	supports Arg1:T24 Arg2:T22	
+T25	background_claim 5736 5762	simple mass-spring systems
+T26	background_claim 5786 5810	general particle systems
+T27	background_claim 5840 5889	elaborate models derived from continuum mechanics
+T28	background_claim 5917 5944	the discrete yarn structure
+T29	data 5766 5771	Pro95
+R8	supports Arg1:T29 Arg2:T25	
+R9	supports Arg1:T25 Arg2:T23	
+T30	data 5774 5778	CK02
+R10	supports Arg1:T30 Arg2:T25	
+T31	data 5814 5819	BHW94
+T32	data 5822 5826	BW98
+T33	data 5829 5834	EWS96
+R11	supports Arg1:T31 Arg2:T26	
+R12	supports Arg1:T32 Arg2:T26	
+R13	supports Arg1:T33 Arg2:T26	
+T34	data 5892 5897	EKS03
+R14	supports Arg1:T34 Arg2:T27	
+T35	data 5900 5906	VMTF09
+R15	supports Arg1:T35 Arg2:T27	
+T36	data 5948 5953	KJM08
+R16	supports Arg1:T36 Arg2:T28	
+T37	background_claim 5957 6092	Considering the number of existing models, it is very hard to clearly identify or even quantify the advantages of individual approaches
+T38	own_claim 6094 6192	Our goal is to define a platform for comparing cloth models to the observed behavior of real cloth
+T39	background_claim 6194 6315	As a central component of any cloth model, material models describe the relation between deformation and resulting forces
+T40	background_claim 6318 6469	In the simplest case, this relationship is linear and thus completely described by a set of material constants, whose number depends on the cloth model
+T41	background_claim 6471 6520	Massspring systems typically have four parameters
+T42	data 6522 6544	one per type of spring
+R17	supports Arg1:T41 Arg2:T40	
+R18	supports Arg1:T42 Arg2:T41	
+T43	data 6547 6552	Pro95
+R19	supports Arg1:T43 Arg2:T41	
+T44	background_claim 6564 6600	continuum-based methods can have two
+T45	background_claim 6613 6619	to six
+T46	background_claim 6645 6678	parameters for planar deformation
+T47	background_claim 6688 6725	plus another one to three for bending
+R20	parts_of_same Arg1:T44 Arg2:T45	
+R21	parts_of_same Arg1:T45 Arg2:T46	
+R22	parts_of_same Arg1:T46 Arg2:T47	
+T48	data 6602 6611	isotropic
+T49	data 6621 6643	completely anisotropic
+T50	data 6681 6686	EKS03
+T51	data 6728 6734	GGWZ07
+R23	supports Arg1:T48 Arg2:T44	
+R24	supports Arg1:T49 Arg2:T45	
+R25	supports Arg1:T50 Arg2:T46	
+R26	supports Arg1:T51 Arg2:T47	
+T52	background_claim 6738 6837	Continuum-based approaches can accurately describe the directional variation of material properties
+T53	background_claim 6843 7026	regardless of the cloth model, a single set of material coefficients for the entire deformation range is not sufficient to faithfully capture the nonlinear response of typical fabrics
+R27	contradicts Arg1:T53 Arg2:T52	
+T54	background_claim 7028 7094	Bi-phasic models, typically implemented as strain limiting methods
+T55	background_claim 7134 7260	improve on this by splitting the material behavior into an initial, weakly elastic range and a stiff, quasi-inextensible limit
+R28	parts_of_same Arg1:T54 Arg2:T55	
+T56	data 7097 7102	Pro95
+T57	data 7104 7109	BFA02
+T58	data 7111 7116	Mül08
+T59	data 7118 7123	TPS09
+T60	data 7125 7130	WOR10
+R29	supports Arg1:T56 Arg2:T54	
+R30	supports Arg1:T57 Arg2:T54	
+R31	supports Arg1:T58 Arg2:T54	
+R32	supports Arg1:T59 Arg2:T54	
+R33	supports Arg1:T60 Arg2:T54	
+T61	background_claim 7262 7355	At the extreme, the elastic range can be replaced altogether by inextensibil∗ ity constraints
+T62	data 7358 7364	GHF 07
+T63	data 7366 7370	EB08
+R34	supports Arg1:T62 Arg2:T61	
+R35	supports Arg1:T63 Arg2:T61	
+T64	background_claim 7373 7576	A better approximation to the true material response can be obtained by making the material parameters functions of the deformation, rather than constants, and by fitting these functions to measured data
+T65	background_claim 7591 7604	previous work
+T66	background_claim 7628 7679	has mainly relied on the Kawabata Evaluation System
+R36	parts_of_same Arg1:T65 Arg2:T66	
+T67	data 7688 7693	Kaw80
+T68	data 7606 7611	BHW94
+T69	data 7612 7617	EWS96
+T70	data 7619 7625	VMTF09
+R37	supports Arg1:T68 Arg2:T65	
+R38	supports Arg1:T69 Arg2:T65	
+R39	supports Arg1:T70 Arg2:T65	
+R40	supports Arg1:T67 Arg2:T66	
+T71	background_claim 7697 7724	and corresponding machinery
+R41	parts_of_same Arg1:T71 Arg2:T66	
+T72	background_claim 7733 7782	the KES covers a comprehensive set of experiments
+T74	data 7880 7910	for measuring shear properties
+T73	background_claim 7784 7837	other devices have been used in more specific context
+R42	contradicts Arg1:T73 Arg2:T72	
+T75	data 7846 7868	the Picture Frame test
+R43	parts_of_same Arg1:T75 Arg2:T74	
+T76	data 7872 7877	Cul79
+R44	supports Arg1:T76 Arg2:T75	
+R45	supports Arg1:T75 Arg2:T73	
+T77	data 7915 7934	the Cantilever test
+T78	data 7946 7978	for measuring bending properties
+R46	parts_of_same Arg1:T78 Arg2:T77	
+R47	supports Arg1:T77 Arg2:T73	
+T79	data 7937 7943	CPGE90
+R48	supports Arg1:T79 Arg2:T77	
+T80	data 8004 8010	PKST08
+R49	supports Arg1:T80 Arg2:T78	
+T81	background_claim 8015 8118	These measurement-based approaches establish a valuable link between simulation and real-world behavior
+T82	background_claim 8124 8192	they rely on experiments that isolate individual deforma∗ tion modes
+R50	contradicts Arg1:T82 Arg2:T81	
+T83	background_claim 8194 8211	As an alternative
+T84	background_claim 8279 8398	aim at avoiding the need for controlled conditions and try to extract parameters from casually captured videos of cloth
+R51	parts_of_same Arg1:T83 Arg2:T84	
+T85	data 8227 8233	BTH 03
+T86	data 8269 8274	KNM10
+R52	supports Arg1:T85 Arg2:T83	
+R53	supports Arg1:T86 Arg2:T83	
+T87	background_claim 8400 8474	This approach appeals through a simple and inexpensive acquisition process
+T88	background_claim 8480 8530	it is not possible to accurately separate internal
+T89	background_claim 8556 8568	and external
+T90	background_claim 8595 8605	parameters
+R54	parts_of_same Arg1:T88 Arg2:T89	
+R55	parts_of_same Arg1:T89 Arg2:T90	
+R56	contradicts Arg1:T88 Arg2:T87	
+T91	data 8537 8554	material-specific
+T92	data 8575 8583	friction
+T93	data 8585 8593	air drag
+R57	supports Arg1:T91 Arg2:T88	
+R58	supports Arg1:T92 Arg2:T89	
+R59	supports Arg1:T93 Arg2:T89	
+T94	background_claim 8628 8719	capture technology can be used to record time-varying geometry of complex cloth mo∗ ∗ tions
+T95	data 8721 8726	WCF07
+T96	data 8727 8733	BPS 08
+T97	data 8734 8741	SGdA 10
+R60	supports Arg1:T95 Arg2:T94	
+R61	supports Arg1:T96 Arg2:T94	
+R62	supports Arg1:T97 Arg2:T94	
+T98	background_claim 8754 8801	capturing can provide accurate deformation data
+T99	background_claim 8803 8923	parameter fitting remains very difficult without explicit control over boundary conditions, in particular loading forces
+R63	contradicts Arg1:T99 Arg2:T98	
+T100	own_claim 8925 8969	Closer to our work is the recent approach of
+T101	background_claim 8993 9089	who propose a data-driven piecewise linear elastic cloth model comprising 39 material parameters
+T102	data 8984 8989	WRO11
+R64	supports Arg1:T102 Arg2:T100	
+R65	supports Arg1:T101 Arg2:T100	
+T103	background_claim 9091 9196	These parameters are fitted to experimentally acquired data obtained from planar and bending deformations
+T104	background_claim 9198 9239	Their capture setup is appealingly simple
+T105	own_claim 9245 9278	ours is more general and powerful
+T106	own_claim 9280 9334	it produces a 3D surface, rather than a 2D deformation
+T107	own_claim 9340 9439	it measures all forces applied to the cloth as they change during a range of different deformations
+R66	supports Arg1:T106 Arg2:T105	
+R67	supports Arg1:T107 Arg2:T105	
+T108	own_claim 9502 9656	The design goals of our measurement system are to create deformations in a sample of cloth that explore a substantial range of the material’s strain space
+T109	own_claim 9662 9768	to record complete information about the forces applied to the cloth and the deformation that it undergoes
+T110	own_claim 9804 9840	we focus primarily on tensile forces
+T111	data 9850 9951	it is hard to repeatably produce and measure compression forces in a sheet that is inclined to buckle
+R68	supports Arg1:T111 Arg2:T110	
+T112	own_claim 10502 10588	Our actuators and load cells are capable of applying and measuring tensions up to 45 N
+T113	own_claim 10594 10664	in our experiments the maximum force is typically on the order of 10 N
+R69	contradicts Arg1:T113 Arg2:T112	
+T114	own_claim 11381 11441	the actuator positions themselves are not part of the output
+T115	data 11449 11511	they are superseded by the displacements measured at the clips
+R70	supports Arg1:T115 Arg2:T114	
+T116	own_claim 11513 11662	This prevents stretching of the cord, or other factors affecting the distance between the clip and the actuator, from affecting displacement accuracy
+R71	supports Arg1:T114 Arg2:T116	
+T117	own_claim 12096 12256	Our vision system recovers the space-time geometry of the deforming cloth and attached rigid clips, as well as the directions of the forces applied to the clips
+T118	own_claim 12762 12934	The raw data for a single deformation consists of 20 to 200 individual measurement frames, with a set of camera images and simultaneous force sensor readings for each frame
+T119	own_claim 12937 13026	We compute the per-frame geometry using a state-ofthe-art stereo reconstruction technique
+T120	background_claim 13039 13106	which was specifically tailored for reconstructing cloth geome∗ try
+T121	data 13030 13035	BBH08
+R72	supports Arg1:T120 Arg2:T119	
+R73	supports Arg1:T121 Arg2:T119	
+T122	data 13110 13116	BPS 08
+R74	supports Arg1:T122 Arg2:T120	
+T123	background_claim 13185 13229	it is printed with a wavelet noise pat∗ tern
+T124	data 13123 13183	the inherent texture of the cloth is not sufficiently random
+T125	background_claim 13243 13317	to provide texture that can be used for stereo reconstruction and tracking
+R75	parts_of_same Arg1:T123 Arg2:T125	
+T126	data 13233 13239	AIH 08
+R76	supports Arg1:T126 Arg2:T123	
+T127	own_claim 13319 13434	The pattern is printed with a flatbed inkjet printer and does not have a noticeable effect on the material behavior
+T128	own_claim 13436 13595	To represent inter-frame correspondence, we use optical flow to obtain a single triangle mesh that deforms over time, akin to the human face tracking method of
+T129	data 13612 13618	BHPS10
+R77	supports Arg1:T129 Arg2:T128	
+T130	own_claim 13801 13919	Back-projecting onto the reconstructed geometry for the next frame gives new position estimates for the cloth vertices
+T131	own_claim 14044 14133	very small errors can accumulate over time and cause temporal drift in the reconstruction
+T132	own_claim 14135 14257	To avoid drift, we subsequently match each frame independently back to the rest pose frame using the approach described in
+T133	data 14274 14280	BHPS10
+R78	supports Arg1:T133 Arg2:T132	
+T134	own_claim 14461 14547	we need to determine the interaction between the rigid clips, the cloth, and the cords
+T135	data 14397 14459	to measure the complete answer that a simulator should predict
+R79	supports Arg1:T135 Arg2:T134	
+T136	background_claim 14549 14617	The clips are produced, using rapid prototyping, with embedded codes
+T137	background_claim 14627 14709	that allow us to determine their identity, position, and orientation automatically
+R80	parts_of_same Arg1:T136 Arg2:T137	
+T138	data 14620 14625	Fia05
+R81	supports Arg1:T138 Arg2:T136	
+T139	own_claim 14711 14831	The area of cloth occluded by the clips is used to automatically determine which cloth vertices are clamped by each clip
+T140	own_claim 14836 14888	will therefore be constrained to it in the simulator
+R82	supports Arg1:T139 Arg2:T140	
+T141	own_claim 14890 14983	The vision system also finds the cords in the images and triangulates a 3D line for each cord
+T142	own_claim 14985 15068	A few user scribbles on an input image indicate which cords are affecting each clip
+T143	own_claim 16762 16853	The set of deformations to measure is motivated by the goals of the parameter fitting stage
+T144	data 16855 16864	Section 5
+R83	supports Arg1:T144 Arg2:T143	
+T145	data 16867 16950	to fit model parameters for stretch, shear and bending that best describe the cloth
+T146	data 16956 17026	to validate the parameter fits by comparing against other measurements
+R84	supports Arg1:T145 Arg2:T143	
+R85	supports Arg1:T146 Arg2:T143	
+T147	own_claim 17028 17269	To reduce the risk of falling into local minima during parameter fits, we have designed deformation sequences that produce near-isolated strains, and allow estimating stretch, shear and bending properties in a separate and incremental manner
+T148	own_claim 17391 17434	we relax the requirement of uniform strains
+T149	data 17349 17389	our full 3D deformation capture solution
+R86	supports Arg1:T149 Arg2:T148	
+T150	own_claim 17436 17579	To isolate stretching we perform a uni-axial tension experiment, with forces applied to two long bar clips attached to either side of the cloth
+T151	data 17585 17606	Figure 4 , 2nd column
+R87	supports Arg1:T151 Arg2:T150	
+T152	own_claim 18776 18867	our acquisition system is able to recover the 3D cloth geometry including temporal tracking
+T153	own_claim 18913 18974	tracked 3D clip locations, and individual 3D force directions
+T154	own_claim 19017 19132	our method presents the first system able to record such extensive information about the behavior of a cloth sample
+T155	data 18750 18759	Figures 4
+T156	data 18764 18765	5
+R88	supports Arg1:T156 Arg2:T152	
+R89	supports Arg1:T155 Arg2:T152	
+R90	parts_of_same Arg1:T152 Arg2:T153	
+T157	data 18869 18910	illustrated with an overlaid checkerboard
+R91	supports Arg1:T157 Arg2:T152	
+T158	data 18976 18996	shown as green lines
+R92	supports Arg1:T158 Arg2:T153	
+T159	background_claim 19692 19726	The multi-view stereo algorithm of
+T160	background_claim 19751 19836	is among the most accurate available according to the Middlebury evaluation benchmark
+R93	parts_of_same Arg1:T159 Arg2:T160	
+T161	data 19744 19749	BBH08
+R94	supports Arg1:T161 Arg2:T159	
+T162	own_claim 19838 19911	It is difficult to quantify the accuracy of the temporal flow computation
+T163	own_claim 19917 20009	it can be visualized by compositing the reconstructed deformation on top of the input images
+R95	contradicts Arg1:T163 Arg2:T162	
+T164	data 20015 20033	accompanying video
+R96	supports Arg1:T164 Arg2:T163	
+T165	own_claim 20110 20256	The largest source of error in measuring the force indirectly through the cord is the internal friction in the cord as it bends around the pulleys
+T166	own_claim 20264 20314	introduces an artificial hysteresis of about 0.1 N
+R97	supports Arg1:T165 Arg2:T166	
+T167	own_claim 20036 20102	The raw repeatability of our force sensors is about 3 millinewtons
+T168	background_claim 21360 21403	Most elastic cloth models separate membrane
+T169	background_claim 21430 21462	and bending deformation energies
+R98	parts_of_same Arg1:T168 Arg2:T169	
+T170	data 21411 21418	stretch
+T171	data 21423 21428	shear
+R99	supports Arg1:T170 Arg2:T168	
+R100	supports Arg1:T171 Arg2:T168	
+T172	own_claim 22018 22099	We have evaluated three models for membrane deformation that fit this description
+T173	data 22101 22115	spring systems
+T174	data 22117 22142	the soft constraint model
+T175	data 22173 22213	and the diagonalized St.Venant-Kirchhoff
+T176	data 22221 22226	model
+R102	parts_of_same Arg1:T175 Arg2:T176	
+R103	supports Arg1:T173 Arg2:T172	
+R104	supports Arg1:T174 Arg2:T172	
+T177	data 22166 22170	BW98
+T178	data 22245 22251	VMTF09
+R105	supports Arg1:T178 Arg2:T176	
+R106	supports Arg1:T177 Arg2:T174	
+R101	supports Arg1:T175 Arg2:T172	
+T179	own_claim 22255 22277	and two bending models
+R107	parts_of_same Arg1:T172 Arg2:T179	
+T180	data 22279 22293	spring systems
+T181	data 22298 22345	the edge-based bending model in Discrete Shells
+R108	supports Arg1:T180 Arg2:T179	
+R109	supports Arg1:T181 Arg2:T179	
+T182	data 22347 22353	GHDS03
+R110	supports Arg1:T182 Arg2:T181	
+T183	own_claim 22734 22804	not all force models define the quantities below explicitly as strains
+T184	data 22809 22864	they often rely on the resolution of the discretization
+T185	data 22869 22946	they differ simply by scale factors that can be embedded in the stiffness k i
+R111	supports Arg1:T184 Arg2:T183	
+R112	supports Arg1:T185 Arg2:T183	
+T186	background_claim 24324 24435	approximate the standard StVK model zeroing out off-diagonal terms in the matrix that relates strain and stress
+T187	data 24316 24322	VMTF09
+R113	supports Arg1:T187 Arg2:T186	
+T188	background_claim 24451 24558	in the diagonalized StVK, each membrane stress component depends only on its corresponding strain component
+R114	supports Arg1:T186 Arg2:T188	
+T189	data 24437 24443	σ = Eε
+T190	data 24560 24574	σ s,i (ε s,i )
+R115	supports Arg1:T189 Arg2:T186	
+R116	supports Arg1:T190 Arg2:T188	
+T191	background_claim 25418 25583	discovered concurrently the appropriate weighting of the angle change in order to model homogeneous bending on irregular triangle meshes with a homogeneous stiffness
+T192	data 25410 25415	BMF03
+T193	data 25382 25388	GHDS03
+R117	supports Arg1:T192 Arg2:T191	
+R118	supports Arg1:T193 Arg2:T191	
+T194	own_claim 25811 25933	With our separation of weft-, warpand diagonal-bending to capture anisotropy, the bending models in Discrete Shells and by
+T195	own_claim 25960 26005	are equivalent up to a stiffness scale factor
+R119	parts_of_same Arg1:T194 Arg2:T195	
+T196	data 25954 25958	BW98
+R120	supports Arg1:T196 Arg2:T191	
+T197	background_claim 26783 26837	propose a general nonlinear stress-strain relationship
+T198	own_claim 26902 26973	the same construction can easily be built on any of our selected models
+R121	contradicts Arg1:T198 Arg2:T197	
+T199	data 26775 26781	VMTF09
+R122	supports Arg1:T199 Arg2:T197	
+T200	own_claim 27466 27603	The key question of how well a given model describes a particular piece of cloth is answered by fitting the model to the measurement data
+T201	data 27605 27742	adjusting its parameters to minimize the difference between the model’s predictions and the measured behavior, both in position and force
+R123	supports Arg1:T201 Arg2:T200	
+T202	own_claim 27874 27980	In principle all parameters of a cloth model can be fit to a sufficiently rich single deformation sequence
+T203	own_claim 27986 28040	this can result in a problem fraught with local minima
+R124	contradicts Arg1:T203 Arg2:T202	
+T204	own_claim 28075 28214	we have designed an incremental optimization procedure that fits model parameters a few at a time using the isolated deformations described
+T205	data 28218 28229	Section 3.2
+R125	supports Arg1:T205 Arg2:T204	
+T206	data 28054 28073	achieve stable fits
+R126	supports Arg1:T206 Arg2:T204	
+T207	own_claim 29000 29019	we wish to know the
+T208	own_claim 29032 29184	stress-strain curves for the deformation components of a cloth model, such that a simulated cloth matches known positions and forces as well as possible
+R127	parts_of_same Arg1:T207 Arg2:T208	
+T209	data 28949 28998	Given a set of captured static deformation frames
+R128	supports Arg1:T209 Arg2:T207	
+T210	own_claim 29607 29716	the net force on the clips, produced by cord forces, gravity, and forces from fixed cloth nodes, must be zero
+T211	data 29594 29605	equilibrium
+R129	supports Arg1:T211 Arg2:T210	
+T212	own_claim 30997 31044	the clip-parallel forces are dominated by shear
+T213	own_claim 31052 31099	clip-orthogonal forces are dominated by stretch
+T214	data 30959 30995	situations of near-homogeneous shear
+R130	supports Arg1:T214 Arg2:T212	
+R131	supports Arg1:T214 Arg2:T213	
+T215	own_claim 33715 33807	during inter∂x n mediate iterations, the stiffness matrix may not always be well conditioned
+T216	own_claim 34013 34078	we also use this ∂x n modified stiffness matrix in the outer loop
+T217	data 33990 34011	improved conditioning
+R132	supports Arg1:T217 Arg2:T216	
+T218	own_claim 34323 34617	The nonlinearity of cloth deformation, together with the complex interplay of various deformation components in the resulting forces and positions, make the optimization problem above extremely complex in the general case, prone to falling in local minima and sensitive to initialization values
+T219	own_claim 34628 34723	we largely alleviate these issues with the design of the five isolated deformation measurements
+T220	own_claim 34750 34844	which allow us to separately fit stiffness curves for the six deformation components described
+T221	own_claim 34861 34913	following an incremental parameter fitting procedure
+R133	parts_of_same Arg1:T219 Arg2:T220	
+R134	parts_of_same Arg1:T220 Arg2:T221	
+T222	data 34737 34748	Section 3.2
+T223	data 34848 34859	Section 4.1
+R135	supports Arg1:T222 Arg2:T219	
+R136	supports Arg1:T223 Arg2:T220	
+T224	own_claim 37259 37319	The measurement shows the typical behavior of a woven fabric
+T225	data 37321 37404	a nonlinear curve with increasing stiffness for higher strain, and large hysteresis
+R137	supports Arg1:T225 Arg2:T224	
+T226	own_claim 38142 38194	The results are too numerous to include in the paper
+T227	own_claim 38196 38429	we refer the reader to the supplementary material, which illustrates the behavior of the nonlinear orthotropic variant of all three models for all four fabrics, and the behavior of the variants of the Soft Constraints model for denim
+R138	supports Arg1:T226 Arg2:T227	
+T228	own_claim 39131 39203	The four selected fabrics span a large range of possible cloth behaviors
+T229	own_claim 39220 39278	#12 is isotropic and very compliant in stretch and bending
+T230	own_claim 39280 39348	#4 is also isotropic, very stiff in stretch but compliant in bending
+T231	own_claim 39350 39431	#14 is stiff and quite isotropic in stretch, but extremely anisotropic in bending
+T232	own_claim 39482 39516	#18 is anisotropic both in stretch
+T233	own_claim 39545 39559	and in bending
+R139	parts_of_same Arg1:T232 Arg2:T233	
+R140	supports Arg1:T229 Arg2:T228	
+R141	supports Arg1:T230 Arg2:T228	
+R142	supports Arg1:T231 Arg2:T228	
+T234	data 39438 39475	33/1 stiffness ratio in weft and warp
+R143	supports Arg1:T234 Arg2:T231	
+R144	supports Arg1:T232 Arg2:T228	
+T235	data 39523 39543	10/1 stiffness ratio
+R145	supports Arg1:T235 Arg2:T232	
+T236	data 39566 39586	13/1 stiffness ratio
+R146	supports Arg1:T236 Arg2:T233	
+T237	own_claim 39722 39851	All four fabrics show similar hysteresis behavior, with loading-to-unloading stretch stiffness ratios ranging from 1.4/1 to 1.8/1
+T238	own_claim 39589 39658	The maximum stretch stiffness for #4 is 250 times higher than for #12
+T239	own_claim 39666 39720	#14 is 10 times stiffer in shear than any other fabric
+T240	own_claim 39853 39910	Sample #12 is nearly linear in the test deformation range
+T241	own_claim 39918 39962	all other three fabrics exhibit nonlinearity
+T242	own_claim 39979 40068	nonlinearity may arise in some deformation modes but not in others, with no clear pattern
+T243	own_claim 40086 40190	all three cloth models fit nicely to the average of the hysteresis bands, even in highly nonlinear cases
+T244	data 40074 40084	stretching
+R147	supports Arg1:T244 Arg2:T243	
+T245	own_claim 40192 40242	The fitting residual is larger for stiffer fabrics
+T246	own_claim 40248 40317	the nonlinear orthotropic model variants fit anisotropic fabrics best
+T247	own_claim 40338 40461	linear and/or isotropic variants reach a reasonable compromise but are not always able to remain inside the hysteresis band
+T248	own_claim 40477 40542	the fitting force residual is larger for #14, the stiffest fabric
+T249	data 40467 40475	shearing
+R148	supports Arg1:T249 Arg2:T248	
+T250	own_claim 40656 40691	the Springs model deviates at times
+T251	own_claim 40544 40586	Across models, the Soft Constraints and St
+T252	own_claim 40588 40648	VK models fit to the average of the shearing hysteresis band
+R149	parts_of_same Arg1:T251 Arg2:T252	
+R150	contradicts Arg1:T250 Arg2:T252	
+T253	own_claim 40706 40729	no forces are available
+T254	data 40697 40704	bending
+R151	supports Arg1:T254 Arg2:T253	
+T255	own_claim 40839 40931	The fitting residual is similar for all fabrics, but distinctly higher for the Springs model
+T256	own_claim 40933 41054	Often, the residual is dominated by a difference in curl near the edge of the sample, while the overall shape is well fit
+T257	own_claim 41161 41243	The behavior of sample #12, the most linear fabric, is predicted well in all cases
+T258	data 41248 41284	seen in the force-displacement plots
+T259	data 41286 41325	the buckling behavior in corner pulling
+T260	data 41331 41334	the
+T261	data 41343 41430	effective shear stiffness of the sheet when allowed to buckle in the complex shear test
+R152	parts_of_same Arg1:T260 Arg2:T261	
+R153	supports Arg1:T258 Arg2:T257	
+R154	supports Arg1:T259 Arg2:T257	
+R155	supports Arg1:T260 Arg2:T257	
+T262	own_claim 41537 41597	the stiffness is underestimated for the Soft Constraints and
+T263	own_claim 42005 42008	St.
+T264	own_claim 42009 42059	VK models, and overestimated for the Springs model
+T265	own_claim 41432 41458	In the three other samples
+R156	parts_of_same Arg1:T265 Arg2:T262	
+R157	parts_of_same Arg1:T262 Arg2:T263	
+R158	parts_of_same Arg1:T263 Arg2:T264	
+T266	data 41469 41523	the force-displacement plot of the corner pulling test
+R159	supports Arg1:T266 Arg2:T265	
+T267	own_claim 42061 42212	Visually, the mismatch is more apparent in the complex shear test, where models with underestimated stiffness exhibit wider folds than the real fabrics
+T268	own_claim 42514 42568	The force-displacement plots of the real cloth samples
+T269	own_claim 42607 42725	indicate very similar behavior between fitting and test samples for #12 and #14, and a larger disparity for #4 and #18
+R160	parts_of_same Arg1:T268 Arg2:T269	
+T270	data 42579 42605	the supplementary document
+R161	supports Arg1:T270 Arg2:T268	
+T271	own_claim 42727 42819	The evaluation plots for the simulation models behave similar for the test and fitting cases
+T272	own_claim 42825 42898	the matching quality depends on the actual disparity across cloth samples
+R162	contradicts Arg1:T272 Arg2:T271	
+T273	own_claim 42973 43061	the actual folding shapes of simulated cloth may deviate largely from the captured cloth
+T274	own_claim 42918 42971	overall force-displacement behavior is nicely matched
+T275	data 43071 43172	even a small change in material properties may lead to distant stable configurations in the L 2 sense
+R163	supports Arg1:T275 Arg2:T273	
+T276	own_claim 43191 43270	the traditional L 2 metric is not appropriate for evaluating error in this case
+T277	own_claim 43272 43383	The discontinuity of stable configurations is also the cause of flickering and twitches in some of our examples
+T278	own_claim 43385 43521	The Springs model exhibits the worst fitting quality in shearing force-displacement curves, and the highest fitting residual for bending
+T279	data 43547 43628	the inherent coupling of stretch and bending deformation components in this model
+R164	supports Arg1:T279 Arg2:T278	
+T280	own_claim 43644 43708	the overall deformations in complex shearing fit reasonably well
+T281	background_claim 43710 43825	In contrast to continuum models, complex parameter tuning has often been regarded as a caveat of mass-spring models
+T282	own_claim 43831 43962	our results indicate that satisfactory parameter estimation is possible by incorporating anisotropy and nonlinearity into the model
+R165	contradicts Arg1:T282 Arg2:T281	
+T283	own_claim 43993 44109	VK models produce results with very similar quality, which is expected as the models present only subtle differences
+T284	data 44126 44137	Section 4.1
+R166	supports Arg1:T284 Arg2:T283	
+T285	own_claim 44139 44193	At least three effects are missed by the tested models
+T286	own_claim 44195 44205	hysteresis
+T287	own_claim 44207 44221	Poisson effect
+T288	own_claim 44283 44305	cross-modal stiffening
+R167	supports Arg1:T286 Arg2:T285	
+R168	supports Arg1:T287 Arg2:T285	
+R169	supports Arg1:T288 Arg2:T285	
+T289	data 44230 44276	the diagonalization of the standard StVK model
+T290	data 44313 44347	shear stiffening due to stretching
+R170	supports Arg1:T289 Arg2:T287	
+R171	supports Arg1:T290 Arg2:T288	
+T291	own_claim 44430 44544	we chose clip-parallel forces as objective function to minimize the effect of stretch errors on shear optimization
+T292	own_claim 44350 44418	We indeed identified stretch stiffening in the shearing deformations
+R172	supports Arg1:T292 Arg2:T291	
+T293	own_claim 44565 44727	missing cross-modal stiffening may also be, to a large extent, the reason for stiffness underestimation in the corner pulling test for the Soft Constraints and St
+T294	own_claim 44729 44738	VK models
+R173	parts_of_same Arg1:T293 Arg2:T294	
+T295	own_claim 44740 44778	An extension to the nonlinear model of
+T296	own_claim 44800 44835	could help alleviate these problems
+R174	parts_of_same Arg1:T295 Arg2:T296	
+T297	data 44792 44797	WRO11
+R175	supports Arg1:T297 Arg2:T295	
+T298	own_claim 45800 46013	This paper has demonstrated a novel system for observing cloth behavior, including complete information about deformation and forces, and a new method for fitting and evaluating cloth models using the measurements
+T299	own_claim 46015 46076	Our system is different from standard textile testing systems
+T300	data 46085 46126	it captures detailed geometry information
+R176	supports Arg1:T300 Arg2:T299	
+T301	own_claim 46128 46179	it is different from previous cloth capture systems
+T302	data 46188 46226	it captures complete force information
+R177	supports Arg1:T302 Arg2:T301	
+T303	data 46231 46268	measures deformations of a 3D surface
+R178	supports Arg1:T303 Arg2:T301	
+T304	own_claim 46270 46399	The combination of very complete position and force information provides an unprecedented view into the complex behavior of cloth
+T305	own_claim 46401 46478	Our measurement setup offers very accurate control over membrane deformations
+T306	own_claim 46484 46555	the bending tests require manual intervention and are thus less precise
+T307	own_claim 46643 46663	some cloth materials
+T308	own_claim 46685 46719	tend to curl up at free boundaries
+R179	parts_of_same Arg1:T307 Arg2:T308	
+T309	own_claim 46570 46637	the bending tests are most accurate for samples with straight edges
+T310	own_claim 46721 46854	In order to eliminate these problems, we would like to investigate alternative ways of controlling bending deformations in the future
+T311	own_claim 46856 46933	The data from our experiments shows some of the limitations of current models
+R180	contradicts Arg1:T307 Arg2:T309	
+T312	own_claim 46935 46974	The most obvious of these is hysteresis
+T313	own_claim 47056 47125	resulting in quite large errors for any given point in the experiment
+T314	own_claim 47021 47054	cloth is clearly far from elastic
+T315	background_claim 46975 47015	all widely used cloth models are elastic
+R181	contradicts Arg1:T314 Arg2:T315	
+R182	supports Arg1:T314 Arg2:T313	
+R183	supports Arg1:T313 Arg2:T312	
+T316	own_claim 47127 47178	There are many paths for future work in measurement
+T317	own_claim 47190 47231	more complete exploration of strain space
+T318	own_claim 47260 47289	capture of dynamic properties
+T319	own_claim 47291 47305	and in fitting
+R184	parts_of_same Arg1:T316 Arg2:T319	
+T320	own_claim 47313 47442	new ways of evaluating fitting error are needed that can work when the cloth’s equilibrium state is unstable or non-deterministic
+R185	supports Arg1:T320 Arg2:T319	
+R186	supports Arg1:T317 Arg2:T316	
+R187	supports Arg1:T318 Arg2:T316	

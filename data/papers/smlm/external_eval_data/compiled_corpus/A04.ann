@@ -1,0 +1,393 @@
+T1	background_claim 2685 2743	Skin deformation resulting from the movement of characters
+T2	background_claim 2773 2848	is one of the most interesting and challenging topics in computer animation
+T3	data 2753 2759	humans
+T4	data 2764 2771	animals
+R1	parts_of_same Arg1:T2 Arg2:T1	
+R2	supports Arg1:T3 Arg2:T1	
+R3	supports Arg1:T4 Arg2:T1	
+T5	data 2956 2983	their structural complexity
+T6	background_claim 2850 2943	The modelling and deformation of such characters are inevitably complicated and timeconsuming
+R4	supports Arg1:T5 Arg2:T6	
+T7	background_claim 2991 3011	realism is important
+T8	background_claim 3013 3026	other factors
+T9	background_claim 3093 3145	are also of great importance in animation production
+R5	parts_of_same Arg1:T9 Arg2:T8	
+R6	contradicts Arg1:T8 Arg2:T7	
+T10	data 3035 3048	intuitiveness
+T11	data 3050 3069	ease of interaction
+T12	data 3074 3092	computational cost
+R7	supports Arg1:T10 Arg2:T8	
+R8	supports Arg1:T11 Arg2:T8	
+R9	supports Arg1:T12 Arg2:T8	
+T13	background_claim 5338 5365	mesh may take various forms
+T14	background_claim 5307 5326	The high-resolution
+R10	parts_of_same Arg1:T13 Arg2:T14	
+T15	data 5375 5380	Nurbs
+T16	data 5382 5402	subdivision surfaces
+T17	data 5407 5421	polygon meshes
+R11	supports Arg1:T15 Arg2:T13	
+R12	supports Arg1:T16 Arg2:T13	
+R13	supports Arg1:T17 Arg2:T13	
+T18	background_claim 5587 5637	t is inefficient to animate directly on this layer
+T19	background_claim 5540 5584	the mesh is very dense involving fine detail
+R14	supports Arg1:T19 Arg2:T18	
+T20	background_claim 5678 5775	works as an efficient intermediate layer for the modelling and deformation of the fine skin layer
+T21	background_claim 5639 5657	The low-resolution
+T22	background_claim 5668 5672	mesh
+R15	parts_of_same Arg1:T21 Arg2:T22	
+R16	parts_of_same Arg1:T22 Arg2:T20	
+T23	own_claim 5777 5823	Our technique adopts this two-layered strategy
+T24	background_claim 5825 5902	The animator creates almost all skin deformation effects on the low-res layer
+T25	background_claim 5423 5447	The detailed skin shapes
+T26	background_claim 5505 5530	are created on this layer
+T27	data 5458 5475	skin deformations
+T28	data 5477 5484	wrinkle
+T29	data 5486 5492	squama
+T30	data 5497 5504	feather
+R17	supports Arg1:T27 Arg2:T25	
+R18	supports Arg1:T28 Arg2:T25	
+R19	supports Arg1:T29 Arg2:T25	
+R20	supports Arg1:T30 Arg2:T25	
+R21	parts_of_same Arg1:T26 Arg2:T25	
+T31	own_claim 6330 6396	These properties allow the behaviours of skin and anatomic tissues
+T32	own_claim 6418 6493	to be mimicked intuitively in computer animation and to be computed rapidly
+R22	parts_of_same Arg1:T32 Arg2:T31	
+T33	data 6403 6416	muscle groups
+R23	supports Arg1:T33 Arg2:T31	
+T34	own_claim 6531 6594	there is a similarity between a bar-net and a mass–spring model
+T35	own_claim 6596 6640	they have substantially different behaviours
+R24	contradicts Arg1:T35 Arg2:T34	
+T36	own_claim 6642 6719	A mass–spring model will not be able to satisfy the properties we define here
+T37	background_claim 7724 7814	Most of the techniques on character deformation can be roughly categorized into two groups
+T38	background_claim 11887 12006	Anatomy based multi-layered models have significantly improved the realism of the modelling of complex living creatures
+T39	background_claim 12008 12088	Character animation based on the deformation of underlying anatomical structures
+T40	background_claim 12114 12143	is a very complicated process
+T41	data 12098 12105	muscles
+T42	data 12109 12112	fat
+R25	supports Arg1:T41 Arg2:T39	
+R26	supports Arg1:T42 Arg2:T39	
+R27	parts_of_same Arg1:T40 Arg2:T39	
+T43	background_claim 12236 12269	all need to be properly addressed
+T44	background_claim 12145 12151	Issues
+R28	parts_of_same Arg1:T43 Arg2:T44	
+T45	data 12157 12174	mechanical forces
+T46	data 12176 12195	material properties
+T47	data 12200 12235	collision among anatomic structures
+R29	supports Arg1:T45 Arg2:T44	
+R30	supports Arg1:T46 Arg2:T44	
+R31	supports Arg1:T47 Arg2:T44	
+R32	supports Arg1:T44 Arg2:T40	
+T48	background_claim 12271 12317	The computational cost is inevitably excessive
+R33	supports Arg1:T43 Arg2:T48	
+R34	supports Arg1:T40 Arg2:T48	
+T49	background_claim 12319 12390	Such computational costs place severe restrictions on many applications
+T50	own_claim 12392 12549	Our bar-net driven skinning method endeavours to take advantage of the anatomy-based approach, the smooth skinning approach and the physically based approach
+T51	data 12551 12559	Figure 1
+R35	supports Arg1:T51 Arg2:T50	
+T52	own_claim 12601 12642	It follows the current animation workflow
+T53	own_claim 12656 12704	a bar-net is coupled with the low-res skin layer
+R36	contradicts Arg1:T53 Arg2:T52	
+R37	supports Arg1:T51 Arg2:T52	
+T54	own_claim 12831 12945	Bar-nets deform according to both the external forces it is subject to and the stiffness properties of the network
+T55	own_claim 12947 13048	By controlling these two factors, the animator can easily create the various skin deformation effects
+T56	data 13059 13071	muscle bulge
+R38	supports Arg1:T56 Arg2:T55	
+T57	own_claim 13139 13239	The skeleton layer controls the movement of the character and determines the basic shape of its body
+T58	own_claim 13241 13350	The control mesh is bound to the character skeleton in the same way as the traditional smooth skinning method
+T59	own_claim 13352 13385	The bar-nets work like a deformer
+T60	own_claim 13438 13477	to change the shape of the skin surface
+R39	parts_of_same Arg1:T59 Arg2:T60	
+T61	own_claim 13479 13575	It is compatible with all the other deformation tools incorporated in current animation software
+T62	own_claim 14096 14187	A bar-net connects n s points, P i , in three-dimensional space with straight-line segments
+T63	own_claim 14246 14283	The nodes can be either fixed or free
+T64	own_claim 14285 14394	Fixed nodes will not have their positions changed regardless of whether they are subjected to external forces
+T65	own_claim 14396 14459	Free nodes can be moved to balance the acting forces on the net
+R40	supports Arg1:T65 Arg2:T63	
+R41	supports Arg1:T64 Arg2:T63	
+T66	own_claim 14584 14602	they cannot be ben
+T67	own_claim 14490 14578	These bars can be stretched and squashed resulting from the positioning of the end nodes
+R42	contradicts Arg1:T66 Arg2:T67	
+T68	own_claim 14644 14688	a graph with links connecting pairs of nodes
+T69	own_claim 14605 14635	The network described above is
+R43	parts_of_same Arg1:T68 Arg2:T69	
+T70	own_claim 14735 14809	can be formed, which represents in a tabular form the graph of the network
+T71	own_claim 14690 14702	A matrix C s
+R44	parts_of_same Arg1:T70 Arg2:T71	
+T72	data 14825 14867	there are n free nodes and n f fixed nodes
+T73	own_claim 14869 14939	the branch–node matrix can be further subdivided into two sub-matrices
+T74	own_claim 14953 15032	by grouping the free-node columns and fixed-node columns of the original matrix
+R45	parts_of_same Arg1:T73 Arg2:T74	
+R46	supports Arg1:T72 Arg2:T73	
+T75	own_claim 15114 15197	A deformable part of the low-res mesh of a character can be considered as a bar-net
+T76	own_claim 15199 15287	This analogy establishes a natural link between a mechanical bar-net and a surface patch
+T77	background_claim 3147 3203	Often a compromise among these factors has to be reached
+T78	background_claim 3205 3270	There are two general categories of methods in animation practice
+T79	background_claim 3272 3282	simulation
+T80	background_claim 3287 3296	authoring
+R47	supports Arg1:T79 Arg2:T78	
+R48	supports Arg1:T80 Arg2:T78	
+T81	data 3310 3313	1–3
+T82	background_claim 3298 3308	Simulation
+T83	background_claim 3315 3416	refers to the use of a mathematical model to automatically recreate the physical reality on computers
+R49	supports Arg1:T81 Arg2:T82	
+R50	parts_of_same Arg1:T83 Arg2:T82	
+T84	background_claim 3418 3564	A simulation method lets the animator easily create certain effect which could be otherwise almost an impossible mission with manual manipulations
+T85	background_claim 3575 3607	the disadvantage is also obvious
+R51	contradicts Arg1:T85 Arg2:T84	
+T86	background_claim 3618 3709	the simulation techniques provide some parameters for the animator to control the animation
+T87	background_claim 3711 3783	the connection between these parameters and the result is often implicit
+R52	contradicts Arg1:T87 Arg2:T86	
+R53	supports Arg1:T87 Arg2:T85	
+T88	background_claim 3785 3921	It is usually difficult for an artist to understand the exact physical meaning of these parameters and connect them to the final outcome
+R54	supports Arg1:T87 Arg2:T88	
+T89	background_claim 3931 3979	such methods are often computationally expensive
+R55	supports Arg1:T89 Arg2:T85	
+T90	background_claim 3981 4095	The authoring methods refer to those that the animator can use to manipulate the modelling or deformation directly
+T91	background_claim 4097 4147	The animator is able to see the result immediately
+T92	background_claim 4152 4223	has a full control over the deformed shape of the character in question
+R56	supports Arg1:T91 Arg2:T90	
+T93	background_claim 4225 4274	Both types of methods were around for a long time
+T94	background_claim 4285 4394	animators turn to favour those tools that they feel they have a control and can evaluate the results directly
+R57	contradicts Arg1:T94 Arg2:T93	
+T95	own_claim 4499 4593	A key advantage is that it combines the strengths of both prevalent categories discussed above
+T96	own_claim 4595 4689	This technique is based on a physically inspired deformation model from structural engineering
+T97	own_claim 4732 4735	can
+T98	own_claim 4746 4840	deform realistically based on the physical properties leading to physically plausible outcomes
+R58	parts_of_same Arg1:T97 Arg2:T98	
+R59	supports Arg1:T96 Arg2:T97	
+T99	own_claim 4917 5044	the animator is able to operate it as a physically based authoring tool in the same way as other conventional deformation tools
+R60	supports Arg1:T99 Arg2:T95	
+R61	supports Arg1:T98 Arg2:T95	
+T100	background_claim 5102 5123	In animation practice
+T101	background_claim 5171 5240	it is quite often for each character model to have two layers of mesh
+T102	data 5136 5153	the film industry
+T103	data 5157 5169	games design
+R62	supports Arg1:T102 Arg2:T100	
+R63	supports Arg1:T103 Arg2:T100	
+R64	parts_of_same Arg1:T101 Arg2:T100	
+T104	data 5242 5254	a rough mesh
+T105	data 5276 5287	a fine mesh
+R65	supports Arg1:T104 Arg2:T101	
+R66	supports Arg1:T105 Arg2:T101	
+T106	background_claim 7816 7825	authoring
+T107	background_claim 7830 7848	simulation methods
+R67	supports Arg1:T106 Arg2:T37	
+R68	supports Arg1:T107 Arg2:T37	
+R69	semantically_same Arg1:T37 Arg2:T78	
+T108	background_claim 7859 7911	the boundary between them does not always seem clear
+R70	contradicts Arg1:T108 Arg2:T37	
+T109	background_claim 7978 8017	The technique of Free Form Deformations
+T111	background_claim 8069 8141	remains popular and has been adopted by many animation software packages
+R71	parts_of_same Arg1:T111 Arg2:T109	
+T110	data 8149 8163	its simplicity
+T112	data 8168 8183	modelling speed
+R72	supports Arg1:T110 Arg2:T111	
+R73	supports Arg1:T112 Arg2:T111	
+T113	background_claim 8185 8238	FFDs were later extended by several other researchers
+T114	data 8066 8067	4
+R74	supports Arg1:T114 Arg2:T109	
+T115	own_claim 4410 4497	we present a new skinning technique for the deformation of computer-animated characters
+T116	data 8240 8243	5–8
+R75	supports Arg1:T116 Arg2:T113	
+T117	background_claim 8244 8295	All these techniques are purely geometric in nature
+T118	background_claim 8300 8380	make no attempt to simulate the physical properties or behaviours of a character
+T119	background_claim 8382 8458	Based on the FFDs, two very popular deformation tools were developed in Maya
+T120	data 8460 8471	the Lattice
+T121	data 8476 8490	Wrap deformers
+R76	supports Arg1:T120 Arg2:T119	
+R77	supports Arg1:T121 Arg2:T119	
+T122	background_claim 8492 8581	An intuitive attempt to deform a character was involving a skeleton into skin deformation
+T123	background_claim 8583 8615	This approach has a long history
+T124	background_claim 8620 8700	it treats the skin as a shell that moves by an explicit function of the skeleton
+R78	supports Arg1:T124 Arg2:T122	
+T125	background_claim 8702 8818	Vertices of the skin are deformed by a weighted combination of the joint transformations of the character’s skeleton
+T126	data 8820 8824	9–13
+R79	supports Arg1:T126 Arg2:T125	
+T127	background_claim 8886 8934	They are easy to understand and intuitive to use
+T128	background_claim 8936 8990	A tedious part is the proper assignment of the weights
+T129	background_claim 8992 9046	In production, the weights are painted by the animator
+T130	background_claim 9057 9104	the animator has full control over the outcomes
+R80	supports Arg1:T129 Arg2:T130	
+T131	background_claim 9106 9172	The smooth skinning approach suffers from some notorious drawbacks
+T132	data 9181 9205	the candy wrapper effect
+T133	data 9209 9232	collapsing elbow effect
+R81	supports Arg1:T132 Arg2:T131	
+R82	supports Arg1:T133 Arg2:T131	
+T134	data 9241 9310	its lack of consideration of volume preservation for the soft tissues
+R83	supports Arg1:T134 Arg2:T131	
+T135	background_claim 9312 9413	The example-based methods were developed as an alternative in order to overcome this kind of problems
+T136	background_claim 9426 9447	have had some success
+T137	data 9415 9420	14–17
+R84	supports Arg1:T137 Arg2:T135	
+T138	background_claim 9520 9582	the animator can control the exact appearance of the character
+T139	background_claim 9449 9465	With this method
+R85	parts_of_same Arg1:T138 Arg2:T139	
+R86	supports Arg1:T135 Arg2:T138	
+T140	background_claim 9584 9603	In facial animation
+T141	background_claim 9618 9713	the animator often needs to dictate how a facial model deforms to achieve different expressions
+R87	parts_of_same Arg1:T141 Arg2:T140	
+R88	supports Arg1:T141 Arg2:T138	
+T142	background_claim 9741 9834	a large number of models have to be made in the pose space and stored for shape interpolation
+T143	background_claim 9836 9864	This is an expensive process
+R89	supports Arg1:T142 Arg2:T143	
+R90	contradicts Arg1:T143 Arg2:T136	
+T144	background_claim 9866 9966	The drive for realism in computer graphics has lead to some new modelling and deformation techniques
+T145	background_claim 9968 10106	A group of techniques that have gained increasing popularity in the computer animation of characters are those based on characters anatomy
+T146	background_claim 10108 10209	These models attempt to mimic their real life counterparts by reproducing their anatomical structures
+T147	background_claim 10211 10347	These anatomy-based skinning methods differ on the complexity of the models and their behaviours of the underlying anatomical structures
+T148	background_claim 10351 10380	Some use simple muscle shapes
+T149	data 10390 10415	abstract muscle operators
+T150	data 10418 10420	18
+T151	data 10421 10430	meatballs
+T152	data 10433 10435	19
+R91	supports Arg1:T149 Arg2:T148	
+R92	supports Arg1:T150 Arg2:T148	
+R93	supports Arg1:T151 Arg2:T148	
+R94	supports Arg1:T152 Arg2:T148	
+T153	background_claim 10436 10463	some employ detailed models
+T154	data 10465 10470	20–23
+R95	contradicts Arg1:T153 Arg2:T148	
+R96	supports Arg1:T154 Arg2:T153	
+T155	background_claim 10472 10587	The obvious advantage of this group of methods is its ability in achieving detailed visual quality during animation
+T156	background_claim 10589 10632	One of the difficulties of these techniques
+T157	background_claim 10651 10683	is that they are indirect to use
+T158	data 10635 10640	24–28
+R97	supports Arg1:T158 Arg2:T156	
+R98	parts_of_same Arg1:T157 Arg2:T156	
+R99	contradicts Arg1:T156 Arg2:T155	
+T159	data 10688 10760	one has to model the anatomical structures before its appearance arrives
+R100	supports Arg1:T159 Arg2:T157	
+T160	background_claim 10762 10890	Achieving a particular look of the skin requires the determination of the shape, number and the layout of the muscles underneath
+T161	background_claim 10892 11022	Until the skin mesh envelops the underlying structure, it is very hard to anticipate how the character looks like from the outside
+T162	background_claim 11109 11196	recent research has looked into the issue of estimating the muscles from the skin shape
+T163	data 11198 11203	29–30
+R101	supports Arg1:T163 Arg2:T162	
+T164	background_claim 11205 11251	This new technique has had a degree of success
+T165	background_claim 11253 11326	The current limitations are that they could only use simple muscle shapes
+T166	background_claim 11328 11383	which are sufficient in obtaining detailed deformations
+T167	data 15292 15327	a bar-net is coupled with a surface
+T168	own_claim 15329 15395	the surface can be made to behave like a piece of elastic material
+R102	supports Arg1:T167 Arg2:T168	
+T169	own_claim 15402 15581	many numerical methods developed in structural and mechanical engineering for the manipulation of structures and networks can be applied to control the deformation of the surfaces
+R103	supports Arg1:T168 Arg2:T169	
+T170	own_claim 15583 15632	Deforming the bar-net deforms the coupled surface
+T171	own_claim 15677 15717	Bar-nets can have any arbitrary topology
+T172	background_claim 15771 15805	unlike most curved surface patches
+T173	own_claim 15719 15770	They are not restricted to a quadrilateral topology
+R104	supports Arg1:T171 Arg2:T173	
+T174	background_claim 15807 15855	Quadrilateral patches are the easiest to control
+T175	background_claim 15860 15919	there have been many algorithms developed to implement them
+T176	background_claim 15925 16051	methods for controlling the deformation of a non-quadrilateral surface patch analytically remain an interesting research topic
+R105	contradicts Arg1:T176 Arg2:T175	
+T177	background_claim 16053 16190	Such a problem could be resolved by coupling a general mechanical bar-net with the control points of a surface patch of the same topology
+T178	own_claim 16939 17117	The principle idea of the proposed bar-net driven deformation technique is to regard the deformable area of an animated creature as a network, which deforms under an acting force
+T179	own_claim 17545 17609	One does not need to worry about the shape of the network itself
+T180	data 17624 17668	we use a bar-net only as a control mechanism
+R106	supports Arg1:T180 Arg2:T179	
+T181	own_claim 17670 17762	Changing the stiffness with other parameters unchanged has an influence on the whole network
+T182	own_claim 17764 17823	This is in line with the physical property of human tissues
+T183	own_claim 17838 17858	makes physical sense
+R107	supports Arg1:T182 Arg2:T183	
+R108	supports Arg1:T181 Arg2:T183	
+T184	data 18143 18224	the animator wishes to finetune the effects on the x, y or z direction separately
+T185	own_claim 18226 18261	the surface will deform as expected
+R109	supports Arg1:T184 Arg2:T185	
+T186	own_claim 18263 18334	The deformation of the free nodes satisfies the superposition principle
+T187	data 18355 18433	one free node is subject to the influence of a number of forces simultaneously
+T188	own_claim 18435 18573	the general deformation applied to the node is the same as the sum of all the deformations generated by applying these loads independently
+R110	supports Arg1:T187 Arg2:T188	
+R111	semantically_same Arg1:T188 Arg2:T186	
+T189	own_claim 18575 18742	The benefit from this property is that several muscles, bones, fat tissues can affect the skin deformation simultaneously through summing up of their individual forces
+T190	background_claim 18744 18849	Network form finding is always a numerically complicated problem in mechanical and structural engineering
+T191	background_claim 18851 18882	Various numerical methods exist
+T192	data 18894 18932	most mechanical networks are concerned
+T193	background_claim 18934 19016	the relationship between the equilibrium state and the acting forces is non-linear
+R112	supports Arg1:T192 Arg2:T193	
+T194	background_claim 19018 19112	Shape change cannot be trivially related to the magnitude and direction of the external forces
+T195	background_claim 19114 19193	Often numerical algorithms are deployed to determine the rest form of a network
+T196	background_claim 19201 19229	is inevitably time-consuming
+T197	background_claim 19234 19274	not very useful for animation production
+R113	supports Arg1:T195 Arg2:T196	
+R114	supports Arg1:T196 Arg2:T197	
+T198	own_claim 19289 19400	the effect of stiffness of a network can be approximated by the quantity of force-length ratios of all the bars
+T199	data 19276 19287	In our case
+R115	supports Arg1:T199 Arg2:T198	
+T200	data 19523 19525	31
+T201	own_claim 19526 19564	satisfies the above-defined properties
+T202	own_claim 19457 19522	Using this stiffness parameter, we found the force density method
+R116	supports Arg1:T200 Arg2:T202	
+R117	parts_of_same Arg1:T201 Arg2:T202	
+T203	own_claim 20240 20291	form finding problem with a set of linear equations
+T204	own_claim 19568 19623	An added advantage is that it is also able to solve the
+R118	parts_of_same Arg1:T203 Arg2:T204	
+T205	own_claim 20383 20476	such bar-nets can be used to assist the deformation of skin surfaces of deformable characters
+T206	own_claim 20621 20728	the prevailing advantages of this technique are its speed of computation and intuitiveness in shape control
+T207	own_claim 20730 20801	Coupling bar-nets with a skin surface makes it ‘mechanically deformable
+T209	own_claim 20988 21130	Using above defined bar-net properties, deformations are achieved by applying virtual forces to the appropriate free nodes of the control mesh
+T208	data 21755 21841	The gradually changed forces on the control mesh are bound to the elbow rotation angle
+T210	own_claim 21843 21965	which produce both the bulge effect and compensate for the volume loss that the traditional smooth skinning method suffers
+R119	supports Arg1:T208 Arg2:T210	
+T211	own_claim 21513 21641	using a bar-net to solve the collapsing elbow problem and obtain a fat bulge effect when the forearm bends towards the upper arm
+T212	data 21484 21492	Figure 2
+R120	supports Arg1:T212 Arg2:T211	
+T213	background_claim 21967 22027	Deformed muscles always change the shape of the skin surface
+T214	own_claim 22541 22610	The deformation of the forearm is complex but relatively unnoticeable
+T215	own_claim 22637 22717	only the deformations caused by biceps brachii and triceps brachii are generated
+R121	supports Arg1:T214 Arg2:T215	
+T216	own_claim 23560 23621	These loads deform the surface to form a natural muscle bulge
+T217	data 23635 23646	Figure 3(c)
+R122	supports Arg1:T217 Arg2:T216	
+T218	own_claim 23680 23765	the animator can easily shape the characters using the virtual forces as user-handles
+T219	own_claim 23950 23985	it involves little computation cost
+T220	own_claim 23854 23945	there are 12 free nodes which are the only necessary resources involved in the form finding
+T221	data 23838 23852	in the bar-net
+R123	supports Arg1:T221 Arg2:T220	
+R124	supports Arg1:T220 Arg2:T219	
+T222	own_claim 23987 24063	Local deformations can be similarly achieved by changing the force densities
+T223	own_claim 24078 24158	reducing the force density of the network increases the size of the bulge effect
+R125	supports Arg1:T223 Arg2:T222	
+T224	data 24171 24182	Figure 3(d)
+R126	supports Arg1:T224 Arg2:T223	
+T225	background_claim 24185 24296	The human shoulder is a typical area where notorious skin deformities occur using a traditional skinning method
+T226	background_claim 24373 24455	Most computer-animated characters are complex both geometrically and topologically
+T227	background_claim 24457 24554	The use of quadrilateral meshes to model the geometry of such characters is frequently inadequate
+T228	own_claim 24821 24872	the network is capable of handling any connectivity
+T229	own_claim 25168 25233	The fine skin surface can be represented in various surface forms
+T230	own_claim 25235 25298	Our implementation includes three major surface modelling forms
+T231	data 25300 25305	Nurbs
+T232	data 25307 25327	subdivision surfaces
+T233	data 25332 25340	polygons
+R127	supports Arg1:T231 Arg2:T230	
+R128	supports Arg1:T232 Arg2:T230	
+R129	supports Arg1:T233 Arg2:T230	
+T234	data 25347 25375	the control mesh is deformed
+T235	own_claim 25377 25474	it can deform the fine surface model using the Wrap deformer available in many animation packages
+R130	supports Arg1:T234 Arg2:T235	
+T236	own_claim 25476 25546	Bar-net driven skinning is applicable also to the modelling of wrinkle
+T237	data 25655 25663	Figure 6
+R131	supports Arg1:T237 Arg2:T236	
+T238	background_claim 27440 27555	Character deformation in computer animation has attracted a great deal of research effort over the last two decades
+T239	background_claim 27598 27659	had difficulties in creating realistic character deformations
+T240	background_claim 27557 27575	The earlier models
+R132	parts_of_same Arg1:T239 Arg2:T240	
+T241	background_claim 27689 27760	more physically based and CPU intensive computation models have emerged
+T242	data 27770 27810	the multi-layered anatomy-based approach
+R133	supports Arg1:T242 Arg2:T241	
+T243	background_claim 27860 27958	it is undesirable to require the animator to model many muscles before the skin shape is developed
+T244	own_claim 27975 28040	we propose a physically motivated deformation authoring technique
+T245	own_claim 28078 28160	Its main strength lies in the combination of speed, intuitiveness and good realism
+T246	own_claim 28162 28244	Our technique can achieve similar results to those of the anatomy-based techniques
+T247	own_claim 28250 28274	in an interactive manner
+R134	contradicts Arg1:T247 Arg2:T246	
+T248	own_claim 28682 28822	we have devised a set of properties that an ‘ideal’ bar-net should satisfy, which make intuitive shape control and fast computation possible
+T249	own_claim 28541 28609	can take advantage of the physical behaviour inherent to the network
+T250	own_claim 28414 28536	Coupling a part of surface mesh with bar-nets allows the surface deformation to be controlled by manipulating the networks
+R135	supports Arg1:T250 Arg2:T249	
+T251	own_claim 29016 29055	achieves realistic deformation outcomes
+T252	own_claim 28968 29011	This makes the skin mechanically deformable
+R136	supports Arg1:T252 Arg2:T251	
+T253	own_claim 29209 29334	They can be used individually as an interactive modelling tool or collectively to mimic the muscle forces from a muscle group
+T254	own_claim 29462 29566	It provides the animator with a new deformer which can be used both as a modelling and an animation tool
+T255	own_claim 29753 29810	the tools developed so far are still relatively primitive
+T256	own_claim 29812 29932	The user needs to understand the basic principles of the bar-net properties before the technique can be used efficiently
+T257	own_claim 29957 30037	we are currently designing higher-level tools with an interactive user interface

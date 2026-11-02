@@ -1,0 +1,710 @@
+T1	background_claim 1991 2028	Fluid motion is naturally captivating
+T2	background_claim 2046 2131	it has piqued the imagination and curiosity of artists, mathematicians and scientists
+R1	supports Arg1:T2 Arg2:T1	
+T3	background_claim 2133 2237	The fascination with fluid motion is exemplified by its long history in the computer graphics literature
+T4	background_claim 2239 2277	Early work focused on obtaining motion
+T5	background_claim 2283 2321	is visually interesting and convincing
+T6	background_claim 2323 2435	More recent physically based techniques rely primarily on numerical approximation of the Navier-Stokes equations
+T7	background_claim 2437 2530	Computer simulation of a model necessitates a finite representation of its spatial quantities
+T8	background_claim 2532 2616	In the past, many approaches for choosing a finite representation have been proposed
+T9	data 2627 2652	the use of Eulerian grids
+T10	data 2654 2657	La-
+T11	data 4033 4062	grangian fluid mass particles
+R2	parts_of_same Arg1:T11 Arg2:T10	
+T12	data 4064 4084	vorticity primitives
+T13	data 4089 4104	model reduction
+R3	supports Arg1:T9 Arg2:T8	
+R4	supports Arg1:T10 Arg2:T8	
+R5	supports Arg1:T12 Arg2:T8	
+R6	supports Arg1:T13 Arg2:T8	
+T14	background_claim 4106 4156	Grid-based techniques are the most common approach
+T15	background_claim 4167 4213	they suffer from high computational complexity
+R7	contradicts Arg1:T15 Arg2:T14	
+T16	data 4222 4372	the general requirement at each simulation step to solve a system of equations whose size is proportional to the number of grid elements in the domain
+R8	supports Arg1:T16 Arg2:T15	
+T17	background_claim 4421 4468	removes the dependence on the simulation domain
+T18	background_claim 4374 4395	Lagrangian techniques
+T19	data 4405 4419	mass particles
+R9	parts_of_same Arg1:T17 Arg2:T18	
+R10	supports Arg1:T19 Arg2:T18	
+T20	background_claim 4481 4549	the computation of pressure and other fluid quantities are expensive
+T21	background_claim 4554 4619	approximations lead to noticeable violations of incompressibility
+T22	background_claim 4621 4641	Vorticity primitives
+T23	background_claim 4678 4734	are very effective at simulating smoke in inviscid media
+T24	data 4653 4662	particles
+T25	data 4667 4676	filaments
+T26	background_claim 4739 4776	have difficulties modelling diffusion
+T27	background_claim 4781 4809	handling boundary conditions
+R11	contradicts Arg1:T26 Arg2:T23	
+R12	contradicts Arg1:T27 Arg2:T23	
+R13	supports Arg1:T24 Arg2:T22	
+R14	supports Arg1:T25 Arg2:T22	
+R15	parts_of_same Arg1:T23 Arg2:T22	
+T28	background_claim 4975 5019	this technique is very efficient at run-time
+T29	background_claim 5021 5085	it suffers from significant costs for precomputation and storage
+R16	contradicts Arg1:T29 Arg2:T28	
+T30	background_claim 5091 5194	is dependent on the performance of an existing simulator or other mechanism to obtain ground-truth data
+R17	contradicts Arg1:T30 Arg2:T28	
+T31	own_claim 5207 5326	an algorithm for the interactive simulation of fluid motion that avoids many of the shortcomings of existing techniques
+T32	data 5446 5533	The resulting velocity basis fields are divergence free and respect boundary conditions
+T33	own_claim 5543 5631	these constraints are enforced automatically without the need for additional computation
+R18	supports Arg1:T32 Arg2:T33	
+T34	own_claim 5633 5805	Our algorithm can be formulated as Galerkin projection of the vorticity form of the Navier-Stokes equations onto Laplacian eigenfunctions defined over the simulation domain
+T35	own_claim 6508 6622	the correspondence allows precise control of a fluid’s turbulent spectrum through adjustment of basis coefficients
+T36	data 6480 6506	Coupled with orthogonality
+R19	supports Arg1:T36 Arg2:T35	
+T37	own_claim 6654 6752	the viscosity can be simulated accurately through a simple exponential decay of basis coefficients
+T38	data 6624 6653	With Laplacian eigenfunctions
+R20	supports Arg1:T38 Arg2:T37	
+T39	own_claim 6763 6863	allows arbitrary user-controlled or automatic adjustment of the spectrum to achieve a desired effect
+R21	contradicts Arg1:T39 Arg2:T37	
+T40	own_claim 7070 7119	no mesh is required to store the fluid’s velocity
+T41	data 7054 7068	In these cases
+R22	supports Arg1:T41 Arg2:T40	
+T42	own_claim 7130 7228	a velocity can be precisely evaluated at any spatial coordinate without the need for interpolation
+R23	contradicts Arg1:T42 Arg2:T40	
+T43	own_claim 7243 7366	closed form expressions allow symbolic evaluation of the precomputed advection operator, making this process fast and exact
+T44	own_claim 7377 7419	our method is not limited to these domains
+R24	supports Arg1:T44 Arg2:T43	
+T45	data 7425 7517	we present a formulation on structured and irregular meshes using discrete exterior calculus
+R25	supports Arg1:T45 Arg2:T44	
+T46	own_claim 7629 7764	our method supports the interaction of immersed moving obstacles and buoyancy through projection of forces to the velocity basis fields
+T47	own_claim 7766 7845	Our method allows considerable flexibility in choosing the basis dimensionality
+T48	own_claim 7847 7926	Even simulations with few degrees of freedom provide visually convincing result
+T49	background_claim 7938 7998	the artifacts common to very low-dimensional representations
+T50	data 8002 8010	Eulerian
+T51	data 8014 8036	Lagrangian simulations
+R26	supports Arg1:T51 Arg2:T49	
+R27	supports Arg1:T50 Arg2:T49	
+T52	own_claim 8055 8158	our method provides a principled means of dimensionality reduction of the Navier-Stokes fluid equations
+T53	own_claim 8169 8198	our method is not data-driven
+T54	own_claim 8255 8323	avoids the need for an existing fluid simulator or pre-existing data
+R28	supports Arg1:T53 Arg2:T54	
+T55	own_claim 8336 8397	our algorithm and choice of basis provides an exciting avenue
+T56	own_claim 8402 8466	will be an important complement to the methods in the literature
+T57	background_claim 8740 8787	Incompressible fluid dynamics is a vast subject
+T58	background_claim 8979 9072	Euler’s equations describing the dynamics of a rotating rigid body date from the 18th century
+T59	data 9084 9099	Poincaré [1901]
+T60	background_claim 9101 9249	showed that by considering various group manifolds as the configuration space, Euler’s equation could apply generally to a class of physical systems
+T61	data 9074 9081	In 1901
+R29	supports Arg1:T61 Arg2:T58	
+T62	data 9264 9338	in the case of a rotating rigid body the group is the rotation group SO(3)
+R30	supports Arg1:T59 Arg2:T60	
+R31	supports Arg1:T62 Arg2:T60	
+T63	data 9340 9353	Arnold [1966]
+T64	background_claim 9355 9447	showed that an ideal incompressible fluid is described similarly as geodesic motion on SDiff
+R32	supports Arg1:T63 Arg2:T64	
+T65	background_claim 9501 9690	The notion of structure coefficients to describe the interaction of Lie algebra basis elements of these groups is directly related to the precomputed coefficient matrices used in our method
+T66	background_claim 9692 9732	Many of these concepts are summarized by
+T67	data 9734 9758	Marsden and Ratiu [1999]
+R33	supports Arg1:T67 Arg2:T66	
+T68	background_claim 9760 9836	Representing vorticity using Laplacian eigenfunctions dates back at least to
+T69	data 9838 9853	Yudovich [1963]
+T70	background_claim 9856 9966	who used this method to prove existence and uniqueness theorems for the two dimensional NavierStokes equations
+R34	supports Arg1:T70 Arg2:T68	
+R35	supports Arg1:T69 Arg2:T70	
+T71	data 9984 10006	Agrachev et al. [2005]
+T72	background_claim 10008 10104	used vorticity Laplacian eigenfunctions to prove theorems in the mathematical control literature
+R36	supports Arg1:T71 Arg2:T72	
+T73	background_claim 10380 10489	Silberman presented a fluid simulation algorithm for the earth’s atmosphere in a basis of spherical harmonics
+T74	data 10555 10569	Silberman 1954
+R37	supports Arg1:T74 Arg2:T73	
+T75	background_claim 10718 10810	This method has come to be known in the CFD literature as the interaction coefficient method
+T76	background_claim 10667 10716	the advection operator was evaluated symbolically
+T77	background_claim 10845 10866	it is not widely used
+T78	data 10812 10843	Outside of atmospheric sciences
+T79	data 10874 10917	poor scaling for large basis dimensionality
+R38	supports Arg1:T79 Arg2:T77	
+R39	supports Arg1:T78 Arg2:T77	
+T80	background_claim 10919 11033	Such performance considerations were the motivation for the development of spectral methods as pioneered by Orszag
+T81	data 11036 11047	Orszag 1969
+R40	supports Arg1:T81 Arg2:T80	
+T82	background_claim 11241 11292	They are often used to study homogeneous turbulence
+T83	data 11322 11341	Rogallo et al. 1981
+T84	data 11295 11320	Orszag and Patterson 1972
+R41	supports Arg1:T84 Arg2:T82	
+R42	supports Arg1:T83 Arg2:T82	
+T85	background_claim 11344 11405	Fourier series or Chebyshev polynomials are commonly employed
+T86	background_claim 11410 11474	spectral methods are limited to bases admitting a fast transform
+R43	supports Arg1:T86 Arg2:T85	
+T87	background_claim 11476 11545	Our method is most analogous to the interaction coefficient method of
+T88	data 11548 11562	Silberman 1954
+R44	supports Arg1:T88 Arg2:T87	
+T89	background_claim 11671 11693	admit a fast transform
+T90	background_claim 11628 11659	Laplacian eigenfunctions do not
+R45	parts_of_same Arg1:T89 Arg2:T90	
+T91	background_claim 11704 11774	do not share the inherent theoretical performance of a spectral method
+R46	supports Arg1:T89 Arg2:T91	
+T92	data 11606 11626	On arbitrary domains
+R47	supports Arg1:T92 Arg2:T90	
+T93	background_claim 11785 11834	Laplacian eigenfunctions have many other benefits
+T94	data 11853 11862	Section 3
+R48	supports Arg1:T94 Arg2:T93	
+R49	contradicts Arg1:T93 Arg2:T91	
+T95	background_claim 11877 11925	theoretical performance scaling is less critical
+T96	data 11926 11958	for the applications we consider
+R50	contradicts Arg1:T95 Arg2:T91	
+T97	own_claim 11976 12032	visually detailed simulations are attainable at low cost
+T98	background_claim 12034 12072	Divergence free finite element methods
+T99	background_claim 12081 12162	employ bases of discrete divergence free velocity fields to solve fluid equations
+T100	data 12163 12213	in a space that satisfies mass continuity a priori
+T101	data 12216 12242	Gustafson and Hartman 1983
+R51	supports Arg1:T101 Arg2:T99	
+R52	supports Arg1:T100 Arg2:T99	
+R53	supports Arg1:T99 Arg2:T98	
+T102	own_claim 12245 12282	Our method is similar in this respect
+T103	background_claim 12339 12394	Laplacian eigenfunctions do not require a discrete mesh
+T104	data 12315 12338	for some simple domains
+R54	supports Arg1:T104 Arg2:T103	
+R55	contradicts Arg1:T103 Arg2:T98	
+T105	own_claim 12419 12519	no basis employed in DFFEM exhibits all of the advantageous proper- ties of Laplacian eigenfunctions
+T106	data 12531 12544	orthogonality
+T107	data 12546 12598	stationarity with respect to Navier-Stokes equations
+T108	data 12405 12418	our knowledge
+R56	supports Arg1:T108 Arg2:T105	
+T109	data 12600 12614	global support
+T110	data 12620 12667	correspondence with spatial scales of vorticity
+R57	supports Arg1:T106 Arg2:T105	
+R58	supports Arg1:T107 Arg2:T105	
+R59	supports Arg1:T109 Arg2:T105	
+R60	supports Arg1:T110 Arg2:T105	
+T111	background_claim 12861 12955	Fluid simulation methods in the computer graphics literature belong to roughly four categories
+T112	background_claim 12957 12967	grid-based
+T113	background_claim 12969 12983	mass particles
+T114	background_claim 12985 13000	vortex elements
+T115	background_claim 13005 13020	model reduction
+R61	supports Arg1:T112 Arg2:T111	
+R62	supports Arg1:T113 Arg2:T111	
+R63	supports Arg1:T114 Arg2:T111	
+R64	supports Arg1:T115 Arg2:T111	
+T116	background_claim 13022 13109	Grid-based techniques for simulating the 3-D Navier-Stokes equations were introduced by
+T117	data 13111 13136	Foster and Metaxas [1996]
+T118	background_claim 13142 13155	were unstable
+R65	contradicts Arg1:T118 Arg2:T116	
+R66	supports Arg1:T117 Arg2:T116	
+T119	data 13163 13194	the use of explicit integrators
+R67	supports Arg1:T119 Arg2:T118	
+T120	background_claim 13196 13314	Stam developed an unconditionally stable integration scheme using semi-Lagrangian advection and an implicit integrator
+T121	data 13317 13326	Stam 1999
+R68	supports Arg1:T121 Arg2:T120	
+T122	background_claim 13338 13413	the result produces artificial viscosity which dampens vortices prematurely
+T123	background_claim 13419 13513	requires an iterative linear solver to solve for a pressure field to enforce incompressibility
+R69	contradicts Arg1:T122 Arg2:T120	
+R70	contradicts Arg1:T123 Arg2:T120	
+T124	background_claim 13516 13606	Works aimed at mitigating or minimizing artificial diffusion include vorticity confinement
+T125	background_claim 13629 13661	and high order advection schemes
+T126	data 13609 13627	Fedkiw et al. 2001
+R71	parts_of_same Arg1:T125 Arg2:T124	
+R72	supports Arg1:T126 Arg2:T124	
+T127	data 13664 13681	Selle et al. 2008
+R73	supports Arg1:T127 Arg2:T125	
+T128	background_claim 13685 13767	To improve the performance of the iterative pressure solver, use of adaptive grids
+T129	background_claim 13795 13835	hierarchical coarse grids for projection
+T130	background_claim 13860 13878	have been proposed
+T131	data 13770 13789	Losasso et al. 2004
+R74	supports Arg1:T131 Arg2:T128	
+T132	data 13838 13857	Lentine et al. 2010
+R75	supports Arg1:T132 Arg2:T129	
+T133	background_claim 13893 13979	used the 2-D Fourier transform of a velocity field to perform fast pressure projection
+T134	data 13880 13891	Stam [2002]
+T135	background_claim 13985 14049	this method is limited to simple domains and boundary conditions
+T136	background_claim 14055 14078	still dissipates energy
+R76	supports Arg1:T134 Arg2:T133	
+R77	contradicts Arg1:T135 Arg2:T133	
+R78	contradicts Arg1:T136 Arg2:T135	
+T137	background_claim 14080 14212	Bridson presented a simple means to generate procedural divergence free flows through the curl of a vector potential stream function
+T138	data 14215 14234	Bridson et al. 2007
+R79	supports Arg1:T138 Arg2:T137	
+T139	background_claim 14241 14284	this work did not address physical dynamics
+R80	contradicts Arg1:T139 Arg2:T137	
+T140	background_claim 14286 14359	Elcott presented a method that preserves circulation on simplicial meshes
+T141	background_claim 14365 14389	does not preserve energy
+T142	data 14392 14410	Elcott et al. 2007
+R81	supports Arg1:T142 Arg2:T140	
+R82	contradicts Arg1:T141 Arg2:T140	
+T143	background_claim 14413 14546	Mullen et al. developed a fluid integrator capable of perfect energy preservation or desired viscosity independent of grid-resolution
+T144	data 14549 14567	Mullen et al. 2009
+R83	supports Arg1:T144 Arg2:T143	
+T145	background_claim 14575 14597	this method is complex
+T146	background_claim 14602 14661	requires a solution to a non-linear system at each timestep
+R84	contradicts Arg1:T145 Arg2:T143	
+R85	contradicts Arg1:T146 Arg2:T143	
+T147	background_claim 14730 14778	are effective in eliminating numerical diffusion
+T148	background_claim 14663 14691	Hybrid particle-grid methods
+T149	data 14700 14704	FLIP
+T150	background_claim 14790 14833	require a grid to enforce incompressibility
+T151	data 14707 14727	Zhu and Bridson 2005
+R86	supports Arg1:T149 Arg2:T148	
+R87	supports Arg1:T151 Arg2:T148	
+R88	contradicts Arg1:T150 Arg2:T147	
+R89	parts_of_same Arg1:T147 Arg2:T148	
+T152	background_claim 14835 14977	Common to all these stable grid-based techniques previously mentioned is the need to solve a system of equations at each time integration step
+T153	background_claim 15058 15135	the performance of our method is independent of the domain or grid resolution
+R90	contradicts Arg1:T153 Arg2:T152	
+T154	background_claim 15254 15282	have closed form expressions
+T155	background_claim 15217 15243	the global basis functions
+R91	parts_of_same Arg1:T154 Arg2:T155	
+T156	data 15174 15189	a 2-D rectangle
+T157	data 15193 15215	3-D rectangular cavity
+T158	data 15150 15165	typical domains
+R92	supports Arg1:T157 Arg2:T155	
+R93	supports Arg1:T156 Arg2:T155	
+R94	supports Arg1:T158 Arg2:T155	
+T159	own_claim 15393 15458	supports general domains through a formulation on discrete meshes
+T160	own_claim 15347 15387	Our method allows controllable viscosity
+T162	background_claim 15528 15559	Smoothed particle hydrodynamics
+T163	background_claim 15628 15663	used subsequently to simulate water
+T164	data 15686 15703	Adams et al. 2007
+T165	data 15666 15684	Müller et al. 2003
+T161	background_claim 15566 15595	was introduced to graphics by
+T166	data 15597 15623	Desbrun and Gascuel [1996]
+R95	parts_of_same Arg1:T161 Arg2:T162	
+R96	supports Arg1:T164 Arg2:T163	
+R97	supports Arg1:T165 Arg2:T163	
+R98	supports Arg1:T166 Arg2:T161	
+T167	background_claim 15706 15777	Enforcing incompressibility in SPH methods is computationally expensive
+T168	background_claim 15791 15802	impractical
+T169	data 15807 15834	a large number of particles
+R99	supports Arg1:T169 Arg2:T168	
+R100	supports Arg1:T167 Arg2:T168	
+T170	own_claim 15836 15888	Our method satisfies incompressibility automatically
+T171	data 15892 15949	it operates directly in a space of divergence free fields
+R101	supports Arg1:T171 Arg2:T170	
+T172	background_claim 15951 15989	Vortex methods use Lagrangian elements
+T173	background_claim 16045 16095	advect these elements through the fluid’s velocity
+T174	data 15998 16007	particles
+T175	data 16011 16020	filaments
+R102	supports Arg1:T174 Arg2:T172	
+R103	supports Arg1:T175 Arg2:T172	
+T176	data 16098 16116	Gamito et al. 1995
+T177	data 16118 16135	Park and Kim 2005
+T178	data 16137 16158	Angelidis et al. 2006
+T179	data 16160 16185	Weißmann and Pinkall 2010
+R104	supports Arg1:T179 Arg2:T173	
+R105	supports Arg1:T178 Arg2:T173	
+R106	supports Arg1:T177 Arg2:T173	
+R107	supports Arg1:T176 Arg2:T173	
+T180	background_claim 16188 16246	A formulation using vorticity guarantees incompressibility
+T181	background_claim 16252 16321	the reconstruction of the velocity field is computationally expensive
+R108	contradicts Arg1:T181 Arg2:T180	
+T183	own_claim 16703 16863	choosing Laplacian eigenfunctions as a basis allows the velocity field to be recovered trivially, removing the need for complicated and expensive reconstruction
+T184	background_claim 16865 17002	Gupta and Narasimhan represented fluid velocity in a basis of Legendre polynomials allowing analytic evaluation of differential operators
+T185	data 17005 17030	Gupta and Narasimhan 2007
+R109	supports Arg1:T185 Arg2:T184	
+R110	supports Arg1:T184 Arg2:T183	
+T186	background_claim 17090 17148	the velocity basis fields are not strictly divergence free
+T187	background_claim 17222 17277	Model reduction has been applied to fluid simulation by
+T188	data 17279 17301	Treuille et al. [2006]
+R111	supports Arg1:T188 Arg2:T187	
+R112	contradicts Arg1:T186 Arg2:T184	
+T189	background_claim 17421 17463	The resulting run-time performance is fast
+T190	background_claim 17469 17526	the precomputation time and memory requirements are large
+R113	contradicts Arg1:T190 Arg2:T189	
+T191	background_claim 17541 17609	it is unclear how well this technique generalizes to arbitrary flows
+T192	data 17614 17669	behavior is limited to the examples present in training
+R114	supports Arg1:T192 Arg2:T191	
+T193	own_claim 17671 17781	Our method can be used directly as a means of dimensionality reduction through choice of the basis dimension N
+T194	own_claim 17788 17839	it differs from current approaches in many respects
+R115	contradicts Arg1:T194 Arg2:T193	
+T195	background_claim 18067 18134	Adding basis functions increases the coverage in a well defined way
+T196	background_claim 18149 18256	a data driven basis can only approximate flows that are in some sense “close” to those observed in training
+R116	contradicts Arg1:T196 Arg2:T195	
+T197	background_claim 18262 18377	there is no guarantee that additional training data will substantially increase the span of the resulting PCA basis
+R117	contradicts Arg1:T197 Arg2:T195	
+T198	own_claim 18379 18469	Our basis has a natural correspondence with spatial scales of vorticity that is lacking in
+T199	data 18472 18492	Treuille et al. 2006
+R118	supports Arg1:T199 Arg2:T198	
+T200	own_claim 19555 19598	the vector Laplacian reduces to ∆ = −curl 2
+T201	data 19521 19553	acting on divergence free fields
+R119	supports Arg1:T201 Arg2:T200	
+T202	own_claim 20187 20250	our basis fields are completely characterized by ∆Φ k = λ k Φ k
+T203	own_claim 20282 20314	div (Φ k ) = 0 Φ k · n = 0 at ∂D
+R120	parts_of_same Arg1:T203 Arg2:T202	
+T204	data 20097 20179	fields Φ k to be divergence free and satisfy a free slip condition at the boundary
+T205	data 19601 19628	We require the set of basis
+R121	parts_of_same Arg1:T204 Arg2:T205	
+R122	supports Arg1:T204 Arg2:T202	
+T206	own_claim 20400 20467	The eigenfunctions of the Laplacian operator ∆ are domain dependent
+T208	background_claim 20494 20518	functions satisfying Eq.
+T207	background_claim 20519 20608	1 have closed form expressions, which are available for example in the physics literature
+R123	parts_of_same Arg1:T207 Arg2:T208	
+T209	data 20473 20492	many simple domains
+R124	supports Arg1:T209 Arg2:T208	
+T210	data 20681 20691	Cheng 1999
+R125	supports Arg1:T210 Arg2:T207	
+T211	data 20734 20773	Laplacian eigenfunctions satisfying Eq.
+T212	data 20776 20860	have the closed form expressions 1 Φ k = k 1 2 + k 2 2 (k 2 sin(k 1 x) cos(k 2 y)a x
+T213	data 20892 20894	−k
+T214	data 20935 20963	1 cos(k 1 x) sin(k 2 y)a y )
+R126	parts_of_same Arg1:T214 Arg2:T213	
+R127	parts_of_same Arg1:T213 Arg2:T212	
+R128	parts_of_same Arg1:T212 Arg2:T211	
+R129	supports Arg1:T211 Arg2:T207	
+T215	own_claim 21068 21159	The vector fields Φ k are Laplacian eigenfunctions with eigenvalues λ k = −(k 1 2 + k 2 2 )
+T216	data 21185 21193	Figure 4
+R130	supports Arg1:T216 Arg2:T215	
+T217	background_claim 21304 21361	closed form expressions also exist for many other domains
+T218	data 21372 21395	a 3-D rectangular prism
+T219	data 21413 21419	a disc
+T220	data 21421 21444	the surface of a sphere
+T221	data 21449 21502	a planar region with a wrap around boundary condition
+T222	data 21398 21410	de Witt 2010
+R131	supports Arg1:T218 Arg2:T217	
+R132	supports Arg1:T221 Arg2:T217	
+R133	supports Arg1:T220 Arg2:T217	
+R134	supports Arg1:T219 Arg2:T217	
+R135	supports Arg1:T222 Arg2:T217	
+T223	own_claim 21644 21755	the vorticity basis fields associated with Eq. 2 are just the curl of the velocity basis functions and given by
+T224	own_claim 21787 21817	φ k = sin(k 1 x) sin(k 2 y)a z
+R136	parts_of_same Arg1:T224 Arg2:T223	
+T225	own_claim 21857 21912	the φ k are also Laplacian eigenfunctions of the domain
+R137	supports Arg1:T224 Arg2:T225	
+T226	own_claim 21950 22024	the vorticity basis functions have only a normal component at the boundary
+T227	data 21926 21948	u and ω are orthogonal
+T228	own_claim 22036 22058	satisfy ∆φ k = λ k φ k
+R138	supports Arg1:T227 Arg2:T226	
+R139	supports Arg1:T226 Arg2:T228	
+T229	own_claim 22090 22107	φ k × n = 0 at ∂D
+R140	parts_of_same Arg1:T229 Arg2:T228	
+T230	own_claim 22280 22359	the example expressions of Eqs. 2 and 3 satisfy all the properties listed below
+T231	background_claim 22401 22484	reconstructing a velocity field from a vorticity field is computationally expensive
+T232	data 22539 22560	Angelidis et al. 2006
+T233	data 22562 22587	Weißmann and Pinkall 2010
+R141	supports Arg1:T233 Arg2:T231	
+R142	supports Arg1:T232 Arg2:T231	
+T182	own_claim 22590 22628	The key benefit of a representation in
+T234	own_claim 22639 22764	Laplacian eigenfunctions is that the inverse operator curl −1 applied to vorticity basis functions yields a simple expression
+T235	own_claim 22766 22832	Φ k = curl −1 φ k = curl −1 1 ∆φ k λ k = 1 curl −1 −curl 2 φ k λ k
+R143	semantically_same Arg1:T235 Arg2:T234	
+R144	parts_of_same Arg1:T234 Arg2:T182	
+T236	own_claim 22870 22884	1 = − curl φ k
+R145	parts_of_same Arg1:T236 Arg2:T235	
+T237	own_claim 22991 23121	the expansion of the vorticity ω in the φ i basis shares the same coefficients as the expansion of the velocity u in the Φ k basis
+T238	own_claim 23132 23188	N N N ω = curl u = curl ω i Φ i = ω i curl Φ i = ω i φ i
+R146	parts_of_same Arg1:T238 Arg2:T237	
+T239	data 23229 23349	a single coefficient vector w = [ω 1 ω 2 . . . ω N ] uniquely identifies both the fluid’s velocity u and its vorticity ω
+T240	own_claim 23207 23222	This is notable
+R147	supports Arg1:T239 Arg2:T240	
+T241	own_claim 23351 23423	Either field can be easily reconstructed from the basis coefficients ω i
+T242	own_claim 23502 23530	The total energy of a signal
+T243	own_claim 23564 23632	is the sum of the squares of its coefficients by Parseval’s identity
+R148	parts_of_same Arg1:T243 Arg2:T242	
+T244	own_claim 23634 23714	The fluid’s kinetic energy can thus be calculated as Spatial scales of vorticity
+T245	own_claim 23819 23971	Basis coefficients can be interpreted as a discrete spatial spectrum of the fluid with higher “frequencies” corresponding to smaller scales of vorticity
+T246	background_claim 23973 24097	This notion has been previously applied by Stam and Fiume using a Fourier basis to generate procedural stochastic turbulence
+T247	data 24100 24119	Stam and Fiume 1993
+R149	supports Arg1:T247 Arg2:T246	
+R150	supports Arg1:T246 Arg2:T245	
+T248	own_claim 24122 24204	A decomposition into a spectrum of vorticity is important for at least two reasons
+T249	own_claim 24221 24264	computations require our basis to be finite
+R151	supports Arg1:T249 Arg2:T248	
+T250	own_claim 24420 24435	is well defined
+T251	own_claim 24401 24410	the error
+R152	parts_of_same Arg1:T250 Arg2:T251	
+T252	data 24345 24398	In choosing to truncate the spectrum at some finite N
+R153	supports Arg1:T252 Arg2:T251	
+T253	own_claim 24759 24845	It could also be used to initialize or arbitrarily change a fluid’s turbulent spectrum
+T254	own_claim 24944 25065	This allows the velocity to be evaluated at any spatial coordinate without the need for a voxelized grid or interpolation
+T255	data 24872 24942	For some simple domains, the basis fields have closed form expressions
+R154	supports Arg1:T255 Arg2:T254	
+T256	own_claim 25067 25109	A grid may still be used for visualization
+T257	data 25123 25139	to track density
+T258	data 25143 25231	subsample the velocity from the closed form expressions to accelerate particle advection
+R155	supports Arg1:T257 Arg2:T256	
+R156	supports Arg1:T258 Arg2:T256	
+T259	own_claim 25242 25284	this grid is independent of the simulation
+T260	own_claim 25290 25392	its resolution may be changed without changing the performance or behavior of the underling simulation
+T261	own_claim 25403 25475	the benefits of closed form expressions are limited to simple geometries
+T262	data 25497 25518	3D rectangular cavity
+T263	data 25477 25492	a 2-D rectangle
+R157	contradicts Arg1:T261 Arg2:T260	
+R158	supports Arg1:T263 Arg2:T261	
+R159	supports Arg1:T262 Arg2:T261	
+T264	background_claim 26190 26249	A fluid’s velocity field will change continuously over time
+T265	data 26263 26276	physical laws
+R160	supports Arg1:T265 Arg2:T264	
+T266	own_claim 26493 26551	The vorticity formulation of the Navier-Stokes equation is
+T267	own_claim 26583 26617	ω  ̇ = Adv(u, ω) + ν∆ω + curl (f )
+R161	parts_of_same Arg1:T267 Arg2:T266	
+T268	own_claim 27800 27855	the viscous term becomes ν i ∆ω k φ k = ν k λ k ω k φ k
+T269	data 27766 27798	φ k are Laplacian eigenfunctions
+R162	supports Arg1:T269 Arg2:T268	
+T270	own_claim 28087 28177	the magnitude of each basis coefficient decays with a time constant equal to the eigenvalu
+T271	own_claim 28180 28207	which is physically correct
+T272	data 28212 28263	small vortices dissipate faster than large vortices
+R163	supports Arg1:T272 Arg2:T270	
+T273	own_claim 28282 28364	External forces can be incorporated by projecting curl (f ) on the vorticity basis
+T274	own_claim 28924 29023	f i can be equivalently obtained by directly projecting f to the velocity basis basis f i = f , Φ i
+T275	data 28917 28920	Eq.
+T276	data 28921 28922	5
+R164	supports Arg1:T276 Arg2:T275	
+T277	background_claim 29026 29063	which often involves less computation
+T278	own_claim 29100 29112	ω  ̇ k = f k
+T279	own_claim 29065 29094	The contribution to ω  ̇ k is
+R165	parts_of_same Arg1:T278 Arg2:T279	
+R166	supports Arg1:T274 Arg2:T279	
+T280	own_claim 29150 29198	the time derivative of each basis coefficient is
+T281	own_claim 29230 29265	ω  ̇ k = w T C k w + νλ k ω k + f k
+R167	parts_of_same Arg1:T281 Arg2:T280	
+T282	own_claim 29336 29427	Any standard numerical integration scheme can be applied to integrate Eq. 8 forward in time
+T283	own_claim 29473 29526	speed and energy stability are important requirements
+T284	data 29442 29472	computer graphics applications
+R168	supports Arg1:T284 Arg2:T283	
+R169	contradicts Arg1:T283 Arg2:T282	
+T285	own_claim 29659 29682	Our basis is orthogonal
+T286	background_claim 30183 30283	Renormalizing to preserve the kinetic energy is a technique available in any fluid simulation method
+T288	data 30401 30432	it can lead to visual artifacts
+T287	own_claim 30374 30397	it is often undesirable
+T289	data 30337 30373	employing grid based velocity fields
+R170	supports Arg1:T289 Arg2:T287	
+R171	supports Arg1:T288 Arg2:T287	
+T290	own_claim 30488 30527	our basis fields are globally supported
+T291	own_claim 30532 30601	energy is never dissipated locally through a pressure projection step
+T292	data 30622 30631	Stam 1999
+R172	supports Arg1:T292 Arg2:T291	
+T293	own_claim 30968 31036	Computation is dominated by the evaluation of matrix vector products
+T294	own_claim 31163 31179	{C k } are dense
+T295	own_claim 31184 31196	z is O(N 3 )
+T296	own_claim 31209 31254	a computational complexity similar to that of
+T297	data 31257 31277	Treuille et al. 2006
+R173	supports Arg1:T297 Arg2:T296	
+T298	own_claim 32212 32285	Eq. 8 is a symbolic expression for the first time derivative of vorticity
+T299	own_claim 32393 32446	These can be useful for alternate integration schemes
+T300	own_claim 32558 32607	it may not be a concern for graphics applications
+T301	data 32522 32557	stability has already been enforced
+R174	supports Arg1:T301 Arg2:T300	
+T302	own_claim 32609 32714	Greater accuracy could also be easily achieved through high order explicit schemes using a small timestep
+T303	own_claim 32716 32776	A final integration scheme that is theoretically interesting
+T304	own_claim 33393 33469	This method is more expensive than explicit integration with renormalization
+T305	own_claim 33508 33566	it offers very little gain in accuracy for small timesteps
+T306	own_claim 33577 33594	it is of interest
+T307	data 33603 33687	it preserves the geometric viewpoint of a fluid as a high dimensional rotation group
+T308	data 33693 33754	provides a more rigorous way of enforcing energy preservation
+R175	contradicts Arg1:T306 Arg2:T305	
+R176	supports Arg1:T307 Arg2:T306	
+R177	supports Arg1:T308 Arg2:T306	
+T309	own_claim 34202 34246	all the preceding expressions are equivalent
+T310	data 34189 34200	our context
+T311	own_claim 34252 34318	any can be used to evaluate the advection of pairs of basis fields
+R178	supports Arg1:T310 Arg2:T309	
+R179	supports Arg1:T310 Arg2:T311	
+T312	own_claim 34396 34440	the evaluation can be performed symbolically
+T313	own_claim 34445 34447	is
+T314	own_claim 34662 34667	exact
+R180	parts_of_same Arg1:T314 Arg2:T313	
+T315	data 34320 34394	For domains admitting closed form expressions for Laplacian eigenfunctions
+R181	supports Arg1:T315 Arg2:T312	
+R182	supports Arg1:T312 Arg2:T313	
+T316	own_claim 34691 34735	it can be approximated numerically on a mesh
+T317	data 34669 34689	For discrete domains
+R183	supports Arg1:T317 Arg2:T316	
+T318	data 34752 34761	Section 8
+R184	supports Arg1:T318 Arg2:T316	
+T319	own_claim 34880 34952	The basis coefficients of this projection are the structure coefficients
+T320	own_claim 34987 35026	satisfy Adv(Φ i , φ j ) = C k [i, j]φ k
+T321	own_claim 35031 35103	The Laplacian eigenfunction basis is closed under the Jacobi-Lie bracket
+T322	own_claim 35225 35273	our basis must necessarily be finite dimensional
+T323	data 35209 35223	For simulation
+R185	supports Arg1:T323 Arg2:T322	
+T324	own_claim 35401 35420	This is unavoidable
+T325	data 35425 35492	the nonlinear advection operator necessitates products of functions
+R186	supports Arg1:T325 Arg2:T324	
+T326	background_claim 35537 35589	the multiplication of two N bandlimited functions is
+T327	background_claim 35601 35618	bandlimited by 2N
+T328	data 35518 35535	the Fourier basis
+R187	parts_of_same Arg1:T327 Arg2:T326	
+R188	supports Arg1:T328 Arg2:T326	
+T329	own_claim 35862 35901	this truncation is physically motivated
+T330	data 35925 36020	the vortices will eventually reach a small enough scale and dissipate quickly through viscosity
+R189	supports Arg1:T330 Arg2:T329	
+T331	own_claim 36383 36488	The self advection Adv(Φ k , φ k ) of a vorticity basis field φ k by its velocity Φ k is identically zero
+T332	own_claim 36500 36508	u  ̇ = 0
+T333	own_claim 36523 36569	each velocity basis field is a stationary flow
+R190	semantically_same Arg1:T333 Arg2:T332	
+R191	supports Arg1:T331 Arg2:T332	
+T334	own_claim 36571 36650	This is analogous to the stable rotation of a rigid body about a principal axis
+T335	data 36653 36664	Arnold 1966
+R192	supports Arg1:T335 Arg2:T334	
+T336	own_claim 36707 36786	the evaluation of the structure coefficients in closed form for a 2-D rectangle
+T337	data 36802 36812	Appendix A
+R193	supports Arg1:T337 Arg2:T336	
+T338	own_claim 37903 37991	Our goal is to satisfy the internal boundary conditions of immersed objects at all times
+T339	own_claim 37993 38030	This requirement can be simply stated
+T340	own_claim 38074 38183	the fluid velocity at an object’s boundary should be equal to the normal component of the boundary’s velocity
+R194	supports Arg1:T340 Arg2:T339	
+T341	own_claim 38538 38575	The result is a divergence free field
+T342	own_claim 38581 38627	best satisfies the desired boundary conditions
+T343	own_claim 38629 38665	Note that this method is not perfect
+T344	data 38670 38779	the projected forces only approximate the desired forces to the extent that the basis fields can resolve them
+R195	supports Arg1:T344 Arg2:T343	
+T345	own_claim 39022 39102	it is efficient enough to perform interactively without requiring precomputation
+T346	data 39104 39126	Treuille et al. [2006]
+T347	own_claim 39128 39216	also correct the normal velocity component through projection to a divergence free field
+T348	own_claim 39222 39262	our technique is similar in this respect
+R196	supports Arg1:T346 Arg2:T347	
+T349	own_claim 39287 39314	an additional set of fields
+T350	own_claim 39344 39356	are employed
+R197	parts_of_same Arg1:T350 Arg2:T349	
+R198	contradicts Arg1:T350 Arg2:T348	
+T351	own_claim 41334 41360	Discrete exterior calculus
+T352	own_claim 41367 41454	provides a principled means of describing operators and quantities on simplicial meshes
+R199	parts_of_same Arg1:T352 Arg2:T351	
+T353	data 41457 41476	Desbrun et al. 2005
+R200	supports Arg1:T353 Arg2:T352	
+T354	own_claim 41541 41605	we use a discrete formulation on tetrahedral meshes analogous to
+T355	data 41608 41626	Mullen et al. 2009
+T356	data 41628 41646	Elcott et al. 2007
+R201	supports Arg1:T356 Arg2:T354	
+R202	supports Arg1:T355 Arg2:T354	
+T357	own_claim 41998 42062	The velocity basis fields satisfy a free slip boundary condition
+T358	own_claim 42067 42086	are divergence free
+T359	data 42095 42163	constraints imposed implicitly through the Laplacian operator matrix
+R203	supports Arg1:T359 Arg2:T358	
+T360	own_claim 42355 42420	∆ admits only divergence free solutions in its eigendecomposition
+T361	data 42348 42353	above
+R204	supports Arg1:T361 Arg2:T360	
+T362	own_claim 42428 42498	the fields produced by the eigensolver satisfy the conditions of Eq. 1
+T363	data 42499 42520	in a discrete setting
+R205	supports Arg1:T363 Arg2:T362	
+R206	supports Arg1:T360 Arg2:T362	
+T364	own_claim 42725 42771	This evaluation is similar to that employed in
+T365	data 42774 42792	Mullen et al. 2009
+T366	own_claim 43273 43332	these costs are reasonable for typical operating parameters
+T367	own_claim 43338 43354	can become large
+R207	contradicts Arg1:T367 Arg2:T366	
+T368	data 43355 43428	for simulations employing very fine meshes and large basis dimensionality
+R208	supports Arg1:T368 Arg2:T367	
+T369	own_claim 44820 44871	Closed form domains are limited in their boundaries
+T370	own_claim 44877 44961	have notable advantages in terms of runtimes, precomputation and memory requirements
+R209	contradicts Arg1:T370 Arg2:T369	
+T371	own_claim 45042 45100	the cost of projecting the forces on to the basis is noted
+T372	data 44963 45001	For examples including external forces
+T373	data 45011 45019	buoyancy
+T374	data 45023 45039	moving obstacles
+R210	supports Arg1:T374 Arg2:T371	
+R211	supports Arg1:T372 Arg2:T371	
+T375	own_claim 45102 45181	This cost is proportional to the mesh resolution and the number of basis fields
+T376	own_claim 45404 45478	This is proportional to the mesh resolution and the dimension of the basis
+T377	own_claim 45504 45558	there are two alternatives for velocity reconstruction
+T378	data 45480 45502	On closed form domains
+R212	supports Arg1:T378 Arg2:T377	
+T379	own_claim 45697 45806	Closed form evaluation is proportional to the number of basis functions and the number of advected quantities
+T380	own_claim 45808 45842	Each alternative has its strengths
+T381	own_claim 46078 46182	evaluating closed form expressions is accurate and fast and does not have additional memory requirements
+T382	data 46006 46041	a few particles need to be advected
+R213	supports Arg1:T382 Arg2:T381	
+T383	own_claim 47060 47197	A robust tetrahedral mesh implementation would have similar performance characteristics and alleviate the boundary “stair case” artifacts
+T384	own_claim 47706 47762	these high frequency modes interact and decay physically
+T385	own_claim 47883 47992	Our method is most applicable to gaseous phenomena and situations when the domain is entirely filled by fluid
+T386	own_claim 48004 48129	it is not readily adaptable to typical liquid simulations that require a constantly changing fluid domain with a free surface
+T387	own_claim 48150 48224	interesting dynamics can be captured in a reasonably sized basis dimension
+T388	own_claim 48229 48252	simulated interactively
+T389	background_claim 48381 48395	the runtime is
+T390	background_claim 48407 48414	O(N 3 )
+T391	data 48358 48379	For irregular domains
+R214	parts_of_same Arg1:T390 Arg2:T389	
+R215	supports Arg1:T391 Arg2:T389	
+T392	own_claim 49107 49243	the cost of reconstructing the velocity field and projecting external forces grows linearly with the basis dimension and mesh resolution
+T393	data 49086 49105	For discrete meshes
+R216	supports Arg1:T393 Arg2:T392	
+T394	own_claim 49245 49322	Many of these issues are not present for domains with closed form expressions
+T395	own_claim 49346 49382	the shape of the boundary is limited
+T396	data 49336 49345	this case
+R217	supports Arg1:T396 Arg2:T395	
+T397	own_claim 49446 49492	the velocity basis fields must still be cached
+T398	data 49496 49550	the cost of closed form evaluations become prohibitive
+T399	data 49423 49445	projecting many forces
+T400	data 49395 49419	advecting many particles
+R218	supports Arg1:T400 Arg2:T397	
+R219	supports Arg1:T399 Arg2:T397	
+R220	supports Arg1:T398 Arg2:T397	
+T401	own_claim 49636 49722	our method has potential to be exploited for the expressive control of fluid phenomena
+T402	own_claim 49841 49883	any smooth curve through coefficient space
+T403	own_claim 49902 49934	may be perceived as “fluid-like”
+R221	parts_of_same Arg1:T403 Arg2:T402	
+T404	data 49938 50036	it represents a continuously changing volume preserving flow that respects all boundary conditions
+R222	supports Arg1:T404 Arg2:T403	
+T405	own_claim 50301 50347	a unique mechanism for spectral energy control
+T406	data 50209 50235	orthogonality of the basis
+T407	data 50240 50291	its correspondence with vorticity of varying scales
+R223	supports Arg1:T406 Arg2:T405	
+R224	supports Arg1:T407 Arg2:T405	
+T408	own_claim 50349 50446	This could be used to implement timevarying filters to amplify or attenuate parts of the spectrum
+T409	data 50456 50490	achieving crescendos of turbulence
+T410	data 50494 50509	gradual calming
+R225	supports Arg1:T409 Arg2:T408	
+R226	supports Arg1:T410 Arg2:T408	
+T411	own_claim 50674 50736	Space-time control for fluids has been attempted previously in
+T412	data 50739 50759	Treuille et al. 2003
+T413	data 50761 50781	McNamara et al. 2004
+T414	data 50783 50809	Fattal and Lischinski 2004
+R227	supports Arg1:T412 Arg2:T411	
+R228	supports Arg1:T413 Arg2:T411	
+R229	supports Arg1:T414 Arg2:T411	
+T415	own_claim 50812 50850	Many of these methods can be expensive
+T416	data 50859 50965	the optimization scales sharply with the size of the grid, making them impractical for interesting domains
+R230	supports Arg1:T416 Arg2:T415	
+T417	own_claim 50967 51042	A low dimensional basis offers a good setting to implement control policies
+T418	own_claim 51043 51089	that would be intractable in higher dimensions
+T419	data 51138 51157	Barbi c et al. 2009
+R231	supports Arg1:T419 Arg2:T418	
+T420	own_claim 51160 51284	Our method’s availability of closed form expressions for time derivatives could also prove useful in optimization algorithms
+T421	own_claim 51286 51329	Our method is fast enough to be interactive
+T422	own_claim 51335 51359	is very memory efficient
+T423	own_claim 51364 51402	well formulated on rectangular domains
+T424	data 51410 51447	the available closed form expressions
+R232	supports Arg1:T424 Arg2:T423	
+T425	own_claim 51449 51518	This makes it particularly attractive for use in image based settings
+T426	data 51527 51578	painting applications that simulate fluid phenomena
+T427	data 51609 51618	the video
+R233	supports Arg1:T426 Arg2:T425	
+R234	supports Arg1:T427 Arg2:T425	
+T428	own_claim 51620 51717	Additional potential uses in this vein include texture synthesis and non-photorealistic rendering
+T429	own_claim 51747 51808	Boundaries of moving obstacles are handled only approximately
+T430	own_claim 51813 51849	could benefit from alternate methods
+T431	own_claim 51869 51905	a fast and stable integration scheme
+T432	own_claim 51916 51961	additional time integrators could be explored
+T433	own_claim 51963 52025	particularly symmetric integrators to allow time reversibility
+T434	data 52047 52065	Mullen et al. 2009
+R235	supports Arg1:T434 Arg2:T433	
+R236	contradicts Arg1:T432 Arg2:T431	
+T435	own_claim 52068 52135	Time reversibility could prove useful in fluid control applications
+T436	data 52178 52200	Twigg and James [2008]
+R237	supports Arg1:T436 Arg2:T435	
+T437	own_claim 52202 52318	We have evaluated the advection operator symbolically for closed form expressions on rectangular 2-D and 3-D domains
+T438	own_claim 52320 52368	The same could be done for additional geometries
+T439	data 52378 52388	a 2-D disk
+T440	data 52392 52411	a spherical surface
+R238	supports Arg1:T439 Arg2:T438	
+R239	supports Arg1:T440 Arg2:T438	
+T443	own_claim 52522 52586	which could prove useful for tilings of fluid simulation domains
+T445	data 52589 52606	Wicke et al. 2009
+R241	supports Arg1:T445 Arg2:T443	
+T441	own_claim 52629 52676	Divergence free fields have many potential uses
+T442	own_claim 52793 52847	can be used to quantify volume preserving deformations
+T444	data 52685 52713	simulating natural phenomena
+T446	own_claim 52849 52902	This has uses in image analysis and shape deformation
+R240	supports Arg1:T442 Arg2:T441	
+R242	supports Arg1:T444 Arg2:T441	
+R243	supports Arg1:T446 Arg2:T441	
+T447	own_claim 52928 52998	the unique properties of our method could be exploited in these fields
+T448	data 53015 53113	the elegant formulation on rectangular domains could make it useful for medical image registration
+R244	supports Arg1:T448 Arg2:T447	
+T449	own_claim 53226 53285	it an accurate and tractable model for optimization methods
+T450	data 53129 53172	the availability of closed form expressions
+T451	data 53177 53220	flexibility in choosing the basis dimension
+R245	supports Arg1:T451 Arg2:T449	
+R246	supports Arg1:T450 Arg2:T449	
+T452	own_claim 53287 53393	This could be useful for the inverse modelling of real fluid flows for the purpose of parameter estimation
+T453	data 53407 53463	to estimate viscosity from sampled velocity measurements
+R247	supports Arg1:T453 Arg2:T452	
+T454	own_claim 53746 53896	The orthogonality of the basis functions and their correspondence to a spectrum of vorticity scales enables energy control at varying turbulent scales
+T455	own_claim 53994 54142	Flexibility in choosing basis dimensionality and the ability to integrate directly in a space of basis coefficients permits computational efficiency
+T456	own_claim 54178 54288	The existence of closed form solutions for simple domains allows symbolic evaluation of the advection operator
+T457	own_claim 54293 54346	the ability to sparsely evaluate velocities on demand
+T458	own_claim 54418 54461	many exciting avenues remain to be explored
+T459	own_claim 54619 54692	there is potential for our method to be exploited in other research areas
+T460	data 54701 54716	medical imaging
+T461	data 54721 54743	inverse flow modelling
+R248	supports Arg1:T460 Arg2:T459	
+R249	supports Arg1:T461 Arg2:T459	

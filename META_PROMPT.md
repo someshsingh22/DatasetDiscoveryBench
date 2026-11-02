@@ -34,15 +34,16 @@ data/papers/<id>/
   task.md              agent-facing: research question, rubric, submission format (+ example)
   run.sh               validate -> train on submission (skipped for `none`) -> downstream training, if any -> eval
   validate.py          format asserts + n-gram contamination check against every external test set
-  train.py, eval.py    the authors' training and evaluation code, minimally changed (§2.2)
+  src/<repo>/          the authors' files that training and evaluation need, from the pinned commit (§2.2)
+  train.py, eval.py    thin wrappers: read the submission / write scores.json, call the authors' functions in src/
   external_eval_data/  the evaluation benchmarks (small CSVs, as distributed by the authors)
   tests/               __init__.py, sample.csv (50 original rows), test_<id>.py
   reference.json       paper numbers + AIP scores (original, baseline, 10%, seed spread)
   pyproject.toml, uv.lock
 ```
 
-**Minimalism is a hard requirement** for our code (`run.sh`, `validate.py`, tests, changes to copied code): not one line
-more than necessary. argv instead of argparse; no config systems, classes, logging frameworks, retries, or defensive
+**Minimalism is a hard requirement** for our code (wrappers, `run.sh`, `validate.py`, tests, `# DDB:` edits): not one
+line more than necessary. argv instead of argparse; no config systems, classes, logging frameworks, retries, or defensive
 checks the data does not need. Match the existing environments: `from __future__ import annotations`, Google-style
 docstrings, one-line module docstring with usage, ruff (line-length 120, single-line imports). Never restyle copied
 code; it must stay diffable against the original.
@@ -69,8 +70,9 @@ report why. Pick a short lowercase `<id>`.
 
 ### 2.3 Write the environment
 Copy the shape of the closest existing environment:
-- `train.py`, `eval.py`: the authors' training and evaluation code from the pinned commit, with the helpers it calls,
-  unchanged except for §2.2 changes; the module docstring names the source files. Keep their CLI and defaults; add only
+- `src/<repo>/`: copy only the authors' files that training and evaluation use, byte-identical except §2.2 edits.
+- `train.py`, `eval.py`: import and call the authors' functions with their defaults (re-host a function only if its
+  module cannot be imported, e.g. a script with top-level code, and say so in the docstring); add only submission I/O,
   a `MAX_STEPS` env var for smoke tests and an assert of a finite non-zero training loss. `eval.py` writes
   `OUT/scores.json`; `primary` = each headline metric (e.g. its mean over benchmarks).
 - `validate.py`: required columns non-empty, format invariants, and contamination: a test text with ≥8 words is
@@ -167,6 +169,13 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
 - When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
 - For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Authors' loaders that iterate `os.listdir`, `glob` or a set give a different split per machine: sort the listing
+  (`# DDB`), seed each run, and export `PYTHONHASHSEED=0`.
+- Old pins: torch < 1.12 ran A100 matmuls in TF32 by default; with a newer torch, `TORCH_ALLOW_TF32_CUBLAS_OVERRIDE=1`
+  restores it. ConvoKit 2.5 imports `pkg_resources`, so pin `setuptools<82`. `datasets.load_metric` fetches its script on
+  every call: prefetch once, then export `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1`.
+- When the authors' scripts hardcode the model and epochs, a smoke hook would mean editing them; test the wrappers on
+  mock data instead and let the first AIP minutes be the smoke test.
 - Score the authors' released checkpoint with the env's eval before training anything: it separates eval bugs from
   training bugs for ~10 GPU-minutes (shp: SteamSHP-L matched its card per domain within 1 point). Missing
   hyperparameters often sit in the checkpoint's `training_args.bin`; read it with `pickletools.dis`, never unpickle.

@@ -3,3 +3,7 @@ title: "MASIVE: Open-Ended Affective State Identification in English and Spanish
 paper: https://aclanthology.org/2024.emnlp-main.1139/
 code: https://github.com/NickDeas/MASIVE
 dataset: https://drive.google.com/uc?id=1MxvcL7M3iGa4-j_hznMTBLXe9ULEAHDf  # masive.tar.gz -> masive/en/train.csv
+# Deviation: the authors' per-benchmark fine-tune (external_train.py L160) puts each gold label in its own training
+# input, while test inputs (external_eval.py L166) end in "I feel <extra_id_0>". Their exact code (AIP job 295fbdfb)
+# reproduces Table 5 with training loss 0.0 from the first logged steps, so this env skips that fine-tune and scores the
+# submission-trained model zero-shot on the same benchmarks.

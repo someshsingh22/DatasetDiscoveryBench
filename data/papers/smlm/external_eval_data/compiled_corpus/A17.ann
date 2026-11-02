@@ -1,0 +1,650 @@
+T1	background_claim 1610 1690	Realistic human motion is an important part of media like video games and movies
+T2	background_claim 1692 1789	More lifelike characters make for more immersive environments and more believable special effects
+T3	background_claim 1809 1866	realistic animation of human motion is a challenging task
+T4	data 1871 1977	people have proven to be adept at discerning the subtleties of human movement and identifying inaccuracies
+R1	supports Arg1:T4 Arg2:T3	
+T5	background_claim 1979 2032	One common solution to this problem is motion capture
+T6	background_claim 2049 2117	motion capture is a reliable way of acquiring realistic human motion
+T7	background_claim 2119 2169	by itself it is a technique for reproducing motion
+T8	background_claim 2171 2227	Motion capture data has proven to be difficult to modify
+T9	background_claim 2233 2299	editing techniques are reliable only for small changes to a motion
+T10	data 2347 2409	the data on hand isn’t sufficiently similar to what is desired
+T11	background_claim 2416 2523	often there is little that can be done other than acquire more data, a time-consuming and expensive process
+T12	background_claim 2301 2342	This limits the utility of motion capture
+R2	supports Arg1:T10 Arg2:T11	
+R3	supports Arg1:T8 Arg2:T12	
+R4	supports Arg1:T9 Arg2:T12	
+T13	background_claim 2525 2623	This in particular is a problem for applications that require motion to be synthesized dynamically
+T14	data 2633 2657	interactive environments
+R5	supports Arg1:T14 Arg2:T13	
+T15	own_claim 2659 2781	Our goal is to retain the realism of motion capture while also giving a user the ability to control and direct a character
+T16	data 2796 2992	we would like to be able to ask a character to walk around a room without worrying about having a piece of motion data that contains the correct number of steps and travels in the right directions
+T17	own_claim 3131 3284	This paper presents a method for synthesizing streams of motions based on a corpus of captured movement while preserving the quality of the original data
+T18	own_claim 2994 3071	We also need to be able to direct characters who can perform multiple actions
+T19	own_claim 3322 3440	we compile a structure called a motion graph that encodes how the captured clips may be re-assembled in different ways
+R6	supports Arg1:T16 Arg2:T15	
+T20	data 3286 3320	Given a set of motion capture data
+R7	supports Arg1:T20 Arg2:T19	
+T21	own_claim 3442 3577	The motion graph is a directed graph wherein edges contain either pieces of original motion data or automatically generated transitions
+T22	own_claim 3748 3825	users needn’t capture motions specifically designed to connect to one another
+T23	data 3675 3746	our methods automatically detect and create transitions between motions
+R8	supports Arg1:T23 Arg2:T22	
+T24	own_claim 3839 3966	the user can tune the high-level structure of the motion graph to produce desired degrees of connectivity among different parts
+T25	own_claim 3968 4077	Motion graphs transform the motion synthesis problem into one of selecting sequences of nodes, or graph walks
+T26	own_claim 4079 4199	By drawing upon algorithms from graph theory and AI planning, we can extract graph walks that satisfy certain properties
+T27	own_claim 4209 4255	giving us control over the synthesized motions
+R9	supports Arg1:T26 Arg2:T27	
+T28	background_claim 4592 4652	is critical to successful application of motion capture data
+T29	background_claim 4531 4563	carefully plan out each movement
+R10	parts_of_same Arg1:T29 Arg2:T28	
+T30	own_claim 4965 5033	It is possible to place additional constraints on the desired motion
+T31	data 4655 4668	Washburn 2001
+R11	supports Arg1:T31 Arg2:T28	
+T32	background_claim 6627 6720	Much previous work with motion capture has revolved around editing individual clips of motion
+T33	background_claim 6765 6818	can be used to smoothly add small changes to a motion
+T34	background_claim 6722 6736	Motion warping
+R12	parts_of_same Arg1:T34 Arg2:T33	
+T35	data 6739 6762	Witkin and Popović 1995
+R13	supports Arg1:T35 Arg2:T34	
+T36	background_claim 6820 6831	Retargeting
+T37	background_claim 6868 6992	maps the motion of a performer to a character of different proportions while retaining important constraints like footplants
+R14	parts_of_same Arg1:T36 Arg2:T37	
+T38	data 6833 6846	Gleicher 1998
+T39	data 6848 6865	Lee and Shin 1999
+R15	supports Arg1:T38 Arg2:T36	
+R16	supports Arg1:T39 Arg2:T36	
+T40	background_claim 6994 7030	Various signal processing operations
+T41	own_claim 7093 7229	Our work is different from these efforts in that it involves creating continuous streams of motion, rather than modifying specific clips
+T42	data 7033 7060	Bruderlin and Williams 1995
+T43	background_claim 7062 7091	can be applied to motion data
+R17	parts_of_same Arg1:T40 Arg2:T43	
+R18	supports Arg1:T42 Arg2:T40	
+T44	background_claim 7231 7375	One strategy for motion synthesis is to perform multi-target blends among a set of examples, yielding a continuous space of parameterized motion
+T45	background_claim 7400 7522	used linear interpolation to create parameterizations of walking at various inclinations and reaching to various locations
+T46	data 7377 7391	Wiley and Hahn
+T47	data 7393 7397	1997
+R19	parts_of_same Arg1:T46 Arg2:T47	
+R20	supports Arg1:T47 Arg2:T45	
+T48	background_claim 7544 7651	used radial basis functions to blend among clips representing the same motion performed in different styles
+T49	data 7524 7535	Rose et al.
+T50	data 7537 7541	1998
+R21	parts_of_same Arg1:T49 Arg2:T50	
+R22	supports Arg1:T50 Arg2:T48	
+T51	own_claim 7653 7699	These works have a focus complementary to ours
+T52	background_claim 7707 7786	they are mainly concerned with generating parameterizations of individual clips
+T53	own_claim 7788 7854	we are concerned with constructing controllable sequences of clips
+R23	supports Arg1:T52 Arg2:T51	
+R24	supports Arg1:T53 Arg2:T51	
+T54	background_claim 7856 7935	Another popular approach to motion synthesis is to construct statistical models
+T55	background_claim 7964 8086	used kernel-based probability distributions to synthesize new motion based on the statistical properties of example motion
+T56	data 7937 7955	Pullen and Bregler
+T57	data 7957 7961	2000
+R25	parts_of_same Arg1:T56 Arg2:T57	
+R26	supports Arg1:T57 Arg2:T55	
+T58	background_claim 8088 8181	Coherency was added to the model by explicitly accounting for correlations between parameters
+T59	background_claim 8257 8362	processed motion capture data by constructing abstract “states” which each represent entire sets of poses
+T60	data 8183 8189	Bowden
+T61	data 8191 8195	2000
+R27	parts_of_same Arg1:T60 Arg2:T61	
+T62	data 8198 8211	Galata et al.
+T63	data 8213 8217	2001
+R28	supports Arg1:T61 Arg2:T59	
+R29	parts_of_same Arg1:T62 Arg2:T63	
+R30	supports Arg1:T63 Arg2:T59	
+T64	data 8225 8244	Brand and Hertzmann
+T65	data 8246 8250	2000
+R31	parts_of_same Arg1:T64 Arg2:T65	
+R32	supports Arg1:T65 Arg2:T59	
+T66	background_claim 8546 8579	they risk losing important detail
+T67	background_claim 8365 8440	Transition probabilities between states were used to drive motion synthesis
+T68	data 8448 8544	these statistical models synthesize motion based on abstractions of data rather than actual data
+R33	supports Arg1:T68 Arg2:T66	
+T69	own_claim 8581 8654	In our work we have tighter guarantees on the quality of generated motion
+T70	own_claim 8741 8811	We generate motion by piecing together example motions from a database
+T71	background_claim 8666 8739	these systems did not focus on the satisfaction of high-level constraints
+T72	background_claim 8813 8871	Numerous other researchers have pursued similar strategies
+T73	background_claim 8919 9022	used a rulebased system and simple blends to attach procedurally generated motion into coherent streams
+T74	data 8873 8879	Perlin
+T75	background_claim 9049 9184	used support vector machines to create motion sequences as compositions of actions generated from a set of physically based controllers
+T76	data 8891 8910	Perlin and Goldberg
+T77	own_claim 9284 9357	we require different approaches to identifying and generating transitions
+T78	data 8881 8885	1995
+T79	data 8912 8916	1996
+R34	parts_of_same Arg1:T78 Arg2:T74	
+T80	data 9192 9282	our system involves motion capture data, rather than procedural or physically based motion
+R35	parts_of_same Arg1:T79 Arg2:T76	
+R36	supports Arg1:T78 Arg2:T73	
+R37	supports Arg1:T79 Arg2:T73	
+T81	data 9024 9040	Faloutsos et al.
+T82	data 9042 9046	2001
+R38	parts_of_same Arg1:T82 Arg2:T81	
+R39	supports Arg1:T80 Arg2:T77	
+T83	background_claim 9365 9453	these systems were mainly concerned with appropriately generating individual transitions
+R40	supports Arg1:T82 Arg2:T75	
+T84	own_claim 9463 9514	we address the problem of generating entire motions
+T85	own_claim 9539 9572	that meet user-specified criteria
+T86	background_claim 9608 9696	developed a system that used a database to extract motion meeting high-level constraints
+T87	data 9574 9599	Lamouret and van de Panne
+R41	parts_of_same Arg1:T84 Arg2:T85	
+T88	data 9601 9605	1996
+R42	contradicts Arg1:T84 Arg2:T83	
+R43	parts_of_same Arg1:T87 Arg2:T88	
+R44	supports Arg1:T88 Arg2:T86	
+T89	background_claim 9707 9778	their system was applied to a simple agent with five degrees of freedom
+T90	own_claim 9788 9845	we generate motion for a far more sophisticated character
+R45	contradicts Arg1:T89 Arg2:T90	
+T91	background_claim 9879 10014	used a state-based statistical model similar to those mentioned in the previous paragraph to rearrange segments of original motion data
+T92	background_claim 10016 10071	These segments were attached using linear interpolation
+T93	data 9847 9870	Molina-Tanco and Hilton
+T94	data 9872 9876	2000
+R46	parts_of_same Arg1:T93 Arg2:T94	
+R47	supports Arg1:T94 Arg2:T91	
+T95	background_claim 10073 10193	The user could create motion by selecting keyframe poses, which were connected with a highprobability sequence of states
+T96	own_claim 10195 10264	Our work considers more general and sophisticated sets of constraints
+T97	own_claim 10266 10376	Work similar to ours has been done in the gaming industry to meet the requirements of online motion generation
+T98	background_claim 10378 10407	Many companies use move trees
+T99	data 10410 10431	Mizuguchi et al. 2001
+T100	background_claim 10435 10440	which
+T101	background_claim 10462 10531	are graph structures representing connections in a database of motion
+R48	parts_of_same Arg1:T100 Arg2:T101	
+R49	parts_of_same Arg1:T98 Arg2:T100	
+R50	supports Arg1:T99 Arg2:T98	
+T102	background_claim 10542 10573	move trees are created manually
+T103	data 10652 10702	blends are created by hand using interactive tools
+T104	data 10576 10647	short motion clips are collected in carefully scripted capture sessions
+R51	supports Arg1:T104 Arg2:T102	
+T105	own_claim 10704 10747	Motion graphs are constructed automatically
+R52	supports Arg1:T103 Arg2:T102	
+T106	background_claim 10755 10818	move trees are typically geared for rudimentary motion planning
+T107	own_claim 10923 10989	The generation of transitions is an important part of our approach
+T108	background_claim 11048 11136	presented a simple method for smoothly interpolating between two clips to create a blend
+T109	data 11028 11034	Perlin
+T110	data 11036 11040	1995
+R53	parts_of_same Arg1:T109 Arg2:T110	
+R54	supports Arg1:T110 Arg2:T108	
+T111	data 11143 11147	2000
+T112	background_claim 11158 11280	orientation filters that allowed these blending operations to be performed on rotational data in a more principled fashion
+T113	background_claim 11312 11424	a more complex method for creating transitions that preserved kinematic constraints and basic dynamic properties
+T114	data 11138 11141	Lee
+R55	parts_of_same Arg1:T114 Arg2:T111	
+R56	supports Arg1:T111 Arg2:T112	
+T115	data 11282 11293	Rose et al.
+T116	own_claim 11426 11502	Our main application of motion graphs is to control a character’s locomotion
+T117	data 11295 11299	1996
+T118	background_claim 11504 11585	This problem is important enough to have received a great deal of prior attention
+R57	parts_of_same Arg1:T115 Arg2:T117	
+R58	supports Arg1:T117 Arg2:T113	
+T119	background_claim 11648 11669	synthesis is required
+T120	background_claim 11672 11762	Procedural and physically based synthesis methods have been developed for a few activities
+T121	data 11595 11646	a character’s path isn’t generally known in advance
+T122	data 11771 11778	walking
+T123	data 11827 11834	running
+R59	supports Arg1:T121 Arg2:T119	
+T124	data 11781 11799	Multon et al. 1999
+T125	data 11801 11821	Sun and Metaxas 2001
+R60	supports Arg1:T125 Arg2:T122	
+T126	data 11837 11856	Hodgins et al. 1995
+R61	supports Arg1:T122 Arg2:T120	
+T127	data 11858 11884	Bruderlin and Calvert 1996
+R62	supports Arg1:T124 Arg2:T122	
+R63	supports Arg1:T123 Arg2:T120	
+R64	supports Arg1:T126 Arg2:T123	
+R65	supports Arg1:T127 Arg2:T123	
+T128	background_claim 11893 11952	techniques such as these can generate flexible motion paths
+T129	background_claim 11954 12001	the current range of movement styles is limited
+R66	contradicts Arg1:T129 Arg2:T128	
+T130	background_claim 12009 12106	these methods do not produce the quality of motion attainable by hand animation or motion capture
+T131	background_claim 12140 12207	a method for editing the path traversed in a clip of motion capture
+T132	data 12124 12128	2001
+T133	data 12114 12122	Gleicher
+R67	parts_of_same Arg1:T133 Arg2:T132	
+T134	background_claim 12209 12269	it did not address the need for continuous streams of motion
+R68	supports Arg1:T132 Arg2:T131	
+T135	background_claim 12271 12326	nor could it choose which clip is correct to fit a path
+R69	contradicts Arg1:T134 Arg2:T131	
+R70	contradicts Arg1:T135 Arg2:T131	
+T136	own_claim 12394 12412	Our basic approach
+T137	own_claim 12538 12583	has been applied previously to other problems
+R71	parts_of_same Arg1:T136 Arg2:T137	
+T138	data 12415 12436	detecting transitions
+T139	data 12438 12458	constructing a graph
+T140	data 12464 12535	using graph search techniques to find sequences satisfying user demands
+R72	supports Arg1:T138 Arg2:T136	
+R73	supports Arg1:T139 Arg2:T136	
+R74	supports Arg1:T140 Arg2:T136	
+T141	background_claim 12617 12758	a similar method for synthesizing seamless streams of video from example footage and driving these streams according to high-level user input
+T142	data 12600 12604	2000
+T143	data 12585 12598	Schödl et al.
+R75	parts_of_same Arg1:T143 Arg2:T142	
+R76	supports Arg1:T142 Arg2:T141	
+T144	own_claim 12760 12866	Since writing this paper, we have learned of similar work done concurrently by a number of research groups
+T145	background_claim 12972 13052	used a randomized search algorithm to extract motion that meets user constraints
+T146	background_claim 13073 13144	also constructed a graph and generated motion via three user interfaces
+T147	background_claim 13450 13516	This resulted in sequences of short clips forming complete motions
+T148	background_claim 13293 13448	keyframed a subset of a character’s degrees of freedom and matched small segments of this keyframed animation with the lower frequency bands of motion data
+T149	background_claim 13534 13583	generated a two-level statistical model of motion
+T150	background_claim 13759 13858	This model was used both to generate new motion based on user keyframes and to edit existing motion
+T151	data 12868 12887	Arikan and Forsythe
+T152	data 12889 12893	2002
+R77	parts_of_same Arg1:T151 Arg2:T152	
+T153	background_claim 12896 12967	constructed from a motion database a hierarchical graph similar to ours
+R78	supports Arg1:T152 Arg2:T153	
+R79	supports Arg1:T152 Arg2:T145	
+R80	supports Arg1:T145 Arg2:T144	
+T154	data 13054 13064	Lee et al.
+R81	supports Arg1:T153 Arg2:T144	
+T155	data 13066 13070	2002
+R82	parts_of_same Arg1:T154 Arg2:T155	
+R83	supports Arg1:T155 Arg2:T146	
+T156	data 13146 13163	a list of choices
+R84	supports Arg1:T146 Arg2:T144	
+T157	data 13165 13229	a sketch-based interface similar to what we use for path fitting
+T158	data 13266 13284	Pullen and Bregler
+T159	data 13231 13240	Section 5
+R85	supports Arg1:T148 Arg2:T147	
+T160	data 13247 13264	a live video feed
+R86	supports Arg1:T159 Arg2:T157	
+T161	data 13286 13290	2002
+R87	parts_of_same Arg1:T161 Arg2:T158	
+R88	supports Arg1:T156 Arg2:T146	
+R89	supports Arg1:T157 Arg2:T146	
+R90	supports Arg1:T161 Arg2:T148	
+R91	supports Arg1:T160 Arg2:T146	
+R92	supports Arg1:T147 Arg2:T144	
+T162	data 13518 13526	Li et al
+T163	data 13528 13532	2002
+R93	parts_of_same Arg1:T162 Arg2:T163	
+R94	supports Arg1:T150 Arg2:T144	
+T164	data 13585 13686	At the lower level were linear dynamic systems representing characteristic movements called “textons”
+R95	supports Arg1:T163 Arg2:T149	
+T165	data 13692 13757	the higher level contained transition probabilities among textons
+R96	supports Arg1:T164 Arg2:T149	
+R97	supports Arg1:T165 Arg2:T149	
+T166	own_claim 14836 14916	A motion graph is a directed graph where all edges correspond to clips of motion
+T167	own_claim 15420 15474	A more interesting graph requires greater connectivity
+T168	own_claim 15680 15730	we need to create clips expressly for this purpose
+T169	data 15606 15678	it is unlikely that two pieces of original data are sufficiently similar
+R98	supports Arg1:T169 Arg2:T168	
+T170	data 15480 15518	a node to have multiple outgoing edges
+T171	own_claim 15520 15598	there must be multiple clips that can follow the clip(s) leading into the node
+R99	supports Arg1:T170 Arg2:T171	
+T172	own_claim 15947 16028	we can create a wellconnected structure with a wide range of possible graph walks
+T173	data 15882 15945	inserting transition clips between otherwise disconnected nodes
+T174	data 15835 15877	introducing nodes within the initial clips
+R100	supports Arg1:T173 Arg2:T172	
+T175	data 16034 16042	Figure 2
+R101	supports Arg1:T174 Arg2:T172	
+R102	supports Arg1:T175 Arg2:T172	
+T176	own_claim 16061 16109	creating transitions is a hard animation problem
+T177	own_claim 16335 16471	the problem of automatically creating such a transition is arguably as difficult as that of creating realistic motion in the first place
+T178	own_claim 16492 16599	if two motions are “close” to each other then simple blending techniques can reliably generate a transition
+R103	contradicts Arg1:T178 Arg2:T177	
+T179	own_claim 16619 16783	our strategy is to identify portions of the initial clips that are sufficiently similar that straightforward blending is almost certain to produce valid transitions
+R104	supports Arg1:T178 Arg2:T179	
+T180	background_claim 17304 17450	motion capture data is typically represented as vectors of parameters specifying the root position and joint rotations of a skeleton on each frame
+T181	background_claim 17452 17590	One might attempt to locate transition points by computing some vector norm to measure the difference between poses at each pair of frames
+T182	own_claim 17601 17638	such a simple approach is ill-advised
+T183	own_claim 17643 17691	it fails to address a number of important issues
+R105	supports Arg1:T182 Arg2:T181	
+R106	supports Arg1:T183 Arg2:T182	
+T184	own_claim 17704 17774	Simple vector norms fail to account for the meanings of the parameters
+R107	supports Arg1:T184 Arg2:T183	
+T185	own_claim 17961 18031	there is no meaningful way to assign fixed weights to these parameters
+T186	data 18036 18140	the effect of a joint rotation on the shape of the body depends on the current configuration of the body
+T187	data 17790 17903	in the joint angle representation some parameters have a much greater overall effect on the character than others
+R108	supports Arg1:T187 Arg2:T184	
+R109	supports Arg1:T186 Arg2:T185	
+T188	own_claim 18346 18418	comparing two motions requires identifying compatible coordinate systems
+T189	own_claim 18223 18338	the motion is fundamentally unchanged if we translate it along the floor plane or rotate it about the vertical axis
+T190	own_claim 18145 18212	A motion is defined only up to a rigid 2D coordinate transformation
+R110	supports Arg1:T190 Arg2:T189	
+R111	supports Arg1:T189 Arg2:T188	
+R112	supports Arg1:T188 Arg2:T183	
+T191	own_claim 18423 18503	Smooth blends require more information than can be obtained at individual frames
+R113	supports Arg1:T191 Arg2:T183	
+T192	own_claim 18505 18664	A seamless transition must account not only for differences in body posture, but also in joint velocities, accelerations, and possibly higher-order derivatives
+T193	own_claim 18739 18806	To motivate it, we note that the skeleton is only a means to an end
+T194	background_claim 18808 18893	In a typical animation, a polygonal mesh is deformed according to the skeleton’s pose
+T195	own_claim 19028 19148	For this reason we measure the distance between two frames of animation in terms of a point cloud driven by the skeleton
+T196	background_claim 18895 18924	This mesh is all that is seen
+T197	background_claim 18936 19026	it is a natural focus when considering how close two frames of animation are to each other
+R114	supports Arg1:T196 Arg2:T197	
+R115	supports Arg1:T197 Arg2:T195	
+T198	own_claim 19592 19684	The use of windows of frames effectively incorporates derivative information into the metric
+T199	own_claim 19150 19227	Ideally this point cloud is a downsampling of the mesh defining the character
+T200	background_claim 19690 19716	is similar to the approach
+T201	data 19722 19740	Schödl et al. 2000
+R116	supports Arg1:T201 Arg2:T200	
+T202	own_claim 21841 21935	To make our transition model more compact, we find all the local minima of this error function
+T203	own_claim 21945 22025	extracting the “sweet spots” at which transitions are locally the most opportune
+R117	supports Arg1:T202 Arg2:T203	
+T204	data 22058 22076	Schödl et al. 2000
+T205	own_claim 22206 22299	A local minimum in the distance function does not necessarily imply a high-quality transition
+T206	own_claim 22301 22355	it only implies a transition better than its neighbors
+T207	own_claim 22429 22523	The simplest approach is to only accept local minima below an empirically determined threshold
+T208	own_claim 22525 22567	This can be done without user intervention
+T209	own_claim 22578 22694	often users will want to set the threshold themselves to pick an acceptable tradeoff between having good transitions
+T210	own_claim 22711 22739	and having high connectivity
+R118	parts_of_same Arg1:T209 Arg2:T210	
+R120	contradicts Arg1:T209 Arg2:T207	
+T211	data 22696 22709	low threshold
+R119	supports Arg1:T204 Arg2:T203	
+T212	data 22741 22755	high threshold
+R121	supports Arg1:T211 Arg2:T209	
+R122	supports Arg1:T212 Arg2:T210	
+T213	own_claim 22758 22821	Different kinds of motions have different fidelity requirements
+T214	data 22836 22902	walking motions have very exacting requirements on the transitions
+T215	data 22905 23029	people have seen others walk nearly every day since birth and consequently have a keen sense of what a walk should look like
+R123	supports Arg1:T215 Arg2:T214	
+R124	supports Arg1:T214 Arg2:T213	
+T216	data 23050 23162	most people are less familiar with ballet motions and would be less likely to detect inaccuracies in such motion
+T217	own_claim 23177 23252	we allow a user to apply different thresholds to different pairs of motions
+R125	supports Arg1:T216 Arg2:T213	
+T218	background_claim 24490 24514	Other transition schemes
+T219	background_claim 24545 24577	may be used in place of this one
+T220	data 24526 24542	Rose et al. 1996
+R126	parts_of_same Arg1:T218 Arg2:T219	
+R127	supports Arg1:T220 Arg2:T218	
+T221	own_claim 24579 24665	The use of linear blends means that constraints in the original motion may be violated
+T222	data 24680 24745	one of the character’s feet may slide when it ought to be planted
+R128	supports Arg1:T222 Arg2:T221	
+T223	own_claim 24747 24824	This can be corrected by using constraint annotations in the original motions
+T224	own_claim 24826 24864	We treat constraints as binary signals
+T225	data 24866 24935	on a given frame a particular constraint either exists or it does not
+R129	supports Arg1:T225 Arg2:T224	
+T226	own_claim 25113 25200	In this ¡ manner each transition is automatically annotated with constraint information
+T227	own_claim 25206 25310	these constraints may later be enforced as a postprocessing step when motion is extracted form the graph
+R130	supports Arg1:T226 Arg2:T227	
+T228	own_claim 25897 25991	In its current state there are no guarantees that the graph can synthesize motion indefinitely
+T229	data 25999 26017	there may be nodes
+T230	data 26037 26067	that are not part of any cycle
+R131	parts_of_same Arg1:T229 Arg2:T230	
+T231	data 26073 26081	Figure 4
+R132	supports Arg1:T231 Arg2:T230	
+R133	supports Arg1:T229 Arg2:T228	
+T232	own_claim 26085 26176	Once such a node is entered there is a bound on how much additional motion can be generated
+T233	own_claim 26205 26335	may be part of one or more cycles but nonetheless only be able to reach a small fraction of the total number of nodes in the graph
+T234	own_claim 26178 26189	Other nodes
+T235	own_claim 26343 26412	arbitrarily long motion may still be generated once a sink is entered
+R134	parts_of_same Arg1:T234 Arg2:T233	
+T236	own_claim 26414 26469	this motion is confined to a small part of the database
+R135	contradicts Arg1:T236 Arg2:T235	
+T237	own_claim 26471 26585	Finally, some nodes may have incoming edges such that no outgoing edges contain the same set of descriptive labels
+T238	own_claim 26587 26604	This is dangerous
+T239	own_claim 26611 26662	logical discontinuities may be forced into a motion
+R136	supports Arg1:T239 Arg2:T238	
+T240	data 26677 26777	a character currently in a “boxing” motion may have no choice but to transition to a “ballet” motion
+R137	supports Arg1:T240 Arg2:T239	
+T241	own_claim 26779 26992	To address these problems, we prune the graph such that, starting from any edge, it is possible to generate arbitrarily long streams of motion of the same type such that as much of the database as possible is used
+T242	own_claim 28138 28198	By this stage we have finished constructing the motion graph
+T243	own_claim 28375 28429	Our algorithm involves solving an optimization problem
+T244	own_claim 28724 28812	a graph walk corresponds to a motion generated by placing these pieces one after another
+T245	data 28671 28722	every edge on the motion graph is a piece of motion
+R138	supports Arg1:T245 Arg2:T244	
+T246	own_claim 28814 28891	The only issue is to place each piece in the correct location and orientation
+T247	own_claim 28909 28981	each frame must be transformed by an appropriate 2D rigid transformation
+R139	semantically_same Arg1:T247 Arg2:T246	
+T248	own_claim 29250 29391	the use of linear blends to create transitions can cause artifacts, the most common of which is feet that slide when they ought to be planted
+T249	data 29237 29248	Section 3.3
+R140	supports Arg1:T249 Arg2:T248	
+T250	own_claim 29402 29473	every graph walk is automatically annotated with constraint information
+T251	data 29488 29512	the foot must be planted
+R141	supports Arg1:T251 Arg2:T250	
+T252	own_claim 29515 29599	These constraints are either specified directly in the original motions or generated
+T253	data 29606 29617	Section 3.3
+T254	own_claim 29619 29682	depending on whether the frame is original data or a transition
+R142	parts_of_same Arg1:T252 Arg2:T254	
+R143	supports Arg1:T253 Arg2:T252	
+T255	background_claim 29685 29746	These constraints may be satisfied using a variety of methods
+T256	data 29758 29771	Gleicher 1998
+T257	data 29778 29795	Lee and Shin 1999
+R144	supports Arg1:T256 Arg2:T255	
+R145	supports Arg1:T257 Arg2:T255	
+T258	own_claim 29798 29838	In our work we used the method described
+T259	data 29844 29861	Kovar et al. 2002
+R146	supports Arg1:T259 Arg2:T258	
+T260	own_claim 29928 30037	We are now in a position to consider the problem of finding motion that satisfies user-specified requirements
+T261	own_claim 30069 30122	only very special graph walks are likely to be useful
+T262	own_claim 30143 30206	a random graph walk will generate a continuous stream of motion
+T263	own_claim 30208 30277	such an algorithm has little use other than an elaborate screen saver
+R147	contradicts Arg1:T263 Arg2:T262	
+R148	supports Arg1:T263 Arg2:T261	
+T264	own_claim 30725 30774	This is less useful than it might appear at first
+T265	own_claim 30783 30865	there are no guarantees that the shortest graph walk is short in an absolute sense
+T266	data 30867 30892	In our larger test graphs
+T267	data 30936 31015	the average shortest path between any two nodes was on the order of two seconds
+R149	parts_of_same Arg1:T266 Arg2:T267	
+R150	supports Arg1:T266 Arg2:T265	
+T268	own_claim 31145 31240	there were on average only five or six transitions separating any two of the thousands of nodes
+T269	data 31077 31132	the transitions were about one-third of a second apiece
+R151	supports Arg1:T269 Arg2:T268	
+T270	own_claim 31017 31069	This is not because the graphs were poorly connected
+R152	supports Arg1:T268 Arg2:T270	
+T271	own_claim 31250 31309	there is no control over what happens during the graph walk
+T272	own_claim 31312 31389	we can’t specify what direction the character travels in or where she ends up
+R153	semantically_same Arg1:T272 Arg2:T271	
+T273	own_claim 31407 31543	the sorts of motions that a user is likely to be interested in probably don’t involve minimizing metrics as simple as total elapsed time
+T274	own_claim 31554 31653	for complicated metrics there is typically no simple way of finding the globally optimal graph walk
+T275	own_claim 31661 31779	we focus instead on local search methods that try to find a satisfactory graph walk within a reasonable amount of time
+R154	supports Arg1:T265 Arg2:T264	
+R155	supports Arg1:T271 Arg2:T264	
+R156	contradicts Arg1:T274 Arg2:T273	
+R157	supports Arg1:T274 Arg2:T275	
+T276	own_claim 33970 34072	Branch and bound is most successful when we can attain a tight lower bound early in the search process
+T277	own_claim 34090 34185	it is worthwhile to have a heuristic for ordering the edges we explore out of a particular node
+R158	supports Arg1:T276 Arg2:T277	
+T278	own_claim 33283 33384	the number of possible graph walks grows exponentially with the average size of a complete graph walk
+T279	own_claim 33155 33272	A naıve solution is to use depth-first search to evaluate f for all complete graph walks and then select the best one
+T280	own_claim 32815 32872	Our goal is find a complete graph walk w that minimizes f
+R159	contradicts Arg1:T278 Arg2:T279	
+T281	own_claim 34359 34435	branch and bound reduces the number of graph walks we have to test against f
+T282	own_claim 34438 34515	it does not change the fact that the search process is inherently exponential
+T283	own_claim 34518 34565	it merely lowers the effective branching factor
+R160	contradicts Arg1:T282 Arg2:T281	
+R161	supports Arg1:T281 Arg2:T283	
+T284	own_claim 35020 35095	Sometimes it is useful to have a degree of randomness in the search process
+T285	data 35110 35134	one is animating a crowd
+R162	supports Arg1:T285 Arg2:T284	
+T286	own_claim 35136 35241	There are a couple of easy ways to add randomness to the search process without sacrificing a good result
+T287	own_claim 35243 35298	The first is to select a start for the search at random
+T288	own_claim 35300 35477	The second is retain the r best graph walks at the end of each iteration of the search and randomly pick among the ones whose error is within some tolerance of the best solution
+R163	supports Arg1:T287 Arg2:T286	
+R164	supports Arg1:T288 Arg2:T286	
+T289	own_claim 35622 35709	it is worth considering what sorts of functions are likely to produce desirable results
+T290	data 35553 35620	the motion extracted from the graph is determined by the function g
+R165	supports Arg1:T290 Arg2:T289	
+T291	own_claim 36970 37051	it’s conceivable that given a larger database we would have found a better motion
+T292	own_claim 37053 37126	the problem here is with the function we passed into the search algorithm
+R166	contradicts Arg1:T292 Arg2:T291	
+T293	own_claim 36178 36212	The error of a complete graph walk
+T294	own_claim 36261 36365	was determined by how far away this kicking clip was from being in a particular position and orientation
+R167	parts_of_same Arg1:T293 Arg2:T294	
+T295	own_claim 35967 36102	We can formally state this problem as follows: given a starting node N in the graph and a target edge e, find a graph walk this section
+T296	data 36367 36517	The character spends approximately seven seconds making minute adjustments to its orientation in an attempt to better align itself with the final clip
+R168	supports Arg1:T296 Arg2:T294	
+T297	data 36860 36962	The character turns around in place several times in an attempt to better line up with the target clip
+R169	supports Arg1:T297 Arg2:T294	
+T298	own_claim 37135 37209	it gives no guidance as to what should be done in the middle of the motion
+T299	own_claim 37211 37291	all that matters is that the final clip be in the right position and orientation
+R170	supports Arg1:T298 Arg2:T299	
+T300	own_claim 37304 37386	the character is allowed to do whatever is possible in order to make the final fit
+T301	data 37396 37445	the motion is nothing that a real person would do
+R171	supports Arg1:T301 Arg2:T300	
+R172	supports Arg1:T299 Arg2:T300	
+R173	supports Arg1:T300 Arg2:T292	
+T302	own_claim 37455 37504	the goal is probably more specific than necessary
+T303	data 37509 37555	it doesn’t matter what kick the character does
+T304	own_claim 37562 37639	it should be allowed to choose a kick that doesn’t require such effort to aim
+R174	supports Arg1:T303 Arg2:T304	
+R175	supports Arg1:T302 Arg2:T292	
+T305	own_claim 37657 37708	there are two lessons we can draw from this example
+T306	own_claim 37717 37781	g should give some sort of guidance throughout the entire motion
+T307	own_claim 37969 38099	guiding the search toward a particular result must be balanced against unduly preventing it from considering all available options
+T308	data 37786 37828	arbitrary motion is almost never desirable
+R176	supports Arg1:T308 Arg2:T306	
+R177	supports Arg1:T306 Arg2:T305	
+T309	own_claim 37838 37884	g should be no more restrictive than necessary
+R178	supports Arg1:T309 Arg2:T305	
+T310	own_claim 38485 38659	To demonstrate that it is nonetheless possible to come up with optimization criteria that allow us to solve a real problem, we apply the preceding framework to path synthesis
+T311	own_claim 38661 38787	This problem is simple to state: given a path P specified by the user, generate motion such that the character travels along P
+T312	own_claim 39115 39248	The basic idea is to estimate the actual path P travelled by the character during a graph walk and measure how different it is from P
+T313	own_claim 39306 39421	A simple way to determine P is to project the root onto the floor at each frame, forming a piecewise linear curve 1
+T314	own_claim 39250 39304	The graph walk is complete when P is sufficiently long
+T315	own_claim 40023 40128	The halting condition for path synthesis is when the current total length of P meets or exceeds that of P
+T316	own_claim 40315 40341	it is efficient to compute
+T317	own_claim 40245 40306	The error function g(w, e) was chosen for a number of reasons
+T318	own_claim 40349 40402	is important in making the search algorithm practical
+R179	supports Arg1:T316 Arg2:T317	
+R180	supports Arg1:T316 Arg2:T318	
+T319	own_claim 40412 40485	the character is given incentive to make definite progress along the path
+R181	supports Arg1:T319 Arg2:T317	
+T320	own_claim 40562 40644	it would have no reason not to alternate between travelling forwards and backwards
+T321	data 40490 40555	we were to have required the character to merely be near the path
+R182	supports Arg1:T321 Arg2:T320	
+T322	own_claim 40655 40756	this metric allows the character to travel at whatever speed is appropriate for what needs to be done
+R183	supports Arg1:T322 Arg2:T317	
+T323	own_claim 40771 40852	a sharp turn will not cover distance at the same rate as walking straight forward
+T324	own_claim 40995 41115	One potential problem with this metric is that a character who stands still will never have an incentive to move forward
+T325	data 40860 40922	both actions are equally important for accurate path synthesis
+T326	own_claim 40924 40993	it is important that one not be given undue preference over the other
+R184	supports Arg1:T325 Arg2:T326	
+R185	supports Arg1:T323 Arg2:T326	
+R186	supports Arg1:T326 Arg2:T322	
+T327	data 41120 41166	it can accrue zero error by remaining in place
+R187	supports Arg1:T327 Arg2:T324	
+T328	own_claim 41174 41233	we have not encountered this particular problem in practice
+T329	own_claim 41235 41327	it can be countered by requiring at least a small amount of forward progress γ on each frame
+T330	own_claim 41343 41459	we can replace in Equation 9 the function s(e i ) with t(e i ) = max(t(e i−1 ) + s(e i ) − s(e i−1 ),t(e i−1 ) + γ )
+R188	supports Arg1:T330 Arg2:T329	
+R189	contradicts Arg1:T329 Arg2:T324	
+T331	own_claim 41461 41533	Typically the user will want all generated motion to be of a single type
+T332	data 41543 41550	walking
+R190	supports Arg1:T332 Arg2:T331	
+T333	own_claim 41663 41755	More interestingly, one can require different types of motion on different parts of the path
+T334	own_claim 41865 41922	The necessary modifications to accomplish this are simple
+T335	data 42178 42216	the character is currently fitting P 2
+T336	own_claim 42224 42274	the algorithm is identical to the single-type case
+R191	supports Arg1:T335 Arg2:T336	
+T337	own_claim 41552 41661	This corresponds to confining the search to the subgraph containing the appropriate set of descriptive labels
+T338	own_claim 42567 42630	we only allow this switch to occur once on any given graph walk
+T339	own_claim 42638 42715	prevents the resulting motion from randomly switching between the two actions
+R192	supports Arg1:T338 Arg2:T339	
+T340	own_claim 42818 42841	our technique is viable
+T341	data 42796 42804	Figure 1
+R193	supports Arg1:T341 Arg2:T340	
+T342	own_claim 42876 42929	we were able to find accurate fits to the given paths
+R194	supports Arg1:T340 Arg2:T342	
+T343	own_claim 43122 43169	the input motion had a fair amount of variation
+T344	data 42947 42967	upper portion of the
+T345	data 43114 43120	figure
+R195	parts_of_same Arg1:T344 Arg2:T345	
+R196	supports Arg1:T345 Arg2:T343	
+T346	data 43181 43203	straight-ahead marches
+T347	data 43205 43216	sharp turns
+T348	data 43222 43249	smooth changes of curvature
+R197	supports Arg1:T346 Arg2:T343	
+R198	supports Arg1:T347 Arg2:T343	
+R199	supports Arg1:T348 Arg2:T343	
+T349	own_claim 43260 43328	our algorithm is still useful when the input database is not as rich
+T350	data 43339 43347	Figure 6
+R200	supports Arg1:T350 Arg2:T349	
+T351	own_claim 43858 43926	our approach works even on motions that are not obviously locomotion
+T352	data 43791 43827	the second uses martial arts motions
+R201	supports Arg1:T352 Arg2:T351	
+T353	own_claim 44202 44344	in our test cases the duration of a generated motion was either greater than or approximately equal to the amount of time needed to produce it
+T356	own_claim 44672 44706	the character follow the path well
+T357	own_claim 44712 44791	transitions between action types occur quite close to their specified locations
+T354	own_claim 44956 45062	approximately twenty-five minutes were needed to compute the locations of all candidate transitions points
+T355	data 44432 44440	Figure 8
+R202	supports Arg1:T355 Arg2:T356	
+R203	supports Arg1:T355 Arg2:T357	
+T358	data 44917 44934	our largest graph
+R204	supports Arg1:T358 Arg2:T354	
+T359	own_claim 45064 45149	Approximately five minutes of user time were required to select transition thresholds
+T360	own_claim 45155 45252	it took less than a minute to calculate blends at these transitions and prune the resulting graph
+T361	background_claim 45387 45484	Directable locomotion is a general enough need that the preceding algorithm has many applications
+T362	own_claim 45507 45595	We can use path synthesis techniques to give a user interactive control over a character
+T363	data 45610 45689	when the user hits the left arrow key the character might start travelling east
+R205	supports Arg1:T363 Arg2:T362	
+T364	own_claim 46454 46528	we can draw a path with subsections requiring the appropriate action types
+T365	data 46357 46452	we want a character to perform certain actions in a specific sequence and in specific locations
+R206	supports Arg1:T365 Arg2:T364	
+T366	own_claim 46530 46615	This allows us to generate complex animations without the tedium of manual keyframing
+R207	supports Arg1:T364 Arg2:T366	
+T367	own_claim 46899 46977	the motion graph may be used to “dump” motion on top of the algorithm’s result
+T368	data 46775 46897	an AI algorithm is used to determine that a character must travel along a certain path or start performing certain actions
+R208	supports Arg1:T368 Arg2:T367	
+T369	own_claim 46985 47104	motion graphs may be used as a back-end for animating non-player characters in video games and interactive environments
+T370	data 47107 47221	the paths and action types can be specified by a high-level process and the motion graph would fill in the details
+R209	supports Arg1:T367 Arg2:T369	
+R210	supports Arg1:T370 Arg2:T369	
+T371	own_claim 47294 47372	there’s no reason why it couldn’t be applied to several characters in parallel
+T372	own_claim 47374 47440	Motion graphs may be used as a practical tool for crowd generation
+T373	own_claim 47636 47671	we can use the techniques described
+R211	supports Arg1:T371 Arg2:T372	
+T374	own_claim 47698 47739	to add randomness to the generated motion
+R212	parts_of_same Arg1:T373 Arg2:T374	
+T375	data 47679 47697	end of Section 4.2
+R213	supports Arg1:T375 Arg2:T373	
+T376	own_claim 47455 47548	a standard collision-avoidance algorithm could be used to generate a path for each individual
+T377	own_claim 47554 47624	the motion graph could then generate motion that conforms to this path
+R214	supports Arg1:T376 Arg2:T377	
+R215	supports Arg1:T377 Arg2:T372	
+T378	own_claim 47807 47919	we have presented a framework for generating realistic, controllable motion through a database of motion capture
+T379	own_claim 47921 48056	Our approach involves automatically constructing a graph that encapsulates connections among different pieces of motion in the database
+T380	own_claim 48061 48128	then searching this graph for motions that satisfy user constraints
+T381	own_claim 48228 48301	our largest examples used a database of several thousand frames of motion
+T382	data 48197 48226	we had limited access to data
+R216	supports Arg1:T382 Arg2:T381	
+T383	own_claim 48309 48375	we believe this was sufficient to show the potential of our method
+T384	own_claim 48377 48479	a character with a truly diverse set of actions might require hundreds or thousands of times more data
+R217	contradicts Arg1:T384 Arg2:T383	
+T385	own_claim 48487 48536	the scalability of our framework bears discussion
+R218	supports Arg1:T384 Arg2:T385	
+T386	own_claim 48538 48632	The principle computational bottleneck in graph construction is locating candidate transitions
+T387	data 48634 48645	Section 3.1
+R219	supports Arg1:T387 Arg2:T386	
+T388	own_claim 48648 48739	This requires comparing every pair of the F frames in the database and therefore involves O
+T389	own_claim 48746 48756	operations
+R220	parts_of_same Arg1:T388 Arg2:T389	
+R221	supports Arg1:T386 Arg2:T388	
+T390	own_claim 48767 48809	this calculation is trivial to parallelize
+T391	own_claim 48815 48865	distances between old frames needn’t be recomputed
+T392	data 48869 48903	additions are made to the database
+R222	supports Arg1:T392 Arg2:T391	
+T393	own_claim 49038 49069	motion graphs tend to be sparse
+T394	own_claim 48905 49026	It is the exception rather than the rule that two pieces of motion are sufficiently similar that a transition is possible
+R223	supports Arg1:T394 Arg2:T393	
+T395	own_claim 49089 49178	the necessary amount of storage is approximately proportional to the size of the database
+T396	own_claim 49180 49258	The number of edges leaving a node in general grows with the size of the graph
+T397	own_claim 49268 49329	the branching factor in our search algorithm may grow as well
+R224	supports Arg1:T396 Arg2:T397	
+T398	own_claim 49340 49456	we expect that future motion graphs will be larger mainly because the character will be able to perform more actions
+R225	contradicts Arg1:T398 Arg2:T397	
+T399	data 49480 49603	having increasing amounts of walking motion isn’t particularly useful once one can direct a character along nearly any path
+R226	supports Arg1:T399 Arg2:T398	
+T400	own_claim 49611 49679	the branching factor in a particular subgraph will remain stationary
+T401	data 49685 49720	that subgraph is sufficiently large
+R227	supports Arg1:T401 Arg2:T400	
+T402	own_claim 49815 49885	we expect that the search will remain practical even for larger graphs
+T403	own_claim 49722 49806	We anticipate that typical graph searches will be restricted to one or two subgraphs
+R228	supports Arg1:T403 Arg2:T402	
+T404	own_claim 49939 50029	One limitation of our approach is that the transition thresholds must be specified by hand
+T405	data 50067 50130	different kinds of motions have different fidelity requirements
+T406	data 50054 50065	Section 3.2
+R229	supports Arg1:T406 Arg2:T404	
+R230	supports Arg1:T405 Arg2:T404	
+T407	own_claim 50132 50229	Setting thresholds in databases involving many different kinds of motions may be overly laborious
+T408	own_claim 50238 50294	we are investigating methods for automating this process
+R231	supports Arg1:T407 Arg2:T408	
+T409	own_claim 50408 50423	into our system
+T410	own_claim 50296 50366	A second area of future work is to incorporate parameterizable motions
+T411	own_claim 50437 50493	having every node correspond to a static piece of motion
+R232	parts_of_same Arg1:T410 Arg2:T409	
+T412	data 50369 50388	Wiley and Hahn 1997
+T413	data 50390 50406	Rose et al. 1998
+R233	supports Arg1:T413 Arg2:T410	
+R234	supports Arg1:T412 Arg2:T410	
+T414	own_claim 50495 50617	This would add flexibility to the search process and potentially allow generated motion to better satisfy user constraints
+T415	own_claim 50628 50709	we are interested in applying motion graphs to problems other than path synthesis
+R235	contradicts Arg1:T411 Arg2:T409	

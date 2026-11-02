@@ -1,0 +1,577 @@
+T1	background_claim 2063 2186	A central goal in human motion modeling and generation is to construct a generative motion model to predict how humans move
+T2	background_claim 2188 2317	The problem has attracted the attention of a large number of researchers because of both its theoretical and applied consequences
+T3	data 2360 2432	can be used to generate realistic movement for animated human characters
+T4	data 2319 2344	A generative motion model
+R1	parts_of_same Arg1:T4 Arg2:T3	
+T5	data 2436 2520	constrain the solution space for modeling 3D human motion in monocular video streams
+R2	supports Arg1:T5 Arg2:T2	
+R3	supports Arg1:T4 Arg2:T2	
+T6	background_claim 2522 2630	Decades of research in computer animation have explored two distinctive approaches for human motion modeling
+T7	data 2632 2650	statistical motion
+T8	data 2670 2699	physics-based motion modeling
+R4	supports Arg1:T7 Arg2:T6	
+T9	data 2657 2665	modeling
+R5	parts_of_same Arg1:T7 Arg2:T9	
+R6	supports Arg1:T8 Arg2:T6	
+T10	background_claim 2722 2782	accurate modeling of human motion remains a challenging task
+T11	background_claim 2784 2989	Statistical motion models are often represented as a set of mathematical equations or functions that describe human motion using a finite number of parameters and their associated probability distributions
+T12	background_claim 2991 3055	Statistical models are desirable for human motion representation
+T13	data 3064 3143	they can model any human movement as long as relevant motion data are available
+R7	supports Arg1:T13 Arg2:T12	
+T14	background_claim 3145 3233	A fundamental limitation is that they do not consider the dynamics that cause the motion
+T15	background_claim 3246 3400	they fail to predict human motion that reacts to external forces or changes in the physical quantities of human bodies and in the interaction environments
+R8	supports Arg1:T14 Arg2:T15	
+T16	background_claim 3467 3559	the results are often physically implausible and thereby display noticeable visual artifacts
+T17	data 3417 3465	motion data are generalized to achieve new goals
+R9	supports Arg1:T17 Arg2:T16	
+T18	data 3568 3586	unbalanced motions
+T19	data 3588 3600	foot sliding
+T20	data 3606 3622	motion jerkiness
+R10	supports Arg1:T18 Arg2:T16	
+R11	supports Arg1:T19 Arg2:T16	
+R12	supports Arg1:T20 Arg2:T16	
+T21	background_claim 3624 3745	Physics-based motion models could overcome the aforementioned limitations by applying physics to modeling human movements
+T22	background_claim 3756 3833	physical laws alone are often insufficient to generate natural human movement
+T23	data 3842 3902	a motion can be physically correct without appearing natural
+R13	supports Arg1:T23 Arg2:T22	
+R14	contradicts Arg1:T22 Arg2:T21	
+T24	background_claim 3904 4081	One way to address the problem is to define a global performance criterion based on either the smoothness of the movement or the minimization of needed controls or control rates
+T25	data 4089 4109	minimal muscle usage
+R15	supports Arg1:T25 Arg2:T24	
+T26	background_claim 4112 4168	These heuristics show promise for highly dynamic motions
+T27	background_claim 4174 4256	it remains challenging to model low-energy motion or highly stylized human actions
+R16	contradicts Arg1:T27 Arg2:T26	
+T28	background_claim 4271 4325	it is unclear if a single global performance objective
+T29	background_claim 4349 4400	is appropriate to model heterogeneous human actions
+R17	parts_of_same Arg1:T29 Arg2:T28	
+T30	data 4334 4348	minimal torque
+R18	supports Arg1:T30 Arg2:T28	
+T31	data 4409 4432	running→walking→jumping
+R19	supports Arg1:T31 Arg2:T29	
+T32	own_claim 4461 4593	statistical modeling techniques can be combined with physics-based modeling techniques to address the limitations of both techniques
+T33	background_claim 4595 4679	Physical motion models and statistical motion models are complementary to each other
+T34	data 4683 4732	they capture different aspects of human movements
+R20	supports Arg1:T34 Arg2:T33	
+T35	background_claim 4751 4863	physical models can utilize statistical priors to constrain the motion to lie in the space of natural appearance
+T36	background_claim 4868 4969	more significantly, learn an appropriate performance criterion to model natural-looking human actions
+T37	background_claim 4990 5239	statistical motion models can rely on physical constraints to generate physically correct human motion that reacts to external forces, satisfies friction limit constraints, and respects physical quantities of human bodies or interaction environments
+T38	own_claim 5241 5386	By accounting for physical constraints and statistical priors simultaneously, we not only instill physical realism into statistical motion models
+T39	own_claim 5396 5460	extend physics-based modeling to a wide variety of human actions
+T40	data 5469 5485	stylized walking
+R21	supports Arg1:T40 Arg2:T39	
+T41	own_claim 5487 5639	The key idea of our motion modeling process is to learn nonlinear probabilistic force field functions from prerecorded motion data with Gaussian Process
+T42	own_claim 5645 5723	models and combine them with physical constraints in a probabilistic framework
+R22	parts_of_same Arg1:T41 Arg2:T42	
+T43	own_claim 5874 5974	We demonstrate the power and effectiveness of our motion model in constraint-based motion generation
+T44	own_claim 5989 6076	we can create a natural-looking animation that reacts to changes in physical parameters
+T45	own_claim 5745 5804	a force field function u = g(q, q)  ̇ maps kinematic states
+T46	data 6095 6119	inertias of human bodies
+T47	own_claim 5844 5872	 ̇ to generalized forces (u)
+R23	parts_of_same Arg1:T45 Arg2:T47	
+T48	data 6085 6091	masses
+R24	supports Arg1:T48 Arg2:T44	
+R25	supports Arg1:T46 Arg2:T44	
+T49	own_claim 6120 6159	and friction properties of environments
+R26	parts_of_same Arg1:T49 Arg2:T44	
+T50	data 6162 6173	Figure 1(a)
+R27	supports Arg1:T50 Arg2:T49	
+T51	own_claim 6176 6194	or external forces
+R28	parts_of_same Arg1:T51 Arg2:T49	
+T52	data 6203 6220	resistance forces
+R29	supports Arg1:T52 Arg2:T51	
+T53	data 6223 6234	Figure 1(b)
+R30	supports Arg1:T53 Arg2:T52	
+T54	own_claim 6264 6432	a single physically valid statistical model is sufficient to create physically realistic animation for a wide range of style variations within a particular human action
+T55	data 6441 6457	“sneaky” walking
+T56	own_claim 6472 6522	or transitions between heterogeneous human actions
+R31	parts_of_same Arg1:T54 Arg2:T56	
+T57	data 6459 6470	Figure 1(c)
+R32	supports Arg1:T57 Arg2:T55	
+R33	supports Arg1:T55 Arg2:T54	
+T58	data 6531 6554	running→walking→jumping
+T59	data 6557 6568	Figure 1(d)
+R34	supports Arg1:T59 Arg2:T58	
+R35	supports Arg1:T58 Arg2:T56	
+T60	own_claim 6729 6843	We introduce a physically valid statistical motion model that combines physical laws and statistical motion priors
+T61	own_claim 6848 6941	use it to create physically realistic animation that achieves the goals specified by the user
+T62	background_claim 7116 7188	Statistical models are desirable for human motion modeling and synthesis
+T63	data 7197 7301	they are often compact and can be used to generate human motions that are not in prerecorded motion data
+R36	supports Arg1:T63 Arg2:T62	
+T64	background_claim 7315 7378	a wide variety of statistical motion models have been developed
+T65	background_claim 7380 7425	their applications include inverse kinematics
+T66	background_claim 7473 7507	human motion synthesis and editing
+T67	background_claim 7584 7629	human motion style interpolation and transfer
+R37	parts_of_same Arg1:T65 Arg2:T66	
+R38	parts_of_same Arg1:T66 Arg2:T67	
+T68	data 7428 7447	Grochow et al. 2004
+R39	supports Arg1:T68 Arg2:T65	
+T69	data 7449 7470	Chai and Hodgins 2005
+R40	supports Arg1:T69 Arg2:T65	
+T70	data 7510 7524	Li et al. 2002
+T71	data 7526 7547	Chai and Hodgins 2007
+T72	data 7549 7564	Lau et al. 2009
+T73	data 7566 7581	Min et al. 2009
+R41	supports Arg1:T70 Arg2:T66	
+R42	supports Arg1:T71 Arg2:T66	
+R43	supports Arg1:T72 Arg2:T66	
+R44	supports Arg1:T73 Arg2:T66	
+T74	data 7632 7656	Brand and Hertzmann 2000
+T75	data 7658 7677	Ikemoto et al. 2009
+T76	data 7679 7694	Min et al. 2010
+R45	supports Arg1:T76 Arg2:T67	
+R46	supports Arg1:T75 Arg2:T67	
+R47	supports Arg1:T74 Arg2:T67	
+T77	background_claim 7724 7803	the motions generated by statistical motion models are often physically invalid
+T78	data 7812 7895	existing statistical motion models do not consider the forces that cause the motion
+R48	supports Arg1:T78 Arg2:T77	
+T79	background_claim 7897 7958	Another limitation is that they do not react to perturbations
+T80	background_claim 7983 8016	or changes in physical quantities
+R49	parts_of_same Arg1:T79 Arg2:T80	
+T81	data 7966 7981	external forces
+T82	data 8025 8031	masses
+T83	data 8036 8060	inertias of human bodies
+R50	supports Arg1:T81 Arg2:T79	
+R51	supports Arg1:T82 Arg2:T80	
+R52	supports Arg1:T83 Arg2:T80	
+T84	background_claim 8062 8196	Physics-based motion models could overcome the limitations of statistical motion models by applying physics to modeling human movement
+T85	background_claim 8207 8274	physics-based motion modeling is a mathematically ill-posed problem
+R53	contradicts Arg1:T85 Arg2:T84	
+T86	data 8283 8411	there are many ways to adjust a motion so that physical laws are satisfied, and yet only a subset of motions are natural-looking
+R54	supports Arg1:T86 Arg2:T85	
+T87	background_claim 8413 8495	One way to address this limitation is by adopting the “minimal principle” strategy
+T88	data 8554 8569	Witkin and Kass
+T89	data 8571 8575	1988
+R55	parts_of_same Arg1:T88 Arg2:T89	
+R56	supports Arg1:T88 Arg2:T87	
+T90	background_claim 8599 8737	an individual would determine a movement in such a way as to reduce the total muscular effort to a minimum, subject to certain constraints
+T91	background_claim 8750 8883	a major challenge in physics-based motion modeling is how to define an appropriate performance criterion for the “minimal principle.”
+R57	supports Arg1:T90 Arg2:T87	
+R58	supports Arg1:T87 Arg2:T91	
+T92	background_claim 8884 8925	Decades of research in computer animation
+T93	background_claim 9011 9077	introduced numerous performance criteria for human motion modeling
+T94	data 8935 8955	Witkin and Kass 1988
+T95	data 8957 8967	Cohen 1992
+T96	data 8969 8984	Liu et al. 1994
+T97	data 8986 9007	Fang and Pollard 2003
+R59	supports Arg1:T94 Arg2:T92	
+R60	supports Arg1:T95 Arg2:T92	
+R61	supports Arg1:T96 Arg2:T92	
+R62	supports Arg1:T97 Arg2:T92	
+R63	parts_of_same Arg1:T92 Arg2:T93	
+T98	data 9085 9099	minimal energy
+R64	supports Arg1:T98 Arg2:T93	
+T99	data 9101 9115	minimal torque
+R65	supports Arg1:T99 Arg2:T93	
+T100	data 9117 9129	minimal jerk
+R66	supports Arg1:T100 Arg2:T93	
+T101	data 9131 9153	minimal joint momentum
+R67	supports Arg1:T101 Arg2:T93	
+T102	data 9155 9181	minimal joint acceleration
+R68	supports Arg1:T102 Arg2:T93	
+T103	data 9186 9207	minimal torque change
+R69	supports Arg1:T103 Arg2:T93	
+T104	background_claim 9209 9265	These heuristics show promise for highly dynamic motions
+T105	background_claim 9271 9360	it remains very difficult to model low-energy motions and highly stylized human movements
+R70	contradicts Arg1:T105 Arg2:T104	
+T106	background_claim 9365 9504	A number of researchers have recently explored the potential of using prerecorded motion data to improve physics-based optimization methods
+T107	background_claim 9516 9579	editing motion data with the help of simplified physical models
+T108	data 9582 9605	Popović and Witkin 1999
+T109	background_claim 9608 9660	initializing optimization with reference motion data
+R71	supports Arg1:T108 Arg2:T107	
+T110	data 9663 9693	Sulejmanpasic and Popović 2005
+R72	supports Arg1:T110 Arg2:T109	
+R73	supports Arg1:T107 Arg2:T106	
+R74	supports Arg1:T109 Arg2:T106	
+T111	background_claim 9696 9761	learning parameters of motion styles from prerecorded motion data
+R75	supports Arg1:T111 Arg2:T106	
+T112	data 9764 9779	Liu et al. 2005
+R76	supports Arg1:T112 Arg2:T111	
+T113	background_claim 9786 9841	reducing the search space for physicsbased optimization
+R77	supports Arg1:T113 Arg2:T106	
+T114	data 9844 9864	Safonova et al. 2004
+T115	data 9866 9881	Ye and Liu 2008
+R78	supports Arg1:T114 Arg2:T113	
+R79	supports Arg1:T115 Arg2:T113	
+T116	own_claim 9884 9999	Similar to these methods, our system utilizes both motion data and physics for human motion analysis and generation
+T117	own_claim 10005 10041	there are two important distinctions
+R80	contradicts Arg1:T117 Arg2:T116	
+T118	own_claim 10050 10140	we rely on statistical motion models rather than a predefined global performance objective
+T119	own_claim 10170 10219	to reduce the ambiguity of physics-based modeling
+R81	parts_of_same Arg1:T119 Arg2:T118	
+T120	data 10148 10168	minimal muscle usage
+R82	supports Arg1:T120 Arg2:T118	
+R83	supports Arg1:T118 Arg2:T117	
+T121	own_claim 10221 10296	This enables us to extend physics-based modeling to stylistic human motions
+T122	data 10305 10321	“sneaky walking”
+R84	supports Arg1:T122 Arg2:T121	
+T123	own_claim 10323 10462	Another attraction of our model is that it learns the mapping from the kinematic states to generalized forces using Gaussian process models
+T124	own_claim 10464 10672	Unlike reference trajectories or linear subspace models adopted in previous work, GP models are capable of modeling both stylistic variations within a particular human action and heterogeneous human behaviors
+R85	supports Arg1:T123 Arg2:T117	
+T125	own_claim 10674 10800	Our research draws inspiration from the large body of literature on developing control strategies for physics-based simulation
+T126	own_claim 10817 10947	our nonlinear probabilistic force field functions are conceptually similar to control strategies used for physics-based simulation
+T127	data 10956 11022	both representations aim to map kinematic states to driving forces
+R86	supports Arg1:T127 Arg2:T126	
+R87	supports Arg1:T126 Arg2:T125	
+T128	background_claim 11035 11122	researchers in physics-based simulation have explored two approaches for control design
+T129	background_claim 11134 11170	manually designed control strategies
+T130	background_claim 11205 11262	tracking a reference trajectory while maintaining balance
+R88	supports Arg1:T129 Arg2:T128	
+T131	data 11179 11198	Hodgins et al. 1995
+R89	supports Arg1:T131 Arg2:T129	
+T132	data 11265 11288	Zordan and Hodgins 2002
+T133	data 11290 11305	Sok et al. 2007
+T134	data 11307 11322	Yin et al. 2007
+T135	data 11324 11344	da Silva et al. 2008
+T136	data 11346 11363	Muico et al. 2009
+R90	supports Arg1:T132 Arg2:T130	
+R91	supports Arg1:T133 Arg2:T130	
+R92	supports Arg1:T130 Arg2:T128	
+R93	supports Arg1:T134 Arg2:T130	
+R94	supports Arg1:T135 Arg2:T130	
+R95	supports Arg1:T136 Arg2:T130	
+T137	own_claim 11375 11504	our approach is different in that we automatically learn nonlinear probabilistic mapping functions from large sets of motion data
+T138	own_claim 11519 11617	our goal is different because we aim to generate a desired animation that matches user constraints
+T139	own_claim 11619 11687	Physics-based simulation approaches are not appropriate for our task
+T140	data 11696 11786	forward simulation techniques often do not provide accurate control over simulated motions
+R96	supports Arg1:T140 Arg2:T139	
+T141	own_claim 11788 11920	Our approach uses Gaussian process to model a nonlinear probabilistic function that maps from kinematic states to generalized forces
+R97	semantically_same Arg1:T141 Arg2:T123	
+T142	background_claim 11958 12053	have recently been applied to modeling kinematic motion for many problems in computer animation
+T143	background_claim 11922 11943	GP and its invariants
+R98	parts_of_same Arg1:T143 Arg2:T142	
+T144	data 11951 11956	GPLVM
+R99	supports Arg1:T144 Arg2:T143	
+T145	background_claim 12065 12115	nonlinear dimensionality reduction for human poses
+T146	background_claim 12139 12159	motion interpolation
+T147	background_claim 12187 12201	motion editing
+T148	background_claim 12229 12245	motion synthesis
+R100	supports Arg1:T145 Arg2:T142	
+T149	data 12117 12136	Grochow et al. 2004
+R101	supports Arg1:T149 Arg2:T145	
+T150	data 12161 12184	Mukai and Kuriyama 2005
+R102	supports Arg1:T150 Arg2:T146	
+R103	supports Arg1:T146 Arg2:T142	
+R104	supports Arg1:T147 Arg2:T142	
+R105	supports Arg1:T148 Arg2:T142	
+T151	data 12203 12222	Ikemoto et al. 2009
+R106	supports Arg1:T151 Arg2:T147	
+T152	data 12247 12262	Ye and Liu 2010
+R107	supports Arg1:T152 Arg2:T148	
+T153	background_claim 12315 12445	learned the kinematic mapping from pose information of the source motion to pose and acceleration information of the target motion
+T154	background_claim 12450 12519	applied them to transferring a new source motion into a target motion
+R108	supports Arg1:T153 Arg2:T154	
+T155	data 12280 12306	Ikemoto and her colleagues
+T156	data 12308 12312	2009
+R109	supports Arg1:T155 Arg2:T156	
+R110	supports Arg1:T156 Arg2:T153	
+T157	background_claim 12540 12617	used GPLVM to construct a second-order dynamic model for human kinematic data
+T158	background_claim 12622 12691	used them to synthesize kinematic walking motion after a perturbation
+R111	supports Arg1:T157 Arg2:T158	
+T159	own_claim 12727 12851	we focus on modeling the relationship between kinematic data and generalized forces rather than kinematic motion data itself
+T160	data 12521 12531	Ye and Liu
+T161	data 12533 12537	2010
+R112	parts_of_same Arg1:T160 Arg2:T161	
+R113	supports Arg1:T161 Arg2:T157	
+T162	own_claim 12903 13023	We construct a physically valid statistical model that leverages both physical constraints and statistical motion priors
+T163	own_claim 13028 13130	utilize it to generate physically realistic human motion that achieves the goals specified by the user
+T164	own_claim 13165 13266	Our motion model considers both Newtonian dynamics and contact mechanics for a full-body human figure
+T165	own_claim 14729 14807	Our dynamics models approximate human motion with a set of rigid body segments
+T166	own_claim 16274 16369	To keep the body balanced, contact forces should not require an unreasonable amount of friction
+T167	own_claim 16374 16445	the center of pressure must fall within the support polygon of the feet
+T168	own_claim 17690 17854	Enforcing Newtonian dynamics equations and friction limit constraints would allow us to generate physically correct motion that satisfies friction limit constraints
+T169	own_claim 17865 17948	physical constraints alone are insufficient to model natural-looking human movement
+R114	contradicts Arg1:T169 Arg2:T168	
+T170	data 17957 18017	a motion can be physically correct without appearing natural
+R115	supports Arg1:T170 Arg2:T169	
+T171	own_claim 18259 18347	Our system automatically extracts force field priors embedded in prerecorded motion data
+T172	own_claim 18349 18390	Our idea of force field modeling is moti-
+T173	own_claim 18842 18882	vated by recent findings in neuroscience
+R116	parts_of_same Arg1:T172 Arg2:T173	
+T174	background_claim 18945 19108	the complex spatiotemporal characteristics of the muscle patterns for particular actions can be modeled by a weighted combination of a small number of force fields
+R117	supports Arg1:T174 Arg2:T173	
+T175	data 18906 18923	Bizzi et al. 2008
+T176	data 18884 18904	D’Avella et al. 2006
+R118	supports Arg1:T175 Arg2:T174	
+R119	supports Arg1:T176 Arg2:T174	
+T177	own_claim 19334 19438	a force field can predict how humans move by sequentially advancing a Newtonian dynamics model over time
+T178	data 19266 19298	Given an initial kinematic state
+T179	data 19315 19332	of a human figure
+R120	parts_of_same Arg1:T178 Arg2:T179	
+R121	supports Arg1:T179 Arg2:T177	
+T180	own_claim 19508 19564	Constructing force field priors from motion capture data
+T181	own_claim 19575 19587	is difficult
+R122	parts_of_same Arg1:T180 Arg2:T181	
+T182	data 19596 19674	current motion capture technologies cannot directly measure generalized forces
+R123	supports Arg1:T182 Arg2:T181	
+T183	own_claim 19676 19802	Our solution is to compute generalized forces from prerecorded kinematic poses using the following Newtonian dynamics equation
+T184	own_claim 19841 19871	u = M (q)q + C(q, q)  ̇ + h(q)
+R124	parts_of_same Arg1:T183 Arg2:T184	
+T185	own_claim 20192 20271	the generalized forces computed from kinematic motion data are often very noisy
+T186	data 20280 20337	they are related to second derivatives of kinematic poses
+R125	supports Arg1:T186 Arg2:T185	
+T187	data 20343 20351	Figure 2
+R126	supports Arg1:T187 Arg2:T186	
+T188	own_claim 20491 20569	Our approach follows the spacetime formulation in computer graphics literature
+T189	data 20572 20592	Witkin and Kass 1988
+R127	supports Arg1:T189 Arg2:T188	
+T190	data 20594 20604	Cohen 1992
+R128	supports Arg1:T190 Arg2:T188	
+T191	own_claim 21386 21517	A force field is a nonlinear probabilistic function u = g(q, q) that maps the kinematic state (q, q)  ̇ to the generalized forces u
+T192	own_claim 21519 21614	We propose to use Gaussian process model to construct a force field from the training data sets
+T193	data 21643 21706	it can efficiently model nonlinear property of the force fields
+T194	data 21711 21774	its learning process involves very few manual tuning parameters
+R129	supports Arg1:T193 Arg2:T192	
+R130	supports Arg1:T194 Arg2:T192	
+T195	own_claim 22458 22505	In practice, human motion is highly coordinated
+T196	own_claim 22507 22661	the number of dimensions of joint poses, joint velocities, or generalized forces is often much lower than the number of dimensions of the character’ poses
+R131	supports Arg1:T195 Arg2:T196	
+T197	own_claim 23072 23144	significantly speeds up the learning and evaluation process of GP models
+T198	own_claim 22995 23062	Subspace learning not only reduces the memory space for GP modeling
+T199	own_claim 23538 23696	the learned force field priors pr(u|q, q)  ̇ can produce a physically realistic motion sequence by sequentially advancing a Newtonian dynamics model over time
+T200	data 23498 23536	Given an initial state (q 1 , q  ̇ 1 )
+R132	supports Arg1:T200 Arg2:T199	
+T201	data 23699 23710	Figure 3(b)
+T202	data 23715 23726	Figure 3(c)
+R133	supports Arg1:T201 Arg2:T199	
+R134	supports Arg1:T202 Arg2:T199	
+T203	background_claim 25932 26023	dynamics models adopted in physics-based modeling are often inconsistent with observed data
+T204	data 26035 26069	simplified dynamics/contact models
+R135	supports Arg1:T204 Arg2:T203	
+T205	data 25912 25929	Muico et al. 2009
+T206	background_claim 25851 25862	In practice
+R136	parts_of_same Arg1:T206 Arg2:T203	
+T207	data 25895 25910	Sok et al. 2007
+R137	supports Arg1:T205 Arg2:T203	
+R138	supports Arg1:T207 Arg2:T203	
+T208	data 26071 26108	discretization of physics constraints
+R139	supports Arg1:T208 Arg2:T203	
+T209	data 26114 26173	approximate modeling of physical quantities of human bodies
+R140	supports Arg1:T209 Arg2:T203	
+T210	data 26182 26188	masses
+T211	data 26193 26201	inertias
+R141	supports Arg1:T210 Arg2:T209	
+R142	supports Arg1:T211 Arg2:T209	
+T212	background_claim 26216 26268	dynamics equations are often not satisfied precisely
+R143	supports Arg1:T203 Arg2:T212	
+T213	own_claim 26270 26397	In our formulation, we assume Newtonian dynamics equations are disturbed by Gaussian noise of a standard deviation of σ physics
+T214	data 26400 26537	pr physics ∝ pr(q t |q t , q  ̇ t , u t ) ∝ exp − M ( q t ) q  ̈ t +C( q t , q  ̇ 2σ t )+h( 2 q t )−τ t − f c ( q t ,λ t )− f e 2 physics
+R144	supports Arg1:T214 Arg2:T213	
+T215	own_claim 26548 26634	the standard deviation σ physics shows our confidence of physics-based dynamics models
+T216	own_claim 26677 26788	the Gaussian probability distribution has a narrow peak, indicating high confidence in the physical constraints
+T217	data 26639 26670	the standard deviation is small
+T218	own_claim 26801 26852	a large standard deviation indicates low confidence
+R145	supports Arg1:T217 Arg2:T216	
+T219	own_claim 26854 26960	Such a motion model would allow us to generate an infinite number of physically realistic motion instances
+T220	own_claim 27252 27370	we can employ the motion model pr(x) to generate physically realistic animation x that best matches the user’s input c
+T221	own_claim 26977 27087	we can sample the initial prior distribution pr init to obtain an initial state for joint poses and velocities
+T222	own_claim 27092 27232	sequentially predict joint torques using the force field priors pr f orcef ield to advance the Newtonian dynamics model pr physics over time
+R146	supports Arg1:T221 Arg2:T219	
+R147	supports Arg1:T222 Arg2:T219	
+T223	own_claim 28132 28266	the system allows the user to specify various forms of kinematic constraints throughout the motion or at isolated points in the motion
+T224	own_claim 28095 28105	Similar to
+R148	parts_of_same Arg1:T224 Arg2:T223	
+T225	data 28107 28128	Chai and Hodgins 2007
+T226	background_claim 28279 28388	the user can define a sparse set of key frames as well as contact constraints to generate a desired animation
+T227	background_claim 28390 28505	The user could also specify a small number of key trajectories to control fine details of a particular human action
+T228	data 28514 28530	stylized walking
+R149	supports Arg1:T228 Arg2:T227	
+T229	own_claim 28658 28738	The motion synthesis problem can now be solved by nonlinear optimization methods
+T230	own_claim 29932 30049	One possible solution to incorporating the force field priors is to perform the optimization in the reduced subspaces
+T231	own_claim 30096 30250	performing the optimization in the subspaces can hurt the generalization ability of our model and often cannot match user-specified constraints accurately
+T232	own_claim 30252 30437	To avoid this issue, we choose to perform the optimization in the original configuration space while imposing “soft” subspace constraints on both kinematic states and generalized forces
+T233	own_claim 36518 36586	The combined motion models are desirable for human motion generation
+T234	data 36595 36675	they measure both statistical consistency and physical correctness of the motion
+R150	supports Arg1:T234 Arg2:T233	
+T235	own_claim 36677 36754	With the physical term, our model can react to changes in physical parameters
+T236	own_claim 36862 36910	the external force in the physics term E physics
+T237	own_claim 36928 37081	will force the system to modify kinematic motion and joint torques as well as contact forces in order to satisfy Newtonian dynamics and contact mechanics
+R151	parts_of_same Arg1:T236 Arg2:T237	
+R152	supports Arg1:T236 Arg2:T235	
+T238	data 36774 36816	a character is pushed by an external force
+R153	supports Arg1:T238 Arg2:T236	
+T239	data 36824 36860	elastic forces in resistance running
+R154	supports Arg1:T239 Arg2:T238	
+T240	data 36916 36926	Equation 7
+R155	supports Arg1:T240 Arg2:T236	
+T241	own_claim 37092 37158	without force field priors, the modified motion could be unnatural
+T242	data 37167 37295	there are many ways to adjust a motion so that physical laws are satisfied, and yet only a subset of motions are natural-looking
+R156	supports Arg1:T242 Arg2:T241	
+T243	own_claim 37297 37454	With force field priors, our system pushes the modified motions towards regions of high probability density in order to be consistent with force field priors
+T244	own_claim 38739 38812	We solved the optimization problem using sequential quadratic programming
+T245	own_claim 38844 38906	where each iteration solves a quadratic programming subproblem
+R157	parts_of_same Arg1:T244 Arg2:T245	
+T246	data 38821 38840	Bazaraa et al. 1993
+R158	supports Arg1:T246 Arg2:T244	
+T247	own_claim 39235 39337	The performance of our optimization algorithm highly depends on the initialization of the optimization
+T248	own_claim 41163 41297	The incorporation of physics into probabilistic motion models significantly improves the generalizability of statistical motion models
+T249	own_claim 41326 41551	the system can generate physically realistic motion that reacts to changes in physical quantities of human bodies and interaction environments, a capability that has not been demonstrated in previous statistical motion models
+T250	own_claim 41565 41619	Our system can react to changes in physical quantities
+T251	data 41628 41634	masses
+T252	data 41639 41663	inertias of human bodies
+R159	supports Arg1:T251 Arg2:T250	
+R160	supports Arg1:T252 Arg2:T250	
+T253	data 41804 41970	the simulated character maintained balance by adapting the gait and leaning the body to the right side in order to offset the additional weigh caused by the left shoe
+R161	supports Arg1:T253 Arg2:T250	
+T254	own_claim 42312 42404	the character moved the upper body forward in order to offset the effect of resistance force
+T255	own_claim 42436 42526	We can generate an animation that reacts to changes in friction properties of environments
+T256	data 42555 42659	we show a simulated character walking on a slippery surface by reducing the friction coefficient to 0.05
+R162	supports Arg1:T256 Arg2:T255	
+T257	own_claim 42675 42751	We can edit an animation by changing the gravity of interaction environments
+T258	data 42766 42826	we generated “moon” walking by setting gravity at 1.62 m/s 2
+R163	supports Arg1:T258 Arg2:T257	
+T259	own_claim 42949 43121	we can extend physics-based modeling techniques to stylized walking, detailed walking variations, and heterogeneous human actions with the help of statistical motion priors
+T260	own_claim 43123 43234	Such actions are often difficult or even impossible to generate with previous physics-based modeling techniques
+T261	own_claim 43254 43344	Our approach can generate physically-realistic animation for highly stylized human actions
+T262	own_claim 43447 43577	The system constructed a single motion model from the training data sets and used it to generate various forms of stylized walking
+T263	data 43586 43602	“sneaky” walking
+T264	data 43607 43622	“proud” walking
+T265	data 43624 43635	Figure 1(c)
+R164	supports Arg1:T262 Arg2:T261	
+R165	supports Arg1:T263 Arg2:T262	
+R166	supports Arg1:T264 Arg2:T262	
+R167	supports Arg1:T265 Arg2:T262	
+T266	own_claim 44032 44101	The synthesized motion displayed a wide variety of walking variations
+T267	data 44110 44139	walking along a straight line
+T268	data 44141 44166	walking with a sharp turn
+T269	data 44168 44191	walking with a big step
+T270	data 44193 44211	walking on a slope
+T271	data 44213 44238	climbing over an obstacle
+T272	data 44244 44293	transitionings between different walking examples
+T273	data 44296 44304	Figure 5
+R168	supports Arg1:T267 Arg2:T266	
+R169	supports Arg1:T268 Arg2:T266	
+R170	supports Arg1:T269 Arg2:T266	
+R171	supports Arg1:T270 Arg2:T266	
+R172	supports Arg1:T271 Arg2:T266	
+R173	supports Arg1:T272 Arg2:T266	
+R174	supports Arg1:T273 Arg2:T266	
+T274	own_claim 45736 45835	We have observed that the generated motions achieve similar quality to the ground truth motion data
+T275	own_claim 45875 45961	This comparison shows the importance of force field priors for human motion generation
+T276	own_claim 46314 46360	optimizing the motion with the remaining terms
+T277	own_claim 46382 46394	is ambiguous
+R175	parts_of_same Arg1:T276 Arg2:T277	
+T278	data 46362 46379	E c and E physics
+R176	supports Arg1:T278 Arg2:T276	
+T279	data 46395 46483	there are an infinite number of physically correct motions that satisfy user constraints
+R177	supports Arg1:T279 Arg2:T277	
+T280	own_claim 46545 46615	Without the force field priors, the “sneaky” walking appears ballistic
+T281	data 46624 46627	the
+T282	data 47032 47105	“minimal torque principle” is not suitable for stylized low-energy motion
+R178	parts_of_same Arg1:T281 Arg2:T282	
+R179	supports Arg1:T281 Arg2:T280	
+T283	own_claim 47107 47217	With the force field priors, our system can successfully generate physically realistic stylized walking motion
+T284	own_claim 47763 47850	This experiment demonstrated the importance of physical constraints to our motion model
+T285	own_claim 48097 48250	With the physics term, the character reacted appropriately to external elastic forces by leaning the body forward to compensate for the resistance forces
+T286	own_claim 48281 48354	the character did not respond to external forces without the physics term
+T287	data 48357 48368	Figure 6(b)
+R180	supports Arg1:T287 Arg2:T286	
+T288	data 48253 48264	Figure 6(a)
+R181	supports Arg1:T288 Arg2:T285	
+T289	own_claim 49967 50027	subspace optimization produces uncoordinated human movements
+T290	data 49937 49955	accompanying video
+R182	supports Arg1:T290 Arg2:T289	
+T291	data 50105 50141	the walking gait appeared very stiff
+R183	supports Arg1:T291 Arg2:T289	
+T292	data 50042 50100	the walking character did not swing the right arm properly
+R184	supports Arg1:T292 Arg2:T289	
+T293	own_claim 50143 50261	This indicates that a global subspace model for kinematic poses is not sufficient to model heterogeneous human actions
+R185	supports Arg1:T289 Arg2:T293	
+T294	own_claim 50290 50422	the motions generated by subspace methods often cannot accurately match the trajectory and contact constraints specified by the user
+T295	own_claim 50424 50505	this might be due to compression errors caused by reduced subspace representation
+T296	own_claim 50520 50729	the GP-based statistical motion priors can accurately model spatial-temporal patterns in heterogeneous human actions and allow for generating physically realistic animation that matches userdefined constraints
+T297	own_claim 50890 50984	Our model combines the powers of physics-based motion modeling and statistical motion modeling
+T298	own_claim 50986 51148	We have demonstrated the effectiveness of the new model by generating a wide variety of physically realistic motions that achieve the goals specified by the users
+T299	own_claim 51150 51275	The incorporation of physical constraints into statistical motion models ensures generalized motions are physically plausible
+T300	own_claim 51285 51321	removing noticeable visual artifacts
+T301	own_claim 51370 51392	in an output animation
+R186	parts_of_same Arg1:T300 Arg2:T301	
+R187	supports Arg1:T299 Arg2:T300	
+T302	data 51329 51347	unbalanced motions
+T303	data 51352 51368	motion jerkiness
+R188	supports Arg1:T302 Arg2:T300	
+R189	supports Arg1:T303 Arg2:T300	
+T304	own_claim 51404 51480	it enables us to create motions that react to changes in physical parameters
+T305	own_claim 51521 51556	the system can generate new motions
+T306	data 51566 51584	resistance running
+T307	data 51588 51600	moon walking
+T308	data 51604 51632	walking on slippery surfaces
+T309	data 51639 51766	“walking with a heavy foot”, a capability that has never been demonstrated in any previous statistical motion synthesis methods
+R190	supports Arg1:T306 Arg2:T305	
+R191	supports Arg1:T307 Arg2:T305	
+R192	supports Arg1:T308 Arg2:T305	
+R193	supports Arg1:T309 Arg2:T305	
+T310	own_claim 51779 51894	the use of force field priors for human motion modeling not only ensures that generated motions are natural looking
+T311	own_claim 51899 51992	also extends physically-based modeling techniques to stylized and heterogeneous human actions
+T312	data 52007 52123	we have constructed a single generative model for modeling a wide variety of physically realistic walking variations
+R194	supports Arg1:T312 Arg2:T311	
+T313	own_claim 52275 52347	the system can generate physically realistic motion for stylized walking
+T314	data 52356 52370	sneaky walking
+R195	supports Arg1:T314 Arg2:T313	
+T315	own_claim 52371 52406	and for heterogeneous human actions
+R196	parts_of_same Arg1:T313 Arg2:T315	
+T316	data 52415 52438	running→walking→jumping
+T317	own_claim 52440 52549	Such actions are often difficult or even impossible to be synthesized by previous physics-based motion models
+T318	own_claim 52551 52756	We model the force field priors using Gaussian process models because GP can efficiently capture nonlinear properties of the force fields and its learning process involves very few manual tuning parameters
+T319	own_claim 52767 52844	Gaussian process needs to retain all of the training data to make predictions
+T320	own_claim 52859 52960	its computational demands grow as the square and cube respectively of the number of training examples
+R197	supports Arg1:T319 Arg2:T320	
+T321	own_claim 53079 53129	might not scale up for use in very large data sets
+T322	own_claim 52962 53049	The sparse approximation strategy works well for the current size of training data sets
+R198	supports Arg1:T320 Arg2:T321	
+R199	contradicts Arg1:T321 Arg2:T322	
+T323	data 53051 53073	less than 8,000 frames
+R200	supports Arg1:T323 Arg2:T322	
+T324	own_claim 53132 53261	One possibility is to learn a probabilistic regression function for force fields using parametric statistical analysis techniques
+T325	background_claim 53270 53297	the mixture of experts mode
+T326	background_claim 53324 53336	its variants
+R201	supports Arg1:T325 Arg2:T324	
+R202	supports Arg1:T326 Arg2:T324	
+T327	data 53301 53319	Jacobs et al. 1991
+T328	data 53339 53350	Jordan 1994
+R203	supports Arg1:T327 Arg2:T325	
+R204	supports Arg1:T328 Arg2:T326	
+T329	own_claim 53353 53465	Another limitation of our system is that it cannot generate a motion that is very different from motion examples
+T330	data 53474 53501	our approach is data-driven
+T331	own_claim 53516 53578	the system is still unable to handle arbitrary external forces
+R205	supports Arg1:T330 Arg2:T329	
+T332	data 53587 53684	the force field priors prevent the generated motion from moving away from prerecorded motion data
+R206	supports Arg1:T332 Arg2:T331	
+T333	own_claim 53686 53888	We choose to model the force field priors based on generalized forces rather than joint torques because we can conveniently compute the generalized forces from current kinematic motion capture databases
+T334	data 53896 53927	the CMU online mocap database 2
+R207	supports Arg1:T334 Arg2:T333	
+T335	own_claim 53940 54039	the learned force field priors can only predict resultant forces of join torques and contact forces
+T336	own_claim 54105 54212	we could construct more accurate force field priors that explicitly predict joint torques or contact forces
+T337	data 54044 54103	both joint torque data and contact force data are available
+R208	supports Arg1:T337 Arg2:T336	
+T338	own_claim 54214 54404	In the future, we plan to measure ground-reaction forces with force plates and use them along with the captured kinematic motion data to compute joint torques via inverse dynamics techniques
+T339	own_claim 54513 54578	the optimization problem is high-dimensional and highly nonlinear
+T340	own_claim 54580 54615	it might be subject to local minima
+R209	supports Arg1:T339 Arg2:T340	
+T341	own_claim 54631 54704	the initialization process is critical to the success of our optimization
+T342	own_claim 54706 54798	It not only speeds up the optimization process but also alleviates the local-minimum problem
+T343	own_claim 55036 55129	In the future, we plan to explore alternative techniques to address the local minimum problem
+T344	own_claim 55131 55194	One possibility is the employment of a Markov chain Monte Carlo
+T345	own_claim 55203 55359	which comes to its solutions by efficiently drawing samples from the posterior distribution, using a Markov chain based on the Metropolis-Hastings algorithm
+R210	parts_of_same Arg1:T344 Arg2:T345	
+T346	own_claim 55362 55484	imilar to other constraint-based animation systems, our system requires the user to specify a sparse number of constraints
+T347	own_claim 55528 55559	to generate a desired animation
+R211	parts_of_same Arg1:T346 Arg2:T347	
+T348	data 55492 55502	key frames
+T349	data 55507 55526	contact constraints
+R212	supports Arg1:T348 Arg2:T346	
+R213	supports Arg1:T349 Arg2:T346	
+T350	own_claim 55570 55597	specifying such constraints
+T351	own_claim 55660 55692	is not trivial for a novice user
+R214	parts_of_same Arg1:T350 Arg2:T351	
+T352	data 55612 55634	trajectory constraints
+T353	data 55639 55658	contact constraints
+R215	supports Arg1:T352 Arg2:T350	
+R216	supports Arg1:T353 Arg2:T350	
+T354	own_claim 56026 56162	we are interested in extending our system to searching the positions and timings of contact events as part of the optimization variables
+T355	own_claim 56172 56264	avoiding the necessity of contact constraints required for constraint-based motion synthesis
+R217	supports Arg1:T354 Arg2:T355	
+T356	own_claim 55825 55984	Trajectory and contact constraints were either directly modified from reference motion data or rotoscoped from video streams similar to the technique described
+T357	data 55989 56001	Wei and Chai
+T358	data 56003 56008	2010b
+R218	supports Arg1:T358 Arg2:T356	
+R219	parts_of_same Arg1:T357 Arg2:T358	

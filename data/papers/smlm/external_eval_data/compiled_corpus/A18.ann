@@ -1,0 +1,505 @@
+T1	background_claim 1966 2035	The dream of animating complex living creatures with pure computation
+T2	background_claim 2085 2103	proved impractical
+T3	background_claim 2117 2152	creatures are not free from physics
+T4	background_claim 2154 2205	their motion is not a direct consequence of physics
+R1	parts_of_same Arg1:T1 Arg2:T2	
+T5	data 2045 2063	inverse kinematics
+T6	data 2068 2083	dynamic control
+R2	supports Arg1:T5 Arg2:T1	
+R3	supports Arg1:T6 Arg2:T1	
+R4	contradicts Arg1:T4 Arg2:T3	
+T7	background_claim 2207 2295	Dynamic control can provide solutions based on simplified assumptions about human motion
+T8	background_claim 2306 2347	the result tends to look quite mechanical
+R5	supports Arg1:T8 Arg2:T7	
+T9	background_claim 2437 2496	motion capture might be a most reasonable choice these days
+T10	data 2352 2435	a high quality character animation has to be produced during a short period of time
+R6	supports Arg1:T10 Arg2:T9	
+T11	background_claim 2617 2706	it has to be retar- getted to account for the differences in the anthropometry and motion
+T12	data 2588 2615	the data needs to be reused
+T13	background_claim 2498 2577	The captured data itself is for a specific person in performing specific motion
+R7	supports Arg1:T12 Arg2:T11	
+T14	background_claim 2718 2805	motion retargetting is emerging as an important technique in recent character animation
+R8	supports Arg1:T11 Arg2:T14	
+T15	background_claim 2892 2964	the technique loses its merit over the above pure computation approaches
+T16	data 2810 2890	the original motion characteristics are severely lost during motion retargetting
+R9	supports Arg1:T16 Arg2:T15	
+T17	own_claim 3036 3144	finding in real-time the motion retargetted to a new character that has different anthropometric proportions
+T18	own_claim 2966 3007	The problem we try to solve in this paper
+T19	own_claim 3174 3244	preserving the features of the original motion during the retargetting
+T20	own_claim 3269 3431	it is possible to use the above retargetting algorithm for enhancing motion capture data so that the errors in joint angles and end-effector positions are reduced
+R10	supports Arg1:T17 Arg2:T18	
+R11	supports Arg1:T19 Arg2:T18	
+R12	supports Arg1:T20 Arg2:T18	
+T21	own_claim 3433 3517	On-line motion retargetting presented in this paper is based on inverse rate control
+T22	background_claim 3564 3604	is a way to implement inverse kinematics
+T23	data 3519 3521	17
+R13	supports Arg1:T23 Arg2:T22	
+T24	background_claim 3624 3717	It computes the changes in joint angles corresponding to the changes in end-effector position
+T25	own_claim 3719 3957	While tracking the multiple end-effector trajectories of the original subject or character, our on-line motion retargetting imitates the joint motion of the original character by exploiting the kinematic redundancies of the animated model
+T26	own_claim 3969 3994	jerky motion is prevented
+T27	data 4001 4090	the next configuration is dependent on the previous configuration in inverse rate control
+R14	supports Arg1:T27 Arg2:T26	
+T28	own_claim 4131 4277	the high frequency details of the original motion, which carries important characteristics of the motion, are also well preserved by our algorithm
+T29	data 4112 4129	later experiments
+R15	supports Arg1:T29 Arg2:T28	
+T30	data 4279 4287	Figure 1
+R16	supports Arg1:T30 Arg2:T25	
+T31	data 4913 4952	the retargetting can be done in on-line
+T32	own_claim 4954 5010	real-time performance can be mapped to another character
+T33	own_claim 5015 5094	the feedback of the retargetted animation can facilitate motion capture session
+T34	own_claim 5103 5157	satisfactory results can be obtained with fewer trials
+R17	supports Arg1:T31 Arg2:T32	
+R18	supports Arg1:T31 Arg2:T33	
+R19	supports Arg1:T33 Arg2:T34	
+T35	own_claim 5239 5301	our algorithm can handle an infinitely long sequence of motion
+T36	data 5165 5237	the memory required for on-line retargetting does not increase with time
+R20	supports Arg1:T36 Arg2:T35	
+T37	own_claim 5303 5354	The primary goal of our on-line motion retargetting
+T38	own_claim 5361 5437	is to track the given reference end-effector trajectory of joint x 1 angle t
+R21	parts_of_same Arg1:T37 Arg2:T38	
+T39	own_claim 5541 5584	src t carries the content to be retargetted
+T40	own_claim 5590 5649	x 1 t carries the variations needed during the retargetting
+T41	data 5669 5696	there is a bat-swing motion
+T42	own_claim 5698 5803	we can obtain different swing motions aiming at different hit positions by specifying x 1 t appropriately
+T43	own_claim 5822 5909	our OMR algorithm can be used to reduce measurement errors in restoring captured motion
+R22	supports Arg1:T41 Arg2:T42	
+R23	supports Arg1:T42 Arg2:T40	
+T44	own_claim 5938 5977	we use captured position data for x 1 t
+T45	data 5915 5936	this data enhancement
+R24	supports Arg1:T45 Arg2:T44	
+T46	own_claim 6058 6117	to recover from possible measurement errors in joint angles
+R25	parts_of_same Arg1:T44 Arg2:T46	
+T47	own_claim 6183 6280	the errors can accumulate as the forward kinematic positioning propagates toward the end-effector
+T48	data 6122 6181	the positioning of the pose is done from joint angles alone
+T49	own_claim 6282 6395	The end-effector position data x 1 t can be utilized to limit the above error accumulation within a certain range
+R26	supports Arg1:T48 Arg2:T47	
+T50	background_claim 7116 7130	motion warping
+T51	background_claim 7136 7139	and
+T52	background_claim 7158 7185	motion displacement mapping
+T53	background_claim 7190 7266	discuss motion editing technique based on direct manipulation of data curves
+R27	parts_of_same Arg1:T50 Arg2:T51	
+R28	parts_of_same Arg1:T51 Arg2:T52	
+T54	data 7132 7134	19
+T55	data 7187 7188	4
+R29	parts_of_same Arg1:T52 Arg2:T53	
+R30	supports Arg1:T55 Arg2:T52	
+R31	supports Arg1:T54 Arg2:T50	
+T56	background_claim 7309 7365	utilized signal processing techniques for motion editing
+T57	data 7285 7286	4
+T58	data 7305 7307	11
+R32	supports Arg1:T58 Arg2:T56	
+R33	supports Arg1:T57 Arg2:T56	
+T59	background_claim 7393 7550	the interpolation synthesis algorithm that chooses and combines most relevant motions from the database to produce animation with a specific positional goals
+T60	data 7380 7382	18
+R34	supports Arg1:T60 Arg2:T59	
+T61	background_claim 7559 7657	some of the techniques above can be used for motion retargetting problem with user’s extra efforts
+T62	background_claim 7659 7722	they don’t specifically address the motion retargetting problem
+R35	contradicts Arg1:T62 Arg2:T61	
+T63	background_claim 7762 7840	the combined direct and inverse kinematic control technique for motion editing
+T64	data 7728 7729	3
+R36	supports Arg1:T64 Arg2:T63	
+T65	background_claim 7842 7946	The concept called coach-trainee metaphor is very similar to the motion retargetting problem formulation
+T66	background_claim 7948 8113	The fundamental idea is to consider the joint motion of coach as a reference input to trainee motion for the secondary task exploiting the null space of the Jacobian
+T67	data 8119 8145	solving inverse kinematics
+T68	own_claim 5440 5528	and trajectory the secondary   src t goal as much is to as imitate possible. the pattern
+R37	supports Arg1:T68 Arg2:T39	
+R38	supports Arg1:T67 Arg2:T66	
+T69	background_claim 8147 8202	The inverse kinematic constraint is given by half-space
+T70	data 8211 8216	plane
+T71	data 8218 8226	cylinder
+T72	data 8231 8237	sphere
+R39	supports Arg1:T70 Arg2:T69	
+R40	supports Arg1:T71 Arg2:T69	
+R41	supports Arg1:T72 Arg2:T69	
+T73	own_claim 8248 8350	their approach shares the technique of utilizing the redundancy in inverse kinematic control with ours
+T74	background_claim 8352 8406	the problem they solved is not the motion retargetting
+T75	background_claim 8411 8450	is rather a motion correction technique
+R42	contradicts Arg1:T74 Arg2:T73	
+R43	supports Arg1:T75 Arg2:T74	
+T76	data 8457 8565	the end-effector constraint specified by half-spaces is not general to solve the motion retargetting problem
+R44	supports Arg1:T76 Arg2:T75	
+T77	background_claim 8567 8640	A method which is devoted to the motion retargetting problem was proposed
+T78	data 8654 8655	6
+T79	background_claim 8658 8784	He used the spacetime constraint method that minimizes an objective function g x subject to the constrains of the form f x = c
+T80	data 9086 9154	the whole interval has to be integrated to find the optimal solution
+T81	background_claim 9156 9203	the method is intrinsically an off-line process
+R45	supports Arg1:T80 Arg2:T81	
+T82	background_claim 9205 9293	The global method as above can correlate frames back and forth within the whole duration
+T83	background_claim 9303 9370	generally produces more smooth results compared to the local method
+T84	data 9379 9396	our OMR technique
+R46	supports Arg1:T84 Arg2:T83	
+R47	supports Arg1:T82 Arg2:T83	
+T85	background_claim 9402 9518	the look-ahead property of the global method is effective when the constraints are imposed only at sparse key frames
+T86	own_claim 9520 9581	Our OMR takes continuous trajectories of constraints as input
+T87	own_claim 9591 9657	it produces globally coherent motion in spite of local computation
+R48	supports Arg1:T86 Arg2:T87	
+R49	contradicts Arg1:T85 Arg2:T83	
+T88	own_claim 9659 9786	The global coherence is also achieved from the effort to exploit the redundancy of the system in resembling the original motion
+T89	own_claim 9788 9912	The local coherence of the motion comes from the fact that the adjacent frames are inter-related by the inverse rate control
+T90	own_claim 9925 10046	without significant degradation of quality, our algorithm provides much faster and interactive way of motion retargetting
+R50	supports Arg1:T89 Arg2:T90	
+T91	background_claim 10138 10272	Their algorithm detects significant events and abstracts constraints from the motion, and imposes those constraints to other character
+T92	background_claim 10087 10136	a method to abstract and edit motion capture data
+T93	data 10074 10075	2
+R51	supports Arg1:T93 Arg2:T92	
+T94	background_claim 10274 10409	The constraints abstracted from the motion is solved by inverse kinematics at significant frames and then those frames are interpolated
+T95	background_claim 10420 10497	the constraint abstraction is an improvement compared to the other techniques
+T96	background_claim 10499 10576	the interpolation technique might fail to preserve the high frequency details
+T97	data 10580 10614	the key frames are sparsely spaced
+R52	contradicts Arg1:T96 Arg2:T95	
+R53	supports Arg1:T97 Arg2:T96	
+T98	own_claim 10679 10824	In an articulated figure, the joint configuration can be related to the position and orientation of the end effector by a kinematic mapping f : !
+T99	own_claim 10825 10876	X , which maps the joint space to Cartesian space X
+R54	parts_of_same Arg1:T98 Arg2:T99	
+T100	background_claim 10879 10931	The mapping is usually a nonlinear equation given by
+T101	background_claim 10943 10944	2
+T102	background_claim 10955 10986	dimensional where x 1 is vector
+R55	parts_of_same Arg1:T100 Arg2:T101	
+R56	parts_of_same Arg1:T101 Arg2:T102	
+T103	own_claim 11006 11010	m =3
+T104	data 11014 11016	we
+T105	data 11024 11038	are interested
+T106	data 11048 11052	only
+T107	data 11058 11069	in position
+R57	parts_of_same Arg1:T104 Arg2:T105	
+R58	parts_of_same Arg1:T105 Arg2:T106	
+R59	parts_of_same Arg1:T106 Arg2:T107	
+R60	supports Arg1:T104 Arg2:T103	
+T108	own_claim 11074 11078	m =6
+T109	data 11082 11152	we are interested in both position and orientation of the end-effector
+R61	supports Arg1:T109 Arg2:T108	
+T110	own_claim 11154 11171	m can be 12 or 18
+T111	data 11175 11226	we want to impose multiple end-effector constraints
+R62	supports Arg1:T111 Arg2:T110	
+T112	data 11231 11266	we differentiate the above equation
+T113	own_claim 11268 11277	we obtain
+T114	own_claim 11289 11290	3
+R63	parts_of_same Arg1:T113 Arg2:T114	
+R64	supports Arg1:T112 Arg2:T113	
+T115	own_claim 11301 11403	where x _ 1 and   _ denote the end-effector positional velocity and joint angle velocity, respectively
+R65	parts_of_same Arg1:T114 Arg2:T115	
+T116	own_claim 11570 11627	we can get joint angle velocity by inverting the Jacobian
+T117	own_claim 11638 11688	most articulated figures have kinematic redundancy
+T118	own_claim 11698 11735	the inverse of Jacobian is not unique
+R66	supports Arg1:T117 Arg2:T118	
+T119	own_claim 11773 11847	there are an infinite number of possible solutions that satisfy Equation 3
+T120	data 11537 11568	Given the end effector velocity
+R67	supports Arg1:T120 Arg2:T116	
+R68	supports Arg1:T118 Arg2:T119	
+T121	own_claim 11849 11922	Some criteria can be specified to pick one that best fits for our purpose
+T122	own_claim 11924 11983	One of popular criteria is called the minimal norm solution
+T123	own_claim 11995 11996	4
+T124	own_claim 12007 12071	where J 1 + = J 1 T J 1 J 1 T , 1 is the pseudo inverse 1 of J 1
+R69	parts_of_same Arg1:T122 Arg2:T123	
+R70	parts_of_same Arg1:T123 Arg2:T124	
+T125	own_claim 12074 12112	Equation 4 gives a particular solution
+T126	own_claim 12118 12214	can be generalized to include all possible solutions by adding a term from the null space of J 1
+T127	data 12232 12233	5
+R71	supports Arg1:T127 Arg2:T126	
+T128	own_claim 12759 12833	the primary goal is accurately achieved in the case of continuous domain 2
+T129	own_claim 12838 12893	the secondary goal is also achieved in an optimal sense
+T130	data 12703 12715	the equation
+T131	data 12718 12719	6
+T132	data 12730 12752	is used for Equation 5
+R72	parts_of_same Arg1:T130 Arg2:T131	
+R73	parts_of_same Arg1:T131 Arg2:T132	
+R74	supports Arg1:T132 Arg2:T128	
+R75	supports Arg1:T132 Arg2:T129	
+T133	own_claim 12895 13022	Another way to utilize the redundancy of the system is to set y to the gradient , r g of a criterion function g   in Equation 5
+T135	own_claim 13029 13148	integration of Equation 5 tries to reduce the value of g   while the end-effector is made to track the given trajectory
+R76	supports Arg1:T133 Arg2:T135	
+T136	data 13150 13151	9
+R77	supports Arg1:T136 Arg2:T135	
+T134	own_claim 13262 13374	To control the articulated figure to follow given reference end-effector to give the value trajectory of   t x 1
+T137	own_claim 13405 13413	t should
+R78	parts_of_same Arg1:T134 Arg2:T137	
+T138	data 13376 13384	Equation
+T139	data 13401 13402	4
+R79	parts_of_same Arg1:T138 Arg2:T139	
+R80	supports Arg1:T138 Arg2:T134	
+T140	own_claim 13418 13546	this be open-loop integrated fashion of integration can not eliminate the initial tracking error e 1 t 0 = x 1 t 0 , x des 1 t 0
+T141	background_claim 13720 13763	proposed the closed-loop inverse kinematics
+T142	background_claim 13771 13809	scheme based on Jacobian pseudoinverse
+R81	parts_of_same Arg1:T141 Arg2:T142	
+T143	data 13716 13718	13
+T144	data 13712 13714	14
+T145	data 13678 13680	15
+T146	data 13659 13660	1
+R82	supports Arg1:T143 Arg2:T141	
+R83	supports Arg1:T144 Arg2:T141	
+T147	data 13765 13769	CLIK
+R84	supports Arg1:T147 Arg2:T141	
+R85	supports Arg1:T145 Arg2:T141	
+R86	supports Arg1:T146 Arg2:T141	
+R87	supports Arg1:T146 Arg2:T141	
+T148	background_claim 13866 13939	the error is exponentially convergent to zero for a fixed target position
+T149	background_claim 13811 13848	CLIK leads to zero steady state error
+R88	supports Arg1:T149 Arg2:T148	
+T150	own_claim 13951 13983	Equation 4 has to be modified to
+T151	data 13945 13949	CLIK
+T152	own_claim 13997 13998	7
+T153	own_claim 14011 14065	where K 1 is a positive definite matrix we can provide
+R89	parts_of_same Arg1:T150 Arg2:T152	
+R90	parts_of_same Arg1:T152 Arg2:T153	
+R91	supports Arg1:T151 Arg2:T150	
+T154	data 14098 14143	the smallest eigen value of K 1 becomes large
+T155	own_claim 14145 14187	the convergence rate increases accordingly
+T156	data 14194 14257	the error dynamics is governed by the relation e 1 + K 1 e 1 =0
+R92	supports Arg1:T154 Arg2:T155	
+R93	supports Arg1:T156 Arg2:T155	
+T157	own_claim 14260 14292	In a continuous time formulation
+T158	own_claim 14313 14346	a large value of K 1 is desirable
+T159	data 14301 14311	Equation 7
+R94	parts_of_same Arg1:T157 Arg2:T158	
+R95	supports Arg1:T159 Arg2:T157	
+T160	own_claim 14380 14485	an arbitrarily large K 1 doesn’t guarantee convergence in implementing the discrete version of Equation 7
+R96	contradicts Arg1:T160 Arg2:T158	
+T161	own_claim 14874 14896	Equation 8 is implicit
+T162	own_claim 14898 14974	to compute   n we need to know in turn the requires value of the e 1 value n
+R97	supports Arg1:T162 Arg2:T161	
+T164	own_claim 15080 15105	e 1 n should be estimated
+T163	own_claim 15951 16028	in practice, we found that instability rarely occurs at a usual sampling rate
+T165	own_claim 16041 16069	in dealing with human motion
+R98	parts_of_same Arg1:T163 Arg2:T165	
+T166	own_claim 15793 15864	Even with K 1 = I the stability that is J 1 not n , guaranteed 1   n is
+T167	data 15869 15924	approximated to the nonlinearity as x des 1 of n f 1 in
+R99	supports Arg1:T167 Arg2:T166	
+T168	own_claim 17056 17215	any estimation scheme based on the old values can not completely eliminate the era ror higher caused order by the estimation nonlinearity for e 1 of n f 1 than
+T169	own_claim 17218 17247	it can e 1 n be , reduced 1 ,
+R100	contradicts Arg1:T169 Arg2:T168	
+T170	own_claim 17257 17306	consequently can give better tracking performance
+R101	supports Arg1:T169 Arg2:T170	
+T171	own_claim 17322 17384	the estimation rule described below gives satisfactory results
+T172	own_claim 17433 17534	The above procedures complete the discrete implementation of the CLIK algorithm with a secondary task
+T173	own_claim 17756 17811	The serial chain is not suitable for modeling creatures
+T174	data 17818 17868	underlying articulated structures contain branches
+R102	supports Arg1:T174 Arg2:T173	
+T175	own_claim 18220 18265	the spine angles will differ in the solutions
+T176	data 18158 18213	inverse kinematics is solved for these cases separately
+T177	data 18109 18149	both hands have their own goals to reach
+R103	supports Arg1:T176 Arg2:T175	
+R104	supports Arg1:T177 Arg2:T175	
+T178	own_claim 18292 18438	solved this problem by a weighted sum of independently obtained gradients, each of which directs its corresponding end-effector to a goal position
+T179	data 18271 18273	22
+R105	supports Arg1:T179 Arg2:T178	
+T180	own_claim 18449 18508	the effects of different weights are not easily predictable
+R106	contradicts Arg1:T180 Arg2:T178	
+T181	own_claim 18510 18656	Depending on the weight assignment, their algorithm can fail to find an inverse kinematic solution even if all the constraints can be actually met
+R107	supports Arg1:T181 Arg2:T180	
+T182	own_claim 18658 18796	Intrinsically, the problem of finding inverse kinematic solution of multiple constraints doesn’t require any weight or priority assignment
+T183	own_claim 18851 18956	it should be possible without considering weights or assigning priorities to each end-effector constraint
+R108	supports Arg1:T183 Arg2:T182	
+T184	data 18801 18844	all the end-effector constraints can be met
+R109	supports Arg1:T184 Arg2:T183	
+T185	own_claim 18958 19095	Compared with Zhao and Badler’s algorithm, Jacobian based inverse rate control gives a quite simple and intuitive solution to the problem
+T186	own_claim 19658 19794	In inverse rate control, the above conflict of the spine angles is resolved during the computation of the pseudo inverse of the Jacobian
+T187	own_claim 21047 21159	an obvious and useful choice for the secondary task might be to imitate the joint motion of the source character
+T188	data 20897 20967	joint angle trajectories contain important characteristics of a motion
+T189	data 20979 21045	the end-effector movements are already tracked by the primary task
+R110	supports Arg1:T188 Arg2:T187	
+R111	supports Arg1:T189 Arg2:T187	
+T190	data 21190 21196	( 20 )
+R112	supports Arg1:T190 Arg2:T187	
+T191	background_claim 21707 21747	A popular dexterity measure is min = max
+T192	background_claim 21811 21852	among the singular values of the Jacobian
+R113	parts_of_same Arg1:T191 Arg2:T192	
+T193	own_claim 21951 21989	The adaptive scheme can be also useful
+T194	data 21993 22040	we apply the OMR algorithm to motion transition
+R114	supports Arg1:T194 Arg2:T193	
+T195	own_claim 22042 22054	Smaller gain
+T196	own_claim 22083 22113	will produce sluggish tracking
+T197	own_claim 22264 22352	smooth transition can be obtained by adjusting the gain matrix K 1 and K 2 appropriately
+T198	data 22157 22202	the animated model switches to another motion
+T199	own_claim 22119 22141	produces smooth motion
+R115	parts_of_same Arg1:T195 Arg2:T196	
+R116	contradicts Arg1:T196 Arg2:T199	
+T200	data 22207 22262	there exists a large discrepancy at the motion boundary
+R117	supports Arg1:T199 Arg2:T197	
+R118	supports Arg1:T200 Arg2:T197	
+R119	supports Arg1:T198 Arg2:T197	
+T201	data 22061 22080	K 1 = K 2 = 0 : 1 I
+R120	supports Arg1:T201 Arg2:T195	
+T202	own_claim 22461 22462	K
+T203	own_claim 22470 22479	1 =   _ I
+T204	own_claim 22483 22487	does
+T205	own_claim 22506 22519	not guarantee
+T206	own_claim 22354 22363	stability
+R121	parts_of_same Arg1:T202 Arg2:T203	
+R122	parts_of_same Arg1:T203 Arg2:T204	
+R123	parts_of_same Arg1:T204 Arg2:T205	
+R124	parts_of_same Arg1:T205 Arg2:T206	
+T207	data 22418 22432	The non-linear
+T208	data 22448 22456	function
+T209	data 22480 22482	is
+T210	data 22497 22505	linearly
+T211	data 22525 22532	approxi
+T212	data 22364 22369	mated
+T213	data 22381 22383	by
+T214	data 22390 22397	J 1 + x
+R125	parts_of_same Arg1:T207 Arg2:T208	
+R126	parts_of_same Arg1:T208 Arg2:T209	
+R127	parts_of_same Arg1:T209 Arg2:T210	
+R128	parts_of_same Arg1:T210 Arg2:T211	
+R129	parts_of_same Arg1:T211 Arg2:T212	
+R130	parts_of_same Arg1:T212 Arg2:T213	
+R131	parts_of_same Arg1:T213 Arg2:T214	
+R132	supports Arg1:T214 Arg2:T202	
+T215	data 22433 22439	system
+T216	data 22457 22460	can
+R133	parts_of_same Arg1:T215 Arg2:T216	
+T217	data 22463 22469	become
+R134	parts_of_same Arg1:T216 Arg2:T217	
+T218	data 22488 22496	unstable
+R135	parts_of_same Arg1:T217 Arg2:T218	
+T219	data 22520 22524	when
+R136	parts_of_same Arg1:T218 Arg2:T219	
+T220	data 22532 22587	x _ 1 gets very large, or the sampling rate is very low
+R137	parts_of_same Arg1:T219 Arg2:T220	
+R138	supports Arg1:T220 Arg2:T205	
+T221	own_claim 22599 22700	another provision for enforcing stability might be to clamp the value that goes into the box of J 1 +
+T222	data 22722 22752	it is over a certain threshold
+R139	supports Arg1:T221 Arg2:T222	
+T223	data 22704 22712	Figure 4
+R140	supports Arg1:T223 Arg2:T221	
+T224	own_claim 22754 22786	The provision might be effective
+T225	data 22792 22834	there is an excessively large acceleration
+T226	data 22844 22932	the model is fully stretched and almost no manipulative redundancy is left in the system
+R141	supports Arg1:T225 Arg2:T224	
+R142	supports Arg1:T206 Arg2:T221	
+R143	supports Arg1:T226 Arg2:T224	
+T227	own_claim 23348 23434	we often measure the joint angles and use forward kinematics to reconstruct the motion
+T228	data 23327 23346	we capture a motion
+R144	supports Arg1:T228 Arg2:T227	
+T229	own_claim 23440 23499	the method can introduce large end-effector position errors
+R145	contradicts Arg1:T229 Arg2:T227	
+T230	data 23506 23588	the joint angle error near the base is amplified when it comes to the end-effector
+R146	supports Arg1:T230 Arg2:T229	
+T231	data 23594 23700	joint angle errors are accumulated as the forward kinematic positioning propagates toward the end-effector
+R147	supports Arg1:T231 Arg2:T229	
+T232	background_claim 23715 23746	interpolation/regression method
+T233	background_claim 23752 23871	applies inverse kinematics at sparse keyframes and the resulting joint angles are interpolated with cubic spline curves
+T234	data 23748 23749	5
+R148	supports Arg1:T234 Arg2:T232	
+R149	parts_of_same Arg1:T232 Arg2:T233	
+T235	background_claim 23937 24026	the characteristics of the original joint angle data is preserved in the resulting motion
+T236	data 23873 23928	The interpolation is combined with least square fitting
+R150	supports Arg1:T236 Arg2:T235	
+T237	own_claim 24028 24153	The OMR algorithm described in the previous section can be used to reduce measurement errors in restoring the captured motion
+T238	own_claim 24155 24251	The new method is an improvement over the above interpolation/regression method in three aspects
+T239	data 24259 24300	inverse kinematics is done at every frame
+T240	own_claim 24308 24350	promises much closer end-effector tracking
+R151	supports Arg1:T239 Arg2:T240	
+R152	supports Arg1:T240 Arg2:T238	
+T241	own_claim 24492 24586	the high frequency component of the original motion is preserved much better in the new method
+R153	supports Arg1:T241 Arg2:T238	
+T242	own_claim 24358 24480	the joint angle imitation is done by exploiting redundant degrees of freedom rather than depending on the least square fit
+R154	supports Arg1:T242 Arg2:T238	
+T243	own_claim 24901 24967	the destination character has to be same with the source character
+T244	data 24972 25010	pure data enhancement needs to be done
+R155	supports Arg1:T244 Arg2:T243	
+T245	own_claim 25176 25288	Compared to the forward kinematic motion reconstruction our OMR algorithm reduces end-effector errors remarkably
+T246	own_claim 25302 25367	our algorithm also reduces the errors in joint angle measurements
+T247	background_claim 25375 25448	the joint angle errors can accumulate in forward kinematic reconstruction
+T248	own_claim 25483 25576	the total amount of accumulated error is limited by the amount of end-effector position error
+T249	data 25455 25481	it is processed by our OMR
+R156	supports Arg1:T249 Arg2:T248	
+T250	own_claim 25588 25684	the joint angle error due to the end-effector position error is distributed among all the joints
+T251	own_claim 25800 25863	our OMR produces more accurate result than the unprocessed data
+T252	data 25696 25798	unless the amount of end-effector position error is excessively larger than that of joint angle errors
+R157	supports Arg1:T252 Arg2:T251	
+T253	own_claim 25875 25962	the above does not mean the retargetting and data enhancement should be done separately
+T254	own_claim 26010 26063	the two things are actually achieved at the same time
+T255	own_claim 26065 26090	This is especially useful
+T256	data 25967 26008	a different destination character is used
+T257	data 26096 26134	a real-time performance is retargetted
+R158	supports Arg1:T256 Arg2:T254	
+R159	supports Arg1:T257 Arg2:T255	
+T258	own_claim 26379 26498	our OMR based on inverse rate control is not inferior in the quality to the retargetting based on spacetime constraints
+T259	data 26270 26357	we show a retargetting example in which our OMR is applied to retarget a walking motion
+R160	supports Arg1:T259 Arg2:T258	
+T260	data 26248 26268	the first experiment
+R161	supports Arg1:T260 Arg2:T258	
+T261	own_claim 28222 28266	there can be discontinuities at the boundary
+T262	data 28270 28297	the tracking error is large
+R162	supports Arg1:T262 Arg2:T261	
+T263	data 28138 28204	At the boundaries of steps the base and end-effector were switched
+R163	supports Arg1:T263 Arg2:T261	
+T264	data 28377 28428	The tracking error of the swing foot was negligible
+T265	own_claim 28438 28491	the produced motion was smooth at the step boundaries
+R164	supports Arg1:T264 Arg2:T265	
+T266	own_claim 28964 29030	After adding the constraint, we could obtain a satisfactory result
+T267	data 29047 29061	video clips #3
+T268	data 29066 29068	#4
+R165	supports Arg1:T267 Arg2:T266	
+R166	supports Arg1:T268 Arg2:T266	
+T269	own_claim 29070 29189	Even with the extra constraints, the end-effector trajectories of the source and the destination made an accurate match
+T270	data 29218 29226	Figure 7
+R167	supports Arg1:T270 Arg2:T269	
+T271	own_claim 30451 30524	Other than that the original joint angle pattern was quite well preserved
+T272	own_claim 30726 30803	After the retargetting, the sharp corner of the trajectory was well preserved
+T273	own_claim 30817 30886	our OMR preserves the high frequency content of the motion quite well
+T274	data 30894 30945	inverse rate control is directed by Jacobian values
+T275	own_claim 29576 29608	the tracking error is kept small
+T276	own_claim 29652 29671	the error increases
+T277	data 29615 29646	the velocity is nearly constant
+T278	data 29677 29710	the velocity makes sudden changes
+R168	supports Arg1:T277 Arg2:T275	
+R169	supports Arg1:T278 Arg2:T276	
+T279	data 29524 29532	Figure 8
+R170	supports Arg1:T279 Arg2:T275	
+R171	supports Arg1:T279 Arg2:T276	
+R172	supports Arg1:T274 Arg2:T273	
+R173	supports Arg1:T273 Arg2:T272	
+R174	supports Arg1:T273 Arg2:T271	
+T280	own_claim 30947 30988	Big mountains or valleys are never missed
+R175	supports Arg1:T273 Arg2:T280	
+T281	own_claim 31037 31085	a high sampling rate is needed to avoid aliasing
+T282	own_claim 30990 31026	To recover tiny fluctuations as well
+R176	parts_of_same Arg1:T282 Arg2:T281	
+T283	own_claim 31125 31217	they can be prevented by adjusting the gain matrix K 2 or clamping some of the control input
+T284	data 31231 31240	Section 4
+T285	own_claim 31242 31317	The adjustment of K 2 does not affect the end-effector tracking performance
+T286	data 31090 31123	the sharp corners are undesirable
+R177	supports Arg1:T286 Arg2:T283	
+R178	supports Arg1:T284 Arg2:T283	
+T287	own_claim 36134 36222	the retargetted motion does not contain any noticeable difference from the source motion
+T288	data 36063 36132	the body dimensions of Character B and the real performer are similar
+R179	supports Arg1:T288 Arg2:T287	
+T289	own_claim 38734 38785	the performance can be potentially improved further
+T290	own_claim 38694 38726	The code was not fully optimized
+R180	supports Arg1:T290 Arg2:T289	
+T291	own_claim 38947 39035	the OMR is fast enough to process motion capture data collected at a usual sampling rate
+T292	own_claim 39046 39098	in real-time for the models of reasonable complexity
+R181	parts_of_same Arg1:T291 Arg2:T292	
+T293	own_claim 38419 38506	At this sampling rate, not a single frame was lost even with the visualization included
+T294	own_claim 38787 38906	The slower rate of the bat swing motion is due to the bigger size of the Jacobian matrix compared to the walking motion
+T295	data 38940 38945	table
+R182	supports Arg1:T295 Arg2:T291	
+T296	own_claim 39273 39363	The method is an improvement over the off-line retargetting based on spacetime constraints
+T297	data 39370 39455	real-time performances can be retargetted without degradation of retargetting quality
+R183	supports Arg1:T297 Arg2:T296	
+T298	own_claim 39457 39609	The OMR technique greatly helps to get more satisfactory results in motion capturing with fewer trials by giving the real-time feedback to the performer
+T299	own_claim 39624 39734	the captured data are enhanced in both end-effector positions and joint angles by going through our OMR filter
+T300	own_claim 39736 39864	One minor unsolved problem is that there is no easy way to guarantee full-proof stability of the system due to the non-linearity
+T301	data 39919 39964	the model goes near the kinematic singularity
+T302	own_claim 39974 40017	very little manipulative redundancy is left
+T303	data 39883 39910	at a very low sampling rate
+R184	supports Arg1:T301 Arg2:T302	
+R185	supports Arg1:T303 Arg2:T302	
+T304	own_claim 40024 40054	the system can became unstable
+R186	supports Arg1:T302 Arg2:T304	
+T305	own_claim 40065 40153	experiments proved that the system never become unstable at 30Hz or higher sampling rate
+T306	own_claim 40218 40246	two remedies are recommended
+T307	data 40158 40216	the source motion is available only at a low sampling rate
+T308	own_claim 40254 40373	by interpolating the source motion curves, first produce more samples, and then use them as the input to the OMR filter
+T309	own_claim 40384 40458	scale down the end-effector trajectory to avoid the singular configuration
+T310	own_claim 40463 40490	use both of ( 1 ) and ( 2 )
+R187	supports Arg1:T307 Arg2:T306	
+R188	supports Arg1:T308 Arg2:T306	
+R189	supports Arg1:T309 Arg2:T306	
+R190	supports Arg1:T310 Arg2:T306	
+T311	own_claim 40492 40547	The above remedies are for an excessively bad situation
+T312	own_claim 40693 40767	it can be very useful to people in character animation and game industries
+T313	own_claim 40549 40656	Our on-line motion retargetting produces satisfactory results in retargetting most human or creature motion
+T314	data 40661 40691	the technique is well utilized
+R191	supports Arg1:T314 Arg2:T312	

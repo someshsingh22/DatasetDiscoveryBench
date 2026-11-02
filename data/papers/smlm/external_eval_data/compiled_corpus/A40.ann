@@ -1,0 +1,398 @@
+T1	background_claim 1692 1799	the simulation of wind is an area of vast interest in aerodynamic engineering, computational fluid dynamics
+T2	background_claim 1807 1865	and animation/visualisation of fluids in computer graphics
+R1	parts_of_same Arg1:T2 Arg2:T1	
+T3	background_claim 1867 1966	it has been a rather abandoned subject in simulation of deformable objects such as cloth simulation
+R2	contradicts Arg1:T3 Arg2:T2	
+T4	background_claim 2004 2070	conventional CFD applications require enormous computational power
+R3	supports Arg1:T4 Arg2:T3	
+T5	background_claim 2081 2104	aerodynamic effects are
+T6	background_claim 2115 2168	capable of enhancing the realism of an animated scene
+R4	parts_of_same Arg1:T6 Arg2:T5	
+T7	background_claim 2178 2228	are an important part of a cloth simulation system
+R5	supports Arg1:T6 Arg2:T7	
+T8	background_claim 2243 2304	air resistance is a vital component which cannot be neglected
+T9	data 2308 2338	realistic animation is desired
+R6	supports Arg1:T9 Arg2:T8	
+T10	data 2341 2349	BTH + 03
+R7	supports Arg1:T10 Arg2:T8	
+R8	supports Arg1:T8 Arg2:T7	
+T11	own_claim 2366 2404;2405 2451	we discuss two different approaches to       model force fields describing air motion
+T12	own_claim 2465 2536	these forces can be applied to generate aerodynamic effects on textiles
+T13	own_claim 2538 2619	The first method is based on modelling air flows with the Navier-Stokes equations
+R9	supports Arg1:T13 Arg2:T11	
+T14	background_claim 2621 2702	With this model, the effect of wind fields on smoke has already been investigated
+T15	data 2705 2710	FSJ01
+R10	supports Arg1:T15 Arg2:T14	
+T16	own_claim 2731 2782	we extend this approach to wind effects on textiles
+T17	own_claim 2793 2962	the solution of the sophisticated NavierStokes equations is not desired and not necessary in all situations where wind effects shall be integrated into cloth simulations
+R11	contradicts Arg1:T17 Arg2:T16	
+T18	own_claim 2979 3079	we present a much simpler model based on tracing wind particles that move along a global force field
+R12	supports Arg1:T17 Arg2:T18	
+T19	own_claim 3298 3464	By detecting collisions between the wind particles and objects in the scene, we are able to simulate the important effect of lee even with this straightforward method
+T20	own_claim 3477 3577	both approaches have different characteristics and aim at different applications for wind simulation
+T21	background_claim 4221 4296	Models for fluid dynamics can be essentially subdivided into two categories
+T22	background_claim 4298 4426	Simple models which are commonly used in most computer graphics applications describe the wind flow by predefined flow functions
+T23	background_claim 4494 4540	Either special flow primitives can be combined
+T24	data 4544 4548	WH91
+R13	supports Arg1:T24 Arg2:T23	
+T25	data 4551 4556	LDG96
+R14	supports Arg1:T25 Arg2:T23	
+T26	data 4559 4563	Li00
+R15	supports Arg1:T26 Arg2:T23	
+T27	background_claim 4566 4626	or visually pleasing functions introducing random turbulence
+R16	parts_of_same Arg1:T27 Arg2:T23	
+T28	data 4629 4633	SF92
+T29	data 4636 4640	SF93
+T30	data 4643 4648	Sta97
+R17	supports Arg1:T28 Arg2:T27	
+R18	supports Arg1:T29 Arg2:T27	
+R19	supports Arg1:T30 Arg2:T27	
+T31	background_claim 4651 4707	are taken into account to model even complex wind scenes
+R20	parts_of_same Arg1:T31 Arg2:T27	
+T32	background_claim 4709 4788	Many models use this method to move objects in the wind field through the scene
+T33	data 4791 4796	Ree83
+R21	supports Arg1:T33 Arg2:T32	
+T34	data 4799 4804	Sim90
+R22	supports Arg1:T34 Arg2:T32	
+T35	data 4807 4811	WH91
+R23	supports Arg1:T35 Arg2:T32	
+T36	data 4813 4818	BLM95
+R24	supports Arg1:T36 Arg2:T32	
+T37	background_claim 4835 4941	physically based fluid dynamics solving equations of motions with particle methods were presented recently
+T38	data 4945 4949	IK03
+R25	supports Arg1:T38 Arg2:T37	
+T39	background_claim 4962 5037	fixed flow functions lack interaction with the user or objects in the scene
+R26	supports Arg1:T18 Arg2:T11	
+T40	background_claim 5046 5148	with increasing computer power, computer graphics concentrates on physically more accurate simulations
+R27	supports Arg1:T39 Arg2:T40	
+T41	background_claim 5150 5258	In many fields the Navier-Stokes equations are the standard mathematical formulation to model fluid dynamics
+T42	background_claim 5260 5328	A vast literature exists on how to solve these equations numerically
+T43	background_claim 5330 5424	CFD are applied in this field for engineering tasks with a high degree of quality requirements
+T44	background_claim 5441 5509	it is quite difficult to apply these algorithms in computer graphics
+T45	background_claim 5517 5543	enormous calculation times
+R28	supports Arg1:T45 Arg2:T44	
+R29	contradicts Arg1:T44 Arg2:T43	
+T46	background_claim 5552 5625	faster fluid solvers were investigated for computer graphics applications
+R30	supports Arg1:T44 Arg2:T46	
+T47	background_claim 5627 5639	Kajiya et al
+T48	data 5643 5648	KvH84
+R31	supports Arg1:T48 Arg2:T47	
+T49	background_claim 5652 5664	Yaeger et al
+R32	parts_of_same Arg1:T49 Arg2:T47	
+T50	data 5668 5672	YU86
+R33	supports Arg1:T50 Arg2:T49	
+T51	background_claim 5676 5692	and Gamito et al
+R34	parts_of_same Arg1:T51 Arg2:T49	
+T52	data 5696 5701	GLG95
+R35	supports Arg1:T52 Arg2:T51	
+T53	background_claim 5704 5754	worked on fluid dynamics solvers in two dimensions
+R36	parts_of_same Arg1:T53 Arg2:T51	
+T54	background_claim 5760 5799	many improvements and variants followed
+T55	data 5802 5810	CdVLHM97
+R37	supports Arg1:T55 Arg2:T54	
+T56	data 5813 5817	KM90
+R38	supports Arg1:T56 Arg2:T54	
+T57	background_claim 5821 5839	Foster and Metaxas
+T58	data 5842 5846	FM96
+T59	data 5849 5853	FM97
+R39	supports Arg1:T58 Arg2:T57	
+R40	supports Arg1:T59 Arg2:T57	
+T60	background_claim 5858 5875	and Griebel et al
+R41	parts_of_same Arg1:T60 Arg2:T57	
+T61	data 5879 5884	GDN98
+R42	supports Arg1:T61 Arg2:T60	
+T62	background_claim 5888 5962	presented a solver for the fully three dimensional Navier-Stokes equations
+R43	parts_of_same Arg1:T62 Arg2:T60	
+T63	background_claim 6001 6037	very small step sizes had to be used
+T64	data 5972 6000	explicit integration methods
+R44	supports Arg1:T64 Arg2:T63	
+T65	background_claim 6040 6141	To enable faster simulations, a solution with an unconditionally stable solver was introduced by Stam
+T66	data 6144 6149	Sta99
+R45	supports Arg1:T66 Arg2:T65	
+T67	background_claim 6152 6172	and further extended
+R46	parts_of_same Arg1:T67 Arg2:T65	
+T68	data 6179 6184	FSJ01
+R47	supports Arg1:T68 Arg2:T67	
+T69	data 6187 6192	Sta01
+R48	supports Arg1:T69 Arg2:T67	
+T70	data 6195 6200	Sta03
+R49	supports Arg1:T70 Arg2:T67	
+T71	background_claim 6204 6295	Modelling interaction of fluids with solid objects has been investigated by Takahashi et al
+T72	data 6299 6307	TFK + 03
+R50	supports Arg1:T72 Arg2:T71	
+T73	background_claim 6310 6328	and Génevaux et al
+R51	parts_of_same Arg1:T73 Arg2:T71	
+T74	data 6333 6338	GHD03
+R52	supports Arg1:T74 Arg2:T73	
+T75	background_claim 6352 6361	Wei et al
+T76	data 6365 6373	WZF + 03
+R53	supports Arg1:T76 Arg2:T75	
+T77	background_claim 6376 6549	presented an interesting approach to simulate lightweight objects like soap bubbles and feathers in a wind flow using a Lattice Boltzmann Model extended with a subgrid model
+R54	parts_of_same Arg1:T77 Arg2:T75	
+T78	background_claim 6551 6668	For interaction of highly deformable objects and especially cloth-like objects only few models have been investigated
+T79	background_claim 6670 6770	Simple models consist in the calculation of lift and drag forces from the surrounding velocity field
+T80	data 6772 6776	SF92
+R55	supports Arg1:T80 Arg2:T79	
+T81	data 6778 6783	Pro95
+R56	supports Arg1:T81 Arg2:T79	
+T82	data 6785 6793	KCC + 00
+R57	supports Arg1:T82 Arg2:T79	
+T83	data 6795 6801	KCCL01
+R58	supports Arg1:T83 Arg2:T79	
+T84	background_claim 6804 6878	More complex interaction models calculate the wind force by a panel method
+T85	data 6880 6885	LDG96
+R59	supports Arg1:T85 Arg2:T84	
+T86	data 6887 6891	Li00
+R60	supports Arg1:T86 Arg2:T84	
+T87	background_claim 6893 6919	introducing local vortices
+R61	parts_of_same Arg1:T87 Arg2:T84	
+T88	own_claim 6935 7070	we show how recent results in fluid dynamics for computer graphics can be exploited to simulate interaction of wind flows with textiles
+T89	own_claim 7082 7177	we extend the more straightforward approach of global wind field functions by the effect of lee
+T90	own_claim 7242 7394	To incorporate wind effects in a physically based animation we have to apply additional external forces in the dynamical model of the deformable objects
+T91	own_claim 7403 7532	given a wind flow represented by a velocity field in the scene we calculate the forces which are exerted on the simulated objects
+T92	own_claim 7551 7687	we briefly describe the model we use to compute the effective aerodynamic forces such as wind force and air resistance, mainly following
+T93	data 7690 7694	SF92
+R62	supports Arg1:T93 Arg2:T92	
+T94	own_claim 7697 7780	The wind force acting on objects in an air stream is decomposed into two components
+T95	data 7782 7800	the lift force F L
+R63	supports Arg1:T95 Arg2:T94	
+T96	data 7805 7823	the drag force F D
+R64	supports Arg1:T96 Arg2:T94	
+T97	data 7829 7837	figure 1
+R65	supports Arg1:T97 Arg2:T94	
+T98	own_claim 8000 8094	The direction of the drag force F D is diametral to the relative velocity v rel = v object − u
+T99	own_claim 8236 8283	we still have air resistance for moving objects
+T100	data 8202 8222	a windless situation
+R66	supports Arg1:T100 Arg2:T99	
+T101	own_claim 8353 8408	the unit normal n i of the i-th face of the object mesh
+T102	own_claim 8425 8439	is replaced by
+T103	own_claim 8473 8495	n i = n − i n i if n i
+T104	data 8291 8351	two-dimensional objects do not exhibit an inside and outside
+T105	own_claim 8498 8514	· v i,rel &gt; 0
+R67	supports Arg1:T104 Arg2:T101	
+T106	data 8414 8422	figure 1
+R68	supports Arg1:T106 Arg2:T101	
+R69	parts_of_same Arg1:T102 Arg2:T101	
+R70	parts_of_same Arg1:T103 Arg2:T102	
+R71	parts_of_same Arg1:T105 Arg2:T103	
+T107	own_claim 8534 8560	The drag force per face is
+T108	own_claim 8566 8641	given by F i,D = 2 1 C D ρ|v i,rel | 2 A · ( n i · v i,rel ) · (− v i,rel )
+R72	parts_of_same Arg1:T108 Arg2:T107	
+R73	supports Arg1:T105 Arg2:T107	
+T109	own_claim 8828 8991	The direction of the lift force, which is perpendicular to v i,rel and lies in the plane spanned by v i,rel and n i , is given by u i = ( n i × v i,rel ) × v i,rel
+T110	own_claim 9007 9082	the lift force is calculated as F i,L = 1 2 C L ρ|v i,rel | 2 A cos θ · u i
+T111	own_claim 9266 9373	we describe two different wind field models and show how they can be used to model wind effects on textiles
+T112	own_claim 9375 9419	The first model is based on the work of Stam
+T113	data 9422 9427	Sta97
+R74	supports Arg1:T113 Arg2:T112	
+R75	supports Arg1:T112 Arg2:T111	
+T114	own_claim 9429 9528	and calculates the numerical solution of the Navier-Stokes equation with a semi-Lagrangian approach
+R76	parts_of_same Arg1:T114 Arg2:T112	
+T115	own_claim 9530 9598	This model is extended to interaction of the wind flow with textiles
+T116	own_claim 9600 9676	The second model employs precomputed wind flows and particle tracing methods
+R77	supports Arg1:T116 Arg2:T111	
+T117	own_claim 9678 9805	This approach is much easier to implement and can be added to existing simulation modules without additional computational cost
+T118	background_claim 10022 10180	The numerical algorithms used in CFD to solve these equations are designed for physical accuracy for engineering applications and are expensive in computation
+T119	background_claim 10236 10327	simplifications can be made which greatly reduce the computation costs as described by Stam
+T120	data 10329 10334	Sta03
+R78	supports Arg1:T120 Arg2:T119	
+T121	data 10204 10235	this precision is not necessary
+R79	supports Arg1:T121 Arg2:T119	
+T122	background_claim 10343 10407	the arising wind velocities are clearly below the speed of sound
+T123	background_claim 10409 10447	compressibility effects are negligible
+T124	background_claim 10453 10517	the wind is modelled as an incompressible constant density fluid
+R80	supports Arg1:T122 Arg2:T123	
+R81	supports Arg1:T123 Arg2:T124	
+T125	background_claim 10519 10570	This notably simplifies the numerical approximation
+T126	background_claim 10576 10665	the incompressible Navier-Stokes equations can be written in a compact vector notation as
+T127	background_claim 10699 10708	∇ · u = 0
+R82	supports Arg1:T124 Arg2:T126	
+R83	parts_of_same Arg1:T127 Arg2:T126	
+T128	background_claim 10752 10786	∂u = −(u · ∇)u − 1 ∇p + ν∇ 2 u + f
+R84	parts_of_same Arg1:T128 Arg2:T127	
+T129	background_claim 10789 10793	∂t ρ
+R85	parts_of_same Arg1:T129 Arg2:T128	
+T130	background_claim 10997 11071	The first equation states that the velocity field should be incompressible
+T131	background_claim 11078 11146	the second one describes the evolution of a velocity field over time
+R86	supports Arg1:T127 Arg2:T130	
+R87	supports Arg1:T128 Arg2:T131	
+T132	background_claim 11517 11587	To solve these equations numerically they first have to be discretised
+T133	background_claim 11783 11801	Foster and Metaxas
+T134	data 11803 11807	FM96
+R88	supports Arg1:T134 Arg2:T133	
+T135	background_claim 11809 11904	use a finite difference approximation for the discretisation of the operators in equation (4.2)
+R89	parts_of_same Arg1:T135 Arg2:T133	
+T136	background_claim 11906 12057	Then they update the cell’s velocities according to the divergence value computed in each direction, respectively, using an explicit integration scheme
+R90	supports Arg1:T134 Arg2:T136	
+T137	background_claim 12065 12130	time steps in explicit computations usually need to be very small
+T138	background_claim 12157 12255	who proposes an implicit integration scheme, which allows stable simulations with large time steps
+T139	background_claim 12132 12146	we follow Stam
+T140	data 12149 12154	Sta99
+R91	supports Arg1:T140 Arg2:T139	
+R92	parts_of_same Arg1:T139 Arg2:T138	
+T141	background_claim 12263 12337	the linear terms in equation (4.2) are straightforward to solve implicitly
+T142	background_claim 12339 12401	the term −(u · ∇)u is nonlinear and deserves special attention
+T143	background_claim 12510 12573	Equation (4.2) does not provide a divergent-free velocity field
+T144	background_claim 12586 12693	the divergence of each cell in the grid has to be projected to zero using the Helmholtz-Hodge decomposition
+T145	data 12696 12701	Sta03
+R93	supports Arg1:T143 Arg2:T144	
+R94	supports Arg1:T145 Arg2:T144	
+T146	background_claim 12704 12838	The major advantage of Navier-Stokes based approaches consists in the fact that the evolution of the wind flow over time is calculated
+T147	background_claim 12840 12927	It enables us to model global effects like convection and diffusion on a physical basis
+T148	own_claim 12929 13079	We present a model to exploit these wind models for calculating the interaction of deformable objects with the air flow by a boundary condition method
+T149	background_claim 13116 13208	a velocity field of its own isn’t really visually interesting until it starts moving objects
+T150	data 13108 13113	Sta03
+R95	supports Arg1:T150 Arg2:T149	
+T151	background_claim 13247 13309	all objects in the scene interact with the fluid present in it
+T152	own_claim 13442 13629	To describe the above situation by a physical model we require the Neumann boundary condition ∂u =0 ∂n to be satisfied for the wind flow u at any boundary point of an object with normal n
+T153	background_claim 13631 13738	Rigid objects like walls will influence the fluid field but will not be affected by fluid forces themselves
+T154	background_claim 13740 13850	Deformable objects like cloth are supposed to both experience fluid forces and itself influence the fluid flow
+T155	background_claim 13852 13856	This
+T156	background_claim 13865 13886	is a major difficulty
+R96	parts_of_same Arg1:T156 Arg2:T155	
+T157	background_claim 14249 14399	Without further remedial action setting the boundary according to the Neumann condition would mean that the fluid will not exert forces on the objects
+T158	background_claim 14061 14131	we want the Neumann boundary condition u(p b ) · n = 0 to be satisfied
+T159	background_claim 14152 14247	the wind velocity orthogonal to the object’s surface is just what causes the aerodynamic forces
+R97	contradicts Arg1:T159 Arg2:T158	
+R98	supports Arg1:T158 Arg2:T156	
+R99	supports Arg1:T159 Arg2:T156	
+R100	supports Arg1:T157 Arg2:T156	
+T160	own_claim 14406 14455	we propose a method which meets both requirements
+T161	own_claim 15270 15341	the boundary conditions are met and yet aerodynamic forces are obtained
+T162	own_claim 15075 15262	for every marked cell in the scene the previously stored normals are averaged in one space cell which are used to update the velocity at the cell to satisfy the Neumann boundary condition
+R101	supports Arg1:T162 Arg2:T161	
+T163	own_claim 15343 15410	A different issue is how to deal with the inside of (rigid) objects
+T164	own_claim 15412 15513	The method to set boundary conditions as described above does not account for the interior of objects
+R102	supports Arg1:T164 Arg2:T163	
+T165	own_claim 15521 15600	a nonzero velocity could be mistakenly assigned to cells lying inside an object
+R103	supports Arg1:T164 Arg2:T165	
+T166	own_claim 15602 15800	To avoid this situation, the path of the wind flow is checked for object intersection, whereby the collision detection of the cloth simulation system provides a simple method to deal with this issue
+T167	data 15802 15807	MKE03
+R104	supports Arg1:T167 Arg2:T166	
+T168	own_claim 15851 15967	we combine the idea of creating wind fields by predefined flow primitives with particle tracing in given flow fields
+T169	own_claim 16224 16314	This method is very easy to implement and yields very plausible and nicely looking results
+T170	background_claim 16316 16475	A simple approach to generate complex air flows is to define a wind field by mathematical functions which assign to each point in space a unique velocity value
+T171	background_claim 16515 16582	this already enables an animator to design even complex wind fields
+T172	data 16497 16501	WH91
+R105	supports Arg1:T172 Arg2:T171	
+T173	data 16593 16668	an irrotational (∇ × u = 0), inviscid, and incompressible (∇ · u = 0) fluid
+T174	background_claim 16670 16738	the NavierStokes equations which describe the mechanics of any fluid
+T175	data 16744 16755	section 4.1
+R106	supports Arg1:T173 Arg2:T174	
+R107	supports Arg1:T175 Arg2:T174	
+T176	background_claim 16757 16803	can be simplified to give the Laplace equation
+R108	parts_of_same Arg1:T176 Arg2:T174	
+R109	supports Arg1:T174 Arg2:T171	
+T177	background_claim 16966 16989	∇ · u = ∇∇φ = ∇ 2 φ = 0
+R110	parts_of_same Arg1:T177 Arg2:T176	
+T178	background_claim 17097 17212	The linearity of equation (4.3) enables an animator to combine basic flows which satisfy equation (4.3) as he likes
+T179	background_claim 17222 17251	to obtain complex fluid flows
+R111	supports Arg1:T178 Arg2:T179	
+T180	background_claim 17324 17413	One drawback of this model is that it cannot handle objects exhibiting complex boundaries
+T181	background_claim 17415 17613	The approach to model solid objects in the scene taken by Wejchert et al. consists in placing a wind source using a mirror principle in order to extinguish the air flow at the boundary of the object
+R112	supports Arg1:T172 Arg2:T181	
+T182	background_claim 17621 17650	this works for simple objects
+T183	background_claim 17651 17725	this approach is not feasible at all with deformable objects like textiles
+R113	contradicts Arg1:T183 Arg2:T182	
+T184	background_claim 17727 17839	Another more serious drawback of this model for our application consists in the lack of interaction with objects
+T185	background_claim 17841 17919	The wind flow defined by the primitives will not react on objects in the scene
+T186	background_claim 17949 18026	tissues in the lee of other objects will be affected by the wind flow as well
+R114	supports Arg1:T185 Arg2:T186	
+T187	own_claim 18037 18144	this method can be combined with the aerodynamic model described in section 3 to give nice and fast results
+T188	data 18165 18174	section 5
+R115	supports Arg1:T188 Arg2:T187	
+T189	own_claim 18176 18311	To solve the described problems we propose a model which combines the simple global wind flow techniques with a particle tracing method
+T190	background_claim 18466 18560	There are two common approaches to discretising the continuous velocity field defined in space
+T191	background_claim 18562 18606	one can either choose the midpoint of a cell
+T192	data 18609 18614	Sta99
+R116	supports Arg1:T192 Arg2:T191	
+T193	background_claim 18616 18632	or its six faces
+R117	parts_of_same Arg1:T193 Arg2:T191	
+T194	data 18635 18639	FM96
+R118	supports Arg1:T194 Arg2:T193	
+T195	background_claim 18641 18660	to define the field
+R119	parts_of_same Arg1:T195 Arg2:T193	
+R120	supports Arg1:T191 Arg2:T190	
+T196	background_claim 18763 18978	The basic idea of the particle tracing method is to trace wind particles through a field w = i w i defined by linear superposition of wind sources corresponding to flow primitives with respective velocity fields w i
+T197	background_claim 18981 19055	The field w does not account for lee effects caused by objects in the flow
+T198	own_claim 19067 19130	we compute the wind field u containing these effects as follows
+R121	supports Arg1:T197 Arg2:T198	
+T199	own_claim 19132 19188	In our model every wind source is also a particle source
+T200	own_claim 19400 19488	The specific emission intervals and amounts depend on the properties of the flow sources
+T201	own_claim 19490 19613	In every time step each particle in a wind gust moves along its velocity field w i defined by the corresponding wind source
+T202	own_claim 19627 19722	the movement of the particles in a wind gust is only affected by the wind source they belong to
+T203	own_claim 19724 19801	The global superposition of all wind sources has no effect on these particles
+T204	own_claim 19940 19979	this results in a path s(p t , p t+∆t )
+T205	own_claim 19803 19891	To calculate the wind particles’ positions we used the explicit Euler integration scheme
+T206	data 19897 19939	a wind particle at position p t and time t
+R122	supports Arg1:T206 Arg2:T204	
+R123	supports Arg1:T205 Arg2:T204	
+T207	own_claim 20124 20267	all grid cells colliding with the path are updated with the velocity of the associated wind source with respect to the position of the particle
+T208	data 20082 20122	a particle moves along its path in space
+R124	supports Arg1:T208 Arg2:T207	
+T209	own_claim 20269 20349	The particle might cross several grid cells on its way during a single time step
+T210	own_claim 20372 20466	the path of the particle has to be subdivided into parts not exceeding the size of a grid cell
+R125	supports Arg1:T209 Arg2:T210	
+T211	data 20690 20731	a collision is detected at position p col
+T212	own_claim 20732 20795	the normal of the colliding object n obj (p col ) is determined
+R126	supports Arg1:T211 Arg2:T212	
+T213	own_claim 20800 20906	the velocity of the particle is set to w i (p col , t+∆t) = w i (p col , t)−(n obj ·w i (p col , t))·n obj
+R128	supports Arg1:T212 Arg2:T213	
+T214	own_claim 20907 21037	This assures that the velocity component of the resulting field u is orthogonal to the collision object’s surface at p col is zero
+T215	own_claim 21085 21122	no flow propagates through the object
+R127	supports Arg1:T214 Arg2:T215	
+T216	own_claim 21223 21263	u is determined using the wind particles
+T217	own_claim 21265 21349	every point p that could not be reached by any wind particle will hold zero velocity
+R129	supports Arg1:T216 Arg2:T217	
+T218	own_claim 21395 21453	this method solves the problems described in section 4.2.1
+R130	supports Arg1:T217 Arg2:T218	
+T219	own_claim 21465 21568	the somewhat tempting simplification of tagging each cell to either have wind in it or not is not valid
+T220	data 21753 21809	we now place a solid object in between these two sources
+T221	own_claim 21810 21873	a rather undesired effect would occur using this simplification
+R131	supports Arg1:T220 Arg2:T221	
+T222	own_claim 21875 21949	on both sides of the solid object all cells would be tagged as having wind
+R132	supports Arg1:T222 Arg2:T221	
+T223	own_claim 21955 22026	evaluating the wind field at every cell we would obtain a zero velocity
+T224	own_claim 22043 22112	the extinguishing effect of the superposition of the two wind sources
+R133	supports Arg1:T224 Arg2:T223	
+T225	own_claim 22125 22295	it is crucial for the particles to have the associated velocity of their wind source and not just the velocity resulting from the global superposition of all wind sources
+R134	supports Arg1:T223 Arg2:T225	
+T226	background_claim 22388 22573	For physically accurate simulations based on the common method in fluid dynamics the model introduced by Stam produces realistic effects which global wind field models can never achieve
+T227	background_claim 22575 22663	It produces nice swirls and vortices derived from dynamical characteristics of the fluid
+R135	supports Arg1:T227 Arg2:T226	
+T228	background_claim 22673 22719	implementing the fluid solver is quite complex
+T229	background_claim 22724 22781	using a high grid resolution is computationally expensive
+R136	contradicts Arg1:T228 Arg2:T226	
+R137	contradicts Arg1:T229 Arg2:T226	
+T230	own_claim 22790 22910	the global wind field model is better suited for an easy to implement tool which is easy to adapt to specific situations
+R138	supports Arg1:T228 Arg2:T230	
+R139	supports Arg1:T229 Arg2:T230	
+T231	background_claim 22912 22970	Particle systems are very common in the simulation engines
+T232	own_claim 22975 23045	most functionality can be adapted to integrate the proposed wind model
+T233	own_claim 23052 23135	with this straightforward approach, nice, realistic looking results can be achieved
+T234	data 23164 23176	next section
+R140	supports Arg1:T234 Arg2:T233	
+T235	own_claim 23484 23686	We implemented the wind models described in sections 4.1 and 4.2 in a cloth animation system that employs a fast finite element method to simulate the drape of textiles with measured material properties
+T236	data 23689 23694	EKS03
+R141	supports Arg1:T236 Arg2:T235	
+T237	own_claim 23697 23720	For collision detection
+T238	own_claim 23785 23825	we use k-DOP hierarchies as described in
+R142	parts_of_same Arg1:T238 Arg2:T237	
+T239	data 23828 23833	MKE03
+R143	supports Arg1:T239 Arg2:T238	
+T240	own_claim 25265 25377	both methods produce realistic looking results which are capable of enhancing the realism of computer animations
+T241	data 25248 25264	previous section
+R144	supports Arg1:T241 Arg2:T240	
+T242	own_claim 25385 25434	the first model has a wider range of applications
+T243	own_claim 25436 25544	the second one provides an easy method which still delivers realistic effects such as air resistance and lee
+T244	own_claim 25546 25645	All methods described in this work should be easy to extend to three-dimensional deformable objects
+T245	own_claim 25647 25703	All the methods apply the same except for simple changes
+T246	data 25711 25767	three-dimensional objects define an inner and outer part
+T247	own_claim 25769 25836	the adaption of the face normals in equation (3.1) is not necessary
+R145	supports Arg1:T246 Arg2:T247	
+T248	own_claim 25848 25942	in the wind field computation care has to be taken that no wind field is present in the object
+T249	own_claim 25950 25996	the same method as described for rigid objects
+T250	own_claim 26013 26027	can be applied
+R146	parts_of_same Arg1:T250 Arg2:T249	
+T251	data 25998 26011	section 4.2.2
+R147	supports Arg1:T251 Arg2:T249	

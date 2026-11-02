@@ -1,0 +1,470 @@
+T1	background_claim 2117 2252	Several recent major movie releases have demonstrated that the motion of clothing adds greatly to the appearance of a virtual character
+T2	background_claim 2254 2347	This effect is particularly compelling for scenes that include both real and synthetic actors
+T3	data 2356 2428	those with Yoda and Anakin Skywalker in Episode II: Attack of the Clones
+R1	supports Arg1:T3 Arg2:T2	
+T4	background_claim 2446 2589	the virtual clothing must move and be rendered so that it blends in seamlessly with the motion and appearance of the real clothing in the scene
+T5	background_claim 2591 2633	Realistic virtual clothing is possible now
+T6	background_claim 2645 2691	recent advances in cloth simulation techniques
+T7	data 2693 2694	4
+T8	data 2697 2698	9
+T9	data 2701 2702	5
+T10	data 2705 2707	37
+T11	data 2710 2711	6
+R2	supports Arg1:T11 Arg2:T6	
+R3	supports Arg1:T10 Arg2:T6	
+R4	supports Arg1:T9 Arg2:T6	
+R5	supports Arg1:T8 Arg2:T6	
+R6	supports Arg1:T7 Arg2:T6	
+R7	supports Arg1:T6 Arg2:T5	
+T12	background_claim 2714 2859	The motion of fabric is determined by resistance to bending, stretching, shearing, external forces, aerodynamic effects, friction, and collisions
+T13	background_claim 2870 2956	with the right set of parameters good simulators produce very realistic looking motion
+T14	background_claim 2958 3049	choosing parameters that will provide a particular appearance remains a time consuming task
+R8	contradicts Arg1:T14 Arg2:T13	
+T15	background_claim 3121 3201	Some parameters can be chosen based on the animator’s intuition about the fabric
+T16	background_claim 3202 3252	a knit fabric is more stretchy than a woven fabric
+T17	data 3261 3266	linen
+R9	supports Arg1:T17 Arg2:T16	
+R10	supports Arg1:T16 Arg2:T15	
+T18	background_claim 3285 3400	not all the parameters of a cloth simulator are intuitive or map directly to measurements that can made by a system
+R11	contradicts Arg1:T18 Arg2:T15	
+T19	data 3413 3428	Kawabata system
+T20	data 3430 3432	22
+R12	supports Arg1:T19 Arg2:T18	
+R13	supports Arg1:T20 Arg2:T18	
+T21	own_claim 3449 3605	we address this problem by using optimization to automatically determine these parameters from a sequence of video frames of the fabrics under consideration
+T22	background_claim 4817 4925	Cloth modeling has a long history, dating back to work in the textile community from the mid-1930s by Peirce
+T23	data 4927 4929	27
+R14	supports Arg1:T23 Arg2:T22	
+T24	background_claim 4932 5063	Work on cloth modeling in computer graphics has focused on developing dynamic simulation techniques that are both realistic and fas
+T25	background_claim 5066 5161	Baraff and Witkin describe a cloth model that uses stiff springs with implicit time integration
+T26	data 5163 5164	4
+R15	supports Arg1:T26 Arg2:T25	
+T27	background_claim 5167 5257	This model was subsequently adapted to reduce the over-damping due to implicit integration
+T28	data 5258 5259	9
+R16	supports Arg1:T28 Arg2:T27	
+T29	background_claim 5262 5298	Explicit time integration approaches
+T30	background_claim 5302 5400	use weaker springs for stretching and shearing, often explicitly limiting the amount of stretching
+R17	parts_of_same Arg1:T30 Arg2:T29	
+T31	data 5299 5301	18
+R18	supports Arg1:T31 Arg2:T29	
+T32	data 5402 5404	29
+T33	data 5407 5408	6
+R19	supports Arg1:T32 Arg2:T30	
+R20	supports Arg1:T33 Arg2:T30	
+T34	background_claim 5411 5522	Choi and Ko introduced a bending energy model that more accurately captures the fine creases and bends of cloth
+T35	data 5523 5524	9
+R21	supports Arg1:T35 Arg2:T34	
+T36	background_claim 5527 5648	Lahey provides a comprehensive overview of cloth hysteresis models from the perspective of computational fabric mechanics
+T37	data 5650 5652	23
+R22	supports Arg1:T37 Arg2:T36	
+T38	background_claim 5655 5724	Extensive work has also been done on modeling collisions and friction
+T39	background_claim 5727 5789	Cloth self-collision is handled either by untangling the cloth
+T40	background_claim 5803 5841	or by preemptively avoiding collisions
+R23	parts_of_same Arg1:T40 Arg2:T39	
+T41	data 5791 5793	37
+T42	data 5796 5798	39
+T43	data 5801 5802	3
+R24	supports Arg1:T41 Arg2:T39	
+R25	supports Arg1:T42 Arg2:T39	
+R26	supports Arg1:T43 Arg2:T39	
+T44	data 5843 5845	30
+R27	supports Arg1:T44 Arg2:T40	
+T45	data 5848 5850	20
+T46	data 5853 5854	6
+R28	supports Arg1:T46 Arg2:T40	
+R29	supports Arg1:T39 Arg2:T38	
+T47	background_claim 5857 5948	Various potential field methods have been used for general collision detection and response
+T48	data 5950 5952	33
+T49	data 5955 5957	32
+R30	supports Arg1:T48 Arg2:T47	
+R31	supports Arg1:T49 Arg2:T47	
+R32	supports Arg1:T47 Arg2:T38	
+T50	background_claim 6020 6173	little work has appeared in the computer graphics literature on estimating the parameters of these models so that they match the behavior of real fabrics
+T51	background_claim 6175 6243	Cloth parameter estimation has been studied in the textile community
+T52	data 6288 6290	17
+R33	supports Arg1:T52 Arg2:T51	
+T53	background_claim 6299 6383	such methods have not yet enjoyed wide-spread use in the computer graphics community
+R34	contradicts Arg1:T53 Arg2:T51	
+R35	supports Arg1:T53 Arg2:T50	
+T54	background_claim 6385 6428	An important exception is the work by Breen
+T55	background_claim 6432 6460	who used the Kawabata system
+T56	background_claim 6464 6655	to measure bending, shearing, and tensile parameters by subjecting a swatch of fabric to a series of mechanical tests and measuring the force needed to deform it into a standard set of shapes
+R36	parts_of_same Arg1:T55 Arg2:T54	
+R37	parts_of_same Arg1:T56 Arg2:T55	
+T57	data 6430 6431	5
+R38	supports Arg1:T57 Arg2:T54	
+T58	data 6461 6463	22
+R39	supports Arg1:T58 Arg2:T55	
+R40	contradicts Arg1:T54 Arg2:T53	
+T59	background_claim 6721 6819	these measurements are problematic for computer graphics cloth simulation problems for two reasons
+T60	background_claim 6666 6719	the Kawabata system can provide accurate measurements
+R41	contradicts Arg1:T59 Arg2:T60	
+T61	background_claim 6828 6954	there might not be a direct and simple mapping between the parameters for a particular cloth model and the Kawabata parameters
+R42	supports Arg1:T61 Arg2:T59	
+T62	background_claim 6964 7025	the Kawabata system does not measure dynamic cloth parameters
+T63	data 7032 7040	air drag
+T64	data 7044 7051	damping
+R43	supports Arg1:T63 Arg2:T62	
+R44	supports Arg1:T64 Arg2:T62	
+T65	background_claim 7053 7097	which are of key importance for moving cloth
+R45	parts_of_same Arg1:T65 Arg2:T62	
+T66	background_claim 7099 7225	One promising approach for modeling cloth parameters is to automatically search for parameters that match real, observed cloth
+T67	background_claim 7227 7375	Jojic and Huang fit parameters of a particlebased cloth model to fit a range scan of real cloth in a static rest configuration, draped over a sphere
+T68	data 7377 7379	21
+R46	supports Arg1:T68 Arg2:T67	
+T69	background_claim 7406 7531	they attacked the problem of measuring the 3D geometry of an object from the resting shape of a piece of cloth draped over it
+R47	supports Arg1:T68 Arg2:T69	
+T70	own_claim 7533 7580	a problem that we do not consider in this paper
+R48	contradicts Arg1:T70 Arg2:T69	
+T71	background_claim 7591 7664	Jojic and Huang did not treat the problem of measuring dynamic parameters
+T72	background_claim 7668 7727	demonstrate accurate results across a range of fabric types
+R49	contradicts Arg1:T71 Arg2:T69	
+R50	contradicts Arg1:T72 Arg2:T69	
+T73	background_claim 7729 7814	More distantly related are techniques for computing the geometry of cloth from images
+T74	background_claim 7816 8005	Coarse estimates of the time-varying geometry of cloth can be computed using traditional stereo matching techniques by using two or more cameras and treating each time instant independently
+T75	data 8036 8038	31
+R51	supports Arg1:T75 Arg2:T74	
+T76	background_claim 8057 8147	More accurate results may be obtained by projecting structured light patterns on the cloth
+T77	data 8167 8169	40
+R52	supports Arg1:T77 Arg2:T76	
+T78	background_claim 8188 8337	Rather than computing shape at every time instant independent from the next, it can be advantageous to integrate images over time to improve accuracy
+T79	data 8418 8419	8
+T80	data 8442 8444	34
+T81	background_claim 8340 8416	Two examples of promising work along these lines are Carceroni and Kutulakos
+T82	background_claim 8420 8440	and Torresani et al.
+R53	parts_of_same Arg1:T82 Arg2:T81	
+R54	supports Arg1:T79 Arg2:T81	
+R55	supports Arg1:T80 Arg2:T82	
+T83	background_claim 8448 8505	both studies demonstrated reconstructions of moving cloth
+R56	supports Arg1:T80 Arg2:T83	
+R57	supports Arg1:T79 Arg2:T83	
+R58	supports Arg1:T81 Arg2:T78	
+T84	own_claim 8661 8667	we can
+T85	own_claim 8683 8772	select a specific model that meets a set of criteria such as accuracy or simulation speed
+T86	own_claim 8569 8659	our framework for estimating cloth simulation parameters is independent of the cloth model
+R59	parts_of_same Arg1:T84 Arg2:T85	
+R60	supports Arg1:T86 Arg2:T84	
+T87	own_claim 8774 8856	Our choice of a cloth model was guided by two principles, realism and practicality
+T88	own_claim 9016 9140	Because our intention was to apply the learned cloth model parameters to arbitrary garments with varying triangle resolution
+T89	own_claim 9142 9237	it was also important that the cloth parameters correctly scale to varying resolutions of cloth
+T90	own_claim 8858 9014	We wanted to use a model that was sophisticated enough to capture the detailed dynamic behavior found in real fabrics but still straightforward to implement
+T91	own_claim 9239 9324	We used the model described by Baraff and Witkin as the basis for our cloth simulator
+T92	background_claim 9330 9409	This model has sufficient richness to produce a wide variety of cloth behaviors
+T93	background_claim 9449 9481	making clothing modelling easier
+T94	data 9411 9447	The underlying meshing is triangular
+T95	data 9326 9327	4
+R61	supports Arg1:T88 Arg2:T89	
+R62	supports Arg1:T95 Arg2:T91	
+R63	supports Arg1:T95 Arg2:T92	
+R64	supports Arg1:T94 Arg2:T93	
+T96	background_claim 9558 9590	parameters recovered on one mesh
+T97	background_claim 9609 9645	can safely be transferred to another
+T98	data 9501 9548	its input parameters are independent of meshing
+R65	parts_of_same Arg1:T97 Arg2:T96	
+R66	supports Arg1:T98 Arg2:T96	
+T99	background_claim 9665 9681	nonlinear models
+T100	background_claim 9735 9786	potentially capture more realistic details of cloth
+T101	background_claim 9788 9892	there is no straightforward way to scale the parameters of these models to meshes of varying resolutions
+T102	data 9727 9728	9
+R67	supports Arg1:T102 Arg2:T99	
+R68	parts_of_same Arg1:T100 Arg2:T99	
+R69	contradicts Arg1:T101 Arg2:T100	
+T103	background_claim 9909 10043	future application of our parameterestimation framework to other scale-invariant cloth models will provide even more realistic results
+T104	own_claim 11156 11232	energy should scale linearly with triangle area to ensure scale independence
+T105	data 11144 11154	footnote 5
+T106	data 11074 11075	4
+R70	supports Arg1:T106 Arg2:T104	
+R71	supports Arg1:T105 Arg2:T104	
+T107	own_claim 11245 11386	we need to be careful when substituting C(x) for stretch and shear into eq. 1 that the resulting formula is linear in a rather than quadratic
+R72	supports Arg1:T104 Arg2:T107	
+T108	own_claim 11449 11509	a linear drag model such as that used in previous cloth work
+T109	own_claim 11518 11566	was not able to capture dynamic aspects of cloth
+R73	parts_of_same Arg1:T109 Arg2:T108	
+T110	data 11413 11428	our experiments
+R74	supports Arg1:T110 Arg2:T108	
+T111	data 11511 11512	4
+T112	data 11515 11516	9
+R75	supports Arg1:T111 Arg2:T108	
+R76	supports Arg1:T112 Arg2:T108	
+T113	own_claim 11697 11740	we developed a simple nonlinear alternative
+T114	own_claim 11568 11690	In order to add additional air-drag degrees of freedom to our cloth model without resorting to fully modeling aerodynamics
+T115	data 11692 11694	25
+R77	supports Arg1:T115 Arg2:T114	
+R78	parts_of_same Arg1:T113 Arg2:T114	
+T116	own_claim 12207 12222;12223 12255	The linear term         is merely Stokes’s law 1
+T117	own_claim 12258 12368	the quadratic term matches better the experimental behavior of macroscopic bodies in low Reynold’s number flow
+T118	data 12370 12372	14
+R79	supports Arg1:T118 Arg2:T117	
+T119	own_claim 12375 12537	The addition of the |v N | 2 term in the denominator which makes the force asymptotic as v N → ∞ was partially motivated by the observed phenomenon of drag crisis
+T120	data 12538 12540	14
+R80	supports Arg1:T120 Arg2:T119	
+T121	own_claim 12922 13022	implicit integration introduced damping which could not be eliminated by optimizing cloth parameters
+T122	own_claim 13024 13118	We had more success in matching realistic cloth motions by using higher-order explicit methods
+R81	contradicts Arg1:T122 Arg2:T121	
+T123	own_claim 12777 12887	we used a first-order implicit Euler time integration scheme similar to the one described by Baraff and Witkin
+T124	data 12889 12890	4
+R82	supports Arg1:T124 Arg2:T123	
+R83	supports Arg1:T123 Arg2:T121	
+T125	own_claim 13120 13234	The results in this paper all use an adaptive 4thorder accurate Runge-Kutta methods with embedded error estimation
+R84	supports Arg1:T122 Arg2:T125	
+T126	data 13236 13237	2
+R85	supports Arg1:T126 Arg2:T125	
+T127	background_claim 13246 13326	this method offers the advantages of familiarity and automatic bounding of error
+T128	background_claim 13328 13345	it is rather slow
+T129	background_claim 13351 13413	recent work suggests that using 2nd-order backward differences
+T130	background_claim 13419 13434	Newmark schemes
+T131	background_claim 13437 13459	may be a better choice
+R86	parts_of_same Arg1:T131 Arg2:T130	
+R87	parts_of_same Arg1:T130 Arg2:T129	
+R88	supports Arg1:T128 Arg2:T129	
+R89	supports Arg1:T126 Arg2:T127	
+T132	data 13414 13415	9
+R90	supports Arg1:T132 Arg2:T129	
+T133	data 13435 13436	7
+R91	supports Arg1:T133 Arg2:T130	
+T134	own_claim 13645 13807	separating repulsion forces from the cloth internal dynamics and applying them outside the Runge-Kutta solver affected stability and resulted in visible artifacts
+T135	own_claim 13818 13945	we apply repulsion forces inside the solver loop, so that the solver’s own internal error estimation can remove these artifacts
+R92	supports Arg1:T134 Arg2:T135	
+T136	own_claim 13947 13986	The drawback of this technique is speed
+T137	data 13996 14078	the system must check for collisions every time it evaluates the state derivatives
+R93	supports Arg1:T137 Arg2:T136	
+T138	own_claim 14551 14678	We use a perceptually motivated metric to compare the motion of cloth in simulation with a video sequence of real fabric motion
+T139	background_claim 14794 14869	Real fabrics exhibit a wide variety of motion ranging from soft and flowing
+T140	background_claim 14878 14886	to stiff
+R94	parts_of_same Arg1:T140 Arg2:T139	
+T141	data 14871 14876	satin
+T142	data 14888 14893	linen
+R95	supports Arg1:T142 Arg2:T140	
+R96	supports Arg1:T141 Arg2:T139	
+T143	own_claim 14896 14952	Our metric captures the complex dynamics of cloth motion
+T144	own_claim 14962 15008	helps to distinguish between different fabrics
+T145	background_claim 15010 15134	Researchers in computational neurobiology hypothesize that the human perceptual system is sensitive to moving edges in video
+T146	background_claim 15151 15320	Studies have shown that the receptive fields of simple cells in the macaque cortex act as edge or line detectors, responding to oriented edges or lines in natural scenes
+T147	data 15136 15138	11
+T148	data 15141 15143	12
+T149	data 15146 15148	36
+R97	supports Arg1:T147 Arg2:T145	
+R98	supports Arg1:T148 Arg2:T145	
+R99	supports Arg1:T149 Arg2:T145	
+T150	data 15322 15324	19
+T151	data 15327 15329	35
+T152	data 15332 15334	10
+R100	supports Arg1:T150 Arg2:T146	
+R101	supports Arg1:T151 Arg2:T146	
+R102	supports Arg1:T152 Arg2:T146	
+T153	own_claim 15337 15424	In cloth, these edges correspond to folds, which are regions of high variation in shape
+T154	own_claim 15433 15621	our perceptually motivated metric for cloth compares two video sequences, one from simulation and one from the real world, and returns a number that measures the differences in their folds
+R103	supports Arg1:T153 Arg2:T154	
+T155	background_claim 15964 16052	Their technique can handle lighting effects caused by diffuse inter-reflections in cloth
+T156	background_claim 16063 16120	most fabrics have very complicated reflectance properties
+R104	contradicts Arg1:T156 Arg2:T155	
+T157	background_claim 15838 15856	Haddon and Forsyth
+T158	background_claim 15866 15962	describe a learning approach for detecting and grouping folds (and grooves) in images of fabrics
+R105	parts_of_same Arg1:T158 Arg2:T157	
+T159	data 15858 15860	15
+T160	data 15863 15865	16
+R106	supports Arg1:T159 Arg2:T157	
+R107	supports Arg1:T160 Arg2:T157	
+R108	supports Arg1:T159 Arg2:T155	
+R109	supports Arg1:T160 Arg2:T155	
+T161	own_claim 16142 16282	we normalize the effects of lighting and material reflectance by projecting a structured light pattern of horizontal stripes onto the fabric
+R110	supports Arg1:T156 Arg2:T161	
+T162	own_claim 16869 16926	We define the resulting orientation image as an angle map
+T163	data 16937 16943	Fig. 1
+R111	supports Arg1:T163 Arg2:T162	
+T164	own_claim 17093 17186	We threshold the gradient of the angle map to get a gradient mask M k for each frame of video
+T165	data 17189 17195	Fig. 1
+R112	supports Arg1:T165 Arg2:T164	
+T166	own_claim 17360 17470	The gradient mask is non-zero at regions of high gradients, corresponding to folds, and zero at planar regions
+R113	supports Arg1:T164 Arg2:T166	
+T167	own_claim 17489 17611	Our metric computes the frame by frame sum of squared differences (SSD) between masked angle maps in simulation with video
+T168	own_claim 18023 18155	We pre-multiply this difference with the gradient mask, which helps to emphasize the differences in fold regions over planar regions
+T169	data 18158 18164	Fig. 2
+R114	supports Arg1:T169 Arg2:T168	
+T170	own_claim 18604 18690	we penalize the silhouette mismatch between the simulation and the video of real cloth
+T171	own_claim 18692 18766	This penalty is proportional to the difference between the two silhouettes
+T172	own_claim 19144 19233	The error across the entire sequence of length N frames is given by N E = ∑ E k ( 9 ) k=1
+T173	own_claim 20362 20442	We use optimization to estimate the parameters of the cloth simulator from video
+T174	own_claim 20493 20609	we look at the error space of the angle map metric, which gives us useful insight about the parameters of the system
+T175	own_claim 20866 20997	it is evident that the error space is fairly noisy, with many local minima, motivating the need for a global optimization technique
+T176	data 20854 20864	the figure
+T177	data 20611 20617	Fig. 3
+R115	supports Arg1:T177 Arg2:T175	
+R116	supports Arg1:T176 Arg2:T175	
+T178	own_claim 21259 21334	it relates a small change in parameter value to a change in the error value
+T179	own_claim 21174 21256	The importance or sensitivity of a parameter p depends on its local gradient ∂E ∂p
+R117	supports Arg1:T178 Arg2:T179	
+T180	own_claim 21036 21172	we estimate the relative importance of each parameter for a given experiment by performing a perturbation analysis at the solution point
+T181	own_claim 21371 21442	we robustly compute the variability of the param∂p eters, defined as ∂E
+R118	supports Arg1:T179 Arg2:T181	
+T182	own_claim 21445 21605	To compute the variability, we perturb each parameter of the simulator individually up to ±0.20% of its value, compute the error and fit a quadratic to the data
+T183	data 21608 21614	Fig. 4
+R119	supports Arg1:T183 Arg2:T182	
+T184	own_claim 21638 21740	the variability is computed as the change in parameter values that results in a 1% change in the error
+T185	own_claim 21742 21845	Parameters with low variability have high sensitivity and are estimated reliably for a given experiment
+R120	supports Arg1:T184 Arg2:T185	
+T186	own_claim 22358 22473	The likelihood that it will take a step in a direction that is not locally optimal is a function of the temperature
+T187	data 22476 22482	Fig. 5
+R121	supports Arg1:T187 Arg2:T186	
+T188	own_claim 22690 22760	We found it useful to reset the simplex with the current best solution
+T189	data 22766 22806	the temperature reduces by a factor of 3
+R122	supports Arg1:T189 Arg2:T188	
+T190	own_claim 22148 22245	We use simulated annealing to find the parameters that minimize the error function given in eq. 9
+T191	own_claim 22486 22567	We chose to use the continuous simulated annealing method presented in Press et a
+T192	data 22571 22573	28
+T193	background_claim 22583 22688	combines the Metropolis algorithm with the downhill simplex method for continuous n-variable optimization
+R123	supports Arg1:T192 Arg2:T193	
+T194	own_claim 22958 23023	This corresponds to a very coarse sampling of the parameter space
+T195	own_claim 23255 23327	this strategy allows the optimizer to locate a good minimum of the space
+T196	own_claim 23960 24016	The experiments are easy to perform, capture, and repeat
+T197	own_claim 24022 24075	they demonstrate the complex dynamics of cloth motion
+R124	contradicts Arg1:T197 Arg2:T196	
+T198	own_claim 24204 24329	our experiments were designed to be a calibration setup for estimating the static and dynamic parameters of a cloth simulator
+T199	own_claim 24479 24583	These fabrics exhibit a wide range of static and dynamic behavior and span a large range of real fabrics
+T200	own_claim 24829 24877	different fabrics attain different static shapes
+T201	data 24785 24827	a fixed separation between the top corners
+R125	supports Arg1:T201 Arg2:T200	
+T202	data 24890 24896	Fig. 6
+R126	supports Arg1:T202 Arg2:T200	
+T203	own_claim 24899 24980	The static test give a good estimate for the static stiffness and bend parameters
+T204	own_claim 25230 25286	real fabrics exhibit a wide range of interesting motions
+T205	data 25205 25224	accompanying videos
+R127	supports Arg1:T205 Arg2:T204	
+T206	own_claim 25288 25374	Different fabrics also exhibit different types of motion for the same input excitation
+T207	own_claim 25486 25612	This gives reasonable estimates for cloth parameters while avoiding the need to optimize directly on complex fabric geometries
+T208	own_claim 25627 25652	involving many collisions
+T209	data 25619 25625	skirts
+T210	own_claim 25376 25469	We designed the waving motion to roughly match the types of motion occurring in real garments
+T211	data 25478 25484	skirts
+R128	supports Arg1:T211 Arg2:T210	
+R129	supports Arg1:T207 Arg2:T210	
+R130	parts_of_same Arg1:T208 Arg2:T207	
+R131	supports Arg1:T209 Arg2:T207	
+T212	own_claim 26603 26686	Each trial took approximately 50 hours to converge on a 2.8GHz Intel Xeon processor
+T213	own_claim 26759 26805	we started the optimizations on the two trials
+T214	own_claim 26819 26867	with the same initial guess and chose parameters
+T215	own_claim 26880 26928	that minimized the total error on the two trials
+R132	parts_of_same Arg1:T215 Arg2:T214	
+R133	parts_of_same Arg1:T214 Arg2:T213	
+R134	supports Arg1:T212 Arg2:T213	
+T216	own_claim 27552 27636	a very good visual match between the simulations with their counterpart real fabrics
+T217	data 27533 27540	Figs. 8
+T218	data 27545 27546	9
+R135	supports Arg1:T218 Arg2:T216	
+R136	supports Arg1:T217 Arg2:T216	
+T219	own_claim 27647 27729	there is a significant disparity in the final optimized values from the two trials
+R137	contradicts Arg1:T219 Arg2:T216	
+T220	own_claim 28004 28053	we see that the final error values are very close
+T221	data 27861 27868	Table 2
+T222	data 27993 28002	the table
+R138	supports Arg1:T221 Arg2:T220	
+R139	supports Arg1:T222 Arg2:T220	
+T223	own_claim 28055 28125	We get consistent estimates for parameters that have lower variability
+T224	data 28133 28137	bend
+T225	data 28139 28146	stretch
+R140	supports Arg1:T224 Arg2:T223	
+R141	supports Arg1:T225 Arg2:T223	
+T226	own_claim 28149 28202	Parameters with high variability are estimated poorly
+T227	own_claim 28212 28268	their values do not contribute sufficiently to the error
+R142	supports Arg1:T227 Arg2:T226	
+T228	own_claim 28320 28504	static tests cannot be used to estimate dynamic parameters like stretch and shear damping or air drag and motivates the waving test, which excites both the static and waving parameters
+R143	supports Arg1:T226 Arg2:T228	
+T229	own_claim 28988 29057	The final values of the parameters from the two trials differ in part
+T230	own_claim 29066 29120	the variability of the parameters is still fairly high
+T231	data 29123 29130	Fig. 11
+R144	supports Arg1:T231 Arg2:T230	
+R145	supports Arg1:T230 Arg2:T229	
+T232	own_claim 29134 29225	Different motions or larger sequence might further reduce the variability of the parameters
+T233	own_claim 28571 28647	the six cloth stiffness and damping parameters and three air drag parameters
+T234	own_claim 28519 28569	We optimize for nine parameters in the waving test
+R146	supports Arg1:T233 Arg2:T234	
+T235	data 28650 28657	Fig. 10
+R147	supports Arg1:T235 Arg2:T233	
+T236	own_claim 29520 29613	This approach seems to produce plausible results with skirts and other validation experiments
+T237	own_claim 29640 29789	a more general solution for parameter identification using our framework is to simultaneously optimize across multiple trials of different experiment
+R148	contradicts Arg1:T237 Arg2:T236	
+T238	own_claim 30023 30077	the minimum corresponds to a visually compelling match
+T239	data 29815 29822	Fig. 12
+T240	data 29895 29902	Fig. 13
+R149	supports Arg1:T240 Arg2:T238	
+R150	supports Arg1:T239 Arg2:T238	
+T241	own_claim 30380 30469	each fabric in simulation has a minimum error when compared to its counterpart in reality
+T242	data 30248 30255	Fig. 14
+R151	supports Arg1:T242 Arg2:T241	
+T243	own_claim 30502 30594	our approach could be potentially useful for recognizing different types of fabrics in video
+T244	data 30471 30478	Fig. 14
+R152	supports Arg1:T244 Arg2:T243	
+T245	own_claim 30742 30814	a good visual match between corresponding frames in simulation and video
+T246	data 30701 30708	Fig. 10
+T247	data 30717 30736	accompanying videos
+R153	supports Arg1:T247 Arg2:T245	
+R154	supports Arg1:T246 Arg2:T245	
+T248	own_claim 30912 30986	the parameters obtained from optimization generalize well on new sequences
+T249	data 30886 30896	The videos
+R155	supports Arg1:T249 Arg2:T248	
+T250	own_claim 31668 31817	the parameters obtained from our optimization approach approximately capture the static shape and dynamic properties of skirts of different materials
+T251	data 31646 31657	The results
+T252	data 31072 31079	Fig. 15
+T253	data 31369 31376	Fig. 16
+R156	supports Arg1:T251 Arg2:T250	
+R157	supports Arg1:T252 Arg2:T250	
+R158	supports Arg1:T253 Arg2:T250	
+T254	own_claim 45717 45796	the optimizer could identify appropriate simulation parameters from those tests
+T255	own_claim 45798 45975	These parameters produced four distinct and recognizable fabrics when applied to a more complex simulation of a skirt as it was driven by motion capture data from a human figure
+T256	own_claim 45977 46032	The cloth model was not the main focus of this research
+T257	own_claim 46038 46128	in early versions of the system it was often the bottleneck in achieving appealing results
+R159	contradicts Arg1:T257 Arg2:T256	
+T258	own_claim 46130 46252	To match a video sequence accurately, the cloth physics model as well as the collision algorithms must be chosen carefully
+T259	own_claim 46254 46349	Instabilities in the collision handling will cause perceptible quivering in the motion of cloth
+T260	own_claim 46362 46450	extra damping introduced by the integration method makes crisp folds impossible to match
+T261	own_claim 46452 46621	The parameters must also be independent of the resolution of the mesh so that they can be identified on low resolution swatches and applied to higher resolution garments
+T262	background_claim 46623 46660	Progress is being made in these areas
+T263	background_claim 46671 46713	and cloth models are continually improving
+R160	contradicts Arg1:T262 Arg2:T261	
+T264	background_claim 46728 46742	Bridson et al.
+T265	background_claim 46746 46812	introduces a scale-independent bend model with encouraging results
+T266	data 46743 46744	7
+R161	supports Arg1:T266 Arg2:T264	
+R162	parts_of_same Arg1:T265 Arg2:T264	
+R163	supports Arg1:T264 Arg2:T262	
+R164	parts_of_same Arg1:T263 Arg2:T262	
+T267	own_claim 46814 46909	Our cloth model does not diverge significantly from previous models discussed in the literature
+T268	own_claim 46911 46994	Our only major addition was a simple nonlinearity we introduced into the drag model
+T269	own_claim 47003 47135	our approach should generalize to any parametrized cloth model that produces a sufficiently rich set of physically realistic motions
+R165	supports Arg1:T268 Arg2:T269	
+T270	own_claim 47146 47236	the skirt is far more complex than the swatches that were used to determine the parameters
+T271	own_claim 47238 47275	it is not as complex as many garments
+T272	data 47290 47318	a form-fitting pair of pants
+T273	data 47322 47339	a tailored blazer
+R166	supports Arg1:T272 Arg2:T271	
+R167	supports Arg1:T273 Arg2:T271	
+R168	contradicts Arg1:T271 Arg2:T270	
+T274	own_claim 47368 47454	choosing the parameters via optimization on small, flat swatches may not be sufficient
+T275	data 47345 47366	more complex garments
+T276	data 47463 47560	the shape of the garment is determined by darts, pleats and by the interplay of different fabrics
+R169	supports Arg1:T275 Arg2:T274	
+R170	supports Arg1:T276 Arg2:T274	
+T277	own_claim 47607 47748	More complex garments may require the hand design of additional tests that mimic particular behaviors or elements of the garment in isolation
+T278	own_claim 47760 47860	the model might need extra parameters to handle anisotropic effects, hysteresis and coupling effects
+T279	own_claim 47936 47977	all of which would need specialized tests
+R171	parts_of_same Arg1:T279 Arg2:T278	
+T280	own_claim 48042 48076	we tried a number of other metrics
+T281	data 47862 47933	stretching along one direction causing shrinking in the other direction
+R172	supports Arg1:T281 Arg2:T278	
+T282	data 48078 48118	comparing the overlap of the silhouettes
+T283	data 48120 48166	the distance function between silhouette edges
+T284	data 48172 48230	using information from internal edges marked on the fabric
+R173	supports Arg1:T282 Arg2:T280	
+R174	supports Arg1:T283 Arg2:T280	
+R175	supports Arg1:T284 Arg2:T280	
+T285	own_claim 48232 48418	The metric that measures folds and silhouettes, in concert with the projector for the light stripes, proved to be a simple and effective metric that far outperformed our earlier attempts
+T286	background_claim 48420 48457	The space of possible metrics is vast
+T287	own_claim 48890 48941	tight control of the initial conditions is unlikely
+T288	own_claim 48946 48986	a statistical metric might be preferable
+T289	data 48830 48878	we were to optimize on more complicated garments
+R176	supports Arg1:T289 Arg2:T287	
+R177	supports Arg1:T287 Arg2:T288	
+T290	own_claim 48988 49007	Such a metric might
+T291	own_claim 49022 49160	compute the average number of folds across a time sequence rather than looking for a fold to appear at a particular location on the swatch
+R178	parts_of_same Arg1:T291 Arg2:T290	
+R179	supports Arg1:T290 Arg2:T288	

@@ -1,0 +1,555 @@
+T1	background_claim 1907 1965	Authoring human motion is difficult for computer animators
+T2	background_claim 1970 2031	humans are exceptionally sensitive to the slightest of errors
+R1	supports Arg1:T2 Arg2:T1	
+T3	background_claim 2033 2149	This process involves an animator providing a control specification which is mapped to a target motion by some means
+T4	background_claim 2200 2307	the keyframes are the control specification, and the target motion is achieved through spline interpolation
+T5	background_claim 2151 2184	In traditional keyframe animation
+R2	parts_of_same Arg1:T4 Arg2:T5	
+R3	supports Arg1:T5 Arg2:T3	
+T6	background_claim 2381 2486	techniques have been developed that allow desired target motion to be specified using a human performance
+T7	background_claim 2316 2379	advances in data acquisition technology and computational power
+R4	supports Arg1:T7 Arg2:T6	
+T8	background_claim 2488 2597	This is natural for traditional keyframe animators, who often use recorded or live human motion for reference
+T9	background_claim 2599 2678	Motion capture is the most direct method to map performances to animated humans
+T10	background_claim 2683 2720	it is essentially an identity mapping
+R5	supports Arg1:T10 Arg2:T9	
+T11	background_claim 2731 2844	a generalization of this approach to allow for more indirect mappings creates an array of fantastic possibilities
+T12	background_claim 2854 2892	mapping voice signals to facial motion
+T13	data 2894 2899	Bra99
+R6	supports Arg1:T13 Arg2:T12	
+R7	supports Arg1:T12 Arg2:T11	
+T14	background_claim 2904 2942	gestural actions to animated reactions
+R8	supports Arg1:T14 Arg2:T11	
+T15	data 2944 2948	JP99
+R9	supports Arg1:T15 Arg2:T14	
+R10	contradicts Arg1:T11 Arg2:T10	
+T16	background_claim 2951 2968	Indirect mappings
+T17	background_claim 2979 3012	must still be encoded in some way
+R11	parts_of_same Arg1:T17 Arg2:T16	
+T18	background_claim 3014 3115	Manually, this can be an exceptionally challenging task requiring detailed, domain-specific knowledge
+T19	background_claim 3248 3379	The mapping from leader to follower motion must minimally encode a significant amount of knowledge about the structure of the dance
+T20	background_claim 3381 3395	this knowledge
+T21	background_claim 3412 3476	would be out of reach to an animator who is not a skilled dancer
+R12	parts_of_same Arg1:T21 Arg2:T20	
+R13	contradicts Arg1:T20 Arg2:T19	
+T22	background_claim 3486 3563	it would still be difficult for a skilled dancer to state the precise mapping
+T23	background_claim 3565 3625	Human dancers learn their skills by observation and practice
+T24	own_claim 3791 3958	To learn indirect mappings, we adopt a memory-based approach which implicitly encodes the desired mapping using a database of semantically meaningful example instances
+T25	own_claim 3627 3696	our objective is to emulate this process on a computer for situations
+T26	own_claim 3721 3789	when the control specification takes the form of one dancer’s motion
+R14	parts_of_same Arg1:T26 Arg2:T25	
+T27	data 3706 3719	partner dance
+R15	supports Arg1:T27 Arg2:T25	
+T28	background_claim 3960 4118	These instances store segments of synchronized control and target motion, which provide examples of how the mapping should be applied to input control motions
+T29	background_claim 4120 4236	In partner dance, an instance might contain an example control motion of a leader pushing his or her partner forward
+T30	background_claim 4238 4343	The corresponding example target motion would be that of the follower, taking a step backward in response
+T31	background_claim 4497 4646	Through the mapping instances, a given interpretation also corresponds to a sequence of target segments that can be assembled to form a target motion
+T32	own_claim 4648 4788	We use dynamic programming to select a sequence that balances the quality of interpretation with the continuity of the induced target motion
+T33	own_claim 4790 4893	Various postprocessing techniques can be then be applied to smooth and adjust the desired target motion
+T34	own_claim 4895 4940	Our approach is evaluated on two applications
+T35	own_claim 4956 5089	we demonstrate its ability to map low-dimensional input to high-dimensional motion by controlling walk motion from mouse trajectories
+R16	supports Arg1:T35 Arg2:T34	
+T36	own_claim 5106 5245	we highlight our method’s capability to handle complex, stylized mappings by controlling a dance follower with the motion of a dance leader
+R17	supports Arg1:T36 Arg2:T34	
+T37	background_claim 5407 5563	Performance-driven animation, or computer puppetry, derives its broad appeal from its ability to map human performances automatically to animated characters
+T38	data 5566 5571	Stu98
+R18	supports Arg1:T38 Arg2:T37	
+T39	background_claim 5580 5644	these mappings can be as simple as a direct copy of joint angles
+T40	background_claim 5646 5755	the ability to discover more complex mappings gives the approach a tremendous amount of power and flexibility
+R19	contradicts Arg1:T40 Arg2:T39	
+T41	background_claim 5757 5777	In online techniques
+T42	data 5779 5783	JP99
+R20	supports Arg1:T42 Arg2:T41	
+T43	background_claim 5787 5860	computational speed and instantaneous results are of paramount importance
+R21	parts_of_same Arg1:T43 Arg2:T41	
+T44	background_claim 5862 5880	offline techniques
+T45	data 5882 5887	Bra99
+R22	supports Arg1:T45 Arg2:T44	
+T46	background_claim 5889 5943	allow quality and global optimality to take precedence
+R23	parts_of_same Arg1:T46 Arg2:T44	
+T47	background_claim 5988 6057	Complex mappings often defy purely physical or mathematical encodings
+T48	background_claim 6072 6154	many methods assume that mappings are described by parametric probabilistic models
+R24	supports Arg1:T47 Arg2:T48	
+T49	data 6157 6162	Bra99
+T50	data 6164 6168	DB01
+T51	data 6170 6175	DYP03
+T52	data 6177 6181	JP99
+R25	supports Arg1:T49 Arg2:T48	
+R26	supports Arg1:T50 Arg2:T48	
+R27	supports Arg1:T51 Arg2:T48	
+R28	supports Arg1:T52 Arg2:T48	
+T53	background_claim 6184 6270	An advantage of these techniques is their ability to generalize to a variety of inputs
+R29	supports Arg1:T52 Arg2:T53	
+R30	supports Arg1:T51 Arg2:T53	
+R31	supports Arg1:T50 Arg2:T53	
+R32	supports Arg1:T49 Arg2:T53	
+T54	background_claim 6281 6302	this comes at a price
+R33	contradicts Arg1:T54 Arg2:T53	
+T55	background_claim 6304 6417	statistical learning often necessitates large volumes of training data or severe restrictions on model complexity
+R34	supports Arg1:T55 Arg2:T54	
+T56	background_claim 6419 6474	For certain applications, this is a worthwhile tradeoff
+T57	background_claim 6480 6570	for others, it can result in impractically long training times or loss of important detail
+R35	contradicts Arg1:T57 Arg2:T56	
+T58	own_claim 6572 6646	A memory-based approach like ours does not suffer from these disadvantages
+T59	own_claim 6648 6774	An important benefit of this design choice is the ability to use segments, rather than frames, as the primitive unit of motion
+T60	own_claim 6776 6845	This allows for explicit preservation of higherlevel motion semantics
+R36	supports Arg1:T59 Arg2:T60	
+T61	background_claim 6847 6973	Kim et al. demonstrate that a semantically guided segmentation of rhythmic motion allows for highly realistic motion synthesis
+T62	data 7013 7018	KPS03
+R37	supports Arg1:T62 Arg2:T61	
+T63	background_claim 7030 7039	this work
+T64	background_claim 7052 7085	uses partner dance for evaluation
+R38	parts_of_same Arg1:T64 Arg2:T63	
+T65	background_claim 7087 7172	it does not address the problem of generating a follower given the motion of a leader
+R39	contradicts Arg1:T65 Arg2:T64	
+R40	supports Arg1:T62 Arg2:T63	
+R41	supports Arg1:T62 Arg2:T65	
+T66	own_claim 7174 7271	In the segment modeling domain, we consider our method most similar to that of Pullen and Bregler
+T67	data 7274 7278	PB02
+R42	supports Arg1:T67 Arg2:T66	
+T68	background_claim 7287 7409	Pullen and Bregler’s method was shown to be an effective solution for the chosen application of texturing keyframed motion
+T69	background_claim 7411 7473	its applicability to our problem is limited by several factors
+R43	supports Arg1:T67 Arg2:T68	
+R44	contradicts Arg1:T69 Arg2:T68	
+T70	background_claim 7482 7546	their method assumes no spatial dependencies between the control
+T71	background_claim 7566 7580	and the target
+R45	parts_of_same Arg1:T71 Arg2:T70	
+R46	supports Arg1:T70 Arg2:T69	
+R47	supports Arg1:T67 Arg2:T70	
+T72	background_claim 7608 7712	there is no enforcement of motion continuity, other than a heuristic for consecutively observed segments
+R48	supports Arg1:T72 Arg2:T69	
+R49	supports Arg1:T67 Arg2:T72	
+T73	own_claim 7714 7796	Our approach generates target motion segments that are amenable to simple blending
+T74	background_claim 7807 7968	their method assumes that the input motion can be presegmented analogously to the examples, which is achieved in their work by observing sign changes in velocity
+R50	supports Arg1:T74 Arg2:T69	
+R51	supports Arg1:T67 Arg2:T74	
+T75	background_claim 7970 8063	One could extend this approach for rhythmic motions using the automated approach of Kim et al
+T76	data 8068 8073	KPS03
+R52	supports Arg1:T76 Arg2:T75	
+T77	background_claim 8077 8096	In the general case
+T78	background_claim 8107 8167	a control motion may not admit any intuitive presegmentation
+R53	parts_of_same Arg1:T78 Arg2:T77	
+T79	own_claim 8258 8296	Our method requires no presegmentation
+T80	own_claim 8308 8382	it produces a semantically guided segmentation as part of the optimization
+T81	own_claim 8384 8507	In this context, our algorithm could be viewed as an extension of speech recognition methods that use connected word models
+T82	data 8511 8515	RJ93
+R54	supports Arg1:T82 Arg2:T81	
+T83	background_claim 8519 8659	Arikan et al. describe an example-based approach to synthesizing human motion that satisfies sparse temporal annotation and pose constraints
+T84	data 8663 8668	AFO03
+R55	supports Arg1:T84 Arg2:T83	
+T85	background_claim 8681 8719	their work differs from ours in intent
+R56	supports Arg1:T84 Arg2:T85	
+T86	background_claim 8721 8847	they also employ a dynamic programming algorithm that optimizes a weighted combination of interpretation and motion continuity
+R57	supports Arg1:T84 Arg2:T86	
+R58	contradicts Arg1:T86 Arg2:T85	
+T87	own_claim 8849 8905	Our formulation differs in two subtle but important ways
+T88	own_claim 8914 8973	our notion of continuity is dependent on the interpretation
+R59	supports Arg1:T88 Arg2:T87	
+T89	background_claim 9126 9193	their objective function is defined over frames instead of segments
+R60	supports Arg1:T89 Arg2:T87	
+R61	supports Arg1:T84 Arg2:T89	
+T90	background_claim 9208 9367	they must use coarse-to-fine iterations of their dynamic programming algorithm to gain the temporal consistency that is intrinsic to our segment-based approach
+R62	supports Arg1:T89 Arg2:T90	
+T91	background_claim 9370 9462	Other related methods based on motion capture clip rearrangement include work by Kovar et al
+T92	data 9467 9472	KGP02
+R63	supports Arg1:T92 Arg2:T91	
+T93	background_claim 9476 9485	Lee et al
+R64	parts_of_same Arg1:T93 Arg2:T91	
+T94	data 9489 9497	LCR ∗ 02
+R65	supports Arg1:T94 Arg2:T93	
+T95	background_claim 9501 9523	and Arikan and Forsyth
+R66	parts_of_same Arg1:T95 Arg2:T93	
+T96	data 9527 9531	AF02
+R67	supports Arg1:T96 Arg2:T95	
+T97	background_claim 9544 9591	these do not aim to discover control by example
+T98	own_claim 9593 9649	they have nevertheless provided inspiration for our work
+R68	contradicts Arg1:T98 Arg2:T97	
+R69	supports Arg1:T96 Arg2:T97	
+R70	supports Arg1:T94 Arg2:T97	
+R71	supports Arg1:T92 Arg2:T97	
+T99	background_claim 9685 9787	these methods do not use continuous control from human performance and focus on sparser specifications
+R72	supports Arg1:T96 Arg2:T99	
+R73	supports Arg1:T94 Arg2:T99	
+R74	supports Arg1:T92 Arg2:T99	
+T100	own_claim 9829 9893	Our method is not designed to handle such control specifications
+T101	own_claim 9908 9989	should be viewed as an alternative to these approaches, rather than a replacement
+R75	supports Arg1:T100 Arg2:T101	
+T102	background_claim 9991 10079	Many motion rearrangement techniques are derived from previous work in texture synthesis
+T103	own_claim 10087 10149	we consider our work most similar in intent to image analogies
+T104	data 10152 10160	HJO ∗ 01
+R76	supports Arg1:T104 Arg2:T103	
+T105	background_claim 10164 10281	This method, given an unfiltered and filtered version of the same image, applies an analogous filter to a novel image
+R77	supports Arg1:T104 Arg2:T105	
+T106	own_claim 10283 10409	Our method, given a set of synchronized control and target motions, applies an analogous mapping to a new input control motion
+T107	background_claim 10411 10544	Image analogies was shown to be an elegant method with applications such as texture transfer, textureby-numbers, and super-resolution
+T108	own_claim 10620 10714	Our dance evaluation suggests an alternative view of our method as one of interaction modeling
+T109	background_claim 10716 10862	In this domain, tech- niques have been developed that specify the mappings between character motions with explicit models of character interaction
+T110	background_claim 10864 10973	Adaptive autonomous characters have used rules to exhibit complex flocking, herding, and locomotory behaviors
+T111	data 10976 10981	Rey87
+R78	supports Arg1:T111 Arg2:T110	
+T112	data 10983 10987	TT94
+R79	supports Arg1:T112 Arg2:T110	
+T113	background_claim 10992 11071	Approaches to explicit interaction modeling have included layered architectures
+T114	data 11074 11078	BG95
+R80	supports Arg1:T114 Arg2:T113	
+T115	background_claim 11081 11104	procedural descriptions
+R81	parts_of_same Arg1:T115 Arg2:T113	
+T116	data 11107 11111	PG96
+R82	supports Arg1:T116 Arg2:T115	
+T117	background_claim 11114 11139	and even cognitive models
+R83	parts_of_same Arg1:T117 Arg2:T115	
+T118	data 11142 11147	FTT99
+R84	supports Arg1:T118 Arg2:T117	
+T119	own_claim 11150 11319	In this context, our work might be viewed as a competency module that enhances the skills of characters to enable their participation in complex interactive performances
+T120	own_claim 11712 11760	Each frame of motion is encoded by a point cloud
+T121	data 11766 11778	human motion
+T122	own_claim 11780 11811	we use skeletal joint positions
+R85	supports Arg1:T121 Arg2:T122	
+T123	background_claim 11819 11923	this representation provides a more intuitive space than joint angle representations for comparing poses
+R86	supports Arg1:T123 Arg2:T122	
+T124	data 11926 11931	KGP02
+R87	supports Arg1:T124 Arg2:T123	
+T125	own_claim 11947 12051	point cloud representations allow for generalization to control motions without skeletal representations
+T126	own_claim 12358 12425	they are a basic unit of interaction for the specific type of dance
+T127	own_claim 12292 12350	Our dance motions are segmented into two-beat rhythm units
+R88	supports Arg1:T126 Arg2:T127	
+T128	data 12451 12459	Figure 1
+R89	supports Arg1:T128 Arg2:T126	
+T129	own_claim 12539 12581	In both cases, we use manual transcription
+T130	own_claim 12589 12636	each example motion must only be segmented once
+R90	supports Arg1:T130 Arg2:T129	
+T131	own_claim 12462 12478	Our walk motions
+T132	own_claim 12499 12537	are segmented according to gait cycles
+R91	parts_of_same Arg1:T132 Arg2:T131	
+T133	background_claim 12638 12676	Methods exist to automate this process
+T134	background_claim 12689 12747	Dance motion could be segmented using motion beat analysis
+T135	data 12750 12755	KPS03
+R92	supports Arg1:T135 Arg2:T134	
+R93	supports Arg1:T134 Arg2:T133	
+T136	background_claim 12758 12814	More general motions could be segmented using annotation
+T137	data 12817 12822	AFO03
+R94	supports Arg1:T137 Arg2:T136	
+T138	background_claim 12824 12843	or curve clustering
+R95	parts_of_same Arg1:T138 Arg2:T136	
+T139	data 12845 12851	CGMS03
+R96	supports Arg1:T139 Arg2:T138	
+R97	supports Arg1:T136 Arg2:T133	
+T140	own_claim 13012 13101	This is achieved by selecting a sequence of appropriate target segments from the database
+T141	own_claim 13103 13244	To make the database motions more flexible, we allow each selected target segment to be spatially transformed and uniformly stretched in time
+T142	own_claim 13246 13343	The proper selection of segments can be achieved using an efficient dynamic programming algorithm
+T143	own_claim 14086 14158	M(x, a s T ) is a rigid transformation that optimally aligns x and a s T
+T144	own_claim 13780 13879	We quantify the similarity of the input motion x and a control segment a s with a distance function
+T145	own_claim 13912 13939	D(x, T s ) ≡ − s T )a s T 2
+R98	parts_of_same Arg1:T145 Arg2:T144	
+T146	own_claim 13973 13983	a x M(x, a
+R99	parts_of_same Arg1:T146 Arg2:T145	
+T147	own_claim 14192 14193	2
+T148	own_claim 14234 14269	M(x, a s T ) ≡ arg min M x − Ma s T
+R100	parts_of_same Arg1:T147 Arg2:T143	
+R101	parts_of_same Arg1:T148 Arg2:T147	
+T149	background_claim 14289 14397	This optimization is the solution to the Procrustes problem, which has several efficient numerical solutions
+T150	data 14399 14404	ELF97
+R102	supports Arg1:T150 Arg2:T149	
+T151	own_claim 14413 14503	our example dance and walk motions only differ by ground translation and vertical rotation
+T152	own_claim 14505 14551	our implementation uses a closed form solution
+R103	supports Arg1:T151 Arg2:T152	
+T153	data 14554 14559	KGP02
+R104	supports Arg1:T153 Arg2:T152	
+T154	own_claim 14562 14672	To compute the optimal interpretation, we determine the segment a s ∗ that is most similar to the input motion
+T155	own_claim 14705 14733	s ∗ = arg min s D(x, a T s )
+R105	parts_of_same Arg1:T155 Arg2:T154	
+T156	own_claim 14752 14901	The index s ∗ also identifies, by construction of the database, an appropriate target b s ∗ for both the control segment a s ∗ and the input motion x
+T157	own_claim 14903 15045	The stretch T completes the specification of the optimal interpretation, M(x, a T s ∗ )a T s ∗ , and the optimal target, M(x, a T s ∗ )b T s ∗
+T158	data 15071 15079	Figure 2
+R106	supports Arg1:T158 Arg2:T157	
+T159	own_claim 15082 15168	The optimal target may not precisely satisfy desired physical or kinematic constraints
+T160	own_claim 15179 15302	given a descriptive database, it can provide a good approximation which can be adjusted appropriately during postprocessing
+R107	contradicts Arg1:T160 Arg2:T159	
+T161	own_claim 15304 15389	In practice, we limit the allowed amount of uniform time stretch by a constant factor
+T162	own_claim 15396 15469	the distance metric does not distinguish between motions of varying speed
+R108	supports Arg1:T162 Arg2:T161	
+T163	own_claim 15471 15510	A dancer that pushes his partner slowly
+T164	own_claim 15526 15585	will elicit quite a different response if he pushes quickly
+R109	parts_of_same Arg1:T164 Arg2:T163	
+R110	supports Arg1:T163 Arg2:T161	
+T165	own_claim 15587 15702	Limiting the amount of stretch also has the practical benefit of reducing the search space of our general algorithm
+T166	own_claim 16138 16232	we must handle the case where the optimal control and target consist of a sequence of segments
+T167	own_claim 16234 16425	We can specify this sequence analogously to the single segment case by the number of segments L ∗ , the segment indices s ∗ 1 , . . . , s ∗ L , and the segment durations d 1 ∗ , . . . , d L ∗
+T168	own_claim 16459 16549	the distance metric D evaluates the interpretation quality of each segment in the sequence
+T169	own_claim 16560 16656	the quality of the interpretation alone does not account for the continuity of the target motion
+R111	contradicts Arg1:T169 Arg2:T168	
+T170	data 16670 16678	Figure 3
+R112	supports Arg1:T170 Arg2:T169	
+T171	own_claim 16681 16783	To offset this problem, we introduce a function which measures the continuity between segments v and w
+T172	own_claim 16816 16839	C(v, w) = ω(v) − α(w) 2
+R113	parts_of_same Arg1:T172 Arg2:T171	
+T173	own_claim 16995 17060	One could also use more frames to measure higher-order continuity
+T174	own_claim 17151 17265	we define a scoring function that accounts for both the quality of interpretation and the continuity of the target
+T175	data 17079 17148	a sequence specification L, s 1 , . . . , s L , and d 1 , . . . , d L
+R114	supports Arg1:T175 Arg2:T174	
+T176	own_claim 17298 17369	L L−1 ∑ D(x i , a s d i i ) + k ∑ C M i b s d i i , M i+1 b s d i+1 i+1
+R115	parts_of_same Arg1:T176 Arg2:T174	
+T177	own_claim 17372 17379	i=1 i=1
+R116	parts_of_same Arg1:T177 Arg2:T176	
+T178	own_claim 17652 17707	The optimal substructure property of the score function
+T179	own_claim 17749 17822	can be used to find a globally optimal solution using dynamic programming
+R117	parts_of_same Arg1:T179 Arg2:T178	
+T180	own_claim 17855 17908	Q s,d [t] = min r,c Q r,c [t − d] + D(x d,t , a s d )
+T181	own_claim 17949 17989	a + kC(M r,c,t−d b r c , M s,d,t b d s )
+R118	parts_of_same Arg1:T181 Arg2:T180	
+T182	own_claim 18030 18059	Q s,d [d] = D(x d,d , a s d )
+R119	supports Arg1:T180 Arg2:T179	
+R120	supports Arg1:T182 Arg2:T179	
+T183	own_claim 18406 18542	By minimizing Q s,d [T ] over all s and d, we can compute the score of the optimal sequence specification and recover it by backtracking
+T184	own_claim 18670 18756	To solve the recurrence efficiently, values of Q are stored in a two-dimensional array
+T185	data 19313 19365	we are currently processing the array cell Q r,c [t]
+T186	own_claim 19367 19439	For each legal combination of s and d, the candidate value z is computed
+T187	own_claim 19472 19546	z = Q r,c [t] + D(x d,t+d , a s d ) + kC(M r,c,t b r c , M s,d,t+d b d s )
+R121	parts_of_same Arg1:T187 Arg2:T186	
+R122	supports Arg1:T185 Arg2:T186	
+T188	data 19568 19627	the value in the array cell Q s,d [t + d] is greater than z
+T189	own_claim 19629 19685	we set it to z and store a backpointer to cell Q r,c [t]
+R123	supports Arg1:T188 Arg2:T189	
+T190	own_claim 19687 19741	By continuing this process, the entire array is filled
+T191	own_claim 19749 19816	the indexing of each cell encodes a segment identifier and duration
+T192	own_claim 19818 19925	the optimal sequence specification can be recovered by following backpointers from the best score at time T
+R124	supports Arg1:T191 Arg2:T192	
+T193	own_claim 20099 20149	processing an individual cell is an O(P) operation
+T194	own_claim 20151 20217	the total asymptotic time complexity of the algorithm is O(P 2 T )
+R125	supports Arg1:T193 Arg2:T194	
+T195	own_claim 20219 20287	To increase its efficiency, we apply several heuristic optimizations
+T196	own_claim 20365 20430	we only process cells with scores less than min s,d Q s,d [t] + w
+T197	own_claim 20579 20654	cells with worse scores are unlikely to be on the optimal backtracking path
+T198	own_claim 20665 20694	can be pruned from the search
+R126	supports Arg1:T197 Arg2:T198	
+R127	supports Arg1:T196 Arg2:T195	
+T199	own_claim 20831 20911	the time complexity of the algorithm scales quadratically with the database size
+T200	data 20945 20977	the number of instances is large
+T201	own_claim 20913 20939	this leads to inefficiency
+R128	supports Arg1:T200 Arg2:T201	
+R129	supports Arg1:T199 Arg2:T201	
+T202	own_claim 20979 21070	To resolve this issue, redundant instances are eliminated using complete-linkage clustering
+T203	data 21073 21078	DHS00
+R130	supports Arg1:T203 Arg2:T202	
+T204	own_claim 21149 21212	The advantage of complete-linkage clustering over other methods
+T205	own_claim 21231 21334	is that it explicitly limits the distance of any two instances in a cluster by a user-defined threshold
+R131	parts_of_same Arg1:T205 Arg2:T204	
+T206	own_claim 21493 21559	An additional benefit of this process is that it helps beam search
+R132	supports Arg1:T202 Arg2:T195	
+T207	own_claim 21567 21613	clustering reduces ambiguity in interpretation
+T208	own_claim 21615 21664	a larger proportion of search paths can be pruned
+R133	supports Arg1:T207 Arg2:T208	
+R134	supports Arg1:T208 Arg2:T206	
+T209	background_claim 21680 21745	High sampling rates are common for systems such as motion capture
+T210	own_claim 21751 21823	they are generally unnecessary for interpreting the input control motion
+R135	contradicts Arg1:T210 Arg2:T209	
+T211	own_claim 21825 21934	By downsampling motions by a user-chosen constant, we can effectively reduce the length of the input sequence
+T212	own_claim 21945 22026	the resulting optimal sequence specification will also be at the lower frame rate
+R136	contradicts Arg1:T212 Arg2:T211	
+T213	own_claim 22032 22108	it is generally desirable to have it at the frame rate of the original input
+R137	contradicts Arg1:T213 Arg2:T211	
+R138	supports Arg1:T211 Arg2:T195	
+T214	background_claim 22110 22183	Simple upsampling often introduces slight but undesirable temporal errors
+T215	own_claim 22185 22319	To remedy this, we run a highly constrained version of our dynamic programming algorithm that only adjusts the durations appropriately
+T216	own_claim 22321 22405	Constraints can be easily encoded by making appropriate cells in the Q array illegal
+T217	own_claim 22421 22548	we can force the result to contain a certain target segment b s at some time t by disallowing any processing on cells Q r,c [u]
+R139	supports Arg1:T217 Arg2:T216	
+T218	own_claim 22783 22906	the output of our optimization is a specification of an appropriate target motion in terms of target segments in a database
+T219	own_claim 22922 23026	it provides a sequence of target segment indices s ∗ 1 , . . . , s L and durations d 1 ∗ , . . . , d L ∗
+R140	supports Arg1:T219 Arg2:T218	
+T220	own_claim 23029 23183	The corresponding target segments can be copied from the database, stretched, transformed by the induced matrices M ∗ 1 , . . . , M ∗ L , and concatenated
+T221	own_claim 23185 23256	The result is a moving point cloud that approximates the desired result
+T222	own_claim 23269 23403	the same selections, stretches, and transformations can just as easily be applied to the source motions that generated the point cloud
+T223	own_claim 23405 23549	From the perspective of motion synthesis, the main problem with our approach is that the raw result will generally contain some kinematic errors
+T224	own_claim 23551 23637	In our dance example, footplant and handhold constraints are never explicitly enforced
+T225	own_claim 23639 23716	For such constraints, existing methods can be applied to postprocess the data
+T226	data 23719 23724	KSG02
+R141	supports Arg1:T226 Arg2:T225	
+T227	own_claim 23731 23801	such methods often require some amount of manual constraint annotation
+R142	contradicts Arg1:T227 Arg2:T225	
+R143	supports Arg1:T226 Arg2:T227	
+T228	own_claim 23854 23893	we can propagate constraints by example
+T229	own_claim 23911 24011	each example instance can be annotated with constraints that can be transferred to the target motion
+R144	semantically_same Arg1:T229 Arg2:T228	
+T230	data 24087 24095	Figure 4
+R145	supports Arg1:T230 Arg2:T229	
+T231	own_claim 24198 24284	our goal is to provide motion that is amenable to postprocessing with these approaches
+T232	own_claim 24356 24446	it can generate realistic and compelling motion, even with extremely simple postprocessing
+T233	own_claim 25390 25464	do not show the full ability of our technique to discover complex mappings
+T234	own_claim 25367 25379	Walk motions
+R146	parts_of_same Arg1:T233 Arg2:T234	
+T235	own_claim 25501 25556	we apply our method to a partner dance called Lindy Hop
+T236	own_claim 25296 25365	we animate a realistic walking human from time-sampled mouse movement
+R147	contradicts Arg1:T234 Arg2:T236	
+R148	supports Arg1:T233 Arg2:T235	
+T238	own_claim 25745 25808	standard commercial tools were used to estimate joint positions
+T239	data 25811 25816	Vic03
+R149	supports Arg1:T239 Arg2:T238	
+T240	own_claim 25937 26033	these endeffectors were sufficient to evaluate interpretation and continuity in both evaluations
+T241	own_claim 25819 25918	For the point cloud representation of body motion, we used only the positions of the hands and feet
+R150	supports Arg1:T240 Arg2:T241	
+T237	own_claim 26659 26721	We acquired 2 minutes of motion captured walk footage at 30 Hz
+T242	own_claim 26824 26981	We artificially constructed a synchronized example control motion by projecting the positions of the hip joints onto the floor and normalizing their distance
+T243	own_claim 27737 27797	larger values of the continuity constant were more effective
+T244	data 27803 27814	short walks
+T245	own_claim 27816 27857	the generated motion was highly realistic
+R151	supports Arg1:T244 Arg2:T245	
+T246	own_claim 27859 27943	The frequency of the generated gait cycle nearly matched the frequency of the source
+T247	own_claim 27949 27963	phase differed
+R152	contradicts Arg1:T247 Arg2:T246	
+T248	own_claim 27989 28048	the generated motion might choose to start on the left foot
+T249	own_claim 28058 28109	the original source motion might start on the right
+T250	own_claim 28111 28128	This was expected
+T251	own_claim 28133 28189	the control signals did not encode any phase information
+R154	supports Arg1:T251 Arg2:T250	
+T252	data 28195 28207	longer walks
+T253	own_claim 28253 28325	the generated motions often kept in nearly perfect phase with the source
+R153	supports Arg1:T252 Arg2:T253	
+T254	own_claim 28356 28428	the subject preferred to make sharp turns with the same footwork pattern
+T255	own_claim 28430 28556	These served as synchronizing signals which were propagated throughout the generated gait cycle due to the global optimization
+R155	supports Arg1:T254 Arg2:T255	
+R156	supports Arg1:T255 Arg2:T253	
+T256	own_claim 28821 28928	With the beam search optimization on, we were able to reduce the clock time of the algorithm to 1.2 seconds
+T257	own_claim 28986 29026	while retaining visually perfect results
+R157	parts_of_same Arg1:T257 Arg2:T256	
+T258	own_claim 29028 29085	The upsampling and postprocessing times remained the same
+T259	own_claim 29087 29230	We ran the algorithm on shorter and longer inputs and experimentally confirmed the asymptotic linear dependency of running time on input length
+T260	data 29245 29256	Section 4.4
+R158	supports Arg1:T260 Arg2:T259	
+T261	own_claim 29258 29356	In our second evaluation, we built an interface that allowed users to draw paths using mouse input
+T262	data 29370 29378	Figure 5
+R159	supports Arg1:T262 Arg2:T261	
+T263	own_claim 29495 29598	For a wide variety of user inputs, our method was capable of generating highly realistic walking motion
+T264	own_claim 29606 29642	the timing of the path was important
+T265	own_claim 29658 29756	users required minor training to understand the concept of performing a path instead of drawing it
+R160	supports Arg1:T264 Arg2:T265	
+T266	own_claim 29758 29779	It was often tempting
+T267	own_claim 29795 29844	to rapidly move the mouse to draw a straight line
+R161	parts_of_same Arg1:T267 Arg2:T266	
+R162	supports Arg1:T266 Arg2:T265	
+T268	own_claim 29935 30079	To resolve these issues, our interface allows a user to overlay the playback of an existing motion on the drawing canvas to get a sense of speed
+T269	own_claim 30094 30163	it provides options to smooth the trajectory spatially and temporally
+T270	own_claim 30165 30217	The speed of the algorithm allows for rapid feedback
+T271	own_claim 30430 30544	Our choice of partner dance as a demonstration was primarily motivated by the complexity of its style and mappings
+T272	own_claim 30659 30743	Generating partner dance motion would be a difficult trial for both physical methods
+T273	own_claim 30788 30811	and statistical methods
+R163	parts_of_same Arg1:T273 Arg2:T272	
+T274	own_claim 30751 30786	would yield underdetermined systems
+R164	supports Arg1:T274 Arg2:T272	
+T275	own_claim 30819 30900	would typically require a very large database in place of our small segmented one
+R165	supports Arg1:T275 Arg2:T273	
+T276	own_claim 30902 30999	Swing dance also allows for a more principled evaluation of our results than most types of motion
+T277	own_claim 31007 31165	the performance of the algorithm at generating valid mappings can be evaluated independently of style considerations or subjective judgments of motion quality
+R166	supports Arg1:T277 Arg2:T276	
+T278	background_claim 31585 31666	Basic Lindy Hop motions switch between these four stances by means of transitions
+T279	own_claim 31267 31314	A dance couple moves between four basic stances
+T280	data 31316 31324	open (◦)
+R167	supports Arg1:T280 Arg2:T279	
+T281	data 31326 31336	closed (•)
+R168	supports Arg1:T281 Arg2:T279	
+T282	data 31338 31356	open crosshand (◦)
+R169	supports Arg1:T282 Arg2:T279	
+T283	data 31362 31382	closed crosshand (•)
+R170	supports Arg1:T283 Arg2:T279	
+T284	data 31668 31686	an inside turn ( )
+T285	data 31732 31751	an outside turn ( )
+R171	supports Arg1:T284 Arg2:T278	
+R172	supports Arg1:T285 Arg2:T278	
+T286	data 31803 31820	a simple step (→)
+R173	supports Arg1:T286 Arg2:T278	
+T287	own_claim 31822 31983	At the end of each transition, the dancers may also change their handhold to instantly transition between crosshand states (◦, •) and non-crosshand states (◦, •)
+T288	own_claim 32095 32196	Each of these transitions occurs over four beats of music, which are assembled from two-beat segments
+T289	background_claim 32396 32452	Skilled Lindy Hop dancers use a greater variety of moves
+T290	own_claim 32607 32713	we constructed a smaller database with seven basic 8-beat dance patterns that every Lindy Hop dancer knows
+T291	own_claim 32550 32596	We did not include the entire range of motions
+R174	contradicts Arg1:T291 Arg2:T289	
+T292	data 32728 32751	first column of Table 1
+R175	supports Arg1:T292 Arg2:T290	
+T293	own_claim 33262 33366	Their improvisations led to dances which included thirteen new 8-beat patterns not found in the database
+T294	data 33381 33403	last column of Table 1
+R176	supports Arg1:T294 Arg2:T293	
+T295	own_claim 33406 33457	as well as some repeats of patterns in the database
+R177	parts_of_same Arg1:T295 Arg2:T293	
+T296	own_claim 33678 33763	Visually, the results exhibited the fluidity, grace, and style of the original dancer
+T297	own_claim 33765 33815	Some footskate and handhold violations are visible
+T298	own_claim 33824 33875	we wanted to show the output in its almost raw form
+R178	supports Arg1:T298 Arg2:T297	
+T299	own_claim 33927 34056	In a direct comparison with the actual follower motions, we found that the synthetic follower matched very well in closed stances
+T300	own_claim 34058 34134	In open stances, the follower was much freer to include stylistic variations
+T301	own_claim 34139 34208	the generated motions often differed visually from the actual motions
+R179	supports Arg1:T300 Arg2:T301	
+T302	own_claim 34224 34300	the synthesized dancers almost always kept in perfect rhythm with the leader
+T303	own_claim 34302 34378	Our algorithm ably recreated the semantics of the leader to follower mapping
+T304	data 34410 34474	the algorithm encountered a pattern that was not in the database
+T305	own_claim 34520 34612	it was able to correctly reconstruct the novel sequence by rearranging the two-beat segments
+R180	supports Arg1:T304 Arg2:T305	
+T306	own_claim 34645 34751	in our three test dances, the synthetic dancer matched the pattern of the actual dancer in all but 5 cases
+T307	own_claim 34614 34632	Of the 91 patterns
+R181	parts_of_same Arg1:T306 Arg2:T307	
+T308	data 34778 34786	Figure 6
+R182	supports Arg1:T308 Arg2:T306	
+T309	data 34793 34872	the algorithm did differ from the real dancer in the composition of the pattern
+T310	own_claim 34874 34938	the leader and follower still executed a valid Lindy Hop pattern
+R183	supports Arg1:T309 Arg2:T310	
+T311	own_claim 34940 35050	In these misinterpreted instances, the leader’s motion is quite similar across two different follower patterns
+T312	own_claim 35052 35121	To disambiguate these, we might add information to the control signal
+T313	own_claim 35152 35192	or we might accept these rare mismatches
+T314	data 35131 35150	forceplate readings
+R184	supports Arg1:T314 Arg2:T312	
+R185	parts_of_same Arg1:T313 Arg2:T312	
+T315	own_claim 35201 35209	they are
+T316	own_claim 35218 35232	valid mappings
+R186	parts_of_same Arg1:T316 Arg2:T315	
+R187	supports Arg1:T315 Arg2:T313	
+T317	own_claim 35247 35310	all 5 mismatched patterns differed by a single two-beat segment
+T318	own_claim 35316 35454	of 91 × 4 = 364 two-beat segments in the test dances, the algorithm misinterpreted the signal in 5 cases for an error rate of less than 2%
+R188	supports Arg1:T317 Arg2:T318	
+T319	own_claim 35953 36083	we were able to drive the runtime of the dynamic programming to 10 seconds while maintaining excellent visual and semantic results
+T320	data 35909 35951	beam search enabled with modest parameters
+R189	supports Arg1:T320 Arg2:T319	
+T321	own_claim 36135 36191	clock times scaled linearly with the length of the input
+T322	own_claim 38729 38809	We have presented a method for example-based performance control of human motion
+T323	own_claim 38811 39056	Our dynamic programming algorithm uses segments of motion along with an objective function that accounts for both the quality of control interpretation and the continuity of the target motion to generate visually and semantically correct motions
+T324	own_claim 39218 39360	The algorithm generated semantically correct partner motion even from test sequences of leader motions that did not appear in the training set
+T325	own_claim 39362 39505	Our dynamic programming algorithm performs a global optimization, which precludes the local decisions that are required for online applications
+T326	own_claim 39555 39632	it can compute results significantly faster than input motion can be recorded
+T327	own_claim 39639 39706	making it suitable for rapid-feedback motion authoring applications
+R190	supports Arg1:T326 Arg2:T327	
+R191	contradicts Arg1:T327 Arg2:T325	
+T328	own_claim 39724 39816	segmental approaches like ours hold great promise for real-time performance-driven animation
+T329	own_claim 39871 40010	To preserve spatial dependencies in mappings, we apply rigid transformations to optimally align control segments with input control motions
+T330	own_claim 40012 40057	Target segments inherit these transformations
+T331	own_claim 40059 40185	This approach is effective for our applications or whenever the control signal indicates appropriate spatial and temporal cues
+T332	own_claim 40187 40298	It is also possible to select other transformations for applications outside the domain of human motion control
+T333	own_claim 40314 40456	allowing arbitrary homogeneous transformations in two dimensions might form an alternative segmental solution to the curve analogies prob- lem
+R192	supports Arg1:T333 Arg2:T332	
+T334	data 40458 40464	HOCS02
+R193	supports Arg1:T334 Arg2:T333	
+T335	own_claim 40467 40601	Eliminating transformations entirely might also be appropriate for applications such as synthesis of facial motion from speech signals
+R194	supports Arg1:T335 Arg2:T332	
+T336	data 40604 40609	Bra99
+R195	supports Arg1:T336 Arg2:T335	
+T337	own_claim 40631 40693	our segment similarity metric is effective for our experiments
+T338	own_claim 40733 40800	other metrics may be more appropriate for different types of motion
+T339	own_claim 40818 40865	it is a promising direction for future research
+R196	contradicts Arg1:T338 Arg2:T337	
+R197	supports Arg1:T338 Arg2:T339	
+T340	own_claim 41018 41036	The entire process
+T341	own_claim 41047 41108	relies on the availability of semantically segmented examples
+R198	parts_of_same Arg1:T341 Arg2:T340	
+T342	own_claim 41110 41269	For our evaluations, we were able to perform this segmentation manually by tapping a key in response to the rhythm of music or the gait pattern of a walk cycle
+T343	own_claim 41277 41361	specific methods exist to automate this segmentation for the cases of dance and walk
+T344	own_claim 41363 41397	a more general method is desirable
+R199	contradicts Arg1:T344 Arg2:T343	
+T345	own_claim 41409 41542	we could begin with a few manually segmented examples and grow the set of example instances by iterative application of our algorithm
+T346	own_claim 41544 41652	This approach would be similar in spirit to the semiautomatic SVM-based annotation approach of Arikan et al.
+T347	data 41655 41660	AFO03
+R200	supports Arg1:T347 Arg2:T346	
+T348	own_claim 41722 41785	our method could be used for interpretation rather than control
+T349	own_claim 41838 41928	it is possible to annotate any new control motion given a set of labeled example instances
+T350	own_claim 41930 42004	This could be used to transcribe the motion into a symbolic representation
+T351	own_claim 42042 42064	or even Laban notation
+R201	parts_of_same Arg1:T351 Arg2:T350	
+T352	data 42066 42071	Hut73
+R202	supports Arg1:T352 Arg2:T351	
+T353	own_claim 42074 42177	Such a representation could then be analyzed or summarized using natural language processing techniques

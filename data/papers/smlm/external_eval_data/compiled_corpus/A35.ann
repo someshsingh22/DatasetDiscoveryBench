@@ -1,0 +1,413 @@
+T1	background_claim 1567 1713	The correct choice of the simulation method and its implementation is a very important issue in the design of an efficient cloth simulation system
+T2	background_claim 1717 1779	Among the available methods, there are finite elements methods
+T3	data 1783 1789	EIS 96
+R1	supports Arg1:T3 Arg2:T2	
+T4	background_claim 1793 1812	continuum mechanics
+R2	parts_of_same Arg1:T4 Arg2:T2	
+T5	data 1816 1822	TER 87
+R3	supports Arg1:T5 Arg2:T4	
+T6	background_claim 1825 1844	or particle systems
+R4	parts_of_same Arg1:T6 Arg2:T4	
+T7	data 1848 1854	BRE 94
+R5	supports Arg1:T7 Arg2:T6	
+T8	background_claim 1876 2003	the latter, which has shown to bring the best compromise between accuracy and speed for highly deformable objects such as cloth
+T9	data 2007 2013	VOL 95
+T10	data 2018 2024	VOL 97
+R6	supports Arg1:T9 Arg2:T8	
+R7	supports Arg1:T10 Arg2:T8	
+T11	background_claim 2028 2106	A particle system represents the mechanical system as a set of punctual masses
+T12	background_claim 2108 2192	The cloth surface shape is represented by the geometry between neighboring particles
+T13	background_claim 2194 2387	The mechanical behavior is represented as interaction forces between the particles, which depend on the relative position and speed of the particles, measuring deformation and deformation speed
+T14	background_claim 2389 2488	Various models exist for this representation, which rank from the simple spring-mass representation
+T15	background_claim 2578 2614	to accurate surface or volume models
+R8	parts_of_same Arg1:T15 Arg2:T14	
+T16	background_claim 2687 2811	The laws ruling these interactions also rank from linear to highly nonlinear involving discontinuities and hysteretic curves
+T17	background_claim 2813 3007	The evolution of the system is computed numerically from these equations that form a large and sparse ordinary differential equation system, which, through adequate modeling, is also first-order
+T18	background_claim 3009 3226	This numerical system has to be integrated numerically, for finally obtaining the evolution of the mechanical system along time, usually as a sequence of successive positions of the object along regular time intervals
+T19	background_claim 3229 3262	Various numerical methods related
+T20	background_claim 3280 3380	to integration of numerical ordinary first-order differential systems are available for this purpose
+R9	parts_of_same Arg1:T20 Arg2:T19	
+T21	data 3384 3390	PRE 92
+R10	supports Arg1:T21 Arg2:T20	
+T22	background_claim 3436 3519	the implementation of these methods, which has already been carried out extensively
+T23	data 3526 3532	EBE 96
+R11	supports Arg1:T23 Arg2:T22	
+T24	data 3537 3543	VOL 97
+R12	supports Arg1:T24 Arg2:T22	
+T25	data 3548 3554	BAR 98
+R13	supports Arg1:T25 Arg2:T22	
+T26	data 3559 3565	VOL 00
+R14	supports Arg1:T26 Arg2:T22	
+T27	background_claim 3569 3594	and with some adaptations
+R15	parts_of_same Arg1:T27 Arg2:T22	
+T28	data 3601 3607	DES 99
+R16	supports Arg1:T28 Arg2:T27	
+T29	data 3612 3618	EBE 00
+R17	supports Arg1:T29 Arg2:T27	
+T30	data 3623 3629	KAN 00
+R18	supports Arg1:T30 Arg2:T27	
+T31	own_claim 3633 3756	It rather intends to evaluate quantitatively the performance of the main integration methods in terms of speed and accuracy
+T32	own_claim 3758 4015	Using a “typical” cloth object made of a common fabric material, we compare the computation speed and accuracy of each integration methods depending several simulation contexts, giving the reader an overview of the performance he can expect from each method
+T33	background_claim 4077 4220	The choice of the adequate integration method has to be carried out using various considerations related to the kind of problem to be simulated
+T34	background_claim 4263 4368	The size of the problem, mostly related to the number of particles used to describe the mechanical system
+R19	supports Arg1:T34 Arg2:T33	
+T35	background_claim 4372 4537	The desired accuracy, which reflects the allowable numerical tolerance between the computed solution and the theoretical evolution expected from the mechanical model
+R20	supports Arg1:T35 Arg2:T33	
+T36	background_claim 4541 4810	The simulation context, which can either be an extensive computation of the motion along time requiring accurate evaluation of all the dynamical factors, or a simple relaxation process where the simulation has to converge to the static rest state as quickly as possible
+R21	supports Arg1:T36 Arg2:T33	
+T37	background_claim 4814 5108	The stiffness of the problem, mainly related to the rigidity of the particle interactions and the size of the chosen time step, which translated into the “difficulty” the numerical method has to compute the evolution numerically, and which practically causes inaccuracy and instability problems
+R22	supports Arg1:T37 Arg2:T33	
+T38	background_claim 5256 5291	the methods requires to compute one
+T39	background_claim 5112 5192	The time an iteration takes to compute, and the number of mechanical derivations
+R23	parts_of_same Arg1:T38 Arg2:T39	
+R24	supports Arg1:T39 Arg2:T33	
+T40	background_claim 5293 5434	The literature is abundant about various integration methods which aim to solve linear systems of first-order ordinary differential equations
+T41	data 5438 5444	PRE 92
+R25	supports Arg1:T41 Arg2:T40	
+T42	background_claim 5448 5718	One can easily turn the second-order systems relating dynamical mechanical systems into first-order systems by constructing a state vector defined by the concatenation of position and speed states of the system, such as to fit the requirements of any of these algorithms
+T43	background_claim 5720 5789	Among all the available methods, we can identify several main classes
+T44	background_claim 5793 5938	Explicit methods, which compute the state of the next time step out of a direct extrapolation of the previous states using derivative evaluations
+R26	supports Arg1:T44 Arg2:T43	
+T45	background_claim 5942 6091	Implicit methods, which deduce the state of the next time step from an equation system expressing some “reversibility” from the extrapolated solution
+R27	supports Arg1:T45 Arg2:T43	
+T46	background_claim 6095 6257	Low-order methods, which use a reduced number of evaluations for computing simple low-order extrapolations, leading to quickly computed, but inaccurate iterations
+R28	supports Arg1:T46 Arg2:T43	
+T47	background_claim 6261 6398	High-order methods, which use several evaluations to compute high-order solutions that get much more accurate as the time step is reduced
+R29	supports Arg1:T47 Arg2:T43	
+T48	own_claim 6456 6802	We shall restrict our consideration to three different methods which explore the range of these classes, and which seem to fit the best the requirements set for cloth simulation problems, in terms of implementation simplicity and efficiency for particle systems using large numbers of particles that interact sparsely and with a constant topology
+T49	background_claim 6936 7059	It requires two mechanical derivations per iteration and returns a second-order accurate solution relative to the time step
+T50	background_claim 7061 7110	It also requires two storages of the state vector
+T51	own_claim 7112 7182	We preferred this method to the still simpler first-order Euler method
+T52	background_claim 7195 7323	the obvious gains of accuracy and stability which, despite the additional mechanical evaluation, makes it largely more efficient
+R30	supports Arg1:T52 Arg2:T51	
+T53	background_claim 7325 7374	We implemented this method for garment simulation
+T54	data 7381 7387	VOL 95
+R31	supports Arg1:T54 Arg2:T53	
+T55	background_claim 7500 7599	It requires five mechanical derivations per iteration, as well as five storages of the state vector
+T56	background_claim 7601 7708	This method is supposed to provide high accuracy, which increases significantly as the time step is reduced
+T57	background_claim 7710 7741	This method was experimented in
+T58	data 7744 7750	EBE 96
+R32	supports Arg1:T58 Arg2:T57	
+T59	data 7759 7765	VOL 97
+R33	supports Arg1:T59 Arg2:T57	
+T60	background_claim 7771 7868	The Backward Euler method, which is the implicit implementation of its simple forward counterpart
+T61	background_claim 7870 8077	It requires one mechanical evaluation and the resolution of a sparse linear system per iteration, as well as one storage of the system state additionally to those required for the system resolution algorithm
+T62	background_claim 8079 8209	This method is supposed to provide approximate results that are not subject to numerical instability as the time step is increased
+T63	own_claim 8211 8338	We implemented this method combined with a Conjugate Gradient algorithm using linear system matrix products computed on the fly
+T64	own_claim 8369 8546	and thus able to take into account the anisotropy and nonlinearities of the mechanical model as the actual Hessian matric is used for each current state of the mechanical system
+R34	parts_of_same Arg1:T64 Arg2:T63	
+T65	own_claim 8548 8656	No initial matrix setup is required, suppressing also the need of separating linear and nonlinear components
+T66	data 8675 8681	EBE 00
+R35	supports Arg1:T66 Arg2:T65	
+T67	own_claim 8685 8833	We have also carried out some preliminary tests with the Rosenbrook method, which is an implicit implementation of a fourth-order Runge-Kutta method
+T68	background_claim 8835 8934	It is supposed to combine the stability of implicit methods with the accuracy of high-order methods
+T69	own_claim 9014 9071	preliminary experiments have shown very deceptive results
+T70	own_claim 9077 9167	the gain of accuracy did not compensate the large calculations required for each iteration
+T71	own_claim 9177 9298	increased instability problems did not allow time steps much larger than those used for good accuracy with backward Euler
+T72	own_claim 8936 8995	We implemented this method using the algorithm described in
+T73	data 8999 9005	PRE 92
+R36	supports Arg1:T73 Arg2:T72	
+T74	own_claim 9300 9458	We did not consider in our tests the methods aimed toward simplifications which might highly approximate and degrade the dynamic behavior of deformable models
+T75	data 9525 9531	DES 99
+T76	background_claim 9468 9522	implicit integration with precomputed inverse matrices
+T77	background_claim 9535 9672	which involves high simplification and linrarization of the Hessian matrix and which also becomes very unpractical for large matrix sizes
+R37	supports Arg1:T75 Arg2:T76	
+R38	parts_of_same Arg1:T77 Arg2:T76	
+R39	supports Arg1:T76 Arg2:T74	
+T78	own_claim 9733 9833	We simulated such algorithm using accurate resolution on an accordingly approximated constant matrix
+T79	own_claim 9853 9905	these approximations produced more simulation errors
+T80	own_claim 9972 10107	than producing a quick and rough linear system solution using a reduced number of Conjugate Gradient iterations with an accurate matrix
+R40	parts_of_same Arg1:T80 Arg2:T79	
+T81	background_claim 10109 10142	Even more drastic simplifications
+T82	background_claim 10154 10201	reduce the matrices to their diagonal component
+T83	data 10145 10151	KAN 00
+R41	parts_of_same Arg1:T82 Arg2:T81	
+R42	supports Arg1:T83 Arg2:T81	
+T84	background_claim 10425 10443	A complete surface
+T85	background_claim 10444 10514	elasticity model which allows the simulation of anisotropic elasticity
+T86	background_claim 10576 10600	and associated viscosity
+R43	parts_of_same Arg1:T86 Arg2:T85	
+T87	background_claim 11153 11232	This model is one of the simplest that a cloth simulation application would use
+T88	own_claim 11234 11299	The implementation also supports collision detection and response
+T89	own_claim 11338 11516	An object-oriented framework written in C++ integrate all these technologies into a single application allowing simulation of cloth objects of any shape with specified parameters
+T90	own_claim 11828 11898	Performance is a key issue in choosing the adequate integration method
+T91	background_claim 11903 12006	cloth simulation usually involves very large mechanical systems described by a huge number of variables
+T92	background_claim 12012 12053	the numerical resolution of the system is
+T93	background_claim 12064 12102	critical to the total computation time
+R44	parts_of_same Arg1:T93 Arg2:T92	
+R45	supports Arg1:T91 Arg2:T92	
+R46	supports Arg1:T92 Arg2:T90	
+T94	own_claim 12104 12151	Performance actually depends on several factors
+T95	own_claim 12155 12216	The computation time taken for one iteration of the algorithm
+T96	background_claim 12218 12397	This depends on the complexity of the method, and also related to the number of times the forces of the system have to de derived from the system state using the laws of mechanics
+T97	own_claim 12401 12551	The time step for one iteration, which represents the time discretization required to reach a given accuracy or numerical stability for a given method
+R47	supports Arg1:T95 Arg2:T94	
+R48	supports Arg1:T97 Arg2:T94	
+T98	own_claim 12555 12724	The desired accuracy of the resolution, which may be coarse if only static equilibrium is to be computed, or high if the whole dynamic evolution of the system is desired
+R49	supports Arg1:T98 Arg2:T94	
+T99	background_claim 12726 12813	Accuracy increases along with time step reduction as better as the method is high-order
+T100	own_claim 12817 12936	The numerical stability of the method, which also limits the time step for a given method and a given mechanical system
+R50	supports Arg1:T100 Arg2:T94	
+T101	own_claim 14364 14560	The most important fact to note is that the application of the Backward Euler method with a reduced number of Conjugate Gradient iterations compares very well with the traditional explicit methods
+T102	data 14208 14355	Method Accurate Simplified Midpoint 32 μs 8 μs Runge-Kutta 95 μs 25 μs Back. Euler (No CG iter.) 31 μs 5 μs Back. Euler (Per CG iter.) 16 μs 2.5 μs
+R51	supports Arg1:T102 Arg2:T101	
+T103	own_claim 14562 14651	With one iteration only, it is barely worse than the very simple explicit Midpoint method
+R52	supports Arg1:T102 Arg2:T103	
+T104	own_claim 14697 14907	does not explicitly construct the matrix of the system to be resolved by the Conjugate Gradient, but computes “on the fly” the product of this matrix with vectors when needed by the Conjugate Gradient algorithm
+T105	own_claim 14653 14671	Our implementation
+T106	data 14688 14694	VOL 00
+R53	supports Arg1:T106 Arg2:T105	
+R54	parts_of_same Arg1:T104 Arg2:T105	
+T107	own_claim 14909 15008	This gives a very efficient implementation when using a low number of Conjugate Gradient iterations
+T108	own_claim 15059 15106	which is often sufficient for most applications
+R55	parts_of_same Arg1:T108 Arg2:T107	
+T109	own_claim 15108 15223	These tests will help us to choose the method that gives the best compromise between accuracy and computation speed
+T110	own_claim 15320 15573	For measuring accuracy and numerical stability of the algorithms, we need to set up a “standard” material on which the experiments are carried out, as well as the rules allowing to extrapolate the results to any material of different size and parameters
+T111	own_claim 15948 16307	Thanks to the linearity of the equations describing linear elasticity, we reduce the number of parameters describing a problem using proportionality laws, and we compute a “condition coefficient” K which illustrates the acceleration of a mesh element with normalization to the problem mass, simulation time step and element size, as follows: K = E d 1 l 2 t 2
+T112	own_claim 16312 16453	This non-dimensional coefficient actually measures the “numerical difficulty” of computing an iteration of time step t with the given problem
+T113	background_claim 16644 16804	A typical cloth simulation problem could involve a cotton fabric cloth surface, which typically have a density d = 0.1 kg.m -2 and a Young modulus E = 2 0 N . m
+T114	own_claim 16919 16990	the condition coefficient of the problem computed with (1) is K = 2 0 0
+T115	data 16815 16917	a discretization into elements averaging one centimeter and a simulation time step of ten milliseconds
+R56	supports Arg1:T115 Arg2:T114	
+T116	own_claim 16993 17079	It is possible to define similar coefficients related to bending and viscosity modulus
+T117	background_claim 17176 17335	In simulations that consider simultaneously all these forms of mechanical behaviors, the dominant K coefficient rules the “numerical difficulty” of the problem
+T118	background_claim 17473 17679	In such kind of simulation, the interest is to reproduce exactly the motion of a cloth object along time, the accuracy of its evolution being the key of the realism of an animation involving simulated cloth
+T119	own_claim 18074 18240	we perform a preconditioning of the system state variables of the linear system to be resolved using the inverse square root of the mass of the corresponding particle
+T120	data 18050 18072	using implicit methods
+R57	supports Arg1:T120 Arg2:T119	
+T121	own_claim 18242 18488	This allows the iterations of the Conjugate Gradient algorithm to distribute the resolution numerical errors as evenly as possible between the particles, so that to obtain for instance a fall speed that does not depend on the mass of the particle
+R58	supports Arg1:T119 Arg2:T121	
+T122	data 18567 18616	Without any additional external forces considered
+T123	own_claim 18648 18701	we expect this to happen in a constant time of 0.45 s
+R59	supports Arg1:T122 Arg2:T123	
+T124	own_claim 18882 18934	Several interesting facts arise from this experiment
+T125	own_claim 18936 19024	As a matter of numerical stability, the Midpoint method supports K values up to almost 3
+T126	own_claim 19033 19089	the RungeKutta method supports K values up to almost 100
+T127	own_claim 19111 19225	with Runge-Kutta, it is possible to use simulation time steps which are almost six times larger than with Midpoint
+R60	supports Arg1:T125 Arg2:T127	
+R61	supports Arg1:T126 Arg2:T127	
+T128	own_claim 19247 19336	a Runge-Kutta iteration takes only three times more computation than a Midpoint iteration
+T129	data 19338 19343	Fig.1
+R62	supports Arg1:T129 Arg2:T128	
+T130	own_claim 19346 19446	the Runge-Kutta method seems to be computationally two times more efficient than the Midpoint method
+R63	supports Arg1:T128 Arg2:T130	
+T131	own_claim 19448 19591	As a matter of simulation accuracy, both Midpoint and Runge-Kutta seem to preserve accuracy correctly within their range of numerical stability
+T132	own_claim 19599 19653	the implicit Euler method seems stable for any K value
+T133	own_claim 19655 19670	its accuracy is
+T134	own_claim 19679 19762	very degraded by high K values and reduced numbers of Conjugate Gradient iterations
+R64	parts_of_same Arg1:T134 Arg2:T133	
+R65	contradicts Arg1:T133 Arg2:T132	
+T135	own_claim 19792 19877	accuracy is well preserved with one Conjugate Gradient iteration up to a K value of 4
+T136	own_claim 19883 19981	increasing the iteration number n times also increases the K value n 2 times for the same accuracy
+R66	supports Arg1:T135 Arg2:T134	
+R67	supports Arg1:T136 Arg2:T134	
+T137	own_claim 20010 20132	the Inverse Euler method needs at least four Conjugate Gradient iterations to reach the accuracy of the Runge-Kutta method
+T138	own_claim 20151 20243	similar requirement of accuracy bring the two methods in parity in terms of computation time
+T139	data 20245 20250	Fig.1
+R68	supports Arg1:T139 Arg2:T138	
+T140	own_claim 20286 20386	the experiment was carried out using a uniformly discretized mesh, and uniform mechanical parameters
+T141	own_claim 20388 20711	Real-world simulations do not have this regularity, and numerical instability with explicit methods occur in the stiffest regions of the mesh, which, even if they are marginal in the whole mechanical system, may totally “explode” and destroy the simulation and therefore will rule the size of the largest time step possible
+R69	contradicts Arg1:T141 Arg2:T137	
+R70	contradicts Arg1:T141 Arg2:T138	
+T142	own_claim 20713 20836	With implicit methods, the resulting inaccuracies may be unnoticed when taking a time step adapted to the average stiffness
+R71	contradicts Arg1:T142 Arg2:T133	
+T143	own_claim 20939 21022	it is not possible to increase the time step of implicit methods as much as desired
+T144	data 20886 20937	accurate reproduction of dynamic motion is required
+R72	supports Arg1:T144 Arg2:T143	
+T145	own_claim 21068 21126	weak forces will be “neglected” relatively to stiff forces
+T146	own_claim 21027 21064	this cause very noticeable inaccuracy
+R73	supports Arg1:T145 Arg2:T146	
+R74	supports Arg1:T146 Arg2:T143	
+T147	own_claim 21134 21213	this is not an issue for draping problems where only the final state is desired
+T148	data 21261 21315	accurate reproduction of the whole evolution is wanted
+T149	own_claim 21215 21255	this aspect has to be taken into account
+R75	supports Arg1:T148 Arg2:T149	
+R76	contradicts Arg1:T149 Arg2:T147	
+T150	own_claim 21323 21414	implicit Euler is a good choice for robust simulation where accuracy is not really an issue
+T151	own_claim 21416 21492	the explicit Runge-Kutta offers good possibilities of ensuring high accuracy
+T152	own_claim 21504 21527	its high-order solution
+R77	supports Arg1:T152 Arg2:T151	
+T153	own_claim 21546 21643	is provides good possibilities integration error evaluation for efficient time step control which
+T154	own_claim 21657 21735	is too context-sensitive for being pre-evaluated using only the knowledge of K
+R78	parts_of_same Arg1:T154 Arg2:T153	
+R79	supports Arg1:T153 Arg2:T151	
+T155	own_claim 21773 21928	The condition coefficient value is a good indicator of the time step and accuracy that can be expected for a given problem with a given iteration time step
+T156	own_claim 21930 22025	Considering a simulation involving elements n times smaller, maintaining accuracy and stability
+T157	own_claim 22065 22211	would require a time step n times smaller, and therefore n times as many iterations for simulating the mechanical system along a constant duration
+R80	parts_of_same Arg1:T157 Arg2:T156	
+T158	own_claim 22233 22281	there are also n 2 times more elements to handle
+T159	own_claim 22283 22348	the total computation time is finally multiplied by a drastic n 3
+R81	supports Arg1:T158 Arg2:T159	
+T160	own_claim 22419 22515	this factor is what cause explicit methods to become so inefficient with refined discretizations
+T161	own_claim 22519 22586	this scaling has to be strictly observed for preventing instability
+R82	supports Arg1:T161 Arg2:T160	
+T162	data 22632 22662	only “visual” accuracy matters
+T163	own_claim 22588 22628	implicit methods are a bit more tolerant
+R83	supports Arg1:T162 Arg2:T163	
+T164	background_claim 23092 23222	Draping is another context of simulation, where only the final static equilibrium state of the mechanical system is to be computed
+T165	background_claim 23224 23338	Here, the interest is to converge to the equilibrium state as quickly as possible, with minimum computation charge
+T166	background_claim 23406 23455	accuracy can be traded away for computation speed
+T167	background_claim 23343 23404	the full evolution of the cloth along time is not an interest
+R84	supports Arg1:T167 Arg2:T166	
+R85	supports Arg1:T164 Arg2:T167	
+T168	own_claim 23497 23550	implicit methods should be quite strong on this point
+T169	background_claim 23555 23674	they do not suffer from numerical instability, and allow large time steps to be used at the expense of dynamic accuracy
+R86	supports Arg1:T169 Arg2:T168	
+T170	own_claim 25051 25106	the explicit methods seem quite not adapted for draping
+T171	own_claim 25108 25358	Runge-Kutta requires more than 500 iterations for performing the simulation without instability, with the maximum allowed time step t = 0 . 0 0 1 s , which in fact corresponds to the maximum value of K coefficient experimented in the previous section
+T172	own_claim 25360 25462	The backward Euler method is robust enough to handle the problem without instability for any time step
+T173	own_claim 25485 25578	larger time steps do not proportionally translate into fewer steps for performing the draping
+T174	own_claim 25716 25899	we quickly observe a “saturation” of the number of iterations to a constant which seems to be inversely proportional to the number of Conjugate Gradient iterations that were performed
+T175	data 25583 25611	the time step becomes larger
+T176	data 25620 25714	the corresponding K coefficient exceeds the theoretical limit observed in the previous section
+R87	supports Arg1:T176 Arg2:T174	
+R88	supports Arg1:T175 Arg2:T174	
+T177	data 25933 26008	K exceeds the dynamic accuracy limit of a given implicit integration method
+T178	own_claim 26010 26071	the time step does not really reflect a time interval anymore
+R89	supports Arg1:T177 Arg2:T178	
+T179	own_claim 26087 26362	the implicit method will only evaluate an approximation of the rest state of the mechanical system by linear extrapolation from the Hessian matrix, whose accuracy depends on the number of Conjugate Gradient iterations that were used to resolve the corresponding linear system
+R90	supports Arg1:T178 Arg2:T179	
+T180	own_claim 26371 26443	there is no real way to “cheat” on the time step for speeding up draping
+T181	own_claim 26488 26729	The total number of Conjugate Gradient iterations for performing all the simulation iterations of a draping problem cannot go below an incompressible number, related to a kind of “total computational difficulty” for solving a draping problem
+R91	supports Arg1:T179 Arg2:T180	
+R92	supports Arg1:T181 Arg2:T180	
+T182	own_claim 26792 26882	this experiment shows the drastic advantage of using implicit methods for draping problems
+T183	own_claim 26884 27159	With our implementation using the accurate elasticity model and the computation times measured in section 3.1, the draping could be computed in 30 seconds with Backward Euler with any large time step, compared to 150 seconds with Runge-Kutta when using an “optimal” time step
+R93	supports Arg1:T183 Arg2:T182	
+T184	background_claim 27235 27312	Most mechanical simulations work with numerical equations that are not linear
+T185	background_claim 27314 27362	There are two main reasons for such nonlinearity
+T186	background_claim 27366 27434	The equations describing the mechanical behavior laws are not linear
+R94	supports Arg1:T186 Arg2:T185	
+T187	background_claim 27450 27609	the strain-stress relation describing elasticity may actually be complex curves, which furthermore may take into account timedependent and hysteretic behaviors
+R95	supports Arg1:T187 Arg2:T186	
+T188	background_claim 27613 27768	During the simulation, the orientation of the mechanical elements change, and this modifies the expressions of the mechanical laws in the world coordinates
+R96	supports Arg1:T188 Arg2:T185	
+T189	background_claim 27770 27956	While rarely causing numeric “explosions” as with explicit methods, nonlinearity may disrupt the stability of simulations integrated with implicit models with large disturbing vibrations
+T190	background_claim 28273 28440	the hypothetical equilibrium state is derived from the knowledge of the Hessian matrix, which relates the firstorder evolution of the forces as the deformations change
+T191	background_claim 27958 28143	particularly when using large time steps that cause iterations to converge to the equilibrium state of the mechanical objects rather than simulating accurately their mechanical behavior
+R97	supports Arg1:T191 Arg2:T189	
+T192	background_claim 28145 28153	This can
+T193	background_claim 28167 28243	be observed when simulating stretched flat surfaces without curvature forces
+R98	parts_of_same Arg1:T193 Arg2:T192	
+R99	supports Arg1:T192 Arg2:T191	
+R100	supports Arg1:T190 Arg2:T189	
+T194	background_claim 28442 28555	Nonlinearity causes this matrix to change between the successive iterations, and this evaluation to be inaccurate
+T195	background_claim 28557 28660	despite high system resolution accuracy that can be reached with numerous Conjugate Gradient iterations
+R101	contradicts Arg1:T195 Arg2:T194	
+R102	supports Arg1:T194 Arg2:T189	
+T196	background_claim 28662 28843	The solution for this is to approximate the Hessian matrix for taking into account the changes that may be observed from the change of the system state between successive iterations
+T197	background_claim 28851 28992	an underestimation of de derivatives may lead to an equilibrium state valuation too far from the current state, and by this cause instability
+T198	background_claim 28994 29085	an overestimation of the derivatives will place this evaluation nearer to the current state
+T199	background_claim 29097 29187	stabilizing the simulation, at the expense of extra numerical damping and slow convergence
+R103	supports Arg1:T198 Arg2:T199	
+T200	background_claim 29189 29264	This is particularly true for drastic linearisations as for example used in
+T201	data 29267 29273	DES 99
+R104	supports Arg1:T201 Arg2:T200	
+T202	background_claim 29277 29399	Knowledge of the expected state changes between successive time steps are required to perform this approximation correctly
+T203	background_claim 29437 29508	one solution is to take the steepest parts of the curves as derivatives
+T204	data 29406 29435	nonlinear mechanical behavior
+R105	supports Arg1:T204 Arg2:T203	
+T205	data 29522 29553	the element orientation problem
+T206	background_claim 29555 29648	isotropic derivatives considering force evolution equally in any directions may be considered
+R106	supports Arg1:T205 Arg2:T206	
+T207	background_claim 29659 29832	the more drastic these approximations are, the less accurate the simulation will be for dynamic simulations, and the slower the simulation will converge for draping problems
+T208	background_claim 29875 30147	which makes sense when efficiency relies on the use of a constant Hessian matrix, is to perform the implicit resolution on a linear constant approximation, and to simulate the nonlinear and variable component, unlikely to cause stiffness problems, using an explicit method
+T209	data 29865 29871	EBE 00
+T210	background_claim 29834 29862	A nice solution described in
+R107	supports Arg1:T209 Arg2:T210	
+R108	parts_of_same Arg1:T208 Arg2:T210	
+T211	own_claim 30740 30837	the resulting condition coefficient K is roughly 8 with a simulation time step of 10 milliseconds
+T212	own_claim 30670 30724	The mesh elements are roughly five centimeters in size
+R109	supports Arg1:T212 Arg2:T211	
+T213	own_claim 30981 31080	This is a draping problem involving to obtain a rest position of the garment as quickly as possible
+T214	own_claim 31182 31233	The dynamical motion of the cloth is important here
+T215	own_claim 31235 31346	The garment assembly and seaming operations could be performed almost four times faster with the Backward Euler
+T216	data 31348 31357	2 minutes
+R110	supports Arg1:T216 Arg2:T215	
+T217	own_claim 31359 31380	than with Runge-Kutta
+R111	parts_of_same Arg1:T217 Arg2:T215	
+T218	data 31382 31391	8 minutes
+R112	supports Arg1:T218 Arg2:T217	
+T219	own_claim 31407 31585	collision detection and response account for more than the half of the computation time, and actually limits the time step size when contact starts between the cloth and the body
+T220	own_claim 31587 31779	For the dynamical animation, comparable accuracy could be obtained between Runge-Kutta and Backward Euler using eight iterations of the Conjugate Gradient, which gave similar computation times
+T221	own_claim 31781 31806	The backward Euler method
+T222	own_claim 31815 31907	allowed the increase of the time step up to 0.1 seconds, where inaccuracies began to show up
+R113	parts_of_same Arg1:T222 Arg2:T221	
+R114	contradicts Arg1:T221 Arg2:T220	
+T223	own_claim 31917 32006	excessive “heaviness” of the fabric that failed to follow the motion of the body properly
+R115	supports Arg1:T223 Arg2:T222	
+T224	own_claim 32008 32055	garments folds that would not disappear quickly
+T225	own_claim 32068 32128	additional artifacts caused by inaccurate collision response
+R116	supports Arg1:T224 Arg2:T222	
+R117	supports Arg1:T225 Arg2:T222	
+T226	background_claim 32279 32369	Recent literature has emphasized on the relevance of implicit methods for cloth simulation
+T227	own_claim 32371 32451	The implicit Euler method seems effectively a good candidate for most situations
+T228	background_claim 32491 32561	the robustness resulting from not being prone to numerical instability
+R118	supports Arg1:T228 Arg2:T227	
+T229	background_claim 32563 32642	This is particularly true when simulating very heterogeneous mechanical systems
+T230	background_claim 32705 32814	where, using explicit models, the most critical elements would rule the time step size for all the simulation
+R119	parts_of_same Arg1:T230 Arg2:T229	
+R120	supports Arg1:T229 Arg2:T227	
+T231	own_claim 32936 33042	the inverse Euler iteration often proves to be faster than the explicit Runge-Kutta method of higher order
+T232	data 33047 33110	an adequate approximate linear system resolution is implemented
+R121	supports Arg1:T232 Arg2:T231	
+T233	background_claim 32825 32882	the perception of the implicit model iteration being slow
+T234	background_claim 32894 32934	the linear system resolution it involves
+R122	supports Arg1:T234 Arg2:T233	
+R123	contradicts Arg1:T231 Arg2:T233	
+T235	own_claim 33112 33185	A limited number of Conjugate Gradient iterations seems suitable for this
+T236	own_claim 33206 33285	increasing the time step seems not limited by instability with implicit methods
+T237	own_claim 33318 33387	this is still done at the expense of accuracy of the whole simulation
+R124	contradicts Arg1:T237 Arg2:T236	
+T238	own_claim 33389 33621	The number of iterations should also be set sensitively to the stiffness of the mechanical problem, for limiting the potential inaccuracies that become particularly visible when an accurate simulation of a dynamical system is wanted
+T239	own_claim 33623 33721	There is an obvious advantage of using implicit methods, and particularly the inverse Euler method
+T240	data 33727 33806	draping problems where quick convergence to a rest position is required quickly
+R125	supports Arg1:T240 Arg2:T239	
+T241	own_claim 33808 33948	Our test have shown that the inverse Euler method allow to perform a draping problem almost ten times as fast as with the Runge-Kutta method
+T242	own_claim 33950 34096	While not exactly reproducing real mechanical behavior, the simulation with large time steps provides a quite efficient convergence to equilibrium
+T243	own_claim 34102 34213	the numerical errors quite often act as extra damping, removing the need of adding them explicitly to the model
+T244	data 34219 34306	dynamic problems where accurate evolution of the mechanical system along time is needed
+T245	own_claim 34308 34357	the advantage of implicit methods is less obvious
+R126	supports Arg1:T244 Arg2:T245	
+T246	own_claim 34359 34481	Their stability gives a false sense of efficiency, allowing obtaining quickly a result by “cheating” on the time step size
+T247	own_claim 34492 34555	playing back the generated animation, artifacts quickly show up
+T248	own_claim 34557 34574	Excessive damping
+R127	supports Arg1:T248 Arg2:T247	
+T249	own_claim 34576 34617	wrinkles and folds that fail to disappear
+R128	supports Arg1:T249 Arg2:T247	
+T250	own_claim 34628 34681	objects failing to fall correctly by their own weight
+R129	supports Arg1:T250 Arg2:T247	
+T251	own_claim 34683 34816	These artifacts are still augmented by the approximations made to the Hessian matrix, possibly in the purpose of reducing instability
+T252	own_claim 34824 34931	excessive reduction of the Conjugate Gradient iterations produce additional inaccuracy and slow convergence
+T253	own_claim 34947 35064	there is still some benefit in using the Backward Euler method than any other explicit method for dynamic simulations
+T254	own_claim 35075 35218	the reduced time it takes to compute one iteration, which also only requires one derivation of the particle forces from the state of the system
+R130	supports Arg1:T254 Arg2:T253	
+T255	own_claim 35220 35347	Our tests have shown a roughly doubled speed for the accuracy corresponding to the limit of stability of the Runge-Kutta method
+T256	own_claim 35349 35439	We got substantial improvements through the implementation of the implicit Midpoint method
+T257	data 35443 35449	VOL 00
+R131	supports Arg1:T257 Arg2:T256	
+T258	own_claim 35468 35613	had the drawback of increasing the numerical instability problem, forcing additional use of isotropic force gradients, at the expense of accuracy
+R132	contradicts Arg1:T258 Arg2:T256	
+T259	own_claim 35615 35841	The explicit methods have still their interest, and should be reserved for simulations requiring high accuracy and particularly those where involving low mechanical damping and where mechanical energy conservation is important
+T260	own_claim 35843 36054	Instability concerns will force parameters and time step size to ensure good accuracy for the simulation of all particles of the discrete mechanical representation, and therefore for the entire mechanical object
+T261	own_claim 36056 36064	This may
+T262	own_claim 36073 36148	require prohibitive computation times for very stiff and discretized models
+R133	parts_of_same Arg1:T262 Arg2:T261	
+R134	contradicts Arg1:T261 Arg2:T260	
+T263	own_claim 36150 36215	The 5th-order Runge-Kutta method das proven to be a good solution
+T264	data 36218 36224	EBE 96
+T265	data 36229 36235	VOL 97
+R135	supports Arg1:T264 Arg2:T263	
+R136	supports Arg1:T265 Arg2:T263	
+T266	own_claim 36251 36268	its high accuracy
+T267	own_claim 36282 36284	it
+T268	own_claim 36297 36431	provides integration error evaluation, which is a very good hint to the very sensitive problem of optimal time step size determination
+R137	parts_of_same Arg1:T268 Arg2:T267	
+R138	supports Arg1:T266 Arg2:T263	
+R139	supports Arg1:T267 Arg2:T263	
+T269	own_claim 36433 36657	The simpler Midpoint method may have some interest only in very particular cases involving very loose materials with rough discretization, or when numerous fast iterations with small time steps are required for other reasons
+T270	own_claim 36730 36839	All these considerations should be carefully taken into account when designing a mechanical simulation engine
+T271	own_claim 36844 37000	they are the keys to efficient simulation, and therefore complex models that, for garment simulation, express fully visual experience of real fashion models
+R140	supports Arg1:T271 Arg2:T270	
+T272	own_claim 37090 37305	This still remains an important issue to dynamic realism of cloth simulation models, which has to take into account viscosity, the dissipative effect of hysteretic behavior, as well as collision damping and friction
+T273	own_claim 37307 37392	The integration methods have to be tuned to take precisely these effects into account

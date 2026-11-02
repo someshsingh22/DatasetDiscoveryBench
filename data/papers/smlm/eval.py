@@ -1,26 +1,30 @@
-"""Scores the CMV Modes fine-tuning runs of train.py (paper Tables 1 and 3) and writes OUT/scores.json.
+"""Scores the authors' fine-tuning logs (written by run.sh) and writes OUT/scores.json.
 
-A task's F1 is the mean over its 5 runs (random thread splits) of the run's mean test F1 over its last 5 epochs:
-micro-F1 of the BIO component tags for aci_80, class-weighted F1 of the 5 relation types for rtp_80 and rtp_50.
-primary = {<task>_f1: the task's F1}; compare each separately, higher is better.
+A task's F1 is the mean over its 5 runs (seeded random splits) of the run's mean test F1 over its last 5 epochs, as in
+the paper: seqeval micro-F1 of the component tags (Dr Inventor and CMV Modes ACI, 80/20 split) and class-weighted F1 of
+the relation types (CMV Modes RTP, 80/20 and 50/50 splits). primary = {<task>_f1}; higher is better.
 
-Usage: eval.py OUT   (reads the OUT/cmv_modes/<task>_<run>.json files written by train.py)
+Usage: eval.py OUT   (reads OUT/logs/<task>_<run>.log)
 """
 
 from __future__ import annotations
 
+import ast
 import json
 import sys
 from pathlib import Path
 
-from train import TASKS
+TASKS = ["drinv_aci_80", "cmv_aci_80", "rtp_80", "rtp_50"]
 
 if __name__ == "__main__":
     out = Path(sys.argv[1])
     metrics = {}
     for task in TASKS:
-        runs = [json.loads(p.read_text())["scores"] for p in sorted(out.glob(f"cmv_modes/{task}_*.json"))]
-        runs = [sum(scores) / len(scores) for scores in runs]
+        runs = []
+        for log in sorted(out.glob(f"logs/{task}_*.log")):  # each epoch's test metrics: a dict printed after 4 tabs
+            epochs = [ast.literal_eval(s) for s in log.read_text().splitlines() if s.startswith("\t\t\t\t ")][-5:]
+            f1s = [e["overall_f1"] if "overall_f1" in e else e["weighted_avg"]["f1"] for e in epochs]
+            runs.append(sum(f1s) / len(f1s))
         metrics[task] = {"f1": sum(runs) / len(runs), "runs": runs}
     scores = {"primary": {f"{task}_f1": m["f1"] for task, m in metrics.items()}, "metrics": metrics}
     (out / "scores.json").write_text(json.dumps(scores, indent=2))

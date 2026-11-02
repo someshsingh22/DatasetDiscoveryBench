@@ -27,7 +27,7 @@ thread: the root's title, then each post's text preceded by a token for its user
 | `reply_to` | `id` of the post this one answers; empty (or an unknown id) for the opening post of a tree |
 | `user` | the author's name; `[deleted]` for deleted accounts |
 | `title` | the discussion's title, on its opening post; empty otherwise |
-| `text` | the post's text (Markdown; HTML entities such as `&gt;` are unescaped before use) |
+| `text` | the post's Markdown text; `&`, `<` and `>` may be raw or HTML-escaped as Reddit stores them (`&gt;`) |
 
 Example rows (id, reply_to, user, title, text): `t3_x1`, empty, `ann`, `CMV: Remote work is better for everyone`,
 `I think offices are obsolete because ...`; then `t1_y2`, `t3_x1`, `bo`, empty,

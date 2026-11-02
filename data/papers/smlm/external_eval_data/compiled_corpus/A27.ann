@@ -1,0 +1,551 @@
+T1	background_claim 3125 3186	Previous approaches have made great strides towards this goal
+T2	background_claim 3192 3227	they often exhibit visual artifacts
+T3	background_claim 3229 3263	a lack of computational robustness
+T4	background_claim 3268 3311	an unacceptably hefty computational expense
+R1	contradicts Arg1:T2 Arg2:T1	
+R2	contradicts Arg1:T3 Arg2:T1	
+R3	supports Arg1:T4 Arg2:T1	
+T5	background_claim 3364 3458	introduced an octree for spatial adaptivity, but it suffers from spurious flows at T-junctions
+T6	background_claim 3313 3339	The groundbreaking work of
+T7	data 3341 3362	Losasso et al. [2004]
+R4	parts_of_same Arg1:T5 Arg2:T6	
+R5	supports Arg1:T7 Arg2:T6	
+T8	background_claim 3504 3603	repair these spatial artifacts at the expense of solving a significantly larger system of equations
+T9	background_claim 3460 3481	Finite volume methods
+T10	data 3484 3501	Batty et al. 2010
+R6	parts_of_same Arg1:T8 Arg2:T9	
+R7	supports Arg1:T10 Arg2:T9	
+T11	background_claim 3686 3759	many existing methods still are not truly spatially adaptive in the sense
+T12	data 3765 3848	their computational complexity is still tied to a uniform grid or spatial parameter
+R8	supports Arg1:T12 Arg2:T11	
+T13	own_claim 3863 3966	a combination of techniques that successfully makes adaptive fluid simulation practical at large scales
+T14	own_claim 4750 4839	a new method for computing a surface from a distribution of particles with variable radii
+T15	own_claim 4855 4935	this method out-performs previous methods in cases of extreme spatial adaptivity
+T16	own_claim 4996 5069	Our fluid simulator works well with spatially adaptive tetrahedral meshes
+T17	own_claim 5075 5161	it is another question to decide exactly how these adaptive meshes should be generated
+T18	background_claim 5350 5456	Some examples are a surface curvature-based metric that adds detail only where needed on the fluid surface
+T19	own_claim 5627 5660	the contributions of our work are
+T20	own_claim 5664 5793	a novel tetrahedral discretization of the pressure projection step that is efficient to solve and robust to poor-quality elements
+T21	own_claim 5797 5882	an accurate treatment of second-order boundary conditions within the tetrahedral mesh
+T22	own_claim 5886 5967	a new technique for extracting a smooth surface from particles with varying radii
+T23	own_claim 5975 6104	the inclusion of a flexible sizing function to focus computational resources on important areas of the flow with minimal overhead
+R9	parts_of_same Arg1:T20 Arg2:T19	
+R10	parts_of_same Arg1:T21 Arg2:T19	
+R11	parts_of_same Arg1:T22 Arg2:T19	
+R12	parts_of_same Arg1:T23 Arg2:T19	
+T24	own_claim 6349 6457	Our work is based on the Fluid-Implicit Particle (FLIP) method introduced to the computer graphics community
+T25	data 6461 6483	Zhu and Bridson [2005]
+R13	supports Arg1:T25 Arg2:T24	
+T26	background_claim 6578 6650	The algorithm still follows the general ideas of the Stable Fluid solver
+T27	background_claim 6669 6756	can be readily combined with second-order treatment of free surface boundary conditions
+T28	data 6759 6778	Enright et al. 2003
+T29	data 6653 6662	Stam 1999
+R14	supports Arg1:T29 Arg2:T26	
+R15	supports Arg1:T28 Arg2:T27	
+T30	background_claim 6781 7003	FLIP derives its success from the fact that it uses particles to compute an accurate, nondiffusive transport of flow quantities, in combination with a gridbased solve to accurately enforce constraints for mass conservation
+T31	background_claim 7007 7143	The FLIP algorithm is heavily used in the special effects industry, and recent advances have introduced accurate coupling with obstacles
+T32	background_claim 7166 7190	highly viscous materials
+T33	background_claim 7222 7237	two-phase flows
+T34	data 7146 7163	Batty et al. 2007
+T35	data 7193 7215	Batty and Bridson 2008
+T36	data 7240 7261	Boyd and Bridson 2012
+R16	supports Arg1:T34 Arg2:T31	
+R17	supports Arg1:T35 Arg2:T32	
+R18	supports Arg1:T36 Arg2:T33	
+R19	parts_of_same Arg1:T33 Arg2:T32	
+R20	supports Arg1:T32 Arg2:T31	
+T37	background_claim 7279 7333	Cartesian grids are very popular for fluid simulations
+T38	background_claim 7335 7369	The Marker-And-Cell (MAC) approach
+T39	background_claim 7482 7564	results in discretizations with good properties in terms of stability and accuracy
+R21	parts_of_same Arg1:T39 Arg2:T38	
+T40	data 7372 7393	Harlow and Welch 1965
+R22	supports Arg1:T40 Arg2:T38	
+T41	background_claim 7566 7678	An inherent difficulty is that simulations on regular grids become prohibitively expensive for large resolutions
+T42	background_claim 7686 7787	many works have proposed methods to focus the computations on regions that are of particular interest
+R23	supports Arg1:T41 Arg2:T42	
+T43	background_claim 7789 7812	One example are octrees
+T44	data 7833 7860	Losasso et al. [2004; 2005]
+R24	supports Arg1:T44 Arg2:T43	
+T45	background_claim 7917 7930	This approach
+T46	background_claim 7941 8036	suffers from numerical diffusion and an inconsistent discretization near the tree’s T-junctions
+R25	parts_of_same Arg1:T46 Arg2:T45	
+R26	contradicts Arg1:T43 Arg2:T45	
+T47	background_claim 8038 8079	Targeting a similar direction as our work
+T48	background_claim 8125 8208	have demonstrated methods to adapt the resolution of FLIP particles in a simulation
+R27	parts_of_same Arg1:T48 Arg2:T47	
+T49	data 8082 8093	Hong et al.
+T50	data 8095 8099	2009
+T51	data 8105 8116	Ando et al.
+T52	data 8118 8122	2012
+R28	parts_of_same Arg1:T50 Arg2:T49	
+R29	parts_of_same Arg1:T52 Arg2:T51	
+R30	supports Arg1:T49 Arg2:T47	
+R31	supports Arg1:T51 Arg2:T47	
+T53	background_claim 8210 8222	Both methods
+T54	background_claim 8245 8339	focus on static computational grids and are restricted to smaller differences in particle size
+R32	parts_of_same Arg1:T54 Arg2:T53	
+T55	background_claim 8350 8381	Cartesian grids are widely used
+T56	background_claim 8383 8451	they are limited in their flexibility to adapt to a simulation setup
+R33	contradicts Arg1:T56 Arg2:T55	
+T57	background_claim 8470 8532	tetrahedral grids are popular for methods targeting adaptivity
+R34	supports Arg1:T56 Arg2:T57	
+T58	background_claim 8607 8655	they allow for very flexible computational grids
+T59	background_claim 8657 8699	One example is the work of Klingner et al.
+T60	data 8702 8722	Klingner et al. 2006
+R35	supports Arg1:T60 Arg2:T59	
+T61	background_claim 8725 8837	which demonstrated the use of a Stable Fluids based solver for tetrahedral grids conforming to object boundaries
+R36	parts_of_same Arg1:T61 Arg2:T59	
+T62	background_claim 8839 8885	Another example is the non-linear fluid solver
+T63	data 8900 8912	Mullen et al
+T64	data 8915 8919	2009
+R37	parts_of_same Arg1:T64 Arg2:T63	
+T65	background_claim 8923 8964	which leads to an energy conserving solve
+R38	parts_of_same Arg1:T65 Arg2:T62	
+R39	supports Arg1:T63 Arg2:T62	
+T66	own_claim 8966 9064	Unlike these methods, we make use of a non-conforming grid with Body-Centered Cubic (BCC) lattices
+T67	background_claim 9066 9096	These meshes were also used by
+T68	data 9097 9147	Chentanez et al. [2007] and by Batty et al. [2010]
+T69	background_claim 9149 9171	for liquid simulations
+R40	parts_of_same Arg1:T69 Arg2:T67	
+R41	supports Arg1:T68 Arg2:T67	
+T70	background_claim 9245 9313	These methods are primarily suitable for uniformly sampled particles
+T71	own_claim 9489 9573	Another direction of research performs fluid simulations based on arbitrary elements
+T72	data 9575 9596	Clausen et al. [2013]
+T73	data 9601 9622	Misztal et al. [2010]
+T74	background_claim 9624 9742	have proposed a method to simulate liquids with a computational grid conforming to a triangulation of a liquid surface
+R42	supports Arg1:T73 Arg2:T74	
+R43	supports Arg1:T72 Arg2:T74	
+T75	background_claim 9744 9855	Both methods lead to an increased computational cost in comparison to the more efficient tetrahedral BCC meshes
+T76	background_claim 9876 10006	proposed an alternative method for hybrid Lagrangian-Eulerian solvers which combines a Voronoi-based pressure solver and particles
+T77	data 9857 9874	Sin et al. [2009]
+R44	supports Arg1:T77 Arg2:T76	
+T79	background_claim 10151 10237	used this discretization in combination with embedded second-order boundary conditions
+T80	data 10129 10149	Brochu et al. [2010]
+R45	supports Arg1:T80 Arg2:T79	
+T78	background_claim 10366 10467	Adaptive simulations have also been explored in the context of SPH simulations without Eulerian grids
+T81	data 10483 10500	Adams et al. 2007
+T82	background_claim 10503 10540	shares similarities with our approach
+T83	background_claim 10545 10599	it is able to simulate a wider range of particle radii
+T84	background_claim 10605 10672	it proposes a surface reconstruction method in the adaptive setting
+R46	supports Arg1:T83 Arg2:T82	
+R47	supports Arg1:T84 Arg2:T82	
+R48	supports Arg1:T81 Arg2:T82	
+T85	background_claim 10796 10872	a robust and efficient method for adaptive SPH simulations was introduced by
+T86	data 10874 10899	Solenthaler et al. [2011]
+R49	supports Arg1:T86 Arg2:T85	
+T87	background_claim 10906 10984	this work primarily targets the coupling of two different particle resolutions
+R50	contradicts Arg1:T87 Arg2:T85	
+T88	background_claim 10986 11109	Several other methods have been proposed to reconstruct smooth surfaces around collections of particles without orientation
+T89	background_claim 11111 11229	One approach that is commonly used is to compute a signed distance function with averaged particle radii and centroids
+T90	data 11232 11252	Zhu and Bridson 2005
+R51	supports Arg1:T90 Arg2:T89	
+T91	background_claim 11255 11388	A variant of this approach, taking into account information about the spatial variance of the particle’s neighborhood was proposed by
+T92	data 11390 11406	Yu et al. [2010]
+R52	supports Arg1:T92 Arg2:T91	
+T93	background_claim 11408 11468	Both methods primarily target particles with constant radius
+T94	background_claim 11485 11591	a level-set based method was proposed that computes a constrained optimization with bihar- monic smoothing
+T95	data 11594 11618	Bhattacharya et al. 2011
+R53	supports Arg1:T95 Arg2:T94	
+T96	background_claim 11630 11708	such an optimization would be complicated to apply in our unstructured setting
+R54	contradicts Arg1:T96 Arg2:T94	
+T97	own_claim 11740 11837	our approach for surface creation computes the union of convex hulls around triplets of particles
+R55	contradicts Arg1:T97 Arg2:T96	
+T98	own_claim 11988 12049	The aim of our method is to solve the Navier-Stokes equations
+T99	own_claim 12385 12434	We solve these equations using operator splitting
+T100	own_claim 12453 12522	a level set φ(x) = 0 defines the position of the liquid-gas interface
+T101	data 12437 12446	Stam 1999
+R56	supports Arg1:T101 Arg2:T99	
+R57	parts_of_same Arg1:T100 Arg2:T99	
+T102	background_claim 12524 12610	Spatial Discretization An inherent strength of the FLIP algorithm is its hybrid nature
+T103	background_claim 12852 12955	This projection of the velocities into a divergence-free state can be formulated as the Poisson problem
+T104	background_claim 12987 13005	∆t 2 p = · u ∗ , ρ
+R58	parts_of_same Arg1:T104 Arg2:T103	
+T105	own_claim 13210 13331	we want to compute the minimal change in kinetic energy necessary to reach a divergence-free state of the flow similar to
+T106	data 13334 13351	Batty et al. 2007
+R59	supports Arg1:T106 Arg2:T105	
+T107	own_claim 13412 13454	p = arg min 1 ||u ∗ − ∆t p|| 2 ρdV p Ω 2 ρ
+R60	supports Arg1:T105 Arg2:T107	
+T108	own_claim 13593 13676	This has the advantage of giving us a natural way to handle cells of different size
+T109	own_claim 14018 14084	this setup results in a constant pressure gradient per tetrahedron
+T110	data 13928 14016	by assuming a piece-wise constant velocity and a linear change of pressure within a cell
+R61	supports Arg1:T110 Arg2:T109	
+T111	data 14250 14278	Based on this representation
+T112	own_claim 14341 14399	m p = arg min 1 || u ˆ i ∗ − ∆t [ ] p|| 2 ρV i , p ˆ 2 ρ i
+R62	supports Arg1:T111 Arg2:T112	
+T113	own_claim 15031 15172	Our discretization compared to previous approaches: the MAC grid stores velocity components normal to faces and pressure values at the center
+T114	own_claim 15554 15617	a square n × n matrix, which is symmetric and positive definite
+T115	own_claim 15834 15855	to compute a solution
+T116	own_claim 15741 15766	we can use standard tools
+T117	data 15702 15739	Given appropriate boundary conditions
+T118	data 15776 15833	a commonly used pre-conditioned conjugate gradient solver
+R63	parts_of_same Arg1:T115 Arg2:T116	
+R64	supports Arg1:T118 Arg2:T116	
+R65	supports Arg1:T117 Arg2:T116	
+T119	data 15887 15899	Bridson 2008
+T120	own_claim 15857 15884	we use the one suggested in
+R66	supports Arg1:T119 Arg2:T120	
+T121	own_claim 16878 16998	our pressure solve is a linear system that has n degrees of freedom, n being the number of nodes in the tetrahedral mesh
+T122	own_claim 16848 16876	In contrast to previous work
+R67	supports Arg1:T122 Arg2:T121	
+T123	own_claim 17018 17074	n is in practice smaller than the number of tetrahedra m
+T124	data 17000 17016	For our BCC mesh
+R68	supports Arg1:T124 Arg2:T123	
+T125	own_claim 17106 17186	A direct implication of this smaller linear system is that it is faster to solve
+T126	own_claim 17188 17310	A second, less obvious implication of the smaller linear system is that it effectively prevents artifacts known as locking
+T127	own_claim 17312 17402	These artifacts are commonly observed in finite element methods for problems in elasticity
+T128	background_claim 17404 17469	Different methods have been proposed to circumvent these problems
+T129	data 17477 17547	using linear elements for pressure instead of piece-wise constant ones
+T130	data 17550 17568	Irving et al. 2007
+R69	supports Arg1:T129 Arg2:T128	
+R70	supports Arg1:T130 Arg2:T128	
+T131	background_claim 17571 17646	Other works explicitly smooth the pressure field to reduce locking problems
+T132	data 17649 17668	Misztal et al. 2010
+T133	background_claim 17683 17812	locking can be observed if the pressure basis can represent more, and higher-frequency, functions than the basis for the velocity
+T134	own_claim 17821 17867	choosing a more restrictive basis for pressure
+T135	own_claim 17901 17965	explicitly removing high-frequency information from the pressure
+T136	own_claim 17991 18020	reduces the chance of locking
+R71	parts_of_same Arg1:T136 Arg2:T135	
+R72	parts_of_same Arg1:T135 Arg2:T134	
+T137	data 17877 17895	Irving et al. 2007
+T138	data 17968 17987	Misztal et al. 2010
+R73	supports Arg1:T137 Arg2:T134	
+R74	supports Arg1:T138 Arg2:T135	
+T139	own_claim 18022 18032	Our method
+T140	own_claim 18051 18132	has more degrees of freedom for representing velocity fields than pressure fields
+R75	parts_of_same Arg1:T140 Arg2:T139	
+R76	contradicts Arg1:T139 Arg2:T136	
+T141	own_claim 18143 18235	we cannot prove that a local configuration over-constraining the velocities will never occur
+T142	own_claim 18237 18334	the larger number of degrees of freedom for our velocities effectively prevents locking artifacts
+R77	contradicts Arg1:T142 Arg2:T141	
+T143	own_claim 18382 18532	Boundary Conditions Second-order boundary conditions are a central component for accurate and visually appealing simulations with non-conforming grids
+T144	own_claim 18534 18641	Achieving second-order accuracy for obstacle boundary conditions is straightforward with our discretization
+T145	data 18693 18710	Batty et al. 2007
+R78	supports Arg1:T145 Arg2:T144	
+T146	own_claim 18847 18920	Dirichlet boundary condition p = 0 is satisfied at the interface position
+T147	background_claim 18931 19090	this means computing a pressure value for nodes outside of the liquid so that a linear interpolation along an edge of a cell gives zero at the correct position
+T148	data 19093 19112	Enright et al. 2005
+T149	data 19114 19136	Lew and Buscaglia 2008
+R79	supports Arg1:T149 Arg2:T147	
+R80	supports Arg1:T148 Arg2:T147	
+T150	data 19309 19333	For a Cartesian MAC grid
+T151	data 18798 18818	For the free surface
+R81	supports Arg1:T151 Arg2:T146	
+T152	own_claim 19335 19394	the ghost pressure value p G is given by p G = p L φ G /φ L
+R82	supports Arg1:T150 Arg2:T152	
+T153	own_claim 19419 19466	this approach does not yield the desired result
+T154	data 19397 19408	In our case
+R83	supports Arg1:T154 Arg2:T153	
+R84	contradicts Arg1:T153 Arg2:T152	
+T155	own_claim 19468 19575	The reason is that our velocity samples are not in line with the direct connections of the pressure samples
+T156	own_claim 19578 19623	they are not locally orthogonal to each other
+R85	supports Arg1:T156 Arg2:T155	
+R86	supports Arg1:T155 Arg2:T153	
+T157	own_claim 19634 19731	we have to ensure the boundary conditions result in the correct pressure value at the cell center
+T158	own_claim 20767 20861	p G can be rewritten in terms of a barycentric interpolation of the three values in the liquid
+T159	own_claim 21026 21082	the θ n are a set of barycentric coordinate coefficients
+T160	data 21093 21110	θ 1 +θ 2 +θ 3 = 1
+R87	supports Arg1:T160 Arg2:T159	
+T161	own_claim 21314 21376	the values w n are determined by those of the θ n coefficients
+T162	own_claim 21444 21499	θ n could take any values as long as they add up to one
+T163	own_claim 21666 21749	The computation of the ghost fluid ρ values is independent of the right-hand side b
+T164	background_claim 22042 22098	the first vertex is the one outside of the liquid volume
+T165	own_claim 23023 23163	the resulting matrix is symmetric positivedefinite and can be easily inverted by the commonly used preconditioned conjugate gradient methods
+T166	data 23012 23021	this case
+R88	supports Arg1:T166 Arg2:T165	
+T167	own_claim 23174 23309	positive off-diagonal terms of the matrix can result in values of θ outside of the range [0, 1], leading to an indefinite linear system
+R89	contradicts Arg1:T167 Arg2:T165	
+T168	own_claim 23446 23514	it is common practice to clamp small values in the denominator of Eq
+T169	own_claim 23520 23564	to prevent ill-conditioned pressure matrices
+R90	parts_of_same Arg1:T169 Arg2:T168	
+T170	own_claim 23590 23665	reverting to first-order accuracy when second-order accuracy is intractable
+T171	own_claim 23927 23973	we smoothly transition to first order accuracy
+T172	data 23904 23925	we detect such a case
+R91	supports Arg1:T172 Arg2:T171	
+T173	own_claim 24177 24208	we compute a coefficient k with
+T174	own_claim 24241 24302	φ − 1 φ − 1 φ − 1 k = min λ 2 , λ 3 , λ 4 , w 2 α w 3 β w 4 γ
+T175	data 24154 24175	we detect such a case
+R92	supports Arg1:T175 Arg2:T173	
+R93	parts_of_same Arg1:T174 Arg2:T173	
+T176	data 24467 24476	for k = 1
+T177	own_claim 24477 24515	this yields full second-order accuracy
+R94	supports Arg1:T176 Arg2:T177	
+T178	data 24523 24550	for badly shaped tetrahedra
+T179	own_claim 24551 24658	the resulting k = 0 means that we revert to the standard rounding strategy of a first order accurate method
+R95	supports Arg1:T178 Arg2:T179	
+T180	own_claim 24751 24776	The graded BCC tetrahedra
+T181	own_claim 24797 24850	can be of lower quality and can require the use of Eq
+T182	own_claim 24852 24856	(13)
+R96	parts_of_same Arg1:T182 Arg2:T181	
+R97	parts_of_same Arg1:T181 Arg2:T180	
+T183	own_claim 25213 25307	the interpolation would ideally use the dual mesh consisting of the Voronoi cells of each node
+T184	data 25310 25328	Brochu et al. 2010
+R98	supports Arg1:T184 Arg2:T183	
+T185	own_claim 25595 25664	we first interpolate the centered velocities to the nodes, similar to
+T186	data 25667 25688	Chentanez et al. 2007
+R99	supports Arg1:T186 Arg2:T185	
+T187	own_claim 26091 26156	these four smaller tetrahedra do not have to be stored explicitly
+T188	own_claim 26246 26328	Manipulating FLIP particles The spacing between FLIP particles may drift over time
+T189	own_claim 26334 26389	high-frequency errors may contribute to a bumpy surface
+T190	own_claim 26484 26529	we apply the position correction algorithm of
+T191	data 26531 26549	Ando et al. [2012]
+R100	supports Arg1:T191 Arg2:T190	
+T192	own_claim 27223 27330	FLIP particles that partake in splashes and sprays can pose a significant burden on computational resources
+T193	data 27343 27377	in an adaptive framework like ours
+R101	supports Arg1:T193 Arg2:T192	
+T194	own_claim 27379 27478	This inefficiency stems from the fact that water droplets undergo extremely simple ballistic motion
+T195	own_claim 27964 28095	This decision allows us to avoid aggressively refining the tetrahedral mesh in locations where the physical motion is uninteresting
+T196	own_claim 28097 28163	Only a small percentage of the particles are simulated in this way
+T197	data 28171 28186	1.7% on average
+T198	data 28191 28199	Figure 6
+R102	supports Arg1:T197 Arg2:T196	
+R103	supports Arg1:T198 Arg2:T196	
+T199	own_claim 28466 28557	Our method achieves adaptivity by varying the mesh resolution over the computational domain
+T200	own_claim 29135 29195	we use the octree-based grading method which was proposed by
+T201	own_claim 29225 29286	and later adopted in several adaptive simulation environments
+T202	data 29197 29224	Labelle and Shewchuk [2007]
+T203	data 29289 29310	Chentanez et al. 2007
+T204	data 29312 29332	Wojtan and Turk 2008
+T205	data 29334 29351	Batty et al. 2010
+T206	data 29367 29384	Batty et al. 2010
+R104	parts_of_same Arg1:T201 Arg2:T200	
+R105	supports Arg1:T202 Arg2:T200	
+R106	supports Arg1:T203 Arg2:T201	
+R107	supports Arg1:T204 Arg2:T201	
+R108	supports Arg1:T205 Arg2:T201	
+T207	own_claim 29354 29364	Similar to
+T208	own_claim 29388 29501	we generate a new tetrahedral mesh every ten time steps, instead of rebuilding the mesh on every consecutive step
+R109	parts_of_same Arg1:T208 Arg2:T207	
+R110	supports Arg1:T206 Arg2:T207	
+T209	own_claim 29509 29578	the tetrahedral mesh is only temporarily used for the pressure solver
+T210	own_claim 29583 29669	no information is transferred from one time step to the next by storing it on the grid
+R111	supports Arg1:T209 Arg2:T210	
+T211	own_claim 29865 29890	we modify the strategy of
+T212	data 29892 29910	Ando et al. [2012]
+T213	data 29855 29863	For this
+T214	own_claim 29911 29939	to work within our framework
+R112	parts_of_same Arg1:T214 Arg2:T211	
+R113	supports Arg1:T213 Arg2:T211	
+R114	supports Arg1:T212 Arg2:T211	
+T215	data 30056 30079	a particle is too small
+T216	own_claim 30086 30135	we merge it with its nearest neighboring particle
+R115	supports Arg1:T215 Arg2:T216	
+T217	data 30240 30288	a given particle is bigger than the desired size
+T218	own_claim 30295 30323	the particle is split in two
+R116	supports Arg1:T217 Arg2:T218	
+T219	own_claim 30668 30752	The new particle’s position is equal to the weighted average of all nearby midpoints
+T220	own_claim 30754 30775	x new = ω i m i / ω i
+R117	supports Arg1:T220 Arg2:T219	
+T221	own_claim 31265 31369	Numerical viscosity in fluid simulations is tightly coupled to the spatial resolution resolving the flow
+T222	own_claim 31371 31548	We compensate for spatiallyvarying numerical viscosity caused by particles of various sizes in our simulation by adjusting the PIC/FLIP blending parameter in our FLIP simulation
+T223	data 31551 31563	Bridson 2008
+R118	supports Arg1:T223 Arg2:T222	
+T224	own_claim 31672 31740	the new quantity Q i is computed as a weighted blend between the two
+T225	data 31566 31656	Given quantities Q i,PIC and Q i,FLIP computed at particle i from PIC and FLIP simulations
+R119	supports Arg1:T225 Arg2:T224	
+T226	own_claim 32212 32306	this strategy adequately eliminates any artifacts due to spatially varying numerical viscosity
+T227	own_claim 32668 32744	Our simulator is versatile enough to cope with any of these sizing functions
+T228	own_claim 32956 33029	the sizing function is defined as a combination of five different metrics
+T229	own_claim 33063 33126	S(x) = max ( d(x), V (x, min(κ liquid (x), κ solid (x), e(x)) )
+T230	data 32918 32954	In all of the examples in this paper
+R120	supports Arg1:T228 Arg2:T229	
+R121	supports Arg1:T230 Arg2:T228	
+T231	own_claim 33295 33417	This has the effect that motion near the surface has higher priority than motions far inside the bulk volume of the liquid
+T232	own_claim 33419 33481	V (x, y) is a view-dependent function that returns the value y
+T233	data 33485 33524	x is within the camera’s visible region
+T234	data 33529 33570	returns the maximum particle radius r max
+R122	supports Arg1:T233 Arg2:T232	
+R123	supports Arg1:T234 Arg2:T232	
+T235	own_claim 34181 34284	it beneficial to invest computational resources into keeping interesting motion of the flow field alive
+T236	own_claim 34372 34443	the strain tensor of the flow field reliably indicates detailed motions
+T237	data 34332 34349	Pfaff et al. 2010
+T238	data 34286 34315	Inspired by turbulence models
+R124	supports Arg1:T237 Arg2:T236	
+R125	supports Arg1:T238 Arg2:T236	
+T239	own_claim 34769 34859	we aim to implicitly represent the fluid surface by computing its signed distance function
+T240	data 34716 34767	Given our set of FLIP particles with variable radii
+R126	supports Arg1:T240 Arg2:T239	
+T241	background_claim 34861 34969	Several useful methods for computing a surface from a collection of particles have been proposed in the past
+T242	data 34972 34992	Zhu and Bridson 2005
+T243	data 34994 35011	Adams et al. 2007
+T244	data 35013 35029	Yu and Turk 2010
+R127	supports Arg1:T242 Arg2:T241	
+R128	supports Arg1:T243 Arg2:T241	
+R129	supports Arg1:T244 Arg2:T241	
+T245	background_claim 35037 35084	they tend to produce undesirably bumpy surfaces
+T246	data 35090 35136	considering particles of highly variable radii
+T247	data 35139 35147	Figure 4
+R130	supports Arg1:T246 Arg2:T245	
+R131	supports Arg1:T247 Arg2:T245	
+T248	own_claim 35272 35413	The main idea is to approximate the fluid surface with the union of the convex hulls of each triplet of nearby particles close to the surface
+R132	contradicts Arg1:T245 Arg2:T241	
+T249	own_claim 35768 35813	a larger l tends to fill in small concavities
+T250	own_claim 35724 35760	A small l shows more surface details
+R133	contradicts Arg1:T249 Arg2:T250	
+T251	own_claim 35963 36077	the minimum signed distance from these shapes to a point in space defines the outer part of our level set function
+T252	own_claim 36196 36293	We efficiently compute the distance to these planes by analytically solving the polynomial system
+T253	own_claim 36657 36750	the plane is the right distance away from each particle with the normal facing away from them
+T254	data 36619 36644	the first three equations
+T255	own_claim 36788 36843	the plane equation is normalized to a distance function
+T256	data 36756 36774	the final equation
+R134	supports Arg1:T254 Arg2:T253	
+R135	supports Arg1:T256 Arg2:T255	
+T257	own_claim 36845 36958	These four equations represent the intersection of three hyperplanes and a hypercylinder in 4D {a, b, c, d} space
+T258	own_claim 37467 37554	we can easily compute the signed distance between this convex hull and a point in space
+T259	data 37362 37417	By computing the conic and spherical convex hull facets
+T260	data 37445 37465	in a similar fashion
+R136	parts_of_same Arg1:T260 Arg2:T259	
+T261	data 37420 37428	Figure 5
+R137	supports Arg1:T261 Arg2:T258	
+R138	supports Arg1:T260 Arg2:T258	
+T262	own_claim 37925 38027	The algorithm as described works perfectly for computing the level set outside of our particle surface
+T263	own_claim 38033 38065	it may lead to small gaps inside
+R139	contradicts Arg1:T263 Arg2:T262	
+T264	own_claim 38713 38765	The final surface creation is trivially parallelized
+T265	own_claim 39125 39183	Most previous algorithms perform poorly in this comparison
+T266	data 39192 39247	they were not designed for particles with varying radii
+T267	own_claim 40191 40257	additional user-defined sizing functions could be computed as well
+T268	data 40176 40189	At this point
+R140	supports Arg1:T268 Arg2:T267	
+T269	own_claim 40122 40174	it becomes necessary to evaluate the sizing function
+T270	own_claim 40443 40477	we use an SPH-like kernel function
+T271	data 40384 40433	For mapping the particle velocities onto the grid
+R141	supports Arg1:T271 Arg2:T270	
+T272	own_claim 40479 40519	which is weighted by the particle volume
+T273	data 40521 40550	max(v i (4r i 2 /d 2 − 1), 0)
+R142	supports Arg1:T273 Arg2:T272	
+T274	own_claim 41175 41246	The particle velocity update of line 12 uses barycentric interpolations
+T275	data 41263 41272	Section 3
+T276	own_claim 41284 41358	the grid-based velocity extrapolation of line 10 uses the nodal velocities
+R143	supports Arg1:T275 Arg2:T274	
+T277	data 41362 41371	Section 3
+R144	supports Arg1:T277 Arg2:T276	
+R145	contradicts Arg1:T276 Arg2:T274	
+T278	own_claim 41373 41511	A time step is completed by performing the pressure projection and advecting the particles in the resulting divergence-free velocity field
+T279	own_claim 41785 41799	One comparison
+T280	own_claim 41800 41832	that is particularly interesting
+T281	own_claim 41833 41891	is the one comparing our method to an FVM based simulation
+R146	parts_of_same Arg1:T281 Arg2:T279	
+T282	own_claim 41893 41950	Using a graded BCC mesh leads to problems with the latter
+T283	data 41955 42038	the position of the circumcenter lies exactly on a face for the graded tetrahedrons
+R147	supports Arg1:T283 Arg2:T282	
+T284	own_claim 42062 42166	this can result in two pressure samples from adjacent tetrahedra being placed at the exact same position
+T285	data 42040 42060	In the graded region
+R148	supports Arg1:T285 Arg2:T284	
+T286	background_claim 42168 42193	To alleviate this problem
+T287	data 42197 42214	Batty et al. 2010
+T288	background_claim 42217 42279	propose to slightly offset the pressure samples from the faces
+R149	parts_of_same Arg1:T288 Arg2:T286	
+R150	supports Arg1:T287 Arg2:T288	
+T289	own_claim 42397 42536	The influence of the different components of our sizing function on the evolution of a simulation is difficult to depict with static images
+T290	own_claim 42541 42592	we refer to the accompanying video for a comparison
+R151	supports Arg1:T289 Arg2:T290	
+T291	own_claim 43222 43340	a full sampling of the initial configuration with a regular grid would have required approximately 6 million particles
+T292	own_claim 43369 43455	the run-time of our method has a strong linear relationship to the number of particles
+T293	own_claim 43466 43505	the visual complexity of the simulation
+R152	supports Arg1:T292 Arg2:T293	
+T294	own_claim 43507 43575	The per-frame time is low at the beginning and end of the simulation
+T295	own_claim 43581 43635	strongly peaks during the complex splash in its middle
+R153	contradicts Arg1:T295 Arg2:T294	
+T296	own_claim 43721 43803	the computational resources are focused on the visible region of a rotating camera
+T297	data 43808 43854	the liquid splashes around a U-shaped corridor
+R154	supports Arg1:T297 Arg2:T296	
+T298	own_claim 43856 43922	Our solver efficiently resolves the complex motion near the camera
+T299	own_claim 43930 44004	effectively reducing the computational cost for parts that are not visible
+R155	contradicts Arg1:T299 Arg2:T298	
+T300	own_claim 45906 45989	geometrically complex regions near the obstacle are simulated with higher accuracy.
+T301	data 45848 45892	The κ solid component of our sizing function
+R156	supports Arg1:T301 Arg2:T300	
+T302	own_claim 46003 46079	we can resolve the detailed flow of liquid through the holes in the obstacle
+T303	data 45990 46001	In this way
+R157	supports Arg1:T303 Arg2:T302	
+T304	own_claim 46189 46316	the large open liquid surface with complex splashes in a localized region would require huge amounts of computational resources
+T305	data 46169 46187	Without adaptivity
+R158	supports Arg1:T305 Arg2:T304	
+T306	own_claim 46318 46369	Our method can simulate this setup very efficiently
+T307	own_claim 46375 46434	in a fully coupled manner with an effective high resolution
+T308	own_claim 46436 46506	The large open region is successfully coarsened by our sizing function
+T309	own_claim 46508 46560	resulting in subtle wave motions around the splashes
+T310	own_claim 46576 46726	the whole simulation with 8 different octree levels and a maximum resolution of up to 1024 cells took on average only 4.6 minutes per frame to compute
+T311	data 46562 46574	In this case
+R159	supports Arg1:T311 Arg2:T310	
+T312	own_claim 46784 46841	our adaptive version initially used 1.7 million particles
+T313	own_claim 46849 46932	a regular sampling at the finest resolution would have required roughly 400 million
+R160	contradicts Arg1:T313 Arg2:T312	
+T314	own_claim 47030 47057	We found our discretization
+T315	own_claim 47070 47100	beneficial in a number of ways
+R161	parts_of_same Arg1:T315 Arg2:T314	
+T316	own_claim 47163 47223	there are far fewer vertices than tetrahedra in a given mesh
+T317	own_claim 47239 47277	the pressure solve has fewer variables
+T318	own_claim 47282 47300	is faster to solve
+R162	supports Arg1:T316 Arg2:T317	
+R163	supports Arg1:T316 Arg2:T318	
+T319	own_claim 47372 47457	our discretization prevents the locking ar- tifacts which are common in other methods
+T320	own_claim 47527 47593	the highest frequencies of the velocity field may be unconstrained
+T321	data 47468 47508	the lower number of pressure constraints
+R164	supports Arg1:T321 Arg2:T320	
+T322	own_claim 47908 48043	we are allowed to aggressively remesh the tetrahedral background grid without worrying about excessive damping or re-sampling artifacts
+T323	data 47817 47893	information is carried from one time step to the next in a Lagrangian manner
+R165	supports Arg1:T323 Arg2:T322	
+T324	background_claim 48064 48148	FLIP simulations have a well-known problem of creating noisy particle distributions,
+T325	background_claim 48157 48252	there are typically several times more particles than velocity variables on the background grid
+R166	supports Arg1:T325 Arg2:T324	
+T326	own_claim 48417 48559	our new surface creation routine is essential for maintaining detailed simulations in the presence of accurate freesurface boundary conditions
+T327	own_claim 48561 48691	One major benefit of our method is that it can easily create perfectly flat surfaces from a mixture of differently-sized particles
+T328	own_claim 48771 48837	our animations are able to smoothly settle down as time progresses
+T329	data 48693 48766	These flat surfaces represent the equilibrium state of a fluid simulation
+T330	own_claim 48999 49057	which artificially prevent a simulation from settling down
+T331	data 48898 48997	second-order boundary conditions will introduce additional forces in the locations of surface bumps
+R167	supports Arg1:T329 Arg2:T328	
+R168	supports Arg1:T331 Arg2:T330	
+T332	own_claim 49081 49126	our surface creation routine is indispensable
+T333	own_claim 49128 49160	it is quite expensive to compute
+R169	contradicts Arg1:T333 Arg2:T332	
+T334	own_claim 49227 49298	Our simulations perform quite well for large differences in resolutions
+T335	own_claim 49304 49388	we have only been able to push them to a certain point in our current implementation
+R170	contradicts Arg1:T335 Arg2:T334	
+T336	own_claim 49404 49520	using too sharp of a grading in our sizing function can place coarse and fine simulation elements too close together
+T337	own_claim 49537 49557	result in artifacts.
+T338	own_claim 49642 49682	these particles can get stuck in mid air
+T339	data 49576 49640	small particles land in very coarse cells after violent splashes
+R171	supports Arg1:T339 Arg2:T338	
+R172	supports Arg1:T336 Arg2:T337	
+T340	own_claim 49698 49790	this can also lead to an overly strong weight for such particles during the velocity mapping
+T341	own_claim 49792 49823	resulting in momentum artifacts
+R173	supports Arg1:T340 Arg2:T341	
+T342	own_claim 49825 49857	Our adaptive numerical viscosity
+T343	own_claim 49870 49945	can also exhibit dangerously small damping values for very fine resolutions
+R174	parts_of_same Arg1:T343 Arg2:T342	
+T344	own_claim 49950 50011	we clamped the blending coefficient to a minimum value of 0.1
+T345	data 49861 49869	Eq. (14)
+R175	supports Arg1:T345 Arg2:T342	
+T346	data 50015 50023	Figure 1
+R176	supports Arg1:T346 Arg2:T344	
+R177	supports Arg1:T343 Arg2:T344	
+T347	own_claim 50039 50148	we introduced a novel collection of sizing functions for adaptively selecting details from a fluid simulation
+T348	own_claim 50222 50262	these values were not meticulously tuned
+T349	own_claim 50267 50292	are certainly not optimal
+T350	own_claim 50156 50220	we presented specific parameters for the sake of reproducibility
+R178	contradicts Arg1:T350 Arg2:T348	
+T351	own_claim 50294 50364	The task of choosing an ideal sizing function is still an open problem
+R179	contradicts Arg1:T350 Arg2:T349	
+T352	own_claim 50498 50551	This could lead to more gradual changes in resolution
+T353	own_claim 51347 51420	We have presented a novel framework for highly adaptive liquid simulation
+T354	own_claim 51437 51626	a novel, robust discretization works together with accurate embedded boundary conditions and a flexible sizing function to allow for aggressive adaptivity and high computational performance
+T355	own_claim 51641 51743	we can efficiently compute tough simulation setups, such as large surfaces with very localized details
+T356	own_claim 51745 51886	We have additionally presented a novel surface creation method that yields smooth surfaces in the presence of strongly varying particle radii
+T357	data 51628 51639	In this way
+T358	own_claim 51888 51956	which turned out to be an important building block for our framework
+R180	supports Arg1:T357 Arg2:T355	
+T359	own_claim 51997 52002	it is
+T360	own_claim 52034 52081	the fastest way to generate high-quality meshes
+R181	parts_of_same Arg1:T360 Arg2:T359	
+T361	own_claim 51958 51988	We chose a BCC mesh generation
+T362	own_claim 52116 52172	mesh generation is still a bottleneck for our simulation
+T363	own_claim 52092 52114	despite its efficiency
+R182	supports Arg1:T361 Arg2:T359	
+R183	contradicts Arg1:T363 Arg2:T362	
+R184	contradicts Arg1:T362 Arg2:T360	
+T364	own_claim 52174 52274	This is partly due to the fact that it is a mostly serial operation that is difficult to parallelize
+T365	own_claim 52464 52587	our choice of piece-wise constant basis functions for velocity indicates that our discretization could lead to difficulties
+T366	data 52593 52637	it is used for diffusion or viscosity solves
+R185	supports Arg1:T366 Arg2:T365	

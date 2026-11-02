@@ -1,0 +1,388 @@
+T1	background_claim 6973 7125	Computer graphics simulations of fluid behavior are in demand in filmmaking for depicting gases, liquids, smoke, dust, fire, and other natural phenomena
+T2	background_claim 7127 7270	Methods for creating these simulations vary widely, depending on the requirements for realism, controllability, rendering style, and complexity
+T3	own_claim 7272 7489	This paper describes a system, which utilizes numerical simulations of the full equations of fluid dynamics, that is being used at DreamWorks Feature Animation Studios in the production of traditionally-animated films
+T4	own_claim 7491 7637	The system employs techniques from both the scientific and computer graphics communities in order to be both efficient and accessible to animators
+T5	background_claim 7644 7862	 Of the many ways of incorporating simulation into the creation of fluids animations, one end of the spectrum in a traditional animation environment is to use no simulation at all, and draw every frame of the animation
+T6	background_claim 7864 7923	This approach gives a wide range of flexibility and control
+T7	background_claim 7929 8010	is a tedious process with realistic limits on the complexity that can be achieved
+R1	contradicts Arg1:T7 Arg2:T6	
+T8	background_claim 8012 8122	At the other extreme, there are many advantages to numerically solving the full equations of motion for fluids
+T9	background_claim 8176 8216	to create an- imations of fluid behavior
+R2	parts_of_same Arg1:T9 Arg2:T8	
+T10	data 8147 8174	the Navier-Stokes equations
+R3	supports Arg1:T10 Arg2:T8	
+T11	background_claim 8218 8287	With simple user set-ups, the physically accurate equations take over
+T12	background_claim 8289 8382	generating lots of high quality animation, rich in complexity and guaranteed realistic motion
+R4	supports Arg1:T11 Arg2:T12	
+T13	background_claim 1702 1812	Compared to computer graphics, the equations of fluid motion and solution methods for them have a long history
+T14	background_claim 1814 1877	Equations expressing conservation of mass, momentum, and energy
+T15	background_claim 1929 1968	have been around since the early 1800’s
+R5	parts_of_same Arg1:T14 Arg2:T15	
+T16	data 1904 1927	Navier-Stokes equations
+R6	supports Arg1:T16 Arg2:T14	
+T17	background_claim 2012 2137	from 1932, is still regarded as one of the best sources for fundamental theorems, equations, and solutions in fluid mechanics
+T18	background_claim 1988 2001	Hydrodynamics
+T19	data 2005 2007	11
+R7	parts_of_same Arg1:T18 Arg2:T17	
+R8	supports Arg1:T19 Arg2:T18	
+T20	background_claim 2139 2225	The equations of motion cannot be solved analytically, except in simplified situations
+T21	background_claim 2241 2270	need to be solved numerically
+R9	supports Arg1:T20 Arg2:T21	
+T22	data 2368 2484	John von Neumann envisioned using the computer to solve the equations of motion for weather prediction in the 1940’s
+T23	background_claim 2272 2362	Numerical integration methods for systems of equations predate the modern computer as well
+R10	supports Arg1:T22 Arg2:T23	
+T24	background_claim 2486 2654	Today, the use of computers to solve the Navier-Stokes equations is widespread, with descriptions of particular models and their solutions filling the pages of journals
+T25	data 2663 2689	Journal of Fluid Mechanics
+T26	data 2694 2729	Journal of the Atmospheric Sciences
+R11	supports Arg1:T25 Arg2:T24	
+R12	supports Arg1:T26 Arg2:T24	
+T27	background_claim 2740 2795	computational fluid dynamics is a fairly mature subject
+T28	background_claim 2797 3000	the emphasis so far has been on accurately simulating physical situations for scientific purposes, rather than creating images and animations as the end goal, which has different concerns and motivations
+R13	contradicts Arg1:T28 Arg2:T27	
+T29	data 3124 3166	as a means of speeding up the calculations
+T30	data 3032 3069	the use of artificial compressibility
+R14	parts_of_same Arg1:T30 Arg2:T29	
+T31	data 3113 3122	section 3
+R15	supports Arg1:T30 Arg2:T28	
+R16	supports Arg1:T31 Arg2:T28	
+T32	own_claim 3189 3272	the non-physical compressibility effects introduced need to be rigorously justified
+T33	data 3172 3187	scientific work
+R17	supports Arg1:T33 Arg2:T32	
+T34	data 3286 3323	the creation of imagery and animation
+T35	own_claim 3325 3368	the guiding standard is how the images look
+R18	supports Arg1:T34 Arg2:T35	
+T36	own_claim 3424 3538	there are new sets of concerns about how to control and modify the simulation dynamics, and what and how to render
+T37	data 3375 3422	the emphasis is on the look of the final images
+R19	supports Arg1:T37 Arg2:T36	
+T38	own_claim 3540 3680	These concerns move us into the territory of computer graphics, with the highly practical production environment driving the process forward
+T39	background_claim 3869 3972	has modeled various aspects of fluid behavior with an emphasis on efficiency and controllability issues
+T40	background_claim 3779 3819	Previous work in the graphics literature
+R20	parts_of_same Arg1:T40 Arg2:T39	
+T41	data 3823 3824	2
+T42	data 3827 3828	4
+T43	data 3831 3832	6
+T44	data 3835 3836	7
+T45	data 3839 3840	9
+T46	data 3843 3845	12
+T47	data 3848 3850	13
+T48	data 3853 3855	14
+T49	data 3858 3860	16
+T50	data 3863 3865	19
+R21	supports Arg1:T41 Arg2:T40	
+R22	supports Arg1:T42 Arg2:T40	
+R23	supports Arg1:T43 Arg2:T40	
+R24	supports Arg1:T44 Arg2:T40	
+R25	supports Arg1:T45 Arg2:T40	
+R26	supports Arg1:T46 Arg2:T40	
+R27	supports Arg1:T47 Arg2:T40	
+R28	supports Arg1:T48 Arg2:T40	
+R29	supports Arg1:T49 Arg2:T40	
+R30	supports Arg1:T50 Arg2:T40	
+T51	background_claim 3974 4147	Some of this work makes use of existing velocity fields or allows users to create their own in a variety of ways, rather than have a simulation determine the velocity field.
+T52	own_claim 4148 4292	The emphasis in this paper is on the use of the full NavierStokes equations to solve for the dynamic velocity and temperature fields numerically
+T53	background_claim 4318 4482	solve the shallow water equations, which reduce the Navier-Stokes equations down to solving for an evolving height field for the surface of a shallow body of liquid
+T54	data 4313 4314	9
+R31	supports Arg1:T54 Arg2:T53	
+T55	background_claim 4519 4608	used two-dimensional timedependent vorticity equations to model the atmosphere of Jupiter
+T56	data 4512 4514	19
+R32	supports Arg1:T56 Arg2:T55	
+T57	background_claim 4610 4718	The strongest advocacy for use of the full Navier-Stokes equations so far in the graphics literature is from
+T58	data 4740 4741	7
+R33	supports Arg1:T58 Arg2:T57	
+T59	background_claim 4746 4812	who solve the three-dimensional equations of motion to model smoke
+R34	parts_of_same Arg1:T59 Arg2:T57	
+T60	background_claim 4922 5013	there is usually a decision making process based on the imagery needed to guide this choice
+T61	background_claim 4814 4904	There may be no right or wrong answer as to what level of physical modeling is appropriate
+R35	contradicts Arg1:T61 Arg2:T60	
+T62	background_claim 5015 5093	Creative control and the level of realism desired are two of the main concerns
+T63	background_claim 5095 5142	The decision making process is well illustrated
+T64	data 5149 5151	19
+R36	supports Arg1:T64 Arg2:T63	
+T65	background_claim 5156 5174	where the end goal
+T66	background_claim 5239 5317	guided aspects from the equations being solved to their final rendering method
+R37	parts_of_same Arg1:T63 Arg2:T65	
+R38	parts_of_same Arg1:T65 Arg2:T66	
+T67	data 5176 5237	creating animations of Jupiter’s atmosphere for the film 2010
+R39	supports Arg1:T67 Arg2:T65	
+T68	own_claim 5319 5526	This paper is of that same style, describing a system built at DreamWorks to support the use of fluid dynamics simulations in the creation of special effects for the animated feature film The Prince of Egypt
+T69	own_claim 5528 5569	Some of the unique features of the system
+T70	own_claim 5603 5652	a compressible version of the equations of motion
+T71	own_claim 5654 5715	the use of images and animations for controlling the dynamics
+R40	supports Arg1:T70 Arg2:T69	
+R41	supports Arg1:T71 Arg2:T69	
+T72	own_claim 5717 5755	fast accurate texture mapping features
+R42	supports Arg1:T72 Arg2:T69	
+T73	own_claim 5770 5798	a complete production system
+R43	supports Arg1:T73 Arg2:T69	
+T74	own_claim 5800 5916	The compressible formulation, unlike any in the graphics literature, allows for the modeling of compressible effects
+T75	data 5926 5937	shock waves
+R44	supports Arg1:T75 Arg2:T74	
+T76	own_claim 5948 6035	provides a mechanism for speeding up flow calculations by an order of magnitude or more
+T77	own_claim 6037 6255	Another unique feature of the system is the use of images and animations as input devices, which allows animators to control initial conditions, source terms, and movable internal boundaries in an easy and flexible way
+T78	own_claim 6257 6476	The inclusion of texture mapping differential equations, another new concept developed here, makes it possible to precalculate particle paths on a fixed grid which can be used in a straight-forward manner at render time
+T79	own_claim 6478 6524	The system also provides fast turn around time
+T80	own_claim 6526 6585	Fourth order accuracy allows animators to use coarser grids
+T81	own_claim 6592 6603	saving time
+R45	supports Arg1:T80 Arg2:T81	
+T82	own_claim 6605 6729	The use of two-dimensional simulations, the compressible formulation, and coarser grids, results in fast, useful simulations
+T83	own_claim 6731 6863	Simulations performed on a 100 by 100 grid are detailed enough for film work and can be calculated at a rate of one frame per second
+T84	own_claim 6865 6949	Additional production components make the overall process efficient for the animator
+T85	own_claim 9169 9292	Desirable characteristics of a useful production system which incorporates fluid dynamics simulations include the following
+T86	own_claim 9343 9457	The equations being solved and the solution method should be capable of modeling a wide variety of flow situations
+R46	supports Arg1:T86 Arg2:T85	
+T87	data 9464 9488	shear flow instabilities
+T88	data 9509 9523	vortex motions
+T89	data 9525 9546	buoyant instabilities
+T90	data 9566 9582	Coriolis effects
+T91	data 9584 9597	gravity waves
+T92	data 9599 9619	compressible effects
+R47	supports Arg1:T87 Arg2:T86	
+R48	supports Arg1:T88 Arg2:T86	
+R49	supports Arg1:T89 Arg2:T86	
+R50	supports Arg1:T90 Arg2:T86	
+R51	supports Arg1:T91 Arg2:T86	
+R52	supports Arg1:T92 Arg2:T86	
+T94	own_claim 9790 9861	Users should have easy access to setting up the various flow situations
+T93	own_claim 9895 10067	The biggest difference between simulation systems for scientific purposes and simulation systems for production purposes is the level of control required in production work
+T95	own_claim 10069 10222	Ideally, animators would control many aspects of the simulation dynamics and be able to incorporate the results into the final scene in a variety of ways
+R53	supports Arg1:T95 Arg2:T85	
+T96	data 10291 10388	it usually translates into more iterations of the creative design cycle and a better final result
+T97	own_claim 10231 10281	Speed is always a consideration in production work
+R54	supports Arg1:T96 Arg2:T97	
+R55	supports Arg1:T97 Arg2:T85	
+T98	own_claim 10400 10484	The overall process must make sense within the context of the production environment
+T99	own_claim 10486 10547	The system should be able to make use of other scene elements
+T100	data 10549 10602	produce scene elements in the most convenient formats
+T101	own_claim 10608 10648	should be part of an efficient work flow
+R56	supports Arg1:T100 Arg2:T99	
+R57	supports Arg1:T98 Arg2:T85	
+T102	own_claim 10681 10747	The rendering style plays an important role in the overall process
+T103	own_claim 10749 10857	A wide variety of rendering styles increases the expressive power of scene elements and their interpretation
+R58	supports Arg1:T102 Arg2:T85	
+T104	own_claim 10910 10994	The equation set used was derived for a meteorology application, the study of clouds
+T105	data 11003 11005	18
+R59	supports Arg1:T105 Arg2:T104	
+T106	data 10998 11000	10
+R60	supports Arg1:T106 Arg2:T104	
+T107	own_claim 11009 11035	The equation set presented
+T108	own_claim 11051 11117	is a simplification of that system which meets the needs discussed
+T109	own_claim 11131 11172	in a variety of ways discussed throughout
+R61	parts_of_same Arg1:T107 Arg2:T108	
+R62	parts_of_same Arg1:T108 Arg2:T109	
+T110	data 11039 11050	section 3.2
+T111	data 11121 11130	section 2
+R63	supports Arg1:T110 Arg2:T107	
+R64	supports Arg1:T111 Arg2:T108	
+T115	own_claim 11937 12002	the equations can be used to advance the solution forward in time
+T116	data 11875 11935	Given appropriate initial conditions and boundary conditions
+R66	supports Arg1:T116 Arg2:T115	
+T119	own_claim 12193 12298	One of the most important aspects of the equation set is that there is no assumption of incompressibility
+T120	own_claim 12329 12367	compressibility effects can be modeled
+T121	own_claim 12373 12412	the equations can be solved much faster
+R68	supports Arg1:T119 Arg2:T120	
+R69	supports Arg1:T119 Arg2:T121	
+T122	own_claim 12458 12590	there is an elliptical partial differential equation involved, corresponding to an “infinite” speed of propagation of pressure waves
+T123	data 12419 12456	an incompressible formulation is used
+R70	supports Arg1:T123 Arg2:T122	
+T124	own_claim 12757 12873	This is usually a time consuming part of the solution method and does not scale well as grid resolution is increased
+T126	own_claim 13065 13105	the pressure equation is presented as is
+T127	data 13041 13063	the lengthy derivation
+R71	supports Arg1:T127 Arg2:T126	
+T128	background_claim 13321 13495	Some systems of equations make an assumption that the fluid has the same density everywhere, which simplifies the equation set at the expense of not modeling buoyancy effects
+T129	own_claim 13497 13554	The equations being used here do not make that assumption
+R72	contradicts Arg1:T129 Arg2:T128	
+T132	background_claim 14025 14074	This concept is defined in most meteorology texts
+T133	data 14077 14078	3
+R74	supports Arg1:T133 Arg2:T132	
+T134	own_claim 13559 13630	buoyancyeffects dominate the dynamics in most of the examples presented
+R75	supports Arg1:T129 Arg2:T134	
+T112	own_claim 15018 15076	the system can also be augmented with additional equations
+T113	data 15082 15139	things such as passive scalars which advect with the flow
+R65	supports Arg1:T113 Arg2:T112	
+T114	background_claim 17986 18077	Derivations of the equations of motion from first principles can be found in many textbooks
+T117	data 18121 18123	17
+T118	data 18116 18118	15
+T125	data 18111 18113	11
+T130	data 18107 18108	3
+R67	supports Arg1:T130 Arg2:T114	
+R73	supports Arg1:T125 Arg2:T114	
+R76	supports Arg1:T118 Arg2:T114	
+R77	supports Arg1:T117 Arg2:T114	
+T131	background_claim 18312 18421	A convenient way to record the flow field history is through the dynamic evolution of texture map information
+T135	own_claim 18678 18749	This Eulerian description is particularly useful in the rendering phase
+T136	data 18757 18842	the texture mapping coordinate information is evenly spaced in the output image space
+R78	supports Arg1:T136 Arg2:T135	
+T137	own_claim 19511 19582	it is more desirable to keep track of displacement offsets from x and z
+T138	data 19468 19509	implementing periodic boundary conditions
+R79	supports Arg1:T138 Arg2:T137	
+T139	data 19603 19689	the discontinuity p x = x , of x=L x and x and z p as z = you z cross , z=L periodic z
+T140	data 19702 19712	boundaries
+R80	parts_of_same Arg1:T139 Arg2:T140	
+R81	supports Arg1:T139 Arg2:T137	
+T141	background_claim 19841 20050	The solution method for solving the system of equations is the fourth order Runge-Kutta scheme, using fourth order centered finite differencing for spatial derivatives on a regular grid with equal grid spacing
+T142	data 21320 21410	the initial conditions, boundary conditions, and forcing functions are sufficiently smooth
+T143	own_claim 21234 21304	The overall method is globally fourth order accurate in space and time
+R82	supports Arg1:T142 Arg2:T143	
+T144	own_claim 21412 21477	The fourth order accuracy is not required for production purposes
+T145	own_claim 21483 21545	the effort in achieving this added accuracy is not significant
+T146	own_claim 21551 21609	the increased accuracy allows for the use of coarser grids
+T147	background_claim 21625 21777	comparing Runge-Kutta fourth order with Euler’s method, four function evaluations per time step are required for Runge-Kutta compared with one for Euler
+T148	own_claim 21783 21853	this is almost offset by the time steps which can be 2.82 times larger
+T149	data 21868 21879	equation 15
+R83	supports Arg1:T149 Arg2:T148	
+R84	contradicts Arg1:T148 Arg2:T147	
+T150	background_claim 22357 22429	Numerical methods for fluid dynamics can be found in a variety of places
+T151	data 22433 22434	5
+R85	supports Arg1:T151 Arg2:T150	
+T152	data 22437 22438	8
+R86	supports Arg1:T152 Arg2:T150	
+T153	background_claim 22446 22512	an extensive book list and summary of available codes can be found
+T154	data 22516 22559	http://chemengineer.miningco.com/msub74.htm
+R87	supports Arg1:T154 Arg2:T153	
+T155	own_claim 22657 22680	the actual system built
+T156	own_claim 22688 22713	reflects the design goals
+T157	own_claim 22728 22760	makes use of the model described
+T158	own_claim 22784 22915	takes into account additional considerations specific to the traditional animation environment and the needs of The Prince of Egypt
+R88	parts_of_same Arg1:T155 Arg2:T156	
+T159	data 22717 22726	section 2
+R89	supports Arg1:T159 Arg2:T156	
+R90	parts_of_same Arg1:T155 Arg2:T157	
+R91	parts_of_same Arg1:T155 Arg2:T158	
+T160	data 22764 22773	section 3
+R92	supports Arg1:T160 Arg2:T157	
+T161	background_claim 22917 22996	In a traditional animation studio, most artwork and animation is two dimensiona
+T162	background_claim 22999 23146	the illusion of depth comes from the drawn or painted perspective, along with the camera moves and techniques available in the compositing software
+T163	background_claim 23148 23242	Many simulation and rendering techniques were used in the visual development stage of the film
+T164	background_claim 23244 23493	Test animation resulted from three-dimensional simulations with temperature being visualized via volume rendering, two-dimensional simulations creating velocity fields used for line integral convolution of source imagery, as well as other techniques
+T165	background_claim 23495 23631	By far, the biggest success was twodimensional simulations of buoyant instabilities, where the temperature field was visualized as smoke
+T166	own_claim 24193 24363	Animators can build up libraries of elements produced by simulations, all of which can be easily repositioned, scaled, and even put into perspective within the compositor
+T167	own_claim 24662 24783	Individual layers allow artists to make independent decisions for colors, opacities, rendering parameters, and transforms
+T168	own_claim 24792 24883	Two-dimensional simulations allow for good interactivity in creating elements for later use
+T169	own_claim 25204 25350	and periodic output from the simulations allow for deferred rendering, using only a small fraction of the disk space required to save final images
+T170	own_claim 25134 25186	The texture mapping differential equations developed
+R93	parts_of_same Arg1:T170 Arg2:T169	
+T171	data 25190 25203	section 3.2.1
+R94	supports Arg1:T171 Arg2:T170	
+T172	data 25382 25439	no rendering decisions need to be made at simulation time
+R95	supports Arg1:T172 Arg2:T169	
+T173	data 25445 25490	no simulation time is required at render time
+R96	supports Arg1:T173 Arg2:T169	
+T174	own_claim 25492 25612	This allows for a flexible system, where simulations can be run with a specific flow situation and final element in mind
+T175	data 25745 25757	rising smoke
+R97	supports Arg1:T175 Arg2:T174	
+T176	own_claim 25896 25975	At render time, a library of potentially useful simulations is already built up
+T177	own_claim 25981 26039	rendering involves little more than appropriate resampling
+T178	data 26045 26056	section 4.4
+R98	supports Arg1:T176 Arg2:T177	
+R99	supports Arg1:T178 Arg2:T177	
+T179	own_claim 26154 26209	the code is capable of handling more general situations
+T180	data 26219 26257	analytically defined forcing functions
+T181	data 26259 26279	gravitational fields
+T182	data 26285 26307	diffusion coefficients
+R100	supports Arg1:T180 Arg2:T179	
+R101	supports Arg1:T181 Arg2:T179	
+R102	supports Arg1:T182 Arg2:T179	
+T183	own_claim 26309 26379	only a subset of the functionality is available via the user interface
+R103	contradicts Arg1:T183 Arg2:T179	
+T184	own_claim 26381 26446	Images define the initial conditions for velocity and temperature
+T185	own_claim 26448 26525	Scalar variables on the interface aid the software in interpreting the images
+T186	data 26532 26592	assigning values to the black and white limits of the images
+R104	supports Arg1:T186 Arg2:T185	
+T187	own_claim 26831 26904	This makes it easy to set up shear flows and stratified layers of density
+T188	own_claim 27002 27103	animators can set other parameters such as the resolution, boundary condition types, output frequency
+T189	own_claim 27115 27168	can monitor simulations in the viewer described below
+T190	data 26961 27000	Using the simulation starting interface
+R105	supports Arg1:T190 Arg2:T188	
+R106	supports Arg1:T190 Arg2:T189	
+T191	own_claim 27216 27294	an animator can quickly restart it using modified images or parameter settings
+T192	data 27173 27214	a simulation is evolving unsatisfactorily
+R107	supports Arg1:T192 Arg2:T191	
+T193	own_claim 27978 28105	As the simulations are running, or afterward, animators can preview and optionally render the results to disk via the interface
+T194	data 28115 28123	figure 6
+R108	supports Arg1:T194 Arg2:T193	
+T195	own_claim 28126 28233	This previewer is a simple mapping of the temperature values to the luminance of the black and white images
+T196	own_claim 28425 28476	where rendering operations are “nodes” in the graph
+T197	own_claim 28380 28418	The compositor is a graph-based system
+R109	parts_of_same Arg1:T197 Arg2:T196	
+T198	own_claim 28274 28305	are available in the compositor
+T199	own_claim 28235 28257	More rendering options
+R110	parts_of_same Arg1:T199 Arg2:T198	
+T200	own_claim 28918 28939	All of the parameters
+T201	own_claim 28982 29003	have animation curves
+R111	parts_of_same Arg1:T200 Arg2:T201	
+T202	data 28949 28980	the timing and threshold values
+R112	supports Arg1:T202 Arg2:T200	
+T203	own_claim 29177 29391	It is important to do periodic extensions before resampling to avoid seams at the periodic boundaries, and to do thresholding after resampling to avoid stair-step effects for magnification near the threshold values
+T204	own_claim 29411 29506	Volume rendering of the thresholded temperature field was supported for three-dimensional simu-
+T205	own_claim 29686 29759	lations in the visual development phase, but not in the production system
+R113	parts_of_same Arg1:T204 Arg2:T205	
+T206	own_claim 29831 29877	texture mapping is supported in the compositor
+T207	data 29820 29828	figure 2
+T208	data 29794 29807	section 3.2.1
+R114	supports Arg1:T207 Arg2:T206	
+R115	supports Arg1:T208 Arg2:T206	
+T209	own_claim 30162 30333	Another rendering option supported in the compositor is the smearing of an image via line integral convolution using two-dimensional flow fields provided by the simulation
+T210	data 30912 30931	comparison purposes
+T211	own_claim 30933 30958	using the following logic
+T212	own_claim 30826 30906	Simulation time steps and simulation time between final frames are roughly equal
+R116	parts_of_same Arg1:T212 Arg2:T211	
+R117	supports Arg1:T210 Arg2:T212	
+T213	own_claim 31074 31152	the fluid speed will travel the distance of about one grid point per time step
+R118	supports Arg1:T213 Arg2:T211	
+T214	data 30973 30984	equation 15
+R119	supports Arg1:T214 Arg2:T213	
+T215	data 30989 31017	a Mach number of 0.4 is used
+T216	data 31022 31067	the largest possible stable time step is used
+R120	supports Arg1:T215 Arg2:T213	
+R121	supports Arg1:T216 Arg2:T213	
+T217	own_claim 31154 31276	Unless the grid is extremely large, structures moving by one grid point corresponds to a reasonable speed for an animation
+T218	own_claim 31744 31761	causes it to sink
+T219	data 31672 31736	The lettering in “SI99RAPH” is colder than the surrounding fluid
+R122	supports Arg1:T219 Arg2:T218	
+T220	own_claim 31763 31870	Conservation of mass dictates that there be areas of return flow as the cold fluid sinks, creating vortices
+T221	own_claim 31872 32018	There is enough variation in the initial distribution such that the nonlinear equations result in pleasing graphic shapes and interesting dynamics
+T222	own_claim 32385 32489	texture mapping information can be calculated along with the simulation to provide rendering information
+T223	data 32370 32383	section 3.2.1
+R123	supports Arg1:T223 Arg2:T222	
+T224	own_claim 32491 32651	Particle advection through the dynamically evolving velocity field is thus precalculated, eliminating the need to calculate particle trajectories at render time
+R124	supports Arg1:T222 Arg2:T224	
+T225	own_claim 32287 32309	Render time for frames
+T226	own_claim 32327 32352	is 3.16 seconds per frame
+R125	parts_of_same Arg1:T225 Arg2:T226	
+T227	data 32318 32326	figure 1
+R126	supports Arg1:T227 Arg2:T225	
+T228	own_claim 32856 32880	is 9.8 seconds per frame
+T229	own_claim 32782 32820	An average render time for distortions
+R127	parts_of_same Arg1:T229 Arg2:T228	
+T230	data 32847 32855	figure 2
+R128	supports Arg1:T230 Arg2:T229	
+T231	own_claim 33094 33263	The initial temperature distribution is a random noise pattern with an overall average temperature which is essentially constant except in a narrow layer near the bottom
+T232	data 33271 33283	it is hotter
+R129	supports Arg1:T232 Arg2:T231	
+T233	own_claim 33832 33876	One time step calculation takes 36.3 seconds
+T234	own_claim 33932 33959	takes 4.7 seconds to render
+T235	own_claim 33882 33900	one rendered frame
+R130	parts_of_same Arg1:T235 Arg2:T234	
+T236	data 33912 33931	the top of figure 7
+R131	supports Arg1:T236 Arg2:T235	
+T237	own_claim 34219 34389	Using the circular rendering option and a periodic simulation domain creates a seamless texture mapping with the appearance of blood emanating from the center of the bowl
+T238	own_claim 34495 34628	Everything can be defined and rendered in one pass within the compositing package, including the animating perspective transformation
+T239	own_claim 34671 34726	Time step calculation time is 2.7 seconds per time step
+T240	own_claim 34731 34771	rendering time is 1.57 seconds per frame
+T241	own_claim 34831 34992	This paper presents a complete production system which enables animators to access the beauty and realism embodied in the physically accurate equations of motion
+T242	data 34994 35021	the Navier-Stokes equations
+R132	supports Arg1:T242 Arg2:T241	
+T243	own_claim 35023 35146	With this system, animators can express themselves by controlling the simulation dynamics through a familiar user interface
+T244	data 35147 35179	the use of images and animations
+R133	supports Arg1:T244 Arg2:T243	
+T245	own_claim 35181 35338	Texture mapping features allow deferred rendering of flow distortions, with no need to recompute particle trajectories through a time-evolving velocity field
+T246	own_claim 35340 35552	A compressible formulation and two-dimensional simulations allow for quick turnaround time in the creative cycle of creating/modifying simulations and applying the results within the compositor to the final scene
+T247	own_claim 35560 35642	this production system emphasizes the needs of a traditional animation environment
+T248	own_claim 35644 35699	many of the concepts apply outside this context as well
+R134	contradicts Arg1:T248 Arg2:T247	
+T249	own_claim 35701 35790	All of the equations, including the texture mapping equations, extend to three dimensions
+T250	own_claim 35792 35977	One of the most useful ideas presented here for three-dimensional simulations is the implementation of an artificial speed of sound through the compressible formulation of the equations
+T251	own_claim 35979 36179	Atmospheric researchers often use the compressible formulation because of its computational advantages over the incompressible formulation, even when using the actual speed of sound for pressure waves
+T252	own_claim 36213 36365	an artificial speed of sound of an order of magnitude less than the actual one is often justified, and provides a mechanism for dramatic speed increases
+T253	data 36185 36211	computer graphics purposes
+R135	supports Arg1:T253 Arg2:T252	

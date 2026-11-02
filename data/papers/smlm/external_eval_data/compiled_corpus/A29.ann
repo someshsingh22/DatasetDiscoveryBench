@@ -1,0 +1,637 @@
+T1	background_claim 2108 2185	Tracking the free surface of a liquid is an important and challenging problem
+T2	background_claim 2187 2268	For an overview of existing methods we recommend the class notes of Wojtan et al.
+T3	data 2270 2276	WMFB11
+R1	supports Arg1:T3 Arg2:T2	
+T4	background_claim 2279 2406	The most popular approach is to advect a scalar field with the fluid and define the liquid surface to be one of the isosurfaces
+T5	background_claim 2408 2545	The main advantage of this class of methods is that they handle topological changes implicitly in contrast to mesh-based tracking methods
+T6	background_claim 2547 2620	Until recently, the level set method was the method of choice in graphics
+T7	background_claim 2628 2728	the signed distance field is used as the scalar field with the zeroiso-surface as the liquid surface
+T8	background_claim 2730 2824	A well known drawback of the level set method is that volume is lost both globally and locally
+T9	background_claim 2826 2885	With global volume loss the water level decreases over time
+T10	background_claim 2892 2975	local volume loss causes small detail such as thin sheets and droplets to disappear
+R2	contradicts Arg1:T10 Arg2:T9	
+T11	background_claim 2977 3046	A way to alleviate this problem is to introduce Lagrangian components
+T12	data 3055 3064	particles
+T13	data 3085 3100	triangle meshes
+T14	data 3067 3071	FF01
+T15	data 3075 3080	EMF02
+T16	data 3102 3108	BGOS05
+R3	supports Arg1:T12 Arg2:T11	
+R4	supports Arg1:T16 Arg2:T11	
+R5	supports Arg1:T13 Arg2:T11	
+R6	supports Arg1:T15 Arg2:T11	
+R7	supports Arg1:T14 Arg2:T11	
+T17	background_claim 3111 3155	Even though these methods reduce volume loss
+T18	background_claim 3157 3207	they cannot guarantee complete volume conservation
+R8	contradicts Arg1:T18 Arg2:T17	
+T19	background_claim 3219 3270	Lagrangian components add significant run-time cost
+T20	background_claim 3275 3318	complicate the implementation significantly
+T21	data 3335 3339	GPUs
+R9	supports Arg1:T21 Arg2:T20	
+T22	background_claim 3398 3534	in- troduced the idea of using a density field as the scalar field for surface tracking with the liquid surface being the 0.5 isosurface
+T23	data 3390 3396	MMTD07
+R10	supports Arg1:T23 Arg2:T22	
+T24	background_claim 3536 3612	This density field is not to be mistaken for the density field of the liquid
+T25	background_claim 3651 3684	the fluid-density is 1 everywhere
+T26	background_claim 3699 3709	not stored
+T27	data 3614 3649	In incompressible fluid simulations
+R11	supports Arg1:T25 Arg2:T26	
+R12	supports Arg1:T27 Arg2:T25	
+T28	background_claim 3853 3927	there are advection methods that strictly conserve quantities like density
+T29	data 3958 3963	LAF11
+R13	supports Arg1:T29 Arg2:T28	
+T30	own_claim 3776 3844	We chose to use surface density instead of the signed distance field
+R14	supports Arg1:T28 Arg2:T30	
+T31	own_claim 3731 3774	we use the symbol ρ for the surface density
+R15	supports Arg1:T26 Arg2:T31	
+T32	background_claim 3966 4037	Their advection method is unconditionally stable and fully conservative
+T33	background_claim 4059 4119	the overall mass defined by the surface density is conserved
+T34	data 4039 4057	With this approach
+R16	supports Arg1:T34 Arg2:T33	
+T35	background_claim 4179 4223	the overall volume may vary over time though
+T36	data 4127 4177	the surface density can deviate from 1 temporarily
+R17	supports Arg1:T36 Arg2:T35	
+T37	background_claim 4306 4358	volume deviations are reflected in the density field
+T38	background_claim 4249 4304	the level set method where such variations go unnoticed
+R18	contradicts Arg1:T37 Arg2:T38	
+T39	own_claim 4374 4495	we propose several methods to preserve volume both globally and locally using the information stored in the density field
+T40	background_claim 4506 4585	the surface density has the form of a step function at the liquid-air interface
+T41	background_claim 4607 4645	the initially sharp boundary blurs out
+T42	data 4653 4672	numerical diffusion
+R19	supports Arg1:T42 Arg2:T41	
+R20	contradicts Arg1:T41 Arg2:T40	
+T43	background_claim 4694 4767	apply a sharpening filter at each time step which conserves mass globally
+T44	background_claim 4776 4783	locally
+R21	contradicts Arg1:T44 Arg2:T43	
+T45	data 4686 4692	MMTD07
+R22	supports Arg1:T45 Arg2:T43	
+R23	supports Arg1:T41 Arg2:T43	
+T46	own_claim 4785 4866	We propose a new sharpening method which conserves mass both locally and globally
+T47	own_claim 4898 5030	A GPU friendly, purely Eulerian liquid simulator that conserves mass locally and globally without any need for Lagrangian components
+T48	own_claim 5034 5112	A new GPU friendly sharpening method which conserves mass locally and globally
+T49	own_claim 5116 5202	Modifications to reduce the computational cost of the conservative advection method of
+T50	own_claim 5215 5243	to make it more GPU friendly
+T51	data 5204 5209	LAF11
+R24	supports Arg1:T51 Arg2:T49	
+T52	own_claim 5247 5324	Additional novel steps to handle non-axis aligned and moving solid boundaries
+T53	own_claim 5328 5392	A density post processing technique to bring out sub-grid detail
+T54	background_claim 5995 6082	3D Eulerian liquid simulation was introduced to computer graphics by Foster and Metaxas
+T55	data 6085 6089	FM96
+R25	supports Arg1:T55 Arg2:T54	
+T56	background_claim 6092 6162	who used a finite difference approach to solve the governing equations
+R26	parts_of_same Arg1:T56 Arg2:T54	
+T57	background_claim 6164 6187	Later Foster and Fedkiw
+T58	background_claim 6197 6251	employed the semi-Lagrangian method introduced by Stam
+T59	data 6190 6194	FF01
+R27	parts_of_same Arg1:T58 Arg2:T57	
+T60	data 6253 6258	Sta99
+R28	supports Arg1:T60 Arg2:T58	
+R29	supports Arg1:T59 Arg2:T57	
+T61	background_claim 6261 6351	to solve the advection term and the level set method and particles to track liquid surface
+R30	parts_of_same Arg1:T61 Arg2:T58	
+T62	background_claim 6354 6368	Enright et al.
+T63	data 6371 6376	EMF02
+T64	background_claim 6379 6409	devised the Particle Level Set
+T65	background_claim 6416 6422	method
+R31	parts_of_same Arg1:T65 Arg2:T64	
+R32	parts_of_same Arg1:T64 Arg2:T62	
+R33	supports Arg1:T63 Arg2:T64	
+T66	background_claim 6423 6503	which uses particles on both sides of liquid-air interface to reduce volume loss
+R34	supports Arg1:T63 Arg2:T66	
+T67	background_claim 6517 6609	many methods have been proposed to further improve the accuracy of Eulerian surface tracking
+R35	supports Arg1:T66 Arg2:T67	
+T68	background_claim 6611 6691	Various approaches have been proposed to track the liquid domain more faithfully
+T69	background_claim 6702 6773	used a triangle mesh representation in connection with a level set grid
+T70	background_claim 6783 6834	augmented the level set grid with quadrature points
+T71	data 6694 6700	BGOS05
+T72	data 6776 6780	HK10
+R36	supports Arg1:T71 Arg2:T69	
+R37	supports Arg1:T72 Arg2:T70	
+T73	background_claim 6839 6891	Grid-less methods work with Lagrangian elements only
+T74	data 6900 6909	particles
+T75	data 6912 6916	ZB05
+T76	data 6920 6926	APKG07
+T77	data 6933 6937	YT10
+T78	data 6940 6956	triangles meshes
+T79	data 6959 6963	M 09
+T80	data 6971 6975	BB09
+T81	data 6982 6988	WTGT10
+R38	supports Arg1:T74 Arg2:T73	
+R39	supports Arg1:T75 Arg2:T73	
+R40	supports Arg1:T76 Arg2:T73	
+R41	supports Arg1:T77 Arg2:T73	
+R42	supports Arg1:T78 Arg2:T73	
+R43	supports Arg1:T79 Arg2:T73	
+R44	supports Arg1:T80 Arg2:T73	
+R45	supports Arg1:T81 Arg2:T73	
+T82	background_claim 7053 7165	A popular way to compensate volume gain or loss is to modify the divergence of the velocity field as proposed in
+T83	data 7168 7173	FOA03
+R46	supports Arg1:T83 Arg2:T82	
+T84	background_claim 7178 7222	This technique was extended and used for con
+T85	background_claim 7224 7249	serving volume of bubbles
+T86	background_claim 7261 7286	highly deformable objects
+T87	background_claim 7300 7307	liquids
+R47	parts_of_same Arg1:T85 Arg2:T84	
+R48	parts_of_same Arg1:T86 Arg2:T85	
+R49	parts_of_same Arg1:T87 Arg2:T86	
+T88	data 7252 7258	KLL 07
+T89	data 7289 7294	ISF07
+T90	data 7309 7315	MMTD07
+R50	supports Arg1:T88 Arg2:T85	
+R51	supports Arg1:T90 Arg2:T87	
+R52	supports Arg1:T89 Arg2:T86	
+T91	background_claim 7320 7432	The problem of loss of liquid mass and momentum has also been addressed by proposing elaborate advection methods
+T92	data 7441 7446	BFECC
+T93	data 7457 7476	modified MacCormack
+T94	data 7490 7511	derivatives advection
+T95	data 7448 7454	KLLR05
+T96	data 7481 7487	SFK 08
+T97	data 7514 7519	KSK08
+T98	data 7525 7563	conservative semi-Lagrangian advection
+T99	data 7566 7571	LGF11
+T100	data 7575 7580	LAF11
+T101	background_claim 7583 7669	As an alternative to level-set, the fluid domain can be tracked with a Volume-of-Fluid
+T102	background_claim 7676 7684	approach
+R53	supports Arg1:T92 Arg2:T91	
+R54	supports Arg1:T93 Arg2:T91	
+R55	supports Arg1:T95 Arg2:T91	
+R56	supports Arg1:T96 Arg2:T91	
+R57	supports Arg1:T94 Arg2:T91	
+R58	supports Arg1:T97 Arg2:T91	
+R59	supports Arg1:T98 Arg2:T91	
+R60	supports Arg1:T100 Arg2:T91	
+R61	supports Arg1:T99 Arg2:T91	
+R62	parts_of_same Arg1:T102 Arg2:T101	
+T103	data 7687 7691	HN81
+T104	background_claim 7700 7762	the volume fraction of fluid in each cell is evolved over time
+R63	supports Arg1:T103 Arg2:T101	
+R64	supports Arg1:T103 Arg2:T104	
+T105	background_claim 7782 7813	VOF can be made mass conserving
+T106	data 7764 7780	With proper care
+R65	supports Arg1:T106 Arg2:T105	
+T107	background_claim 7897 7968	reconstructing surface normal and curvature from VOF is still difficult
+T108	background_claim 7832 7872	several improvements in subsequent works
+T109	data 7880 7884	PP04
+T110	data 7888 7894	AGDJ08
+R66	supports Arg1:T110 Arg2:T108	
+R67	supports Arg1:T109 Arg2:T108	
+R68	contradicts Arg1:T108 Arg2:T107	
+T111	background_claim 7970 7989	Sussman and Puckett
+T112	background_claim 7999 8044	proposes coupled Level Set and Volume-ofFluid
+T113	background_claim 8053 8110	which track the fluid interface with both representations
+T114	background_claim 8118 8163	VOF is used for re-initializing the Level Set
+R69	parts_of_same Arg1:T113 Arg2:T112	
+R70	parts_of_same Arg1:T112 Arg2:T111	
+T115	data 7992 7996	SP00
+R71	supports Arg1:T115 Arg2:T112	
+T116	background_claim 8165 8217	The surface can then be extracted from the Level Set
+T117	background_claim 8219 8269	CLVOF is extended to handle multiple interfaces in
+T118	data 8271 8278	KPyNS10
+R72	supports Arg1:T118 Arg2:T117	
+T119	background_claim 8281 8341	The downside of CLVOF is the need to use two representations
+T120	background_claim 8342 8386	which can be quite computationally intensive
+T121	background_claim 8388 8508	An alternative to VOF is to track a smeared-out surface density and keep it relatively sharp with a sharpening operation
+T122	background_claim 8510 8574	This method was introduced to computer graphics by Mullen et al.
+T123	data 8576 8582	MMTD07
+R73	supports Arg1:T123 Arg2:T122	
+T124	background_claim 8585 8693	Our fluid domain tracking approach builds upon this work and make it conserve mass both locally and globally
+T125	background_claim 8743 8799	there are many alternative models to simulate 3D liquids
+T126	data 8808 8835	the LatticeBoltzmann method
+T127	background_claim 8856 8909	approaches based on the discrete sin-cosine transform
+T128	background_claim 8921 8935	particle based
+T129	background_claim 8938 8945	methods
+R74	parts_of_same Arg1:T129 Arg2:T128	
+T130	data 8912 8916	LR09
+T131	data 8838 8842	TR04
+T132	data 8849 8853	TR09
+T133	data 8956 8961	MCG03
+T134	data 8965 8971	PTB 03
+T135	data 8975 8981	APKG07
+T136	data 8986 8990	SP09
+T137	data 8999 9003	SG11
+R75	supports Arg1:T126 Arg2:T125	
+R76	supports Arg1:T132 Arg2:T125	
+R77	supports Arg1:T131 Arg2:T125	
+R78	supports Arg1:T130 Arg2:T127	
+R79	supports Arg1:T133 Arg2:T129	
+R80	supports Arg1:T134 Arg2:T129	
+R81	supports Arg1:T135 Arg2:T129	
+R82	supports Arg1:T136 Arg2:T129	
+R83	supports Arg1:T137 Arg2:T129	
+T138	own_claim 10121 10187	We discretize the simulation domain using a regular staggered grid
+T139	data 10190 10194	HW65
+R84	supports Arg1:T139 Arg2:T138	
+T140	own_claim 10345 10421	The scalar pressure p and the density ρ are stored at cell centers following
+T141	data 10423 10429	MMTD07
+R85	supports Arg1:T141 Arg2:T140	
+T142	own_claim 10551 10607	The overall structure is the same as the one proposed in
+T143	own_claim 10617 10723	with our novel modifications to the advection, sharpening and pressure incompressibility enforcement steps
+T144	data 10609 10615	MMTD07
+R86	parts_of_same Arg1:T143 Arg2:T142	
+R87	supports Arg1:T144 Arg2:T142	
+T145	own_claim 11288 11396	To extrapolate the velocities from inside the liquid into the surrounding air we use the scheme described in
+T146	own_claim 11411 11433	we apply the method of
+T147	own_claim 11443 11508	to derive the velocities a few grid cells away from the interface
+R88	parts_of_same Arg1:T147 Arg2:T146	
+T148	data 11398 11403	CM11b
+T149	data 11436 11441	JRW07
+R89	supports Arg1:T149 Arg2:T146	
+R90	supports Arg1:T148 Arg2:T145	
+T150	own_claim 11670 11807	We advect ρ using our unconditionally stable conservative advection method which we derived from the method proposed by Lentine et al. in
+T151	data 11810 11815	LGF11
+T152	data 11822 11827	LAF11
+R91	supports Arg1:T152 Arg2:T150	
+R92	supports Arg1:T151 Arg2:T150	
+T153	own_claim 11830 11873	and improved in terms of computational cost
+R93	parts_of_same Arg1:T153 Arg2:T150	
+T154	background_claim 11875 11889	Lentine et al.
+T155	background_claim 11900 12078	modified the semi-Lagrangian advection scheme to conserve mass by ensuring that each cell distributes all its mass of the current time step among some cells at the next time step
+T156	data 11892 11897	LGF11
+R94	parts_of_same Arg1:T155 Arg2:T154	
+R95	supports Arg1:T156 Arg2:T155	
+T157	own_claim 12437 12498	The entries of A in the standard semi-Lagrangian advection is
+T158	own_claim 12505 12519	A i j = w − ji
+R96	parts_of_same Arg1:T158 Arg2:T157	
+T159	data 12251 12435	Let w ij − (and w + ij ) represent the fraction of value that cell i gives to cell j which is found by backward (and forward) tracing and computing the tri-linear interpolation weights
+R97	supports Arg1:T159 Arg2:T157	
+T160	own_claim 12528 12598	β j = ∑ i A i j is the fraction of mass from cell j that gets advected
+R98	supports Arg1:T157 Arg2:T160	
+T161	own_claim 12634 12684	A needs to be modified such that all the β j are 1
+T162	data 12600 12632	To ensure that mass is conserved
+R99	supports Arg1:T162 Arg2:T161	
+T163	background_claim 12686 12700	Lentine et al.
+T164	background_claim 12711 12817	achieve this by first iterating through all cells j with β j &gt; 1 and re-scaling all A i j to A i j /β j
+T165	data 12703 12708	LGF11
+R100	parts_of_same Arg1:T164 Arg2:T163	
+R101	supports Arg1:T165 Arg2:T164	
+T166	own_claim 13089 13106	all the β j are 1
+T167	data 13113 13133	A is mass conserving
+T168	data 13074 13087	At this point
+R102	supports Arg1:T168 Arg2:T166	
+R103	supports Arg1:T167 Arg2:T166	
+T169	own_claim 13135 13193	This method works well for compressible flow on fine grids
+T170	background_claim 13204 13219	as discussed in
+T171	data 13222 13227	LAF11
+R104	supports Arg1:T171 Arg2:T170	
+T172	background_claim 13231 13311	the scheme produces artifacts when used for incompressible flow on coarser grids
+R105	parts_of_same Arg1:T172 Arg2:T170	
+R106	contradicts Arg1:T172 Arg2:T169	
+T173	own_claim 13313 13434	The problem is due to the clamping of the β j by re-scaling which limits the amount of density that reaches certain cells
+T174	own_claim 13436 13487	An indicator of this amount are the γ i = ∑ j A i j
+T175	own_claim 13490 13587	The traditional semi-Lagrangian method ensures that all the γ i are 1 while the β j are arbitrary
+T176	own_claim 13602 13659	the scheme described above ensures that all the β j are 1
+T177	own_claim 13667 13688	the γ i are arbitrary
+R107	contradicts Arg1:T177 Arg2:T176	
+T178	background_claim 13690 13704	Lentine et al.
+T179	background_claim 13715 13759	propose a method to ensure the β j are all 1
+T180	background_claim 13766 13789	the γ i stay close to 1
+T181	data 13707 13712	LAF11
+R108	contradicts Arg1:T180 Arg2:T179	
+R109	parts_of_same Arg1:T179 Arg2:T178	
+R110	supports Arg1:T181 Arg2:T179	
+T182	own_claim 13803 13872	they keep track of the cumulative γ i over time as separate variables
+T183	data 13791 13802	To this end
+R111	supports Arg1:T183 Arg2:T182	
+T184	own_claim 14769 14786	all the β j are 1
+T185	own_claim 14791 14825	the γ i might still deviate from 1
+T186	data 14754 14767	At this point
+R112	contradicts Arg1:T185 Arg2:T184	
+R113	supports Arg1:T186 Arg2:T184	
+T187	background_claim 14873 14916	apply a diffusion step on ρ n+1 and the γ i
+T188	background_claim 14827 14857	To bring them even closer to 1
+T189	data 14858 14872	Lentine et al.
+R114	parts_of_same Arg1:T187 Arg2:T188	
+R115	supports Arg1:T189 Arg2:T187	
+T190	own_claim 14919 14976	They iterate through all the cells dimension-by-dimension
+T191	own_claim 15032 15124	they move ρ j (γ j − γ i )/2γ j from cell j to cell i and set both γ j and γ i to γ j +γ 2 i
+T192	data 14982 15029	for two neighboring cells i and j, γ j &gt; γ i
+R116	supports Arg1:T192 Arg2:T191	
+T193	data 15130 15142	γ j &lt; γ i
+T194	own_claim 15145 15187	the flow happens in the opposite direction
+R117	supports Arg1:T193 Arg2:T194	
+T195	own_claim 15189 15240	This process is repeated 1 to 7 times per time step
+T196	own_claim 15252 15300	these diffusion iterations do not affect the β j
+T197	own_claim 15306 15319	they remain 1
+R118	supports Arg1:T196 Arg2:T197	
+T198	own_claim 15445 15477	Scattering is expensive on GPU’s
+T199	data 15486 15539	it either requires atomic operations or a prefix-scan
+R119	supports Arg1:T199 Arg2:T198	
+T200	own_claim 15541 15581	We propose a modification of this method
+T201	own_claim 15583 15685	The basic idea is to reorder the forward tracing and the re-scaling steps to simplify the calculations
+T202	own_claim 15687 15802	The resulting discrete conservative advection operator is not the same as the one computed with the original scheme
+T203	own_claim 15813 15873	both are just approximations to the doubly-stochastic matrix
+T204	own_claim 15907 15958	closest to the original discrete advection operator
+R120	parts_of_same Arg1:T204 Arg2:T203	
+R121	contradicts Arg1:T203 Arg2:T202	
+T205	own_claim 16057 16124	our simplification reduces the number of scatter passes from 5 to 3
+T206	own_claim 15966 16007	the visual results are of similar quality
+T207	data 16020 16028	Figure 2
+T208	data 16033 16055	the accompanying video
+R122	supports Arg1:T207 Arg2:T206	
+R123	supports Arg1:T208 Arg2:T206	
+T209	own_claim 16126 16209	Another advantage of our new scheme is that A does not need to be stored explicitly
+T210	data 16218 16289	the order of the operations allow for updating ρ n+1 , β and γ directly
+R124	supports Arg1:T210 Arg2:T209	
+T211	own_claim 16291 16358	Not storing A explicitly is possible in the original scheme as well
+T212	own_claim 18091 18167	This modified method only requires 3 scatter passes in the steps 3, 6, and 7
+T213	own_claim 18199 18247	our method keeps γ in a similar range to that of
+T214	data 18189 18196	Table 1
+R125	supports Arg1:T214 Arg2:T213	
+T215	data 18250 18255	LAF11
+R126	supports Arg1:T215 Arg2:T213	
+T216	own_claim 18274 18345	has a much larger range, resulting in visible compressibility artifacts
+T217	data 18266 18271	LGF11
+R127	supports Arg1:T217 Arg2:T216	
+T218	own_claim 19122 19161	Our method and LAF11 have similar range
+T219	own_claim 19175 19245	has a much larger range which explains the incompressibility artifacts
+T220	data 19169 19174	LGF11
+R128	supports Arg1:T220 Arg2:T219	
+R129	contradicts Arg1:T219 Arg2:T218	
+T221	own_claim 19355 19372	mass is conserved
+T222	data 19319 19349	The technique above guarantees
+R130	supports Arg1:T222 Arg2:T221	
+T223	own_claim 19383 19541	the density field smooths out over time blurring the 0.5 iso-contour with the effect that we can no longer track the movement of the liquid surface accurately
+R131	contradicts Arg1:T223 Arg2:T221	
+T224	own_claim 19629 19712	we first compute the mass change of each cell due to unit velocity along the x axis
+T225	data 19620 19626	MMTD07
+R132	supports Arg1:T225 Arg2:T224	
+T226	own_claim 19842 19877	δ x i + = ( · (ρ[1, 0, 0] T )∆T )dV
+R133	supports Arg1:T225 Arg2:T226	
+T227	own_claim 19919 19964	C i − δ i x = ( · (ρ[−1, 0, 0] T )∆T )dV, C i
+R134	supports Arg1:T225 Arg2:T227	
+T228	own_claim 20225 20260	δ i x + ≈ −(ρ i − ρ i−(1,0,0) )∆x∆T
+T229	own_claim 20302 20337	− δ i x ≈ −(ρ i+(1,0,0) − ρ i )∆x∆T
+T230	data 20101 20157	We discretize δ x i + and δ i x − using an upwind scheme
+R135	supports Arg1:T230 Arg2:T228	
+R136	supports Arg1:T230 Arg2:T229	
+T231	own_claim 20360 20375	The mass change
+T232	own_claim 20455 20477	are computed similarly
+T233	data 20383 20452	unit velocity along y and z axes, δ i , δ i y − , δ i z + , and δ i z
+R137	parts_of_same Arg1:T232 Arg2:T231	
+R138	supports Arg1:T233 Arg2:T232	
+T234	own_claim 20479 20522	The maximum mass increase and mass decrease
+T235	data 20527 20560	to any unit velocity in each cell
+R139	supports Arg1:T235 Arg2:T234	
+T236	data 20596 20665	∆T | ρ| + i = ∆x 1 2 (max(max(δ i x + , 0) 2 , min(δ i x − , 0) 2 ) +
+T237	data 20706 20753	y + 2 y − 2 max(max(δ i , 0) , min(δ i , 0) ) +
+T238	data 20795 20845	z + 2 z − 2 1 max(max(δ i , 0) , min(δ i , 0) )) 2
+R140	parts_of_same Arg1:T238 Arg2:T237	
+R141	parts_of_same Arg1:T237 Arg2:T236	
+R142	supports Arg1:T236 Arg2:T234	
+T239	data 20899 20968	∆T | ρ| − i = ∆x 1 2 (max(min(δ i x + , 0) 2 , max(δ i x − , 0) 2 ) +
+T240	data 21010 21057	y + 2 y − 2 max(min(δ i , 0) , max(δ i , 0) ) +
+T241	data 21099 21149	z + 2 z − 2 1 max(min(δ i , 0) , max(δ i , 0) )) 2
+R143	parts_of_same Arg1:T241 Arg2:T240	
+R144	parts_of_same Arg1:T240 Arg2:T239	
+R145	supports Arg1:T239 Arg2:T234	
+T242	own_claim 21357 21442	The parameter τ controls the maximum difference in density between two adjacent cells
+T243	own_claim 21450 21469	we set to 0.4 as in
+T244	data 21471 21477	MMTD07
+R146	supports Arg1:T244 Arg2:T243	
+T245	own_claim 21480 21524	This yields the following density correction
+T246	own_claim 21558 21563	| + ≥
+T247	own_claim 21605 21660	∆ρ i = w i (ρ) ∆T | ρ| i − if if w w i (ρ) (ρ) &lt; 0 0
+R147	parts_of_same Arg1:T247 Arg2:T246	
+R148	semantically_same Arg1:T246 Arg2:T245	
+T248	own_claim 21680 21750	i i ρ can then be sharpened by updating the density of each cell using
+T249	own_claim 21783 21793	ρ ← ρ + ∆ρ
+R149	parts_of_same Arg1:T249 Arg2:T248	
+T250	own_claim 21860 21894	This update sharpens the interface
+T251	own_claim 21905 21930	it does not conserve mass
+R150	contradicts Arg1:T251 Arg2:T250	
+T252	background_claim 21932 21945	Mullen et al.
+T253	background_claim 21955 22047	modify it to conserve mass by summing up the mass change due to this update across all cells
+T254	data 21947 21953	MMTD07
+R151	parts_of_same Arg1:T253 Arg2:T252	
+R152	supports Arg1:T254 Arg2:T253	
+T255	own_claim 22155 22196	This successfully conserves mass globally
+T256	own_claim 22198 22299	One artifact of this approach is that mass moves far, potentially across the entire simulation domain
+T257	own_claim 22301 22389	This problem can be reduced by re-distributing mass only within connected regions as pro
+T258	own_claim 22391 22399	posed by
+R153	parts_of_same Arg1:T258 Arg2:T257	
+T259	data 22402 22408	KLL 07
+R154	supports Arg1:T259 Arg2:T258	
+T260	data 22420 22444	even with this technique
+T261	own_claim 22446 22477	local mass loss can still occur
+T262	data 22485 22577	moving mass away from small features resulting in the disappearance of small surface details
+R155	supports Arg1:T262 Arg2:T261	
+R156	contradicts Arg1:T260 Arg2:T261	
+R157	contradicts Arg1:T261 Arg2:T257	
+T263	own_claim 22658 22698	The mass conserving sharpening method of
+T264	own_claim 22708 22794	transfers the mass from the liquid balls to the pool causing them to disappear mid-air
+R158	parts_of_same Arg1:T264 Arg2:T263	
+T265	data 22700 22706	MMTD07
+R159	supports Arg1:T265 Arg2:T263	
+T266	own_claim 22867 22983	We propose a novel method to conserve mass during the sharpening phase that conserves mass both locally and globally
+T267	own_claim 23087 23124	The density sharpening method used by
+T268	own_claim 23146 23169	conserves mass globally
+T269	own_claim 23174 23185	not locally
+T270	own_claim 23195 23222	the mass from a liquid ball
+T271	own_claim 23247 23270	to disappear in mid air
+R160	parts_of_same Arg1:T271 Arg2:T270	
+R161	contradicts Arg1:T269 Arg2:T268	
+T272	data 23125 23145	Mullen et al. [2007]
+R162	parts_of_same Arg1:T268 Arg2:T267	
+R163	supports Arg1:T269 Arg2:T270	
+R164	supports Arg1:T272 Arg2:T268	
+T273	own_claim 23280 23389	Our density sharpening method conserves mass both globally and locally preserving the mass of the liquid ball
+T274	own_claim 23582 23587	ρ ≥ 0
+T275	data 23588 23609	at the next time step
+R165	supports Arg1:T275 Arg2:T274	
+T276	own_claim 23755 23780	reducing computation cost
+T277	data 23666 23748	we do not have to apply the sharpening operator to this cell at the next time step
+R166	supports Arg1:T277 Arg2:T276	
+T278	own_claim 23819 23857	cells with ρ &gt; 0.5 are not modified
+T279	own_claim 24292 24343	This is done using multiple forward Euler sub-steps
+T280	own_claim 24451 24519	we set the corresponding weight to zero and re-normalize the weights
+T281	data 24424 24450	a grid point is in a solid
+R167	supports Arg1:T281 Arg2:T280	
+T282	own_claim 24666 24727	Increasing D visually resembles the effect of surface tension
+T283	own_claim 25148 25205	The bigger hump has a large area with 0.5 &lt; ρ &lt; 1.0
+T284	own_claim 25232 25271	− ∑ i ∆ρ i is negative in the scheme of
+T285	data 25272 25290	Mullen et al. 2007
+T286	data 25207 25230	In this particular case
+R168	supports Arg1:T286 Arg2:T284	
+R169	supports Arg1:T285 Arg2:T284	
+T287	own_claim 25292 25357	This negative mass is distributed to all the cells near interface
+T288	own_claim 25367 25406	the smaller hump to become even smaller
+R170	supports Arg1:T287 Arg2:T288	
+T289	own_claim 25408 25445	Our method does not have this problem
+T290	data 25454 25525	−∆ρ &gt; 0 is only added to the nearby cells around the 0.5 iso-contour
+R171	supports Arg1:T290 Arg2:T289	
+T291	own_claim 25527 25593	This prevents mass from being transported from one hump to another
+R172	supports Arg1:T289 Arg2:T291	
+T292	own_claim 26082 26153	the method does not take solid fraction and solid velocity into account
+T293	own_claim 26292 26447	The scalars V i+( 1 ,0,0) , V i+(0, 1 ,0) , and V i+(0,0, 1 ) 2 2 2 represent the fraction of non-solid area of the positive x, y, and z faces respectively
+T294	own_claim 26706 26749	the value of ρ i can become larger than V i
+T295	data 26750 26763	in some cells
+R173	supports Arg1:T295 Arg2:T294	
+T296	own_claim 26770 26790	is a non-valid state
+R174	supports Arg1:T294 Arg2:T296	
+T297	own_claim 26792 26923	We handle the situation differently depending on whether the cell is partially solid (V i &lt; 1) or completely non-solid (V i = 1)
+T298	own_claim 26957 27006	we first compute the excess density d = ρ i − V i
+T299	data 26928 26955	the cell is partially solid
+R175	supports Arg1:T299 Arg2:T298	
+T300	own_claim 27192 27293	This method keeps ρ i ≤ V i in most cells near solid boundary and guarantees ρ i = 0 inside the solid
+T301	own_claim 27332 27432	With this choice excess density gets removed from solid quickly enough to not cause visual artifacts
+T302	own_claim 27449 27509	V i = 1 is handled in the incompressibility enforcement step
+T303	data 27523 27539	the next section
+R176	supports Arg1:T303 Arg2:T302	
+T304	own_claim 27757 27816	we first compute the pressure using a variational framework
+T305	data 27819 27824	BBB07
+R177	supports Arg1:T305 Arg2:T304	
+T306	own_claim 27901 27980	The tricky part in our case is to determine the fraction of liquid in each cell
+T307	own_claim 27982 28069	This fraction is used to decide whether a cell is included in the linear pressure solve
+T308	own_claim 28071 28114	It is also needed in the ghost fluid method
+T309	own_claim 28124 28168	to accurately handle the liquid-air boundary
+R178	parts_of_same Arg1:T309 Arg2:T308	
+T310	data 28116 28122	ENGF03
+R179	supports Arg1:T310 Arg2:T308	
+T311	own_claim 28179 28203	we cannot directly use ρ
+T312	data 28212 28262	a cell with V &lt; 0.5 will likely have ρ &lt; 0.5
+R180	supports Arg1:T312 Arg2:T311	
+T313	own_claim 28451 28501	cells that are completely solid (V = 0) have ρ = 0
+T314	own_claim 28781 28798	use the method of
+T315	own_claim 28807 28875	to compute the coefficients of linear system for pressure projection
+T316	data 28800 28805	CM11a
+R181	parts_of_same Arg1:T315 Arg2:T314	
+R182	supports Arg1:T316 Arg2:T314	
+T317	own_claim 29047 29134	This artificial divergence pushes the excess density away from the cells whose ρ &gt; 1
+T318	background_claim 29136 29149	Mullen et al.
+T319	background_claim 29159 29197	also added this term to the divergence
+T320	data 29151 29157	MMTD07
+R183	parts_of_same Arg1:T319 Arg2:T318	
+R184	supports Arg1:T320 Arg2:T319	
+T321	data 29202 29222	with λ = 1 and η = ∞
+T322	own_claim 29263 29286	ρ is much larger than 1
+R185	supports Arg1:T321 Arg2:T322	
+T323	own_claim 29229 29257	can cause stability problems
+R186	supports Arg1:T321 Arg2:T323	
+T324	own_claim 29288 29395	A scenario in which this happens is when liquid flows very fast towards a solid boundary and gets reflected
+T325	data 29403 29456	our method for removing excess density from the solid
+R187	supports Arg1:T325 Arg2:T324	
+T326	own_claim 29709 29749	The density field is post-processed with
+T327	own_claim 29767 29777	the method
+T328	own_claim 29801 29828	to enhance sub-grid details
+T329	data 29778 29800	proposed in this paper
+R188	parts_of_same Arg1:T328 Arg2:T327	
+R189	parts_of_same Arg1:T327 Arg2:T326	
+R190	supports Arg1:T329 Arg2:T327	
+T330	own_claim 29838 29879	Adding additional divergence is important
+T331	data 29888 29899	in our case
+T332	own_claim 29901 29939	ρ &gt; 1 results in visual volume loss
+R191	supports Arg1:T331 Arg2:T332	
+R192	supports Arg1:T332 Arg2:T330	
+T333	own_claim 29974 30021	this problem gets gradually corrected over time
+T334	data 29941 29972	With the method described above
+T335	own_claim 30023 30079	We solve for the pressure p with the multigrid method of
+T336	own_claim 30088 30139	which enforces separating solid boundary conditions
+T337	data 30081 30086	CM11a
+R193	supports Arg1:T337 Arg2:T335	
+R194	supports Arg1:T335 Arg2:T336	
+T338	own_claim 30303 30390	we extract the triangle mesh of the 0.5 isocontour of ρ using the marching cubes method
+T339	data 30393 30397	LC87
+R195	supports Arg1:T339 Arg2:T338	
+T340	background_claim 30400 30534	This approach is typically used in level-set based liquid simulations as well to extract the zero contour of the signed distance field
+T341	data 30537 30542	EMF02
+R196	supports Arg1:T341 Arg2:T340	
+T342	own_claim 30545 30640	The surface density ρ contains small scale details that are not captured by the 0.5 iso-contour
+T343	own_claim 30747 30840	the regions where 0 &lt; ρ &lt; 0.5 represent features such as small splashes and thin sheets
+T344	own_claim 30846 30904	are too small to be captured with the grid resolution used
+T345	data 30741 30745	Here
+R197	supports Arg1:T345 Arg2:T343	
+T346	own_claim 30933 30986	these features are destroyed by the redistancing step
+T347	data 30906 30931	In the level-set approach
+R198	supports Arg1:T347 Arg2:T346	
+T348	own_claim 31086 31203	An important observation is that regions in which 0 &lt; ρ &lt; 0.5 do not necessarily represent small scale features
+T349	own_claim 31519 31571	ρ needs to be scaled up as the regions where γ ≤ 0.5
+T350	own_claim 31581 31622	the two cases above are not distinguished
+T351	own_claim 31633 31693	this can be achieved by applying a Gaussian blur filter to γ
+R199	contradicts Arg1:T351 Arg2:T350	
+T352	own_claim 31732 31772	those values spread across the interface
+T353	own_claim 31783 31802	γ to raise toward 1
+T354	data 31706 31730	γ &gt; 0.5 inside liquid
+R200	supports Arg1:T352 Arg2:T353	
+R201	supports Arg1:T354 Arg2:T352	
+T355	data 31823 31872	γ &lt; 0.5 everywhere inside small scale features
+T356	own_claim 31874 31917	blurring will still result in γ being small
+R202	supports Arg1:T355 Arg2:T356	
+R203	supports Arg1:T356 Arg2:T352	
+T357	own_claim 32218 32397	A way to improve the results further would be to apply thinning to the parts of the surface that come from region with ρ &lt; 0.5 in order to compensate for the density up-scaling
+T358	own_claim 32913 32963	We compared our method with the particle level set
+T359	own_claim 32970 32978	approach
+R204	parts_of_same Arg1:T359 Arg2:T358	
+T360	data 32981 32986	EMF02
+R205	supports Arg1:T360 Arg2:T359	
+T361	own_claim 33073 33168	Our method conserves the liquid’s mass as expected and prevents the water level from decreasing
+T362	own_claim 33193 33254	most of the liquid disappears in the course of the simulation
+T363	data 33262 33291	the large time step size used
+T364	data 33183 33191	with PLS
+R206	supports Arg1:T363 Arg2:T362	
+R207	supports Arg1:T364 Arg2:T362	
+T365	own_claim 33293 33326	We used the PLS implementation of
+T366	data 33328 33330	MF
+R208	contradicts Arg1:T362 Arg2:T361	
+R209	supports Arg1:T366 Arg2:T365	
+T367	own_claim 33447 33533	The jet has a very fast flow rate and generates fast moving liquid splashes and sheets
+T368	own_claim 33658 33708	These are difficult cases for level set approaches
+T369	own_claim 33715 33758	our method handles them without any problem
+R210	contradicts Arg1:T369 Arg2:T368	
+T370	own_claim 33822 33888	a 3d water demo that is both simulated and ray-traced in real time
+T371	own_claim 33778 33800	we were able to create
+T372	data 33760 33777	With our approach
+R211	parts_of_same Arg1:T370 Arg2:T371	
+R212	supports Arg1:T372 Arg2:T371	
+T373	own_claim 34003 34055	We achieved a frame rate of over 30fps with two GPUs
+T374	own_claim 34257 34340	the ability of our method to simulate liquid in a non-axis aligned moving container
+T375	data 34230 34244	These examples
+R213	supports Arg1:T375 Arg2:T374	
+T376	own_claim 34525 34606	Our method conserves mass and prevents volume loss in this difficult case as well
+T377	own_claim 34770 34844	The total mass is computed by integrating ρ over the whole simulation grid
+T378	own_claim 34973 35077	Our method conserves mass in all examples and generally keeps the volume close to the true liquid volume
+T379	own_claim 35088 35155	there are several situations where our method loses volume visually
+R214	contradicts Arg1:T379 Arg2:T378	
+T380	own_claim 35157 35271	One such case is when a liquid ball hits the ground and spreads out until it becomes thinner than the grid spacing
+T381	own_claim 35285 35315	the density values are nonzero
+T382	own_claim 35317 35381	marching cubes does not generate surface meshes in those regions
+R215	contradicts Arg1:T382 Arg2:T381	
+T383	own_claim 35383 35448	Another case is when the ratio of surface area to volume is large
+T384	own_claim 35464 35540	there are large regions with ρ &lt; 0.5 that do not contribute to the volume
+T385	own_claim 35549 35577	the 0.5 iso-contour is empty
+T386	data 35450 35462	In this case
+R216	supports Arg1:T384 Arg2:T385	
+R217	supports Arg1:T386 Arg2:T384	
+T387	own_claim 35662 35701	they correctly contribute to its volume
+T388	own_claim 35710 35743	the global level remains constant
+T389	own_claim 35613 35660	such features join the main body of water again
+T390	own_claim 35603 35606	PLS
+R219	supports Arg1:T389 Arg2:T387	
+R218	contradicts Arg1:T387 Arg2:T390	
+R220	contradicts Arg1:T387 Arg2:T384	
+R221	supports Arg1:T387 Arg2:T388	
+T391	own_claim 37768 37831	We proposed a method for simulating liquids that conserves mass
+T392	own_claim 37836 37919	is effective in keeping the volume defined by the 0.5 iso-contour close to constant
+T393	own_claim 37994 38032	The method has its limitations as well
+T394	own_claim 38117 38160	it does not modify regions where ρ &gt; 0.5
+T395	own_claim 38050 38115	our sharpening scheme ensures that the ρ = 0.5 interface is sharp
+R222	contradicts Arg1:T394 Arg2:T395	
+T396	own_claim 38162 38246	It could theoretically be possible that the region with ρ slightly above 0.5 expands
+T397	own_claim 38255 38353	the volume defined by the 0.5 iso-contour grows by a factor of two while keeping its original mass
+R223	supports Arg1:T396 Arg2:T397	
+T398	data 38679 38762	the divergence free velocity field prevents the liquid from expanding significantly
+T399	own_claim 38643 38670	does not happen in practice
+R224	contradicts Arg1:T399 Arg2:T397	
+R225	supports Arg1:T398 Arg2:T399	
+T400	own_claim 38764 38836	An alternative to our sharpening method is to perform antidiffusion step
+T401	data 38839 38844	SHA11
+T402	own_claim 38848 38894	which is an interesting avenue for future work
+R226	supports Arg1:T401 Arg2:T400	
+T403	own_claim 38896 38968	Another limitation is the possibility of losing local volume temporarily
+T404	data 38985 39005	the previous section
+R227	supports Arg1:T404 Arg2:T403	
+T405	own_claim 39007 39041	The density post processing method
+T406	own_claim 39054 39098	is an effective way to alleviate this effect
+R228	parts_of_same Arg1:T406 Arg2:T405	
+T407	own_claim 39112 39181	our method cannot guarantee complete volume conservation at all times
+T408	own_claim 39183 39283	it reduces this problem significantly in comparison to all the previous methods we have investigated
+R229	contradicts Arg1:T408 Arg2:T407	
