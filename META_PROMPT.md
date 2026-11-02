@@ -169,3 +169,10 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
 - When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
 - For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Authors' loaders that iterate `os.listdir`, `glob` or a set give a different split per machine: sort the listing
+  (`# DDB`), seed each run, and export `PYTHONHASHSEED=0`.
+- Old pins: torch < 1.12 ran A100 matmuls in TF32 by default; with a newer torch, `TORCH_ALLOW_TF32_CUBLAS_OVERRIDE=1`
+  restores it. ConvoKit 2.5 imports `pkg_resources`, so pin `setuptools<82`. `datasets.load_metric` fetches its script on
+  every call: prefetch once, then export `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1`.
+- When the authors' scripts hardcode the model and epochs, a smoke hook would mean editing them; test the wrappers on
+  mock data instead and let the first AIP minutes be the smoke test.
