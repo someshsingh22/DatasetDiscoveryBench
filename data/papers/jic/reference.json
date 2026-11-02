@@ -1,0 +1,80 @@
+{
+  "paper": {
+    "source": "Pal et al., COLING 2025, Table 4 (lm-eval-harness persona_* accuracy; Ft. = the released fine-tuning recipe, RAFt. = retrieval-augmented fine-tuning, code not released)",
+    "Mistral-7B-Instruct-v0.3": {
+      "baseline (zero-shot)": {
+        "openness": 0.836,
+        "conscientiousness": 0.639,
+        "extraversion": 0.514,
+        "agreeableness": 0.816,
+        "neuroticism": 0.535
+      },
+      "JIC-all Ft. (~400k, the released train split = the env's original)": {
+        "openness": 0.884,
+        "conscientiousness": 0.711,
+        "extraversion": 0.531,
+        "agreeableness": 0.911,
+        "neuroticism": 0.565
+      },
+      "JIC-medium Ft. (29k)": {
+        "openness": 0.867,
+        "conscientiousness": 0.682,
+        "extraversion": 0.522,
+        "agreeableness": 0.86,
+        "neuroticism": 0.538
+      },
+      "JIC-a1b0 Ft. (~135k, not released)": {
+        "openness": 0.912,
+        "conscientiousness": 0.748,
+        "extraversion": 0.58,
+        "agreeableness": 0.909,
+        "neuroticism": 0.549
+      },
+      "JIC-a1b0 RAFt. (~135k; the public MistraMystic)": {
+        "openness": 0.934,
+        "conscientiousness": 0.826,
+        "extraversion": 0.625,
+        "agreeableness": 0.953,
+        "neuroticism": 0.57
+      },
+      "PersonaChat Ft. (full)": {
+        "openness": 0.838,
+        "conscientiousness": 0.638,
+        "extraversion": 0.514,
+        "agreeableness": 0.808,
+        "neuroticism": 0.537
+      }
+    },
+    "Meta-Llama-3-8B-Instruct": {
+      "baseline (zero-shot)": {
+        "openness": 0.876,
+        "conscientiousness": 0.762,
+        "extraversion": 0.717,
+        "agreeableness": 0.95,
+        "neuroticism": 0.522
+      },
+      "JIC-all Ft. (~400k)": {
+        "openness": 0.834,
+        "conscientiousness": 0.699,
+        "extraversion": 0.6,
+        "agreeableness": 0.926,
+        "neuroticism": 0.645
+      },
+      "JIC-a1b0 Ft. (~135k, not released)": {
+        "openness": 0.886,
+        "conscientiousness": 0.793,
+        "extraversion": 0.708,
+        "agreeableness": 0.96,
+        "neuroticism": 0.557
+      },
+      "JIC-a1b0 RAFt. (~135k; the public LLaMAdelic)": {
+        "openness": 0.915,
+        "conscientiousness": 0.784,
+        "extraversion": 0.668,
+        "agreeableness": 0.944,
+        "neuroticism": 0.704
+      }
+    }
+  },
+  "runs": []
+}
