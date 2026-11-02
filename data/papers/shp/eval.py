@@ -1,4 +1,4 @@
-"""Scores a FLAN-T5 preference model with the authors' v_info.py and writes OUT/scores.json.
+"""Scores a FLAN-T5 preference model with the authors' v_info.py (src/dataset_difficulty) and writes OUT/scores.json.
 
 Rows are SteamSHP inputs (train.steamshp; pairs that do not fit 500 tokens are skipped, as in SteamSHP's evaluation)
 with gold label "A" or "B"; v_entropy gives each row -log2 P_model(gold | x) (bits) and whether the more likely label is
@@ -25,8 +25,8 @@ from transformers import AutoTokenizer
 
 from train import heldout
 from train import steamshp
-from v_info import v_entropy
-from v_info import v_info
+from src.dataset_difficulty.v_info import v_entropy
+from src.dataset_difficulty.v_info import v_info
 
 HH = Path(__file__).parent / "external_eval_data" / "hh_rlhf_helpful_base_test.jsonl.gz"
 TURN = "\n\nAssistant:"

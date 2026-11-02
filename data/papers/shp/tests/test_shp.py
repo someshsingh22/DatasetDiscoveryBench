@@ -47,8 +47,8 @@ class TestShp(unittest.TestCase):
 
     def test_run_sh(self):
         with tempfile.TemporaryDirectory() as out:
-            env = {**os.environ, "MODEL": "google/flan-t5-small", "MAX_STEPS": "2"}
-            subprocess.run(["bash", ENV / "run.sh", SAMPLE, out], env=env, check=True)
+            env = {**os.environ, "MODEL": "google/flan-t5-small"}
+            subprocess.run(["bash", ENV / "run.sh", SAMPLE, out, "--steps", "2"], env=env, check=True)
             scores = json.loads(Path(out, "scores.json").read_text())
         self.assertEqual(set(scores["primary"]), {"hh_rlhf_acc", "hh_rlhf_v_info"})
         self.assertEqual(set(scores["metrics"]), {"hh_rlhf", "heldout"})
