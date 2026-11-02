@@ -167,3 +167,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - CSV text with `\r` breaks rows on reload unless written with `quoting=csv.QUOTE_ALL`.
 - When the metric averages the last k epochs, evaluate only those epochs. Evaluating every epoch can double runtime.
 - For threaded or tree data, take the 10% sample by conversation (root), not by row; a row sample orphans most replies.
+- Evaluate the untuned model and the authors' public checkpoints first (minutes on one GPU, alongside the unittests):
+  deterministic scores that match the paper validate the evaluation before hours of training.
+- With old transformers pins, a tokenizer config that sets `add_prefix_space` rebuilds the fast tokenizer from the slow
+  one, which needs `sentencepiece` and `protobuf`; pin them at the authors' versions too.
+- lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
+  `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).
