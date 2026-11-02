@@ -117,16 +117,18 @@ save_dir = sys.argv[2]  # DDB
 def train(accumulate_over=3):  # DDB: the 3 accumulated batches run on 3 ranks; an incomplete last group is dropped
     for i, group in enumerate(zip(*[batch_generator(tokenized_ids_generator, 0, 99)]*accumulate_over)):  # DDB
         masked_encoding, label_encoding = group[rank]  # DDB
-        loss = ddp_model(input_ids=masked_encoding,  # DDB
-                                 attention_mask=label_encoding!=tokenizer.pad_token_id,
-                                 global_attention_mask=get_global_attention_mask(label_encoding),
-                                 labels=label_encoding).loss
+        with torch.autocast('cuda', dtype=torch.bfloat16):  # DDB: speed
+            loss = ddp_model(input_ids=masked_encoding,  # DDB
+                                     attention_mask=label_encoding!=tokenizer.pad_token_id,
+                                     global_attention_mask=get_global_attention_mask(label_encoding),
+                                     labels=label_encoding).loss
 
         print("Loss:", loss)
         (loss*accumulate_over).backward()  # DDB: DDP averages over ranks; the authors summed the 3 gradients
         optimizer.step()  # DDB
         optimizer.zero_grad()
 
+@torch.autocast('cuda', dtype=torch.bfloat16)  # DDB: speed
 def eval():
     with torch.no_grad():
         correct, total = 0, 0

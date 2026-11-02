@@ -222,6 +222,7 @@ def get_prompt_generator(dataset, batch_size, shuffle=True):
 cross_entropy_layer = nn.CrossEntropyLoss(weight=torch.tensor([0.508, 2.027, 2.402, 2.234, 2.667], 
                                                               device=device), reduction='sum')
 
+@torch.autocast('cuda', dtype=torch.bfloat16)  # DDB: speed
 def compute(batch: Tuple[torch.Tensor, torch.Tensor, torch.Tensor],
             preds: bool=False,) -> Union[List[torch.Tensor], torch.Tensor]:
     """
