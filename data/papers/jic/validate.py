@@ -29,7 +29,7 @@ def validate(path: str) -> None:
     tests = {
         s: g
         for f in sorted(DATA.glob("*.jsonl"))
-        for s in (json.loads(x)["statement"] for x in f.open())
+        for s in (json.loads(x)["statement"] for x in f.read_text(encoding="utf-8").splitlines())
         if (g := ngrams(s))
     }
     pool = set().union(*tests.values())

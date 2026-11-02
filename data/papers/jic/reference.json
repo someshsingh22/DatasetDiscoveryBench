@@ -76,5 +76,34 @@
       }
     }
   },
-  "runs": []
+  "runs": [
+    {
+      "run": "j1-eval-Meta-Llama-3-8B-Instruct",
+      "what": "eval.py on the untuned Llama-3-8B-Instruct (cross-check of the evaluation vs the paper's Llama baseline .876/.762/.717/.950/.522)",
+      "commit": "ff8b11c",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 219,
+      "primary": {
+        "openness": 0.874,
+        "conscientiousness": 0.759,
+        "extraversion": 0.716,
+        "agreeableness": 0.95,
+        "neuroticism": 0.523
+      }
+    },
+    {
+      "run": "j1-eval-LLaMAdelic",
+      "what": "eval.py on the authors' public choco58/LLaMAdelic (merged fp16; paper .915/.784/.668/.944/.704)",
+      "commit": "ff8b11c",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 221,
+      "primary": {
+        "openness": 0.909,
+        "conscientiousness": 0.785,
+        "extraversion": 0.651,
+        "agreeableness": 0.946,
+        "neuroticism": 0.683
+      }
+    }
+  ]
 }

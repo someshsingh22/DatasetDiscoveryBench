@@ -34,7 +34,7 @@ class TestJic(unittest.TestCase):
         validate_rows([OK] * 1001)
 
     def test_invalid_inputs_fail(self):
-        statements = (json.loads(x)["statement"] for x in (DATA / "openness.jsonl").open())
+        statements = (json.loads(x)["statement"] for x in (DATA / "openness.jsonl").read_text().splitlines())
         statement = next(s for s in statements if len(s.split()) >= 8)
         for rows in (
             [OK] * 1000,
