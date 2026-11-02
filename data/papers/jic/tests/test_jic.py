@@ -19,8 +19,6 @@ from validate import validate
 ENV = Path(__file__).resolve().parents[1]
 SAMPLE = json.loads((ENV / "tests" / "sample.json").read_text(encoding="utf-8")) * 21  # > 1,000 dialogues
 OK = {"dialogue": ["I journaled about my week.", "Writing always calms me down."]}
-LINES = (DATA / "openness.jsonl").read_text().splitlines()
-STATEMENTS = [s for x in LINES if len((s := json.loads(x)["statement"]).split()) >= 8][:11]  # 11 > the 10 tolerated
 
 
 def validate_rows(rows: list[dict]) -> None:
@@ -34,16 +32,17 @@ class TestJic(unittest.TestCase):
     def test_valid_inputs_pass(self):
         validate_rows(SAMPLE)
         validate_rows([OK] * 1001)
-        validate_rows([OK] * 1000 + [{"dialogue": ["What did you write today?", " ".join(STATEMENTS[:10])]}])
 
     def test_invalid_inputs_fail(self):
+        statements = (json.loads(x)["statement"] for x in (DATA / "openness.jsonl").read_text().splitlines())
+        statement = next(s for s in statements if len(s.split()) >= 8)
         for rows in (
             [OK] * 1000,
             [OK] * 1000 + [{"text": ["Hi.", "Hello."]}],
             [OK] * 1000 + [{"dialogue": "Hi. Hello."}],
             [OK] * 1000 + [{"dialogue": ["Hi."]}],
             [OK] * 1000 + [{"dialogue": ["Hi.", " "]}],
-            [OK] * 1000 + [{"dialogue": ["What did you write today?", f"Just this: {' '.join(STATEMENTS).upper()}!"]}],
+            [OK] * 1000 + [{"dialogue": ["What did you write today?", f"Just this: {statement.upper()}!"]}],
         ):
             with self.subTest(row=rows[-1]), self.assertRaises((AssertionError, KeyError)):
                 validate_rows(rows)

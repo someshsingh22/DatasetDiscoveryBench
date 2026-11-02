@@ -157,7 +157,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Typical costs on 4×A100 bf16: a smoke unittest run ~7.5 min (8 GPUs); `uv sync` + model download ~1 min; a ~1B-param
   model trains ~2 it/s at per-device batch 2, so a 94k-row, 3-epoch stage takes ~4.6h. Measure it/s in the first
   minutes and extrapolate; the full-data original run is the critical path, so start it first.
-- Word 8-gram contamination checks cost seconds and do not flag genuine original datasets.
+- Word 8-gram contamination checks cost seconds, but short generic test texts occur verbatim in large genuine
+  corpora (e.g. the persona item "Sometimes it feels like the whole world is against me" in JIC's chats). Keep the
+  check strict (no tolerance thresholds) and drop the conversations holding a leaked text from the original.
 - aip MCP tokens expire ("Re-authentication required") and a live session keeps its stale connection even after the
   user re-authenticates; ask the user to re-auth, then make aip calls from a fresh session in `~/Github/pluto`. Never
   switch to another interface. Tokens can drop again within the hour, but running jobs are unaffected, so launch every
