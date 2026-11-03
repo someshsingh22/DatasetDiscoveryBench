@@ -229,6 +229,32 @@
         "total": 1049
       },
       "result": "4/4 passed (validate on mock + 50 original rows, preprocessing token-for-token vs the authors' dataset, run.sh smoke with Pythia-70M)"
+    },
+    "c1-baseline-env": {
+      "data": "none, eval.py cut at the first newline (refactor round)",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "b4c2d6f",
+      "job": "7e126ac3-f69c-4f80-9122-2be9a79b3161",
+      "gpus": 1,
+      "wall_seconds": {
+        "total": 1136
+      },
+      "primary": {
+        "rouge1": 0.23981,
+        "rouge2": 0.07974,
+        "rougeL": 0.17738
+      },
+      "rouge_mean": 0.16564,
+      "summary_tokens": 23.92
+    },
+    "c1-tests": {
+      "commit": "b4c2d6f",
+      "job": "7e126ac3-f69c-4f80-9122-2be9a79b3161",
+      "gpus": 1,
+      "wall_seconds": {
+        "total": 1030
+      },
+      "result": "4/4 passed; --steps 2 and --epochs 2 smokes (Pythia-70M) give the expected optimizer steps"
     }
   },
   "seed_spread": {
@@ -261,7 +287,7 @@
     "expected_run_sh_none_with_cut": {
       "rouge_mean": 0.1649,
       "tolerance": 0.002,
-      "note": "to verify on the combined job: the baseline above (0.19018 uncut, 52.71 tokens) with the cut, against the env's references"
+      "note": "verified on the combined job c1: run.sh none gives 0.16564 (runs.c1-baseline-env)"
     }
   }
 }
