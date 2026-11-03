@@ -1,0 +1,293 @@
+{
+  "paper": {
+    "metric": "CNN/DM test ROUGE without further training, mean of ROUGE-1/2/L F1, T=0; read off Fig. 14b (no table)",
+    "supervised_transfer": {
+      "125M": 0.186,
+      "760M": 0.223,
+      "1.3B": 0.231,
+      "2.7B": 0.226,
+      "6.7B": 0.22,
+      "13B": 0.217
+    },
+    "pretrained_with_cnndm_examples": {
+      "125M": 0.149,
+      "760M": 0.203,
+      "1.3B": 0.231,
+      "2.7B": 0.23,
+      "6.7B": 0.236,
+      "13B": 0.233
+    },
+    "human_feedback_transfer": {
+      "1.3B": 0.252,
+      "6.7B": 0.258
+    },
+    "supervised_on_cnndm_6.7B": {
+      "rouge1": 0.4249,
+      "rouge2": 0.1984,
+      "rougeL": 0.3953,
+      "source": "Table 15"
+    }
+  },
+  "runs": {
+    "t1-baseline-env": {
+      "data": "none",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 1087
+      },
+      "primary": {
+        "rouge1": 0.28192,
+        "rouge2": 0.08886,
+        "rougeL": 0.19975
+      },
+      "rouge_mean": 0.19018,
+      "summary_tokens": 52.71
+    },
+    "t1-44413-released": {
+      "data": "the re-implementation's released SFT checkpoint (seed 44413, 8 H100s), not retrained",
+      "model": "vwxyzjn/EleutherAI_pythia-1b-deduped__sft__tldr@sft__44413__1708611267",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 1130
+      },
+      "primary": {
+        "rouge1": 0.31216,
+        "rouge2": 0.11145,
+        "rougeL": 0.21797
+      },
+      "rouge_mean": 0.21386,
+      "summary_tokens": 36.42
+    },
+    "t1-55513-released": {
+      "data": "released SFT checkpoint, seed 55513",
+      "model": "vwxyzjn/EleutherAI_pythia-1b-deduped__sft__tldr@sft__55513__1708611267",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 1103
+      },
+      "primary": {
+        "rouge1": 0.31,
+        "rouge2": 0.11061,
+        "rougeL": 0.21697
+      },
+      "rouge_mean": 0.21253,
+      "summary_tokens": 35.83
+    },
+    "t1-66613-released": {
+      "data": "released SFT checkpoint, seed 66613",
+      "model": "vwxyzjn/EleutherAI_pythia-1b-deduped__sft__tldr@sft__66613__1708611267",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 1105
+      },
+      "primary": {
+        "rouge1": 0.31165,
+        "rouge2": 0.11149,
+        "rougeL": 0.2179
+      },
+      "rouge_mean": 0.21368,
+      "summary_tokens": 36.31
+    },
+    "t1-77713-released": {
+      "data": "released SFT checkpoint, seed 77713",
+      "model": "vwxyzjn/EleutherAI_pythia-1b-deduped__sft__tldr@sft__77713__1708611267",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 1110
+      },
+      "primary": {
+        "rouge1": 0.31106,
+        "rouge2": 0.11145,
+        "rougeL": 0.21777
+      },
+      "rouge_mean": 0.21343,
+      "summary_tokens": 35.81
+    },
+    "t1-pretrained-paper": {
+      "data": "none; outside the env: the paper's 'Pretrained' baseline (3 CNN/DM examples in context, cnndm_zero_shot_task, cut at the first newline)",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "5f2e74e",
+      "job": "309a03bb-2884-4991-970c-e48910ebe59b",
+      "gpus": 1,
+      "wall_seconds": {
+        "eval": 3163
+      },
+      "primary": {
+        "rouge1": 0.27885,
+        "rouge2": 0.10504,
+        "rougeL": 0.20012
+      },
+      "rouge_mean": 0.19467,
+      "summary_tokens": 30.35
+    },
+    "t2-original-env": {
+      "data": "original (OpenAI tldr_3_filtered train, 116,722 rows), seed 1",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 2,
+      "wall_seconds": {
+        "train": 4878,
+        "eval": 1149
+      },
+      "primary": {
+        "rouge1": 0.31197,
+        "rouge2": 0.11137,
+        "rougeL": 0.21778
+      },
+      "rouge_mean": 0.2137,
+      "summary_tokens": 36.99
+    },
+    "t2-original-seed2": {
+      "data": "original, seed 2",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 2,
+      "wall_seconds": {
+        "train": 4974,
+        "eval": 1151
+      },
+      "primary": {
+        "rouge1": 0.31044,
+        "rouge2": 0.11076,
+        "rougeL": 0.21692
+      },
+      "rouge_mean": 0.21271,
+      "summary_tokens": 36.26
+    },
+    "t2-original-author": {
+      "data": "original; the re-implementation's unmodified sft.py at ee77a9a on its own preprocessed dataset, seed 44413",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 2,
+      "wall_seconds": {
+        "train": 4801,
+        "eval": 1138
+      },
+      "primary": {
+        "rouge1": 0.31182,
+        "rouge2": 0.11131,
+        "rougeL": 0.21796
+      },
+      "rouge_mean": 0.2137,
+      "summary_tokens": 36.62
+    },
+    "t2-sub10-env": {
+      "data": "10% row sample of the original (11,672 rows, random_state=0), seed 1",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 1,
+      "wall_seconds": {
+        "train": 931,
+        "eval": 1135
+      },
+      "primary": {
+        "rouge1": 0.31626,
+        "rouge2": 0.11002,
+        "rougeL": 0.21804
+      },
+      "rouge_mean": 0.21477,
+      "summary_tokens": 53.25
+    },
+    "t2-sub10-seed2": {
+      "data": "10% sample, seed 2",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 1,
+      "wall_seconds": {
+        "train": 998,
+        "eval": 1137
+      },
+      "primary": {
+        "rouge1": 0.31773,
+        "rouge2": 0.11068,
+        "rougeL": 0.21863
+      },
+      "rouge_mean": 0.21568,
+      "summary_tokens": 53.25
+    },
+    "t2-tests": {
+      "commit": "087dd97",
+      "job": "9ebcbf51-ff7a-49dd-90cd-5e7884904a0e",
+      "gpus": 1,
+      "wall_seconds": {
+        "total": 1049
+      },
+      "result": "4/4 passed (validate on mock + 50 original rows, preprocessing token-for-token vs the authors' dataset, run.sh smoke with Pythia-70M)"
+    },
+    "c1-baseline-env": {
+      "data": "none, eval.py cut at the first newline (refactor round)",
+      "model": "EleutherAI/pythia-1b-deduped",
+      "commit": "b4c2d6f",
+      "job": "7e126ac3-f69c-4f80-9122-2be9a79b3161",
+      "gpus": 1,
+      "wall_seconds": {
+        "total": 1136
+      },
+      "primary": {
+        "rouge1": 0.23981,
+        "rouge2": 0.07974,
+        "rougeL": 0.17738
+      },
+      "rouge_mean": 0.16564,
+      "summary_tokens": 23.92
+    },
+    "c1-tests": {
+      "commit": "b4c2d6f",
+      "job": "7e126ac3-f69c-4f80-9122-2be9a79b3161",
+      "gpus": 1,
+      "wall_seconds": {
+        "total": 1030
+      },
+      "result": "4/4 passed; --steps 2 and --epochs 2 smokes (Pythia-70M) give the expected optimizer steps"
+    }
+  },
+  "seed_spread": {
+    "env_original_seed1_vs_seed2": 0.00099,
+    "env_sub10_seed1_vs_seed2": 0.00091,
+    "released_4_seeds_range": 0.00133
+  },
+  "length_analysis": {
+    "what": "eval-only, offline, on the exported summaries.json (no model run); ROUGE vs HF cnn_dailymail 3.0.0 highlights (~0.0007 below the env's references); greedy decoding is prefix-consistent, so cutting at the first newline equals generating with stop at '\\n' (the paper's tldr_zero_shot truncate_token 198)",
+    "share_at_53_token_cap": {
+      "original_env": 0.16,
+      "original_seed2": 0.13,
+      "original_author": 0.14,
+      "released_44413": 0.13,
+      "sub10_env": 0.98,
+      "sub10_seed2": 0.98,
+      "baseline": 0.8
+    },
+    "rouge_mean_cut_at_first_newline": {
+      "original_env": 0.2124,
+      "original_seed2": 0.2116,
+      "original_author": 0.2126,
+      "released_44413": 0.2128,
+      "sub10_env": 0.2084,
+      "sub10_seed2": 0.2099,
+      "baseline": 0.1649,
+      "paper_pretrained": 0.1938
+    },
+    "applied": "since the refactor round (2026-11-03) eval.py cuts every summary at its first newline; the runs above were scored before it (uncut), and rouge_mean_cut_at_first_newline was recomputed offline from their t1/t2 summaries.json",
+    "expected_run_sh_none_with_cut": {
+      "rouge_mean": 0.1649,
+      "tolerance": 0.002,
+      "note": "verified on the combined job c1: run.sh none gives 0.16564 (runs.c1-baseline-env)"
+    }
+  }
+}

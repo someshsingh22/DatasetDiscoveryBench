@@ -205,3 +205,17 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   the runs so that all GPUs end within ~15 min of each other: fixed lanes left half of a node idle for 3 h; a queue of
   14 one-GPU runs ended within 11 min, with GPUs busy 91 % of the allocated time.
 - Export each run to S3 when it ends, not at job end: if aip auth drops mid-job, the local AWS CLI still gets results.
+- Pin the Python patch when the authors' pins predate a stdlib change: tyro 0.6.0 crashes on the argparse of Python
+  3.11.9+ ("too many values to unpack (expected 3)"); `requires-python = "==3.11.8"` makes uv fetch that patch. Old
+  `datasets` (< 2.14) also needs the authors' `fsspec` and `pyarrow` pins, not only the direct dependencies.
+- Gate every training entrypoint (e.g. `train.py --help`) in the job's setup, before any lane holds a GPU: a crash in
+  the first minute of every training lane otherwise leaves the node idle until its slowest eval-only lane ends.
+- If the paper's code is inference-only, train with a published re-implementation and keep the paper's evaluation code.
+  Scoring the re-implementation's released checkpoints with the env's eval costs minutes and separates eval-side from
+  training-side gaps. Concurrent `accelerate launch` runs need their own `--main_process_port` (default 29500).
+- Overlap metrics (ROUGE F1) reward length: a 10% run that never learns to stop fills the generation cap and can
+  outscore the full-data run (tldr: 98% of 10% summaries at the 53-token cap vs 14%). Record mean output length and the
+  share at the cap next to the metric, and check whether the paper's code stops earlier (e.g. at a newline).
+- Micro-batch 1 with gradient accumulation keeps the paper's batch but leaves a ~1B model at ~8% HFU; pack more lanes
+  per node rather than raising the micro-batch, which changes per-micro-batch loss averaging.
+- Once jobs have recorded a commit, merge `main` into the env branch instead of rebasing, so those commits stay reachable.
