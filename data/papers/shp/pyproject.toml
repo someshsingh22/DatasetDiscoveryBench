@@ -14,3 +14,4 @@ dependencies = [
 
 [tool.ruff]
 line-length = 120
+extend-exclude = ["src"]
