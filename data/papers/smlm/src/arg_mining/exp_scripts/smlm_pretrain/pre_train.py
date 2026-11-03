@@ -16,7 +16,7 @@ from arg_mining.datasets.cmv_modes import data_config  # DDB: package path
 from arg_mining.datasets.cmv_modes.utils import reencode_mask_tokens  # DDB
 from arg_mining.datasets.cmv_modes.component_generator import footnote_regex, quote_regex, url_regex  # DDB
 
-dist.init_process_group('nccl'); rank = dist.get_rank()  # DDB: 3 ranks, one batch of each group of 3 apiece
+dist.init_process_group('nccl'); rank, world = dist.get_rank(), dist.get_world_size()  # DDB: one batch of each group apiece (the authors: 3 on one GPU)
 device = torch.device(f'cuda:{rank}')  # DDB
 model_version = 'allenai/longformer-base-4096'
 
@@ -90,7 +90,7 @@ def encode(thread_text):  # DDB: tokenize and mask each thread once (determinist
     label_encoding, masked_encoding = reencode_mask_tokens(encoding, tokenizer, discourse_markers)
     return len(encoding), masked_encoding[:4096], label_encoding[:4096]
 
-with Pool(os.cpu_count()//3) as pool:  # DDB
+with Pool(os.cpu_count()//world) as pool:  # DDB
     sorted_thread_texts = sorted(pool.map(encode, generate_thread_texts(), chunksize=64),  # DDB
                                  key=lambda item: item[0],  # DDB
                                  reverse=True)
@@ -114,7 +114,7 @@ ddp_model = DistributedDataParallel(transformer_model, device_ids=[rank], find_u
 n_epochs = 4  # DDB: the paper's checkpoint (4epoch_complete)
 save_dir = sys.argv[2]  # DDB
 
-def train(accumulate_over=3):  # DDB: the 3 accumulated batches run on 3 ranks; an incomplete last group is dropped
+def train(accumulate_over=world):  # DDB: the accumulated batches run one per rank; an incomplete last group is dropped
     for i, group in enumerate(zip(*[batch_generator(tokenized_ids_generator, 0, 99)]*accumulate_over)):  # DDB
         masked_encoding, label_encoding = group[rank]  # DDB
         loss = ddp_model(input_ids=masked_encoding,  # DDB
@@ -123,7 +123,7 @@ def train(accumulate_over=3):  # DDB: the 3 accumulated batches run on 3 ranks; 
                                  labels=label_encoding).loss
 
         print("Loss:", loss)
-        (loss*accumulate_over).backward()  # DDB: DDP averages over ranks; the authors summed the 3 gradients
+        (loss*accumulate_over).backward()  # DDB: DDP averages over ranks; the authors summed the gradients
         optimizer.step()  # DDB
         optimizer.zero_grad()
 

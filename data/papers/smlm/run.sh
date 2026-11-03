@@ -4,7 +4,7 @@
 # then RUNS (default 1; the paper: 5) seeded fine-tuning runs per task, one per GPU at a time: argument component
 # identification on Dr Inventor and CMV Modes, relation types on CMV Modes. SUBMISSION=none fine-tunes the base
 # Longformer (the paper's baseline).
-# Uses the GPUs in CUDA_VISIBLE_DEVICES, default all (pre-training needs 3).
+# Uses the GPUs in CUDA_VISIBLE_DEVICES, default all (pre-training: PRETRAIN_GPUS, default 3 = the authors' 3 accumulated batches).
 set -euo pipefail
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-$(nvidia-smi --query-gpu=index --format=csv,noheader | paste -sd, -)}
 ENV=$(dirname "$(realpath "$0")")
@@ -23,7 +23,7 @@ if [[ $1 != none ]]; then
   uv run python validate.py "$SUB"
   uv run python train.py "$SUB" "$OUT"
   cd "$SRC"  # pre_train.py reads ../Discourse_Markers.txt
-  uv run torchrun --standalone --nproc_per_node=3 smlm_pretrain/pre_train.py "$OUT/corpus" "$OUT/smlm" 2>&1 |
+  uv run torchrun --standalone --nproc_per_node=${PRETRAIN_GPUS:-3} smlm_pretrain/pre_train.py "$OUT/corpus" "$OUT/smlm" 2>&1 |
     tee "$OUT/logs/pretrain.log"
   TOK=$OUT/smlm/tokenizer MODEL=$OUT/smlm/model
 fi
