@@ -178,3 +178,6 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   every call: prefetch once, then export `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1`.
 - When the authors' scripts hardcode the model and epochs, a smoke hook would mean editing them; test the wrappers on
   mock data instead and let the first AIP minutes be the smoke test.
+- Authors' code often pads every batch to the model maximum (sMLM RTP: 4096 tokens); dropping the all-padding tail is
+  exact when padding is masked and halved its runtime. Check a precision change in a short run first: Longformer on
+  torch 1.12 has no bf16 `tril` kernel. Two runs sharing a GPU each run at roughly half speed.
