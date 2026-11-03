@@ -1,0 +1,232 @@
+{
+  "paper": {
+    "source": "Pal et al., COLING 2025 (arXiv 2412.11250v1), Table 14: lm-evaluation-harness persona_* accuracy for every configuration (Table 4 repeats a subset; the PersonaChat row is Table 15). Ft. = the released fine-tuning recipe, RAFt. = retrieval-augmented fine-tuning, code not released. The env original's reproduction target is Mistral Ft. JIAC-all.",
+    "Mistral-7B-Instruct-v0.3": {
+      "baseline (zero-shot)": {
+        "openness": 0.836,
+        "conscientiousness": 0.639,
+        "extraversion": 0.514,
+        "agreeableness": 0.816,
+        "neuroticism": 0.535
+      },
+      "JIAC-all Ft. (~400k, the released train split = the env's original; the reproduction target)": {
+        "openness": 0.884,
+        "conscientiousness": 0.711,
+        "extraversion": 0.531,
+        "agreeableness": 0.911,
+        "neuroticism": 0.565
+      },
+      "JIC-medium Ft. (29k)": {
+        "openness": 0.867,
+        "conscientiousness": 0.682,
+        "extraversion": 0.522,
+        "agreeableness": 0.86,
+        "neuroticism": 0.538
+      },
+      "JIC-a1b0 Ft. (~135k, not released)": {
+        "openness": 0.912,
+        "conscientiousness": 0.748,
+        "extraversion": 0.58,
+        "agreeableness": 0.909,
+        "neuroticism": 0.549
+      },
+      "JIC-a1b0 RAFt. (~135k; the public MistraMystic)": {
+        "openness": 0.934,
+        "conscientiousness": 0.826,
+        "extraversion": 0.625,
+        "agreeableness": 0.953,
+        "neuroticism": 0.57
+      },
+      "PersonaChat Ft. (full; Table 15)": {
+        "openness": 0.838,
+        "conscientiousness": 0.638,
+        "extraversion": 0.514,
+        "agreeableness": 0.808,
+        "neuroticism": 0.537
+      }
+    },
+    "Meta-Llama-3-8B-Instruct": {
+      "baseline (zero-shot)": {
+        "openness": 0.876,
+        "conscientiousness": 0.762,
+        "extraversion": 0.717,
+        "agreeableness": 0.95,
+        "neuroticism": 0.522
+      },
+      "JIAC-all Ft. (~400k)": {
+        "openness": 0.834,
+        "conscientiousness": 0.699,
+        "extraversion": 0.6,
+        "agreeableness": 0.926,
+        "neuroticism": 0.645
+      },
+      "JIC-a1b0 Ft. (~135k, not released)": {
+        "openness": 0.886,
+        "conscientiousness": 0.793,
+        "extraversion": 0.708,
+        "agreeableness": 0.96,
+        "neuroticism": 0.557
+      },
+      "JIC-a1b0 RAFt. (~135k; the public LLaMAdelic)": {
+        "openness": 0.915,
+        "conscientiousness": 0.784,
+        "extraversion": 0.668,
+        "agreeableness": 0.944,
+        "neuroticism": 0.704
+      }
+    }
+  },
+  "runs": [
+    {
+      "run": "j1-eval-Meta-Llama-3-8B-Instruct",
+      "what": "eval-pipeline check (no training): eval.py on the untuned Llama-3-8B-Instruct (cross-check of the evaluation vs the paper's Llama baseline .876/.762/.717/.950/.522)",
+      "commit": "ff8b11c",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 219,
+      "primary": {
+        "openness": 0.874,
+        "conscientiousness": 0.759,
+        "extraversion": 0.716,
+        "agreeableness": 0.95,
+        "neuroticism": 0.523
+      }
+    },
+    {
+      "run": "j1-eval-LLaMAdelic",
+      "what": "eval-pipeline check (no training): eval.py on the authors' public choco58/LLaMAdelic (merged fp16; paper .915/.784/.668/.944/.704)",
+      "commit": "ff8b11c",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 221,
+      "primary": {
+        "openness": 0.909,
+        "conscientiousness": 0.785,
+        "extraversion": 0.651,
+        "agreeableness": 0.946,
+        "neuroticism": 0.683
+      }
+    },
+    {
+      "run": "j2-baseline-env",
+      "what": "env baseline, run.sh none (no training): the untuned Mistral-7B-Instruct-v0.3 (paper .836/.639/.514/.816/.535)",
+      "commit": "6b32994",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 262,
+      "primary": {
+        "openness": 0.832,
+        "conscientiousness": 0.64,
+        "extraversion": 0.514,
+        "agreeableness": 0.817,
+        "neuroticism": 0.535
+      }
+    },
+    {
+      "run": "j2-eval-MistraMystic",
+      "what": "eval-pipeline check (no training): eval.py on the authors' public choco58/MistraMystic (JIC-a1b0 RAFt.; paper .934/.826/.625/.953/.570)",
+      "commit": "6b32994",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 212,
+      "primary": {
+        "openness": 0.932,
+        "conscientiousness": 0.82,
+        "extraversion": 0.619,
+        "agreeableness": 0.949,
+        "neuroticism": 0.565
+      }
+    },
+    {
+      "run": "j3-original-env",
+      "what": "env on the original (released train, JIC-all; 78,605 packed 2048-token sequences, 459 steps, best checkpoint = step 400 by eval loss 1.049, as the authors' load_best_model_at_end). Paper Mistral JIAC-all Ft. .884/.711/.531/.911/.565. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
+      "commit": "1f9ea70",
+      "gpus": "8xA100-80GB",
+      "wall_seconds": 21230,
+      "train_seconds": 20936,
+      "eval_seconds": 292,
+      "primary": {
+        "openness": 0.885,
+        "conscientiousness": 0.715,
+        "extraversion": 0.533,
+        "agreeableness": 0.909,
+        "neuroticism": 0.565
+      }
+    },
+    {
+      "run": "j3-sub10-env",
+      "what": "env on a 10% sample of the original (39,848 dialogues, random_state=0; 7,683 packed sequences, 45 steps). Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
+      "commit": "1f9ea70",
+      "gpus": "4xA100-80GB",
+      "wall_seconds": 4391,
+      "train_seconds": 4096,
+      "eval_seconds": 293,
+      "primary": {
+        "openness": 0.853,
+        "conscientiousness": 0.664,
+        "extraversion": 0.516,
+        "agreeableness": 0.84,
+        "neuroticism": 0.537
+      }
+    },
+    {
+      "run": "j3-sub10-seed1",
+      "what": "env on the same 10% sample with train.py --seed 1 (LoRA init, packing shuffle, data order); seed-spread estimate. Trained on the released train split as is (j3 ran at 1f9ea70, the since-reverted 10-statement tolerance), i.e. the decontaminated set plus the 67 dialogues j4 drops (0.017%).",
+      "commit": "1f9ea70",
+      "gpus": "4xA100-80GB",
+      "wall_seconds": 4398,
+      "train_seconds": 4076,
+      "eval_seconds": 320,
+      "primary": {
+        "openness": 0.856,
+        "conscientiousness": 0.66,
+        "extraversion": 0.515,
+        "agreeableness": 0.839,
+        "neuroticism": 0.537
+      }
+    },
+    {
+      "run": "j4-tests",
+      "what": "unittests at the strict-leak commit; the original and 10% are decontaminated and pass validate.py: released train 398,476 dialogues, 2 persona statements leak verbatim ('Sometimes it feels like the whole world is against me', 'I’m willing to try new things and take risks'), 67 dialogues dropped, original 398,409, 10% 39,845",
+      "commit": "12dabd4",
+      "gpus": "8xA100-80GB",
+      "wall_seconds": 105,
+      "passed": true
+    },
+    {
+      "run": "j4-baseline-env",
+      "what": "env baseline, run.sh none, at the strict-leak commit (identical to j2)",
+      "commit": "12dabd4",
+      "gpus": "1xA100-80GB",
+      "wall_seconds": 209,
+      "primary": {
+        "openness": 0.832,
+        "conscientiousness": 0.64,
+        "extraversion": 0.514,
+        "agreeableness": 0.817,
+        "neuroticism": 0.535
+      }
+    }
+  ],
+  "seed_spread": {
+    "what": "|sub10 env - sub10 seed1| per trait (seed 42 vs 1 on the 10% sample). The seed-1 original run was skipped: env original minus baseline exceeds 3x this spread on every trait (j3 stopped at 16:05Z, saving ~5.3 h / ~42 GPU-h).",
+    "spread": {
+      "openness": 0.003,
+      "conscientiousness": 0.004,
+      "extraversion": 0.001,
+      "agreeableness": 0.001,
+      "neuroticism": 0.0
+    },
+    "original_minus_baseline": {
+      "openness": 0.053,
+      "conscientiousness": 0.075,
+      "extraversion": 0.019,
+      "agreeableness": 0.092,
+      "neuroticism": 0.03
+    },
+    "original_minus_sub10": {
+      "openness": 0.032,
+      "conscientiousness": 0.051,
+      "extraversion": 0.017,
+      "agreeableness": 0.069,
+      "neuroticism": 0.028
+    }
+  },
+  "commits_note": "Run commits are those the AIP jobs cloned from env/jic before it was rebased on main; tag jic-aip-runs keeps them reachable."
+}

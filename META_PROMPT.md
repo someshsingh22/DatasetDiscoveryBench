@@ -161,7 +161,9 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Typical costs on 4×A100 bf16: a smoke unittest run ~7.5 min (8 GPUs); `uv sync` + model download ~1 min; a ~1B-param
   model trains ~2 it/s at per-device batch 2, so a 94k-row, 3-epoch stage takes ~4.6h. Measure it/s in the first
   minutes and extrapolate; the full-data original run is the critical path, so start it first.
-- Word 8-gram contamination checks cost seconds and do not flag genuine original datasets.
+- Word 8-gram contamination checks cost seconds, but short generic test texts occur verbatim in large genuine
+  corpora (e.g. the persona item "Sometimes it feels like the whole world is against me" in JIC's chats). Keep the
+  check strict (no tolerance thresholds) and drop the conversations holding a leaked text from the original.
 - aip MCP tokens expire ("Re-authentication required") and a live session keeps its stale connection even after the
   user re-authenticates; ask the user to re-auth, then make aip calls from a fresh session in `~/Github/pluto`. Never
   switch to another interface. Tokens can drop again within the hour, but running jobs are unaffected, so launch every
@@ -181,3 +183,12 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Authors' code often pads every batch to the model maximum (sMLM RTP: 4096 tokens); dropping the all-padding tail is
   exact when padding is masked and halved its runtime. Check a precision change in a short run first: Longformer on
   torch 1.12 has no bf16 `tril` kernel. Two runs sharing a GPU each run at roughly half speed.
+- Evaluate the untuned model and the authors' public checkpoints first (minutes on one GPU, alongside the unittests):
+  deterministic scores that match the paper validate the evaluation before hours of training.
+- With old transformers pins, a tokenizer config that sets `add_prefix_space` rebuilds the fast tokenizer from the slow
+  one, which needs `sentencepiece` and `protobuf`; pin them at the authors' versions too.
+- When a seed spread is needed, the 10% env and seed-1 runs fit side by side (4+4 GPUs) and finish long before a
+  full-data seed: jic's 10% spread was <= .004 against an original-baseline gap of .02-.09, so the seed-1 original was
+  stopped (~42 of ~105 GPU-h saved for a 7B QLoRA on 398k dialogues).
+- lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
+  `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).
