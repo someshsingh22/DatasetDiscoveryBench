@@ -1,0 +1,247 @@
+{
+  "paper": {
+    "masive_test_en": {
+      "source": "EMNLP 2024, Table 4 (mT5-large fine-tuned on MASIVE en)",
+      "mT5": {
+        "acc_1": 0.1791,
+        "acc_3": 0.2681,
+        "acc_5": 0.309,
+        "sim_1": 0.564
+      }
+    },
+    "external_macro": {
+      "source": "EMNLP 2024, Table 5 (mT5-large fine-tuned on each benchmark; MAS = MASIVE first)",
+      "goemo_7": {
+        "mT5": {
+          "p": 33.63,
+          "r": 19.28,
+          "f1": 16.25,
+          "acc_1": 0.3849
+        },
+        "mT5_MAS": {
+          "p": 33.06,
+          "r": 39.81,
+          "f1": 28.3,
+          "acc_1": 0.1749
+        }
+      },
+      "goemo_28": {
+        "mT5": {
+          "p": 12.57,
+          "r": 4.77,
+          "f1": 2.24,
+          "acc_1": 0.0253
+        },
+        "mT5_MAS": {
+          "p": 27.08,
+          "r": 18.76,
+          "f1": 11.92,
+          "acc_1": 0.0754
+        }
+      },
+      "emoevent_en": {
+        "mT5": {
+          "p": 30.06,
+          "r": 14.36,
+          "f1": 2.84,
+          "acc_1": 0.105
+        },
+        "mT5_MAS": {
+          "p": 34.81,
+          "r": 32.74,
+          "f1": 29.55,
+          "acc_1": 0.334
+        }
+      }
+    }
+  },
+  "authors_code": {
+    "job": "ddb-masive-m4-authors-exact-20261101 (295fbdfb)",
+    "s3": "s3://mdsr-gcp-usw2/somesh/ddb/masive/m4-authors-20261031T234909Z/",
+    "external_macro": {
+      "goemo_7": {
+        "mT5": {
+          "p": 33.63,
+          "r": 19.28,
+          "f1": 16.25,
+          "acc_1": 0.3849
+        },
+        "mT5_MAS": {
+          "p": 33.06,
+          "r": 39.81,
+          "f1": 28.3,
+          "acc_1": 0.1749
+        }
+      },
+      "goemo_28": {
+        "mT5": {
+          "p": 12.57,
+          "r": 4.77,
+          "f1": 2.24,
+          "acc_1": 0.0253
+        },
+        "mT5_MAS": {
+          "p": 27.08,
+          "r": 18.76,
+          "f1": 11.92,
+          "acc_1": 0.0754
+        }
+      },
+      "emoevent_en": {
+        "mT5": {
+          "p": 15.77,
+          "r": 14.3,
+          "f1": 2.71,
+          "acc_1": 0.1043
+        },
+        "mT5_MAS": {
+          "p": 41.19,
+          "r": 31.92,
+          "f1": 29.06,
+          "acc_1": 0.1776
+        }
+      }
+    },
+    "note": "reproduces Table 5 (GoEmotions exactly) but the per-benchmark fine-tune leaks the gold label into each training input (training loss 0.0 from the first logged steps); the env scores zero-shot instead, see config.yaml"
+  },
+  "env": {
+    "original": [
+      {
+        "job": "ddb-masive-m5-zeroshot (fb0d3656-a43d-42a1-ab5b-8eb69c163158)",
+        "commit": "3278943251fc94e371585bee362874ba220533e0",
+        "seed": 42,
+        "gpus": "0,1,2,3",
+        "wall_seconds": 18255,
+        "stage_seconds": {},
+        "primary": {
+          "zero_shot_macro_f1": 0.181,
+          "masive_acc_1": 0.1641
+        },
+        "metrics": {
+          "zero_shot": {
+            "emoevent_en": {
+              "macro_f1": 0.2641,
+              "macro_precision": 0.2835,
+              "macro_recall": 0.3286,
+              "accuracy": 0.4298,
+              "n": 2799
+            },
+            "goemo": {
+              "macro_f1": 0.2225,
+              "macro_precision": 0.215,
+              "macro_recall": 0.3756,
+              "accuracy": 0.2673,
+              "n": 4968
+            },
+            "goemo_full": {
+              "macro_f1": 0.0564,
+              "macro_precision": 0.0504,
+              "macro_recall": 0.1565,
+              "accuracy": 0.0536,
+              "n": 4590
+            }
+          },
+          "masive_test": {
+            "acc_1": 0.1641,
+            "acc_3": 0.2459,
+            "acc_5": 0.2896,
+            "n": 9654
+          }
+        },
+        "note": "MASIVE en/train.csv; bf16"
+      }
+    ],
+    "sub10": [
+      {
+        "job": "ddb-masive-m5-zeroshot (fb0d3656-a43d-42a1-ab5b-8eb69c163158)",
+        "commit": "3278943251fc94e371585bee362874ba220533e0",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 3577,
+        "stage_seconds": {},
+        "primary": {
+          "zero_shot_macro_f1": 0.1271,
+          "masive_acc_1": 0.118
+        },
+        "metrics": {
+          "zero_shot": {
+            "emoevent_en": {
+              "macro_f1": 0.2245,
+              "macro_precision": 0.3217,
+              "macro_recall": 0.2872,
+              "accuracy": 0.2933,
+              "n": 2799
+            },
+            "goemo": {
+              "macro_f1": 0.1188,
+              "macro_precision": 0.2049,
+              "macro_recall": 0.2538,
+              "accuracy": 0.1095,
+              "n": 4968
+            },
+            "goemo_full": {
+              "macro_f1": 0.0379,
+              "macro_precision": 0.0515,
+              "macro_recall": 0.1246,
+              "accuracy": 0.0438,
+              "n": 4590
+            }
+          },
+          "masive_test": {
+            "acc_1": 0.118,
+            "acc_3": 0.1911,
+            "acc_5": 0.2332,
+            "n": 9654
+          }
+        },
+        "note": "10% of MASIVE en/train.csv; bf16"
+      }
+    ],
+    "baseline": [
+      {
+        "job": "ddb-masive-m5-zeroshot (fb0d3656-a43d-42a1-ab5b-8eb69c163158)",
+        "commit": "3278943251fc94e371585bee362874ba220533e0",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 2388,
+        "stage_seconds": {},
+        "primary": {
+          "zero_shot_macro_f1": 0.1326,
+          "masive_acc_1": 0.0434
+        },
+        "metrics": {
+          "zero_shot": {
+            "emoevent_en": {
+              "macro_f1": 0.2101,
+              "macro_precision": 0.3106,
+              "macro_recall": 0.2192,
+              "accuracy": 0.3305,
+              "n": 2799
+            },
+            "goemo": {
+              "macro_f1": 0.1407,
+              "macro_precision": 0.2158,
+              "macro_recall": 0.1913,
+              "accuracy": 0.2373,
+              "n": 4968
+            },
+            "goemo_full": {
+              "macro_f1": 0.0469,
+              "macro_precision": 0.0745,
+              "macro_recall": 0.1033,
+              "accuracy": 0.1333,
+              "n": 4590
+            }
+          },
+          "masive_test": {
+            "acc_1": 0.0434,
+            "acc_3": 0.0513,
+            "acc_5": 0.0564,
+            "n": 9654
+          }
+        },
+        "note": "run.sh none: mT5-large without fine-tuning"
+      }
+    ]
+  }
+}

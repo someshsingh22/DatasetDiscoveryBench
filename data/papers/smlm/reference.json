@@ -1,0 +1,282 @@
+{
+  "paper": {
+    "source": "Dutta et al., ACL 2022 (2022.acl-long.536). Each score: mean over 5 runs (random splits) of the run's mean test F1 over its last 5 of 30 epochs. smlm = sMLM-LF (Longformer-base + selective MLM on Winning Arguments), base = Base-LF (no pre-training; the env baseline).",
+    "cmv_aci_80_f1": {
+      "smlm": 0.59,
+      "base": 0.56,
+      "source": "Table 1, micro-F1 over claims and premises"
+    },
+    "drinv_aci_80_f1": {
+      "smlm": 0.454,
+      "base": 0.449,
+      "source": "authors' logs (code/logs/out_5cons_runs_ckpt_4_drInventor, out_5cons_runs_base_lf_drInventor), seqeval micro-F1; Table 2 gives only per-class F1 (sMLM BC/OC/Data 0.48/0.42/0.48, base 0.50/0.43/0.44)",
+      "smlm_runs": [
+        0.4517,
+        0.4401,
+        0.4499,
+        0.4686,
+        0.4587
+      ],
+      "base_runs": [
+        0.4398,
+        0.4397,
+        0.4176,
+        0.4821,
+        0.4653
+      ],
+      "talin_dev_sql_smlm": 0.465
+    },
+    "rtp_80_f1": {
+      "smlm": 0.67,
+      "base": 0.62,
+      "source": "Table 3, prompt, weighted F1 (80-20 split)"
+    },
+    "rtp_50_f1": {
+      "smlm": 0.69,
+      "base": 0.62,
+      "source": "Table 3, prompt, weighted F1 (50-50 split)"
+    }
+  },
+  "env": {
+    "original": [
+      {
+        "job": "ddb-smlm-m1 (a299c78a-6d71-4aad-9ba2-9aedcac11550)",
+        "commit": "ebe1b24b1e11a42bef9d3d3655c91970bfb54c9b",
+        "seed": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "gpus": "0,1,2,3,4,5,6,7",
+        "wall_seconds": 46168,
+        "stage_seconds": {
+          "pretrain": 13174
+        },
+        "primary": {
+          "drinv_aci_80_f1": 0.4784,
+          "cmv_aci_80_f1": 0.5459,
+          "rtp_80_f1": 0.6922,
+          "rtp_50_f1": 0.6665
+        },
+        "metrics": {
+          "drinv_aci_80": {
+            "f1": 0.4784,
+            "runs": [
+              0.4672,
+              0.4976,
+              0.4785,
+              0.4558,
+              0.4927
+            ]
+          },
+          "cmv_aci_80": {
+            "f1": 0.5459,
+            "runs": [
+              0.5045,
+              0.5459,
+              0.5626,
+              0.5341,
+              0.5824
+            ]
+          },
+          "rtp_80": {
+            "f1": 0.6922,
+            "runs": [
+              0.7156,
+              0.7601,
+              0.7276,
+              0.628,
+              0.6295
+            ]
+          },
+          "rtp_50": {
+            "f1": 0.6665,
+            "runs": [
+              0.6459,
+              0.6643,
+              0.6573,
+              0.6805,
+              0.6847
+            ]
+          }
+        },
+        "note": "RUNS=5 as in the paper; pre-training on GPUs 0-2 while the baseline used 3-7"
+      }
+    ],
+    "sub10": [
+      {
+        "job": "ddb-smlm-m2-sub10 (ddef6960-b45a-4956-ba43-8f16b097bc9e)",
+        "commit": "ebe1b24b1e11a42bef9d3d3655c91970bfb54c9b",
+        "seed": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "gpus": "0,1,2,3,4,5,6,7",
+        "wall_seconds": 24584,
+        "stage_seconds": {
+          "pretrain": 1618
+        },
+        "primary": {
+          "drinv_aci_80_f1": 0.4785,
+          "cmv_aci_80_f1": 0.5405,
+          "rtp_80_f1": 0.5998,
+          "rtp_50_f1": 0.6043
+        },
+        "metrics": {
+          "drinv_aci_80": {
+            "f1": 0.4785,
+            "runs": [
+              0.4578,
+              0.5005,
+              0.4793,
+              0.4649,
+              0.49
+            ]
+          },
+          "cmv_aci_80": {
+            "f1": 0.5405,
+            "runs": [
+              0.5141,
+              0.4941,
+              0.5773,
+              0.5453,
+              0.5719
+            ]
+          },
+          "rtp_80": {
+            "f1": 0.5998,
+            "runs": [
+              0.6552,
+              0.7301,
+              0.6245,
+              0.5057,
+              0.4836
+            ]
+          },
+          "rtp_50": {
+            "f1": 0.6043,
+            "runs": [
+              0.6985,
+              0.5774,
+              0.5761,
+              0.5089,
+              0.6608
+            ]
+          }
+        },
+        "note": "10% of the original's conversations (random_state=0); RUNS=5"
+      }
+    ],
+    "baseline": [
+      {
+        "job": "ddb-smlm-m1 (a299c78a-6d71-4aad-9ba2-9aedcac11550)",
+        "commit": "ebe1b24b1e11a42bef9d3d3655c91970bfb54c9b",
+        "seed": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "gpus": "3,4,5,6,7",
+        "wall_seconds": 50361,
+        "stage_seconds": {},
+        "primary": {
+          "drinv_aci_80_f1": 0.4693,
+          "cmv_aci_80_f1": 0.5458,
+          "rtp_80_f1": 0.6571,
+          "rtp_50_f1": 0.6339
+        },
+        "metrics": {
+          "drinv_aci_80": {
+            "f1": 0.4693,
+            "runs": [
+              0.4719,
+              0.4685,
+              0.4695,
+              0.4449,
+              0.4915
+            ]
+          },
+          "cmv_aci_80": {
+            "f1": 0.5458,
+            "runs": [
+              0.5103,
+              0.5148,
+              0.6006,
+              0.5662,
+              0.537
+            ]
+          },
+          "rtp_80": {
+            "f1": 0.6571,
+            "runs": [
+              0.6966,
+              0.6893,
+              0.7266,
+              0.6355,
+              0.5374
+            ]
+          },
+          "rtp_50": {
+            "f1": 0.6339,
+            "runs": [
+              0.6787,
+              0.6476,
+              0.7162,
+              0.5606,
+              0.5663
+            ]
+          }
+        },
+        "note": "run.sh none (Base-LF); RUNS=5; shared GPUs 3-7 with the original's fine-tuning, so slower than dedicated"
+      },
+      {
+        "job": "ddb-smlm-m3-fast (fe1fd784-8d41-4912-bb9d-fdd209cb3b53)",
+        "commit": "3c3de1627f5e109c59c3ca11980575e7c62283b8",
+        "seed": 0,
+        "gpus": "3",
+        "wall_seconds": 20014,
+        "stage_seconds": {},
+        "primary": {
+          "drinv_aci_80_f1": 0.4589,
+          "cmv_aci_80_f1": 0.5329,
+          "rtp_80_f1": 0.7105,
+          "rtp_50_f1": 0.7256
+        },
+        "metrics": {
+          "drinv_aci_80": {
+            "f1": 0.4589,
+            "runs": [
+              0.4589
+            ]
+          },
+          "cmv_aci_80": {
+            "f1": 0.5329,
+            "runs": [
+              0.5329
+            ]
+          },
+          "rtp_80": {
+            "f1": 0.7105,
+            "runs": [
+              0.7105
+            ]
+          },
+          "rtp_50": {
+            "f1": 0.7256,
+            "runs": [
+              0.7256
+            ]
+          }
+        },
+        "note": "RUNS=1 on one dedicated GPU with the relation-types padding trim (3c3de16): rtp_80 101 min (3.4 min/epoch vs 7.5-8.2 untrimmed), rtp_50 78 min (2.6 vs 5.7); scores within the m1 baseline's run spread. bf16 (5c1cc99) was dropped: Longformer's tril has no bf16 CUDA kernel on torch 1.12"
+      }
+    ]
+  }
+}
