@@ -34,7 +34,8 @@ Layout (as in [PaperBench](https://github.com/openai/frontier-evals/tree/main/pr
 data/papers/<id>/
   config.yaml          id, title, paper, code (URL + pinned commit), original-dataset download
   task.md              agent-facing: research question, rubric, submission format (+ example)
-  run.sh               validate -> train on submission (skipped for `none`) -> downstream training, if any -> eval
+  run.sh               validate -> train on submission (skipped for `none`) -> downstream training, if any -> eval;
+                       default = the paper's full pass(es); optional `[--epochs K | --steps N]` fixes the budget
   validate.py          format asserts + n-gram contamination check against every external test set
   src/<repo>/          the authors' files that training and evaluation need, from the pinned commit (§2.2)
   train.py, eval.py    thin wrappers: read the submission / write scores.json, call the authors' functions in src/
@@ -124,7 +125,7 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   | job | GPUs 0-3 | GPUs 4-7 |
   |---|---|---|
   | M1 | unittests (fail fast, all 8 GPUs), then env on the original dataset | env baseline (`none`) |
-  | M2 | env on a 10% sample of the original (`random_state=0`) | authors' unmodified code, only after a §2.2(c) fix |
+  | M2 | env on a 10% sample of the original (`random_state=0`; a cheap logged run for an initial idea, not acceptance) | authors' unmodified code, only after a §2.2(c) fix |
 
   Relaunch freed machines with whatever is still missing. If a precision/stability question is open, split a node
   between the variants instead.
@@ -183,17 +184,16 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
 - Authors' code often pads every batch to the model maximum (sMLM RTP: 4096 tokens); dropping the all-padding tail is
   exact when padding is masked and halved its runtime. Check a precision change in a short run first: Longformer on
   torch 1.12 has no bf16 `tril` kernel. Two runs sharing a GPU each run at roughly half speed.
-- Evaluate the untuned model and the authors' public checkpoints first (minutes on one GPU, alongside the unittests):
-  deterministic scores that match the paper validate the evaluation before hours of training.
 - With old transformers pins, a tokenizer config that sets `add_prefix_space` rebuilds the fast tokenizer from the slow
   one, which needs `sentencepiece` and `protobuf`; pin them at the authors' versions too.
-- When a seed spread is needed, the 10% env and seed-1 runs fit side by side (4+4 GPUs) and finish long before a
-  full-data seed: jic's 10% spread was <= .004 against an original-baseline gap of .02-.09, so the seed-1 original was
-  stopped (~42 of ~105 GPU-h saved for a 7B QLoRA on 398k dialogues).
+- Speed over replication: one run per configuration (original, baseline, 10%); add seeds or side checks only to explain
+  a failed reproduction or a suspected bug, and record other ideas as PR notes. Extra seeds and curation ablations
+  were ~60% of shp's 99 GPU-h and changed no acceptance result.
 - lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
   `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).
-- Score the authors' released checkpoint with the env's eval before training anything: it separates eval bugs from
-  training bugs for ~10 GPU-minutes (shp: SteamSHP-L matched its card per domain within 1 point). Missing
+- Score the untuned model and the authors' released checkpoints with the env's eval before training anything (minutes
+  on one GPU, beside the unittests): it separates eval bugs from training bugs (shp: SteamSHP-L matched its card per
+  domain within 1 point; jic: MistraMystic within .006 per trait). Missing
   hyperparameters often sit in the checkpoint's `training_args.bin`; read it with `pickletools.dis`, never unpickle.
 - Cards' "unweighted" averages may be pooled; recompute both from the per-domain table before comparing.
 - V-information needs a trained null model or the exact label entropy for H_V(Y). A zero-shot model on an empty input
@@ -215,7 +215,13 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   training-side gaps. Concurrent `accelerate launch` runs need their own `--main_process_port` (default 29500).
 - Overlap metrics (ROUGE F1) reward length: a 10% run that never learns to stop fills the generation cap and can
   outscore the full-data run (tldr: 98% of 10% summaries at the 53-token cap vs 14%). Record mean output length and the
-  share at the cap next to the metric, and check whether the paper's code stops earlier (e.g. at a newline).
+  share at the cap next to the metric, and check whether the paper's code stops earlier (tldr now keeps the first
+  line, as OpenAI's zero-shot tasks do: full .2124 > 10% .2084 > base .1649).
+- A one-pass recipe ties the step count to the submission's size, so a smaller set can win by overfitting less (shp:
+  HH-RLHF accuracy 0.592 at 10% vs 0.579 full, ~18k steps). Keep the paper's pass as default and let
+  `--epochs K | --steps N` compare datasets at a fixed budget.
+- Validate a no-logic refactor (e.g. moving into `src/`) without retraining: unittests, the eval-only `run.sh none`
+  baseline reproducing its recorded score exactly, and `--steps 2-4` smokes; all envs fit one node in ~30 min.
 - Micro-batch 1 with gradient accumulation keeps the paper's batch but leaves a ~1B model at ~8% HFU; pack more lanes
   per node rather than raising the micro-batch, which changes per-micro-batch loss averaging.
 - Once jobs have recorded a commit, merge `main` into the env branch instead of rebasing, so those commits stay reachable.
