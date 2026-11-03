@@ -1,0 +1,9 @@
+id: shp
+title: "Understanding Dataset Difficulty with V-Usable Information"
+paper: https://proceedings.mlr.press/v162/ethayarajh22a.html  # SHP: arXiv 2110.08420v3 App. I and the dataset card
+code: https://github.com/kawine/dataset_difficulty/tree/5852e8134db746b760ebc0fda401efc1374a74d8  # src/dataset_difficulty
+reward_model: https://huggingface.co/stanfordnlp/SteamSHP-flan-t5-large  # training_args.bin: the fine-tuning recipe
+# SHP train split, all columns (revision e94b5f32602712d78ed494fe79105b1959396686)
+dataset: https://huggingface.co/datasets/stanfordnlp/SHP
+# helpful-base/test.jsonl.gz of Anthropic/hh-rlhf (revision 09be8c5bbc57cb3887f3a9732ad6aa7ec602a1fa)
+benchmark: https://huggingface.co/datasets/Anthropic/hh-rlhf

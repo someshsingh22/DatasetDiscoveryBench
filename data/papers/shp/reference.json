@@ -1,0 +1,1281 @@
+{
+  "paper": {
+    "v_usable_information_bits": {
+      "source": "arXiv 2110.08420v3, App. I (V = GPT-3)",
+      "shp": 0.5,
+      "hh_rlhf": 0.5,
+      "raw_reddit_pairs": 0.0,
+      "note": "approximate ('~0.50 bits' for both); the SHP card's planned FLAN-T5 table (SHP > HH-RLHF) was never filled in"
+    },
+    "steamshp_cards": {
+      "large": {
+        "all": 0.7203,
+        "anthropic": 0.731
+      },
+      "xl": {
+        "all": 0.7278,
+        "anthropic": 0.731
+      },
+      "note": "'ALL (unweighted)' matches the pooled accuracy over SHP test + HH-RLHF helpful-base test pairs that fit 500 tokens (18,621 of 20,753), not the mean of the per-domain table"
+    },
+    "shp_card": {
+      "flan_t5_xl_all_shp_train_test_acc": "0.72-0.73"
+    }
+  },
+  "env": {
+    "baseline": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 143,
+        "stage_seconds": {
+          "eval": 141
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5593,
+          "hh_rlhf_v_info": 0.6363
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5593,
+            "v_info": 0.6363,
+            "n": 4670,
+            "skipped": 16
+          }
+        },
+        "note": "superseded: the zero-shot model on ' ' served as null model, an artifact (0.64 bits); m2 uses H_V(Y) = 1 bit (commit 5588e05)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "7",
+        "wall_seconds": 154,
+        "stage_seconds": {
+          "eval": 151
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5593,
+          "hh_rlhf_v_info": -0.2645
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5593,
+            "v_info": -0.2645,
+            "n": 4670,
+            "skipped": 16
+          }
+        }
+      }
+    ],
+    "hh_rlhf_train": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 1846,
+        "stage_seconds": {
+          "model": 848,
+          "null": 795,
+          "eval": 201
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.7141,
+          "hh_rlhf_v_info": 0.2119
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.7141,
+            "v_info": 0.2119,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7083,
+            "v_info": 0.1967,
+            "n": 2177,
+            "skipped": 5
+          }
+        },
+        "train_pairs": 41320,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "6",
+        "wall_seconds": 2397,
+        "stage_seconds": {
+          "model": 1448,
+          "null": 754,
+          "eval": 194
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.7135,
+          "hh_rlhf_v_info": 0.2113
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.7135,
+            "v_info": 0.2113,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7184,
+            "v_info": 0.1976,
+            "n": 2177,
+            "skipped": 5
+          }
+        },
+        "train_pairs": 41320
+      }
+    ],
+    "original": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "0,1,2,3",
+        "wall_seconds": 12355,
+        "stage_seconds": {
+          "model": 6151,
+          "null": 5619,
+          "eval": 584
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5809,
+          "hh_rlhf_v_info": -0.3839
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5809,
+            "v_info": -0.3839,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7078,
+            "v_info": 0.1015,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 1,
+        "gpus": "4,5,6,7",
+        "wall_seconds": 12303,
+        "stage_seconds": {
+          "model": 6209,
+          "null": 5491,
+          "eval": 602
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5799,
+          "hh_rlhf_v_info": -0.3663
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5799,
+            "v_info": -0.3663,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7102,
+            "v_info": 0.1047,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "0",
+        "wall_seconds": 15564,
+        "stage_seconds": {
+          "model": 9922,
+          "null": 5064,
+          "eval": 577
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5773,
+          "hh_rlhf_v_info": -0.3446
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5773,
+            "v_info": -0.3446,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7099,
+            "v_info": 0.0981,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 1,
+        "gpus": "1",
+        "wall_seconds": 15744,
+        "stage_seconds": {
+          "model": 9989,
+          "null": 5178,
+          "eval": 575
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5767,
+          "hh_rlhf_v_info": -0.4001
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5767,
+            "v_info": -0.4001,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7084,
+            "v_info": 0.0917,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 2,
+        "gpus": "2",
+        "wall_seconds": 15805,
+        "stage_seconds": {
+          "model": 9907,
+          "null": 5320,
+          "eval": 577
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5739,
+          "hh_rlhf_v_info": -0.3599
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5739,
+            "v_info": -0.3599,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.714,
+            "v_info": 0.1159,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 3,
+        "gpus": "3",
+        "wall_seconds": 15923,
+        "stage_seconds": {
+          "model": 9925,
+          "null": 5423,
+          "eval": 574
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5872,
+          "hh_rlhf_v_info": -0.2987
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5872,
+            "v_info": -0.2987,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7096,
+            "v_info": 0.1068,
+            "n": 15985,
+            "skipped": 2107
+          }
+        },
+        "train_pairs": 293688
+      }
+    ],
+    "sub10": [
+      {
+        "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+        "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+        "seed": 42,
+        "gpus": "0,1,2,3",
+        "wall_seconds": 1391,
+        "stage_seconds": {
+          "model": 632,
+          "null": 577,
+          "eval": 180
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5979,
+          "hh_rlhf_v_info": -0.1714
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5979,
+            "v_info": -0.1714,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7192,
+            "v_info": 0.1402,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799,
+        "note": "4-GPU DDP; HH-RLHF V-info with the trained null's H_V(Y) (>= 1 bit, < 0.002 above the later formula)"
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 42,
+        "gpus": "4",
+        "wall_seconds": 1903,
+        "stage_seconds": {
+          "model": 1164,
+          "null": 565,
+          "eval": 173
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5897,
+          "hh_rlhf_v_info": -0.2509
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5897,
+            "v_info": -0.2509,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7184,
+            "v_info": 0.1169,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 1,
+        "gpus": "4",
+        "wall_seconds": 1784,
+        "stage_seconds": {
+          "model": 1061,
+          "null": 549,
+          "eval": 173
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5882,
+          "hh_rlhf_v_info": -0.2359
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5882,
+            "v_info": -0.2359,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7169,
+            "v_info": 0.1198,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 2,
+        "gpus": "5",
+        "wall_seconds": 1904,
+        "stage_seconds": {
+          "model": 1140,
+          "null": 589,
+          "eval": 174
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5895,
+          "hh_rlhf_v_info": -0.1858
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5895,
+            "v_info": -0.1858,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7095,
+            "v_info": 0.1378,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      },
+      {
+        "job": "ddb-shp-m2 (1ed60e7a-9e33-4d7a-b697-46ced65a7682)",
+        "commit": "80101384b8ce7b3dbab69b005f9d145088330804",
+        "seed": 3,
+        "gpus": "5",
+        "wall_seconds": 1788,
+        "stage_seconds": {
+          "model": 1057,
+          "null": 556,
+          "eval": 174
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5942,
+          "hh_rlhf_v_info": -0.1802
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5942,
+            "v_info": -0.1802,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7325,
+            "v_info": 0.1401,
+            "n": 1346,
+            "skipped": 158
+          }
+        },
+        "train_pairs": 30799
+      }
+    ],
+    "cap5": [
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 42,
+        "gpus": "2",
+        "wall_seconds": 5978,
+        "stage_seconds": {
+          "model": 3631,
+          "null": 2042,
+          "eval": 304
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5946,
+          "hh_rlhf_v_info": -0.186
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5946,
+            "v_info": -0.186,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7421,
+            "v_info": 0.246,
+            "n": 5556,
+            "skipped": 971
+          }
+        },
+        "train_pairs": 104499
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 1,
+        "gpus": "3",
+        "wall_seconds": 5897,
+        "stage_seconds": {
+          "model": 3664,
+          "null": 1934,
+          "eval": 297
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5983,
+          "hh_rlhf_v_info": -0.2025
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5983,
+            "v_info": -0.2025,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7403,
+            "v_info": 0.2439,
+            "n": 5556,
+            "skipped": 971
+          }
+        },
+        "train_pairs": 104499
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 2,
+        "gpus": "4",
+        "wall_seconds": 5866,
+        "stage_seconds": {
+          "model": 3665,
+          "null": 1898,
+          "eval": 302
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5938,
+          "hh_rlhf_v_info": -0.2137
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5938,
+            "v_info": -0.2137,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7405,
+            "v_info": 0.2418,
+            "n": 5556,
+            "skipped": 971
+          }
+        },
+        "train_pairs": 104499
+      }
+    ],
+    "curated": [
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 42,
+        "gpus": "7",
+        "wall_seconds": 4592,
+        "stage_seconds": {
+          "model": 2818,
+          "null": 1522,
+          "eval": 251
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.6024,
+          "hh_rlhf_v_info": -0.2661
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.6024,
+            "v_info": -0.2661,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.781,
+            "v_info": 0.297,
+            "n": 4164,
+            "skipped": 737
+          }
+        },
+        "train_pairs": 80471
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 1,
+        "gpus": "5",
+        "wall_seconds": 4624,
+        "stage_seconds": {
+          "model": 2832,
+          "null": 1540,
+          "eval": 251
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5985,
+          "hh_rlhf_v_info": -0.27
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5985,
+            "v_info": -0.27,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7803,
+            "v_info": 0.3079,
+            "n": 4164,
+            "skipped": 737
+          }
+        },
+        "train_pairs": 80471
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 2,
+        "gpus": "6",
+        "wall_seconds": 4530,
+        "stage_seconds": {
+          "model": 2774,
+          "null": 1502,
+          "eval": 253
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5906,
+          "hh_rlhf_v_info": -0.2681
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5906,
+            "v_info": -0.2681,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7846,
+            "v_info": 0.3133,
+            "n": 4164,
+            "skipped": 737
+          }
+        },
+        "train_pairs": 80471
+      }
+    ],
+    "ratio2": [
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 42,
+        "gpus": "0",
+        "wall_seconds": 9188,
+        "stage_seconds": {
+          "model": 5695,
+          "null": 3114,
+          "eval": 378
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5831,
+          "hh_rlhf_v_info": -0.3726
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5831,
+            "v_info": -0.3726,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7616,
+            "v_info": 0.2469,
+            "n": 8777,
+            "skipped": 1305
+          }
+        },
+        "train_pairs": 165189
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 1,
+        "gpus": "1",
+        "wall_seconds": 9053,
+        "stage_seconds": {
+          "model": 5645,
+          "null": 3030,
+          "eval": 377
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5936,
+          "hh_rlhf_v_info": -0.3439
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5936,
+            "v_info": -0.3439,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7636,
+            "v_info": 0.2599,
+            "n": 8777,
+            "skipped": 1305
+          }
+        },
+        "train_pairs": 165189
+      }
+    ],
+    "sub20": [
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 42,
+        "gpus": "4",
+        "wall_seconds": 3395,
+        "stage_seconds": {
+          "model": 2078,
+          "null": 1093,
+          "eval": 222
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5946,
+          "hh_rlhf_v_info": -0.2042
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5946,
+            "v_info": -0.2042,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.6744,
+            "v_info": 0.0665,
+            "n": 3108,
+            "skipped": 547
+          }
+        },
+        "train_pairs": 60303
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 1,
+        "gpus": "3",
+        "wall_seconds": 3363,
+        "stage_seconds": {
+          "model": 2033,
+          "null": 1107,
+          "eval": 222
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5904,
+          "hh_rlhf_v_info": -0.2454
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5904,
+            "v_info": -0.2454,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.6818,
+            "v_info": 0.0762,
+            "n": 3108,
+            "skipped": 547
+          }
+        },
+        "train_pairs": 60303
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 2,
+        "gpus": "2",
+        "wall_seconds": 3392,
+        "stage_seconds": {
+          "model": 2054,
+          "null": 1116,
+          "eval": 221
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5859,
+          "hh_rlhf_v_info": -0.2076
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5859,
+            "v_info": -0.2076,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.6811,
+            "v_info": 0.0795,
+            "n": 3108,
+            "skipped": 547
+          }
+        },
+        "train_pairs": 60303
+      }
+    ],
+    "sub30": [
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 42,
+        "gpus": "5",
+        "wall_seconds": 5060,
+        "stage_seconds": {
+          "model": 3124,
+          "null": 1688,
+          "eval": 247
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5844,
+          "hh_rlhf_v_info": -0.2384
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5844,
+            "v_info": -0.2384,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7101,
+            "v_info": 0.1029,
+            "n": 3988,
+            "skipped": 692
+          }
+        },
+        "train_pairs": 90648
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 1,
+        "gpus": "6",
+        "wall_seconds": 5089,
+        "stage_seconds": {
+          "model": 3150,
+          "null": 1690,
+          "eval": 248
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5852,
+          "hh_rlhf_v_info": -0.2596
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5852,
+            "v_info": -0.2596,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7094,
+            "v_info": 0.0971,
+            "n": 3988,
+            "skipped": 692
+          }
+        },
+        "train_pairs": 90648
+      },
+      {
+        "job": "ddb-shp-m3 (d695fcb0-af88-4182-9bd2-ccca9f253298)",
+        "commit": "41b350699deec7c62dd5697c07ba4a9a2bd22fcf",
+        "seed": 2,
+        "gpus": "7",
+        "wall_seconds": 5040,
+        "stage_seconds": {
+          "model": 3141,
+          "null": 1652,
+          "eval": 246
+        },
+        "primary": {
+          "hh_rlhf_acc": 0.5874,
+          "hh_rlhf_v_info": -0.2818
+        },
+        "metrics": {
+          "hh_rlhf": {
+            "acc": 0.5874,
+            "v_info": -0.2818,
+            "n": 4670,
+            "skipped": 16
+          },
+          "heldout": {
+            "acc": 0.7109,
+            "v_info": 0.0939,
+            "n": 3988,
+            "skipped": 692
+          }
+        },
+        "train_pairs": 90648
+      }
+    ]
+  },
+  "seed_spread": {
+    "hh_rlhf_train": {
+      "n_runs": 2,
+      "hh_rlhf_acc": {
+        "mean": 0.7138,
+        "sd": 0.0004,
+        "min": 0.7135,
+        "max": 0.7141
+      },
+      "hh_rlhf_v_info": {
+        "mean": 0.2116,
+        "sd": 0.0004,
+        "min": 0.2113,
+        "max": 0.2119
+      },
+      "heldout_v_info": {
+        "mean": 0.1971,
+        "sd": 0.0006,
+        "min": 0.1967,
+        "max": 0.1976
+      }
+    },
+    "original": {
+      "n_runs": 6,
+      "hh_rlhf_acc": {
+        "mean": 0.5793,
+        "sd": 0.0046,
+        "min": 0.5739,
+        "max": 0.5872
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.3589,
+        "sd": 0.0352,
+        "min": -0.4001,
+        "max": -0.2987
+      },
+      "heldout_v_info": {
+        "mean": 0.1031,
+        "sd": 0.0082,
+        "min": 0.0917,
+        "max": 0.1159
+      }
+    },
+    "sub10": {
+      "n_runs": 5,
+      "hh_rlhf_acc": {
+        "mean": 0.5919,
+        "sd": 0.004,
+        "min": 0.5882,
+        "max": 0.5979
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.2048,
+        "sd": 0.036,
+        "min": -0.2509,
+        "max": -0.1714
+      },
+      "heldout_v_info": {
+        "mean": 0.131,
+        "sd": 0.0116,
+        "min": 0.1169,
+        "max": 0.1402
+      }
+    },
+    "cap5": {
+      "n_runs": 3,
+      "hh_rlhf_acc": {
+        "mean": 0.5956,
+        "sd": 0.0024,
+        "min": 0.5938,
+        "max": 0.5983
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.2007,
+        "sd": 0.0139,
+        "min": -0.2137,
+        "max": -0.186
+      },
+      "heldout_v_info": {
+        "mean": 0.2439,
+        "sd": 0.0021,
+        "min": 0.2418,
+        "max": 0.246
+      }
+    },
+    "curated": {
+      "n_runs": 3,
+      "hh_rlhf_acc": {
+        "mean": 0.5972,
+        "sd": 0.006,
+        "min": 0.5906,
+        "max": 0.6024
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.2681,
+        "sd": 0.002,
+        "min": -0.27,
+        "max": -0.2661
+      },
+      "heldout_v_info": {
+        "mean": 0.3061,
+        "sd": 0.0083,
+        "min": 0.297,
+        "max": 0.3133
+      }
+    },
+    "ratio2": {
+      "n_runs": 2,
+      "hh_rlhf_acc": {
+        "mean": 0.5883,
+        "sd": 0.0074,
+        "min": 0.5831,
+        "max": 0.5936
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.3582,
+        "sd": 0.0203,
+        "min": -0.3726,
+        "max": -0.3439
+      },
+      "heldout_v_info": {
+        "mean": 0.2534,
+        "sd": 0.0092,
+        "min": 0.2469,
+        "max": 0.2599
+      }
+    },
+    "sub20": {
+      "n_runs": 3,
+      "hh_rlhf_acc": {
+        "mean": 0.5903,
+        "sd": 0.0044,
+        "min": 0.5859,
+        "max": 0.5946
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.2191,
+        "sd": 0.0229,
+        "min": -0.2454,
+        "max": -0.2042
+      },
+      "heldout_v_info": {
+        "mean": 0.0741,
+        "sd": 0.0068,
+        "min": 0.0665,
+        "max": 0.0795
+      }
+    },
+    "sub30": {
+      "n_runs": 3,
+      "hh_rlhf_acc": {
+        "mean": 0.5857,
+        "sd": 0.0016,
+        "min": 0.5844,
+        "max": 0.5874
+      },
+      "hh_rlhf_v_info": {
+        "mean": -0.2599,
+        "sd": 0.0217,
+        "min": -0.2818,
+        "max": -0.2384
+      },
+      "heldout_v_info": {
+        "mean": 0.098,
+        "sd": 0.0046,
+        "min": 0.0939,
+        "max": 0.1029
+      }
+    },
+    "note": "over every run of the data (seeds 42/1/2/3; m1 ran 4-GPU DDP, m2/m3 1 GPU); sd = sample sd"
+  },
+  "author_recipe": {
+    "steamshp_large_released": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "stanfordnlp/SteamSHP-flan-t5-large, scored with the env's format and v_entropy",
+      "gpus": "1 of 4-7",
+      "wall_seconds": 589,
+      "pooled_acc": 0.7207,
+      "unweighted_acc": 0.7365,
+      "shp_test_acc": 0.7225,
+      "hh_rlhf_acc": 0.7084,
+      "by_set": {
+        "anthropic": 0.7084,
+        "askacademia": 0.7431,
+        "askanthropology": 0.7972,
+        "askbaking": 0.6662,
+        "askcarguys": 0.7297,
+        "askculinary": 0.7195,
+        "askdocs": 0.7031,
+        "askengineers": 0.7135,
+        "askhistorians": 0.7476,
+        "askhr": 0.7507,
+        "askphilosophy": 0.6854,
+        "askphysics": 0.7907,
+        "askscience": 0.6961,
+        "asksciencefiction": 0.7261,
+        "asksocialscience": 0.8231,
+        "askvet": 0.7696,
+        "changemyview": 0.6946,
+        "explainlikeimfive": 0.7312,
+        "legaladvice": 0.798
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    },
+    "steamshp_xl_released": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "stanfordnlp/SteamSHP-flan-t5-xl, scored with the env's format and v_entropy",
+      "gpus": "1 of 4-7",
+      "wall_seconds": 1861,
+      "pooled_acc": 0.7259,
+      "unweighted_acc": 0.7372,
+      "shp_test_acc": 0.7264,
+      "hh_rlhf_acc": 0.7225,
+      "by_set": {
+        "anthropic": 0.7225,
+        "askacademia": 0.7431,
+        "askanthropology": 0.7594,
+        "askbaking": 0.6754,
+        "askcarguys": 0.7568,
+        "askculinary": 0.7191,
+        "askdocs": 0.7188,
+        "askengineers": 0.7176,
+        "askhistorians": 0.7476,
+        "askhr": 0.769,
+        "askphilosophy": 0.6907,
+        "askphysics": 0.8,
+        "askscience": 0.7114,
+        "asksciencefiction": 0.7277,
+        "asksocialscience": 0.7308,
+        "askvet": 0.7742,
+        "changemyview": 0.6976,
+        "explainlikeimfive": 0.738,
+        "legaladvice": 0.8079
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    },
+    "steamshp_large_retrained": {
+      "job": "ddb-shp-m1 (f063040b-3417-42c3-ac37-3e219ef107d4)",
+      "commit": "0bc2439eba64f6c348bb64720bb2adddc09b16b4",
+      "what": "FLAN-T5-large on SHP train (score_ratio >= 2, <= 5 per post) + HH-RLHF helpful-base train (128,132 pairs fit), env train.py without the hold-out",
+      "gpus": "0-3",
+      "wall_seconds": 3280,
+      "pooled_acc": 0.7186,
+      "unweighted_acc": 0.7268,
+      "shp_test_acc": 0.7184,
+      "hh_rlhf_acc": 0.7201,
+      "by_set": {
+        "anthropic": 0.7201,
+        "askacademia": 0.7508,
+        "askanthropology": 0.7783,
+        "askbaking": 0.6747,
+        "askcarguys": 0.7297,
+        "askculinary": 0.7045,
+        "askdocs": 0.6808,
+        "askengineers": 0.704,
+        "askhistorians": 0.699,
+        "askhr": 0.7585,
+        "askphilosophy": 0.6766,
+        "askphysics": 0.7832,
+        "askscience": 0.6879,
+        "asksciencefiction": 0.7321,
+        "asksocialscience": 0.7462,
+        "askvet": 0.7558,
+        "changemyview": 0.6946,
+        "explainlikeimfive": 0.7301,
+        "legaladvice": 0.8013
+      },
+      "n": {
+        "anthropic": 4670,
+        "askacademia": 1549,
+        "askanthropology": 212,
+        "askbaking": 1528,
+        "askcarguys": 111,
+        "askculinary": 2467,
+        "askdocs": 448,
+        "askengineers": 2436,
+        "askhistorians": 103,
+        "askhr": 381,
+        "askphilosophy": 569,
+        "askphysics": 535,
+        "askscience": 849,
+        "asksciencefiction": 1818,
+        "asksocialscience": 130,
+        "askvet": 217,
+        "changemyview": 1336,
+        "explainlikeimfive": 878,
+        "legaladvice": 911
+      }
+    }
+  },
+  "compute": {
+    "m1": "1 node x 8 A100-80GB, 4.9 h from run start (39 GPU-h allocated); lanes of 4 GPUs; DDP T5-large runs at ~3.3 it/s for both the 512-token model and the 1-token null model (step time is not compute)",
+    "m2": "1 node x 8 A100-80GB, 4.6 h from run start (07:59-12:33Z, 37 GPU-h allocated); eight 1-GPU lanes; 1 GPU runs the model at 1.92 it/s and the null model at 3.5 it/s (~2x DDP's per-GPU throughput); fixed lanes left GPUs 4-7 idle ~3.4 h (~13 GPU-h)",
+    "m3": "1 node x 8 A100-80GB, 2.85 h from run start (12:37-15:28Z, 22.8 GPU-h allocated); longest-first queue of 14 1-GPU runs from 12:45Z, all ending 15:16-15:27Z; 20.9 GPU-h busy (91%)"
+  },
+  "curation": {
+    "question": "do the primaries reward SteamSHP's curation (score_ratio >= 2 and <= 5 pairs per post) beyond its smaller size?",
+    "data": {
+      "original": "SHP train, 348,718 pairs, 38,993 posts",
+      "ratio2": "score_ratio >= 2: 198,556 pairs, 32,560 posts",
+      "cap5": "<= 5 pairs per post: 129,177 pairs, 38,993 posts",
+      "curated": "both: 99,727 pairs, 32,560 posts",
+      "sub30": "30% of posts at random: 106,955 pairs (size-matched to curated)",
+      "sub20": "20% of posts: 71,860 pairs",
+      "sub10": "10% of posts: 36,561 pairs"
+    },
+    "answer": "partly: curated beats size-matched sub30 on HH accuracy (0.597 vs 0.586) but not on HH V-info (-0.268 vs -0.260). The per-post cap alone gives the best V-info (-0.201); the score_ratio filter alone leaves it at the original's (-0.358). Less SHP data scores higher on both primaries (sub10 > sub20 > sub30 > original)."
+  }
+}

@@ -192,3 +192,16 @@ Use the `aip` MCP tools; if they are not loaded in your session, spawn a coordin
   stopped (~42 of ~105 GPU-h saved for a 7B QLoRA on 398k dialogues).
 - lm-eval tasks backed by a dataset loading script (e.g. `persona_*`) fail non-interactively under datasets 2.x unless
   `datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True` (what `lm_eval --trust_remote_code` sets).
+- Score the authors' released checkpoint with the env's eval before training anything: it separates eval bugs from
+  training bugs for ~10 GPU-minutes (shp: SteamSHP-L matched its card per domain within 1 point). Missing
+  hyperparameters often sit in the checkpoint's `training_args.bin`; read it with `pickletools.dis`, never unpickle.
+- Cards' "unweighted" averages may be pooled; recompute both from the per-domain table before comparing.
+- V-information needs a trained null model or the exact label entropy for H_V(Y). A zero-shot model on an empty input
+  is no null, since nothing minimized its entropy: it gave the no-data baseline 0.64 bits of "usable information".
+- DDP of a ~1B model at a small per-device batch can be bound by step overhead, not compute: T5-large on 4 GPUs ran
+  ~3.3 it/s for 512-token and 1-token inputs alike, and 1.9 it/s on 1 GPU with the full batch, so 1-GPU runs did ~2x
+  the work per GPU. Compare 1 GPU with the full batch against 4 before packing a node.
+- Pack a node as a longest-first work queue (each run takes the next free GPU or GPU group), not fixed lanes, and pick
+  the runs so that all GPUs end within ~15 min of each other: fixed lanes left half of a node idle for 3 h; a queue of
+  14 one-GPU runs ended within 11 min, with GPUs busy 91 % of the allocated time.
+- Export each run to S3 when it ends, not at job end: if aip auth drops mid-job, the local AWS CLI still gets results.
